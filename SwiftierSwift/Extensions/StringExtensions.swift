@@ -45,6 +45,10 @@ extension String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
+    mutating public func trim() {
+        self = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+    }
+    
     /// Return first character in a string
     public var firstCharacter: String? {
         return Array(self.characters).map({String($0)}).first
@@ -69,6 +73,15 @@ extension String {
         return mostCommon
     }
     
+    /// Separtare new line delimated string into array of strings
+    public func lines() -> [String] {
+        var result:[String] = []
+        enumerateLines { (line, stop) -> () in
+            result.append(line)
+        }
+        return result
+    }
+    
     /// Return true is string is a valid email format
     var isEmail: Bool {
         // http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
@@ -80,6 +93,10 @@ extension String {
     /// Return reversed string
     var reversed: String {
         return String(characters.reversed())
+    }
+    
+    mutating func reverse() {
+        self = String(characters.reversed())
     }
     
     /// Return the first index of a substring in a string

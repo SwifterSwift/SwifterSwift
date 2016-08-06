@@ -114,42 +114,42 @@ extension Date {
         return self.day == Date().day && self.month == Date().month && self.year == Date().year
     }
     
-    
-    /// Add seconds to a Date
-    mutating func add(seconds: Int) {
-        self = calendar.date(byAdding: .second, value: seconds, to: self) ?? self
+    /// Add calendar components to date
+    mutating func add(component: Calendar.Component, value: Int) {
+        switch component {
+          
+        case .second:
+            self = calendar.date(byAdding: .second, value: value, to: self) ?? self
+            break
+            
+        case .minute:
+            self = calendar.date(byAdding: .minute, value: value, to: self) ?? self
+            break
+            
+        case .hour:
+            self = calendar.date(byAdding: .hour, value: value, to: self) ?? self
+            break
+            
+        case .day:
+            self = calendar.date(byAdding: .day, value: value, to: self) ?? self
+            break
+            
+        case .weekOfYear, .weekOfMonth:
+            self = calendar.date(byAdding: .day, value: value * 7, to: self) ?? self
+            break
+            
+        case .month:
+            self = calendar.date(byAdding: .month, value: value, to: self) ?? self
+            break
+            
+        case .year:
+            self = calendar.date(byAdding: .year, value: value, to: self) ?? self
+            break
+            
+        default:
+            break
+        }
     }
-    
-    /// Add minutes to a Date
-    mutating func add(minutes: Int) {
-        self =  calendar.date(byAdding: .minute, value: minutes, to: self) ?? self
-    }
-    
-    /// Add hours to a Date
-    mutating func add(hours: Int) {
-        self =  calendar.date(byAdding: .hour, value: hours, to: self) ?? self
-    }
-    
-    /// Add days to a Date
-    mutating func add(days: Int) {
-        self =  calendar.date(byAdding: .day, value: days, to: self) ?? self
-    }
-    
-    /// Add weeks to a Date
-    mutating func add(weeks: Int) {
-        self =  calendar.date(byAdding: .day, value: weeks * 7, to: self) ?? self
-    }
-    
-    /// Add months to a Date
-    mutating func add(months: Int) {
-        self =  calendar.date(byAdding: .month, value: months, to: self) ?? self
-    }
-    
-    /// Add years to a Date
-    mutating func add(years: Int) {
-        self =  calendar.date(byAdding: .year, value: years, to: self) ?? self
-    }
-
     
     /// Return beginning of given date component
     func beginning(of component: Calendar.Component) -> Date {
@@ -168,7 +168,7 @@ extension Date {
         case .day:
             return self.calendar.startOfDay(for: self)
             
-        case .weekOfYear:
+        case .weekOfYear, .weekOfMonth:
             return calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) ?? self
             
         case .month:

@@ -149,41 +149,61 @@ class SwiftierSwiftTests: XCTestCase {
         date1.day -= 1
         XCTAssert(date1.isInToday == false, "Could not get false for yesterday from isInToday")
         
-        // add(seconds: Int)
-        date1 = date
-        date1.add(seconds: -1)
-        XCTAssert(date.second - date1.second == 1, "Could not substract seconds")
         
-        date1.add(seconds: 1)
-        XCTAssert(date.second == date1.second, "Could not add seconds")
+        // add(component: Calendar.Component, value: Int)
+        date1.second = 10
+        date1.add(component: .second, value: -1)
+        XCTAssert(date1.second == 9, "Could not substract seconds")
         
-        // add(minutes: Int)
-        date1 = date
-        date1.add(minutes: -1)
-        XCTAssert(date.minute - date1.minute == 1, "Could not substract minutes")
+        date1.add(component: .second, value: 1)
+        XCTAssert(date1.second == 10, "Could not add seconds")
         
-        date1.add(minutes: 1)
-        XCTAssert(date.minute == date1.minute, "Could not add minutes")
         
-        // add(hours: Int)
-        date1 = date
-        date1.add(hours: -1)
-        XCTAssert(date.hour - date1.hour == 1, "Could not substract hours")
+        date1.minute = 10
+        date1.add(component: .minute, value: -1)
+        XCTAssert(date1.minute == 9, "Could not substract minutes")
         
-        date1.add(hours: 1)
-        XCTAssert(date.hour == date1.hour, "Could not add hours")
+        date1.add(component: .minute, value: 1)
+        XCTAssert(date1.minute == 10, "Could not add minutes")
         
-        // add(days: Int)
-        date1 = date
-        date1.add(days: -1)
-        XCTAssert(date.day - date1.day == 1, "Could not substract days")
         
-        date1.add(days: 1)
-        XCTAssert(date.day == date1.day, "Could not add days")
-
+        date1.hour = 10
+        date1.add(component: .hour, value: -1)
+        XCTAssert(date1.hour == 9, "Could not substract hours")
+        
+        date1.add(component: .hour, value: 1)
+        XCTAssert(date1.hour == 10, "Could not add hours")
+        
+        
+        date1.day = 10
+        date1.add(component: .day, value: -1)
+        XCTAssert(date1.day == 9, "Could not substract days")
+        
+        date1.add(component: .day, value: 1)
+        XCTAssert(date1.day == 10, "Could not add days")
+        
+        
+        date1.month = 10
+        date1.add(component: .month, value: -1)
+        XCTAssert(date1.month == 9, "Could not substract months")
+        
+        date1.add(component: .month, value: 1)
+        XCTAssert(date1.month == 10, "Could not add months")
+        
+        date1.year = 2016
+        date1.add(component: .year, value: -1)
+        XCTAssert(date1.year == 2015, "Could not substract years")
+        
+        date1.add(component: .year, value: 1)
+        XCTAssert(date1.year == 2016, "Could not add years")
+        
+        
+        // beginning(of component: Calendar.Component)
+        XCTAssert(Date().beginning(of: .second).nanosecond == 0, "Could not get correct beginning of seconds")
+        XCTAssert(Date().beginning(of: .minute).second == 0, "Could not get correct beginning of minutes")
+        XCTAssert(Date().beginning(of: .hour).minute == 0, "Could not get correct beginning of hours")
 
     }
-    
     
     override func tearDown() {
         super.tearDown()
