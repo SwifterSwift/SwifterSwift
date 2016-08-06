@@ -177,6 +177,7 @@
 				TargetAttributes = {
 					077B65D51D54EC2D005712A1 = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = C3VKVFB3SA;
 						ProvisioningStyle = Automatic;
 					};
 					077B65E91D54EC2E005712A1 = {
@@ -375,7 +376,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = C3VKVFB3SA;
 				INFOPLIST_FILE = SwiftierSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwiftierSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -387,7 +391,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = C3VKVFB3SA;
 				INFOPLIST_FILE = SwiftierSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwiftierSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -440,6 +447,7 @@
 				077B65F51D54EC2E005712A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		077B65F61D54EC2E005712A1 /* Build configuration list for PBXNativeTarget "SwiftierSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +456,7 @@
 				077B65F81D54EC2E005712A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
