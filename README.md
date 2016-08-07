@@ -1,4 +1,5 @@
 # Swifier Swift
+[![Platform](https://img.shields.io/badge/SWIFT-3-orange.svg)](https://swift.org)
 collection of priceless swift 3 extensions
 ![Alt text](https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png "Swiftier Swift")
 
