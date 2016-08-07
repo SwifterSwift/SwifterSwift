@@ -50,6 +50,23 @@ public extension Array where Element:Equatable {
         }
     }
     
+    /// Shuffle the array
+    mutating func shuffle() {
+        // https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
+        for _ in 0..<10 {
+            sort { (_,_) in arc4random() < arc4random() }
+        }
+    }
+    
+    /// Return a shuffled array
+    public var shuffled: [Element] {
+        var arr = self
+        for _ in 0..<10 {
+            arr.sort { (_,_) in arc4random() < arc4random() }
+        }
+        return arr
+    }
+    
     /// Return the unique values from an array
     public var uniqueValues: [Element] {
         var result = [Element]()
