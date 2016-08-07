@@ -13,6 +13,12 @@ A collection of priceless native swift 3 extensions to make working with your pr
 - [ ] [Array extensions](#array-extensions)
 - [ ] [Double extensions](#double-extensions)
 - [ ] [Int extensions](#int-extensions)
+- [ ] [UIColor extensions](#uicolor-extensions)
+- [ ] [UIImage extensions](#uiimage-extensions)
+- [ ] [UINavigationController extensions](#uinavigationcontroller-extensions)UIViewExtensions
+- [ ] [UIView extensions](#uiview-extensions)
+- [ ] [UITextField extensions](#uitextfield-extensions)
+
 
 
 ## String extensions
@@ -113,3 +119,37 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |**digits** | Variable | [Int] | Return an array of all digits in an Integer |
 |**digitsCount** | Variable | Int | Return digits count for an Integer |
 |**factorial** | Variable | Int? | Return factorial for an integer (if possible) |
+
+
+# UIColor extensions
+|Name | Type | Return Type | Description |
+|:--- | :--- | :--- | :--- |
+|**init(red, green, blue)** | Initializer | -- | Create new UIColor for RGB values |
+|**init(red, green, blue, transparency)** | Initializer | -- | Create new UIColor for RGB values with transparency |
+|**init(netHex)** | Initializer | -- | Create new UIColor for a hexadecimal |
+|**init(netHex, transparency)** | Initializer | -- | Create new UIColor for a hexadecimal value with transparency |
+|**hexString** | Variable | String | Return hexadecimal value string |
+
+# UIImage extensions
+|Name | Type | Return Type | Description |
+|:--- | :--- | :--- | :--- |
+|**init(color, size)** | Initializer | -- | Create new Image from color and size |
+
+# UINavigationController extensions
+|Name | Type | Return Type | Description |
+|:--- | :--- | :--- | :--- |
+|**popViewControllerWithHandler(completion)** | Functions | -- | popViewController with a completion handler |
+|**pushViewController(viewController, completion)** | Functions | -- | pushViewController with a completion handler |
+
+# UIView extensions
+|Name | Type | Return Type | Description |
+|:--- | :--- | :--- | :--- |
+|**shake()** | Function | -- | Shake view |
+|**cornerRadius** | Variable | CGFloat | get and set cornerRadius for a view from code or storyboard |
+|**borderWidth** | Variable | CGFloat | get and set borderWidth for a view from code or storyboard |
+|**borderColor** | Variable | UIColor | get and set borderColor for a view from code or storyboard |
+
+# UITextField extensions
+|Name | Type | Return Type | Description |
+|:--- | :--- | :--- | :--- |
+|**isEmpty** | Variable | Bool | Return true if text field is empty (read only) |
