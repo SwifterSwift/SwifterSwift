@@ -78,7 +78,8 @@ public extension String {
         return mostCommon
     }
     
-    public var camelcaseString: String {
+    
+    public var camelCaseString: String {
         let source = self
         if source.characters.contains(" ") {
             let first = source.substring(to: source.index(after: source.startIndex))
@@ -94,7 +95,7 @@ public extension String {
     }
     
     public mutating func camelize() {
-        self = self.camelcaseString
+        self = self.camelCaseString
     }
     
     /// Separtare new line delimated string into array of strings
@@ -133,17 +134,17 @@ public extension String {
         return self.replacingOccurrences(of: string, with: with)
     }
     
-    /// Retur true is string contain one or more decimal number
+    /// Return true is string contain one or more decimal number
     public var hasNumbers: Bool {
         return rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
     }
     
-    /// Retur true is string contain one or more letter
+    /// Return true is string contain one or more letter
     public var hasLetters: Bool {
         return rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
     }
     
-    /// Retur true is string contain one or more letters and one or more number, usually used to validate passwords
+    /// Return true is string contain one or more letters and one or more number, usually used to validate passwords
     public var isAlphaNumeric: Bool {
         return self.components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").characters.count == 0
     }
