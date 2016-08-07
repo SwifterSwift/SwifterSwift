@@ -2,6 +2,11 @@
 collection of priceless swift 3 extensions
 ![Alt text](https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png "Swiftier Swift")
 
+## Table Of Contents
+- [String extensions](#string-extensions)
+
+-----
+
 ## String extensions
 ### locale: Locale
 Return current locale
@@ -116,3 +121,5 @@ Return Float80 value from string (if possible)
 
 ### Double: Double?
 Return Double value from string (if possible)
+
+-----
