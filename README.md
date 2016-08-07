@@ -1,10 +1,11 @@
-# Swifier Swift
-
-A collection of priceless native swift 3 extensions to make working with your projects a real joy ;)
 ![Alt text](https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png "Swiftier Swift")
 
 [![Swift](https://img.shields.io/badge/SWIFT-3-orange.svg)](https://swift.org)
-[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg)]()
+[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg)](https://github.com/omaralbeik/SwiftierSwift)
+[![Build](https://img.shields.io/teamcity/http/teamcity.jetbrains.com/s/bt345.svg)](https://github.com/omaralbeik/SwiftierSwift)
+
+
+A collection of priceless native swift 3 extensions to make working with your projects a real joy ;)
 
 
 ## List Of Extensions
@@ -24,7 +25,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 ## String extensions
 
 |Name | Type | Return Type | Description |
-|:--- | :--- | :--- | :--- |
+|:--- | :--- | :---: | :--- |
 |**isEmpty** | Variable | Bool | Return true if string is empty or contains only spaces or new lines |
 |**isEmail** | Variable | Bool | Return true is string is a valid email format |
 |**firstCharacter** | Variable | String? | Return first character in a string |
@@ -68,7 +69,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 ## Date extensions
 
 |Name | Type | Return Type | Description |
-|:--- | :--- | :--- | :--- |
+|:--- | :--- | :--- | :---: |
 |**init(calendar, timeZone, era, year, month, day, hour, minute, second, nanosecond)** | Initializer | -- | Create a new Date from Date components values |
 |**calendar** | Variable | Calendar | Returns the user’s current calendar |
 |**timeZone** | Variable | TimeZone | Returns the time zone currently used by the system|
@@ -92,7 +93,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 ## Array extensions
 
 |Name | Type | Return Type | Description |
-|:--- | :--- | :--- | :--- |
+|:--- | :--- | :---: | :--- |
 |**randomItem** | Variable | Element | Return a random item from an array |
 |**firstIndex(of item: Item)** | Function | Int? | Return the first index of an element in an array |
 |**lastIndex(of item: Item)** | Function | Int? | Return the last index of an element in an array |
@@ -107,7 +108,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 ## Double extensions
 
 |Name | Type | Return Type | Description |
-|:--- | :--- | :--- | :--- |
+|:--- | :--- | :---: | :--- |
 |**abs** | Variable | Double | Return absolute value of double |
 |**floor** | Variable | Double | Return the largest integer <= self. |
 |**ceil** | Variable | Double | Rounds self to the smallest integer >= self. |
@@ -116,7 +117,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 ## Int extensions
 
 |Name | Type | Return Type | Description |
-|:--- | :--- | :--- | :--- |
+|:--- | :--- | :---: | :--- |
 |**abs** | Variable | Int | Return absolute value of double |
 |**isEven** | Variable | Bool | Return true if Int is even |
 |**isOdd** | Variable | Bool | Return true if Int is odd |
@@ -128,7 +129,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 # UIColor extensions
 
 |Name | Type | Return Type | Description |
-|:--- | :--- | :--- | :--- |
+|:--- | :--- | :---: | :--- |
 |**init(red, green, blue)** | Initializer | -- | Create new UIColor for RGB values |
 |**init(red, green, blue, transparency)** | Initializer | -- | Create new UIColor for RGB values with transparency |
 |**init(netHex)** | Initializer | -- | Create new UIColor for a hexadecimal |
@@ -140,21 +141,21 @@ A collection of priceless native swift 3 extensions to make working with your pr
 # UIImage extensions
 
 |Name | Type | Return Type | Description |
-|:--- | :--- | :--- | :--- |
+|:--- | :--- | :---: | :--- |
 |**init(color, size)** | Initializer | -- | Create new Image from color and size |
 
 
 # UINavigationController extensions
 
 |Name | Type | Return Type | Description |
-|:--- | :--- | :--- | :--- |
+|:--- | :--- | :---: | :--- |
 |**popViewControllerWithHandler(completion)** | Functions | -- | popViewController with a completion handler |
 |**pushViewController(viewController, completion)** | Functions | -- | pushViewController with a completion handler |
 
 # UIView extensions
 
 |Name | Type | Return Type | Description |
-|:--- | :--- | :--- | :--- |
+|:--- | :--- | :---: | :--- |
 |**shake()** | Function | -- | Shake view |
 |**cornerRadius** | Variable | CGFloat | get and set cornerRadius for a view from code or storyboard |
 |**borderWidth** | Variable | CGFloat | get and set borderWidth for a view from code or storyboard |
@@ -163,5 +164,5 @@ A collection of priceless native swift 3 extensions to make working with your pr
 # UITextField extensions
 
 |Name | Type | Return Type | Description |
-|:--- | :--- | :--- | :--- |
+|:--- | :--- | :---: | :--- |
 |**isEmpty** | Variable | Bool | Return true if text field is empty (read only) |
