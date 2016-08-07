@@ -168,6 +168,17 @@ public extension String {
     public mutating func latinize() {
         self = self.latinized
     }
+
+    /// Return a random string of given length
+    public static func random(of length: Int) -> String {
+        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var string = ""
+        for _ in 0..<length {
+            let randomIndex = arc4random_uniform(UInt32(base.characters.count))
+            string += "\(base[base.index(base.startIndex, offsetBy: IndexDistance(randomIndex))])"
+        }
+        return string
+    }
     
     /// Return Int value from string (if possible)
     public var toInt: Int? {
@@ -219,4 +230,14 @@ public extension String {
         return Double(self)
     }
     
+    /// Return Bool value from string (if possible)
+    public var toBool: Bool? {
+        if self == "true" || self == "TRUE" || self == "1" {
+            return true
+        } else if self == "false" || self == "FLASE" || self == "0" {
+            return false
+        } else {
+            return nil
+        }
+    }
 }

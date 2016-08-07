@@ -16,6 +16,7 @@ extension UIColor {
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
         
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+        
     }
     
     /// Create new UIColor for RGB values with transparency
@@ -48,6 +49,14 @@ extension UIColor {
         getRed(&r, green: &g, blue: &b, alpha: &a)
         let rgb: Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
         return NSString(format:"#%06x", rgb) as String
+    }
+    
+    /// Return a random color
+    public static var random: UIColor {
+        let r = Int(arc4random_uniform(255))
+        let g = Int(arc4random_uniform(255))
+        let b = Int(arc4random_uniform(255))
+        return UIColor(red: r, green: g, blue: b)
     }
     
 }

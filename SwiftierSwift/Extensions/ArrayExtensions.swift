@@ -71,4 +71,16 @@ public extension Array where Element:Equatable {
         }
         self = result
     }
+    
+    
+    /// Return all indexes of a given item
+    public func indexes(of item: Element) -> [Int] {
+        var indexes: [Int] = []
+        for index in 0..<self.count {
+            if self[index] == item {
+                indexes.append(index)
+            }
+        }
+        return indexes
+    }
 }

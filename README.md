@@ -8,6 +8,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 
 
 ## List Of Extensions
+
 - [ ] [String extensions](#string-extensions)
 - [ ] [Date extensions](#date-extensions)
 - [ ] [Array extensions](#array-extensions)
@@ -18,7 +19,6 @@ A collection of priceless native swift 3 extensions to make working with your pr
 - [ ] [UINavigationController extensions](#uinavigationcontroller-extensions)
 - [ ] [UIView extensions](#uiview-extensions)
 - [ ] [UITextField extensions](#uitextfield-extensions)
-
 
 
 ## String extensions
@@ -61,7 +61,8 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |**toFloat32** | Variable | Float32? | Return Float32 value from string (if possible) |
 |**toFloat64** | Variable | Float64? | Return Float64 value from string (if possible) |
 |**toFloat80** | Variable | Float80? | Return Float80 value from string (if possible) |
-|**Double** | Variable | Double? | Return Double value from string (if possible) |
+|**toDouble** | Variable | Double? | Return Double value from string (if possible) |
+|**toBool** | Variable | Bool? | Return Bool value from string (if possible) |
 
 
 ## Date extensions
@@ -98,6 +99,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |**remove(object: Element)** | Function | -- | Remove an element from an array |
 |**uniqueValues** | Variable | Array | Return the unique values from an array |
 |**removeDuplicates()** | Function | -- | Remove duplicates from an array |
+|**indexes(of item)** | Function | [Int] | Return all indexes of a given item |
 
 
 ## Double extensions
@@ -122,6 +124,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 
 
 # UIColor extensions
+
 |Name | Type | Return Type | Description |
 |:--- | :--- | :--- | :--- |
 |**init(red, green, blue)** | Initializer | -- | Create new UIColor for RGB values |
@@ -129,19 +132,25 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |**init(netHex)** | Initializer | -- | Create new UIColor for a hexadecimal |
 |**init(netHex, transparency)** | Initializer | -- | Create new UIColor for a hexadecimal value with transparency |
 |**hexString** | Variable | String | Return hexadecimal value string |
+|**random** | Static Variable | UIColor | Return a random color (read only) |
+
 
 # UIImage extensions
+
 |Name | Type | Return Type | Description |
 |:--- | :--- | :--- | :--- |
 |**init(color, size)** | Initializer | -- | Create new Image from color and size |
 
+
 # UINavigationController extensions
+
 |Name | Type | Return Type | Description |
 |:--- | :--- | :--- | :--- |
 |**popViewControllerWithHandler(completion)** | Functions | -- | popViewController with a completion handler |
 |**pushViewController(viewController, completion)** | Functions | -- | pushViewController with a completion handler |
 
 # UIView extensions
+
 |Name | Type | Return Type | Description |
 |:--- | :--- | :--- | :--- |
 |**shake()** | Function | -- | Shake view |
@@ -150,6 +159,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |**borderColor** | Variable | UIColor | get and set borderColor for a view from code or storyboard |
 
 # UITextField extensions
+
 |Name | Type | Return Type | Description |
 |:--- | :--- | :--- | :--- |
 |**isEmpty** | Variable | Bool | Return true if text field is empty (read only) |
