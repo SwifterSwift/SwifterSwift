@@ -7,7 +7,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 [![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg)]()
 
 
-## Table Of Contents
+## List Of Extensions
 - [ ] [String extensions](#string-extensions)
 - [ ] [Date extensions](#date-extensions)
 - [ ] [Array extensions](#array-extensions)
@@ -15,7 +15,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 - [ ] [Int extensions](#int-extensions)
 - [ ] [UIColor extensions](#uicolor-extensions)
 - [ ] [UIImage extensions](#uiimage-extensions)
-- [ ] [UINavigationController extensions](#uinavigationcontroller-extensions)UIViewExtensions
+- [ ] [UINavigationController extensions](#uinavigationcontroller-extensions)
 - [ ] [UIView extensions](#uiview-extensions)
 - [ ] [UITextField extensions](#uitextfield-extensions)
 
