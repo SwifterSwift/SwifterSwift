@@ -10,7 +10,7 @@
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "709B10AC-D549-4584-A70C-1D826AA849B4",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "356ED2AAA0BF519AE64818E65B82F7173D62865D" : "..",
-    "081A525AAAE8AA817EB36019EF66F319D5486954" : "SwifierSwift\/"
+    "081A525AAAE8AA817EB36019EF66F319D5486954" : "SwiftierSwift\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "SwiftierSwift",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,

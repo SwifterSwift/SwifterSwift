@@ -7,7 +7,12 @@
 //
 
 import Foundation
-extension String {
+public extension String {
+    
+    /// Return current locale
+    public var locale: Locale {
+        return Locale.current
+    }
     
     /// Return count of substring in a string
     public func count(of string: String) -> Int {
@@ -45,7 +50,7 @@ extension String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
-    mutating public func trim() {
+    public mutating func trim() {
         self = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
@@ -73,6 +78,25 @@ extension String {
         return mostCommon
     }
     
+    public var camelcaseString: String {
+        let source = self
+        if source.characters.contains(" ") {
+            let first = source.substring(to: source.index(after: source.startIndex))
+            let camel = source.capitalized.replace(string: " ", with: "").replace(string: "\n", with: "")
+            let rest = String(camel.characters.dropFirst())
+            return "\(first)\(rest)"
+        } else {
+            let first = source.lowercased().substring(to: source.index(after: source.startIndex))
+            let rest = String(source.characters.dropFirst())
+            return "\(first)\(rest)"
+            
+        }
+    }
+    
+    public mutating func camelize() {
+        self = self.camelcaseString
+    }
+    
     /// Separtare new line delimated string into array of strings
     public func lines() -> [String] {
         var result:[String] = []
@@ -95,7 +119,7 @@ extension String {
         return String(characters.reversed())
     }
     
-    mutating func reverse() {
+    public mutating func reverse() {
         self = String(characters.reversed())
     }
     
@@ -108,4 +132,90 @@ extension String {
     public func replace(string: String, with: String) -> String {
         return self.replacingOccurrences(of: string, with: with)
     }
+    
+    /// Retur true is string contain one or more decimal number
+    public var hasNumbers: Bool {
+        return rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
+    }
+    
+    /// Retur true is string contain one or more letter
+    public var hasLetters: Bool {
+        return rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
+    }
+    
+    /// Retur true is string contain one or more letters and one or more number, usually used to validate passwords
+    public var isAlphaNumeric: Bool {
+        return self.components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").characters.count == 0
+    }
+    
+    /// Return true is string contain letters only
+    public var isAlphabetic: Bool {
+        return  hasLetters && !hasNumbers
+    }
+    
+    /// Return true is string contain decimal numbers only
+    public var isNumeric: Bool {
+        return  !hasLetters && hasNumbers
+    }
+    
+    /// Return latinized string, changes non latin letters with latin letters. eg: è becomes e
+    public var latinized: String {
+        return self.folding(options: .diacriticInsensitive, locale: Locale.current)
+    }
+    
+    /// Latinize a string, changes non latin letters with latin letters. eg: è becomes e
+    public mutating func latinize() {
+        self = self.latinized
+    }
+    
+    /// Return Int value from string (if possible)
+    public var toInt: Int? {
+        return Int(self)
+    }
+    
+    /// Return Int8 value from string (if possible)
+    public var toInt8: Int8? {
+        return Int8(self)
+    }
+    
+    /// Return Int16 value from string (if possible)
+    public var toInt16: Int16? {
+        return Int16(self)
+    }
+    
+    /// Return Int32 value from string (if possible)
+    public var toInt32: Int32? {
+        return Int32(self)
+    }
+    
+    /// Return Int64 value from string (if possible)
+    public var toInt64: Int64? {
+        return Int64(self)
+    }
+    
+    /// Return Float value from string (if possible)
+    public var toFloat: Float? {
+        return Float(self)
+    }
+    
+    /// Return Float32 value from string (if possible)
+    public var toFloat32: Float32? {
+        return Float32(self)
+    }
+    
+    /// Return Float64 value from string (if possible)
+    public var toFloat64: Float64? {
+        return Float64(self)
+    }
+    
+    /// Return Float80 value from string (if possible)
+    public var toFloat80: Float80? {
+        return Float80(self)
+    }
+    
+    /// Return Double value from string (if possible)
+    public var toDouble: Double? {
+        return Double(self)
+    }
+    
 }

@@ -117,7 +117,7 @@ extension Date {
     /// Add calendar components to date
     mutating func add(component: Calendar.Component, value: Int) {
         switch component {
-          
+            
         case .second:
             self = calendar.date(byAdding: .second, value: value, to: self) ?? self
             break

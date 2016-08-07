@@ -7,11 +7,68 @@
 //
 
 import Foundation
-public extension Array {
+public extension Array where Element:Equatable {
     
     /// Return a random item from an array
     public var randomItem: Element {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
+    }
+    
+    /// Return the first index of an element in an array
+    public func firstIndex <Item: Equatable> (of item: Item) -> Int? {
+        if item is Element {
+            for (index, value) in self.lazy.enumerated() {
+                if value as! Item == item {
+                    return index
+                }
+            }
+            return nil
+        }
+        return nil
+    }
+    
+    /// Return the last index of an element in an array
+    public func lastIndex <Item: Equatable> (of item: Item) -> Int? {
+        if item is Element {
+            for (index, value) in self.reversed().lazy.enumerated() {
+                if value as! Item == item {
+                    return count - 1 - index
+                }
+            }
+            return nil
+        }
+        return nil
+    }
+    
+    /// Remove an element from an array
+    public mutating func remove(object: Element) {
+        for (index, element) in enumerated() {
+            if object == element {
+                self.remove(at: index)
+            }
+        }
+    }
+    
+    /// Return the unique values from an array
+    public var uniqueValues: [Element] {
+        var result = [Element]()
+        for value in self {
+            if result.contains(value) == false {
+                result.append(value)
+            }
+        }
+        return result
+    }
+    
+    /// Remove duplicates from an array
+    public mutating func removeDuplicates() {
+        var result = [Element]()
+        for value in self {
+            if result.contains(value) == false {
+                result.append(value)
+            }
+        }
+        self = result
     }
 }
