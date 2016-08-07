@@ -1,9 +1,11 @@
 # Swifier Swift
-[![Swift](https://img.shields.io/badge/SWIFT-3-orange.svg)](https://swift.org)
-[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg)]()
 
 collection of priceless swift 3 extensions
 ![Alt text](https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png "Swiftier Swift")
+
+[![Swift](https://img.shields.io/badge/SWIFT-3-orange.svg)](https://swift.org)
+[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg)]()
+
 
 ## Table Of Contents
 - [ ] [String extensions](#string-extensions)
