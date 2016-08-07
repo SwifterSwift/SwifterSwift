@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		071B9CAF1D567A7000AECBE8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CA31D567A7000AECBE8 /* ArrayExtensions.swift */; };
-		071B9CB01D567A7000AECBE8 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CA41D567A7000AECBE8 /* BoolExtensions.swift */; };
 		071B9CB11D567A7000AECBE8 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CA51D567A7000AECBE8 /* DateExtensions.swift */; };
 		071B9CB21D567A7000AECBE8 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CA61D567A7000AECBE8 /* DoubleExtensions.swift */; };
 		071B9CB31D567A7000AECBE8 /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CA71D567A7000AECBE8 /* IntExtensions.swift */; };
@@ -40,7 +39,6 @@
 
 /* Begin PBXFileReference section */
 		071B9CA31D567A7000AECBE8 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtensions.swift; path = Extensions/ArrayExtensions.swift; sourceTree = "<group>"; };
-		071B9CA41D567A7000AECBE8 /* BoolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BoolExtensions.swift; path = Extensions/BoolExtensions.swift; sourceTree = "<group>"; };
 		071B9CA51D567A7000AECBE8 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = Extensions/DateExtensions.swift; sourceTree = "<group>"; };
 		071B9CA61D567A7000AECBE8 /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtensions.swift; path = Extensions/DoubleExtensions.swift; sourceTree = "<group>"; };
 		071B9CA71D567A7000AECBE8 /* IntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntExtensions.swift; path = Extensions/IntExtensions.swift; sourceTree = "<group>"; };
@@ -134,12 +132,11 @@
 		077B65FC1D54ED74005712A1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				071B9CA31D567A7000AECBE8 /* ArrayExtensions.swift */,
-				071B9CA41D567A7000AECBE8 /* BoolExtensions.swift */,
+				071B9CA81D567A7000AECBE8 /* StringExtensions.swift */,
 				071B9CA51D567A7000AECBE8 /* DateExtensions.swift */,
+				071B9CA31D567A7000AECBE8 /* ArrayExtensions.swift */,
 				071B9CA61D567A7000AECBE8 /* DoubleExtensions.swift */,
 				071B9CA71D567A7000AECBE8 /* IntExtensions.swift */,
-				071B9CA81D567A7000AECBE8 /* StringExtensions.swift */,
 				071B9CA91D567A7000AECBE8 /* UIColorExtensions.swift */,
 				071B9CAA1D567A7000AECBE8 /* UIImageExtensions.swift */,
 				071B9CAB1D567A7000AECBE8 /* UILabelExtensions.swift */,
@@ -269,7 +266,6 @@
 				071B9CB61D567A7000AECBE8 /* UIImageExtensions.swift in Sources */,
 				071B9CB21D567A7000AECBE8 /* DoubleExtensions.swift in Sources */,
 				071B9CB91D567A7000AECBE8 /* UITextFieldExtensions.swift in Sources */,
-				071B9CB01D567A7000AECBE8 /* BoolExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

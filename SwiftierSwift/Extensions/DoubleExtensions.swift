@@ -14,11 +14,6 @@ public extension Double {
         return Swift.abs(self)
     }
     
-    /// Return squared root of double
-    public var sqrt: Double {
-        return Foundation.sqrt(self)
-    }
-    
     /// Return the largest integer <= self.
     public var floor: Double {
         return Foundation.floor(self)
