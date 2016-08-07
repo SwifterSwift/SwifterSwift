@@ -103,7 +103,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |**remove(object: Element)** | Function | -- | Remove an element from an array |
 |**uniqueValues** | Variable | Array | Return the unique values from an array |
 |**removeDuplicates()** | Function | -- | Remove duplicates from an array |
-|**shuffle()** | Function | Array | Shuffle the array |
+|**shuffle()** | Function | -- | Shuffle the array |
 |**shuffled** | Variable | Array | Return a shuffled array |
 |**indexes(of item)** | Function | [Int] | Return all indexes of a given item |
 
