@@ -2,7 +2,7 @@
 
 [![Swift](https://img.shields.io/badge/SWIFT-3-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg)](https://github.com/omaralbeik/SwiftierSwift)
-[![Build](https://img.shields.io/teamcity/http/teamcity.jetbrains.com/s/bt345.svg)](https://github.com/omaralbeik/SwiftierSwift)
+[![Build](https://api.travis-ci.org/omaralbeik/SwiftierSwift.svg)](https://github.com/omaralbeik/SwiftierSwift)
 
 
 A collection of priceless native swift 3 extensions to make working with your projects a real joy ;)
