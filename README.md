@@ -1,6 +1,6 @@
 # Swifier Swift
 
-collection of priceless swift 3 extensions
+A collection of priceless native swift 3 extensions to make working with your projects a real joy ;)
 ![Alt text](https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png "Swiftier Swift")
 
 [![Swift](https://img.shields.io/badge/SWIFT-3-orange.svg)](https://swift.org)
