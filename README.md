@@ -57,7 +57,7 @@ collection of priceless swift 3 extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :--- | :--- |
-|**init(calendar: Calendar?, timeZone: TimeZone?, era: Int?, year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, nanosecond: Int?)** | Initializer | -- | Create a new Date from Date components values |
+|**init(calendar, timeZone, era, year, month, day, hour, minute, second, nanosecond)** | Initializer | -- | Create a new Date from Date components values |
 |**calendar** | Variable | Calendar | Returns the user’s current calendar |
 |**timeZone** | Variable | TimeZone | Returns the time zone currently used by the system|
 |**nanosecond** | Variable | nanosecond | Nanoseconds from a date (read only) |
