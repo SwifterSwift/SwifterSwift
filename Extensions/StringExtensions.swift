@@ -9,43 +9,44 @@
 import Foundation
 public extension String {
     
+    // tested
     /// Return current locale
     public var locale: Locale {
         return Locale.current
     }
     
+    // tested
     /// Return count of substring in a string
     public func count(of string: String) -> Int {
         return components(separatedBy: string).count - 1
     }
     
-    /// Return true if String contains another substring
-    public func contain(string: String) -> Bool {
-        return count(of: self) > 0
-    }
-    
-    /// Return true if String ends with the given substring
-    public func end(with suffix: String) -> Bool {
-        return hasSuffix(suffix)
-    }
-    
+    // tested
     /// Return true is String starts with the given substring
-    public func start(with prefix: String) -> Bool {
+    public func starts(with prefix: String) -> Bool {
         return hasPrefix(prefix)
     }
     
-    // FIXME: -
+    // tested
+    /// Return true if String ends with the given substring
+    public func ends(with suffix: String) -> Bool {
+        return hasSuffix(suffix)
+    }
+    
+    // tested
     /// Return true if string is empty or contains only spaces or new lines
-    public var isEmpty: Bool {
+    public var empty: Bool {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).characters.count == 0
     }
     
+    // tested
     /// Return an array of Strings by sipliting the given String into another strings
     public func split(by separator: Character) -> [String] {
         return characters.split{$0 == separator}.map(String.init)
     }
     
-    /// Return trimmed string (remived spaces and new lines from beginning and end of string)
+    // tested
+    /// Return trimmed string (removes spaces and new lines from beginning and end of string)
     public var trimmed: String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
@@ -117,7 +118,7 @@ public extension String {
     
     /// Return true is string is http URL
     public var isHttpUrl: Bool {
-        guard self.start(with: "http://".lowercased()) else {
+        guard self.starts(with: "http://".lowercased()) else {
             return false
         }
         return URL(string: self) != nil
@@ -125,7 +126,7 @@ public extension String {
     
     /// Return true is string is https URL
     public var isHttpsUrl: Bool {
-        guard self.start(with: "https://".lowercased()) else {
+        guard self.starts(with: "https://".lowercased()) else {
             return false
         }
         return URL(string: self) != nil
@@ -184,7 +185,7 @@ public extension String {
     public mutating func latinize() {
         self = self.latinized
     }
-
+    
     /// Return a random string of given length
     public static func random(of length: Int) -> String {
         let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"

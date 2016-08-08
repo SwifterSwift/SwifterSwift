@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0711BF3E1D58F21200E2AB6F /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0711BF3D1D58F21200E2AB6F /* StringExtensionsTests.swift */; };
 		071B9CAF1D567A7000AECBE8 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CA31D567A7000AECBE8 /* ArrayExtensions.swift */; };
 		071B9CB11D567A7000AECBE8 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CA51D567A7000AECBE8 /* DateExtensions.swift */; };
 		071B9CB21D567A7000AECBE8 /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CA61D567A7000AECBE8 /* DoubleExtensions.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0711BF3D1D58F21200E2AB6F /* StringExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
 		071B9CA31D567A7000AECBE8 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtensions.swift; path = Extensions/ArrayExtensions.swift; sourceTree = "<group>"; };
 		071B9CA51D567A7000AECBE8 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtensions.swift; path = Extensions/DateExtensions.swift; sourceTree = "<group>"; };
 		071B9CA61D567A7000AECBE8 /* DoubleExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoubleExtensions.swift; path = Extensions/DoubleExtensions.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				077B65EE1D54EC2E005712A1 /* SwiftierSwiftTests.swift */,
+				0711BF3D1D58F21200E2AB6F /* StringExtensionsTests.swift */,
 				077B65F01D54EC2E005712A1 /* Info.plist */,
 			);
 			path = SwiftierSwiftTests;
@@ -285,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0711BF3E1D58F21200E2AB6F /* StringExtensionsTests.swift in Sources */,
 				077B65EF1D54EC2E005712A1 /* SwiftierSwiftTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

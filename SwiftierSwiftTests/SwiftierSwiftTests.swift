@@ -16,6 +16,8 @@ class SwiftierSwiftTests: XCTestCase {
         tearDown()
     }
     
+    /*
+    
     func testUITextFieldExtensions() {
         
         let textField = UITextField()
@@ -208,5 +210,7 @@ class SwiftierSwiftTests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
+ 
+ */
     
 }

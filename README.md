@@ -31,7 +31,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**isEmpty** | Variable | Bool | Return true if string is empty or contains only spaces or new lines |
+|**empty** | Variable | Bool | Return true if string is empty or contains only spaces or new lines |
 |**isEmail** | Variable | Bool | Return true is string is a valid email format |
 |**isHttpUrl** | Variable | Bool | Return true is string is http URL |
 |**isHttpsUrl** | Variable | Bool | Return true is string is https URL |
