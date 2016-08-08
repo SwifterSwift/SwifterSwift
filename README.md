@@ -40,7 +40,6 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |**start(with prefix: String)** | Function | Bool | Return true if String starts with the given substring |
 |**end(with suffix: String)** | Function | Bool | Return true if String ends with the given substring |
 |**count(of string: String)** | Function | Int | Return count of substring in a string |
-|**contain(string: String)** | Function | Bool | Return true if String contains another substring |
 |**split(by separator: Character)** | Function | [String] | Return an array of Strings by splitting the given String into another strings |
 |**trimmed** | Variable | String | Return trimmed string (remove spaces and new lines from beginning and end of string) |
 |**trim()** | Function | -- | Trim a string (remove spaces and new lines from beginning and end of string) |
