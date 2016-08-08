@@ -8,8 +8,8 @@
 
 import UIKit
 public extension UITextField {
-    
-    /// Return true if text field is empty
+
+    /// Return true if text field is empty (read-only).
     public var isEmpty: Bool {
         if let text = self.text {
             return text.characters.isEmpty

@@ -8,63 +8,58 @@
 
 import Foundation
 public extension String {
-    
-    /// Return current locale
+
+    /// Return current locale (read-only).
     public var locale: Locale {
         return Locale.current
     }
-    
-    /// Return count of substring in a string
+
+    /// Return count of substring in string.
     public func count(of string: String) -> Int {
         return components(separatedBy: string).count - 1
     }
-    
-    /// Return true if String contains another substring
+
+    /// Return true if string contains one or more instance of substring.
     public func contain(string: String) -> Bool {
         return count(of: self) > 0
     }
-    
-    /// Return true if String ends with the given substring
+
+    /// Return true if string ends with substring.
     public func end(with suffix: String) -> Bool {
         return hasSuffix(suffix)
     }
-    
-    /// Return true is String starts with the given substring
+
+    /// Return true if string starts with substring.
     public func start(with prefix: String) -> Bool {
         return hasPrefix(prefix)
     }
-    
-    // FIXME: -
-    /// Return true if string is empty or contains only spaces or new lines
-    public var isEmpty: Bool {
-        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).characters.count == 0
-    }
-    
-    /// Return an array of Strings by sipliting the given String into another strings
+
+    /// Return an array of strings seperated by given string.
     public func split(by separator: Character) -> [String] {
         return characters.split{$0 == separator}.map(String.init)
     }
-    
-    /// Return trimmed string (remived spaces and new lines from beginning and end of string)
+
+    /// Return string with no spaces or new lines in beginning and end (read-only).
     public var trimmed: String {
         return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
-    
+
+    /// Removes spaces and new lines in beginning and end of string.
     public mutating func trim() {
         self = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
-    
-    /// Return first character in a string
+
+    /// Return first character of string (read-only).
     public var firstCharacter: String? {
         return Array(self.characters).map({String($0)}).first
     }
-    
-    /// Return last character in a string
+
+    /// Return last character of string (read-only).
     public var lastCharacter: String? {
         return Array(self.characters).map({String($0)}).last
     }
-    
-    /// Return the most common character in a string
+
+    /// Return most common character in string (read-only).
     public var mostCommonCharacter: String {
         var mostCommon = ""
         let charSet = Set(self.characters.map{String($0)})
@@ -77,8 +72,8 @@ public extension String {
         }
         return mostCommon
     }
-    
-    
+
+    /// Returns CamelCase of string (read-only).
     public var camelCaseString: String {
         let source = self
         if source.characters.contains(" ") {
@@ -90,15 +85,16 @@ public extension String {
             let first = source.lowercased().substring(to: source.index(after: source.startIndex))
             let rest = String(source.characters.dropFirst())
             return "\(first)\(rest)"
-            
+
         }
     }
-    
+
+    /// Converts string format to CamelCase.
     public mutating func camelize() {
         self = self.camelCaseString
     }
-    
-    /// Separtare new line delimated string into array of strings
+
+    /// Returns array of strings seperated by new lines.
     public func lines() -> [String] {
         var result:[String] = []
         enumerateLines { (line, stop) -> () in
@@ -106,86 +102,89 @@ public extension String {
         }
         return result
     }
-    
-    /// Return true is string is a valid email format
+
+    /// Return true if string is valid email format (read-only).
     public var isEmail: Bool {
         // http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
-    
-    /// Return true is string is http URL
+
+    /// Return true if string is http URL (read-only).
     public var isHttpUrl: Bool {
         guard self.start(with: "http://".lowercased()) else {
             return false
         }
         return URL(string: self) != nil
     }
-    
-    /// Return true is string is https URL
+
+    /// Return true if string is https URL (read-only).
     public var isHttpsUrl: Bool {
         guard self.start(with: "https://".lowercased()) else {
             return false
         }
         return URL(string: self) != nil
     }
-    
-    /// Return reversed string
+
+    /// Return reversed string (read-only).
     public var reversed: String {
         return String(characters.reversed())
     }
-    
+
+    /// Reverse string.
     public mutating func reverse() {
         self = String(characters.reversed())
     }
-    
-    /// Return the first index of a substring in a string
+
+
+    // FIXME:
+    /// Return first index of substring in string.
     public func firstIndex(of string: String) -> Int? {
         return Array(self.characters).map({String($0)}).index(of: string)
     }
-    
-    /// Replace part of string with another string
+
+    /// Replace part of string with another string.
     public func replace(string: String, with: String) -> String {
         return self.replacingOccurrences(of: string, with: with)
     }
-    
-    /// Return true is string contain one or more decimal number
+
+    /// Return true if string contains one or more numbers (read-only).
     public var hasNumbers: Bool {
         return rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
     }
-    
-    /// Return true is string contain one or more letter
+
+    /// Return true if string contains one or more letters (read-only).
     public var hasLetters: Bool {
         return rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
     }
-    
-    /// Return true is string contain one or more letters and one or more number, usually used to validate passwords
+
+    /// Return true if string contains at least one letter and one number (read-only).
     public var isAlphaNumeric: Bool {
         return self.components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").characters.count == 0
     }
-    
-    /// Return true is string contain letters only
+
+    /// Return true if string contains only letters (read-only).
     public var isAlphabetic: Bool {
         return  hasLetters && !hasNumbers
     }
-    
-    /// Return true is string contain decimal numbers only
+
+    /// Return true if string contains only numbers (read-only).
     public var isNumeric: Bool {
         return  !hasLetters && hasNumbers
     }
-    
-    /// Return latinized string, changes non latin letters with latin letters. eg: è becomes e
+
+    /// Return latinized string (read-only).
     public var latinized: String {
         return self.folding(options: .diacriticInsensitive, locale: Locale.current)
     }
-    
-    /// Latinize a string, changes non latin letters with latin letters. eg: è becomes e
+
+    /// Latinize string.
     public mutating func latinize() {
         self = self.latinized
     }
 
-    /// Return a random string of given length
+    /// Return random string of given length.
     public static func random(of length: Int) -> String {
         let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var string = ""
@@ -195,58 +194,58 @@ public extension String {
         }
         return string
     }
-    
-    /// Return Int value from string (if possible)
+
+    /// Return Int value from string (if applicable; read-only).
     public var toInt: Int? {
         return Int(self)
     }
-    
-    /// Return Int8 value from string (if possible)
+
+    /// Return Int8 value from string (if applicable; read-only).
     public var toInt8: Int8? {
         return Int8(self)
     }
-    
-    /// Return Int16 value from string (if possible)
+
+    /// Return Int16 value from string (if applicable; read-only).
     public var toInt16: Int16? {
         return Int16(self)
     }
-    
-    /// Return Int32 value from string (if possible)
+
+    /// Return Int32 value from string (if applicable; read-only).
     public var toInt32: Int32? {
         return Int32(self)
     }
-    
-    /// Return Int64 value from string (if possible)
+
+    /// Return Int64 value from string (if applicable; read-only).
     public var toInt64: Int64? {
         return Int64(self)
     }
-    
-    /// Return Float value from string (if possible)
+
+    /// Return Float value from string (if applicable; read-only).
     public var toFloat: Float? {
         return Float(self)
     }
-    
-    /// Return Float32 value from string (if possible)
+
+    /// Return Float32 value from string (if applicable; read-only).
     public var toFloat32: Float32? {
         return Float32(self)
     }
-    
-    /// Return Float64 value from string (if possible)
+
+    /// Return Float64 value from string (if applicable; read-only).
     public var toFloat64: Float64? {
         return Float64(self)
     }
-    
-    /// Return Float80 value from string (if possible)
+
+    /// Return Float80 value from string (if applicable; read-only).
     public var toFloat80: Float80? {
         return Float80(self)
     }
-    
-    /// Return Double value from string (if possible)
+
+    /// Return Double value from string (if applicable; read-only).
     public var toDouble: Double? {
         return Double(self)
     }
-    
-    /// Return Bool value from string (if possible)
+
+    /// Return Bool value from string (if applicable; read-only).
     public var toBool: Bool? {
         if self == "true" || self == "TRUE" || self == "1" {
             return true

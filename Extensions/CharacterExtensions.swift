@@ -9,24 +9,24 @@
 import Foundation
 public extension Character {
 
-    /// Return current locale
+    /// Return current locale (read-only).
     public var locale: Locale {
         return Locale.current
     }
-    
-    /// Return true if character is a decimal number
+
+    /// Return true if character is number (read-only).
     public var isNumber: Bool {
         return Int(String(self)) != nil
     }
-    
-    /// Return a string from character
+
+    /// Return string from character (read-only).
     public var toString: String {
         return String(self)
     }
-    
-    /// Return Int value from character (if possible)
+
+    /// Return integer from character (if applicable; read-only).
     public var toInt: Int? {
         return Int(String(self))
     }
-    
+
 }

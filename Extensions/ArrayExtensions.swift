@@ -8,14 +8,14 @@
 
 import Foundation
 public extension Array where Element:Equatable {
-    
-    /// Return a random item from an array
+
+    /// Return random item from array.
     public var randomItem: Element {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
     }
-    
-    /// Return the first index of an element in an array
+
+    /// Return first index of element in array.
     public func firstIndex <Item: Equatable> (of item: Item) -> Int? {
         if item is Element {
             for (index, value) in self.lazy.enumerated() {
@@ -27,8 +27,8 @@ public extension Array where Element:Equatable {
         }
         return nil
     }
-    
-    /// Return the last index of an element in an array
+
+    /// Return last index of element in array.
     public func lastIndex <Item: Equatable> (of item: Item) -> Int? {
         if item is Element {
             for (index, value) in self.reversed().lazy.enumerated() {
@@ -40,8 +40,8 @@ public extension Array where Element:Equatable {
         }
         return nil
     }
-    
-    /// Remove an element from an array
+
+    /// Remove element from array.
     public mutating func remove(object: Element) {
         for (index, element) in enumerated() {
             if object == element {
@@ -49,16 +49,16 @@ public extension Array where Element:Equatable {
             }
         }
     }
-    
-    /// Shuffle the array
+
+    /// Shuffle array.
     public mutating func shuffle() {
         // https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
         for _ in 0..<10 {
             sort { (_,_) in arc4random() < arc4random() }
         }
     }
-    
-    /// Return a shuffled array
+
+    /// Return shuffled version of array.
     public var shuffled: [Element] {
         var arr = self
         for _ in 0..<10 {
@@ -66,8 +66,8 @@ public extension Array where Element:Equatable {
         }
         return arr
     }
-    
-    /// Return the unique values from an array
+
+    /// Return unique values of array.
     public var uniqueValues: [Element] {
         var result = [Element]()
         for value in self {
@@ -77,8 +77,8 @@ public extension Array where Element:Equatable {
         }
         return result
     }
-    
-    /// Remove duplicates from an array
+
+    /// Remove duplicates from array.
     public mutating func removeDuplicates() {
         var result = [Element]()
         for value in self {
@@ -88,9 +88,9 @@ public extension Array where Element:Equatable {
         }
         self = result
     }
-    
-    
-    /// Return all indexes of a given item
+
+
+    /// Return all indexes of specified item.
     public func indexes(of item: Element) -> [Int] {
         var indexes: [Int] = []
         for index in 0..<self.count {
