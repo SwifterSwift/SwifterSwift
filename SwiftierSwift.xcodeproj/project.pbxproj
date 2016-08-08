@@ -19,13 +19,13 @@
 		071B9CB81D567A7000AECBE8 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CAC1D567A7000AECBE8 /* UINavigationControllerExtensions.swift */; };
 		071B9CB91D567A7000AECBE8 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CAD1D567A7000AECBE8 /* UITextFieldExtensions.swift */; };
 		071B9CBA1D567A7000AECBE8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */; };
+		0777E2541D59225500D90951 /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0777E2531D59225500D90951 /* DateExtensionsTests.swift */; };
 		077A411C1D5872B400D56DC4 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */; };
 		077B65DA1D54EC2E005712A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B65D91D54EC2E005712A1 /* AppDelegate.swift */; };
 		077B65DC1D54EC2E005712A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B65DB1D54EC2E005712A1 /* ViewController.swift */; };
 		077B65DF1D54EC2E005712A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077B65DD1D54EC2E005712A1 /* Main.storyboard */; };
 		077B65E11D54EC2E005712A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077B65E01D54EC2E005712A1 /* Assets.xcassets */; };
 		077B65E41D54EC2E005712A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077B65E21D54EC2E005712A1 /* LaunchScreen.storyboard */; };
-		077B65EF1D54EC2E005712A1 /* SwiftierSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B65EE1D54EC2E005712A1 /* SwiftierSwiftTests.swift */; };
 		079B53101D58DF12008FBE61 /* CharacterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B530D1D58DF12008FBE61 /* CharacterExtensions.swift */; };
 		079B53111D58DF12008FBE61 /* FloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B530E1D58DF12008FBE61 /* FloatExtensions.swift */; };
 		079B53121D58DF12008FBE61 /* SwiftierSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 079B530F1D58DF12008FBE61 /* SwiftierSwift.swift */; };
@@ -54,6 +54,7 @@
 		071B9CAC1D567A7000AECBE8 /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINavigationControllerExtensions.swift; path = Extensions/UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 		071B9CAD1D567A7000AECBE8 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = Extensions/UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Extensions/UIViewExtensions.swift; sourceTree = "<group>"; };
+		0777E2531D59225500D90951 /* DateExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensionsTests.swift; sourceTree = "<group>"; };
 		077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Extensions/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		077B65D61D54EC2E005712A1 /* SwiftierSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftierSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		077B65D91D54EC2E005712A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,7 +64,6 @@
 		077B65E31D54EC2E005712A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		077B65E51D54EC2E005712A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		077B65EA1D54EC2E005712A1 /* SwiftierSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftierSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		077B65EE1D54EC2E005712A1 /* SwiftierSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftierSwiftTests.swift; sourceTree = "<group>"; };
 		077B65F01D54EC2E005712A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		079B530D1D58DF12008FBE61 /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterExtensions.swift; path = Extensions/CharacterExtensions.swift; sourceTree = "<group>"; };
 		079B530E1D58DF12008FBE61 /* FloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatExtensions.swift; path = Extensions/FloatExtensions.swift; sourceTree = "<group>"; };
@@ -119,8 +119,8 @@
 		077B65ED1D54EC2E005712A1 /* SwiftierSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				077B65EE1D54EC2E005712A1 /* SwiftierSwiftTests.swift */,
 				0711BF3D1D58F21200E2AB6F /* StringExtensionsTests.swift */,
+				0777E2531D59225500D90951 /* DateExtensionsTests.swift */,
 				077B65F01D54EC2E005712A1 /* Info.plist */,
 			);
 			path = SwiftierSwiftTests;
@@ -291,7 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0711BF3E1D58F21200E2AB6F /* StringExtensionsTests.swift in Sources */,
-				077B65EF1D54EC2E005712A1 /* SwiftierSwiftTests.swift in Sources */,
+				0777E2541D59225500D90951 /* DateExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
