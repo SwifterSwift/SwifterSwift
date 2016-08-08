@@ -99,7 +99,6 @@ public extension String {
         self = self.camelCaseString
     }
     
-    // tested
     public func lines() -> [String] {
         var result:[String] = []
         enumerateLines { (line, stop) -> () in
@@ -108,7 +107,6 @@ public extension String {
         return result
     }
     
-    // tested
     public var isEmail: Bool {
         // http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
@@ -116,7 +114,7 @@ public extension String {
         return emailTest.evaluate(with: self)
     }
     
-    // tested
+    /// Return true is string is http URL
     public var isHttpUrl: Bool {
         guard self.starts(with: "http://".lowercased()) else {
             return false
@@ -124,7 +122,7 @@ public extension String {
         return URL(string: self) != nil
     }
     
-    // tested
+    /// Return true is string is https URL
     public var isHttpsUrl: Bool {
         guard self.starts(with: "https://".lowercased()) else {
             return false
@@ -132,62 +130,61 @@ public extension String {
         return URL(string: self) != nil
     }
     
-    // tested
+    /// Return reversed string
     public var reversed: String {
         return String(characters.reversed())
     }
     
-    // tested
     public mutating func reverse() {
         self = String(characters.reversed())
     }
     
-    // tested
+    /// Return the first index of a substring in a string
     public func firstIndex(of string: String) -> Int? {
         return Array(self.characters).map({String($0)}).index(of: string)
     }
     
-    // tested
+    /// Replace part of string with another string
     public func replace(string: String, with: String) -> String {
         return self.replacingOccurrences(of: string, with: with)
     }
     
-    // tested
+    /// Return true is string contain one or more decimal number
     public var hasNumbers: Bool {
         return rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
     }
     
-    // tested
+    /// Return true is string contain one or more letter
     public var hasLetters: Bool {
         return rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
     }
     
-    // tested
-    public var isNumeric: Bool {
-        return  !hasLetters && hasNumbers
+    /// Return true is string contain one or more letters and one or more number, usually used to validate passwords
+    public var isAlphaNumeric: Bool {
+        return self.components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").characters.count == 0
     }
     
-    // tested
+    /// Return true is string contain letters only
     public var isAlphabetic: Bool {
         return  hasLetters && !hasNumbers
     }
     
-    // tested
-    public var isAlphaNumeric: Bool {
-        return self.components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").characters.count == 0 && hasLetters && hasNumbers
+    /// Return true is string contain decimal numbers only
+    public var isNumeric: Bool {
+        return  !hasLetters && hasNumbers
     }
     
-    // tested
+    /// Return latinized string, changes non latin letters with latin letters. eg: è becomes e
     public var latinized: String {
         return self.folding(options: .diacriticInsensitive, locale: Locale.current)
     }
     
-    // tested
+    /// Latinize a string, changes non latin letters with latin letters. eg: è becomes e
     public mutating func latinize() {
         self = self.latinized
     }
     
-    // tested
+    /// Return a random string of given length
     public static func random(of length: Int) -> String {
         let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var string = ""
@@ -198,57 +195,57 @@ public extension String {
         return string
     }
     
-    // tested
+    /// Return Int value from string (if possible)
     public var toInt: Int? {
         return Int(self)
     }
     
-    // tested
+    /// Return Int8 value from string (if possible)
     public var toInt8: Int8? {
         return Int8(self)
     }
     
-    // tested
+    /// Return Int16 value from string (if possible)
     public var toInt16: Int16? {
         return Int16(self)
     }
     
-    // tested
+    /// Return Int32 value from string (if possible)
     public var toInt32: Int32? {
         return Int32(self)
     }
     
-    // tested
+    /// Return Int64 value from string (if possible)
     public var toInt64: Int64? {
         return Int64(self)
     }
     
-    // tested
+    /// Return Float value from string (if possible)
     public var toFloat: Float? {
         return Float(self)
     }
     
-    // tested
+    /// Return Float32 value from string (if possible)
     public var toFloat32: Float32? {
         return Float32(self)
     }
     
-    // tested
+    /// Return Float64 value from string (if possible)
     public var toFloat64: Float64? {
         return Float64(self)
     }
     
-    // tested
+    /// Return Float80 value from string (if possible)
     public var toFloat80: Float80? {
         return Float80(self)
     }
     
-    // tested
+    /// Return Double value from string (if possible)
     public var toDouble: Double? {
         return Double(self)
     }
     
-    // tested
+    /// Return Bool value from string (if possible)
     public var toBool: Bool? {
         if self == "true" || self == "TRUE" || self == "1" {
             return true

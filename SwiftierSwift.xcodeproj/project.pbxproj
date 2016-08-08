@@ -68,6 +68,7 @@
 		079B530D1D58DF12008FBE61 /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CharacterExtensions.swift; path = Extensions/CharacterExtensions.swift; sourceTree = "<group>"; };
 		079B530E1D58DF12008FBE61 /* FloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatExtensions.swift; path = Extensions/FloatExtensions.swift; sourceTree = "<group>"; };
 		079B530F1D58DF12008FBE61 /* SwiftierSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftierSwift.swift; path = Extensions/SwiftierSwift.swift; sourceTree = "<group>"; };
+		07C73D4A1D59085600AFE02E /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +157,7 @@
 				071B9CAD1D567A7000AECBE8 /* UITextFieldExtensions.swift */,
 				071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */,
 				077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */,
+				07C73D4A1D59085600AFE02E /* MyPlayground.playground */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
