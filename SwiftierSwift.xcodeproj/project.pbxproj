@@ -18,13 +18,13 @@
 		071B9CB81D567A7000AECBE8 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CAC1D567A7000AECBE8 /* UINavigationControllerExtensions.swift */; };
 		071B9CB91D567A7000AECBE8 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CAD1D567A7000AECBE8 /* UITextFieldExtensions.swift */; };
 		071B9CBA1D567A7000AECBE8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */; };
+		077A411C1D5872B400D56DC4 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */; };
 		077B65DA1D54EC2E005712A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B65D91D54EC2E005712A1 /* AppDelegate.swift */; };
 		077B65DC1D54EC2E005712A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B65DB1D54EC2E005712A1 /* ViewController.swift */; };
 		077B65DF1D54EC2E005712A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077B65DD1D54EC2E005712A1 /* Main.storyboard */; };
 		077B65E11D54EC2E005712A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 077B65E01D54EC2E005712A1 /* Assets.xcassets */; };
 		077B65E41D54EC2E005712A1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077B65E21D54EC2E005712A1 /* LaunchScreen.storyboard */; };
 		077B65EF1D54EC2E005712A1 /* SwiftierSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B65EE1D54EC2E005712A1 /* SwiftierSwiftTests.swift */; };
-		6E6BE4D31D5698DA00FB593D /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6BE4D21D5698DA00FB593D /* UIViewControllerExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +49,7 @@
 		071B9CAC1D567A7000AECBE8 /* UINavigationControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UINavigationControllerExtensions.swift; path = Extensions/UINavigationControllerExtensions.swift; sourceTree = "<group>"; };
 		071B9CAD1D567A7000AECBE8 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = Extensions/UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Extensions/UIViewExtensions.swift; sourceTree = "<group>"; };
+		077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Extensions/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		077B65D61D54EC2E005712A1 /* SwiftierSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftierSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		077B65D91D54EC2E005712A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		077B65DB1D54EC2E005712A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		077B65EE1D54EC2E005712A1 /* SwiftierSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftierSwiftTests.swift; sourceTree = "<group>"; };
 		077B65F01D54EC2E005712A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07C357101D57AC3D00683889 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../../MyPlayground.playground; sourceTree = "<group>"; };
-		6E6BE4D21D5698DA00FB593D /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,10 +142,10 @@
 				071B9CA91D567A7000AECBE8 /* UIColorExtensions.swift */,
 				071B9CAA1D567A7000AECBE8 /* UIImageExtensions.swift */,
 				071B9CAB1D567A7000AECBE8 /* UILabelExtensions.swift */,
-				6E6BE4D21D5698DA00FB593D /* UIViewControllerExtensions.swift */,
 				071B9CAC1D567A7000AECBE8 /* UINavigationControllerExtensions.swift */,
 				071B9CAD1D567A7000AECBE8 /* UITextFieldExtensions.swift */,
 				071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */,
+				077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -260,8 +260,8 @@
 				071B9CB71D567A7000AECBE8 /* UILabelExtensions.swift in Sources */,
 				077B65DC1D54EC2E005712A1 /* ViewController.swift in Sources */,
 				071B9CB11D567A7000AECBE8 /* DateExtensions.swift in Sources */,
+				077A411C1D5872B400D56DC4 /* UIViewControllerExtensions.swift in Sources */,
 				071B9CAF1D567A7000AECBE8 /* ArrayExtensions.swift in Sources */,
-				6E6BE4D31D5698DA00FB593D /* UIViewControllerExtensions.swift in Sources */,
 				071B9CB81D567A7000AECBE8 /* UINavigationControllerExtensions.swift in Sources */,
 				071B9CBA1D567A7000AECBE8 /* UIViewExtensions.swift in Sources */,
 				077B65DA1D54EC2E005712A1 /* AppDelegate.swift in Sources */,

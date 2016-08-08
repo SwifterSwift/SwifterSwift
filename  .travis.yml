@@ -1,0 +1,5 @@
+language: objective-c  #1
+osx_image: xcode8.0 #2
+xcode_project: SwiftierSwift.xcodeproj #3
+xcode_scheme: SwiftierSwift #4
+xcode_sdk: iphonesimulator10.0 #5
