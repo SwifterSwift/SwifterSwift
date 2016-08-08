@@ -20,6 +20,7 @@
 		071B9CBA1D567A7000AECBE8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */; };
 		077A411C1D5872B400D56DC4 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */; };
 		077A411F1D587C3C00D56DC4 /* FloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A411E1D587C3C00D56DC4 /* FloatExtensions.swift */; };
+		077A41211D5883A100D56DC4 /* CharacterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A41201D5883A100D56DC4 /* CharacterExtensions.swift */; };
 		077B65DA1D54EC2E005712A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B65D91D54EC2E005712A1 /* AppDelegate.swift */; };
 		077B65DC1D54EC2E005712A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B65DB1D54EC2E005712A1 /* ViewController.swift */; };
 		077B65DF1D54EC2E005712A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077B65DD1D54EC2E005712A1 /* Main.storyboard */; };
@@ -51,8 +52,8 @@
 		071B9CAD1D567A7000AECBE8 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = Extensions/UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Extensions/UIViewExtensions.swift; sourceTree = "<group>"; };
 		077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Extensions/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
-		077A411D1D587A8100D56DC4 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../MyPlayground.playground; sourceTree = "<group>"; };
 		077A411E1D587C3C00D56DC4 /* FloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtensions.swift; sourceTree = "<group>"; };
+		077A41201D5883A100D56DC4 /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
 		077B65D61D54EC2E005712A1 /* SwiftierSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftierSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		077B65D91D54EC2E005712A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		077B65DB1D54EC2E005712A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				071B9CA81D567A7000AECBE8 /* StringExtensions.swift */,
+				077A41201D5883A100D56DC4 /* CharacterExtensions.swift */,
 				071B9CA51D567A7000AECBE8 /* DateExtensions.swift */,
 				071B9CA31D567A7000AECBE8 /* ArrayExtensions.swift */,
 				071B9CA61D567A7000AECBE8 /* DoubleExtensions.swift */,
@@ -148,7 +150,6 @@
 				071B9CAD1D567A7000AECBE8 /* UITextFieldExtensions.swift */,
 				071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */,
 				077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */,
-				077A411D1D587A8100D56DC4 /* MyPlayground.playground */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -258,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				071B9CB51D567A7000AECBE8 /* UIColorExtensions.swift in Sources */,
+				077A41211D5883A100D56DC4 /* CharacterExtensions.swift in Sources */,
 				071B9CB41D567A7000AECBE8 /* StringExtensions.swift in Sources */,
 				077A411F1D587C3C00D56DC4 /* FloatExtensions.swift in Sources */,
 				071B9CB31D567A7000AECBE8 /* IntExtensions.swift in Sources */,

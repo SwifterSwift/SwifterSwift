@@ -9,7 +9,7 @@
 import UIKit
 public extension UIImage {
     
-    convenience init(color: UIColor, size: CGSize) {
+    public convenience init(color: UIColor, size: CGSize) {
         
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         color.setFill()

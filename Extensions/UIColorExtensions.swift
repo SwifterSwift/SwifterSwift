@@ -7,10 +7,10 @@
 //
 
 import UIKit
-extension UIColor {
+public extension UIColor {
     
     /// Create new UIColor for RGB values
-    convenience init(red: Int, green: Int, blue: Int) {
+    public convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
@@ -20,7 +20,7 @@ extension UIColor {
     }
     
     /// Create new UIColor for RGB values with transparency
-    convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat) {
+    public convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
         assert(blue >= 0 && blue <= 255, "Invalid blue component")
@@ -29,12 +29,12 @@ extension UIColor {
     }
     
     /// Create new UIColor for a hexadecimal value
-    convenience init(netHex:Int) {
+    public convenience init(netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
     
     /// Create new UIColor for a hexadicimal value with transparency
-    convenience init(netHex:Int, transparency: CGFloat) {
+    public convenience init(netHex:Int, transparency: CGFloat) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff, transparency: transparency)
     }
     

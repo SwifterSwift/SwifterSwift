@@ -51,7 +51,7 @@ public extension Array where Element:Equatable {
     }
     
     /// Shuffle the array
-    mutating func shuffle() {
+    public mutating func shuffle() {
         // https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
         for _ in 0..<10 {
             sort { (_,_) in arc4random() < arc4random() }

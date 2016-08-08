@@ -108,15 +108,25 @@ public extension String {
     }
     
     /// Return true is string is a valid email format
-    var isEmail: Bool {
+    public var isEmail: Bool {
         // http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: self)
     }
     
+    /// Return true is string is http URL
+    public var isHttpUrl: Bool {
+        return self.lowercased().start(with: "http//:".lowercased()) && self.contains(".")
+    }
+    
+    /// Return true is string is https URL
+    public var isHttpsUrl: Bool {
+        return self.lowercased().start(with: "https//:".lowercased()) && self.contains(".")
+    }
+    
     /// Return reversed string
-    var reversed: String {
+    public var reversed: String {
         return String(characters.reversed())
     }
     

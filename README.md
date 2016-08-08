@@ -1,6 +1,7 @@
 ![Alt text](https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png "Swiftier Swift")
 
-[![Swift](https://img.shields.io/badge/SWIFT-3-orange.svg)](https://swift.org)
+[![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
+[![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg)](https://github.com/omaralbeik/SwiftierSwift)
 [![Xcode](https://img.shields.io/badge/Xcode-8.0%20beta4-blue.svg)](https://developer.apple.com/xcode)
 
@@ -17,13 +18,14 @@ A collection of priceless native swift 3 extensions to make working with your pr
 - [ ] [Double extensions](#double-extensions)
 - [ ] [Float extensions](#float-extensions)
 - [ ] [Int extensions](#int-extensions)
+- [ ] [Character extensions](#character-extensions)
 - [ ] [UIColor extensions](#uicolor-extensions)
 - [ ] [UIImage extensions](#uiimage-extensions)
 - [ ] [UINavigationController extensions](#uinavigationcontroller-extensions)
 - [ ] [UIView extensions](#uiview-extensions)
 - [ ] [UITextField extensions](#uitextfield-extensions)
 
-
+CharacterExtensions
 
 
 ## String extensions
@@ -32,6 +34,8 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |:--- | :--- | :---: | :--- |
 |**isEmpty** | Variable | Bool | Return true if string is empty or contains only spaces or new lines |
 |**isEmail** | Variable | Bool | Return true is string is a valid email format |
+|**isHttpUrl** | Variable | Bool | Return true is string is http URL |
+|**isHttpsUrl** | Variable | Bool | Return true is string is https URL |
 |**firstCharacter** | Variable | String? | Return first character in a string |
 |**lastCharacter** | Variable | String? | Return last character in a string |
 |**start(with prefix: String)** | Function | Bool | Return true if String starts with the given substring |
@@ -142,6 +146,15 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |**lcm(of n)** | Variable | Int | Return the least common multiple of an integer number and n |
 |**randomBetween(min, max)** | Static Variable | Int | Create a random integer between two integer numbers |
 
+
+## Character extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**locale** | Variable | Locale | Return current locale |
+|**isNumber** | Variable | Bool | Return true if character is a decimal number |
+|**toString** | Variable | String | Return a string from character |
+|**toInt** | Variable | Int? | Return Int value from character (if possible) |
 
 
 # UIColor extensions

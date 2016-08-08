@@ -17,7 +17,7 @@ public extension UINavigationController {
         CATransaction.commit()
     }
     
-    func pushViewController(viewController: UIViewController, completion: ()->()) {
+    public func pushViewController(viewController: UIViewController, completion: ()->()) {
         // https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
