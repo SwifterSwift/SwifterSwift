@@ -15,12 +15,15 @@ A collection of priceless native swift 3 extensions to make working with your pr
 - [ ] [Date extensions](#date-extensions)
 - [ ] [Array extensions](#array-extensions)
 - [ ] [Double extensions](#double-extensions)
+- [ ] [Float extensions](#float-extensions)
 - [ ] [Int extensions](#int-extensions)
 - [ ] [UIColor extensions](#uicolor-extensions)
 - [ ] [UIImage extensions](#uiimage-extensions)
 - [ ] [UINavigationController extensions](#uinavigationcontroller-extensions)
 - [ ] [UIView extensions](#uiview-extensions)
 - [ ] [UITextField extensions](#uitextfield-extensions)
+
+
 
 
 ## String extensions
@@ -113,7 +116,17 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |**abs** | Variable | Double | Return absolute value of double |
 |**floor** | Variable | Double | Return the largest integer <= self. |
 |**ceil** | Variable | Double | Rounds self to the smallest integer >= self. |
+|**randomBetween(min, max)** | Static Variable | Double | Create a random double between two double numbers |
 
+
+## Float extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**abs** | Variable | Float | Return absolute value of a float |
+|**floor** | Variable | Float | Return the largest integer <= self. |
+|**ceil** | Variable | Float | Rounds self to the smallest integer >= self. |
+|**randomBetween(min, max)** | Static Variable | Float | Create a random float between two float numbers |
 
 ## Int extensions
 
@@ -125,6 +138,10 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |**digits** | Variable | [Int] | Return an array of all digits in an Integer |
 |**digitsCount** | Variable | Int | Return digits count for an Integer |
 |**factorial** | Variable | Int? | Return factorial for an integer (if possible) |
+|**gcd(of n)** | Variable | Int | Return the greatest common divisor of an integer number and n |
+|**lcm(of n)** | Variable | Int | Return the least common multiple of an integer number and n |
+|**randomBetween(min, max)** | Static Variable | Int | Create a random integer between two integer numbers |
+
 
 
 # UIColor extensions

@@ -9,6 +9,10 @@
 import Foundation
 public extension Int {
     
+    public var abs: Int {
+        return Swift.abs(self)
+    }
+    
     public var isEven: Bool {
         return (self % 2) == 0
     }
@@ -38,8 +42,21 @@ public extension Int {
         return self == 0 ? self : (self - 1).factorial
     }
     
-    public var abs: Int {
-        return Swift.abs(self)
+    // Return the greatest common divisor of an integer number and n
+    public func gcd(of n: Int) -> Int {
+        return n == 0 ? self : n.gcd(of: self % n)
+    }
+    
+    // Return the least common multiple of an integer number and n
+    public func lcm(of n: Int) -> Int {
+        return (self * n).abs / gcd(of: n)
+    }
+    
+    /// Create a random integer between two integer numbers
+    public static func randomBetween(min: Int, max: Int) -> Int {
+        let delta = max - min
+        let random = Int(arc4random() % (UInt32(RAND_MAX) + 1))
+        return ((random / Int(RAND_MAX)) * delta) + min;
     }
 
 }

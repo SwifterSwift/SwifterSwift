@@ -19,6 +19,7 @@
 		071B9CB91D567A7000AECBE8 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CAD1D567A7000AECBE8 /* UITextFieldExtensions.swift */; };
 		071B9CBA1D567A7000AECBE8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */; };
 		077A411C1D5872B400D56DC4 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */; };
+		077A411F1D587C3C00D56DC4 /* FloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077A411E1D587C3C00D56DC4 /* FloatExtensions.swift */; };
 		077B65DA1D54EC2E005712A1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B65D91D54EC2E005712A1 /* AppDelegate.swift */; };
 		077B65DC1D54EC2E005712A1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077B65DB1D54EC2E005712A1 /* ViewController.swift */; };
 		077B65DF1D54EC2E005712A1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 077B65DD1D54EC2E005712A1 /* Main.storyboard */; };
@@ -50,6 +51,8 @@
 		071B9CAD1D567A7000AECBE8 /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITextFieldExtensions.swift; path = Extensions/UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtensions.swift; path = Extensions/UIViewExtensions.swift; sourceTree = "<group>"; };
 		077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtensions.swift; path = Extensions/UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		077A411D1D587A8100D56DC4 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../MyPlayground.playground; sourceTree = "<group>"; };
+		077A411E1D587C3C00D56DC4 /* FloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtensions.swift; sourceTree = "<group>"; };
 		077B65D61D54EC2E005712A1 /* SwiftierSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftierSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		077B65D91D54EC2E005712A1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		077B65DB1D54EC2E005712A1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 		077B65EA1D54EC2E005712A1 /* SwiftierSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftierSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		077B65EE1D54EC2E005712A1 /* SwiftierSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftierSwiftTests.swift; sourceTree = "<group>"; };
 		077B65F01D54EC2E005712A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		07C357101D57AC3D00683889 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = MyPlayground.playground; path = ../../MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +86,6 @@
 		077B65CD1D54EC2D005712A1 = {
 			isa = PBXGroup;
 			children = (
-				07C357101D57AC3D00683889 /* MyPlayground.playground */,
 				077B65FC1D54ED74005712A1 /* Extensions */,
 				077B65D81D54EC2E005712A1 /* SwiftierSwift */,
 				077B65ED1D54EC2E005712A1 /* SwiftierSwiftTests */,
@@ -138,6 +139,7 @@
 				071B9CA51D567A7000AECBE8 /* DateExtensions.swift */,
 				071B9CA31D567A7000AECBE8 /* ArrayExtensions.swift */,
 				071B9CA61D567A7000AECBE8 /* DoubleExtensions.swift */,
+				077A411E1D587C3C00D56DC4 /* FloatExtensions.swift */,
 				071B9CA71D567A7000AECBE8 /* IntExtensions.swift */,
 				071B9CA91D567A7000AECBE8 /* UIColorExtensions.swift */,
 				071B9CAA1D567A7000AECBE8 /* UIImageExtensions.swift */,
@@ -146,6 +148,7 @@
 				071B9CAD1D567A7000AECBE8 /* UITextFieldExtensions.swift */,
 				071B9CAE1D567A7000AECBE8 /* UIViewExtensions.swift */,
 				077A411B1D5872B400D56DC4 /* UIViewControllerExtensions.swift */,
+				077A411D1D587A8100D56DC4 /* MyPlayground.playground */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			files = (
 				071B9CB51D567A7000AECBE8 /* UIColorExtensions.swift in Sources */,
 				071B9CB41D567A7000AECBE8 /* StringExtensions.swift in Sources */,
+				077A411F1D587C3C00D56DC4 /* FloatExtensions.swift in Sources */,
 				071B9CB31D567A7000AECBE8 /* IntExtensions.swift in Sources */,
 				071B9CB71D567A7000AECBE8 /* UILabelExtensions.swift in Sources */,
 				077B65DC1D54EC2E005712A1 /* ViewController.swift in Sources */,
