@@ -6,7 +6,6 @@
 [![Xcode](https://img.shields.io/badge/Xcode-8.0%20beta4-blue.svg)](https://developer.apple.com/xcode)
 
 
-
 A collection of priceless native swift 3 extensions to make working with your projects a real joy ;)
 
 
@@ -19,13 +18,13 @@ A collection of priceless native swift 3 extensions to make working with your pr
 - [ ] [Float extensions](#float-extensions)
 - [ ] [Int extensions](#int-extensions)
 - [ ] [Character extensions](#character-extensions)
+- [ ] [Convenience extensions](#convenience-extensions)
 - [ ] [UIColor extensions](#uicolor-extensions)
 - [ ] [UIImage extensions](#uiimage-extensions)
 - [ ] [UINavigationController extensions](#uinavigationcontroller-extensions)
 - [ ] [UIView extensions](#uiview-extensions)
 - [ ] [UITextField extensions](#uitextfield-extensions)
 
-CharacterExtensions
 
 
 ## String extensions
@@ -155,6 +154,35 @@ CharacterExtensions
 |**isNumber** | Variable | Bool | Return true if character is a decimal number |
 |**toString** | Variable | String | Return a string from character |
 |**toInt** | Variable | Int? | Return Int value from character (if possible) |
+
+
+## Convenience extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**sharedApplication** | Variable | UIApplication | Return shared instance UIApplication |
+|**delegate** | Variable | AppDelegate | Return shared instance of AppDelegate |
+|**appVersion** | Variable | String? | Return app current version |
+|**appBuild** | Variable | String? | Return app current build number |
+|**systemVersion** | Variable | String? | Return system current version |
+|**currentDevice** | Variable | UIDevice | Return shared instance of current device |
+|**deviceName** | Variable | String | Return current device name |
+|**deviceModel** | Variable | String | Return current device model |
+|**batteryLevel** | Variable | Float | Return current battery level |
+|**isMultitaskingSupported** | Variable | Bool | Return true if multitasking is supported in current device |
+|**deviceOrientation** | Variable | UIDeviceOrientation | Return current orientation of device |
+|**applicationIconBadgeNumber** | Variable | Int | Application icon badge current number |
+|**isNetworkActivityIndicatorVisible** | Variable | Bool | Network activity indicator state |
+|**isStatusBarHidden** | Variable | Bool | Status bar visibility state|
+|**keyWindow** | Variable | UIView? | Return key window (read only) |
+|**mostTopViewController** | Variable | String? | Most top view controller |
+|**isRegisteredForRemoteNotifications** | Variable | Bool | Return true if device is registered for remote notifications for current app (read only) |
+|**statusBarStyle** | Variable | UIStatusBarStyle? | Current status bar style |
+|**userDefaults** | Variable | UserDefaults | Return shared instance of standard UserDefaults |
+|**set(value, forKey)** | Function | -- | Save an object to UserDefaults |
+|**object(forKey)** | Function | AnyObject? | Get an object from UserDefaults |
+|**isInDebuggingMode** | Variable | Bool | Return true if app is running in debug mode |
+|**isRunningOnSimulator** | Variable | Bool | Return true is application is running on simulator |
 
 
 # UIColor extensions

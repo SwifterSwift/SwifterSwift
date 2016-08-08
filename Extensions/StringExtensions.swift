@@ -117,12 +117,18 @@ public extension String {
     
     /// Return true is string is http URL
     public var isHttpUrl: Bool {
-        return self.lowercased().start(with: "http//:".lowercased()) && self.contains(".")
+        guard self.start(with: "http://".lowercased()) else {
+            return false
+        }
+        return URL(string: self) != nil
     }
     
     /// Return true is string is https URL
     public var isHttpsUrl: Bool {
-        return self.lowercased().start(with: "https//:".lowercased()) && self.contains(".")
+        guard self.start(with: "https://".lowercased()) else {
+            return false
+        }
+        return URL(string: self) != nil
     }
     
     /// Return reversed string
