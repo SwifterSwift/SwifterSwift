@@ -2,7 +2,7 @@
 
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
-[![Platform](https://img.shields.io/badge/Platform-iOS%20%7C%20macOS%20%7C%20tvOS%20%7C%20watchOS-lightgrey.svg)](https://github.com/omaralbeik/SwiftierSwift)
+[![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://github.com/omaralbeik/SwiftierSwift)
 [![Xcode](https://img.shields.io/badge/Xcode-8.0%20beta4-blue.svg)](https://developer.apple.com/xcode)
 
 
