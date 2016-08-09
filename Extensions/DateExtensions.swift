@@ -151,8 +151,7 @@ public extension Date {
         }
     }
     
-    // FIXME: test
-    /// Return beginning of given date component
+    // tested
     public func beginning(of component: Calendar.Component) -> Date {
         
         switch component {
@@ -183,8 +182,7 @@ public extension Date {
         }
     }
     
-    // FIXME: test
-    /// Create a new Date
+    // tested
     public init(calendar: Calendar?, timeZone: TimeZone?, era: Int?, year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, nanosecond: Int?) {
         
         let calendar = calendar ?? Calendar.current

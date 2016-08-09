@@ -9,22 +9,22 @@
 import Foundation
 public extension Double {
     
-    /// Return absolute value of double
+    // tested
     public var abs: Double {
         return Swift.abs(self)
     }
     
-    /// Return the largest integer <= self.
+    // tested
     public var floor: Double {
         return Foundation.floor(self)
     }
     
-    /// Rounds self to the smallest integer >= self.
+    // tested
     public var ceil: Double {
         return Foundation.ceil(self)
     }
     
-    /// Create a random double between two double numbers
+    // tested
     public static func randomBetween(min: Double, max: Double) -> Double {
         let delta = max - min
         let random = Double(arc4random() % (UInt32(RAND_MAX) + 1))

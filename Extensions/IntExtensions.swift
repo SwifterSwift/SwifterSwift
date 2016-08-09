@@ -9,18 +9,22 @@
 import Foundation
 public extension Int {
     
+    // tested
     public var abs: Int {
         return Swift.abs(self)
     }
     
+    // tested
     public var isEven: Bool {
         return (self % 2) == 0
     }
     
+    // tested
     public var isOdd: Bool {
         return (self % 2) != 0
     }
     
+    // tested
     public var digits: [Int] {
         var digits: [Int] = []
         for char in String(self).characters {
@@ -31,28 +35,22 @@ public extension Int {
         return digits
     }
     
+    // tested
     public var digitsCount: Int {
         return String(self).characters.count
     }
     
-    public var factorial: Int? {
-        guard self >= 0 else {
-            return nil
-        }
-        return self == 0 ? self : (self - 1).factorial
-    }
-    
-    // Return the greatest common divisor of an integer number and n
+    // tested
     public func gcd(of n: Int) -> Int {
         return n == 0 ? self : n.gcd(of: self % n)
     }
     
-    // Return the least common multiple of an integer number and n
+    // tested
     public func lcm(of n: Int) -> Int {
         return (self * n).abs / gcd(of: n)
     }
     
-    /// Create a random integer between two integer numbers
+    // tested
     public static func randomBetween(min: Int, max: Int) -> Int {
         let delta = max - min
         let random = Int(arc4random() % (UInt32(RAND_MAX) + 1))
