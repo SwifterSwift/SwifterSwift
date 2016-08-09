@@ -10,6 +10,7 @@
 import UIKit
 public extension UILabel {
 
+<<<<<<< HEAD
     /// Create smooth cross-dissolve transition to text changes; default duration is 0.5s.
     public func addTransitionAnimation(_duration : Double = 0.5) {
         let animation = CATransition()
@@ -27,4 +28,6 @@ public extension UILabel {
     }
 
 
+=======
+>>>>>>> testing
 }

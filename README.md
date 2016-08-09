@@ -11,13 +11,13 @@ A collection of priceless native swift 3 extensions to make working with your pr
 
 ## List Of Extensions
 
-- [ ] [String extensions](#string-extensions)
-- [ ] [Date extensions](#date-extensions)
-- [ ] [Array extensions](#array-extensions)
-- [ ] [Double extensions](#double-extensions)
-- [ ] [Float extensions](#float-extensions)
-- [ ] [Int extensions](#int-extensions)
-- [ ] [Character extensions](#character-extensions)
+- [x] [String extensions](#string-extensions)
+- [x] [Date extensions](#date-extensions)
+- [x] [Array extensions](#array-extensions)
+- [x] [Double extensions](#double-extensions)
+- [x] [Float extensions](#float-extensions)
+- [x] [Int extensions](#int-extensions)
+- [x] [Character extensions](#character-extensions)
 - [ ] [Convenience extensions](#convenience-extensions)
 - [ ] [UIColor extensions](#uicolor-extensions)
 - [ ] [UIImage extensions](#uiimage-extensions)

@@ -8,6 +8,7 @@
 
 import Foundation
 public extension Date {
+<<<<<<< HEAD
 
     /// Return user’s current calendar (read-only).
     public var calendar: Calendar {
@@ -25,6 +26,25 @@ public extension Date {
     }
 
     /// Seconds.
+=======
+    
+    // tested
+    public var calendar: Calendar {
+        return Calendar.current
+    }
+    
+    // tested
+    public var timeZone: TimeZone {
+        return self.calendar.timeZone
+    }
+    
+    // tested
+    public var nanosecond: Int {
+        return calendar.component(.nanosecond, from: self)
+    }
+    
+    // tested
+>>>>>>> testing
     public var second: Int {
         get {
             return calendar.component(.second, from: self)
@@ -33,8 +53,13 @@ public extension Date {
             self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
         }
     }
+<<<<<<< HEAD
 
     /// Minutes.
+=======
+    
+    // tested
+>>>>>>> testing
     public var minute: Int {
         get {
             return calendar.component(.minute, from: self)
@@ -43,8 +68,13 @@ public extension Date {
             self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: newValue, second: second, nanosecond: nanosecond)
         }
     }
+<<<<<<< HEAD
 
     /// Hour.
+=======
+    
+    // tested
+>>>>>>> testing
     public var hour: Int {
         get {
             return calendar.component(.hour, from: self)
@@ -53,8 +83,13 @@ public extension Date {
             self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: newValue, minute: minute, second: second, nanosecond: nanosecond)
         }
     }
+<<<<<<< HEAD
 
     /// Day.
+=======
+    
+    // tested
+>>>>>>> testing
     public var day: Int {
         get {
             return calendar.component(.day, from: self)
@@ -63,6 +98,7 @@ public extension Date {
             self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: newValue, hour: hour, minute: minute, second: second, nanosecond: nanosecond)
         }
     }
+<<<<<<< HEAD
 
     /// Weekday (read-only).
     public var weekday: Int {
@@ -80,6 +116,25 @@ public extension Date {
     }
 
     /// Month.
+=======
+    
+    // tested
+    public var weekday: Int {
+        return calendar.component(.weekday, from: self)
+    }
+    
+    // tested
+    public var weekOfMonth: Int {
+        return calendar.component(.weekOfMonth, from: self)
+    }
+    
+    // tested
+    public var weekOfYear: Int {
+        return calendar.component(.weekOfYear, from: self)
+    }
+    
+    // tested
+>>>>>>> testing
     public var month: Int {
         get {
             return calendar.component(.month, from: self)
@@ -88,8 +143,13 @@ public extension Date {
             self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: newValue, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
         }
     }
+<<<<<<< HEAD
 
     /// Year.
+=======
+    
+    // tested
+>>>>>>> testing
     public var year: Int {
         get {
             return calendar.component(.year, from: self)
@@ -98,6 +158,7 @@ public extension Date {
             self = Date(calendar: calendar, timeZone: timeZone, era: era, year: newValue, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
         }
     }
+<<<<<<< HEAD
 
     /// Era (read-only).
     public var era: Int {
@@ -115,6 +176,25 @@ public extension Date {
     }
 
     /// Add calendar components to date.
+=======
+    
+    // tested
+    public var era: Int {
+        return calendar.component(.era, from: self)
+    }
+    
+    // tested
+    public var quarter: Int {
+        return calendar.component(.quarter, from: self)
+    }
+    
+    // tested
+    public var isInToday: Bool {
+        return self.day == Date().day && self.month == Date().month && self.year == Date().year
+    }
+    
+    // tested
+>>>>>>> testing
     public mutating func add(component: Calendar.Component, value: Int) {
         switch component {
 
@@ -150,8 +230,13 @@ public extension Date {
             break
         }
     }
+<<<<<<< HEAD
 
     /// Return beginning of given date component.
+=======
+    
+    // tested
+>>>>>>> testing
     public func beginning(of component: Calendar.Component) -> Date {
 
         switch component {
@@ -181,8 +266,13 @@ public extension Date {
             return self
         }
     }
+<<<<<<< HEAD
 
     /// Create a new date.
+=======
+    
+    // tested
+>>>>>>> testing
     public init(calendar: Calendar?, timeZone: TimeZone?, era: Int?, year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, nanosecond: Int?) {
 
         let calendar = calendar ?? Calendar.current

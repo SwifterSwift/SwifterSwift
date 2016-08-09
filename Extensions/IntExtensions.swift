@@ -8,6 +8,7 @@
 
 import Foundation
 public extension Int {
+<<<<<<< HEAD
 
     /// Return absolute of integer value (read-only).
     public var abs: Int {
@@ -25,6 +26,25 @@ public extension Int {
     }
 
     /// Return array of digits of integer value.
+=======
+    
+    // tested
+    public var abs: Int {
+        return Swift.abs(self)
+    }
+    
+    // tested
+    public var isEven: Bool {
+        return (self % 2) == 0
+    }
+    
+    // tested
+    public var isOdd: Bool {
+        return (self % 2) != 0
+    }
+    
+    // tested
+>>>>>>> testing
     public var digits: [Int] {
         var digits: [Int] = []
         for char in String(self).characters {
@@ -34,6 +54,7 @@ public extension Int {
         }
         return digits
     }
+<<<<<<< HEAD
 
     /// Returns number of digits of integer value (read-only).
     public var digitsCount: Int {
@@ -59,6 +80,25 @@ public extension Int {
     }
 
     /// Return random integer value between two integer values.
+=======
+    
+    // tested
+    public var digitsCount: Int {
+        return String(self).characters.count
+    }
+    
+    // tested
+    public func gcd(of n: Int) -> Int {
+        return n == 0 ? self : n.gcd(of: self % n)
+    }
+    
+    // tested
+    public func lcm(of n: Int) -> Int {
+        return (self * n).abs / gcd(of: n)
+    }
+    
+    // tested
+>>>>>>> testing
     public static func randomBetween(min: Int, max: Int) -> Int {
         let delta = max - min
         let random = Int(arc4random() % (UInt32(RAND_MAX) + 1))
