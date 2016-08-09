@@ -10,6 +10,7 @@ import Foundation
 public extension Array where Element: Equatable {
     
     // tested
+    /// Return unique values of array.
     public var uniqueValues: [Element] {
         var result = [Element]()
         for value in self {
@@ -21,6 +22,7 @@ public extension Array where Element: Equatable {
     }
     
     // tested
+    /// Remove duplicates from array.
     public mutating func removeDuplicates() {
         var result = [Element]()
         for value in self {
@@ -33,6 +35,7 @@ public extension Array where Element: Equatable {
     
     
     // tested
+    /// Return all indexes of specified item.
     public func indexes(of item: Element) -> [Int] {
         var indexes: [Int] = []
         for index in 0..<self.count {
@@ -44,6 +47,7 @@ public extension Array where Element: Equatable {
     }
     
     // tested
+    /// Remove all instances of an element from array.
     public mutating func removeAll(object: Element) {
         self = self.filter() { $0 != object }
     }
@@ -53,12 +57,14 @@ public extension Array where Element: Equatable {
 public extension Array {
     
     /// tested
+    /// Return random item from array.
     public var randomItem: Element {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
     }
     
     /// tested
+    /// Return first index of element in array.
     public func firstIndex <Item: Equatable> (of item: Item) -> Int? {
         if item is Element {
             for (index, value) in self.lazy.enumerated() {
@@ -72,6 +78,7 @@ public extension Array {
     }
     
     /// tested
+    /// Return last index of element in array.
     public func lastIndex <Item: Equatable> (of item: Item) -> Int? {
         if item is Element {
             for (index, value) in self.reversed().lazy.enumerated() {
@@ -85,6 +92,7 @@ public extension Array {
     }
     
     /// tested
+    /// Shuffle array.
     public mutating func shuffle() {
         // https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
         for _ in 0..<10 {
@@ -93,6 +101,7 @@ public extension Array {
     }
     
     /// tested
+    /// Return shuffled version of array.
     public var shuffled: [Element] {
         var arr = self
         for _ in 0..<10 {

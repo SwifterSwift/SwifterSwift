@@ -9,6 +9,16 @@
 A collection of priceless native swift 3 extensions to make working with your projects a real joy ;)
 
 
+## How to use:
+
+Copy Extensions folder to your Xcode project to use all extensions, or a specific extension
+
+
+## Requirements:
+
+Xcode 8 beta4 or later with Swift 3 is required to use these extensions
+
+
 ## List Of Extensions
 
 - [x] [String extensions](#string-extensions)
@@ -25,6 +35,9 @@ A collection of priceless native swift 3 extensions to make working with your pr
 - [ ] [UIView extensions](#uiview-extensions)
 - [ ] [UITextField extensions](#uitextfield-extensions)
 
+
+## Thanks:
+Special thanks to [Eng. AbdulRahman Dabbour](https://github.com/thedabbour) for documenting the project
 
 
 ## Array extensions
@@ -132,7 +145,6 @@ A collection of priceless native swift 3 extensions to make working with your pr
 |**isOdd** | Read-Only Variable | Bool | Checks if integer value is odd |
 |**digits** | Variable | [Int] | Return array of digits of integer value |
 |**digitsCount** | Read-Only Variable | Int | Returns number of digits of integer value |
-|**factorial** | Read-Only Variable | Int? | Return factorial of integer value |
 |**gcd(of n)** | Function | Int | Return greatest common divisor of integer value and n |
 |**lcm(of n)** | Function | Int | Return least common multiple of integer value and n |
 |**randomBetween(min, max)** | Static Function | Int | Return random integer value between two integer values |
@@ -142,7 +154,7 @@ A collection of priceless native swift 3 extensions to make working with your pr
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**isEmpty** | Variable | Bool | Return true if string is empty or contains only spaces or new lines |
+|**empty** | Variable | Bool | Return true if string is empty or contains only spaces or new lines |
 |**isEmail** | Read-Only Variable | Bool | Return true if string is valid email format |
 |**isHttpUrl** | Read-Only Variable | Bool | Return true if string is http URL |
 |**isHttpsUrl** | Read-Only Variable | Bool | Return true is string is https URL |
