@@ -8,8 +8,8 @@
 
 import UIKit
 public extension UIView {
-
-    /// Shake UIView.
+    
+    /// Shake UIView
     public func shake() {
         let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
@@ -17,8 +17,7 @@ public extension UIView {
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
     }
-
-    /// Corner Radius; accessible from storyboard.
+    
     @IBInspectable
     public var cornerRadius: CGFloat {
         get {
@@ -28,8 +27,7 @@ public extension UIView {
             layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
         }
     }
-
-    /// Border Color; accessible from storyboard.
+    
     @IBInspectable
     public var borderColor: UIColor? {
         get {
@@ -46,8 +44,7 @@ public extension UIView {
             layer.borderColor = color.cgColor
         }
     }
-
-    /// Border Width; accessible from storyboard.
+    
     @IBInspectable
     public var borderWidth: CGFloat {
         get {
@@ -57,10 +54,9 @@ public extension UIView {
             layer.borderWidth = newValue
         }
     }
-
-    /// Return current first responder in viewController.
+    
     public var firstResponder: UIView? {
-
+        
         guard !self.isFirstResponder else {
             return self
         }

@@ -8,27 +8,27 @@
 
 import Foundation
 public extension Float {
-
-    /// Return absolute of float value (read-only).
+    
+    /// Return absolute value of float
     public var abs: Float {
         return Swift.abs(self)
     }
-
-    /// Return floor of float value (read-only).
+    
+    /// Return the largest integer <= self.
     public var floor: Float {
         return Foundation.floor(self)
     }
-
-    /// Return ceil of float value (read-only).
+    
+    /// Rounds self to the smallest integer >= self.
     public var ceil: Float {
         return Foundation.ceil(self)
     }
-
-    /// Return random float value between two float values.
+    
+    /// Create a random float between two float numbers
     public static func randomBetween(min: Float, max: Float) -> Float {
         let delta = max - min
         let random = Float(arc4random() % (UInt32(RAND_MAX) + 1))
         return ((random / Float(RAND_MAX)) * delta) + min;
     }
-
+    
 }
