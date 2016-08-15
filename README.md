@@ -3,7 +3,7 @@
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://github.com/omaralbeik/SwiftierSwift)
-[![Xcode](https://img.shields.io/badge/Xcode-8.0%20beta4-blue.svg)](https://developer.apple.com/xcode)
+[![Xcode](https://img.shields.io/badge/Xcode-8.0%20beta5-blue.svg)](https://developer.apple.com/xcode)
 
 
 A collection of priceless native swift 3 extensions to make working with your projects a real joy ;)
