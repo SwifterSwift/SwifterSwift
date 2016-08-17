@@ -138,7 +138,7 @@ public class SwiftierSwift {
     }
     
     /// Get an object from UserDefaults
-    public static func object(forKey: String) -> AnyObject? {
+    public static func object(forKey: String) -> Any? {
         return UserDefaults.standard.object(forKey: forKey)
     }
     

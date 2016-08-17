@@ -9,7 +9,7 @@
 import UIKit
 public extension UINavigationController {
     
-    public func popViewControllerWithHandler(completion: ()->()) {
+    public func popViewControllerWithHandler(completion: (()->Void)?) {
         // https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
@@ -17,7 +17,7 @@ public extension UINavigationController {
         CATransaction.commit()
     }
     
-    public func pushViewController(viewController: UIViewController, completion: ()->()) {
+    public func pushViewController(viewController: UIViewController, completion: (()->Void)?)  {
         // https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
