@@ -309,14 +309,17 @@ public extension String {
         }
     }
     
-    public func contains(string: String, caseSensitive: Bool = true) -> Bool{
+    /// Return true if string contains one or more instance of substring
+    public func contain(string: String, caseSensitive: Bool = true) -> Bool {
         if !caseSensitive {
             return range(of: string, options: .caseInsensitive) != nil
         }
         return range(of: string) != nil
     }
     
-    public var containsEmoji:Bool {
+    
+    /// Return true if string contains one or more emojis
+    public var containEmoji:Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         for scalar in unicodeScalars {
             switch scalar.value {
@@ -333,18 +336,22 @@ public extension String {
         return false
     }
     
+    /// Return url escaped string
     public var urlEncode: String {
         return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
     }
     
+    /// Escape a string
     public mutating func urlEncoded() {
         self = addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
     }
     
+    /// Return readable string from url string
     public var urlDecode: String {
         return removingPercentEncoding ?? self
     }
     
+    /// Convert url string into readable string
     public mutating func urlDecoded() {
         self = removingPercentEncoding ?? self
     }

@@ -162,18 +162,22 @@ public class SwiftierSwift {
         #endif
     }
     
+    /// Return device width
     var deviceWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
     
+    /// Return device height
     var deviceHeight: CGFloat {
         return UIScreen.main.bounds.height
     }
     
+    /// Return true if device is iPhone
     var isPhone: Bool {
         return UIDevice.current.userInterfaceIdiom == .phone
     }
     
+    /// Return true if device is iPad
     var isPad: Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }

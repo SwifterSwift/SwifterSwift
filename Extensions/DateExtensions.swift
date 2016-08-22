@@ -199,10 +199,12 @@ public extension Date {
         }
     }
     
+    /// Return true if date is in future
     public var isInFuture: Bool {
         return self > Date()
     }
     
+    /// Return true if date is in past
     public var isInPast: Bool {
         return self < Date()
     }

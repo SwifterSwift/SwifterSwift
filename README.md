@@ -53,7 +53,9 @@ Special thanks to [Eng. AbdulRahman Dabbour](https://github.com/thedabbour) for 
 |**shuffle()** | Function | -- | Shuffle array |
 |**shuffled** | Variable | Array | Return shuffled version of array |
 |**indexes(of item)** | Function | [Int] | Return all indexes of specified item |
-
+|**prepend(item)** | Function | -- | Prepend an element to array |
+|**sum** | Variable | Array | Sum of all elements in the array |
+|**average** | Variable | Double | Average of all elements in array |
 
 ## Character extensions
 
@@ -63,34 +65,40 @@ Special thanks to [Eng. AbdulRahman Dabbour](https://github.com/thedabbour) for 
 |**isNumber** | Read-Only Variable | Bool | Return true if character is number |
 |**toString** | Read-Only Variable | String | Return string from character |
 |**toInt** | Read-Only Variable | Int? | Return integer from character (if applicable) |
+|**isEmoji** | Read-Only Variable | Bool | Return true if character is an emoji |
 
 ## Convenience extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**sharedApplication** | Read-Only Variable | UIApplication | Return shared instance of UIApplication  |
-|**delegate** | Read-Only Variable | AppDelegate | Return shared instance of AppDelegate  |
-|**appVersion** | Read-Only Variable | String? | Return app current version  |
-|**appBuild** | Read-Only Variable | String? | Return app current build number  |
-|**systemVersion** | Read-Only Variable | String? | Return system current version  |
-|**currentDevice** | Read-Only Variable | UIDevice | Return shared instance of current device  |
-|**deviceName** | Read-Only Variable | String | Return current device name  |
-|**deviceModel** | Read-Only Variable | String | Return current device model  |
-|**batteryLevel** | Read-Only Variable | Float | Return current battery level  |
-|**isMultitaskingSupported** | Read-Only Variable | Bool | Return true if multitasking is supported in current device  |
-|**deviceOrientation** | Read-Only Variable | UIDeviceOrientation | Return current orientation of device  |
+|**sharedApplication** | Read-Only Variable | UIApplication | Return shared instance of UIApplication |
+|**delegate** | Read-Only Variable | AppDelegate | Return shared instance of AppDelegate |
+|**appVersion** | Read-Only Variable | String? | Return app current version |
+|**appBuild** | Read-Only Variable | String? | Return app current build number |
+|**systemVersion** | Read-Only Variable | String? | Return system current version |
+|**currentDevice** | Read-Only Variable | UIDevice | Return shared instance of current device |
+|**deviceName** | Read-Only Variable | String | Return current device name |
+|**deviceModel** | Read-Only Variable | String | Return current device model |
+|**batteryLevel** | Read-Only Variable | Float | Return current battery level |
+|**isMultitaskingSupported** | Read-Only Variable | Bool | Return true if multitasking is supported in current device |
+|**deviceOrientation** | Read-Only Variable | UIDeviceOrientation | Return current orientation of device |
 |**applicationIconBadgeNumber** | Variable | Int | Application icon badge number |
 |**isNetworkActivityIndicatorVisible** | Variable | Bool | Network activity indicator visibility |
 |**isStatusBarHidden** | Variable | Bool | Status bar visibility |
-|**keyWindow** | Read-Only Variable | UIView? | Return key window  |
+|**keyWindow** | Read-Only Variable | UIView? | Return key window |
 |**mostTopViewController** | Variable | String? | Most top view controller |
-|**isRegisteredForRemoteNotifications** | Read-Only Variable | Bool | Return true if device is registered for remote notifications for current app  |
+|**isRegisteredForRemoteNotifications** | Read-Only Variable | Bool | Return true if device is registered for remote notifications for current app |
 |**statusBarStyle** | Variable | UIStatusBarStyle? | Current status bar style |
-|**userDefaults** | Read-Only Variable | UserDefaults | Return shared instance of standard UserDefaults  |
+|**userDefaults** | Read-Only Variable | UserDefaults | Return shared instance of standard UserDefaults |
 |**set(value, forKey)** | Function | -- | Save an object to UserDefaults |
 |**object(forKey)** | Function | AnyObject? | Get an object from UserDefaults |
-|**isInDebuggingMode** | Read-Only Variable | Bool | Return true if app is running in debug mode  |
-|**isRunningOnSimulator** | Read-Only Variable | Bool | Return true if application is running on simulator  |
+|**isInDebuggingMode** | Read-Only Variable | Bool | Return true if app is running in debug mode |
+|**isRunningOnSimulator** | Read-Only Variable | Bool | Return true if application is running on simulator |
+
+|**deviceWidth** | Read-Only Variable | Bool | Return device width |
+|**deviceHeight** | Read-Only Variable | Bool | Return device height |
+|**isPhone** | Read-Only Variable | Bool | Return true if device is iPhone |
+|**isPad** | Read-Only Variable | Bool | Return true if device is iPad |
 
 
 ## Date extensions
@@ -115,6 +123,8 @@ Special thanks to [Eng. AbdulRahman Dabbour](https://github.com/thedabbour) for 
 |**isInToday** | Read-Only Variable | Bool | Return true if date is in today |
 |**add(component: Calendar.Component, value: Int)** | Function | -- | Add calendar components to date |
 |**beginning(of component: Calendar.Component)** | Function | Date | Return beginning of given date component |
+|**isInFuture** | Read-Only Variable | Bool | Return true if date is in future |
+|**isInPast** | Read-Only Variable | Bool | Return true if date is in past |
 
 
 ## Double extensions
@@ -148,7 +158,7 @@ Special thanks to [Eng. AbdulRahman Dabbour](https://github.com/thedabbour) for 
 |**gcd(of n)** | Function | Int | Return greatest common divisor of integer value and n |
 |**lcm(of n)** | Function | Int | Return least common multiple of integer value and n |
 |**randomBetween(min, max)** | Static Function | Int | Return random integer value between two integer values |
-
+|**romanNumeral** | Read-Only Variable | String? | Return roman numeral from an integer (I, II, IV, X,..) |
 
 ## String extensions
 
@@ -160,10 +170,11 @@ Special thanks to [Eng. AbdulRahman Dabbour](https://github.com/thedabbour) for 
 |**isHttpsUrl** | Read-Only Variable | Bool | Return true is string is https URL |
 |**firstCharacter** | Read-Only Variable | String? | Return first character of string |
 |**lastCharacter** | Read-Only Variable | String? | Return last character of string |
-|**start(with prefix: String)** | Function | Bool | Return true if string starts with substring |
-|**end(with suffix: String)** | Function | Bool | Return true if string ends with substring |
-|**count(of string: String)** | Function | Int | Return count of substring in string |
+|**start(with prefix: String, caseSensitive: Bool)** | Function | Bool | Return true if string starts with substring |
+|**end(with suffix: String, caseSensitive: Bool)** | Function | Bool | Return true if string ends with substring |
+|**count(of string: String, caseSensitive: Bool)** | Function | Int | Return count of substring in string |
 |**contain(string: String)** | Function | Bool | Return true if string contains one or more instance of substring |
+|**containEmoji** | Read-Only Variable | Bool | Return true if string contains one or more instance of substring |
 |**split(by separator: Character)** | Function | [String] | Return an array of strings seperated by given string |
 |**trimmed** | Read-Only Variable | String | Return string with no spaces or new lines in beginning and end |
 |**trim()** | Function | -- | Removes spaces and new lines in beginning and end of string |
@@ -195,6 +206,11 @@ Special thanks to [Eng. AbdulRahman Dabbour](https://github.com/thedabbour) for 
 |**toDouble** | Read-Only Variable | Double? | Return Double value from string (if applicable) |
 |**toBool** | Read-Only Variable | Bool? | Return Bool value from string (if applicable) |
 |**random(of length: Int)** | Function | String | Return random string of given length |
+|**urlEncode** | Read-Only Variable | String | Return url escaped string |
+|**urlEncoded** | Function | -- | Escape a string |
+|**urlDecode** | Read-Only Variable | String | Return readable string from url string |
+|**urlDecoded** | Function | -- | Convert url string into readable string |
+
 
 
 # UIColor extensions

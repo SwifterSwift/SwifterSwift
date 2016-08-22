@@ -33,6 +33,7 @@ public extension Character {
         return Int(String(self))
     }
     
+    /// Return true if character is an emoji
     public var isEmoji: Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         guard let scalarValue = String(self).unicodeScalars.first?.value else {

@@ -110,6 +110,7 @@ public extension Array {
         return arr
     }
     
+    /// Prepend an element to array
     public mutating func prepend(_ newElement: Element) {
         self.insert(newElement, at: 0)
     }

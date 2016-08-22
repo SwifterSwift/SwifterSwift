@@ -63,9 +63,10 @@ public extension Int {
         return min + Int(arc4random_uniform(UInt32(delta)))
     }
     
+    
+    /// Return roman numeral from an integer (I, II, IV, X,..)
     public var romanNumeral: String? {
         // https://gist.github.com/kumo/a8e1cb1f4b7cff1548c7
-        
         guard self > 0 else { // there is no roman numerals for 0 or negative numbers
             return nil
         }
