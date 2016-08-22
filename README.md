@@ -94,7 +94,6 @@ Special thanks to [Eng. AbdulRahman Dabbour](https://github.com/thedabbour) for 
 |**object(forKey)** | Function | AnyObject? | Get an object from UserDefaults |
 |**isInDebuggingMode** | Read-Only Variable | Bool | Return true if app is running in debug mode |
 |**isRunningOnSimulator** | Read-Only Variable | Bool | Return true if application is running on simulator |
-
 |**deviceWidth** | Read-Only Variable | Bool | Return device width |
 |**deviceHeight** | Read-Only Variable | Bool | Return device height |
 |**isPhone** | Read-Only Variable | Bool | Return true if device is iPhone |
