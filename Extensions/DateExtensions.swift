@@ -199,6 +199,14 @@ public extension Date {
         }
     }
     
+    public var isInFuture: Bool {
+        return self > Date()
+    }
+    
+    public var isInPast: Bool {
+        return self < Date()
+    }
+    
     // tested
     /// Create a new date.
     public init(calendar: Calendar?, timeZone: TimeZone?, era: Int?, year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, nanosecond: Int?) {

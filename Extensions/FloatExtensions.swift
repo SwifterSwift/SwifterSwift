@@ -27,12 +27,10 @@ public extension Float {
         return Foundation.ceil(self)
     }
     
-    // tested
     /// Return random float value between two float values.
     public static func randomBetween(min: Float, max: Float) -> Float {
         let delta = max - min
-        let random = Float(arc4random() % (UInt32(RAND_MAX) + 1))
-        return ((random / Float(RAND_MAX)) * delta) + min;
+        return min + Float(arc4random_uniform(UInt32(delta)))
     }
     
 }

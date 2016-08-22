@@ -27,12 +27,10 @@ public extension Double {
         return Foundation.ceil(self)
     }
     
-    // tested
     /// Return random double value between two double values.
     public static func randomBetween(min: Double, max: Double) -> Double {
         let delta = max - min
-        let random = Double(arc4random() % (UInt32(RAND_MAX) + 1))
-        return ((random / Double(RAND_MAX)) * delta) + min;
+        return min + Double(arc4random_uniform(UInt32(delta)))
     }
     
 }

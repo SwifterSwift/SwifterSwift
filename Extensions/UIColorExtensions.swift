@@ -40,7 +40,6 @@ public extension UIColor {
     
     /// Return hexadecimal value string
     public var hexString: String {
-        
         var r:CGFloat = 0
         var g:CGFloat = 0
         var b:CGFloat = 0

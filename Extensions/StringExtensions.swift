@@ -17,26 +17,35 @@ public extension String {
     
     // tested
     /// Return count of substring in string.
-    public func count(of string: String) -> Int {
+    public func count(of string: String, caseSensitive: Bool = true) -> Int {
+        if !caseSensitive {
+            return lowercased().components(separatedBy: string).count - 1
+        }
         return components(separatedBy: string).count - 1
     }
     
     // tested
     /// Return true if string starts with substring.
-    public func starts(with prefix: String) -> Bool {
+    public func starts(with prefix: String, caseSensitive: Bool = true) -> Bool {
+        if !caseSensitive {
+            return lowercased().hasPrefix(prefix.lowercased())
+        }
         return hasPrefix(prefix)
     }
     
     // tested
     /// Return true if string ends with substring.
-    public func ends(with suffix: String) -> Bool {
+    public func ends(with suffix: String, caseSensitive: Bool = true) -> Bool {
+        if !caseSensitive {
+            return lowercased().hasSuffix(suffix.lowercased())
+        }
         return hasSuffix(suffix)
     }
     
     // tested
     /// Return true if string starts does not contain any text
     public var empty: Bool {
-        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).characters.count == 0
+        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).characters.count == 0
     }
     
     // tested
@@ -48,38 +57,38 @@ public extension String {
     // tested
     /// Return string with no spaces or new lines in beginning and end (read-only).
     public var trimmed: String {
-        return self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
     // tested
     /// Removes spaces and new lines in beginning and end of string.
     public mutating func trim() {
-        self = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        self = trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
     // tested
     /// Return first character of string (read-only).
     public var firstCharacter: String? {
-        return Array(self.characters).map({String($0)}).first
+        return Array(characters).map({String($0)}).first
     }
     
     // tested
     /// Return last character of string (read-only).
     public var lastCharacter: String? {
-        return Array(self.characters).map({String($0)}).last
+        return Array(characters).map({String($0)}).last
     }
     
     // tested
     /// Return string without spaces and new lines
     public var withoutSpacesAndNewLines: String {
-        return self.replace(string: " ", with: "").replace(string: "\n", with: "")
+        return replace(string: " ", with: "").replace(string: "\n", with: "")
     }
     
     // tested
     /// Return most common character in string (read-only).
     public var mostCommonCharacter: String {
         var mostCommon = ""
-        let charSet = Set(self.withoutSpacesAndNewLines.characters.map{String($0)})
+        let charSet = Set(withoutSpacesAndNewLines.characters.map{String($0)})
         var count = 0
         for string in charSet {
             if self.count(of: string) > count {
@@ -93,7 +102,7 @@ public extension String {
     // tested
     /// Returns CamelCase of string (read-only).
     public var camelCaseString: String {
-        let source = self.lowercased()
+        let source = lowercased()
         if source.characters.contains(" ") {
             let first = source.substring(to: source.index(after: source.startIndex))
             let camel = source.capitalized.replace(string: " ", with: "").replace(string: "\n", with: "")
@@ -110,7 +119,7 @@ public extension String {
     // tested
     /// Converts string format to CamelCase.
     public mutating func camelize() {
-        self = self.camelCaseString
+        self = camelCaseString
     }
     
     // tested
@@ -135,7 +144,7 @@ public extension String {
     // tested
     /// Return true if string is http URL (read-only).
     public var isHttpUrl: Bool {
-        guard self.starts(with: "http://".lowercased()) else {
+        guard starts(with: "http://".lowercased()) else {
             return false
         }
         return URL(string: self) != nil
@@ -144,7 +153,7 @@ public extension String {
     // tested
     /// Return true if string is https URL (read-only).
     public var isHttpsUrl: Bool {
-        guard self.starts(with: "https://".lowercased()) else {
+        guard starts(with: "https://".lowercased()) else {
             return false
         }
         return URL(string: self) != nil
@@ -171,7 +180,7 @@ public extension String {
     // tested
     /// Replace part of string with another string.
     public func replace(string: String, with: String) -> String {
-        return self.replacingOccurrences(of: string, with: with)
+        return replacingOccurrences(of: string, with: with)
     }
     
     // tested
@@ -201,19 +210,19 @@ public extension String {
     // tested
     /// Return true if string contains at least one letter and one number (read-only).
     public var isAlphaNumeric: Bool {
-        return self.components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").characters.count == 0 && hasLetters && hasNumbers
+        return components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").characters.count == 0 && hasLetters && hasNumbers
     }
     
     // tested
     /// Return latinized string (read-only).
     public var latinized: String {
-        return self.folding(options: .diacriticInsensitive, locale: Locale.current)
+        return folding(options: .diacriticInsensitive, locale: Locale.current)
     }
     
     // tested
     /// Latinize string.
     public mutating func latinize() {
-        self = self.latinized
+        self = latinized
     }
     
     // tested
@@ -299,4 +308,45 @@ public extension String {
             return nil
         }
     }
+    
+    public func contains(string: String, caseSensitive: Bool = true) -> Bool{
+        if !caseSensitive {
+            return range(of: string, options: .caseInsensitive) != nil
+        }
+        return range(of: string) != nil
+    }
+    
+    public var containsEmoji:Bool {
+        // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
+        for scalar in unicodeScalars {
+            switch scalar.value {
+            case 0x3030, 0x00AE, 0x00A9,// Special Characters
+            0x1D000...0x1F77F,          // Emoticons
+            0x2100...0x27BF,            // Misc symbols and Dingbats
+            0xFE00...0xFE0F,            // Variation Selectors
+            0x1F900...0x1F9FF:          // Supplemental Symbols and Pictographs
+                return true
+            default:
+                continue
+            }
+        }
+        return false
+    }
+    
+    public var urlEncode: String {
+        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
+    }
+    
+    public mutating func urlEncoded() {
+        self = addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
+    }
+    
+    public var urlDecode: String {
+        return removingPercentEncoding ?? self
+    }
+    
+    public mutating func urlDecoded() {
+        self = removingPercentEncoding ?? self
+    }
+
 }

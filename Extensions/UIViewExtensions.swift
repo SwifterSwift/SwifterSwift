@@ -55,8 +55,50 @@ public extension UIView {
         }
     }
     
+    @IBInspectable
+    public var shadowColor: UIColor? {
+        get {
+            guard let color = layer.shadowColor else {
+                return nil
+            }
+            return UIColor(cgColor: color)
+        }
+        set {
+            layer.shadowColor = newValue?.cgColor
+        }
+    }
+    
+    @IBInspectable
+    public var shadowOpacity: Float {
+        get {
+            return layer.shadowOpacity
+        }
+        set {
+            layer.shadowOpacity = newValue
+        }
+    }
+    
+    @IBInspectable
+    public var shadowOffset: CGSize {
+        get {
+            return layer.shadowOffset
+        }
+        set {
+            layer.shadowOffset = newValue
+        }
+    }
+    
+    @IBInspectable
+    public var shadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+            layer.shadowRadius = newValue
+        }
+    }
+    
     public var firstResponder: UIView? {
-        
         guard !self.isFirstResponder else {
             return self
         }
@@ -67,4 +109,54 @@ public extension UIView {
         }
         return nil
     }
+    
+    public func removeSubViews() {
+        self.subviews.forEach({$0.removeFromSuperview()})
+    }
+    
+    public func add(subViews: [UIView]) {
+        subViews.forEach({self.addSubview($0)})
+    }
+    
+    public var isRightToLeft: Bool {
+        return effectiveUserInterfaceLayoutDirection == .rightToLeft
+    }
+    
+    public func removeGestureRecognizers() {
+        gestureRecognizers?.forEach(removeGestureRecognizer)
+    }
+    
+    
+    public func round() {
+        clipsToBounds = true
+        layer.cornerRadius = frame.size.width / 2
+    }
+    
+    public var screenShot: UIImage? {
+        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0.0);
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        guard let context = UIGraphicsGetCurrentContext() else {
+            return nil
+        }
+        layer.render(in: context)
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+    
+    
+    public func rotate(by degrees: Float, duration: TimeInterval, completion:((Bool) -> Void)) {
+        UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
+            self.transform = self.transform.rotated(by: CGFloat(degrees * Float(M_PI) / 180))
+            }, completion: completion)
+    }
+    
+    public func scale(by offset: CGPoint, duration: TimeInterval, completion:((Bool) -> Void)) {
+        UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
+            self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
+            }, completion: completion)
+    }
+    
+    
+    
 }

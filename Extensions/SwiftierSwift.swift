@@ -161,5 +161,20 @@ public class SwiftierSwift {
             return false
         #endif
     }
-
+    
+    var deviceWidth: CGFloat {
+        return UIScreen.main.bounds.width
+    }
+    
+    var deviceHeight: CGFloat {
+        return UIScreen.main.bounds.height
+    }
+    
+    var isPhone: Bool {
+        return UIDevice.current.userInterfaceIdiom == .phone
+    }
+    
+    var isPad: Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
+    }
 }

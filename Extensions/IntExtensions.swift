@@ -57,12 +57,38 @@ public extension Int {
         return (self * n).abs / gcd(of: n)
     }
     
-    // tested
     /// Return random integer value between two integer values.
     public static func randomBetween(min: Int, max: Int) -> Int {
         let delta = max - min
-        let random = Int(arc4random() % (UInt32(RAND_MAX) + 1))
-        return ((random / Int(RAND_MAX)) * delta) + min;
+        return min + Int(arc4random_uniform(UInt32(delta)))
     }
-
+    
+    public var romanNumeral: String? {
+        // https://gist.github.com/kumo/a8e1cb1f4b7cff1548c7
+        
+        guard self > 0 else { // there is no roman numerals for 0 or negative numbers
+            return nil
+        }
+        let romanValues = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+        let arabicValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+        
+        var romanValue = ""
+        var startingValue = self
+        
+        for (index, romanChar) in romanValues.enumerated() {
+            let arabicValue = arabicValues[index]
+            let div = startingValue / arabicValue
+            if (div > 0) {
+                for _ in 0..<div {
+                    romanValue += romanChar
+                }
+                startingValue -= arabicValue * div
+            }
+        }
+        guard romanValue.characters.count > 0 else {
+            return nil
+        }
+        return romanValue
+    }
+    
 }
