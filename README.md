@@ -35,7 +35,7 @@ SwiftierSwift includes more than 150 property and method ..
 ```
 
 ```swift
-[1, 2, 3, 4, 5].`**`shuffle()`**` = [2, 5, 3, 1, 4]
+[1, 2, 3, 4, 5].shuffle() = [2, 5, 3, 1, 4]
 ```
 
 
