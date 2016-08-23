@@ -44,7 +44,6 @@ public extension Double {
     }
 }
 
-// cool
 // FIXME:
 prefix operator √
 public prefix func √ (number: Double) -> Double {
@@ -52,7 +51,6 @@ public prefix func √ (number: Double) -> Double {
     return sqrt(number)
 }
 
-// cool
 // FIXME:
 infix operator ^
 public func ^ (left: Double, right: Double) -> Double {
@@ -60,7 +58,6 @@ public func ^ (left: Double, right: Double) -> Double {
     return pow(left, right)
 }
 
-// cool
 // FIXME:
 infix operator ±
 public func ± (left: Double, right: Double) -> (Double, Double) {

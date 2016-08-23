@@ -90,7 +90,6 @@ public extension Array {
         return nil
     }
 
-    // cool
     /// tested
     /// Shuffle array.
     public mutating func shuffle() {
@@ -126,7 +125,6 @@ public extension Array where Element: Integer {
     }
 }
 public extension Collection where Iterator.Element == Int, Index == Int {
-    // cool
     // FIXME:
     /// Returns the average of all elements in array
     public var average: Double {

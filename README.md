@@ -24,20 +24,28 @@ SwiftierSwift includes more than 150 property and method ..
 
 ```swift
 [1, 2, 3, 1, 3].removeDuplicates() = [1, 2, 3]
-```
-
-```swift
 ["h", "e", "l", "l", "o"].indexes(of item: "l") = [2, 3]
-```
-
-```swift
 [1, 2, 3, 4, 5].randomItem = 3
+[1, 2, 3, 4, 5].shuffle() = [2, 5, 3, 1, 4]
+[1, 2, 3, 4, 5].average = 3
 ```
 
 ```swift
-[1, 2, 3, 4, 5].shuffle() = [2, 5, 3, 1, 4]
+Date().isInToday = true
+Date().add(component: .month, value: 1) // Add 1 month to current date
+Date().beginning(of component: .day) // Return beginning of current day
+Date().isIn(current: .month) = true
+Date().iso8601String = "2016-08-23T21:26:15.287Z" // Return iso8601 string for date
+let date = Date(iso8601String: "2016-08-23T21:26:15.287Z") // Create date from iso8601 string
 ```
 
+```swift
+√ 9 = 3 // Return square root of a number
+5 ^ 2 = 25 // Return square power of a number
+5 ± 2 = (3, 7) // Return a number plus or minus another number
+Int.randomBetween(min: 1, max: 10) = 6 // Return random number in range
+134.romanNumeral = "CXXXIV" // Return roman numeral for a number
+```
 
 ## List Of Extensions
 

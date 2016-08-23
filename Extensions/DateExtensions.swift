@@ -123,14 +123,12 @@ public extension Date {
         return calendar.component(.quarter, from: self)
     }
 
-    // cool
     // tested
     /// Return true if date is in today (read-only).
     public var isInToday: Bool {
         return self.day == Date().day && self.month == Date().month && self.year == Date().year
     }
 
-    // cool
     // tested
     /// Add calendar components to date.
     public mutating func add(component: Calendar.Component, value: Int) {
@@ -169,7 +167,6 @@ public extension Date {
         }
     }
 
-    // cool
     // tested
     /// Return beginning of given date component.
     public func beginning(of component: Calendar.Component) -> Date {
@@ -202,7 +199,6 @@ public extension Date {
         }
     }
 
-    // cool
     // FIXME:
     public func isIn(current: Calendar.Component) -> Bool {
         switch current {
@@ -241,7 +237,6 @@ public extension Date {
         return self < Date()
     }
 
-    // cool
     // FIXME:
     /// Return ISO8601 string (yyyy-MM-dd'T'HH:mm:ss.SSS) from date
     public var iso8601String: String {
@@ -254,7 +249,6 @@ public extension Date {
         return dateFormatter.string(from: self).appending("Z")
     }
 
-    // cool
     // FIXME:
     /// Create date object from ISO8601 string (yyyy-MM-dd'T'HH:mm:ss.SSSZ)
     public init(iso8601String: String) {
