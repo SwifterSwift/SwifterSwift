@@ -21,6 +21,7 @@ public extension Array where Element: Equatable {
         return result
     }
     
+    // cool
     // tested
     /// Remove duplicates from array.
     public mutating func removeDuplicates() {
@@ -33,7 +34,7 @@ public extension Array where Element: Equatable {
         self = result
     }
     
-    
+    // cool
     // tested
     /// Return all indexes of specified item.
     public func indexes(of item: Element) -> [Int] {
@@ -56,6 +57,7 @@ public extension Array where Element: Equatable {
 
 public extension Array {
     
+    // cool
     /// tested
     /// Return random item from array.
     public var randomItem: Element {
@@ -91,6 +93,7 @@ public extension Array {
         return nil
     }
     
+    // cool
     /// tested
     /// Shuffle array.
     public mutating func shuffle() {
@@ -110,6 +113,7 @@ public extension Array {
         return arr
     }
     
+    // FIXME:
     /// Prepend an element to array
     public mutating func prepend(_ newElement: Element) {
         self.insert(newElement, at: 0)
@@ -117,6 +121,7 @@ public extension Array {
 }
 
 public extension Array where Element: Integer {
+    // FIXME:
     /// Returns the sum of all elements in the array
     public var sum: Element {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
@@ -124,6 +129,8 @@ public extension Array where Element: Integer {
     }
 }
 public extension Collection where Iterator.Element == Int, Index == Int {
+    // cool
+    // FIXME:
     /// Returns the average of all elements in array
     public var average: Double {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
@@ -132,11 +139,14 @@ public extension Collection where Iterator.Element == Int, Index == Int {
 }
 
 public extension Array where Element: FloatingPoint {
+    // FIXME:
     /// Returns the sum of all elements in the array
     public var sum: Element {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return reduce(0, +)
     }
+    
+    // FIXME:
     /// Returns the average of all elements in the array
     public var average: Element {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift

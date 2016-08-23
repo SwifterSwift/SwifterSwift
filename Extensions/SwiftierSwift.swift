@@ -142,6 +142,7 @@ public class SwiftierSwift {
         return UserDefaults.standard.object(forKey: forKey)
     }
     
+    // cool
     /// Return true if app is running in debug mode
     public static var isInDebuggingMode: Bool {
         // http://stackoverflow.com/questions/9063100/xcode-ios-how-to-determine-whether-code-is-running-in-debug-release-build
@@ -152,6 +153,7 @@ public class SwiftierSwift {
         #endif
     }
     
+    // cool
     /// Return true is application is running on simulator
     public static var isRunningOnSimulator: Bool {
         // http://stackoverflow.com/questions/24869481/detect-if-app-is-being-built-for-device-or-simulator-in-swift
@@ -162,23 +164,34 @@ public class SwiftierSwift {
         #endif
     }
     
+    // FIXME:
     /// Return device width
     var deviceWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
     
+    // FIXME:
     /// Return device height
     var deviceHeight: CGFloat {
         return UIScreen.main.bounds.height
     }
     
+    // FIXME:
     /// Return true if device is iPhone
     var isPhone: Bool {
         return UIDevice.current.userInterfaceIdiom == .phone
     }
     
+    // FIXME:
     /// Return true if device is iPad
     var isPad: Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
+    }
+    
+    // FIXME:
+    /// Return class name for an object
+    public static func typeName(for object: Any) -> String {
+        let type = type(of: object.self)
+        return String.init(describing: type)
     }
 }

@@ -57,13 +57,15 @@ public extension Int {
         return (self * n).abs / gcd(of: n)
     }
     
+    // cool
     /// Return random integer value between two integer values.
     public static func randomBetween(min: Int, max: Int) -> Int {
         let delta = max - min
         return min + Int(arc4random_uniform(UInt32(delta)))
     }
     
-    
+    // cool
+    // FIXME:
     /// Return roman numeral from an integer (I, II, IV, X,..)
     public var romanNumeral: String? {
         // https://gist.github.com/kumo/a8e1cb1f4b7cff1548c7
@@ -91,5 +93,32 @@ public extension Int {
         }
         return romanValue
     }
-    
+}
+
+// FIXME:
+prefix operator √
+public prefix func √ (number: Int) -> Double {
+    // http://nshipster.com/swift-operators/
+    return sqrt(Double(number))
+}
+
+// FIXME:
+infix operator **
+public func ** (left: Int, right: Int) -> Double {
+    // http://nshipster.com/swift-operators/
+    return pow(Double(left), Double(right))
+}
+
+// FIXME:
+infix operator ±
+public func ± (left: Int, right: Int) -> (Int, Int) {
+    // http://nshipster.com/swift-operators/
+    return (left + right, left - right)
+}
+
+// FIXME:
+prefix operator ±
+public prefix func ± (value: Int) -> (Int, Int) {
+    // http://nshipster.com/swift-operators/
+    return 0 ± value
 }

@@ -9,6 +9,8 @@
 import UIKit
 public extension UIImage {
     
+    // cool
+    // FIXME:
     public convenience init(color: UIColor, size: CGSize) {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         color.setFill()
@@ -18,5 +20,40 @@ public extension UIImage {
         self.init(cgImage: image.cgImage!)
     }
     
+    // cool
+    // FIXME:
+    public func cropped(to rect: CGRect) -> UIImage {
+        guard rect.size.height < self.size.height && rect.size.height < self.size.height else {
+            return self
+        }
+        guard let cgImage: CGImage = self.cgImage?.cropping(to: rect) else {
+            return self
+        }
+        return UIImage(cgImage: cgImage)
+    }
     
+    // cool
+    //FIXME:
+    public func scaledToWidth(width: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
+        let scale = width / self.size.width
+        let newHeight = self.size.height * scale
+        UIGraphicsBeginImageContext(CGSize(width: width, height: newHeight))
+        self.draw(in: CGRect(x: 0, y: 0, width: width, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    // cool
+    //FIXME:
+    public func scaledToHeight(height: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
+        let scale = height / self.size.height
+        let newWidth = self.size.width * scale
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: height))
+        self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+
 }

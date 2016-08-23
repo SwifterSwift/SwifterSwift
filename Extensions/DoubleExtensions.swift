@@ -33,4 +33,45 @@ public extension Double {
         return min + Double(arc4random_uniform(UInt32(delta)))
     }
     
+    // FIXME:
+    public var degreesToRadians: Double {
+        return Double(M_PI) * self / 180.0
+    }
+    
+    // FIXME:
+    public var radiansToDegrees: Double {
+        return self * 180 / Double(M_PI)
+    }
 }
+
+// cool
+// FIXME:
+prefix operator √
+public prefix func √ (number: Double) -> Double {
+    // http://nshipster.com/swift-operators/
+    return sqrt(number)
+}
+
+// cool
+// FIXME:
+infix operator **
+public func ** (left: Double, right: Double) -> Double {
+    // http://nshipster.com/swift-operators/
+    return pow(left, right)
+}
+
+// cool
+// FIXME:
+infix operator ±
+public func ± (left: Double, right: Double) -> (Double, Double) {
+    // http://nshipster.com/swift-operators/
+    return (left + right, left - right)
+}
+
+// FIXME:
+prefix operator ±
+public prefix func ± (value: Double) -> (Double, Double) {
+    // http://nshipster.com/swift-operators/
+    return 0 ± value
+}
+

@@ -10,6 +10,7 @@ import UIKit
 
 public extension UINavigationBar {
     
+    // FIXME:
     public func setTitle(of font: UIFont, with color: UIColor) {
         var attrs = [String: AnyObject]()
         attrs[NSFontAttributeName] = font

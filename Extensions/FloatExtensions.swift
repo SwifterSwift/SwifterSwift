@@ -33,4 +33,42 @@ public extension Float {
         return min + Float(arc4random_uniform(UInt32(delta)))
     }
     
+    // FIXME:
+    public var degreesToRadians: Float {
+        return Float(M_PI) * self / 180.0
+    }
+    
+    // FIXME:
+    public var radiansToDegrees: Float {
+        return self * 180 / Float(M_PI)
+    }
 }
+
+// FIXME:
+prefix operator √
+public prefix func √ (number: Float) -> Float {
+    // http://nshipster.com/swift-operators/
+    return sqrt(number)
+}
+
+// FIXME:
+infix operator **
+public func ** (left: Float, right: Float) -> Float {
+    // http://nshipster.com/swift-operators/
+    return pow(left, right)
+}
+
+// FIXME:
+infix operator ±
+public func ± (left: Float, right: Float) -> (Float, Float) {
+    // http://nshipster.com/swift-operators/
+    return (left + right, left - right)
+}
+
+// FIXME:
+prefix operator ±
+public prefix func ± (value: Float) -> (Float, Float) {
+    // http://nshipster.com/swift-operators/
+    return 0 ± value
+}
+

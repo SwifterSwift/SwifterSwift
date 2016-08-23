@@ -123,12 +123,14 @@ public extension Date {
         return calendar.component(.quarter, from: self)
     }
     
+    // cool
     // tested
     /// Return true if date is in today (read-only).
     public var isInToday: Bool {
         return self.day == Date().day && self.month == Date().month && self.year == Date().year
     }
     
+    // cool
     // tested
     /// Add calendar components to date.
     public mutating func add(component: Calendar.Component, value: Int) {
@@ -167,6 +169,7 @@ public extension Date {
         }
     }
     
+    // cool
     // tested
     /// Return beginning of given date component.
     public func beginning(of component: Calendar.Component) -> Date {
@@ -199,14 +202,69 @@ public extension Date {
         }
     }
     
+    // cool
+    // FIXME:
+    public func isIn(current: Calendar.Component) -> Bool {
+        switch current {
+        case .second:
+            return second == Date().second && minute == Date().minute && hour == Date().hour && day == Date().day && month == Date().month && year == Date().year && era == Date().era
+            
+        case .minute:
+            return minute == Date().minute && hour == Date().hour && day == Date().day && month == Date().month && year == Date().year && era == Date().era
+
+        case .hour:
+            return hour == Date().hour && day == Date().day && month == Date().month && year == Date().year && era == Date().era
+            
+        case .day:
+            return day == Date().day && month == Date().month && year == Date().year && era == Date().era
+
+        case .month:
+            return month == Date().month && year == Date().year && era == Date().era
+            
+        case .year:
+            return year == Date().year && era == Date().era
+            
+        default:
+            return false
+        }
+    }
+    
+    // cool
+    // FIXME:
     /// Return true if date is in future
     public var isInFuture: Bool {
         return self > Date()
     }
     
+    // FIXME:
     /// Return true if date is in past
     public var isInPast: Bool {
         return self < Date()
+    }
+    
+    // cool
+    // FIXME:
+    /// Return ISO8601 string (yyyy-MM-dd'T'HH:mm:ss.SSS) from date
+    public var iso8601String: String {
+        // https://github.com/justinmakaila/NSDate-ISO-8601/blob/master/NSDateISO8601.swift
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        
+        return dateFormatter.string(from: self).appending("Z")
+    }
+    
+    // cool
+    // FIXME:
+    /// Create date object from ISO8601 string (yyyy-MM-dd'T'HH:mm:ss.SSSZ)
+    public init(iso8601String: String) {
+        // https://github.com/justinmakaila/NSDate-ISO-8601/blob/master/NSDateISO8601.swift
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        self = dateFormatter.date(from: iso8601String) ?? Date()
     }
     
     // tested

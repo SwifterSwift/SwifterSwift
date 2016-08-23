@@ -9,6 +9,7 @@
 import UIKit
 public extension UINavigationController {
     
+    // FIXME:
     public func popViewControllerWithHandler(completion: (()->Void)?) {
         // https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
         CATransaction.begin()
@@ -17,6 +18,7 @@ public extension UINavigationController {
         CATransaction.commit()
     }
     
+    // FIXME:
     public func pushViewController(viewController: UIViewController, completion: (()->Void)?)  {
         // https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
         CATransaction.begin()

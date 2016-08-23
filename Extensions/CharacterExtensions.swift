@@ -33,6 +33,7 @@ public extension Character {
         return Int(String(self))
     }
     
+    // FIXME:
     /// Return true if character is an emoji
     public var isEmoji: Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
@@ -51,4 +52,14 @@ public extension Character {
         }
     }
 
+}
+
+// FIXME:
+infix operator *
+public func * (left: Character, right: Int) -> String {
+    var newString = ""
+    for _ in 0 ..< right {
+        newString += left.toString
+    }
+    return newString
 }

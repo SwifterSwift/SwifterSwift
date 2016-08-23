@@ -10,6 +10,7 @@ import UIKit
 
 public extension UIButton {
     
+    // FIXME:
     @IBInspectable
     public var titleForNormal: String? {
         get {
@@ -20,6 +21,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     @IBInspectable
     public var titleForSelected: String? {
         get {
@@ -30,6 +32,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     @IBInspectable
     public var titleForHighlighted: String? {
         get {
@@ -40,6 +43,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     @IBInspectable
     public var titleForDisabled: String? {
         get {
@@ -50,6 +54,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     @IBInspectable
     public var imageForNormal: UIImage? {
         get {
@@ -60,6 +65,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     public var imageForSelected: UIImage? {
         get {
             return image(for: .selected)
@@ -69,6 +75,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     @IBInspectable
     public var imageForHighlighted: UIImage? {
         get {
@@ -79,6 +86,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     @IBInspectable
     public var imageForDisabled: UIImage? {
         get {
@@ -89,6 +97,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     @IBInspectable
     public var titleColorForNormal: UIColor? {
         get {
@@ -99,6 +108,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     @IBInspectable
     public var titleColorForSelected: UIColor? {
         get {
@@ -109,6 +119,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     @IBInspectable
     public var titleColorForHighlighted: UIColor? {
         get {
@@ -119,6 +130,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     @IBInspectable
     public var titleColorForDisabled: UIColor? {
         get {
@@ -129,6 +141,7 @@ public extension UIButton {
         }
     }
     
+    // FIXME:
     public func titleForAllStates(title: String) {
         setTitle(title, for: .normal)
         setTitle(title, for: .selected)
@@ -136,6 +149,7 @@ public extension UIButton {
         setTitle(title, for: .disabled)
     }
     
+    // FIXME:
     public func imageForAllStates(image: UIImage) {
         setImage(image, for: .normal)
         setImage(image, for: .selected)
@@ -143,6 +157,7 @@ public extension UIButton {
         setImage(image, for: .disabled)
     }
     
+    // FIXME:
     public func titleColorForAllStates(color: UIColor) {
         setTitleColor(color, for: .normal)
         setTitleColor(color, for: .selected)
