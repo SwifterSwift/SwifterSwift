@@ -5,7 +5,6 @@
 [![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://github.com/omaralbeik/SwiftierSwift)
 [![Xcode](https://img.shields.io/badge/Xcode-8.0%20beta6-blue.svg)](https://developer.apple.com/xcode)
 
-
 A collection of priceless native swift 3 extensions to make working with your projects a real joy ;)
 
 
@@ -16,7 +15,7 @@ Copy Extensions folder to your Xcode project to use all extensions, or a specifi
 
 ## Requirements:
 
-Xcode 8 beta6 or later with Swift 3 is required to use these extensions
+Xcode 8 beta5 or later with Swift 3 is required to use these extensions
 
 ## How cool is this?
 
