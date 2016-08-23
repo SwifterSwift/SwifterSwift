@@ -23,14 +23,19 @@ Xcode 8 beta6 or later with Swift 3 is required to use these extensions
 SwiftierSwift includes more than 150 property and method ..
 
 ```swift
+// Remove duplicates from array.
 [1, 2, 3, 1, 3].removeDuplicates() = [1, 2, 3]
 
+// Return all indexes of specified item.
 ["h", "e", "l", "l", "o"].indexes(of item: "l") = [2, 3]
 
+// Return random item from array.
 [1, 2, 3, 4, 5].randomItem = 3
 
+// Shuffle array.
 [1, 2, 3, 4, 5].shuffle() = [2, 5, 3, 1, 4]
 
+// Calculate the average of an array
 [1, 2, 3, 4, 5].average = 3
 ```
 
@@ -69,6 +74,38 @@ Int.randomBetween(min: 1, max: 10) = 6
 
 // Return roman numeral for a number
 134.romanNumeral = "CXXXIV"
+```
+
+```swift
+// Return count of substring in string.
+"hello world"count(of "o", caseSensitive: false) = 2
+
+// Return string with no spaces or new lines in beginning and end
+"\n Hello   ".trimmed = "Hello"
+
+// Return most common character in string
+"SwiftierSwift is making swift more swifty".mostCommonCharacter = "i"
+
+// Returns CamelCase of string
+"Some variable name".camelCased = "someVariableName"
+
+// Check if string is in valid email format
+"omaralbeik@gmail.com".isEmail = true
+
+// Check if string contains at least one letter and one number
+"123abc".isAlphaNumeric = true
+
+// Return latinized string
+"Hèllö Wórld!".latinized = "Hello World!"
+
+// Return latinized string
+let random = String.random(of length: 10) = "AhEju28kNl"
+
+// Check if string contains one or more instance of substring
+"Hello World!".contain(string: "o", caseSensitive: false) = true
+
+// Check if string contains one or more emojis
+"string👨‍with😍emojis✊🏿".containEmoji = true
 ```
 
 ## List Of Extensions

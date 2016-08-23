@@ -15,7 +15,6 @@ public extension String {
         return Locale.current
     }
 
-    // cool
     // tested
     /// Return count of substring in string.
     public func count(of string: String, caseSensitive: Bool = true) -> Int {
@@ -55,7 +54,6 @@ public extension String {
         return characters.split{$0 == separator}.map(String.init)
     }
 
-    // cool
     // tested
     /// Return string with no spaces or new lines in beginning and end (read-only).
     public var trimmed: String {
@@ -86,7 +84,6 @@ public extension String {
         return replace(string: " ", with: "").replace(string: "\n", with: "")
     }
 
-    // cool
     // tested
     /// Return most common character in string (read-only).
     public var mostCommonCharacter: String {
@@ -102,10 +99,9 @@ public extension String {
         return mostCommon
     }
 
-    // cool
     // tested
     /// Returns CamelCase of string (read-only).
-    public var camelCaseString: String {
+    public var camelCased: String {
         let source = lowercased()
         if source.characters.contains(" ") {
             let first = source.substring(to: source.index(after: source.startIndex))
@@ -123,7 +119,7 @@ public extension String {
     // tested
     /// Converts string format to CamelCase.
     public mutating func camelize() {
-        self = camelCaseString
+        self = camelCased
     }
 
     // tested
@@ -136,7 +132,6 @@ public extension String {
         return result
     }
 
-    // cool
     // tested
     /// Return true if string is valid email format (read-only).
     public var isEmail: Bool {
@@ -212,14 +207,12 @@ public extension String {
         return  hasLetters && !hasNumbers
     }
 
-    // cool
     // tested
     /// Return true if string contains at least one letter and one number (read-only).
     public var isAlphaNumeric: Bool {
         return components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").characters.count == 0 && hasLetters && hasNumbers
     }
 
-    // cool
     // tested
     /// Return latinized string (read-only).
     public var latinized: String {
@@ -232,7 +225,6 @@ public extension String {
         self = latinized
     }
 
-    // cool
     // tested
     /// Return random string of given length.
     public static func random(of length: Int) -> String {
@@ -317,7 +309,6 @@ public extension String {
         }
     }
 
-    // cool
     // FIXME:
     /// Return true if string contains one or more instance of substring
     public func contain(string: String, caseSensitive: Bool = true) -> Bool {
