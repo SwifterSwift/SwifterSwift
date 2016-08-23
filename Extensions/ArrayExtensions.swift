@@ -21,7 +21,6 @@ public extension Array where Element: Equatable {
         return result
     }
 
-    // cool
     // tested
     /// Remove duplicates from array.
     public mutating func removeDuplicates() {
@@ -34,7 +33,6 @@ public extension Array where Element: Equatable {
         self = result
     }
 
-    // cool
     // tested
     /// Return all indexes of specified item.
     public func indexes(of item: Element) -> [Int] {
@@ -57,7 +55,6 @@ public extension Array where Element: Equatable {
 
 public extension Array {
 
-    // cool
     /// tested
     /// Return random item from array.
     public var randomItem: Element {
