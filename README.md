@@ -16,7 +16,17 @@ Copy Extensions folder to your Xcode project to use all extensions, or a specifi
 
 ## Requirements:
 
-Xcode 8 beta4 or later with Swift 3 is required to use these extensions
+Xcode 8 beta6 or later with Swift 3 is required to use these extensions
+
+## How cool is this?
+
+SwiftierSwift includes more than 150 property and method ..
+
+```swift
+[1, 2, 3, 1, 3, 4, 5, 6, 5].uniqueValues = [1, 2, 3, 4, 5, 6]
+```
+
+
 
 
 ## List Of Extensions
