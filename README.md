@@ -23,19 +23,19 @@ Xcode 8 beta6 or later with Swift 3 is required to use these extensions
 SwiftierSwift includes more than 150 property and method ..
 
 ```swift
-[1, 2, 3, 1, 3, 4, 5, 6, 5].removeDuplicates() = [1, 2, 3, 4, 5, 6]
+[1, 2, 3, 1, 3].removeDuplicates() = [1, 2, 3]
 ```
 
 ```swift
-["t", "h", "i", "s", " ", "i", "s", " ", "c", "o", "o", "l"].indexes(of item: "i") = [2, 5]
+["h", "e", "l", "l", "o"].indexes(of item: "l") = [2, 3]
 ```
 
 ```swift
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].randomItem = 3
+[1, 2, 3, 4, 5].randomItem = 3
 ```
 
 ```swift
-[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].shuffle() = [10, 6, 4, 7, 5, 2, 3, 8, 1, 9]
+[1, 2, 3, 4, 5].**shuffle()** = [2, 5, 3, 1, 4]
 ```
 
 
