@@ -1,384 +1,173 @@
 //
-//  StringExtensions.swift
+//  UIColorExtensions.swift
 //  SwiftierSwift
 //
-//  Created by Omar Albeik on 8/5/16.
+//  Created by Omar Albeik on 8/6/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-import Foundation
-public extension String {
+import UIKit
+public extension UIColor {
     
-    // tested
-    /// Return current locale (read-only).
-    public var locale: Locale {
-        return Locale.current
+    /// Create new UIColor for RGB values
+    public convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+        
     }
     
-    // tested
-    /// Return count of substring in string.
-    public func count(of string: String, caseSensitive: Bool = true) -> Int {
-        if !caseSensitive {
-            return lowercased().components(separatedBy: string).count - 1
-        }
-        return components(separatedBy: string).count - 1
+    /// Create new UIColor for RGB values with transparency
+    public convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: transparency)
     }
     
-    // tested
-    /// Return true if string starts with substring.
-    public func starts(with prefix: String, caseSensitive: Bool = true) -> Bool {
-        if !caseSensitive {
-            return lowercased().hasPrefix(prefix.lowercased())
-        }
-        return hasPrefix(prefix)
+    /// Create new UIColor for a hexadecimal value
+    public convenience init(netHex:Int) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
     
-    // tested
-    /// Return true if string ends with substring.
-    public func ends(with suffix: String, caseSensitive: Bool = true) -> Bool {
-        if !caseSensitive {
-            return lowercased().hasSuffix(suffix.lowercased())
-        }
-        return hasSuffix(suffix)
-    }
-    
-    // tested
-    /// Return true if string starts does not contain any text
-    public var empty: Bool {
-        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).characters.count == 0
-    }
-    
-    // tested
-    /// Return an array of strings seperated by given string.
-    public func split(by separator: Character) -> [String] {
-        return characters.split{$0 == separator}.map(String.init)
-    }
-    
-    // tested
-    /// Return string with no spaces or new lines in beginning and end (read-only).
-    public var trimmed: String {
-        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-    }
-    
-    // tested
-    /// Removes spaces and new lines in beginning and end of string.
-    public mutating func trim() {
-        self = trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-    }
-    
-    // tested
-    /// Return first character of string (read-only).
-    public var firstCharacter: String? {
-        return Array(characters).map({String($0)}).first
-    }
-    
-    // tested
-    /// Return last character of string (read-only).
-    public var lastCharacter: String? {
-        return Array(characters).map({String($0)}).last
-    }
-    
-    // tested
-    /// Return string without spaces and new lines
-    public var withoutSpacesAndNewLines: String {
-        return replace(string: " ", with: "").replace(string: "\n", with: "")
-    }
-    
-    // tested
-    /// Return most common character in string (read-only).
-    public var mostCommonCharacter: String {
-        var mostCommon = ""
-        let charSet = Set(withoutSpacesAndNewLines.characters.map{String($0)})
-        var count = 0
-        for string in charSet {
-            if self.count(of: string) > count {
-                count = self.count(of: string)
-                mostCommon = string
-            }
-        }
-        return mostCommon
-    }
-    
-    // tested
-    /// Returns CamelCase of string (read-only).
-    public var camelCased: String {
-        let source = lowercased()
-        if source.characters.contains(" ") {
-            let first = source.substring(to: source.index(after: source.startIndex))
-            let camel = source.capitalized.replace(string: " ", with: "").replace(string: "\n", with: "")
-            let rest = String(camel.characters.dropFirst())
-            return "\(first)\(rest)"
-        } else {
-            let first = source.lowercased().substring(to: source.index(after: source.startIndex))
-            let rest = String(source.characters.dropFirst())
-            return "\(first)\(rest)"
-            
-        }
-    }
-    
-    // tested
-    /// Converts string format to CamelCase.
-    public mutating func camelize() {
-        self = camelCased
-    }
-    
-    // tested
-    /// Returns array of strings seperated by new lines.
-    public func lines() -> [String] {
-        var result:[String] = []
-        enumerateLines { (line, stop) -> () in
-            result.append(line)
-        }
-        return result
+    /// Create new UIColor for a hexadicimal value with transparency
+    public convenience init(netHex:Int, transparency: CGFloat) {
+        self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff, transparency: transparency)
     }
     
     // cool
-    // tested
-    /// Return true if string is valid email format (read-only).
-    public var isEmail: Bool {
-        // http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailTest.evaluate(with: self)
+    /// Return hexadecimal value string
+    public var hexString: String {
+        var r:CGFloat = 0
+        var g:CGFloat = 0
+        var b:CGFloat = 0
+        var a:CGFloat = 0
+        
+        getRed(&r, green: &g, blue: &b, alpha: &a)
+        let rgb: Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
+        return NSString(format:"#%06x", rgb) as String
     }
     
-    // tested
-    /// Return true if string is http URL (read-only).
-    public var isHttpUrl: Bool {
-        guard starts(with: "http://".lowercased()) else {
-            return false
+    /// Return a random color
+    public static var random: UIColor {
+        let r = Int(arc4random_uniform(255))
+        let g = Int(arc4random_uniform(255))
+        let b = Int(arc4random_uniform(255))
+        return UIColor(red: r, green: g, blue: b)
+    }
+    
+    // cool
+    //FIXME:
+    public struct socialColors {
+        // FIXME: re-check colors
+        // https://www.lockedowndesign.com/social-media-colors/
+        static var facebook: UIColor {
+            return UIColor(red: 59, green: 89, blue: 152)
         }
-        return URL(string: self) != nil
-    }
-    
-    // tested
-    /// Return true if string is https URL (read-only).
-    public var isHttpsUrl: Bool {
-        guard starts(with: "https://".lowercased()) else {
-            return false
+        
+        static var twitter: UIColor {
+            return UIColor(red: 0, green: 182, blue: 241)
         }
-        return URL(string: self) != nil
-    }
-    
-    // tested
-    /// Return reversed string (read-only).
-    public var reversed: String {
-        return String(characters.reversed())
-    }
-    
-    // tested
-    /// Reverse string.
-    public mutating func reverse() {
-        self = String(characters.reversed())
-    }
-    
-    // tested
-    /// Return first index of substring in string.
-    public func firstIndex(of string: String) -> Int? {
-        return Array(self.characters).map({String($0)}).index(of: string)
-    }
-    
-    // tested
-    /// Replace part of string with another string.
-    public func replace(string: String, with: String) -> String {
-        return replacingOccurrences(of: string, with: with)
-    }
-    
-    // tested
-    /// Return true if string contains one or more numbers (read-only).
-    public var hasNumbers: Bool {
-        return rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
-    }
-    
-    // tested
-    /// Return true if string contains one or more letters (read-only).
-    public var hasLetters: Bool {
-        return rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
-    }
-    
-    // tested
-    /// Return true if string contains only numbers (read-only).
-    public var isNumeric: Bool {
-        return  !hasLetters && hasNumbers
-    }
-    
-    // tested
-    /// Return true if string contains only letters (read-only).
-    public var isAlphabetic: Bool {
-        return  hasLetters && !hasNumbers
-    }
-    
-    // cool
-    // tested
-    /// Return true if string contains at least one letter and one number (read-only).
-    public var isAlphaNumeric: Bool {
-        return components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").characters.count == 0 && hasLetters && hasNumbers
-    }
-    
-    // cool
-    // tested
-    /// Return latinized string (read-only).
-    public var latinized: String {
-        return folding(options: .diacriticInsensitive, locale: Locale.current)
-    }
-    
-    // tested
-    /// Latinize string.
-    public mutating func latinize() {
-        self = latinized
-    }
-    
-    // cool
-    // tested
-    /// Return random string of given length.
-    public static func random(of length: Int) -> String {
-        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        var string = ""
-        for _ in 0..<length {
-            let randomIndex = arc4random_uniform(UInt32(base.characters.count))
-            string += "\(base[base.index(base.startIndex, offsetBy: IndexDistance(randomIndex))])"
+        
+        static var googlePlus: UIColor {
+            return UIColor(red: 223, green: 74, blue: 50)
         }
-        return string
-    }
-    
-    // tested
-    /// Return Int value from string (if applicable; read-only).
-    public var toInt: Int? {
-        return Int(self)
-    }
-    
-    // tested
-    /// Return Int8 value from string (if applicable; read-only).
-    public var toInt8: Int8? {
-        return Int8(self)
-    }
-    
-    // tested
-    /// Return Int16 value from string (if applicable; read-only).
-    public var toInt16: Int16? {
-        return Int16(self)
-    }
-    
-    // tested
-    /// Return Int32 value from string (if applicable; read-only).
-    public var toInt32: Int32? {
-        return Int32(self)
-    }
-    
-    // tested
-    /// Return Int64 value from string (if applicable; read-only).
-    public var toInt64: Int64? {
-        return Int64(self)
-    }
-    
-    // tested
-    /// Return Float value from string (if applicable; read-only).
-    public var toFloat: Float? {
-        return Float(self)
-    }
-    
-    // tested
-    /// Return Float32 value from string (if applicable; read-only).
-    public var toFloat32: Float32? {
-        return Float32(self)
-    }
-    
-    // tested
-    /// Return Float64 value from string (if applicable; read-only).
-    public var toFloat64: Float64? {
-        return Float64(self)
-    }
-    
-    // tested
-    /// Return Float80 value from string (if applicable; read-only).
-    public var toFloat80: Float80? {
-        return Float80(self)
-    }
-    
-    // tested
-    /// Return Double value from string (if applicable; read-only).
-    public var toDouble: Double? {
-        return Double(self)
-    }
-    
-    // tested
-    /// Return Bool value from string (if applicable; read-only).
-    public var toBool: Bool? {
-        if self == "true" || self == "TRUE" || self == "1" {
-            return true
-        } else if self == "false" || self == "FLASE" || self == "0" {
-            return false
-        } else {
-            return nil
+        
+        static var linkedIn: UIColor {
+            return UIColor(red: 0, green: 123, blue: 182)
         }
-    }
-    
-    // cool
-    // FIXME:
-    /// Return true if string contains one or more instance of substring
-    public func contain(string: String, caseSensitive: Bool = true) -> Bool {
-        if !caseSensitive {
-            return range(of: string, options: .caseInsensitive) != nil
+        
+        static var vimeo: UIColor {
+            return UIColor(red: 69, green: 187, blue: 255)
         }
-        return range(of: string) != nil
-    }
-    
-    // cool
-    // FIXME:
-    /// Return true if string contains one or more emojis
-    public var containEmoji:Bool {
-        // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
-        for scalar in unicodeScalars {
-            switch scalar.value {
-            case 0x3030, 0x00AE, 0x00A9, // Special Characters
-            0x1D000...0x1F77F, // Emoticons
-            0x2100...0x27BF, // Misc symbols and Dingbats
-            0xFE00...0xFE0F, // Variation Selectors
-            0x1F900...0x1F9FF: // Supplemental Symbols and Pictographs
-                return true
-            default:
-                continue
-            }
+        
+        static var youtube: UIColor {
+            return UIColor(red: 179, green: 18, blue: 23)
         }
-        return false
-    }
-    
-    // cool
-    // FIXME:
-    /// Return url escaped string
-    public var urlEncode: String {
-        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
-    }
-    
-    // FIXME:
-    /// Escape a string
-    public mutating func urlEncoded() {
-        self = addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
-    }
-    
-    // cool
-    // FIXME:
-    /// Return readable string from url string
-    public var urlDecode: String {
-        return removingPercentEncoding ?? self
-    }
-    
-    // FIXME:
-    /// Convert url string into readable string
-    public mutating func urlDecoded() {
-        self = removingPercentEncoding ?? self
+        
+        static var instagram: UIColor {
+            return UIColor(red: 195, green: 42, blue: 163)
+        }
+        
+        static var pinterest: UIColor {
+            return UIColor(red: 203, green: 32, blue: 39)
+        }
+        
+        static var flickr: UIColor {
+            return UIColor(red: 244, green: 0, blue: 131)
+        }
+        
+        static var yahoo: UIColor {
+            return UIColor(red: 67, green: 2, blue: 151)
+        }
+        
+        static var soundCloud: UIColor {
+            return UIColor(red: 255, green: 85, blue: 0)
+        }
+        
+        static var tumblr: UIColor {
+            return UIColor(red: 44, green: 71, blue: 98)
+        }
+        
+        static var foursquare: UIColor {
+            return UIColor(red: 252, green: 69, blue: 117)
+        }
+        
+        static var swarm: UIColor {
+            return UIColor(red: 255, green: 176, blue: 0)
+        }
+        
+        static var dribbble: UIColor {
+            return UIColor(red: 234, green: 76, blue: 137)
+        }
+        
+        static var reddit: UIColor {
+            return UIColor(red: 255, green: 87, blue: 0)
+        }
+        
+        static var devianArt: UIColor {
+            return UIColor(red: 74, green: 93, blue: 78)
+        }
+        
+        static var pocket: UIColor {
+            return UIColor(red: 238, green: 64, blue: 86)
+        }
+        
+        static var quora: UIColor {
+            return UIColor(red: 170, green: 34, blue: 182)
+        }
+        
+        static var slideShare: UIColor {
+            return UIColor(red: 247, green: 146, blue: 30)
+        }
+        
+        static var px500: UIColor {
+            return UIColor(red: 0, green: 153, blue: 229)
+        }
+        
+        static var listly: UIColor {
+            return UIColor(red: 223, green: 109, blue: 70)
+        }
+        
+        static var vine: UIColor {
+            return UIColor(red: 0, green: 180, blue: 137)
+        }
+        
+        static var skype: UIColor {
+            return UIColor(red: 0, green: 175, blue: 240)
+        }
+        
+        static var stumbleUpon: UIColor {
+            return UIColor(red: 235, green: 73, blue: 36)
+        }
+        
+        static var snapchat: UIColor {
+            return UIColor(red: 255, green: 252, blue: 0)
+        }
     }
 }
 
-// cool
-// FIXME:
-infix operator *
-public func * (left: String, right: Int) -> String {
-    var newString = ""
-    for _ in 0 ..< right {
-        newString += left
-    }
-    return newString
-}
-
-"Hèllö Wórld!".latinized
+UIColor.red.hexString

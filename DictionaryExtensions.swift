@@ -10,7 +10,6 @@ import Foundation
 
 public extension Dictionary {
     
-    // cool
     // FIXME:
     public func jsonString(prettify: Bool = false) -> String? {
         guard JSONSerialization.isValidJSONObject(self) else {

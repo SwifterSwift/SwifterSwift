@@ -22,6 +22,7 @@ Xcode 8 beta6 or later with Swift 3 is required to use these extensions
 
 SwiftierSwift includes more than 150 property and method ..
 
+### Array Extensions
 ```swift
 // Remove duplicates from array.
 [1, 2, 3, 1, 3].removeDuplicates() = [1, 2, 3]
@@ -39,6 +40,7 @@ SwiftierSwift includes more than 150 property and method ..
 [1, 2, 3, 4, 5].average = 3
 ```
 
+### Date Extensions
 ```swift
 // Check if date is in today
 Date().isInToday = true
@@ -59,6 +61,7 @@ Date().iso8601String = "2016-08-23T21:26:15.287Z"
 let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
 ```
 
+### Numbers Extensions
 ```swift
 // Return square root of a number
 √ 9 = 3
@@ -76,6 +79,7 @@ Int.randomBetween(min: 1, max: 10) = 6
 134.romanNumeral = "CXXXIV"
 ```
 
+### String Extensions
 ```swift
 // Return count of substring in string.
 "hello world"count(of "o", caseSensitive: false) = 2
@@ -106,6 +110,36 @@ let random = String.random(of length: 10) = "AhEju28kNl"
 
 // Check if string contains one or more emojis
 "string👨‍with😍emojis✊🏿".containEmoji = true
+```
+
+### Dictionary Extensions
+```swift
+// Return JSON string from a dictionary
+let jsonString = someDictionary.jsonString(prettify: true)
+
+// Return JSON data from a dictionary
+let jsonData = someDictionary.jsonData
+
+// Check if app is running in debugging mode
+SwiftierSwift.isInDebuggingMode
+
+// Check if app is running on simulator
+SwiftierSwift.isRunningOnSimulator
+```
+
+### UIColor Extensions
+```swift
+// Create new UIColor for RGB values
+let color = UIColor(red: 121, green: 220, blue: 164)
+
+// Create new UIColor for a hexadecimal value
+let color = UIColor(netHex:0x45C91B)
+
+// Return hexadecimal value string
+UIColor.red.hexString = "#FF0000"
+
+// Return brand colors from more than 30 social brands
+let facebookColor = UIColor.socialColors.facebook
 ```
 
 ## List Of Extensions

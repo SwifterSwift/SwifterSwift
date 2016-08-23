@@ -19,7 +19,6 @@ public extension UIColor {
 
     }
 
-    // cool
     /// Create new UIColor for RGB values with transparency
     public convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat) {
         assert(red >= 0 && red <= 255, "Invalid red component")
@@ -34,13 +33,11 @@ public extension UIColor {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
 
-    // cool
     /// Create new UIColor for a hexadicimal value with transparency
     public convenience init(netHex:Int, transparency: CGFloat) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff, transparency: transparency)
     }
 
-    // cool
     /// Return hexadecimal value string
     public var hexString: String {
         var r:CGFloat = 0
@@ -50,7 +47,7 @@ public extension UIColor {
 
         getRed(&r, green: &g, blue: &b, alpha: &a)
         let rgb: Int = (Int)(r*255)<<16 | (Int)(g*255)<<8 | (Int)(b*255)<<0
-        return NSString(format:"#%06x", rgb) as String
+        return NSString(format:"#%06x", rgb).uppercased as String
     }
 
     /// Return a random color
@@ -61,7 +58,6 @@ public extension UIColor {
         return UIColor(red: r, green: g, blue: b)
     }
 
-    // cool
     //FIXME:
     public struct socialColors {
         // FIXME: re-check colors
