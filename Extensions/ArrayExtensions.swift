@@ -8,7 +8,7 @@
 
 import Foundation
 public extension Array where Element: Equatable {
-    
+
     // tested
     /// Return unique values of array.
     public var uniqueValues: [Element] {
@@ -20,7 +20,7 @@ public extension Array where Element: Equatable {
         }
         return result
     }
-    
+
     // cool
     // tested
     /// Remove duplicates from array.
@@ -33,7 +33,7 @@ public extension Array where Element: Equatable {
         }
         self = result
     }
-    
+
     // cool
     // tested
     /// Return all indexes of specified item.
@@ -46,7 +46,7 @@ public extension Array where Element: Equatable {
         }
         return indexes
     }
-    
+
     // tested
     /// Remove all instances of an element from array.
     public mutating func removeAll(object: Element) {
@@ -56,7 +56,7 @@ public extension Array where Element: Equatable {
 }
 
 public extension Array {
-    
+
     // cool
     /// tested
     /// Return random item from array.
@@ -64,7 +64,7 @@ public extension Array {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
     }
-    
+
     /// tested
     /// Return first index of element in array.
     public func firstIndex <Item: Equatable> (of item: Item) -> Int? {
@@ -78,7 +78,7 @@ public extension Array {
         }
         return nil
     }
-    
+
     /// tested
     /// Return last index of element in array.
     public func lastIndex <Item: Equatable> (of item: Item) -> Int? {
@@ -92,7 +92,7 @@ public extension Array {
         }
         return nil
     }
-    
+
     // cool
     /// tested
     /// Shuffle array.
@@ -102,7 +102,7 @@ public extension Array {
             sort { (_,_) in arc4random() < arc4random() }
         }
     }
-    
+
     /// tested
     /// Return shuffled version of array.
     public var shuffled: [Element] {
@@ -112,7 +112,7 @@ public extension Array {
         }
         return arr
     }
-    
+
     // FIXME:
     /// Prepend an element to array
     public mutating func prepend(_ newElement: Element) {
@@ -145,7 +145,7 @@ public extension Array where Element: FloatingPoint {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return reduce(0, +)
     }
-    
+
     // FIXME:
     /// Returns the average of all elements in the array
     public var average: Element {
