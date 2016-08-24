@@ -1,18 +1,24 @@
 ## List Of All Extensions
 
-- [x] [String extensions](#string-extensions)
-- [x] [Date extensions](#date-extensions)
 - [x] [Array extensions](#array-extensions)
+- [x] [Character extensions](#character-extensions)
+- [ ] [Convenience extensions](#convenience-extensions)
+- [x] [Date extensions](#date-extensions)
 - [x] [Double extensions](#double-extensions)
 - [x] [Float extensions](#float-extensions)
 - [x] [Int extensions](#int-extensions)
-- [x] [Character extensions](#character-extensions)
-- [ ] [Convenience extensions](#convenience-extensions)
+- [x] [String extensions](#string-extensions)
+- [ ] [CGFloat extensions](#cgfloat-extensions)
+- [ ] [CGSize extensions](#cgsize-extensions)
+- [ ] [UIButton extensions](#uibutton-extensions)
 - [ ] [UIColor extensions](#uicolor-extensions)
 - [ ] [UIImage extensions](#uiimage-extensions)
+- [ ] [UINavigationBar extensions](#uinavigationbar-extensions)
 - [ ] [UINavigationController extensions](#uinavigationcontroller-extensions)
-- [ ] [UIView extensions](#uiview-extensions)
+- [ ] [UITableView extensions](#uitableview-extensions)
 - [ ] [UITextField extensions](#uitextfield-extensions)
+- [ ] [UIView extensions](#uiview-extensions)
+- [ ] [UIViewController extensions](#uiviewcontroller-extensions)
 
 
 ## Array extensions
