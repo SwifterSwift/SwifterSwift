@@ -10,7 +10,7 @@ import UIKit
 
 public extension UIAlertController {
     
-    // cool
+    /// Create a new alert view controller with default OK action
     public convenience init(title: String, message: String? = nil, defaultActionButtonTitle: String = "OK", tintColor: UIColor? = nil) {
         self.init(title: title, message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: defaultActionButtonTitle, style: .default, handler: nil)
@@ -20,9 +20,8 @@ public extension UIAlertController {
         }
     }
     
-    // cool
+    // Present alert view controller in the current view controller
     public func show() {
         UIApplication.shared.keyWindow?.rootViewController?.present(self, animated: true, completion: nil)
     }
-    
 }

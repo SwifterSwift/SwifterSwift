@@ -32,15 +32,18 @@ Xcode 8 beta5 or later with Swift 3.
 - [x] [String extensions](Documentation/ExtensionsTable.md#string-extensions)
 - [ ] [CGFloat extensions](Documentation/ExtensionsTable.md#cgfloat-extensions)
 - [ ] [CGSize extensions](Documentation/ExtensionsTable.md#cgsize-extensions)
+- [ ] [UIAlertController extensions](Documentation/ExtensionsTable.md#uialertcontroller-extensions)
 - [ ] [UIButton extensions](Documentation/ExtensionsTable.md#uibutton-extensions)
 - [ ] [UIColor extensions](Documentation/ExtensionsTable.md#uicolor-extensions)
 - [ ] [UIImage extensions](Documentation/ExtensionsTable.md#uiimage-extensions)
 - [ ] [UINavigationBar extensions](Documentation/ExtensionsTable.md#uinavigationbar-extensions)
 - [ ] [UINavigationController extensions](Documentation/ExtensionsTable.md#uinavigationcontroller-extensions)
+- [ ] [UISearchBar extensions](Documentation/ExtensionsTable.md#uisearchbar-extensions)
 - [ ] [UITableView extensions](Documentation/ExtensionsTable.md#uitableview-extensions)
 - [ ] [UITextField extensions](Documentation/ExtensionsTable.md#uitextfield-extensions)
 - [ ] [UIView extensions](Documentation/ExtensionsTable.md#uiview-extensions)
 - [ ] [UIViewController extensions](Documentation/ExtensionsTable.md#uiviewcontroller-extensions)
+
 
 ## How cool is this?
 
