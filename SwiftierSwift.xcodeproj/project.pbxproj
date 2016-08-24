@@ -92,6 +92,7 @@
 		077B65F01D54EC2E005712A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		07EFC79A1D6CB56C00C685CF /* CGSizeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGSizeExtensions.swift; path = Extensions/UI/CGSizeExtensions.swift; sourceTree = "<group>"; };
 		07EFC7A01D6CB63F00C685CF /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CGFloatExtensions.swift; path = Extensions/UI/CGFloatExtensions.swift; sourceTree = "<group>"; };
+		07EFC7A21D6CF6DF00C685CF /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +194,7 @@
 				076A9AA71D6BB67F00606CE0 /* ArrayExtensions.swift */,
 				076A9AA91D6BB67F00606CE0 /* CharacterExtensions.swift */,
 				076A9AAA1D6BB67F00606CE0 /* DateExtensions.swift */,
+				07EFC7A21D6CF6DF00C685CF /* MyPlayground.playground */,
 				076A9AAB1D6BB67F00606CE0 /* DoubleExtensions.swift */,
 				076A9AAC1D6BB67F00606CE0 /* FloatExtensions.swift */,
 				076A9AAD1D6BB67F00606CE0 /* IntExtensions.swift */,

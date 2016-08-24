@@ -26,11 +26,11 @@ public enum ShakeAnimationType {
 }
 
 public extension UIView {
-
+    
     // cool
     /// Shake UIView
     public func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut) {
-
+        
         let animation: CAKeyframeAnimation
         switch direction {
         case .horizontal:
@@ -38,7 +38,7 @@ public extension UIView {
         case .vertical:
             animation = CAKeyframeAnimation(keyPath: "transform.translation.y")
         }
-
+        
         switch animationType {
         case .linear:
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
@@ -49,12 +49,12 @@ public extension UIView {
         case .easeInOut:
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         }
-
+        
         animation.duration = duration
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
     }
-
+    
     // cool
     // FIXME:
     public func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
@@ -68,7 +68,7 @@ public extension UIView {
             completion?(true)
         }
     }
-
+    
     // cool
     // FIXME:
     public func rotate(byAngle angle : CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
@@ -82,8 +82,8 @@ public extension UIView {
             completion?(true)
         }
     }
-
-
+    
+    
     // cool
     // FIXME:
     public func scale(by offset: CGPoint, duration: TimeInterval, completion:((Bool) -> Void)? = nil) {
@@ -91,7 +91,7 @@ public extension UIView {
             self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
             }, completion: completion)
     }
-
+    
     // cool
     // FIXME:
     @IBInspectable
@@ -103,7 +103,7 @@ public extension UIView {
             layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
         }
     }
-
+    
     // cool
     // FIXME:
     @IBInspectable
@@ -122,7 +122,7 @@ public extension UIView {
             layer.borderColor = color.cgColor
         }
     }
-
+    
     // cool
     // FIXME:
     @IBInspectable
@@ -134,7 +134,7 @@ public extension UIView {
             layer.borderWidth = newValue
         }
     }
-
+    
     // cool
     // FIXME:
     @IBInspectable
@@ -149,7 +149,7 @@ public extension UIView {
             layer.shadowColor = newValue?.cgColor
         }
     }
-
+    
     // cool
     // FIXME:
     @IBInspectable
@@ -161,7 +161,7 @@ public extension UIView {
             layer.shadowOpacity = newValue
         }
     }
-
+    
     // cool
     // FIXME:
     @IBInspectable
@@ -173,7 +173,7 @@ public extension UIView {
             layer.shadowOffset = newValue
         }
     }
-
+    
     // cool
     // FIXME:
     @IBInspectable
@@ -185,7 +185,7 @@ public extension UIView {
             layer.shadowRadius = newValue
         }
     }
-
+    
     // FIXME:
     public var firstResponder: UIView? {
         guard !self.isFirstResponder else {
@@ -198,33 +198,33 @@ public extension UIView {
         }
         return nil
     }
-
+    
     // FIXME:
     public func removeSubViews() {
         self.subviews.forEach({$0.removeFromSuperview()})
     }
-
+    
     // FIXME:
     public func add(subViews: [UIView]) {
         subViews.forEach({self.addSubview($0)})
     }
-
+    
     // FIXME:
     public var isRightToLeft: Bool {
         return effectiveUserInterfaceLayoutDirection == .rightToLeft
     }
-
+    
     // FIXME:
     public func removeGestureRecognizers() {
         gestureRecognizers?.forEach(removeGestureRecognizer)
     }
-
+    
     // FIXME:
     public func round() {
         clipsToBounds = true
         layer.cornerRadius = frame.size.width / 2
     }
-
+    
     // cool
     // FIXME:
     public var screenShot: UIImage? {
@@ -238,8 +238,8 @@ public extension UIView {
         layer.render(in: context)
         return UIGraphicsGetImageFromCurrentImageContext()
     }
-
-
+    
+    
     // FIXME:
     /// Return true if view is visible in screen currently
     public var isVisible: Bool {
@@ -253,7 +253,7 @@ public extension UIView {
         }
         return viewRect.intersects(window.bounds) == false
     }
-
+    
     // FIXME:
     public var origin: CGPoint {
         get {
@@ -265,7 +265,7 @@ public extension UIView {
             self.frame = frame
         }
     }
-
+    
     // FIXME:
     public var originX: CGFloat {
         get {
@@ -277,7 +277,7 @@ public extension UIView {
             self.frame = frame
         }
     }
-
+    
     // FIXME:
     public var originY: CGFloat {
         get {
@@ -289,5 +289,5 @@ public extension UIView {
             self.frame = frame
         }
     }
-
+    
 }

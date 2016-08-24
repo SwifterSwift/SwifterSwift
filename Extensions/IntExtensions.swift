@@ -57,14 +57,12 @@ public extension Int {
         return (self * n).abs / gcd(of: n)
     }
 
-    // cool
     /// Return random integer value between two integer values.
     public static func randomBetween(min: Int, max: Int) -> Int {
         let delta = max - min
         return min + Int(arc4random_uniform(UInt32(delta)))
     }
 
-    // cool
     // FIXME:
     /// Return roman numeral from an integer (I, II, IV, X,..)
     public var romanNumeral: String? {

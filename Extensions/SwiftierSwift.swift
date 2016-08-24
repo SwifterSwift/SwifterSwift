@@ -142,7 +142,6 @@ public class SwiftierSwift {
         return UserDefaults.standard.object(forKey: forKey)
     }
     
-    // cool
     /// Return true if app is running in debug mode
     public static var isInDebuggingMode: Bool {
         // http://stackoverflow.com/questions/9063100/xcode-ios-how-to-determine-whether-code-is-running-in-debug-release-build
@@ -153,7 +152,6 @@ public class SwiftierSwift {
         #endif
     }
     
-    // cool
     /// Return true is application is running on simulator
     public static var isRunningOnSimulator: Bool {
         // http://stackoverflow.com/questions/24869481/detect-if-app-is-being-built-for-device-or-simulator-in-swift
