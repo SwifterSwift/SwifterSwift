@@ -1,4 +1,5 @@
-# Swiftier Swift
+![Alt text](https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png "Swiftier Swift"){:style="float: left;margin-left: 7px;margin-top: 7px;"}
+
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://github.com/omaralbeik/SwiftierSwift)
