@@ -6,12 +6,12 @@
 [![Xcode](https://img.shields.io/badge/Xcode-8.0%20beta6-blue.svg)](https://developer.apple.com/xcode)
 
 
-A collection of priceless native swift 3 extensions to make working with your projects a real joy ;)
+A handy collection of native Swift 3 extensions to boost your productivity.
 
 
 ## How to use:
 
-Copy Extensions folder to your Xcode project to use all extensions, or a specific extension
+Copy to the extensions folder of your Xcode project to use all extensions, or a specific extension.
 
 
 ## Requirements:
@@ -37,4 +37,4 @@ Xcode 8 beta4 or later with Swift 3 is required to use these extensions
 
 
 ## Thanks:
-Special thanks to [Eng. AbdulRahman Dabbour](https://github.com/thedabbour) for documenting the project
+Special thanks to [Eng. Abdul Rahman Dabbour](https://github.com/thedabbour) for documenting the project
