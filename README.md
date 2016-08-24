@@ -31,8 +31,9 @@ SwiftierSwift includes more than 150 property and method ..
 
 // Return random item from array.
 [1, 2, 3, 4, 5].randomItem = 3
+
+// and many others!
 ```
-and many more...
 
 
 ### Date Extensions (24)
@@ -54,8 +55,9 @@ Date().iso8601String = "2016-08-23T21:26:15.287Z"
 
 // Create date from iso8601 string
 let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
+
+// and many others!
 ```
-and many more...
 
 
 ### Numbers Extensions (36)
@@ -74,8 +76,9 @@ Int.randomBetween(min: 1, max: 10) = 6
 
 // Return roman numeral for a number
 134.romanNumeral = "CXXXIV"
+
+// and many others!
 ```
-and many more...
 
 
 ### String Extensions (49)
@@ -109,8 +112,9 @@ let random = String.random(of length: 10) = "AhEju28kNl"
 
 // Check if string contains one or more emojis
 "string👨‍with😍emojis✊🏿".containEmoji = true
+
+// and many others!
 ```
-and many more...
 
 
 ### Dictionary Extensions
@@ -135,8 +139,9 @@ UIColor.red.hexString = "#FF0000"
 
 // Return brand colors from more than 30 social brands
 let facebookColor = UIColor.socialColors.facebook
+
+// and many others!
 ```
-and many more...
 
 
 ### Misc Extensions
@@ -146,8 +151,9 @@ SwiftierSwift.isInDebuggingMode
 
 // Check if app is running on simulator
 SwiftierSwift.isRunningOnSimulator
+
+// and many others!
 ```
-and many more...
 
 
 ## List Of Extensions
