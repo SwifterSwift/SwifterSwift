@@ -21,7 +21,7 @@ Xcode 8 beta5 or later with Swift 3 is required to use these extensions
 
 SwiftierSwift includes more than 150 property and method ..
 
-### Array Extensions
+### Array Extensions (19)
 ```swift
 // Remove duplicates from array.
 [1, 2, 3, 1, 3].removeDuplicates() = [1, 2, 3]
@@ -31,15 +31,9 @@ SwiftierSwift includes more than 150 property and method ..
 
 // Return random item from array.
 [1, 2, 3, 4, 5].randomItem = 3
-
-// Shuffle array.
-[1, 2, 3, 4, 5].shuffle() = [2, 5, 3, 1, 4]
-
-// Calculate the average of an array
-[1, 2, 3, 4, 5].average = 3
 ```
 
-### Date Extensions
+### Date Extensions (24)
 ```swift
 // Check if date is in today
 Date().isInToday = true
@@ -60,7 +54,7 @@ Date().iso8601String = "2016-08-23T21:26:15.287Z"
 let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
 ```
 
-### Numbers Extensions
+### Numbers Extensions (36)
 ```swift
 // Return square root of a number
 √ 9 = 3
@@ -78,7 +72,7 @@ Int.randomBetween(min: 1, max: 10) = 6
 134.romanNumeral = "CXXXIV"
 ```
 
-### String Extensions
+### String Extensions (49)
 ```swift
 // Return count of substring in string.
 "hello world"count(of "o", caseSensitive: false) = 2
@@ -118,15 +112,9 @@ let jsonString = someDictionary.jsonString(prettify: true)
 
 // Return JSON data from a dictionary
 let jsonData = someDictionary.jsonData
-
-// Check if app is running in debugging mode
-SwiftierSwift.isInDebuggingMode
-
-// Check if app is running on simulator
-SwiftierSwift.isRunningOnSimulator
 ```
 
-### UIColor Extensions
+### UIColor Extensions (35)
 ```swift
 // Create new UIColor for RGB values
 let color = UIColor(red: 121, green: 220, blue: 164)
@@ -139,6 +127,15 @@ UIColor.red.hexString = "#FF0000"
 
 // Return brand colors from more than 30 social brands
 let facebookColor = UIColor.socialColors.facebook
+```
+
+### Misc Extensions
+```swift
+// Check if app is running in debugging mode
+SwiftierSwift.isInDebuggingMode
+
+// Check if app is running on simulator
+SwiftierSwift.isRunningOnSimulator
 ```
 
 ## List Of Extensions
