@@ -23,25 +23,28 @@ Xcode 8 beta5 or later with Swift 3.
 
 SwiftierSwift includes more than 150 property and method ..
 
-#### Array Extensions (19)
+#### Array Extensions (14)
 ```swift
-// Remove duplicates from array.
-[1, 2, 3, 1, 3].removeDuplicates() = [1, 2, 3]
+// Remove duplicates from array
+[1, 2, 3, 1, 3].removeDuplicates() -> [1, 2, 3]
 
-// Return all indexes of specified item.
-["h", "e", "l", "l", "o"].indexes(of item: "l") = [2, 3]
+// Return all indexes of specified item
+["h", "e", "l", "l", "o"].indexes(of item: "l") -> [2, 3]
 
-// Return random item from array.
-[1, 2, 3, 4, 5].randomItem = 3
+// Return random item from array
+[1, 2, 3, 4, 5].randomItem -> 3
 
 // and many others!
 ```
 
 
-#### Date Extensions (24)
+#### Date Extensions (23)
 ```swift
+// Get and set components from date with ease
+date.hour = 14
+
 // Check if date is in today
-Date().isInToday = true
+Date().isInToday -> true
 
 // Add 1 month to current date
 Date().add(component: .month, value: 1)
@@ -50,10 +53,10 @@ Date().add(component: .month, value: 1)
 Date().beginning(of component: .day)
 
 // Check if date is in current calendar unit
-Date().isIn(current: .month) = true
+Date().isIn(current: .month) -> true
 
 // Return iso8601 string for date
-Date().iso8601String = "2016-08-23T21:26:15.287Z"
+Date().iso8601String -> "2016-08-23T21:26:15.287Z"
 
 // Create date from iso8601 string
 let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
@@ -62,7 +65,78 @@ let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
 ```
 
 
-#### Numbers Extensions (36)
+#### String Extensions (48)
+```swift
+// Return count of substring in string
+"hello world".count(of "o", caseSensitive: false) -> 2
+
+// Return an array of strings separated by given string
+"hello world".split(by separator: " ") -> ["hello", "world"]
+
+// Return string with no spaces or new lines in beginning and end
+"\n Hello   ".trimmed -> "Hello"
+
+// Return most common character in string
+"SwiftierSwift is making swift more swifty".mostCommonCharacter -> "i"
+
+// Returns CamelCase of string
+"Some variable name".camelCased -> "someVariableName"
+
+// Check if string is in valid email format
+"omaralbeik@gmail.com".isEmail -> true
+
+// Check if string contains at least one letter and one number
+"123abc".isAlphaNumeric -> true
+
+// Reverse string
+"123abc".reverse() -> "cba321"
+
+// Return latinized string
+"Hèllö Wórld!".latinize() -> "Hello World!"
+
+// Return latinized string
+String.random(of length: 10) -> "AhEju28kNl"
+
+// Check if string contains one or more instance of substring
+"Hello World!".contain(string: "o", caseSensitive: false) -> true
+
+// Check if string contains one or more emojis
+"string👨‍with😍emojis✊🏿".containEmoji -> true
+
+// Convert string to numbers
+"12.12".toDouble -> 12.12
+
+// Encode string into url
+"it's easy to encode strings".urlEncoded() -> "it's%20easy%20to%20encode%20strings"
+
+// Decode url
+"it's%20easy%20to%20encode%20strings".urlDecoded() -> "it's easy to encode strings"
+
+// Repeat a string n times
+"s" * 5 -> "sssss"
+// and many others!
+```
+
+
+#### UIColor Extensions (7)
+```swift
+// Create new UIColor for RGB values
+let color = UIColor(red: 121, green: 220, blue: 164)
+
+// Create new UIColor for a hexadecimal value
+let color = UIColor(netHex:0x45C91B)
+
+// Return hexadecimal value string
+UIColor.red.hexString -> "#FF0000"
+
+// Return brand colors from more than 30 social brands
+let facebookColor = UIColor.socialColors.facebook
+
+// and many others!
+```
+
+
+#### Number Extensions (33)
 ```swift
 // Return square root of a number
 √ 9 = 3
@@ -83,71 +157,16 @@ Int.randomBetween(min: 1, max: 10) = 6
 ```
 
 
-#### String Extensions (49)
-```swift
-// Return count of substring in string.
-"hello world"count(of "o", caseSensitive: false) = 2
-
-// Return string with no spaces or new lines in beginning and end
-"\n Hello   ".trimmed = "Hello"
-
-// Return most common character in string
-"SwiftierSwift is making swift more swifty".mostCommonCharacter = "i"
-
-// Returns CamelCase of string
-"Some variable name".camelCased = "someVariableName"
-
-// Check if string is in valid email format
-"omaralbeik@gmail.com".isEmail = true
-
-// Check if string contains at least one letter and one number
-"123abc".isAlphaNumeric = true
-
-// Return latinized string
-"Hèllö Wórld!".latinized = "Hello World!"
-
-// Return latinized string
-let random = String.random(of length: 10) = "AhEju28kNl"
-
-// Check if string contains one or more instance of substring
-"Hello World!".contain(string: "o", caseSensitive: false) = true
-
-// Check if string contains one or more emojis
-"string👨‍with😍emojis✊🏿".containEmoji = true
-
-// and many others!
-```
 
 
-#### Dictionary Extensions
+#### Misc Extensions
 ```swift
 // Return JSON string from a dictionary
 let jsonString = someDictionary.jsonString(prettify: true)
 
 // Return JSON data from a dictionary
 let jsonData = someDictionary.jsonData
-```
 
-#### UIColor Extensions (35)
-```swift
-// Create new UIColor for RGB values
-let color = UIColor(red: 121, green: 220, blue: 164)
-
-// Create new UIColor for a hexadecimal value
-let color = UIColor(netHex:0x45C91B)
-
-// Return hexadecimal value string
-UIColor.red.hexString = "#FF0000"
-
-// Return brand colors from more than 30 social brands
-let facebookColor = UIColor.socialColors.facebook
-
-// and many others!
-```
-
-
-#### Misc Extensions
-```swift
 // Check if app is running in debugging mode
 SwiftierSwift.isInDebuggingMode
 
