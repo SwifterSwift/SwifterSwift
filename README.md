@@ -5,12 +5,7 @@
 [![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://github.com/omaralbeik/SwiftierSwift)
 [![Xcode](https://img.shields.io/badge/Xcode-8.0%20beta6-blue.svg)](https://developer.apple.com/xcode)
 
-<<<<<<< HEAD
-
 A handy collection of native Swift 3 extensions to boost your productivity.
-=======
-A collection of priceless native swift 3 extensions to make working with your projects a real joy ;)
->>>>>>> origin/doc
 
 
 ## How to use:
@@ -20,7 +15,7 @@ Copy to the extensions folder of your Xcode project to use all extensions, or a 
 
 ## Requirements:
 
-Xcode 8 beta5 or later with Swift 3 is required to use these extensions
+Xcode 8 beta5 or later with Swift 3.
 
 ## How cool is this?
 
