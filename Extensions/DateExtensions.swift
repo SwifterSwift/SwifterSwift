@@ -1,6 +1,6 @@
 //
 //  DateExtensions.swift
-//  SwiftierSwift
+//  SwifterSwift
 //
 //  Created by Omar Albeik on 8/5/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
@@ -199,7 +199,7 @@ public extension Date {
         }
     }
 
-    /// Return true if date component in current given calendar component. 
+    /// Return true if date component in current given calendar component.
     public func isIn(current: Calendar.Component) -> Bool {
         switch current {
         case .second:

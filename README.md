@@ -1,10 +1,10 @@
 <p align="left">
-  <img src="https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png" title="Swiftier Swift">
+  <img src="https://github.com/omaralbeik/swifterSwift/blob/master/logo.png" title="swifter Swift">
 </p>
 
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
-[![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://github.com/omaralbeik/SwiftierSwift)
+[![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://github.com/omaralbeik/swifterSwift)
 [![Xcode](https://img.shields.io/badge/Xcode-8.0%20beta6-blue.svg)](https://developer.apple.com/xcode)
 
 A handy collection of native Swift 3 extensions to boost your productivity.
@@ -47,7 +47,8 @@ Xcode 8 beta5 or later with Swift 3.
 
 ## How cool is this?
 
-SwiftierSwift includes more than 150 property and method ..
+Swifter Swift is a library of over 150 properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design manual.
+Here are some examples:
 
 #### Array Extensions (14)
 ```swift
@@ -103,7 +104,7 @@ let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
 "\n Hello   ".trimmed -> "Hello"
 
 // Return most common character in string
-"SwiftierSwift is making swift more swifty".mostCommonCharacter -> "i"
+"swifterSwift is making swift more swifty".mostCommonCharacter -> "i"
 
 // Returns CamelCase of string
 "Some variable name".camelCased -> "someVariableName"
@@ -192,10 +193,10 @@ let jsonString = someDictionary.jsonString(prettify: true)
 let jsonData = someDictionary.jsonData
 
 // Check if app is running in debugging mode
-SwiftierSwift.isInDebuggingMode
+swifterSwift.isInDebuggingMode
 
 // Check if app is running on simulator
-SwiftierSwift.isRunningOnSimulator
+swifterSwift.isRunningOnSimulator
 
 // and many others!
 ```

@@ -1,6 +1,6 @@
 //
-//  SwiftierSwift.swift
-//  SwiftierSwift
+//  SwifterSwift.swift
+//  SwifterSwift
 //
 //  Created by Omar Albeik on 8/8/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SwiftierSwift {
+public class swifterSwift {
 
     /// Return shared instance UIApplication
     public static var sharedApplication: UIApplication {

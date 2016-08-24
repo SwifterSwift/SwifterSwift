@@ -1,6 +1,6 @@
 //
 //  CGFloatExtensions.swift
-//  SwiftierSwift
+//  SwifterSwift
 //
 //  Created by Omar Albeik on 8/23/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
