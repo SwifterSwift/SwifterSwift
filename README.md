@@ -1,5 +1,4 @@
-![Alt text](https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png "Swiftier Swift")
-
+# Swiftier Swift
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://github.com/omaralbeik/SwiftierSwift)
@@ -21,7 +20,7 @@ Xcode 8 beta5 or later with Swift 3.
 
 SwiftierSwift includes more than 150 property and method ..
 
-### Array Extensions (19)
+#### Array Extensions (19)
 ```swift
 // Remove duplicates from array.
 [1, 2, 3, 1, 3].removeDuplicates() = [1, 2, 3]
@@ -36,7 +35,7 @@ SwiftierSwift includes more than 150 property and method ..
 ```
 
 
-### Date Extensions (24)
+#### Date Extensions (24)
 ```swift
 // Check if date is in today
 Date().isInToday = true
@@ -60,7 +59,7 @@ let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
 ```
 
 
-### Numbers Extensions (36)
+#### Numbers Extensions (36)
 ```swift
 // Return square root of a number
 √ 9 = 3
@@ -81,7 +80,7 @@ Int.randomBetween(min: 1, max: 10) = 6
 ```
 
 
-### String Extensions (49)
+#### String Extensions (49)
 ```swift
 // Return count of substring in string.
 "hello world"count(of "o", caseSensitive: false) = 2
@@ -117,7 +116,7 @@ let random = String.random(of length: 10) = "AhEju28kNl"
 ```
 
 
-### Dictionary Extensions
+#### Dictionary Extensions
 ```swift
 // Return JSON string from a dictionary
 let jsonString = someDictionary.jsonString(prettify: true)
@@ -126,7 +125,7 @@ let jsonString = someDictionary.jsonString(prettify: true)
 let jsonData = someDictionary.jsonData
 ```
 
-### UIColor Extensions (35)
+#### UIColor Extensions (35)
 ```swift
 // Create new UIColor for RGB values
 let color = UIColor(red: 121, green: 220, blue: 164)
@@ -144,7 +143,7 @@ let facebookColor = UIColor.socialColors.facebook
 ```
 
 
-### Misc Extensions
+#### Misc Extensions
 ```swift
 // Check if app is running in debugging mode
 SwiftierSwift.isInDebuggingMode
