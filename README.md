@@ -1,4 +1,4 @@
-![Alt text](https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png "Swiftier Swift"){:style="float: left;margin-left: 7px;margin-top: 7px;"}
+![Alt text](https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png#left "Swiftier Swift")
 
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
