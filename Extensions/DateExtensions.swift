@@ -10,19 +10,19 @@ import Foundation
 public extension Date {
 
     // tested
-    /// Return user’s current calendar (read-only).
+    /// Return user’s current calendar.
     public var calendar: Calendar {
         return Calendar.current
     }
 
     // tested
-    /// Return time zone used by system (read-only).
+    /// Return time zone used by system.
     public var timeZone: TimeZone {
         return self.calendar.timeZone
     }
 
     // tested
-    /// Nanoseconds (read-only).
+    /// Nanoseconds.
     public var nanosecond: Int {
         return calendar.component(.nanosecond, from: self)
     }
@@ -72,19 +72,19 @@ public extension Date {
     }
 
     // tested
-    /// Weekday (read-only).
+    /// Weekday.
     public var weekday: Int {
         return calendar.component(.weekday, from: self)
     }
 
     // tested
-    /// Week of month (read-only).
+    /// Week of month.
     public var weekOfMonth: Int {
         return calendar.component(.weekOfMonth, from: self)
     }
 
     // tested
-    /// Week of year (read-only).
+    /// Week of year.
     public var weekOfYear: Int {
         return calendar.component(.weekOfYear, from: self)
     }
@@ -112,19 +112,19 @@ public extension Date {
     }
 
     // tested
-    /// Era (read-only).
+    /// Era.
     public var era: Int {
         return calendar.component(.era, from: self)
     }
 
     // tested
-    /// Quarter (read-only).
+    /// Quarter.
     public var quarter: Int {
         return calendar.component(.quarter, from: self)
     }
 
     // tested
-    /// Return true if date is in today (read-only).
+    /// Return true if date is in today.
     public var isInToday: Bool {
         return self.day == Date().day && self.month == Date().month && self.year == Date().year
     }
@@ -199,7 +199,7 @@ public extension Date {
         }
     }
 
-    // FIXME:
+    /// Return true if date component in current given calendar component. 
     public func isIn(current: Calendar.Component) -> Bool {
         switch current {
         case .second:
@@ -225,20 +225,17 @@ public extension Date {
         }
     }
 
-    // FIXME:
-    /// Return true if date is in future
+    /// Return true if date is in future.
     public var isInFuture: Bool {
         return self > Date()
     }
 
-    // FIXME:
-    /// Return true if date is in past
+    /// Return true if date is in past.
     public var isInPast: Bool {
         return self < Date()
     }
 
-    // FIXME:
-    /// Return ISO8601 string (yyyy-MM-dd'T'HH:mm:ss.SSS) from date
+    /// Return ISO8601 string (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
     public var iso8601String: String {
         // https://github.com/justinmakaila/NSDate-ISO-8601/blob/master/NSDateISO8601.swift
         let dateFormatter = DateFormatter()
@@ -249,8 +246,7 @@ public extension Date {
         return dateFormatter.string(from: self).appending("Z")
     }
 
-    // FIXME:
-    /// Create date object from ISO8601 string (yyyy-MM-dd'T'HH:mm:ss.SSSZ)
+    /// Create date object from ISO8601 string (yyyy-MM-dd'T'HH:mm:ss.SSSZ).
     public init(iso8601String: String) {
         // https://github.com/justinmakaila/NSDate-ISO-8601/blob/master/NSDateISO8601.swift
         let dateFormatter = DateFormatter()

@@ -10,17 +10,17 @@ import UIKit
 
 public extension CGFloat {
 
-    /// Return absolute of CGFloat value (read-only).
+    /// Return absolute of CGFloat value.
     public var abs: CGFloat {
         return Swift.abs(self)
     }
 
-    /// Return floor of CGFloat value (read-only).
+    /// Return floor of CGFloat value.
     public var floor: CGFloat {
         return Foundation.floor(self)
     }
 
-    /// Return ceil of CGFloat value (read-only).
+    /// Return ceil of CGFloat value.
     public var ceil: CGFloat {
         return Foundation.ceil(self)
     }
@@ -31,39 +31,39 @@ public extension CGFloat {
         return min + CGFloat(arc4random_uniform(UInt32(delta)))
     }
 
-    // FIXME:
+    /// Return degree value of radian input.
     public var degreesToRadians: CGFloat {
         return CGFloat(M_PI) * self / 180.0
     }
 
-    // FIXME:
+    /// Return radian value of degree input.
     public var radiansToDegrees: CGFloat {
         return self * 180 / CGFloat(M_PI)
     }
 }
 
-// FIXME:
+/// Return square root of value.
 prefix operator √
 public prefix func √ (number: CGFloat) -> CGFloat {
     // http://nshipster.com/swift-operators/
     return sqrt(number)
 }
 
-// FIXME:
+/// Return value of exponentiation.
 infix operator ^
 public func ^ (left: CGFloat, right: CGFloat) -> CGFloat {
     // http://nshipster.com/swift-operators/
     return pow(left, right)
 }
 
-// FIXME:
+/// Return tuple of plus-minus operation.
 infix operator ±
 public func ± (left: CGFloat, right: CGFloat) -> (CGFloat, CGFloat) {
     // http://nshipster.com/swift-operators/
     return (left + right, left - right)
 }
 
-// FIXME:
+/// Return tuple of plus-minus operation.
 prefix operator ±
 public prefix func ± (value: CGFloat) -> (CGFloat, CGFloat) {
     // http://nshipster.com/swift-operators/

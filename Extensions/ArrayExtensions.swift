@@ -109,24 +109,21 @@ public extension Array {
         return arr
     }
 
-    // FIXME:
-    /// Prepend an element to array
+    /// Prepend an element to array.
     public mutating func prepend(_ newElement: Element) {
         self.insert(newElement, at: 0)
     }
 }
 
 public extension Array where Element: Integer {
-    // FIXME:
-    /// Returns the sum of all elements in the array
+    /// Return sum of all elements in array.
     public var sum: Element {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return reduce(0, +)
     }
 }
 public extension Collection where Iterator.Element == Int, Index == Int {
-    // FIXME:
-    /// Returns the average of all elements in array
+    /// Return average of all elements in array.
     public var average: Double {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return isEmpty ? 0 : Double(reduce(0, +)) / Double(endIndex-startIndex)
@@ -134,15 +131,13 @@ public extension Collection where Iterator.Element == Int, Index == Int {
 }
 
 public extension Array where Element: FloatingPoint {
-    // FIXME:
-    /// Returns the sum of all elements in the array
+    /// Return sum of all elements in array.
     public var sum: Element {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return reduce(0, +)
     }
 
-    // FIXME:
-    /// Returns the average of all elements in the array
+    /// Return average of all elements in array.
     public var average: Element {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return isEmpty ? 0 : reduce(0, +) / Element(count)

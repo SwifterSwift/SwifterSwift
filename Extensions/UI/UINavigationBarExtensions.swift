@@ -9,8 +9,8 @@
 import UIKit
 
 public extension UINavigationBar {
-    
-    // FIXME:
+
+    /// Set Navigation Bar title.
     public func setTitle(of font: UIFont, with color: UIColor) {
         var attrs = [String: AnyObject]()
         attrs[NSFontAttributeName] = font

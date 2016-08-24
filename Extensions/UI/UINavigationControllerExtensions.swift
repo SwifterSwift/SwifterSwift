@@ -8,23 +8,23 @@
 
 import UIKit
 public extension UINavigationController {
-    
-    // FIXME:
-    public func popViewControllerWithHandler(completion: (()->Void)?) {
+
+    /// Pop ViewController with completion handler.
+    public func popViewController(completion: (()->Void)? = nil) {
         // https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
         popViewController(animated: true)
         CATransaction.commit()
     }
-    
-    // FIXME:
-    public func pushViewController(viewController: UIViewController, completion: (()->Void)?)  {
+
+    /// Push ViewController with completion handler.
+    public func pushViewController(viewController: UIViewController, completion: (()->Void)? = nil)  {
         // https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
         CATransaction.begin()
         CATransaction.setCompletionBlock(completion)
         pushViewController(viewController, animated: true)
         CATransaction.commit()
     }
-    
+
 }

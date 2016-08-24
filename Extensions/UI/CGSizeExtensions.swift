@@ -9,9 +9,8 @@
 import UIKit
 
 public extension CGSize {
-    
-    // cool
-    // FIXME:
+
+    /// Aspect fit CGSize.
     public func aspectFit(to boundingSize: CGSize) -> CGSize {
         let minRatio = min(boundingSize.width / width, boundingSize.height / height)
         return CGSize(width: width*minRatio, height: height*minRatio)

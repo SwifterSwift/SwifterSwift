@@ -9,7 +9,7 @@
 import UIKit
 public extension UIColor {
 
-    /// Create new UIColor for RGB values
+    /// Create UIColor from RGB values.
     public convenience init(red: Int, green: Int, blue: Int) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
@@ -19,7 +19,7 @@ public extension UIColor {
 
     }
 
-    /// Create new UIColor for RGB values with transparency
+    /// Create UIColor from RGB values with transparency.
     public convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat) {
         assert(red >= 0 && red <= 255, "Invalid red component")
         assert(green >= 0 && green <= 255, "Invalid green component")
@@ -28,7 +28,7 @@ public extension UIColor {
         self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: transparency)
     }
 
-    /// Create new UIColor for a hexadecimal value
+    /// Create UIColor from hexadecimal value.
     public convenience init(netHex:Int) {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
     }
@@ -38,7 +38,7 @@ public extension UIColor {
         self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff, transparency: transparency)
     }
 
-    /// Return hexadecimal value string
+    /// Return hexadecimal value string.
     public var hexString: String {
         var r:CGFloat = 0
         var g:CGFloat = 0
@@ -50,15 +50,15 @@ public extension UIColor {
         return NSString(format:"#%06x", rgb).uppercased as String
     }
 
-    /// Return a random color
-    public public static var random: UIColor {
+    /// Return random color.
+    public static var random: UIColor {
         let r = Int(arc4random_uniform(255))
         let g = Int(arc4random_uniform(255))
         let b = Int(arc4random_uniform(255))
         return UIColor(red: r, green: g, blue: b)
     }
 
-    //FIXME:
+    /// Return brand identity color of popular social media platform.
     public struct socialColors {
         // FIXME: re-check colors
         // https://www.lockedowndesign.com/social-media-colors/

@@ -9,62 +9,62 @@
 import UIKit
 
 public class SwiftierSwift {
-    
+
     /// Return shared instance UIApplication
     public static var sharedApplication: UIApplication {
         return UIApplication.shared
     }
-    
+
     /// Return shared instance of AppDelegate
     public static var delegate: UIApplicationDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
-    
+
     /// Return app current version
     public static var appVersion: String? {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
     }
-    
+
     /// Return app current build number
     public static var appBuild: String? {
         return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
     }
-    
+
     /// Return shared instance of current device
     public static var currentDevice: UIDevice {
         return UIDevice.current
     }
-    
+
     /// Return system current version
     public static var systemVersion: String {
         return UIDevice.current.systemVersion
     }
-    
+
     /// Return current device name
     public static var deviceName: String {
         return UIDevice.current.name
     }
-    
+
     /// Return current device model
     public static var deviceModel: String {
         return UIDevice.current.model
     }
-    
+
     /// Return current battery level
     public static var batteryLevel: Float {
         return UIDevice.current.batteryLevel
     }
-    
+
     /// Return true if multitasking is supported in current device
     public static var isMultitaskingSupported: Bool {
         return UIDevice.current.isMultitaskingSupported
     }
-    
+
     /// Return current orientation of device
     public static var deviceOrientation: UIDeviceOrientation {
         return UIDevice.current.orientation
     }
-    
+
     /// Application icon badge current number
     public static var applicationIconBadgeNumber: Int {
         get {
@@ -74,7 +74,7 @@ public class SwiftierSwift {
             UIApplication.shared.applicationIconBadgeNumber = newValue
         }
     }
-    
+
     /// Network activity indicator state
     public static var isNetworkActivityIndicatorVisible: Bool {
         get {
@@ -84,7 +84,7 @@ public class SwiftierSwift {
             UIApplication.shared.isNetworkActivityIndicatorVisible = newValue
         }
     }
-    
+
     /// Status bar visibility state
     public static var isStatusBarHidden: Bool {
         get {
@@ -94,12 +94,12 @@ public class SwiftierSwift {
             UIApplication.shared.isStatusBarHidden = newValue
         }
     }
-    
+
     /// Return key window (read only)
     public static var keyWindow: UIView? {
         return UIApplication.shared.keyWindow
     }
-    
+
     /// Most top view controller
     var mostTopViewController: UIViewController? {
         get {
@@ -109,12 +109,12 @@ public class SwiftierSwift {
             UIApplication.shared.keyWindow?.rootViewController = newValue
         }
     }
-    
+
     /// Return true if device is registered for remote notifications for current app (read only)
     public static var isRegisteredForRemoteNotifications: Bool {
         return UIApplication.shared.isRegisteredForRemoteNotifications
     }
-    
+
     /// Current status bar style
     public static var statusBarStyle: UIStatusBarStyle? {
         get {
@@ -126,22 +126,22 @@ public class SwiftierSwift {
             }
         }
     }
-    
+
     /// Return shared instance of standard UserDefaults
     public static var userDefaults: UserDefaults {
         return UserDefaults.standard
     }
-    
+
     /// Save an object to UserDefaults
     public static func set(value: AnyObject?, forKey: String) {
         UserDefaults.standard.set(value, forKey: forKey)
     }
-    
+
     /// Get an object from UserDefaults
     public static func object(forKey: String) -> Any? {
         return UserDefaults.standard.object(forKey: forKey)
     }
-    
+
     /// Return true if app is running in debug mode
     public static var isInDebuggingMode: Bool {
         // http://stackoverflow.com/questions/9063100/xcode-ios-how-to-determine-whether-code-is-running-in-debug-release-build
@@ -151,7 +151,7 @@ public class SwiftierSwift {
             return false
         #endif
     }
-    
+
     /// Return true is application is running on simulator
     public static var isRunningOnSimulator: Bool {
         // http://stackoverflow.com/questions/24869481/detect-if-app-is-being-built-for-device-or-simulator-in-swift
@@ -161,33 +161,28 @@ public class SwiftierSwift {
             return false
         #endif
     }
-    
-    // FIXME:
-    /// Return device width
+
+    /// Return device width.
     var deviceWidth: CGFloat {
         return UIScreen.main.bounds.width
     }
-    
-    // FIXME:
-    /// Return device height
+
+    /// Return device height.
     var deviceHeight: CGFloat {
         return UIScreen.main.bounds.height
     }
-    
-    // FIXME:
-    /// Return true if device is iPhone
+
+    /// Return true if device is iPhone.
     var isPhone: Bool {
         return UIDevice.current.userInterfaceIdiom == .phone
     }
-    
-    // FIXME:
-    /// Return true if device is iPad
+
+    /// Return true if device is iPad.
     var isPad: Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
-    
-    // FIXME:
-    /// Return class name for an object
+
+    /// Return class name of object as string.
     public static func typeName(for object: Any) -> String {
         let type = type(of: object.self)
         return String.init(describing: type)

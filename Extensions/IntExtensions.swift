@@ -10,19 +10,19 @@ import Foundation
 public extension Int {
 
     // tested
-    /// Return absolute of integer value (read-only).
+    /// Return absolute of integer value.
     public var abs: Int {
         return Swift.abs(self)
     }
 
     // tested
-    /// Checks if integer value is even (read-only).
+    /// Checks if integer value is even.
     public var isEven: Bool {
         return (self % 2) == 0
     }
 
     // tested
-    /// Checks if integer value is odd (read-only).
+    /// Checks if integer value is odd.
     public var isOdd: Bool {
         return (self % 2) != 0
     }
@@ -40,7 +40,7 @@ public extension Int {
     }
 
     // tested
-    /// Returns number of digits of integer value (read-only).
+    /// Returns number of digits of integer value.
     public var digitsCount: Int {
         return String(self).characters.count
     }
@@ -63,8 +63,7 @@ public extension Int {
         return min + Int(arc4random_uniform(UInt32(delta)))
     }
 
-    // FIXME:
-    /// Return roman numeral from an integer (I, II, IV, X,..)
+    /// Return roman numeral from integer.
     public var romanNumeral: String? {
         // https://gist.github.com/kumo/a8e1cb1f4b7cff1548c7
         guard self > 0 else { // there is no roman numerals for 0 or negative numbers
@@ -93,28 +92,28 @@ public extension Int {
     }
 }
 
-// FIXME:
+/// Return square root of value.
 prefix operator √
 public prefix func √ (number: Int) -> Double {
     // http://nshipster.com/swift-operators/
     return sqrt(Double(number))
 }
 
-// FIXME:
+/// Return value of exponentiation.
 infix operator ^
 public func ^ (left: Int, right: Int) -> Double {
     // http://nshipster.com/swift-operators/
     return pow(Double(left), Double(right))
 }
 
-// FIXME:
+/// Return tuple of plus-minus operation.
 infix operator ±
 public func ± (left: Int, right: Int) -> (Int, Int) {
     // http://nshipster.com/swift-operators/
     return (left + right, left - right)
 }
 
-// FIXME:
+// Return tuple of plus-minus operation.
 prefix operator ±
 public prefix func ± (value: Int) -> (Int, Int) {
     // http://nshipster.com/swift-operators/
