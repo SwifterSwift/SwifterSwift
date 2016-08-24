@@ -1,4 +1,6 @@
-![Alt text](https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png#left "Swiftier Swift")
+<p align="left">
+  <img src="https://github.com/omaralbeik/SwiftierSwift/blob/master/logo.png" title="Swiftier Swift">
+</p>
 
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
