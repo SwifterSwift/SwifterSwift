@@ -1,6 +1,6 @@
 //
 //  UIButtonExtensions.swift
-//  SwiftierSwift
+//  SwifterSwift
 //
 //  Created by Omar Albeik on 8/22/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
@@ -9,8 +9,8 @@
 import UIKit
 
 public extension UIButton {
-    
-    // FIXME:
+
+    /// Title of normal state for button; also inspectable from Storyboard.
     @IBInspectable
     public var titleForNormal: String? {
         get {
@@ -20,8 +20,8 @@ public extension UIButton {
             setTitle(newValue, for: .normal)
         }
     }
-    
-    // FIXME:
+
+    /// Title of selected state for button; also inspectable from Storyboard.
     @IBInspectable
     public var titleForSelected: String? {
         get {
@@ -31,8 +31,8 @@ public extension UIButton {
             setTitle(newValue, for: .selected)
         }
     }
-    
-    // FIXME:
+
+    /// Title of highlighted state for button; also inspectable from Storyboard.
     @IBInspectable
     public var titleForHighlighted: String? {
         get {
@@ -42,8 +42,8 @@ public extension UIButton {
             setTitle(newValue, for: .highlighted)
         }
     }
-    
-    // FIXME:
+
+    /// Title of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     public var titleForDisabled: String? {
         get {
@@ -53,8 +53,8 @@ public extension UIButton {
             setTitle(newValue, for: .disabled)
         }
     }
-    
-    // FIXME:
+
+    /// Image of normal state for button; also inspectable from Storyboard.
     @IBInspectable
     public var imageForNormal: UIImage? {
         get {
@@ -64,8 +64,9 @@ public extension UIButton {
             setImage(newValue, for: .normal)
         }
     }
-    
-    // FIXME:
+
+    /// Image of selected state for button; also inspectable from Storyboard.
+    @IBInspectable
     public var imageForSelected: UIImage? {
         get {
             return image(for: .selected)
@@ -74,8 +75,8 @@ public extension UIButton {
             setImage(newValue, for: .selected)
         }
     }
-    
-    // FIXME:
+
+    /// Image of highlighted state for button; also inspectable from Storyboard.
     @IBInspectable
     public var imageForHighlighted: UIImage? {
         get {
@@ -85,8 +86,8 @@ public extension UIButton {
             setImage(newValue, for: .highlighted)
         }
     }
-    
-    // FIXME:
+
+    /// Image of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     public var imageForDisabled: UIImage? {
         get {
@@ -96,8 +97,8 @@ public extension UIButton {
             setImage(newValue, for: .disabled)
         }
     }
-    
-    // FIXME:
+
+    /// Title color of normal state for button; also inspectable from Storyboard.
     @IBInspectable
     public var titleColorForNormal: UIColor? {
         get {
@@ -107,8 +108,8 @@ public extension UIButton {
             setTitleColor(newValue, for: .normal)
         }
     }
-    
-    // FIXME:
+
+    /// Title color of selected state for button; also inspectable from Storyboard.
     @IBInspectable
     public var titleColorForSelected: UIColor? {
         get {
@@ -118,8 +119,8 @@ public extension UIButton {
             setTitleColor(newValue, for: .selected)
         }
     }
-    
-    // FIXME:
+
+    /// Title color of highlighted state for button; also inspectable from Storyboard.
     @IBInspectable
     public var titleColorForHighlighted: UIColor? {
         get {
@@ -129,8 +130,8 @@ public extension UIButton {
             setTitleColor(newValue, for: .highlighted)
         }
     }
-    
-    // FIXME:
+
+    /// Title color of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     public var titleColorForDisabled: UIColor? {
         get {
@@ -140,29 +141,29 @@ public extension UIButton {
             setTitleColor(newValue, for: .highlighted)
         }
     }
-    
-    // FIXME:
+
+    /// Set title for all states.
     public func titleForAllStates(title: String) {
         setTitle(title, for: .normal)
         setTitle(title, for: .selected)
         setTitle(title, for: .highlighted)
         setTitle(title, for: .disabled)
     }
-    
-    // FIXME:
+
+    /// Set image for all states.
     public func imageForAllStates(image: UIImage) {
         setImage(image, for: .normal)
         setImage(image, for: .selected)
         setImage(image, for: .highlighted)
         setImage(image, for: .disabled)
     }
-    
-    // FIXME:
+
+    /// Set title color for all states.
     public func titleColorForAllStates(color: UIColor) {
         setTitleColor(color, for: .normal)
         setTitleColor(color, for: .selected)
         setTitleColor(color, for: .highlighted)
         setTitleColor(color, for: .disabled)
     }
- 
+
 }

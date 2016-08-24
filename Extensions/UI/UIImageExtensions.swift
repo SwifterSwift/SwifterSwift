@@ -1,6 +1,6 @@
 //
 //  UIImageExtensions.swift
-//  SwiftierSwift
+//  SwifterSwift
 //
 //  Created by Omar Albeik on 8/6/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
@@ -8,9 +8,8 @@
 
 import UIKit
 public extension UIImage {
-    
-    // cool
-    // FIXME:
+
+    /// Create image from color and size.
     public convenience init(color: UIColor, size: CGSize) {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         color.setFill()
@@ -19,9 +18,8 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         self.init(cgImage: image.cgImage!)
     }
-    
-    // cool
-    // FIXME:
+
+    /// Crop to CGRect.
     public func cropped(to rect: CGRect) -> UIImage {
         guard rect.size.height < self.size.height && rect.size.height < self.size.height else {
             return self
@@ -31,9 +29,8 @@ public extension UIImage {
         }
         return UIImage(cgImage: cgImage)
     }
-    
-    // cool
-    //FIXME:
+
+    /// Scale image to width with respect to aspect ratio.
     public func scaledToWidth(width: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
         let scale = width / self.size.width
         let newHeight = self.size.height * scale
@@ -43,9 +40,8 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         return newImage
     }
-    
-    // cool
-    //FIXME:
+
+    /// Scale image to height with respect to aspect ratio.
     public func scaledToHeight(height: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
         let scale = height / self.size.height
         let newWidth = self.size.width * scale

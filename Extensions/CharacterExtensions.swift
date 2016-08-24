@@ -1,6 +1,6 @@
 //
 //  CharacterExtensions.swift
-//  SwiftierSwift
+//  SwifterSwift
 //
 //  Created by Omar Albeik on 8/8/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
@@ -8,33 +8,32 @@
 
 import Foundation
 public extension Character {
-    
-    // testes
-    /// Return current locale (read-only).
+
+    // tested
+    /// Return current locale.
     public var locale: Locale {
         return Locale.current
     }
-    
-    // testes
-    /// Return true if character is number (read-only).
+
+    // tested
+    /// Return true if character is number.
     public var isNumber: Bool {
         return Int(String(self)) != nil
     }
-    
-    // testes
-    /// Return string from character (read-only).
+
+    // tested
+    /// Return string from character.
     public var toString: String {
         return String(self)
     }
-    
-    // testes
-    /// Return integer from character (if applicable; read-only).
+
+    // tested
+    /// Return integer from character (if applicable).
     public var toInt: Int? {
         return Int(String(self))
     }
-    
-    // FIXME:
-    /// Return true if character is an emoji
+
+    /// Return true if character is emoji.
     public var isEmoji: Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         guard let scalarValue = String(self).unicodeScalars.first?.value else {
@@ -54,7 +53,7 @@ public extension Character {
 
 }
 
-// FIXME:
+/// Return character repeated n times.
 infix operator *
 public func * (left: Character, right: Int) -> String {
     var newString = ""

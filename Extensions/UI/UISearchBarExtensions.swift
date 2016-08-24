@@ -1,6 +1,6 @@
 //
 //  UISearchBarExtensions.swift
-//  SwiftierSwift
+//  SwifterSwift
 //
 //  Created by Omar Albeik on 8/23/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
@@ -9,8 +9,8 @@
 import UIKit
 
 extension UISearchBar {
-    
-    // FIXME:
+
+    /// Cancel button in search bar.
     var cancelButton: UIButton? {
         for view in subviews {
             if let button = view as? UIButton {
@@ -19,5 +19,5 @@ extension UISearchBar {
         }
         return nil
     }
-    
+
 }

@@ -1,6 +1,6 @@
 //
 //  ArrayExtensions.swift
-//  SwiftierSwift
+//  SwifterSwift
 //
 //  Created by Omar Albeik on 8/5/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
@@ -8,7 +8,7 @@
 
 import Foundation
 public extension Array where Element: Equatable {
-    
+
     // tested
     /// Return unique values of array.
     public var uniqueValues: [Element] {
@@ -20,8 +20,7 @@ public extension Array where Element: Equatable {
         }
         return result
     }
-    
-    // cool
+
     // tested
     /// Remove duplicates from array.
     public mutating func removeDuplicates() {
@@ -33,8 +32,7 @@ public extension Array where Element: Equatable {
         }
         self = result
     }
-    
-    // cool
+
     // tested
     /// Return all indexes of specified item.
     public func indexes(of item: Element) -> [Int] {
@@ -46,7 +44,7 @@ public extension Array where Element: Equatable {
         }
         return indexes
     }
-    
+
     // tested
     /// Remove all instances of an element from array.
     public mutating func removeAll(object: Element) {
@@ -56,15 +54,14 @@ public extension Array where Element: Equatable {
 }
 
 public extension Array {
-    
-    // cool
+
     /// tested
     /// Return random item from array.
     public var randomItem: Element {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
     }
-    
+
     /// tested
     /// Return first index of element in array.
     public func firstIndex <Item: Equatable> (of item: Item) -> Int? {
@@ -78,7 +75,7 @@ public extension Array {
         }
         return nil
     }
-    
+
     /// tested
     /// Return last index of element in array.
     public func lastIndex <Item: Equatable> (of item: Item) -> Int? {
@@ -92,8 +89,7 @@ public extension Array {
         }
         return nil
     }
-    
-    // cool
+
     /// tested
     /// Shuffle array.
     public mutating func shuffle() {
@@ -102,7 +98,7 @@ public extension Array {
             sort { (_,_) in arc4random() < arc4random() }
         }
     }
-    
+
     /// tested
     /// Return shuffled version of array.
     public var shuffled: [Element] {
@@ -112,26 +108,22 @@ public extension Array {
         }
         return arr
     }
-    
-    // FIXME:
-    /// Prepend an element to array
+
+    /// Prepend an element to array.
     public mutating func prepend(_ newElement: Element) {
         self.insert(newElement, at: 0)
     }
 }
 
 public extension Array where Element: Integer {
-    // FIXME:
-    /// Returns the sum of all elements in the array
+    /// Return sum of all elements in array.
     public var sum: Element {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return reduce(0, +)
     }
 }
 public extension Collection where Iterator.Element == Int, Index == Int {
-    // cool
-    // FIXME:
-    /// Returns the average of all elements in array
+    /// Return average of all elements in array.
     public var average: Double {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return isEmpty ? 0 : Double(reduce(0, +)) / Double(endIndex-startIndex)
@@ -139,15 +131,13 @@ public extension Collection where Iterator.Element == Int, Index == Int {
 }
 
 public extension Array where Element: FloatingPoint {
-    // FIXME:
-    /// Returns the sum of all elements in the array
+    /// Return sum of all elements in array.
     public var sum: Element {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return reduce(0, +)
     }
-    
-    // FIXME:
-    /// Returns the average of all elements in the array
+
+    /// Return average of all elements in array.
     public var average: Element {
         // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return isEmpty ? 0 : reduce(0, +) / Element(count)
