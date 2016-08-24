@@ -19,6 +19,23 @@ Copy to the extensions folder of your Xcode project to use all extensions, or a 
 
 Xcode 8 beta5 or later with Swift 3.
 
+
+## [List Of Extensions](Documentation/ExtensionsTable.md)
+
+- [x] [String extensions](Documentation/ExtensionsTable.md#string-extensions)
+- [x] [Date extensions](Documentation/ExtensionsTable.md#date-extensions)
+- [x] [Array extensions](Documentation/ExtensionsTable.md#array-extensions)
+- [x] [Double extensions](Documentation/ExtensionsTable.md#double-extensions)
+- [x] [Float extensions](Documentation/ExtensionsTable.md#float-extensions)
+- [x] [Int extensions](Documentation/ExtensionsTable.md#int-extensions)
+- [x] [Character extensions](Documentation/ExtensionsTable.md#character-extensions)
+- [ ] [Convenience extensions](Documentation/ExtensionsTable.md#convenience-extensions)
+- [ ] [UIColor extensions](Documentation/ExtensionsTable.md#uicolor-extensions)
+- [ ] [UIImage extensions](Documentation/ExtensionsTable.md#uiimage-extensions)
+- [ ] [UINavigationController extensions](Documentation/ExtensionsTable.md#uinavigationcontroller-extensions)
+- [ ] [UIView extensions](Documentation/ExtensionsTable.md#uiview-extensions)
+- [ ] [UITextField extensions](Documentation/ExtensionsTable.md#uitextfield-extensions)
+
 ## How cool is this?
 
 SwiftierSwift includes more than 150 property and method ..
@@ -175,23 +192,6 @@ SwiftierSwift.isRunningOnSimulator
 
 // and many others!
 ```
-
-
-## List Of Extensions
-
-- [x] [String extensions](#string-extensions)
-- [x] [Date extensions](#date-extensions)
-- [x] [Array extensions](#array-extensions)
-- [x] [Double extensions](#double-extensions)
-- [x] [Float extensions](#float-extensions)
-- [x] [Int extensions](#int-extensions)
-- [x] [Character extensions](#character-extensions)
-- [ ] [Convenience extensions](#convenience-extensions)
-- [ ] [UIColor extensions](#uicolor-extensions)
-- [ ] [UIImage extensions](#uiimage-extensions)
-- [ ] [UINavigationController extensions](#uinavigationcontroller-extensions)
-- [ ] [UIView extensions](#uiview-extensions)
-- [ ] [UITextField extensions](#uitextfield-extensions)
 
 
 ## Thanks:
