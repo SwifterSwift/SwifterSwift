@@ -15,11 +15,6 @@ public class swifterSwift {
         return UIApplication.shared
     }
 
-    /// Return shared instance of AppDelegate
-    public static var delegate: UIApplicationDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
-
     /// Return app current version
     public static var appVersion: String? {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String

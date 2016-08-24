@@ -286,12 +286,6 @@ public extension String {
     }
 
     // tested
-    /// Return Float80 value from string (if applicable.)
-    public var toFloat80: Float80? {
-        return Float80(self)
-    }
-
-    // tested
     /// Return Double value from string (if applicable.)
     public var toDouble: Double? {
         return Double(self)

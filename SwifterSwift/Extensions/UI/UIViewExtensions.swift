@@ -200,7 +200,11 @@ public extension UIView {
 
     /// Return true if view is in RTL format.
     public var isRightToLeft: Bool {
-        return effectiveUserInterfaceLayoutDirection == .rightToLeft
+        if #available(iOS 10.0, *) {
+            return effectiveUserInterfaceLayoutDirection == .rightToLeft
+        } else {
+            return false
+        }
     }
 
     /// Remove all gesture recognizers from view.
