@@ -333,7 +333,7 @@
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**setTitle(title: String, of font: UIFont, with color: UIColor)** | Function | -- | Set Navigation Bar title, title color and font |
+|**setTitleFont(font: UIFont, with color: UIColor)** | Function | -- | Set Navigation Bar title, title color and font |
 
 
 # UINavigationController extensions

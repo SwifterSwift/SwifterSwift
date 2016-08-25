@@ -10,11 +10,10 @@ import UIKit
 
 public extension UINavigationBar {
     /// Set Navigation Bar title, title color and font.
-    public func setTitle(title: String, of font: UIFont, with color: UIColor = UIColor.black) {
+    public func setTitleFont(font: UIFont, with color: UIColor = UIColor.black) {
         var attrs = [String: AnyObject]()
         attrs[NSFontAttributeName] = font
         attrs[NSForegroundColorAttributeName] = color
         titleTextAttributes = attrs
-        self.title = title
     }
 }
