@@ -14,6 +14,7 @@
 - [ ] [UIButton extensions](#uibutton-extensions)
 - [ ] [UIColor extensions](#uicolor-extensions)
 - [ ] [UIImage extensions](#uiimage-extensions)
+- [ ] [UIImageView extensions](#uiimageview-extensions)
 - [ ] [UINavigationBar extensions](#uinavigationbar-extensions)
 - [ ] [UINavigationController extensions](#uinavigationcontroller-extensions)
 - [ ] [UISearchBar extensions](#uisearchbar-extensions)
@@ -127,9 +128,9 @@
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**has(Key)** | Function | Bool | Return true if key exists in dictionary. |
-|**jsonData(prettify: Bool)** | Function | Data? | Return JSON String from dictionary. |
-|**jsonString(prettify: Bool)** | Function | String? | Return JSON String from dictionary. |
+|**has(Key)** | Function | Bool | Return true if key exists in dictionary |
+|**jsonData(prettify: Bool)** | Function | Data? | Return JSON String from dictionary |
+|**jsonString(prettify: Bool)** | Function | String? | Return JSON String from dictionary |
 
 
 ## Double extensions
@@ -221,7 +222,7 @@
 |**reversed** | Read-Only Variable | String | Return reversed string |
 |**split(by separator: Character)** | Function | [String] | Return an array of strings separated by given string |
 |**start(with prefix: String, caseSensitive: Bool)** | Function | Bool | Return true if string starts with substring |
-|**String * Int** | Infix operator | String | Return string repeated n times. |
+|**String * Int** | Infix operator | String | Return string repeated n times |
 |**toBool** | Read-Only Variable | Bool? | Return Bool value from string (if applicable) |
 |**toDate** | Read-Only Variable | Return date object from "yyyy-MM-dd" formatted string |
 |**toDateTime** | Read-Only Variable | Date? | Return date object from "yyyy-MM-dd HH:mm:ss" formatted string |
@@ -246,31 +247,122 @@
 |**withoutSpacesAndNewLines** | Read-Only Variable | String | Return string without spaces and new lines |
 
 
+## CGFloat extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**abs** | Read-Only Variable | CGFloat | Return absolute of float value |
+|**ceil** | Read-Only Variable | CGFloat | Return ceil of float value |
+|**degreesToRadians** | Read-Only Variable | CGFloat | Return radian value of degree input |
+|**CGFloat ^ CGFloat** | Infix operator | CGFloat | Return value of exponentiation |
+|**floor** | Read-Only Variable | CGFloat | Return floor of float value |
+|**radiansToDegrees** | Read-Only Variable | CGFloat | Return degree value of radian input |
+|**randomBetween(min, max)** | Static Variable | CGFloat | Return random float value between two float values |
+|**± (CGFloat, CGFloat)** | Infix operator | (CGFloat, CGFloat) | Return tuple of plus-minus operation |
+|**± CGFloat** | Prefix operator | (CGFloat, CGFloat) | Return tuple of plus-minus operation |
+|**√ CGFloat** | Prefix operator | CGFloat | Return square root of value |
+
+
+## CGSize extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**aspectFit(to boundingSize: CGSize)** | Function | CGSize | Aspect fit CGSize |
+
+
+## UIAlertController extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**init(title: String, message: String?, defaultActionButtonTitle: String, tintColor: UIColor?)** | Initializer | -- | Create new alert view controller with default OK action |
+|**init(title: String, error: Error, defaultActionButtonTitle: String, tintColor: UIColor?)** | Initializer | -- | Create new error alert view controller from Error with default OK action |
+|**show()** | Function | -- | Present alert view controller in the current view controller |
+
+
+## UIButton extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**imageForAllStates(image: UIImage)** | Function | -- | Set title for all states |
+|**imageForDisabled** | IBInspectable variable | UIImage? | Image of disabled state for button; also inspectable from Storyboard |
+|**imageForHighlighted** | IBInspectable variable | UIImage? | Image of highlighted state for button; also inspectable from Storyboard |
+|**imageForNormal** | IBInspectable variable | UIImage? | Image of normal state for button; also inspectable from Storyboard |
+|**imageForSelected** | IBInspectable variable | UIImage? | Image of selected state for button; also inspectable from Storyboard |
+|**titleColorForAllStates(color: UIColor)** | Function | -- | Set title color for all states |
+|**titleColorForDisabled** | IBInspectable variable | UIImage? | Title color of disabled state for button; also inspectable from Storyboard |
+|**titleColorForHighlighted** | IBInspectable variable | UIImage? | Title color of highlighted state for button; also inspectable from Storyboard |
+|**titleColorForNormal** | IBInspectable variable | UIImage? | Title color of normal state for button; also inspectable from Storyboard |
+|**titleColorForSelected** | IBInspectable variable | UIImage? | Title color of selected state for button; also inspectable from Storyboard |
+|**titleForAllStates(title: String)** | Function | -- | Set title for all states |
+|**titleForDisabled** | IBInspectable variable | String? | Title of disabled state for button; also inspectable from Storyboard |
+|**titleForHighlighted** | IBInspectable variable | String? | Title of highlighted state for button; also inspectable from Storyboard |
+|**titleForNormal** | IBInspectable variable | String? | Title of normal state for button; also inspectable from Storyboard |
+|**titleForSelected** | IBInspectable variable | String? | Title of selected state for button; also inspectable from Storyboard |
+
+
 # UIColor extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**init(red, green, blue)** | Initializer | -- | Create new UIColor from RGB values |
-|**init(red, green, blue, transparency)** | Initializer | -- | Create new UIColor from RGB values with transparency |
+|**hexString** | Read-Only Variable | String | Return hexadecimal value string |
 |**init(netHex)** | Initializer | -- | Create new UIColor from hexadecimal value |
 |**init(netHex, transparency)** | Initializer | -- | Create new UIColor from hexadicimal value with transparency |
-|**hexString** | Read-Only Variable | String | Return hexadecimal value string |
+|**init(red, green, blue)** | Initializer | -- | Create new UIColor from RGB values |
+|**init(red, green, blue, transparency)** | Initializer | -- | Create new UIColor from RGB values with transparency |
 |**random** | Static Read-Only Variable | UIColor | Return a random color |
+|**socialColors** | Struct | -- | Brand identity color of popular social media platform |
 
 
 # UIImage extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**init(color, size)** | Initializer | -- | Create image of size from UIColor |
+|**cropped(to: CGRect)** | Function | UIImage | Create image of size from UIColor |
+|**init(UIColor, CGSize)** | Initializer | -- | Crop image to CGRect |
+|**scaledToHeight(height: CGFloat, with UIImageOrientation?)** | Function | UIImage? | Scale image to width with respect to aspect ratio |
+|**scaledToWidth(width: CGFloat, with UIImageOrientation?)** | Function | UIImage? | Scale image to width with respect to aspect ratio |
+
+# UIImageView extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**download(from url: String, contentMode: UIViewContentMode, placeHolder: UIImage?)** | Function | UIImage? | Download image from url and set it in an imageView |
+
+
+# UINavigationBar extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**setTitle(title: String, of font: UIFont, with color: UIColor)** | Function | -- | Set Navigation Bar title, title color and font |
 
 
 # UINavigationController extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**popViewControllerWithHandler(completion)** | Functions | -- | Pop viewController with completion handler |
-|**pushViewController(viewController, completion)** | Functions | -- | Push viewController with completion handler |
+|**popViewControllerWithHandler(completion)** | Function | -- | Pop viewController with completion handler |
+|**pushViewController(viewController, completion)** | Function | -- | Push viewController with completion handler |
+
+
+## UISearchBar extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**cancelButton** | Read-Only variable | UIButton? | Cancel button in search bar |
+
+
+## UITableView extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**indexPathForLastRow(in section: Int)** | Function | IndexPath? | Return index path for last row in section |
+|**indexPathForLastRow** | Read-Only variable | IndexPath? | Return last section in table |
+|**lastSection** | Read-Only variable | Int | Return last section in table |
+|**removeTableFooterView** | Function | -- | Remove Table FooterView |
+|**removeTableHeaderView** | Function | -- | Remove Table HeaderView |
+|**scrollToBottom(animated: Bool)** | Function | -- | Scroll to bottom of TableView |
+|**scrollToTop(animated: Bool)** | Function | -- | Scroll to top of TableView |
+|**totalRows** | Read-Only variable | Int | Return number of all rows in all sections of table |
 
 
 # UITextField extensions
@@ -280,12 +372,42 @@
 |**isEmpty** | Read-Only Variable | Bool | Return true if text field is empty |
 
 
+# UIViewController extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**addNotificationObserver(Notification.Name, Selector)** | Function | -- | Assign as listener to notification |
+|**isVisible** | Read-Only Variable | Bool | Return true if ViewController is onscreen and not hidden |
+|**navigationBar** | Read-Only Variable | UINavigationBar? | Return navigationBar in a ViewController |
+|**removeNotificationObserver(Notification.Name)** | Function | -- | Unassign as listener to notification |
+|**removeNotificationsObserver()** | Function | -- | Unassign as listener from all notifications |
+
+
 # UIView extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**shake()** | Function | -- | Shake UIView |
-|**cornerRadius** | Variable | CGFloat | Corner Radius; accessible from storyboard |
-|**borderWidth** | Variable | CGFloat | Border Width; accessible from storyboard |
-|**borderColor** | Variable | UIColor | Border Color; accessible from storyboard |
-|**firstResponder** | Variable | UIView | Return current first responder in viewController |
+|**add(subViews: [UIView])** | Function | -- | Add array of subviews to view |
+|**borderColor** | IBInspectable variable | UIColor? | Border color of view; also inspectable from Storyboard |
+|**borderWidth** | IBInspectable variable | CGFloat | Border width of view; also inspectable from Storyboard |
+|**cornerRadius** | IBInspectable variable | CGFloat | Corner radius of view; also inspectable from Storyboard |
+|**fadeIn(duration, completion)** | Function | -- | Fade in view |
+|**fadeOut(duration, completion)** | Function | -- | Fade out view |
+|**firstResponder** | Read-Only variable | UIView? | Return current first responder in viewController |
+|**height** | Variable | CGFloat | Height of view |
+|**isRightToLeft** | Read-Only variable | Bool | Return true if view is in RTL format |
+|**isVisible** | Read-Only Variable | Bool | Return true if view is visible in screen currently and not hidden |
+|**loadFromNibNamed(String, Bundle?)** | Static Function | UIView? | Add array of subviews to view |
+|**removeSubViews()** | Function | -- | Remove all subviews in view |
+|**removeGestureRecognizers()** | Function | -- | Remove all gesture recognizers from view |
+|**rotate(byAngle, ofType, animated: Bool, duration, completion)** | Function | -- | Rotate view by angle on relative axis |
+|**rotate(toAngle, ofType, animated: Bool, duration, completion)** | Function | -- | Rotate view to angle on fixed axis |
+|**scale(by offset, duration, completion)** | Function | -- | Scale view by offset |
+|**screenShot** | Read-Only variable | UIImage? | Take screenshot of view |
+|**shadowColor** | IBInspectable variable | UIColor? | Shadow color of view; also inspectable from Storyboard |
+|**shadowOffset** | IBInspectable variable | CGSize | Shadow offset of view; also inspectable from Storyboard |
+|**shadowOpacity** | IBInspectable variable | Float | Shadow opacity of view; also inspectable from Storyboard |
+|**shadowRadius** | IBInspectable variable | CGFloat | Shadow radius of view; also inspectable from Storyboard |
+|**shake(direction, duration, animationType)** | Function | -- | Shake UIView |
+|**size** | Variable | CGSize | Size of view |
+|**width** | Variable | CGFloat | Width of view |

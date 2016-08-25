@@ -9,7 +9,6 @@
 import UIKit
 
 extension UISearchBar {
-
     /// Cancel button in search bar.
     var cancelButton: UIButton? {
         for view in subviews {

@@ -19,6 +19,7 @@ Add the [extensions](Extensions) folder to your Xcode project to use all extensi
 ## Requirements:
 
 Xcode 8 beta5 or later with Swift 3.
+This library is made for iOS 8 or later, however most of the extensions should work on watchOS, tvOS, and macOS
 
 
 ## How to contribute:
@@ -54,7 +55,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## How cool is this?
 
-Swifter Swift is a library of over 200 properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
+Swifter Swift is a library of over 250 properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
 Here are some examples:
 
 #### Array Extensions (14)
@@ -226,7 +227,7 @@ swifterSwift.isRunningOnSimulator
 
 Special thanks to:
 
-[Eng. Abdul Rahman Dabbour](https://github.com/thedabbour) for documenting the project
+* [Eng. Abdul Rahman Dabbour](https://github.com/thedabbour) for documenting the project
 
 [Mert Akengin](https://github.com/PvtMert) for creating [project website](http://swiftierswift.com) and helping with unit testing
 

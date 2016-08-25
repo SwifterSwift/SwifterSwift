@@ -7,8 +7,8 @@
 //
 
 import UIKit
-public extension UINavigationController {
 
+public extension UINavigationController {
     /// Pop ViewController with completion handler.
     public func popViewController(completion: (()->Void)? = nil) {
         // https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift

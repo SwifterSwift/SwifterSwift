@@ -9,84 +9,14 @@
 import UIKit
 
 public extension UIButton {
-
-    /// Title of normal state for button; also inspectable from Storyboard.
-    @IBInspectable
-    public var titleForNormal: String? {
-        get {
-            return title(for: .normal)
-        }
-        set {
-            setTitle(newValue, for: .normal)
-        }
+    /// Set image for all states.
+    public func imageForAllStates(image: UIImage) {
+        setImage(image, for: .normal)
+        setImage(image, for: .selected)
+        setImage(image, for: .highlighted)
+        setImage(image, for: .disabled)
     }
-
-    /// Title of selected state for button; also inspectable from Storyboard.
-    @IBInspectable
-    public var titleForSelected: String? {
-        get {
-            return title(for: .selected)
-        }
-        set {
-            setTitle(newValue, for: .selected)
-        }
-    }
-
-    /// Title of highlighted state for button; also inspectable from Storyboard.
-    @IBInspectable
-    public var titleForHighlighted: String? {
-        get {
-            return title(for: .highlighted)
-        }
-        set {
-            setTitle(newValue, for: .highlighted)
-        }
-    }
-
-    /// Title of disabled state for button; also inspectable from Storyboard.
-    @IBInspectable
-    public var titleForDisabled: String? {
-        get {
-            return title(for: .disabled)
-        }
-        set {
-            setTitle(newValue, for: .disabled)
-        }
-    }
-
-    /// Image of normal state for button; also inspectable from Storyboard.
-    @IBInspectable
-    public var imageForNormal: UIImage? {
-        get {
-            return image(for: .normal)
-        }
-        set {
-            setImage(newValue, for: .normal)
-        }
-    }
-
-    /// Image of selected state for button; also inspectable from Storyboard.
-    @IBInspectable
-    public var imageForSelected: UIImage? {
-        get {
-            return image(for: .selected)
-        }
-        set {
-            setImage(newValue, for: .selected)
-        }
-    }
-
-    /// Image of highlighted state for button; also inspectable from Storyboard.
-    @IBInspectable
-    public var imageForHighlighted: UIImage? {
-        get {
-            return image(for: .highlighted)
-        }
-        set {
-            setImage(newValue, for: .highlighted)
-        }
-    }
-
+    
     /// Image of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     public var imageForDisabled: UIImage? {
@@ -97,40 +27,48 @@ public extension UIButton {
             setImage(newValue, for: .disabled)
         }
     }
-
-    /// Title color of normal state for button; also inspectable from Storyboard.
+    
+    /// Image of highlighted state for button; also inspectable from Storyboard.
     @IBInspectable
-    public var titleColorForNormal: UIColor? {
+    public var imageForHighlighted: UIImage? {
         get {
-            return titleColor(for: .normal)
+            return image(for: .highlighted)
         }
         set {
-            setTitleColor(newValue, for: .normal)
+            setImage(newValue, for: .highlighted)
         }
     }
-
-    /// Title color of selected state for button; also inspectable from Storyboard.
+    
+    /// Image of normal state for button; also inspectable from Storyboard.
     @IBInspectable
-    public var titleColorForSelected: UIColor? {
+    public var imageForNormal: UIImage? {
         get {
-            return titleColor(for: .selected)
+            return image(for: .normal)
         }
         set {
-            setTitleColor(newValue, for: .selected)
+            setImage(newValue, for: .normal)
         }
     }
-
-    /// Title color of highlighted state for button; also inspectable from Storyboard.
+    
+    /// Image of selected state for button; also inspectable from Storyboard.
     @IBInspectable
-    public var titleColorForHighlighted: UIColor? {
+    public var imageForSelected: UIImage? {
         get {
-            return titleColor(for: .highlighted)
+            return image(for: .selected)
         }
         set {
-            setTitleColor(newValue, for: .highlighted)
+            setImage(newValue, for: .selected)
         }
     }
-
+    
+    /// Set title color for all states.
+    public func titleColorForAllStates(color: UIColor) {
+        setTitleColor(color, for: .normal)
+        setTitleColor(color, for: .selected)
+        setTitleColor(color, for: .highlighted)
+        setTitleColor(color, for: .disabled)
+    }
+    
     /// Title color of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     public var titleColorForDisabled: UIColor? {
@@ -141,7 +79,40 @@ public extension UIButton {
             setTitleColor(newValue, for: .highlighted)
         }
     }
-
+    
+    /// Title color of highlighted state for button; also inspectable from Storyboard.
+    @IBInspectable
+    public var titleColorForHighlighted: UIColor? {
+        get {
+            return titleColor(for: .highlighted)
+        }
+        set {
+            setTitleColor(newValue, for: .highlighted)
+        }
+    }
+    
+    /// Title color of normal state for button; also inspectable from Storyboard.
+    @IBInspectable
+    public var titleColorForNormal: UIColor? {
+        get {
+            return titleColor(for: .normal)
+        }
+        set {
+            setTitleColor(newValue, for: .normal)
+        }
+    }
+    
+    /// Title color of selected state for button; also inspectable from Storyboard.
+    @IBInspectable
+    public var titleColorForSelected: UIColor? {
+        get {
+            return titleColor(for: .selected)
+        }
+        set {
+            setTitleColor(newValue, for: .selected)
+        }
+    }
+    
     /// Set title for all states.
     public func titleForAllStates(title: String) {
         setTitle(title, for: .normal)
@@ -149,21 +120,48 @@ public extension UIButton {
         setTitle(title, for: .highlighted)
         setTitle(title, for: .disabled)
     }
-
-    /// Set image for all states.
-    public func imageForAllStates(image: UIImage) {
-        setImage(image, for: .normal)
-        setImage(image, for: .selected)
-        setImage(image, for: .highlighted)
-        setImage(image, for: .disabled)
+    
+    /// Title of disabled state for button; also inspectable from Storyboard.
+    @IBInspectable
+    public var titleForDisabled: String? {
+        get {
+            return title(for: .disabled)
+        }
+        set {
+            setTitle(newValue, for: .disabled)
+        }
     }
-
-    /// Set title color for all states.
-    public func titleColorForAllStates(color: UIColor) {
-        setTitleColor(color, for: .normal)
-        setTitleColor(color, for: .selected)
-        setTitleColor(color, for: .highlighted)
-        setTitleColor(color, for: .disabled)
+    
+    /// Title of highlighted state for button; also inspectable from Storyboard.
+    @IBInspectable
+    public var titleForHighlighted: String? {
+        get {
+            return title(for: .highlighted)
+        }
+        set {
+            setTitle(newValue, for: .highlighted)
+        }
     }
-
+    
+    /// Title of normal state for button; also inspectable from Storyboard.
+    @IBInspectable
+    public var titleForNormal: String? {
+        get {
+            return title(for: .normal)
+        }
+        set {
+            setTitle(newValue, for: .normal)
+        }
+    }
+    
+    /// Title of selected state for button; also inspectable from Storyboard.
+    @IBInspectable
+    public var titleForSelected: String? {
+        get {
+            return title(for: .selected)
+        }
+        set {
+            setTitle(newValue, for: .selected)
+        }
+    }
 }

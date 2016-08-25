@@ -9,9 +9,7 @@
 import UIKit
 
 extension UIImageView {
-    
-    // FIXME:
-    /// Download image from url
+    /// Download image from url and set it in an imageView.
     public func download(from url: String, contentMode: UIViewContentMode = .scaleAspectFit, placeHolder: UIImage? = nil) {
         image = placeHolder
         guard let url = URL(string: url) else {
@@ -32,5 +30,4 @@ extension UIImageView {
             }
             }.resume()
     }
-    
 }

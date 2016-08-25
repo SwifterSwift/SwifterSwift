@@ -20,7 +20,6 @@ public extension UIAlertController {
         }
     }
     
-    // FIXME:
     /// Create new error alert view controller from Error with default OK action.
     public convenience init(title: String = "Error", error: Error, defaultActionButtonTitle: String = "OK", tintColor: UIColor? = nil) {
         self.init(title: title, message: error.localizedDescription, preferredStyle: .alert)

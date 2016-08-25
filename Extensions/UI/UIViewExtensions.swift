@@ -26,97 +26,9 @@ public enum ShakeAnimationType {
 }
 
 public extension UIView {
-    
-    /// Shake view.
-    public func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut) {
-        
-        let animation: CAKeyframeAnimation
-        switch direction {
-        case .horizontal:
-            animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        case .vertical:
-            animation = CAKeyframeAnimation(keyPath: "transform.translation.y")
-        }
-        
-        switch animationType {
-        case .linear:
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        case .easeIn:
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
-        case .easeOut:
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-        case .easeInOut:
-            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        }
-        
-        animation.duration = duration
-        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-        layer.add(animation, forKey: "shake")
-    }
-    
-    /// Rotate view to angle on fixed axis.
-    public func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
-        let angleWithType = (type == .degrees) ? CGFloat(M_PI) * angle / 180.0 : angle
-        if animated {
-            UIView.animate(withDuration: duration, animations: {
-                self.transform = CGAffineTransform(rotationAngle: angleWithType)
-                }, completion: completion)
-        } else {
-            transform = CGAffineTransform(rotationAngle: angleWithType)
-            completion?(true)
-        }
-    }
-    
-    /// Rotate view by angle on relative axis.
-    public func rotate(byAngle angle : CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
-        let angleWithType = (type == .degrees) ? CGFloat(M_PI) * angle / 180.0 : angle
-        if animated {
-            UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
-                self.transform = self.transform.rotated(by: angleWithType)
-                }, completion: completion)
-        } else {
-            self.transform = self.transform.rotated(by: angleWithType)
-            completion?(true)
-        }
-    }
-    
-    /// Fade in view.
-    public func fadeIn(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
-        if self.isHidden {
-            self.isHidden = false
-        }
-        UIView.animate(withDuration: duration, animations: {
-            self.alpha = 0
-            }, completion: completion)
-    }
-    
-    /// Fade out view.
-    public func fadeOut(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
-        if self.isHidden {
-            self.isHidden = false
-        }
-        UIView.animate(withDuration: duration, animations: {
-            self.alpha = 1
-            }, completion: completion)
-    }
-    
-    /// Scale view by offset.
-    public func scale(by offset: CGPoint, duration: TimeInterval, completion:((Bool) -> Void)? = nil) {
-        UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
-            self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
-            }, completion: completion)
-    }
-    
-    /// Corner radius of view; also inspectable from Storyboard.
-    @IBInspectable
-    public var cornerRadius: CGFloat {
-        get {
-            return layer.cornerRadius
-        }
-        set {
-            layer.masksToBounds = true
-            layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
-        }
+    /// Add array of subviews to view.
+    public func add(subViews: [UIView]) {
+        subViews.forEach({self.addSubview($0)})
     }
     
     /// Border color of view; also inspectable from Storyboard.
@@ -148,51 +60,36 @@ public extension UIView {
         }
     }
     
-    /// Shadow color of view; also inspectable from Storyboard.
+    /// Corner radius of view; also inspectable from Storyboard.
     @IBInspectable
-    public var shadowColor: UIColor? {
+    public var cornerRadius: CGFloat {
         get {
-            guard let color = layer.shadowColor else {
-                return nil
-            }
-            return UIColor(cgColor: color)
+            return layer.cornerRadius
         }
         set {
-            layer.shadowColor = newValue?.cgColor
+            layer.masksToBounds = true
+            layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
         }
     }
     
-    /// Shadow opacity of view; also inspectable from Storyboard.
-    @IBInspectable
-    public var shadowOpacity: Float {
-        get {
-            return layer.shadowOpacity
+    /// Fade in view.
+    public func fadeIn(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+        if self.isHidden {
+            self.isHidden = false
         }
-        set {
-            layer.shadowOpacity = newValue
-        }
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 0
+            }, completion: completion)
     }
     
-    /// Shadow offset of view; also inspectable from Storyboard.
-    @IBInspectable
-    public var shadowOffset: CGSize {
-        get {
-            return layer.shadowOffset
+    /// Fade out view.
+    public func fadeOut(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+        if self.isHidden {
+            self.isHidden = false
         }
-        set {
-            layer.shadowOffset = newValue
-        }
-    }
-    
-    /// Shadow radius of view; also inspectable from Storyboard.
-    @IBInspectable
-    public var shadowRadius: CGFloat {
-        get {
-            return layer.shadowRadius
-        }
-        set {
-            layer.shadowRadius = newValue
-        }
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 1
+            }, completion: completion)
     }
     
     /// First responder.
@@ -208,14 +105,14 @@ public extension UIView {
         return nil
     }
     
-    /// Remove all subviews in view.
-    public func removeSubViews() {
-        self.subviews.forEach({$0.removeFromSuperview()})
-    }
-    
-    /// Add array of subviews to view.
-    public func add(subViews: [UIView]) {
-        subViews.forEach({self.addSubview($0)})
+    // Height of view
+    public var height: CGFloat {
+        get {
+            return self.frame.size.height
+        }
+        set {
+            self.frame.size.height = newValue
+        }
     }
     
     /// Return true if view is in RTL format.
@@ -227,9 +124,65 @@ public extension UIView {
         }
     }
     
+    /// Return true if view is visible in screen currently and not hidden.
+    public var isVisible: Bool {
+        // https://github.com/hilen/TimedSilver/blob/master/Sources/UIKit/UIView%2BTSExtension.swift
+        if self.window == nil || self.isHidden || self.alpha == 0 {
+            return true
+        }
+        let viewRect = self.convert(self.bounds, to: nil)
+        guard let window = UIApplication.shared.keyWindow else {
+            return true
+        }
+        return viewRect.intersects(window.bounds) == false
+    }
+    
+    /// Load view from nib
+    class func loadFromNibNamed(nibNamed: String, bundle : Bundle? = nil) -> UIView? {
+        return UINib(nibName: nibNamed, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
+    }
+    
+    /// Remove all subviews in view.
+    public func removeSubViews() {
+        self.subviews.forEach({$0.removeFromSuperview()})
+    }
+    
     /// Remove all gesture recognizers from view.
     public func removeGestureRecognizers() {
         gestureRecognizers?.forEach(removeGestureRecognizer)
+    }
+    
+    /// Rotate view by angle on relative axis.
+    public func rotate(byAngle angle : CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+        let angleWithType = (type == .degrees) ? CGFloat(M_PI) * angle / 180.0 : angle
+        if animated {
+            UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
+                self.transform = self.transform.rotated(by: angleWithType)
+                }, completion: completion)
+        } else {
+            self.transform = self.transform.rotated(by: angleWithType)
+            completion?(true)
+        }
+    }
+    
+    /// Rotate view to angle on fixed axis.
+    public func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+        let angleWithType = (type == .degrees) ? CGFloat(M_PI) * angle / 180.0 : angle
+        if animated {
+            UIView.animate(withDuration: duration, animations: {
+                self.transform = CGAffineTransform(rotationAngle: angleWithType)
+                }, completion: completion)
+        } else {
+            transform = CGAffineTransform(rotationAngle: angleWithType)
+            completion?(true)
+        }
+    }
+    
+    /// Scale view by offset.
+    public func scale(by offset: CGPoint, duration: TimeInterval, completion:((Bool) -> Void)? = nil) {
+        UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
+            self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
+            }, completion: completion)
     }
     
     /// Take screenshot of view.
@@ -245,41 +198,81 @@ public extension UIView {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
     
-    
-    /// Return true if view is visible in screen currently and not hidden.
-    public var isVisible: Bool {
-        // https://github.com/hilen/TimedSilver/blob/master/Sources/UIKit/UIView%2BTSExtension.swift
-        if self.window == nil || self.isHidden || self.alpha == 0 {
-            return true
-        }
-        let viewRect = self.convert(self.bounds, to: nil)
-        guard let window = UIApplication.shared.keyWindow else {
-            return true
-        }
-        return viewRect.intersects(window.bounds) == false
-    }
-    
-    // FIXME
-    public var width: CGFloat {
+    /// Shadow color of view; also inspectable from Storyboard.
+    @IBInspectable
+    public var shadowColor: UIColor? {
         get {
-            return self.frame.size.width
+            guard let color = layer.shadowColor else {
+                return nil
+            }
+            return UIColor(cgColor: color)
         }
         set {
-            self.frame.size.width = newValue
+            layer.shadowColor = newValue?.cgColor
         }
     }
     
-    // FIXME
-    public var height: CGFloat {
+    /// Shadow offset of view; also inspectable from Storyboard.
+    @IBInspectable
+    public var shadowOffset: CGSize {
         get {
-            return self.frame.size.height
+            return layer.shadowOffset
         }
         set {
-            self.frame.size.height = newValue
+            layer.shadowOffset = newValue
         }
     }
     
-    // FIXME
+    /// Shadow opacity of view; also inspectable from Storyboard.
+    @IBInspectable
+    public var shadowOpacity: Float {
+        get {
+            return layer.shadowOpacity
+        }
+        set {
+            layer.shadowOpacity = newValue
+        }
+    }
+    
+    /// Shadow radius of view; also inspectable from Storyboard.
+    @IBInspectable
+    public var shadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+            layer.shadowRadius = newValue
+        }
+    }
+    
+    /// Shake view.
+    public func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut) {
+        
+        let animation: CAKeyframeAnimation
+        switch direction {
+        case .horizontal:
+            animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        case .vertical:
+            animation = CAKeyframeAnimation(keyPath: "transform.translation.y")
+        }
+        
+        switch animationType {
+        case .linear:
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        case .easeIn:
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+        case .easeOut:
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+        case .easeInOut:
+            animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        }
+        
+        animation.duration = duration
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        layer.add(animation, forKey: "shake")
+    }
+    
+    // Size of view
     public var size: CGSize {
         get {
             return self.frame.size
@@ -290,9 +283,13 @@ public extension UIView {
         }
     }
     
-    // FIXME:
-    /// Load view from nib
-    class func loadFromNibNamed(nibNamed: String, bundle : Bundle? = nil) -> UIView? {
-        return UINib(nibName: nibNamed, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
+    // Width of view
+    public var width: CGFloat {
+        get {
+            return self.frame.size.width
+        }
+        set {
+            self.frame.size.width = newValue
+        }
     }
 }
