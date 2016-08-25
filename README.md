@@ -44,6 +44,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 - [ ] [UIButton extensions](Documentation/ExtensionsTable.md#uibutton-extensions)
 - [ ] [UIColor extensions](Documentation/ExtensionsTable.md#uicolor-extensions)
 - [ ] [UIImage extensions](Documentation/ExtensionsTable.md#uiimage-extensions)
+- [ ] [UIImageView extensions](Documentation/ExtensionsTable.md#uiimageview-extensions)
 - [ ] [UINavigationBar extensions](Documentation/ExtensionsTable.md#uinavigationbar-extensions)
 - [ ] [UINavigationController extensions](Documentation/ExtensionsTable.md#uinavigationcontroller-extensions)
 - [ ] [UISearchBar extensions](Documentation/ExtensionsTable.md#uisearchbar-extensions)
@@ -55,7 +56,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## How cool is this?
 
-Swifter Swift is a library of over 250 properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
+Swifter Swift is a library of over **250** properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
 Here are some examples:
 
 #### Array Extensions (14)
@@ -229,6 +230,6 @@ Special thanks to:
 
 * [Eng. Abdul Rahman Dabbour](https://github.com/thedabbour) for documenting the project
 
-[Mert Akengin](https://github.com/PvtMert) for creating [project website](http://swiftierswift.com) and helping with unit testing
+* [Mert Akengin](https://github.com/PvtMert) for creating [project website](http://swiftierswift.com) and helping with unit testing
 
-[John Doe](https://en.wikipedia.org/wiki/John_Doe), This is a random person of our friends who gets us some coffee day to day
+* [John Doe](https://en.wikipedia.org/wiki/John_Doe), This is a random person of our friends who gets us some coffee day to day
