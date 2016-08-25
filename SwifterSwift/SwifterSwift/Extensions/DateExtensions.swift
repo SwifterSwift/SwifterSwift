@@ -169,33 +169,111 @@ public extension Date {
 
     // tested
     /// Return beginning of given date component.
-    public func beginning(of component: Calendar.Component) -> Date {
+    public func beginning(of component: Calendar.Component) -> Date? {
 
         switch component {
 
         case .second:
-            return calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)) ?? self
+            return calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self))
 
         case .minute:
-            return calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour, .minute], from: self)) ?? self
+            return calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour, .minute], from: self))
 
         case .hour:
-            return calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: self)) ?? self
+            return calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: self))
 
         case .day:
             return self.calendar.startOfDay(for: self)
 
         case .weekOfYear, .weekOfMonth:
-            return calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) ?? self
+            return calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self))
 
         case .month:
-            return calendar.date(from: calendar.dateComponents([.year, .month], from: self)) ?? self
+            return calendar.date(from: calendar.dateComponents([.year, .month], from: self))
 
         case .year:
-            return calendar.date(from: calendar.dateComponents([.year], from: self)) ?? self
+            return calendar.date(from: calendar.dateComponents([.year], from: self))
 
         default:
-            return self
+            return nil
+        }
+    }
+    
+    // FIXME:
+    /// Return end of given date component.
+    public func end(of component: Calendar.Component) -> Date? {
+        
+        switch component {
+            
+        case .second:
+            var date = self
+            date.add(component: .second, value: 1)
+            guard let after = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)) else {
+                return nil
+            }
+            date = after
+            date.add(component: .second, value: -1)
+            return date
+            
+        case .minute:
+            var date = self
+            date.add(component: .minute, value: 1)
+            guard let after = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)) else {
+                return nil
+            }
+            date = after
+            date.add(component: .second, value: -1)
+            return date
+            
+        case .hour:
+            var date = self
+            date.add(component: .hour, value: 1)
+            guard let after = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: self)) else {
+                return nil
+            }
+            date = after
+            date.add(component: .second, value: -1)
+            return date
+            
+        case .day:
+            var date = self
+            date.add(component: .day, value: 1)
+            date = date.calendar.startOfDay(for: date)
+            date.add(component: .second, value: -1)
+            return date
+            
+        case .weekOfYear, .weekOfMonth:
+            var date = self
+            guard let beginningOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) else {
+                return nil
+            }
+            date = beginningOfWeek
+            date.add(component: .day, value: 7)
+            date.add(component: .second, value: -1)
+            return date
+            
+        case .month:
+            var date = self
+            date.add(component: .month, value: 1)
+            guard let after = calendar.date(from: calendar.dateComponents([.year, .month], from: self)) else {
+                return nil
+            }
+            date = after
+            date.add(component: .second, value: -1)
+            return date
+            
+        case .year:
+            var date = self
+            date.add(component: .year, value: 1)
+            guard let after = calendar.date(from: calendar.dateComponents([.year], from: self)) else {
+                return nil
+            }
+            date = after
+            date.add(component: .second, value: -1)
+            return date
+            
+        default:
+            return nil
         }
     }
 
@@ -294,8 +372,6 @@ public extension Date {
         dateFormatter.dateStyle = style
         return dateFormatter.string(from: self)
     }
-    
-    
     
     // tested
     /// Create a new date.

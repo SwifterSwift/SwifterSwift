@@ -7,24 +7,37 @@
 //
 
 import Foundation
-public extension Array where Element: Equatable {
 
+public extension Array {
+    
     // FIXME
-    /// Remove last element from array and return it.
+    /// Remove last item from array and return it.
     public mutating func pop() -> Element? {
         guard self.count > 0 else {
             return nil
         }
         return removeLast()
     }
-
+    
     // FIXME
     /// Append an item to array
-    public mutating func push(element: Element) {
-        return append(element)
+    public mutating func push(_ newItem: Element) {
+        return append(newItem)
+    }
+}
+
+
+public extension Array where Element: Equatable {
+    
+    // FIXME:
+    /// Return an array of all items that are in self and not in given array
+    func difference(from array: [Element]) -> [Element] {
+        return self.filter {
+            return self.contains($0 as Element) && !array.contains($0 as Element)
+        }
     }
     
-    
+
     // tested
     /// Return unique values of array.
     public var uniqueValues: [Element] {
@@ -62,9 +75,9 @@ public extension Array where Element: Equatable {
     }
 
     // tested
-    /// Remove all instances of an element from array.
-    public mutating func removeAll(object: Element) {
-        self = self.filter() { $0 != object }
+    /// Remove all instances of an item from array.
+    public mutating func removeAll(item: Element) {
+        self = self.filter() { $0 != item }
     }
 
 }
@@ -79,7 +92,7 @@ public extension Array {
     }
 
     /// tested
-    /// Return first index of element in array.
+    /// Return first index of item in array.
     public func firstIndex <Item: Equatable> (of item: Item) -> Int? {
         if item is Element {
             for (index, value) in self.lazy.enumerated() {
@@ -93,7 +106,7 @@ public extension Array {
     }
 
     /// tested
-    /// Return last index of element in array.
+    /// Return last index of item in array.
     public func lastIndex <Item: Equatable> (of item: Item) -> Int? {
         if item is Element {
             for (index, value) in self.reversed().lazy.enumerated() {
@@ -126,8 +139,8 @@ public extension Array {
     }
 
     /// Prepend an element to array.
-    public mutating func prepend(_ newElement: Element) {
-        self.insert(newElement, at: 0)
+    public mutating func prepend(_ newItem: Element) {
+        self.insert(newItem, at: 0)
     }
 }
 

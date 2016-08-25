@@ -80,6 +80,25 @@ public extension UIView {
         }
     }
     
+    /// Fade in view.
+    public func fadeIn(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+        if self.isHidden {
+            self.isHidden = false
+        }
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 0
+            }, completion: completion)
+    }
+    
+    /// Fade out view.
+    public func fadeOut(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+        if self.isHidden {
+            self.isHidden = false
+        }
+        UIView.animate(withDuration: duration, animations: {
+            self.alpha = 1
+            }, completion: completion)
+    }
     
     /// Scale view by offset.
     public func scale(by offset: CGPoint, duration: TimeInterval, completion:((Bool) -> Void)? = nil) {
@@ -95,6 +114,7 @@ public extension UIView {
             return layer.cornerRadius
         }
         set {
+            layer.masksToBounds = true
             layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
         }
     }
@@ -212,12 +232,6 @@ public extension UIView {
         gestureRecognizers?.forEach(removeGestureRecognizer)
     }
     
-    /// Make corners rounded.
-    public func roundcorners() {
-        clipsToBounds = true
-        layer.cornerRadius = frame.size.width / 2
-    }
-    
     /// Take screenshot of view.
     public var screenShot: UIImage? {
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0.0);
@@ -243,42 +257,6 @@ public extension UIView {
             return true
         }
         return viewRect.intersects(window.bounds) == false
-    }
-    
-    /// Origin coordinates of view.
-    public var origin: CGPoint {
-        get {
-            return self.origin
-        }
-        set {
-            var frame = self.frame
-            frame.origin = newValue
-            self.frame = frame
-        }
-    }
-    
-    /// Origin x-coordinates of view.
-    public var originX: CGFloat {
-        get {
-            return self.origin.x
-        }
-        set {
-            var frame = self.frame
-            frame.origin.x = newValue
-            self.frame = frame
-        }
-    }
-    
-    /// Origin y-coordinates of view.
-    public var originY: CGFloat {
-        get {
-            return self.origin.y
-        }
-        set {
-            var frame = self.frame
-            frame.origin.y = newValue
-            self.frame = frame
-        }
     }
     
     // FIXME
@@ -310,5 +288,11 @@ public extension UIView {
             self.width = newValue.width
             self.height = newValue.height
         }
+    }
+    
+    // FIXME:
+    /// Load view from nib
+    class func loadFromNibNamed(nibNamed: String, bundle : Bundle? = nil) -> UIView? {
+        return UINib(nibName: nibNamed, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
 }

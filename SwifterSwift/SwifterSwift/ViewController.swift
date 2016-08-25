@@ -10,9 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        imageView.cornerRadius = 50
+        imageView.download(from: "https://cdn.spacetelescope.org/archives/images/screen/heic0107a.jpg")
     }
 
 }
