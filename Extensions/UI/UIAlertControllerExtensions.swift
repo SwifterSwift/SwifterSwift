@@ -19,6 +19,17 @@ public extension UIAlertController {
             self.view.tintColor = color
         }
     }
+    
+    /// Create new error alert view controller from Error with default OK action.
+    public convenience init(title: String = "Error", error: Error, defaultActionButtonTitle: String = "OK", tintColor: UIColor? = nil) {
+        self.init(title: title, message: error.localizedDescription, preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: defaultActionButtonTitle, style: .default, handler: nil)
+        self.addAction(defaultAction)
+        if let color = tintColor {
+            self.view.tintColor = color
+        }
+    }
+
 
     // Present alert view controller in the current view controller.
     public func show() {

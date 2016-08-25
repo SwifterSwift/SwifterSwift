@@ -7,32 +7,18 @@
 //
 
 import Foundation
+
+/// Return character repeated n times.
+infix operator *
+public func * (left: Character, right: Int) -> String {
+    var newString = ""
+    for _ in 0 ..< right {
+        newString += left.toString
+    }
+    return newString
+}
+
 public extension Character {
-
-    // tested
-    /// Return current locale.
-    public var locale: Locale {
-        return Locale.current
-    }
-
-    // tested
-    /// Return true if character is number.
-    public var isNumber: Bool {
-        return Int(String(self)) != nil
-    }
-
-    // tested
-    /// Return string from character.
-    public var toString: String {
-        return String(self)
-    }
-
-    // tested
-    /// Return integer from character (if applicable).
-    public var toInt: Int? {
-        return Int(String(self))
-    }
-
     /// Return true if character is emoji.
     public var isEmoji: Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
@@ -50,15 +36,19 @@ public extension Character {
             return false
         }
     }
-
-}
-
-/// Return character repeated n times.
-infix operator *
-public func * (left: Character, right: Int) -> String {
-    var newString = ""
-    for _ in 0 ..< right {
-        newString += left.toString
+    
+    /// Return true if character is number.
+    public var isNumber: Bool {
+        return Int(String(self)) != nil
     }
-    return newString
+    
+    /// Return integer from character (if applicable).
+    public var toInt: Int? {
+        return Int(String(self))
+    }
+    
+    /// Return string from character.
+    public var toString: String {
+        return String(self)
+    }
 }

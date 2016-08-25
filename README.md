@@ -13,30 +13,38 @@ A handy collection of native Swift 3 extensions to boost your productivity.
 
 ## How to use:
 
-Copy to the extensions folder of your Xcode project to use all extensions, or a specific extension.
+Add the [extensions](Extensions) folder to your Xcode project to use all extensions, or a specific extension.
 
 
 ## Requirements:
 
 Xcode 8 beta5 or later with Swift 3.
+This library is made for iOS 8 or later, however most of the extensions should work on watchOS, tvOS, and macOS
+
+
+## How to contribute:
+
+SwifterSwift is in its early stages, any feedback is appreciated and welcomed.
+Please refer to the [contributing guidelines](CONTRIBUTING.md) before participating.
 
 
 ## [List Of Extensions](Documentation/ExtensionsTable.md)
 
-- [x] [Array extensions](Documentation/ExtensionsTable.md#array-extensions)
-- [x] [Character extensions](Documentation/ExtensionsTable.md#character-extensions)
+- [ ] [Array extensions](Documentation/ExtensionsTable.md#array-extensions)
+- [ ] [Character extensions](Documentation/ExtensionsTable.md#character-extensions)
 - [ ] [Convenience extensions](Documentation/ExtensionsTable.md#convenience-extensions)
-- [x] [Date extensions](Documentation/ExtensionsTable.md#date-extensions)
-- [x] [Double extensions](Documentation/ExtensionsTable.md#double-extensions)
-- [x] [Float extensions](Documentation/ExtensionsTable.md#float-extensions)
-- [x] [Int extensions](Documentation/ExtensionsTable.md#int-extensions)
-- [x] [String extensions](Documentation/ExtensionsTable.md#string-extensions)
+- [ ] [Date extensions](Documentation/ExtensionsTable.md#date-extensions)
+- [ ] [Double extensions](Documentation/ExtensionsTable.md#double-extensions)
+- [ ] [Float extensions](Documentation/ExtensionsTable.md#float-extensions)
+- [ ] [Int extensions](Documentation/ExtensionsTable.md#int-extensions)
+- [ ] [String extensions](Documentation/ExtensionsTable.md#string-extensions)
 - [ ] [CGFloat extensions](Documentation/ExtensionsTable.md#cgfloat-extensions)
 - [ ] [CGSize extensions](Documentation/ExtensionsTable.md#cgsize-extensions)
 - [ ] [UIAlertController extensions](Documentation/ExtensionsTable.md#uialertcontroller-extensions)
 - [ ] [UIButton extensions](Documentation/ExtensionsTable.md#uibutton-extensions)
 - [ ] [UIColor extensions](Documentation/ExtensionsTable.md#uicolor-extensions)
 - [ ] [UIImage extensions](Documentation/ExtensionsTable.md#uiimage-extensions)
+- [ ] [UIImageView extensions](Documentation/ExtensionsTable.md#uiimageview-extensions)
 - [ ] [UINavigationBar extensions](Documentation/ExtensionsTable.md#uinavigationbar-extensions)
 - [ ] [UINavigationController extensions](Documentation/ExtensionsTable.md#uinavigationcontroller-extensions)
 - [ ] [UISearchBar extensions](Documentation/ExtensionsTable.md#uisearchbar-extensions)
@@ -48,7 +56,7 @@ Xcode 8 beta5 or later with Swift 3.
 
 ## How cool is this?
 
-Swifter Swift is a library of over 150 properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design manual.
+Swifter Swift is a library of over **250** properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
 Here are some examples:
 
 #### Array Extensions (14)
@@ -66,7 +74,7 @@ Here are some examples:
 ```
 
 
-#### Date Extensions (23)
+#### Date Extensions (28)
 ```swift
 // Get and set components from date with ease
 date.hour = 14
@@ -77,8 +85,11 @@ Date().isInToday -> true
 // Add 1 month to current date
 Date().add(component: .month, value: 1)
 
-// Return beginning of current day
+// Return date at the beginning of current day
 Date().beginning(of component: .day)
+
+// Return date at the end of current month
+Date().end(of component: .month)
 
 // Check if date is in current calendar unit
 Date().isIn(current: .month) -> true
@@ -89,11 +100,16 @@ Date().iso8601String -> "2016-08-23T21:26:15.287Z"
 // Create date from iso8601 string
 let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
 
+// Represent date as a string with ease
+Date().dateString(ofStyle: .medium) -> "Aug 26, 2016"
+Date().timeString(ofStyle: .short) -> "12:55 AM"
+Date().dateTimeString() -> "Aug 26, 2016, 12:55:24 AM"
+
 // and many others!
 ```
 
 
-#### String Extensions (48)
+#### String Extensions (53)
 ```swift
 // Return count of substring in string
 "hello world".count(of "o", caseSensitive: false) -> 2
@@ -134,11 +150,16 @@ String.random(of length: 10) -> "AhEju28kNl"
 // Convert string to numbers
 "12.12".toDouble -> 12.12
 
-// Encode string into url
-"it's easy to encode strings".urlEncoded() -> "it's%20easy%20to%20encode%20strings"
+// Encode and decode URLs
+"it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
+"it's%20easy%20to%20encode%20strings".urlDecoded -> "it's easy to encode strings"
 
-// Decode url
-"it's%20easy%20to%20encode%20strings".urlDecoded() -> "it's easy to encode strings"
+// Encode and decode base64
+"Hello World!".base64Encoded -> "SGVsbG8gV29ybGQh"
+"SGVsbG8gV29ybGQh".base64Decoded = "Hello World!"
+
+// Truncate strings with a trailing
+"This is a very long sentence".truncated(to length: 14, trailing: = "...") -> "This is a very..."
 
 // Repeat a string n times
 "s" * 5 -> "sssss"
@@ -164,7 +185,7 @@ let facebookColor = UIColor.socialColors.facebook
 ```
 
 
-#### Number Extensions (33)
+#### Number Types Extensions (33)
 ```swift
 // Return square root of a number
 √ 9 = 3
@@ -204,4 +225,11 @@ swifterSwift.isRunningOnSimulator
 
 
 ## Thanks:
-Special thanks to [Eng. Abdul Rahman Dabbour](https://github.com/thedabbour) for documenting the project
+
+Special thanks to:
+
+* [Eng. Abdul Rahman Dabbour](https://github.com/thedabbour) for documenting the project
+
+* [Mert Akengin](https://github.com/PvtMert) for creating [project website](http://swiftierswift.com) and helping with unit testing
+
+* [John Doe](https://en.wikipedia.org/wiki/John_Doe), This is a random person of our friends who gets us some coffee day to day
