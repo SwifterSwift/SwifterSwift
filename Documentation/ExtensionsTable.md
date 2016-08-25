@@ -1,13 +1,13 @@
 ## List Of All Extensions
 
-- [x] [Array extensions](#array-extensions)
-- [x] [Character extensions](#character-extensions)
+- [ ] [Array extensions](#array-extensions)
+- [ ] [Character extensions](#character-extensions)
 - [ ] [Convenience extensions](#convenience-extensions)
-- [x] [Date extensions](#date-extensions)
-- [x] [Double extensions](#double-extensions)
-- [x] [Float extensions](#float-extensions)
-- [x] [Int extensions](#int-extensions)
-- [x] [String extensions](#string-extensions)
+- [ ] [Date extensions](#date-extensions)
+- [ ] [Double extensions](#double-extensions)
+- [ ] [Float extensions](#float-extensions)
+- [ ] [Int extensions](#int-extensions)
+- [ ] [String extensions](#string-extensions)
 - [ ] [CGFloat extensions](#cgfloat-extensions)
 - [ ] [CGSize extensions](#cgsize-extensions)
 - [ ] [UIAlertController extensions](#uialertcontroller-extensions)
@@ -27,96 +27,125 @@
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**randomItem** | Variable | Element | Return random item from array |
-|**firstIndex(of item: Item)** | Function | Int? | Return first index of element in array |
-|**lastIndex(of item: Item)** | Function | Int? | Return last index of element in array |
-|**remove(object: Element)** | Function | -- | Remove element from array |
-|**uniqueValues** | Variable | Array | Return unique values of array |
-|**removeDuplicates()** | Function | -- | Remove duplicates from array |
-|**shuffle()** | Function | -- | Shuffle array |
-|**shuffled** | Variable | Array | Return shuffled version of array |
-|**indexes(of item)** | Function | [Int] | Return all indexes of specified item |
-|**prepend(item)** | Function | -- | Prepend an element to array |
-|**sum** | Variable | Array | Sum of all elements in the array |
 |**average** | Variable | Double | Average of all elements in array |
+|**difference(Array)** | Function | -- | Return an array of all items that are in self and not in given array |
+|**firstIndex(of Item)** | Function | Int? | Return first index of element in array |
+|**indexes(of Item)** | Function | [Int] | Return all indexes of specified item |
+|**lastIndex(of Item)** | Function | Int? | Return last index of element in array |
+|**pop** | Mutating function | Element? | Remove last item from array and return it |
+|**prepend(Item)** | Mutating function | -- | Prepend an element to array |
+|**push(Item)** | Mutating function | -- | Append an item to array |
+|**randomItem** | Variable | Element | Return random item from array |
+|**removeAll(Item)** | Mutating function | -- | Remove all instances of an item from array |
+|**removeDuplicates()** | Mutating function | -- | Remove duplicates from array |
+|**shuffle()** | Mutating function | -- | Shuffle array |
+|**shuffled** | Variable | Array | Return shuffled version of array |
+|**sum** | Variable | Array | Sum of all elements in the array |
+|**uniqueValues** | Variable | Array | Return unique values of array |
+
 
 ## Character extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**locale** | Read-Only Variable | Locale | Return current locale |
-|**isNumber** | Read-Only Variable | Bool | Return true if character is number |
-|**toString** | Read-Only Variable | String | Return string from character |
-|**toInt** | Read-Only Variable | Int? | Return integer from character (if applicable) |
+|**Character * Int** | Infix operator | String | Return character repeated n times |
 |**isEmoji** | Read-Only Variable | Bool | Return true if character is an emoji |
+|**isNumber** | Read-Only Variable | Bool | Return true if character is number |
+|**toInt** | Read-Only Variable | Int? | Return integer from character (if applicable) |
+|**toString** | Read-Only Variable | String | Return string from character |
+
 
 ## Convenience extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**sharedApplication** | Read-Only Variable | UIApplication | Return shared instance of UIApplication |
-|**delegate** | Read-Only Variable | AppDelegate | Return shared instance of AppDelegate |
-|**appVersion** | Read-Only Variable | String? | Return app current version |
 |**appBuild** | Read-Only Variable | String? | Return app current build number |
-|**systemVersion** | Read-Only Variable | String? | Return system current version |
-|**currentDevice** | Read-Only Variable | UIDevice | Return shared instance of current device |
-|**deviceName** | Read-Only Variable | String | Return current device name |
-|**deviceModel** | Read-Only Variable | String | Return current device model |
-|**batteryLevel** | Read-Only Variable | Float | Return current battery level |
-|**isMultitaskingSupported** | Read-Only Variable | Bool | Return true if multitasking is supported in current device |
-|**deviceOrientation** | Read-Only Variable | UIDeviceOrientation | Return current orientation of device |
 |**applicationIconBadgeNumber** | Variable | Int | Application icon badge number |
+|**appVersion** | Read-Only Variable | String? | Return app current version |
+|**batteryLevel** | Read-Only Variable | Float | Return current battery level |
+|**currentDevice** | Read-Only Variable | UIDevice | Return shared instance of current device |
+|**deviceHeight** | Read-Only Variable | Bool | Return device height |
+|**deviceModel** | Read-Only Variable | String | Return current device model |
+|**deviceName** | Read-Only Variable | String | Return current device name |
+|**deviceOrientation** | Read-Only Variable | UIDeviceOrientation | Return current orientation of device |
+|**deviceWidth** | Read-Only Variable | Bool | Return device width |
+|**isInDebuggingMode** | Read-Only Variable | Bool | Return true if app is running in debug mode |
+|**isMultitaskingSupported** | Read-Only Variable | Bool | Return true if multitasking is supported in current device |
 |**isNetworkActivityIndicatorVisible** | Variable | Bool | Network activity indicator visibility |
+|**isPad** | Read-Only Variable | Bool | Return true if device is iPad |
+|**isPhone** | Read-Only Variable | Bool | Return true if device is iPhone |
+|**isRegisteredForRemoteNotifications** | Read-Only Variable | Bool | Return true if device is registered for remote notifications for current app |
+|**isRunningOnSimulator** | Read-Only Variable | Bool | Return true if application is running on simulator |
 |**isStatusBarHidden** | Variable | Bool | Status bar visibility |
 |**keyWindow** | Read-Only Variable | UIView? | Return key window |
 |**mostTopViewController** | Variable | String? | Most top view controller |
-|**isRegisteredForRemoteNotifications** | Read-Only Variable | Bool | Return true if device is registered for remote notifications for current app |
-|**statusBarStyle** | Variable | UIStatusBarStyle? | Current status bar style |
-|**userDefaults** | Read-Only Variable | UserDefaults | Return shared instance of standard UserDefaults |
-|**set(value, forKey)** | Function | -- | Save an object to UserDefaults |
 |**object(forKey)** | Function | AnyObject? | Get an object from UserDefaults |
-|**isInDebuggingMode** | Read-Only Variable | Bool | Return true if app is running in debug mode |
-|**isRunningOnSimulator** | Read-Only Variable | Bool | Return true if application is running on simulator |
-|**deviceWidth** | Read-Only Variable | Bool | Return device width |
-|**deviceHeight** | Read-Only Variable | Bool | Return device height |
-|**isPhone** | Read-Only Variable | Bool | Return true if device is iPhone |
-|**isPad** | Read-Only Variable | Bool | Return true if device is iPad |
+|**set(value, forKey)** | Function | -- | Save an object to UserDefaults |
+|**sharedApplication** | Read-Only Variable | UIApplication | Return shared instance of UIApplication |
+|**statusBarStyle** | Variable | UIStatusBarStyle? | Current status bar style |
+|**systemVersion** | Read-Only Variable | String? | Return system current version |
+|**typeName(for object)** | Function | String | Return class name of object as string |
+|**userDefaults** | Read-Only Variable | UserDefaults | Return shared instance of standard UserDefaults |
 
 
 ## Date extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :--- | :---: |
-|**init(calendar, timeZone, era, year, month, day, hour, minute, second, nanosecond)** | Initializer | -- | Create a new Date |
+|**add(component: Calendar.Component, value: Int)** | Function | -- | Add calendar components to date |
+|**beginning(of component: Calendar.Component)** | Function | Date | Return beginning of given date component |
 |**calendar** | Read-Only Variable | Calendar | Return user’s current calendar |
-|**timeZone** | Read-Only Variable | TimeZone | Returns time zone used by the system |
-|**nanosecond** | Read-Only Variable | nanosecond | Nanoseconds from a date |
-|**second** | Variable | Int | Seconds from a date |
-|**minute** | Variable | Int | Minutes from a date |
-|**hour** | Variable | Int | Hour from a date |
+|**dateString(ofStyle DateFormatter.Style)** | Function | String | Return date string from date |
+|**dateTimeString(ofStyle DateFormatter.Style)** | Function | String | Return date and time string from date |
 |**day** | Variable | Int | Day from a date |
+|**end(of Calendar.Component)** | Function | Date? | Return date at the end of given date component |
+|**era** | Read-Only Variable | Int | Era |
+|**hour** | Variable | Int | Hour from a date |
+|**init(calendar, timeZone, era, year, month, day, hour, minute, second, nanosecond)** | Initializer | -- | Create a new Date |
+|**init(iso8601String: String)** | Initializer | -- | Create date object from ISO8601 string (yyyy-MM-dd'T'HH:mm:ss.SSSZ) |
+|**init(unixTimestamp: Double)** | Initializer | -- | Create new date object from UNIX timestamp |
+|**isIn(current: Calendar.Component)** | Function | Bool | Return true if date component in current given calendar component |
+|**isInFuture** | Read-Only Variable | Bool | Return true if date is in future |
+|**isInPast** | Read-Only Variable | Bool | Return true if date is in past |
+|**isInToday** | Read-Only Variable | Bool | Return true if date is in today |
+|**iso8601String** | Read-Only Variable | String | Return ISO8601 string (yyyy-MM-dd'T'HH:mm:ss.SSS) from date |
+|**minute** | Variable | Int | Minutes from a date |
+|**month** | Variable | Int | Month |
+|**nanosecond** | Read-Only Variable | nanosecond | Nanoseconds from a date |
+|**quarter** | Read-Only Variable | Int | Quarter |
+|**second** | Variable | Int | Seconds from a date |
+|**timeString(ofStyle DateFormatter.Style)** | Function | String | Return time string from date |
+|**timeZone** | Read-Only Variable | TimeZone | Return time zone used by system |
+|**unixTimestamp** | Read-Only Variable | Double | Get UNIX timestamp from date |
 |**weekday** | Read-Only Variable | Int | Weekday from a date |
 |**weekOfMonth** | Read-Only Variable | Int | Week of month |
 |**weekOfYear** | Read-Only Variable | Int | Week of year |
-|**month** | Variable | Int | Month |
 |**year** | Variable | Int | Year |
-|**era** | Read-Only Variable | Int | Era |
-|**quarter** | Read-Only Variable | Int | Quarter |
-|**isInToday** | Read-Only Variable | Bool | Return true if date is in today |
-|**add(component: Calendar.Component, value: Int)** | Function | -- | Add calendar components to date |
-|**beginning(of component: Calendar.Component)** | Function | Date | Return beginning of given date component |
-|**isInFuture** | Read-Only Variable | Bool | Return true if date is in future |
-|**isInPast** | Read-Only Variable | Bool | Return true if date is in past |
+
+
+## Dictionary extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**has(Key)** | Function | Bool | Return true if key exists in dictionary. |
+|**jsonData(prettify: Bool)** | Function | Data? | Return JSON String from dictionary. |
+|**jsonString(prettify: Bool)** | Function | String? | Return JSON String from dictionary. |
 
 
 ## Double extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**abs** | Read-Only Variable | Double | Return absolute value of double |
-|**floor** | Read-Only Variable | Double | Return floor of double value |
-|**ceil** | Read-Only Variable | Double | Return ceil of double value |
-|**randomBetween(min, max)** | Static Variable | Double | Return random double value between two double values |
+|**abs** | Read-Only Variable | Double | Return absolute of float value |
+|**ceil** | Read-Only Variable | Double | Return ceil of float value |
+|**degreesToRadians** | Read-Only Variable | Double | Return radian value of degree input |
+|**Double ^ Double** | Infix operator | Double | Return value of exponentiation |
+|**floor** | Read-Only Variable | Double | Return floor of float value |
+|**radiansToDegrees** | Read-Only Variable | Double | Return degree value of radian input |
+|**randomBetween(min, max)** | Static Variable | Double | Return random float value between two float values |
+|**± (Double, Double)** | Infix operator | (Double, Double) | Return tuple of plus-minus operation |
+|**± Double** | Prefix operator | (Double, Double) | Return tuple of plus-minus operation |
+|**√ Double** | Prefix operator | Double | Return square root of value |
 
 
 ## Float extensions
