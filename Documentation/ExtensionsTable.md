@@ -136,13 +136,13 @@
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**abs** | Read-Only Variable | Double | Return absolute of float value |
-|**ceil** | Read-Only Variable | Double | Return ceil of float value |
+|**abs** | Read-Only Variable | Double | Return absolute of double value |
+|**ceil** | Read-Only Variable | Double | Return ceil of double value |
 |**degreesToRadians** | Read-Only Variable | Double | Return radian value of degree input |
 |**Double ^ Double** | Infix operator | Double | Return value of exponentiation |
-|**floor** | Read-Only Variable | Double | Return floor of float value |
+|**floor** | Read-Only Variable | Double | Return floor of double value |
 |**radiansToDegrees** | Read-Only Variable | Double | Return degree value of radian input |
-|**randomBetween(min, max)** | Static Variable | Double | Return random float value between two float values |
+|**randomBetween(min, max)** | Static Variable | Double | Return random double value between two double values |
 |**± (Double, Double)** | Infix operator | (Double, Double) | Return tuple of plus-minus operation |
 |**± Double** | Prefix operator | (Double, Double) | Return tuple of plus-minus operation |
 |**√ Double** | Prefix operator | Double | Return square root of value |
@@ -153,75 +153,97 @@
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
 |**abs** | Read-Only Variable | Float | Return absolute of float value |
-|**floor** | Read-Only Variable | Float | Return floor of float value |
 |**ceil** | Read-Only Variable | Float | Return ceil of float value |
+|**degreesToRadians** | Read-Only Variable | Float | Return radian value of degree input |
+|**Float ^ Float** | Infix operator | Float | Return value of exponentiation |
+|**floor** | Read-Only Variable | Float | Return floor of float value |
+|**radiansToDegrees** | Read-Only Variable | Float | Return degree value of radian input |
 |**randomBetween(min, max)** | Static Variable | Float | Return random float value between two float values |
+|**± (Float, Float)** | Infix operator | (Float, Float) | Return tuple of plus-minus operation |
+|**± Float** | Prefix operator | (Float, Float) | Return tuple of plus-minus operation |
+|**√ Float** | Prefix operator | Float | Return square root of value |
+
 
 ## Int extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
 |**abs** | Read-Only Variable | Int | Return absolute of integer value |
-|**isEven** | Read-Only Variable | Bool | Checks if integer value is even |
-|**isOdd** | Read-Only Variable | Bool | Checks if integer value is odd |
+|**degreesToRadians** | Read-Only Variable | Double | Return radian value of degree input |
 |**digits** | Variable | [Int] | Return array of digits of integer value |
 |**digitsCount** | Read-Only Variable | Int | Returns number of digits of integer value |
 |**gcd(of n)** | Function | Int | Return greatest common divisor of integer value and n |
+|**Int ^ Int** | Infix operator | Double | Return value of exponentiation |
+|**isEven** | Read-Only Variable | Bool | Checks if integer value is even |
+|**isOdd** | Read-Only Variable | Bool | Checks if integer value is odd |
 |**lcm(of n)** | Function | Int | Return least common multiple of integer value and n |
+|**radiansToDegrees** | Read-Only Variable | Double | Return degree value of radian input |
 |**randomBetween(min, max)** | Static Function | Int | Return random integer value between two integer values |
 |**romanNumeral** | Read-Only Variable | String? | Return roman numeral from an integer (I, II, IV, X,..) |
+|**timeString** | Read-Only Variable | String | Return string of format (XXh XXm) from seconds Int |
+|**± (Int, Int)** | Infix operator | (Int, Int) | Return tuple of plus-minus operation |
+|**± Int** | Prefix operator | (Int, Int) | Return tuple of plus-minus operation |
+|**√ Int** | Prefix operator | Double | Return square root of value |
+
 
 ## String extensions
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**empty** | Variable | Bool | Return true if string is empty or contains only spaces or new lines |
-|**isEmail** | Read-Only Variable | Bool | Return true if string is valid email format |
-|**isHttpUrl** | Read-Only Variable | Bool | Return true if string is http URL |
-|**isHttpsUrl** | Read-Only Variable | Bool | Return true is string is https URL |
-|**firstCharacter** | Read-Only Variable | String? | Return first character of string |
-|**lastCharacter** | Read-Only Variable | String? | Return last character of string |
-|**start(with prefix: String, caseSensitive: Bool)** | Function | Bool | Return true if string starts with substring |
-|**end(with suffix: String, caseSensitive: Bool)** | Function | Bool | Return true if string ends with substring |
-|**count(of string: String, caseSensitive: Bool)** | Function | Int | Return count of substring in string |
-|**contain(string: String)** | Function | Bool | Return true if string contains one or more instance of substring |
-|**containEmoji** | Read-Only Variable | Bool | Return true if string contains one or more instance of substring |
-|**split(by separator: Character)** | Function | [String] | Return an array of strings seperated by given string |
-|**trimmed** | Read-Only Variable | String | Return string with no spaces or new lines in beginning and end |
-|**trim()** | Function | -- | Removes spaces and new lines in beginning and end of string |
-|**mostCommonCharacter** | Read-Only Variable | String | Return most common character in string |
+|**base64Decoded** | Read-Only Variable | String? | Return string decoded from base64 |
+|**base64Encoded** | Read-Only Variable | String? | Return string encoded in base64 |
+|**camelCased** | Read-Only Variable | String | Returns CamelCase of string |
 |**camelize()** | Function | -- | Converts string format to CamelCase |
-|**camelCaseString** | Read-Only Variable | String | Returns CamelCase of string |
-|**lines()** | Function | [String] | SReturns array of strings seperated by new lines |
+|**contain(String, caseSensitive: Bool)** | Function | Bool | Return true if string contains one or more instance of substring |
+|**containEmoji** | Read-Only Variable | Bool | Return true if string contains one or more emojis |
+|**count(of String, caseSensitive: Bool)** | Function | Int | Return count of substring in string |
+|**end(with String, caseSensitive: Bool)** | Function | Bool | Return true if string ends with substring |
+|**firstCharacter** | Read-Only Variable | String? | Return first character of string |
+|**firstIndex(of string: String)** | Variable | Int? | Return first index of substring in string |
+|**hasLetters** | Read-Only Variable | Bool | Return true if string contains one or more letters |
+|**hasNumbers** | Read-Only Variable | Bool | Return true if string contains one or more numbers |
+|**isAlphabetic** | Read-Only Variable | Bool | Return true if string contains only letters |
+|**isAlphaNumeric** | Read-Only Variable | Bool | Return true if string contains at least one letter and one number |
+|**isEmail** | Read-Only Variable | Bool | Return true if string is valid email format |
+|**isEmpty** | Variable | Bool | Return true if string is empty or contains only spaces or new lines |
+|**isHttpsUrl** | Read-Only Variable | Bool | Return true is string is https URL |
+|**isHttpUrl** | Read-Only Variable | Bool | Return true if string is http URL |
+|**isNumeric** | Read-Only Variable | Bool | Return true if string contains only numbers |
+|**lastCharacter** | Read-Only Variable | String? | Return last character of string |
+|**latinize()** | Function | -- | Latinize string |
+|**latinized** | Read-Only Variable | String | Return latinized string |
+|**lines()** | Function | [String] | Returns array of strings separated by new lines |
+|**locale** | Read-Only Variable | Locale | Return current locale |
+|**mostCommonCharacter** | Read-Only Variable | String | Return most common character in string |
+|**random(of length: Int)** | Function | String | Return random string of given length |
+|**replace(String, with: String)** | Function | String | Replace part of string with another string |
 |**reverse()** | Function | -- | Reverse string |
 |**reversed** | Read-Only Variable | String | Return reversed string |
-|**firstIndex(of string: String)** | Variable | Int? | Return first index of substring in string |
-|**replace(string: String, with: String)** | Function | String | Replace part of string with another string |
-|**locale** | Read-Only Variable | Locale | Return current locale |
-|**hasNumbers** | Read-Only Variable | Bool | Return true if string contains one or more numbers |
-|**hasLetters** | Read-Only Variable | Bool | Return true if string contains one or more letters |
-|**isAlphaNumeric** | Read-Only Variable | Bool | Return true if string contains at least one letter and one number |
-|**isAlphabetic** | Read-Only Variable | Bool | Return true if string contains only letters |
-|**isNumeric** | Read-Only Variable | Bool | Return true if string contains only numbers |
-|**latinized** | Read-Only Variable | String | Return latinized string |
-|**latinize()** | Function | -- | Latinize string |
-|**toInt** | Read-Only Variable | Int? | Return Int value from string (if applicable) |
-|**toInt8** | Read-Only Variable | Int8? | Return Int8 value from string (if applicable) |
-|**toInt16** | Read-Only Variable | Int16? | Return Int16 value from string (if applicable) |
-|**toInt32** | Read-Only Variable | Int32? | Return Int32 value from string (if applicable) |
-|**toInt64** | Read-Only Variable | Int32? | Return Int64 value from string (if applicable) |
+|**split(by separator: Character)** | Function | [String] | Return an array of strings separated by given string |
+|**start(with prefix: String, caseSensitive: Bool)** | Function | Bool | Return true if string starts with substring |
+|**String * Int** | Infix operator | String | Return string repeated n times. |
+|**toBool** | Read-Only Variable | Bool? | Return Bool value from string (if applicable) |
+|**toDate** | Read-Only Variable | Return date object from "yyyy-MM-dd" formatted string |
+|**toDateTime** | Read-Only Variable | Date? | Return date object from "yyyy-MM-dd HH:mm:ss" formatted string |
+|**toDouble** | Read-Only Variable | Double? | Return Double value from string (if applicable) |
 |**toFloat** | Read-Only Variable | Float? | Return Float value from string (if applicable) |
 |**toFloat32** | Read-Only Variable | Float32? | Return Float32 value from string (if applicable) |
 |**toFloat64** | Read-Only Variable | Float64? | Return Float64 value from string (if applicable) |
-|**toFloat80** | Read-Only Variable | Float80? | Return Float80 value from string (if applicable) |
-|**toDouble** | Read-Only Variable | Double? | Return Double value from string (if applicable) |
-|**toBool** | Read-Only Variable | Bool? | Return Bool value from string (if applicable) |
-|**random(of length: Int)** | Function | String | Return random string of given length |
-|**urlEncode** | Read-Only Variable | String | Return url escaped string |
-|**urlEncoded** | Function | -- | Escape a string |
-|**urlDecode** | Read-Only Variable | String | Return readable string from url string |
-|**urlDecoded** | Function | -- | Convert url string into readable string |
-
+|**toInt** | Read-Only Variable | Int? | Return Int value from string (if applicable) |
+|**toInt16** | Read-Only Variable | Int16? | Return Int16 value from string (if applicable) |
+|**toInt32** | Read-Only Variable | Int32? | Return Int32 value from string (if applicable) |
+|**toInt64** | Read-Only Variable | Int32? | Return Int64 value from string (if applicable) |
+|**toInt8** | Read-Only Variable | Int8? | Return Int8 value from string (if applicable) |
+|**trim()** | Function | -- | Removes spaces and new lines in beginning and end of string |
+|**trimmed** | Read-Only Variable | String | Return string with no spaces or new lines in beginning and end |
+|**truncate(to length: Int, trailing: String)** | Mutating function | -- | Return truncated string (limited to a given number of characters) |
+|**truncated(to length: Int, trailing: String)** | Function | String | Return truncated string (limited to a given number of characters) |
+|**unicodeArray** | Read-Only Variable | [Int] | Return an array with unicodes for all characters in a string |
+|**urlDecoded** | Read-Only Variable | String | Return readable string from url string |
+|**urlDecode** | Function | -- | Convert url string into readable string |
+|**urlEncoded** | Read-Only Variable | String | Return url escaped string |
+|**urlEncode** | Function | -- | Escape a string |
+|**withoutSpacesAndNewLines** | Read-Only Variable | String | Return string without spaces and new lines |
 
 
 # UIColor extensions

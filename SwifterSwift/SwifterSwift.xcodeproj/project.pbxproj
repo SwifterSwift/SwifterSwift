@@ -32,6 +32,7 @@
 		070487BF1D6F685800FA9246 /* SwifterSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwifterSwiftTests.swift; sourceTree = "<group>"; };
 		070487C11D6F685800FA9246 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0763AC031D6F68E00055626A /* Extensions */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Extensions; path = ../../Extensions; sourceTree = "<group>"; };
+		07F271C21D6FA07700FE3934 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +78,7 @@
 				0763AC031D6F68E00055626A /* Extensions */,
 				070487B41D6F685700FA9246 /* SwifterSwift.h */,
 				070487B51D6F685700FA9246 /* Info.plist */,
+				07F271C21D6FA07700FE3934 /* MyPlayground.playground */,
 			);
 			path = SwifterSwift;
 			sourceTree = "<group>";

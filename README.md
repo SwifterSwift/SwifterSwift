@@ -54,7 +54,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## How cool is this?
 
-Swifter Swift is a library of over 150 properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
+Swifter Swift is a library of over 200 properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
 Here are some examples:
 
 #### Array Extensions (14)
@@ -72,7 +72,7 @@ Here are some examples:
 ```
 
 
-#### Date Extensions (23)
+#### Date Extensions (28)
 ```swift
 // Get and set components from date with ease
 date.hour = 14
@@ -83,8 +83,11 @@ Date().isInToday -> true
 // Add 1 month to current date
 Date().add(component: .month, value: 1)
 
-// Return beginning of current day
+// Return date at the beginning of current day
 Date().beginning(of component: .day)
+
+// Return date at the end of current month
+Date().end(of component: .month)
 
 // Check if date is in current calendar unit
 Date().isIn(current: .month) -> true
@@ -95,11 +98,16 @@ Date().iso8601String -> "2016-08-23T21:26:15.287Z"
 // Create date from iso8601 string
 let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
 
+// Represent date as a string with ease
+Date().dateString(ofStyle: .medium) -> "Aug 26, 2016"
+Date().timeString(ofStyle: .short) -> "12:55 AM"
+Date().dateTimeString() -> "Aug 26, 2016, 12:55:24 AM"
+
 // and many others!
 ```
 
 
-#### String Extensions (48)
+#### String Extensions (53)
 ```swift
 // Return count of substring in string
 "hello world".count(of "o", caseSensitive: false) -> 2
@@ -140,11 +148,16 @@ String.random(of length: 10) -> "AhEju28kNl"
 // Convert string to numbers
 "12.12".toDouble -> 12.12
 
-// Encode string into url
-"it's easy to encode strings".urlEncoded() -> "it's%20easy%20to%20encode%20strings"
+// Encode and decode URLs
+"it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
+"it's%20easy%20to%20encode%20strings".urlDecoded -> "it's easy to encode strings"
 
-// Decode url
-"it's%20easy%20to%20encode%20strings".urlDecoded() -> "it's easy to encode strings"
+// Encode and decode base64
+"Hello World!".base64Encoded -> "SGVsbG8gV29ybGQh"
+"SGVsbG8gV29ybGQh".base64Decoded = "Hello World!"
+
+// Truncate strings with a trailing
+"This is a very long sentence".truncated(to length: 14, trailing: = "...") -> "This is a very..."
 
 // Repeat a string n times
 "s" * 5 -> "sssss"
@@ -170,7 +183,7 @@ let facebookColor = UIColor.socialColors.facebook
 ```
 
 
-#### Number Extensions (33)
+#### Number Types Extensions (33)
 ```swift
 // Return square root of a number
 √ 9 = 3

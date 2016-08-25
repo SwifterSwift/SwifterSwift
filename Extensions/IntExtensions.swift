@@ -8,26 +8,16 @@
 
 import Foundation
 public extension Int {
-    
-    // tested
     /// Return absolute of integer value.
     public var abs: Int {
         return Swift.abs(self)
     }
     
-    // tested
-    /// Checks if integer value is even.
-    public var isEven: Bool {
-        return (self % 2) == 0
+    /// Return radian value of degree input.
+    public var degreesToRadians: Double {
+        return Double(M_PI) * Double(self) / 180.0
     }
     
-    // tested
-    /// Checks if integer value is odd.
-    public var isOdd: Bool {
-        return (self % 2) != 0
-    }
-    
-    // tested
     /// Return array of digits of integer value.
     public var digits: [Int] {
         var digits: [Int] = []
@@ -39,22 +29,44 @@ public extension Int {
         return digits
     }
     
-    // tested
     /// Returns number of digits of integer value.
     public var digitsCount: Int {
         return String(self).characters.count
     }
     
-    // tested
     /// Return greatest common divisor of integer value and n.
     public func gcd(of n: Int) -> Int {
         return n == 0 ? self : n.gcd(of: self % n)
     }
     
-    // tested
+}
+
+/// Return value of exponentiation.
+infix operator ^
+public func ^ (left: Int, right: Int) -> Double {
+    // http://nshipster.com/swift-operators/
+    return pow(Double(left), Double(right))
+}
+
+public extension Int {
+    /// Checks if integer value is even.
+    public var isEven: Bool {
+        return (self % 2) == 0
+    }
+    
+    /// Checks if integer value is odd.
+    public var isOdd: Bool {
+        return (self % 2) != 0
+    }
+    
     /// Return least common multiple of integer value and n.
     public func lcm(of n: Int) -> Int {
         return (self * n).abs / gcd(of: n)
+    }
+    
+    /// Return degree value of radian input
+    public var radiansToDegrees: Double {
+        return Double(self) * 180 / Double(M_PI)
     }
     
     /// Return random integer value between two integer values.
@@ -91,17 +103,6 @@ public extension Int {
         return romanValue
     }
     
-    /// Return radian value of degree input.
-    public var degreesToRadians: Double {
-        return Double(M_PI) * Double(self) / 180.0
-    }
-    
-    /// Return degree value of radian input
-    public var radiansToDegrees: Double {
-        return Double(self) * 180 / Double(M_PI)
-    }
-    
-    // FIXME
     /// Return string of format (XXh XXm) from seconds Int
     public var timeString: String {
         guard self > 0 else {
@@ -126,7 +127,6 @@ public extension Int {
             return "\(hours) h \(mins) m"
         }
     }
-    
 }
 
 /// Return square root of value.
@@ -134,13 +134,6 @@ prefix operator √
 public prefix func √ (number: Int) -> Double {
     // http://nshipster.com/swift-operators/
     return sqrt(Double(number))
-}
-
-/// Return value of exponentiation.
-infix operator ^
-public func ^ (left: Int, right: Int) -> Double {
-    // http://nshipster.com/swift-operators/
-    return pow(Double(left), Double(right))
 }
 
 /// Return tuple of plus-minus operation.

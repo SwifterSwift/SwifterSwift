@@ -351,22 +351,22 @@ public extension String {
     }
     
     /// Return readable string from URL string.
-    public var urlDecode: String {
+    public var urlDecoded: String {
         return removingPercentEncoding ?? self
     }
     
     /// Convert URL string into readable string.
-    public mutating func urlDecoded() {
+    public mutating func urlDecode() {
         self = removingPercentEncoding ?? self
     }
     
     /// Return URL-escaped string.
-    public var urlEncode: String {
+    public var urlEncoded: String {
         return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
     }
     
     /// Escape string.
-    public mutating func urlEncoded() {
+    public mutating func urlEncode() {
         self = addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
     }
     

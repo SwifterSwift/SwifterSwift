@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 public extension Double {
     /// Return absolute of double value.
     public var abs: Double {
