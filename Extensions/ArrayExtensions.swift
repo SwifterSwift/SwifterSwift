@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public extension Collection where Iterator.Element == Int, Index == Int {
     /// Return average of all elements in array.
     public var average: Double {
