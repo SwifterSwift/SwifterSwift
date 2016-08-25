@@ -255,7 +255,48 @@ public extension Date {
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         self = dateFormatter.date(from: iso8601String) ?? Date()
     }
+    
+    // FIXME:
+    /// Create new date object from UNIX timestamp
+    public init(unixTimestamp: Double) {
+        self.init(timeIntervalSince1970: unixTimestamp)
+    }
+    
+    // FIXME:
+    /// Get UNIX timestamp from date
+    var unixTimestamp: Double {
+        return timeIntervalSince1970
+    }
 
+    // FIXME:
+    /// Return date string from date
+    func dateString(ofStyle style: DateFormatter.Style = .medium) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateStyle = style
+        return dateFormatter.string(from: self)
+    }
+    
+    // FIXME:
+    /// Return time string from date
+    func timeString(ofStyle style: DateFormatter.Style = .medium) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = style
+        dateFormatter.dateStyle = .none
+        return dateFormatter.string(from: self)
+    }
+    
+    // FIXME:
+    /// Return date and time string from date
+    func string(ofStyle style: DateFormatter.Style = .medium) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = style
+        dateFormatter.dateStyle = style
+        return dateFormatter.string(from: self)
+    }
+    
+    
+    
     // tested
     /// Create a new date.
     public init(calendar: Calendar?, timeZone: TimeZone?, era: Int?, year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, nanosecond: Int?) {

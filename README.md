@@ -12,12 +12,18 @@ A handy collection of native Swift 3 extensions to boost your productivity.
 
 ## How to use:
 
-Copy to the extensions folder of your Xcode project to use all extensions, or a specific extension.
+Add the [extensions](Extensions) folder to your Xcode project to use all extensions, or a specific extension.
 
 
 ## Requirements:
 
 Xcode 8 beta5 or later with Swift 3.
+
+
+## How to contribute:
+
+SwifterSwift is in its early stages, any feedback is appreciated and welcomed.
+Please refer to the [contributing guidelines](CONTRIBUTING.md) before participating.
 
 
 ## [List Of Extensions](Documentation/ExtensionsTable.md)
@@ -47,7 +53,7 @@ Xcode 8 beta5 or later with Swift 3.
 
 ## How cool is this?
 
-Swifter Swift is a library of over 150 properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design manual.
+Swifter Swift is a library of over 150 properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
 Here are some examples:
 
 #### Array Extensions (14)

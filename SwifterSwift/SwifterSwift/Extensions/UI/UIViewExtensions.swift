@@ -26,10 +26,10 @@ public enum ShakeAnimationType {
 }
 
 public extension UIView {
-
+    
     /// Shake view.
     public func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut) {
-
+        
         let animation: CAKeyframeAnimation
         switch direction {
         case .horizontal:
@@ -37,7 +37,7 @@ public extension UIView {
         case .vertical:
             animation = CAKeyframeAnimation(keyPath: "transform.translation.y")
         }
-
+        
         switch animationType {
         case .linear:
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
@@ -48,12 +48,12 @@ public extension UIView {
         case .easeInOut:
             animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         }
-
+        
         animation.duration = duration
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
     }
-
+    
     /// Rotate view to angle on fixed axis.
     public func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
         let angleWithType = (type == .degrees) ? CGFloat(M_PI) * angle / 180.0 : angle
@@ -66,7 +66,7 @@ public extension UIView {
             completion?(true)
         }
     }
-
+    
     /// Rotate view by angle on relative axis.
     public func rotate(byAngle angle : CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
         let angleWithType = (type == .degrees) ? CGFloat(M_PI) * angle / 180.0 : angle
@@ -79,15 +79,15 @@ public extension UIView {
             completion?(true)
         }
     }
-
-
+    
+    
     /// Scale view by offset.
     public func scale(by offset: CGPoint, duration: TimeInterval, completion:((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
             self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
             }, completion: completion)
     }
-
+    
     /// Corner radius of view; also inspectable from Storyboard.
     @IBInspectable
     public var cornerRadius: CGFloat {
@@ -98,7 +98,7 @@ public extension UIView {
             layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
         }
     }
-
+    
     /// Border color of view; also inspectable from Storyboard.
     @IBInspectable
     public var borderColor: UIColor? {
@@ -116,7 +116,7 @@ public extension UIView {
             layer.borderColor = color.cgColor
         }
     }
-
+    
     /// Border width of view; also inspectable from Storyboard.
     @IBInspectable
     public var borderWidth: CGFloat {
@@ -127,7 +127,7 @@ public extension UIView {
             layer.borderWidth = newValue
         }
     }
-
+    
     /// Shadow color of view; also inspectable from Storyboard.
     @IBInspectable
     public var shadowColor: UIColor? {
@@ -141,7 +141,7 @@ public extension UIView {
             layer.shadowColor = newValue?.cgColor
         }
     }
-
+    
     /// Shadow opacity of view; also inspectable from Storyboard.
     @IBInspectable
     public var shadowOpacity: Float {
@@ -152,7 +152,7 @@ public extension UIView {
             layer.shadowOpacity = newValue
         }
     }
-
+    
     /// Shadow offset of view; also inspectable from Storyboard.
     @IBInspectable
     public var shadowOffset: CGSize {
@@ -163,7 +163,7 @@ public extension UIView {
             layer.shadowOffset = newValue
         }
     }
-
+    
     /// Shadow radius of view; also inspectable from Storyboard.
     @IBInspectable
     public var shadowRadius: CGFloat {
@@ -174,7 +174,7 @@ public extension UIView {
             layer.shadowRadius = newValue
         }
     }
-
+    
     /// First responder.
     public var firstResponder: UIView? {
         guard !self.isFirstResponder else {
@@ -187,17 +187,17 @@ public extension UIView {
         }
         return nil
     }
-
+    
     /// Remove all subviews in view.
     public func removeSubViews() {
         self.subviews.forEach({$0.removeFromSuperview()})
     }
-
+    
     /// Add array of subviews to view.
     public func add(subViews: [UIView]) {
         subViews.forEach({self.addSubview($0)})
     }
-
+    
     /// Return true if view is in RTL format.
     public var isRightToLeft: Bool {
         if #available(iOS 10.0, *) {
@@ -206,18 +206,18 @@ public extension UIView {
             return false
         }
     }
-
+    
     /// Remove all gesture recognizers from view.
     public func removeGestureRecognizers() {
         gestureRecognizers?.forEach(removeGestureRecognizer)
     }
-
+    
     /// Make corners rounded.
     public func roundcorners() {
         clipsToBounds = true
         layer.cornerRadius = frame.size.width / 2
     }
-
+    
     /// Take screenshot of view.
     public var screenShot: UIImage? {
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0.0);
@@ -230,8 +230,8 @@ public extension UIView {
         layer.render(in: context)
         return UIGraphicsGetImageFromCurrentImageContext()
     }
-
-
+    
+    
     /// Return true if view is visible in screen currently and not hidden.
     public var isVisible: Bool {
         // https://github.com/hilen/TimedSilver/blob/master/Sources/UIKit/UIView%2BTSExtension.swift
@@ -244,7 +244,7 @@ public extension UIView {
         }
         return viewRect.intersects(window.bounds) == false
     }
-
+    
     /// Origin coordinates of view.
     public var origin: CGPoint {
         get {
@@ -256,7 +256,7 @@ public extension UIView {
             self.frame = frame
         }
     }
-
+    
     /// Origin x-coordinates of view.
     public var originX: CGFloat {
         get {
@@ -268,7 +268,7 @@ public extension UIView {
             self.frame = frame
         }
     }
-
+    
     /// Origin y-coordinates of view.
     public var originY: CGFloat {
         get {
@@ -280,5 +280,35 @@ public extension UIView {
             self.frame = frame
         }
     }
-
+    
+    // FIXME
+    public var width: CGFloat {
+        get {
+            return self.frame.size.width
+        }
+        set {
+            self.frame.size.width = newValue
+        }
+    }
+    
+    // FIXME
+    public var height: CGFloat {
+        get {
+            return self.frame.size.height
+        }
+        set {
+            self.frame.size.height = newValue
+        }
+    }
+    
+    // FIXME
+    public var size: CGSize {
+        get {
+            return self.frame.size
+        }
+        set {
+            self.width = newValue.width
+            self.height = newValue.height
+        }
+    }
 }

@@ -9,6 +9,22 @@
 import Foundation
 public extension Array where Element: Equatable {
 
+    // FIXME
+    /// Remove last element from array and return it.
+    public mutating func pop() -> Element? {
+        guard self.count > 0 else {
+            return nil
+        }
+        return removeLast()
+    }
+
+    // FIXME
+    /// Append an item to array
+    public mutating func push(element: Element) {
+        return append(element)
+    }
+    
+    
     // tested
     /// Return unique values of array.
     public var uniqueValues: [Element] {
