@@ -224,7 +224,7 @@
 |**start(with prefix: String, caseSensitive: Bool)** | Function | Bool | Return true if string starts with substring |
 |**String * Int** | Infix operator | String | Return string repeated n times |
 |**toBool** | Read-Only Variable | Bool? | Return Bool value from string (if applicable) |
-|**toDate** | Read-Only Variable | Return date object from "yyyy-MM-dd" formatted string |
+|**toDate** | Read-Only Variable | Date? | Return date object from "yyyy-MM-dd" formatted string |
 |**toDateTime** | Read-Only Variable | Date? | Return date object from "yyyy-MM-dd HH:mm:ss" formatted string |
 |**toDouble** | Read-Only Variable | Double? | Return Double value from string (if applicable) |
 |**toFloat** | Read-Only Variable | Float? | Return Float value from string (if applicable) |
