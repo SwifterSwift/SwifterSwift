@@ -192,7 +192,7 @@ let facebookColor = UIColor.socialColors.facebook
 √ 9 = 3
 
 // Return square power of a number
-5 ^ 2 = 25
+5 ** 2 = 25
 
 // Return a number plus or minus another number
 5 ± 2 = (3, 7)
