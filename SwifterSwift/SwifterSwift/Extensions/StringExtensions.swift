@@ -79,10 +79,6 @@ public extension String {
         return components(separatedBy: string).count - 1
     }
     
-    /// Return true if string is empty or contains only spaces or new lines
-    public var isEmpty: Bool {
-        return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).characters.count == 0
-    }
     
     /// Return true if string ends with substring.
     public func end(with suffix: String, caseSensitive: Bool = true) -> Bool {
@@ -235,7 +231,6 @@ public extension String {
 }
 
 /// Return string repeated n times.
-infix operator *
 public func * (left: String, right: Int) -> String {
     var newString = ""
     for _ in 0 ..< right {
@@ -351,23 +346,23 @@ public extension String {
     }
     
     /// Return readable string from URL string.
-    public var urlDecoded: String {
-        return removingPercentEncoding ?? self
-    }
-    
-    /// Convert URL string into readable string.
     public mutating func urlDecode() {
         self = removingPercentEncoding ?? self
     }
     
+    /// Convert URL string into readable string.
+    public var urlDecoded: String {
+        return removingPercentEncoding ?? self
+    }
+    
     /// Return URL-escaped string.
-    public var urlEncoded: String {
-        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
+    public mutating func urlEncode() {
+        self = addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
     }
     
     /// Escape string.
-    public mutating func urlEncode() {
-        self = addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
+    public var urlEncoded: String {
+        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
     }
     
     /// Return string without spaces and new lines.
