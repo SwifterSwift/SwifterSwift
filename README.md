@@ -39,8 +39,8 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 - [x] [Float extensions](Documentation/ExtensionsTable.md#float-extensions)
 - [x] [Int extensions](Documentation/ExtensionsTable.md#int-extensions)
 - [x] [String extensions](Documentation/ExtensionsTable.md#string-extensions)
-- [ ] [CGFloat extensions](Documentation/ExtensionsTable.md#cgfloat-extensions)
-- [ ] [CGSize extensions](Documentation/ExtensionsTable.md#cgsize-extensions)
+- [x] [CGFloat extensions](Documentation/ExtensionsTable.md#cgfloat-extensions)
+- [x] [CGSize extensions](Documentation/ExtensionsTable.md#cgsize-extensions)
 - [ ] [UIAlertController extensions](Documentation/ExtensionsTable.md#uialertcontroller-extensions)
 - [ ] [UIButton extensions](Documentation/ExtensionsTable.md#uibutton-extensions)
 - [ ] [UIColor extensions](Documentation/ExtensionsTable.md#uicolor-extensions)
@@ -100,6 +100,10 @@ Date().iso8601String -> "2016-08-23T21:26:15.287Z"
 
 // Create date from iso8601 string
 let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
+
+// Create date from DateComponents
+let date = Date(year: 2016, month: 8, day: 15) // other components set to current
+let date = Date(hour: 9, minute: 18, second: 1) // other components set to current
 
 // Represent date as a string with ease
 Date().dateString(ofStyle: .medium) -> "Aug 26, 2016"

@@ -76,19 +76,16 @@ class DateExtensionsTests: XCTestCase {
         
         XCTAssert(Date().beginning(of: .day)?.hour == 0 && (Date().beginning(of: .day)?.isInToday)!, "Could not get correct value for beginning of day in \(#function)")
         
-        let date = Date(calendar: nil, timeZone: nil, era: nil, year: 2016, month: 8, day: 9, hour: nil, minute: nil, second: nil, nanosecond: nil)
+        let date = Date(year: 2016, month: 8, day: 9)
         
-        let beginningOfWeek = Date(calendar: nil, timeZone: nil, era: nil, year: 2016, month: 8, day: 7, hour: nil, minute: nil, second: nil, nanosecond: nil)
-        
+        let beginningOfWeek = Date(year: 2016, month: 8, day: 7)
         XCTAssert(date.beginning(of: .weekOfMonth)?.day == beginningOfWeek.day, "Could not get correct value for beginning of week in \(#function)")
         
-        let beginningOfMonth = Date(calendar: nil, timeZone: nil, era: nil, year: 2016, month: 8, day: 1, hour: nil, minute: nil, second: nil, nanosecond: nil)
+        let beginningOfMonth = Date(year: 2016, month: 8, day: 1)
+        XCTAssert(Date().beginning(of: .month)?.day == beginningOfMonth.day, "Could not get correct value for beginning of month in \(#function)")
         
-        XCTAssert(date.beginning(of: .month)?.day == beginningOfMonth.day, "Could not get correct value for beginning of month in \(#function)")
-        
-        let beginningOfYear = Date(calendar: nil, timeZone: nil, era: nil, year: 2016, month: 1, day: 1, hour: nil, minute: nil, second: nil, nanosecond: nil)
-        
-        XCTAssert(date.beginning(of: .year)?.day == beginningOfYear.day, "Could not get correct value for beginning of year in \(#function)")
+		let beginningOfYear = Date(year: 2016, month: 1, day: 1)
+        XCTAssert(Date().beginning(of: .year)?.day == beginningOfYear.day, "Could not get correct value for beginning of year in \(#function)")
     }
     
     func testCalendar() {

@@ -212,9 +212,19 @@ public extension Date {
         minute: Int? = Date().minute,
         second: Int? = Date().second,
         nanosecond: Int? = Date().nanosecond) {
-        
-        let components = DateComponents(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond, weekday: nil, weekdayOrdinal: nil, quarter: nil, weekOfMonth: nil, weekOfYear: nil, yearForWeekOfYear: nil)
-        
+		
+		var components = DateComponents()
+		components.calendar = calendar
+		components.timeZone = timeZone
+		components.era = era
+		components.year = year
+		components.month = month
+		components.day = day
+		components.hour = hour
+		components.minute = minute
+		components.second = second
+		components.nanosecond = nanosecond
+                
         self = calendar?.date(from: components) ?? Date()
     }
     

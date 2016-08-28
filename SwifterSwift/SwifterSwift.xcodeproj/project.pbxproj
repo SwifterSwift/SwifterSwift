@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07A0CD611D720ABC00942A84 /* CGFloatExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A0CD601D720ABC00942A84 /* CGFloatExtensionsTests.swift */; };
+		07A0CD631D720B9200942A84 /* CGSizeExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A0CD621D720B9200942A84 /* CGSizeExtensionsTests.swift */; };
 		07CABE841D70974D0097B0C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CABE831D70974D0097B0C6 /* AppDelegate.swift */; };
 		07CABE861D70974D0097B0C6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CABE851D70974D0097B0C6 /* ViewController.swift */; };
 		07CABE891D70974D0097B0C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 07CABE871D70974D0097B0C6 /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07A0CD601D720ABC00942A84 /* CGFloatExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtensionsTests.swift; sourceTree = "<group>"; };
+		07A0CD621D720B9200942A84 /* CGSizeExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSizeExtensionsTests.swift; sourceTree = "<group>"; };
 		07CABE801D70974D0097B0C6 /* SwifterSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwifterSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		07CABE831D70974D0097B0C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		07CABE851D70974D0097B0C6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 				07DC89CC1D71E668007BB7DD /* FloatExtensionsTests.swift */,
 				07DC89CE1D71E8C0007BB7DD /* IntExtensionsTests.swift */,
 				07DC89D01D71F4FF007BB7DD /* StringExtensionsTests.swift */,
+				07A0CD601D720ABC00942A84 /* CGFloatExtensionsTests.swift */,
+				07A0CD621D720B9200942A84 /* CGSizeExtensionsTests.swift */,
 				07CABE9A1D70974D0097B0C6 /* Info.plist */,
 			);
 			path = SwifterSwiftTests;
@@ -343,8 +349,10 @@
 			files = (
 				07DC89D11D71F4FF007BB7DD /* StringExtensionsTests.swift in Sources */,
 				07CABF3A1D709A930097B0C6 /* ArrayExtensionsTests.swift in Sources */,
+				07A0CD631D720B9200942A84 /* CGSizeExtensionsTests.swift in Sources */,
 				07DC89CF1D71E8C0007BB7DD /* IntExtensionsTests.swift in Sources */,
 				07DC89C71D71C28D007BB7DD /* DateExtensionsTests.swift in Sources */,
+				07A0CD611D720ABC00942A84 /* CGFloatExtensionsTests.swift in Sources */,
 				07DC89CB1D71DB35007BB7DD /* DoubleExtensionsTests.swift in Sources */,
 				07DC89C91D71D835007BB7DD /* DictionaryExtensionsTests.swift in Sources */,
 				07DC89C31D71B816007BB7DD /* CharacterExtensionsTests.swift in Sources */,
@@ -423,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -466,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -480,7 +488,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C3VKVFB3SA;
 				INFOPLIST_FILE = SwifterSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwifterSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -494,7 +502,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = C3VKVFB3SA;
 				INFOPLIST_FILE = SwifterSwift/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwifterSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
