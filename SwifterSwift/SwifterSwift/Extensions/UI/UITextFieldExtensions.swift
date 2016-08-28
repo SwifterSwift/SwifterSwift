@@ -8,12 +8,12 @@
 
 import UIKit
 public extension UITextField {
-
-    /// Return true if text field is empty.
-    public var isEmpty: Bool {
-        if let text = self.text {
-            return text.characters.isEmpty
-        }
-        return true
-    }
+	
+	/// Return true if text field is empty.
+	public var isEmpty: Bool {
+		if let text = self.text {
+			return text.characters.isEmpty
+		}
+		return true
+	}
 }

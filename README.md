@@ -211,6 +211,33 @@ Int.randomBetween(min: 1, max: 10) = 6
 ```
 
 
+## UI Extensions
+Swifter Swift has many great UI extensions:
+
+#### UIAlertController Extensions
+```swift
+// Create a new alert controller from string or Error
+let alert = UIAlertController(title: "Couldn't sign in", message: "Invalid username or password!")
+let alert = UIAlertController(title: "Error", error: Error)
+
+// show alert with ease
+alert.show()
+```
+
+
+#### UIButton Extensions
+```swift
+// Set title, title color and image for all states at once!
+button.titleForAllStates(title: "Login")
+button.titleColorForAllStates(color: UIColor.blue)
+button.imageForAllStates(image: UIImage(named: "login"))
+
+// or set each of them from code or storyboard
+button.titleForHighlighted = "Login"
+```
+
+
+
 #### Misc Extensions
 ```swift
 // Return JSON string from a dictionary
