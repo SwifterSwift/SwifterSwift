@@ -179,10 +179,15 @@ public extension UIView {
 	}
 	
 	/// Scale view by offset.
-	public func scale(by offset: CGPoint, duration: TimeInterval, completion:((Bool) -> Void)? = nil) {
-		UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
+	public func scale(by offset: CGPoint, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+		if animated {
+			UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
+				self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
+				}, completion: completion)
+		} else {
 			self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
-			}, completion: completion)
+			completion?(true)
+		}
 	}
 	
 	/// Take screenshot of view.
