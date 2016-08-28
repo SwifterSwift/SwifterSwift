@@ -9,11 +9,10 @@
 import Foundation
 
 /// Return character repeated n times.
-infix operator *
-public func * (left: Character, right: Int) -> String {
+public func * (leftCharacter: Character, rightInt: Int) -> String {
     var newString = ""
-    for _ in 0 ..< right {
-        newString += left.toString
+    for _ in 0 ..< rightInt {
+        newString += String(leftCharacter)
     }
     return newString
 }

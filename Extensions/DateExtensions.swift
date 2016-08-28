@@ -201,22 +201,31 @@ public extension Date {
     }
     
     /// Create a new date.
-    public init(calendar: Calendar?, timeZone: TimeZone?, era: Int?, year: Int?, month: Int?, day: Int?, hour: Int?, minute: Int?, second: Int?, nanosecond: Int?) {
-        
-        let calendar = calendar ?? Calendar.current
-        let timeZone = timeZone ?? TimeZone.current
-        let era = era ?? Date().era
-        let year = year ?? Date().year
-        let month = month ?? Date().month
-        let day = day ?? Date().day
-        let hour = hour ?? Date().hour
-        let minute = minute ?? Date().minute
-        let second = second ?? Date().second
-        let nanosecond = nanosecond ?? Date().nanosecond
-        
-        let components = DateComponents(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond, weekday: nil, weekdayOrdinal: nil, quarter: nil, weekOfMonth: nil, weekOfYear: nil, yearForWeekOfYear: nil)
-        
-        self = calendar.date(from: components) ?? Date()
+    public init(
+        calendar: Calendar? = Calendar.current,
+        timeZone: TimeZone? = TimeZone.current,
+        era: Int? = Date().era,
+        year: Int? = Date().year,
+        month: Int? = Date().month,
+        day: Int? = Date().day,
+        hour: Int? = Date().hour,
+        minute: Int? = Date().minute,
+        second: Int? = Date().second,
+        nanosecond: Int? = Date().nanosecond) {
+		
+		var components = DateComponents()
+		components.calendar = calendar
+		components.timeZone = timeZone
+		components.era = era
+		components.year = year
+		components.month = month
+		components.day = day
+		components.hour = hour
+		components.minute = minute
+		components.second = second
+		components.nanosecond = nanosecond
+                
+        self = calendar?.date(from: components) ?? Date()
     }
     
     /// Create date object from ISO8601 string (yyyy-MM-dd'T'HH:mm:ss.SSSZ).
@@ -254,6 +263,9 @@ public extension Date {
             
         case .year:
             return year == Date().year && era == Date().era
+            
+        case .era:
+            return era == Date().era
             
         default:
             return false

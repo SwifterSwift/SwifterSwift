@@ -32,10 +32,10 @@ public extension Double {
 }
 
 /// Return value of exponentiation.
-infix operator ^
-public func ^ (left: Double, right: Double) -> Double {
+infix operator **
+public func ** (leftDouble: Double, rightDouble: Double) -> Double {
     // http://nshipster.com/swift-operators/
-    return pow(left, right)
+    return pow(leftDouble, rightDouble)
 }
 
 public extension Double {
@@ -52,21 +52,21 @@ public extension Double {
 
 /// Return tuple of plus-minus operation.
 infix operator ±
-public func ± (left: Double, right: Double) -> (Double, Double) {
+public func ± (leftDouble: Double, rightDouble: Double) -> (Double, Double) {
     // http://nshipster.com/swift-operators/
-    return (left + right, left - right)
+    return (leftDouble + rightDouble, leftDouble - rightDouble)
 }
 
 // Return tuple of plus-minus operation.
 prefix operator ±
-public prefix func ± (value: Double) -> (Double, Double) {
+public prefix func ± (double: Double) -> (Double, Double) {
     // http://nshipster.com/swift-operators/
-    return 0 ± value
+    return 0 ± double
 }
 
 /// Return square root of value.
 prefix operator √
-public prefix func √ (number: Double) -> Double {
+public prefix func √ (double: Double) -> Double {
     // http://nshipster.com/swift-operators/
-    return sqrt(number)
+    return sqrt(double)
 }

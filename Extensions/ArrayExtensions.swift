@@ -26,7 +26,7 @@ public extension Array where Element: FloatingPoint {
 
 public extension Array where Element: Equatable {
     /// Return an array of all items that are in self and not in given array.
-    func difference(from array: [Element]) -> [Element] {
+    public func difference(from array: [Element]) -> [Element] {
         return self.filter {
             return self.contains($0 as Element) && !array.contains($0 as Element)
         }

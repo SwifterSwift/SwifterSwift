@@ -29,16 +29,7 @@ public extension CGFloat {
         let delta = max - min
         return min + CGFloat(arc4random_uniform(UInt32(delta)))
     }
-}
-
-/// Return value of exponentiation.
-infix operator ^
-public func ^ (left: CGFloat, right: CGFloat) -> CGFloat {
-    // http://nshipster.com/swift-operators/
-    return pow(left, right)
-}
-
-public extension CGFloat {
+    
     /// Return floor of double value.
     public var floor: CGFloat {
         return Foundation.floor(self)
@@ -49,25 +40,3 @@ public extension CGFloat {
         return self * 180 / CGFloat(M_PI)
     }
 }
-
-/// Return tuple of plus-minus operation.
-infix operator ±
-public func ± (left: CGFloat, right: CGFloat) -> (CGFloat, CGFloat) {
-    // http://nshipster.com/swift-operators/
-    return (left + right, left - right)
-}
-
-// Return tuple of plus-minus operation.
-prefix operator ±
-public prefix func ± (value: CGFloat) -> (CGFloat, CGFloat) {
-    // http://nshipster.com/swift-operators/
-    return 0 ± value
-}
-
-/// Return square root of value.
-prefix operator √
-public prefix func √ (number: CGFloat) -> CGFloat {
-    // http://nshipster.com/swift-operators/
-    return sqrt(number)
-}
-

@@ -1,15 +1,16 @@
 ## List Of All Extensions
 
-- [ ] [Array extensions](#array-extensions)
-- [ ] [Character extensions](#character-extensions)
-- [ ] [Convenience extensions](#convenience-extensions)
-- [ ] [Date extensions](#date-extensions)
-- [ ] [Double extensions](#double-extensions)
-- [ ] [Float extensions](#float-extensions)
-- [ ] [Int extensions](#int-extensions)
-- [ ] [String extensions](#string-extensions)
-- [ ] [CGFloat extensions](#cgfloat-extensions)
-- [ ] [CGSize extensions](#cgsize-extensions)
+- [x] [Array extensions](#array-extensions)
+- [x] [Character extensions](#character-extensions)
+- [x] [Convenience extensions](#convenience-extensions)
+- [x] [Date extensions](#date-extensions)
+- [x] [Dictionary extensions](#dictionary-extensions)
+- [x] [Double extensions](#double-extensions)
+- [x] [Float extensions](#float-extensions)
+- [x] [Int extensions](#int-extensions)
+- [x] [String extensions](#string-extensions)
+- [x] [CGFloat extensions](#cgfloat-extensions)
+- [x] [CGSize extensions](#cgsize-extensions)
 - [ ] [UIAlertController extensions](#uialertcontroller-extensions)
 - [ ] [UIButton extensions](#uibutton-extensions)
 - [ ] [UIColor extensions](#uicolor-extensions)
@@ -49,7 +50,7 @@
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
-|**Character * Int** | Infix operator | String | Return character repeated n times |
+|**Character * Int** | Infix operator | String | Return Character repeated n times |
 |**isEmoji** | Read-Only Variable | Bool | Return true if character is an emoji |
 |**isNumber** | Read-Only Variable | Bool | Return true if character is number |
 |**toInt** | Read-Only Variable | Int? | Return integer from character (if applicable) |
@@ -140,7 +141,7 @@
 |**abs** | Read-Only Variable | Double | Return absolute of double value |
 |**ceil** | Read-Only Variable | Double | Return ceil of double value |
 |**degreesToRadians** | Read-Only Variable | Double | Return radian value of degree input |
-|**Double ^ Double** | Infix operator | Double | Return value of exponentiation |
+|**Double ** Double** | Infix operator | Double | Return value of exponentiation |
 |**floor** | Read-Only Variable | Double | Return floor of double value |
 |**radiansToDegrees** | Read-Only Variable | Double | Return degree value of radian input |
 |**randomBetween(min, max)** | Static Variable | Double | Return random double value between two double values |
@@ -156,7 +157,7 @@
 |**abs** | Read-Only Variable | Float | Return absolute of float value |
 |**ceil** | Read-Only Variable | Float | Return ceil of float value |
 |**degreesToRadians** | Read-Only Variable | Float | Return radian value of degree input |
-|**Float ^ Float** | Infix operator | Float | Return value of exponentiation |
+|**Float ** Float** | Infix operator | Float | Return value of exponentiation |
 |**floor** | Read-Only Variable | Float | Return floor of float value |
 |**radiansToDegrees** | Read-Only Variable | Float | Return degree value of radian input |
 |**randomBetween(min, max)** | Static Variable | Float | Return random float value between two float values |
@@ -174,7 +175,7 @@
 |**digits** | Variable | [Int] | Return array of digits of integer value |
 |**digitsCount** | Read-Only Variable | Int | Returns number of digits of integer value |
 |**gcd(of n)** | Function | Int | Return greatest common divisor of integer value and n |
-|**Int ^ Int** | Infix operator | Double | Return value of exponentiation |
+|**Int ** Int** | Infix operator | Double | Return value of exponentiation |
 |**isEven** | Read-Only Variable | Bool | Checks if integer value is even |
 |**isOdd** | Read-Only Variable | Bool | Checks if integer value is odd |
 |**lcm(of n)** | Function | Int | Return least common multiple of integer value and n |
@@ -206,7 +207,6 @@
 |**isAlphabetic** | Read-Only Variable | Bool | Return true if string contains only letters |
 |**isAlphaNumeric** | Read-Only Variable | Bool | Return true if string contains at least one letter and one number |
 |**isEmail** | Read-Only Variable | Bool | Return true if string is valid email format |
-|**isEmpty** | Variable | Bool | Return true if string is empty or contains only spaces or new lines |
 |**isHttpsUrl** | Read-Only Variable | Bool | Return true is string is https URL |
 |**isHttpUrl** | Read-Only Variable | Bool | Return true if string is http URL |
 |**isNumeric** | Read-Only Variable | Bool | Return true if string contains only numbers |
@@ -254,7 +254,7 @@
 |**abs** | Read-Only Variable | CGFloat | Return absolute of float value |
 |**ceil** | Read-Only Variable | CGFloat | Return ceil of float value |
 |**degreesToRadians** | Read-Only Variable | CGFloat | Return radian value of degree input |
-|**CGFloat ^ CGFloat** | Infix operator | CGFloat | Return value of exponentiation |
+|**CGFloat ** CGFloat** | Infix operator | CGFloat | Return value of exponentiation |
 |**floor** | Read-Only Variable | CGFloat | Return floor of float value |
 |**radiansToDegrees** | Read-Only Variable | CGFloat | Return degree value of radian input |
 |**randomBetween(min, max)** | Static Variable | CGFloat | Return random float value between two float values |

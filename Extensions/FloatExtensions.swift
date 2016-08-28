@@ -31,9 +31,10 @@ public extension Float {
     }
 }
 
+
 /// Return value of exponentiation.
-infix operator ^
-public func ^ (left: Float, right: Float) -> Float {
+infix operator **
+public func ** (left: Float, right: Float) -> Float {
     // http://nshipster.com/swift-operators/
     return pow(left, right)
 }
@@ -52,21 +53,21 @@ public extension Float {
 
 /// Return tuple of plus-minus operation.
 infix operator ±
-public func ± (left: Float, right: Float) -> (Float, Float) {
+public func ± (leftFloat: Float, rightFloat: Float) -> (Float, Float) {
     // http://nshipster.com/swift-operators/
-    return (left + right, left - right)
+    return (leftFloat + rightFloat, leftFloat - rightFloat)
 }
 
 // Return tuple of plus-minus operation.
 prefix operator ±
-public prefix func ± (value: Float) -> (Float, Float) {
+public prefix func ± (float: Float) -> (Float, Float) {
     // http://nshipster.com/swift-operators/
-    return 0 ± value
+    return 0 ± float
 }
 
 /// Return square root of value.
 prefix operator √
-public prefix func √ (number: Float) -> Float {
+public prefix func √ (float: Float) -> Float {
     // http://nshipster.com/swift-operators/
-    return sqrt(number)
+    return sqrt(float)
 }
