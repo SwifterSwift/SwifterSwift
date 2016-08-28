@@ -10,6 +10,6 @@ Pod::Spec.new do |spec|
   spec.platform = :ios, "8.0"
   spec.requires_arc = true
   spec.source = { git: "https://github.com/omaralbeik/SwifterSwift.git", tag: "v#{spec.version}" }
-  spec.source_files = "SwifterSwift/**/*.swift"
+  spec.source_files = "SwifterSwift/SwifterSwift/Extensions/**/*.swift"
   spec.frameworks   = 'Foundation'
 end
