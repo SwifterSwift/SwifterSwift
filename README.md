@@ -10,19 +10,48 @@
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-
 A handy collection of native Swift 3 extensions to boost your productivity.
-
-
-## How to use:
-
-Add the [extensions](Extensions) folder to your Xcode project to use all extensions, or a specific extension.
 
 
 ## Requirements:
 
 Xcode 8 beta5 or later with Swift 3.
 This library is made for iOS 8 or later, however most of the extensions should work on watchOS, tvOS, and macOS
+
+
+
+## Installation
+
+### CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+To integrate SwifterSwift into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'SwifterSwift' , :git => 'https://github.com/omaralbeik/SwifterSwift.git'
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+### Manually
+
+Add the [extensions](Extensions) folder to your Xcode project to use all extensions, or a specific extension.
+
 
 
 ## How to contribute:
