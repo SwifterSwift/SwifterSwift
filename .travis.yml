@@ -5,5 +5,4 @@ xcode_scheme: SwifterSwift
 before_install:
   - gem install xcpretty
 script:
-    - xcodebuild -scheme 'Then-iOS' -sdk iphonesimulator CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test | xcpretty -c
-    - xcodebuild -scheme 'Then-OSX' test | xcpretty -c
+    - xcodebuild -scheme 'SwifterSwift' -sdk iphonesimulator CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test | xcpretty -c
