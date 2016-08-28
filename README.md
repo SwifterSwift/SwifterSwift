@@ -15,7 +15,7 @@ A handy collection of native Swift 3 extensions to boost your productivity.
 
 ## Requirements:
 
-Xcode 8 beta5 or later with Swift 3.
+Xcode 8 beta5 (or later) with Swift 3.
 This library is made for iOS 8 or later, however most of the extensions should work on watchOS, tvOS, and macOS
 
 
