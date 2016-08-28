@@ -5,5 +5,5 @@ xcode_scheme: SwifterSwift
 before_install:
   - gem install xcpretty
 script:
-  - set -o pipefail
-  - xcodebuild -project $TRAVIS_XCODE_PROJECT -scheme $TRAVIS_XCODE_SCHEME -sdk $TRAVIS_XCODE_SDK -destination 'name=iPhone 6' test | xcpretty -c
+    - xcodebuild -scheme 'Then-iOS' -sdk iphonesimulator CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO test | xcpretty -c
+    - xcodebuild -scheme 'Then-OSX' test | xcpretty -c
