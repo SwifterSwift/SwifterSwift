@@ -1,0 +1,24 @@
+{
+  "name": "SwifterSwift",
+  "version": "1.0.3",
+  "summary": "A handy collection of native Swift 3 extensions to boost your productivity.",
+  "homepage": "https://github.com/omaralbeik/SwifterSwift",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Omar Albeik": "omaralbeik@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/omaralbeik",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "requires_arc": true,
+  "source": {
+    "git": "https://github.com/omaralbeik/SwifterSwift.git",
+    "tag": "v1.0.3"
+  },
+  "source_files": "SwifterSwift/SwifterSwift/Extensions/**/*.swift",
+  "frameworks": "Foundation"
+}
