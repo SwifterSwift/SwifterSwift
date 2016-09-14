@@ -10,7 +10,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   SwifterSwift:
-    :commit: 98e6fd3690a5ffcd0896279bcc2267e75fa40e43
+    :commit: be3541e6180ccb27f4a69fe1f7fb2e0346c91b15
     :git: https://github.com/omaralbeik/SwifterSwift.git
 
 SPEC CHECKSUMS:
@@ -18,4 +18,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 677d5e7703ad22b29be85686bfd0747c0e440db3
 
-COCOAPODS: 1.1.0.beta.1
+COCOAPODS: 1.1.0.rc.2

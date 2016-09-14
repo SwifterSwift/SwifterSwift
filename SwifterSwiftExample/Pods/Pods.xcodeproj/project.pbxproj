@@ -409,11 +409,13 @@
 			};
 			name = Debug;
 		};
-		2B67ED7BDC1AF118E9C4EEA6B3AD9485 /* Release */ = {
+		1EA5A8E0F660AF44D15FCEBB4A57FE3F /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 869AFE99EC606101D1689C888444805F /* Pods-SwifterSwiftExample.release.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -442,11 +444,13 @@
 			};
 			name = Release;
 		};
-		7E37495F5149D6544B86E15E01392D50 /* Release */ = {
+		699320464FE53BC7200457F3B7C6A898 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6B6E7AAD725CB835E7588FB989E5DF4C /* SwifterSwift.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
@@ -472,11 +476,13 @@
 			};
 			name = Release;
 		};
-		B5C1CA693068081F8CFC62C71E6C10B0 /* Debug */ = {
+		7F6CDF145503B26D3486A61D6786200A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A0A06079A0DE89CA190F6EB4173DC52A /* Pods-SwifterSwiftExample.debug.xcconfig */;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
@@ -500,6 +506,39 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BA436BA42D1531621871AB53F0BB2CF4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B6E7AAD725CB835E7588FB989E5DF4C /* SwifterSwift.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SwifterSwift/SwifterSwift-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwifterSwift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwifterSwift/SwifterSwift.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SwifterSwift;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -546,45 +585,14 @@
 			};
 			name = Release;
 		};
-		F9A07D372C49B84F6C41F9BA097D2403 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B6E7AAD725CB835E7588FB989E5DF4C /* SwifterSwift.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwifterSwift/SwifterSwift-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwifterSwift/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwifterSwift/SwifterSwift.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwifterSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		21EFFEE8411C667D7FA8137619AB8059 /* Build configuration list for PBXNativeTarget "SwifterSwift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F9A07D372C49B84F6C41F9BA097D2403 /* Debug */,
-				7E37495F5149D6544B86E15E01392D50 /* Release */,
+				BA436BA42D1531621871AB53F0BB2CF4 /* Debug */,
+				699320464FE53BC7200457F3B7C6A898 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -601,8 +609,8 @@
 		70B672BDEEC6CA66923B9D2AC81BB76C /* Build configuration list for PBXNativeTarget "Pods-SwifterSwiftExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B5C1CA693068081F8CFC62C71E6C10B0 /* Debug */,
-				2B67ED7BDC1AF118E9C4EEA6B3AD9485 /* Release */,
+				7F6CDF145503B26D3486A61D6786200A /* Debug */,
+				1EA5A8E0F660AF44D15FCEBB4A57FE3F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
