@@ -16,4 +16,13 @@ public extension UINavigationBar {
 		attrs[NSForegroundColorAttributeName] = color
 		titleTextAttributes = attrs
 	}
+	
+	/// Make navigation bar transparent
+	func makeTransparent(withTint: UIColor = .white) {
+		setBackgroundImage(UIImage(), for: .default)
+		shadowImage = UIImage()
+		isTranslucent = true
+		tintColor = withTint
+		titleTextAttributes = [NSForegroundColorAttributeName: withTint]
+	}
 }

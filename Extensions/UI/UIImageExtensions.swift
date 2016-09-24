@@ -51,4 +51,30 @@ public extension UIImage {
 		UIGraphicsEndImageContext()
 		return newImage
 	}
+	
+	/// Return image filled with color
+	public func filled(withColor color: UIColor) -> UIImage {
+		UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+		color.setFill()
+		guard let context = UIGraphicsGetCurrentContext() else {
+			return self
+		}
+		context.translateBy(x: 0, y: self.size.height)
+		context.scaleBy(x: 1.0, y: -1.0);
+		context.setBlendMode(CGBlendMode.normal)
+		
+		let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+		guard let mask = self.cgImage else {
+			return self
+		}
+		context.clip(to: rect, mask: mask)
+		context.fill(rect)
+		
+		guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else {
+			return self
+		}
+		UIGraphicsEndImageContext()
+		return newImage
+	}
+	
 }

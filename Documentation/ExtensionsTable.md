@@ -19,6 +19,7 @@
 - [ ] [UINavigationBar extensions](#uinavigationbar-extensions)
 - [ ] [UINavigationController extensions](#uinavigationcontroller-extensions)
 - [ ] [UISearchBar extensions](#uisearchbar-extensions)
+- [ ] [UILabel extensions](#uilabel-extensions)
 - [ ] [UITableView extensions](#uitableview-extensions)
 - [ ] [UITextField extensions](#uitextfield-extensions)
 - [ ] [UIView extensions](#uiview-extensions)
@@ -114,6 +115,8 @@
 |**minute** | Variable | Int | Minutes from a date |
 |**month** | Variable | Int | Month |
 |**nanosecond** | Read-Only Variable | nanosecond | Nanoseconds from a date |
+|**nearestFiveMinutes** | Read-Only Variable | Date | Return nearest five minutes to date |
+|**nearestTenMinutes** | Read-Only Variable | Date | Return nearest ten minutes to date |
 |**quarter** | Read-Only Variable | Int | Quarter |
 |**second** | Variable | Int | Seconds from a date |
 |**timeString(ofStyle DateFormatter.Style)** | Function | String | Return time string from date |
@@ -318,6 +321,7 @@
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
 |**cropped(to: CGRect)** | Function | UIImage | Create image of size from UIColor |
+|**filled(withColor color: UIColor)** | Function | UIImage | Return image filled with color |
 |**init(UIColor, CGSize)** | Initializer | -- | Crop image to CGRect |
 |**scaledToHeight(height: CGFloat, with UIImageOrientation?)** | Function | UIImage? | Scale image to width with respect to aspect ratio |
 |**scaledToWidth(width: CGFloat, with UIImageOrientation?)** | Function | UIImage? | Scale image to width with respect to aspect ratio |
@@ -326,6 +330,8 @@
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
+|**blur(withStyle: UIBlurEffectStyle)** | Function | -- | Make image view blurry |
+|**blurred(withStyle: UIBlurEffectStyle)** | Function | UIImageView | Return a blurred version of an image view |
 |**download(from url: String, contentMode: UIViewContentMode, placeHolder: UIImage?)** | Function | UIImage? | Download image from url and set it in an imageView |
 
 
@@ -333,6 +339,7 @@
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
+|**makeTransparent(withTint: UIColor)** | Function | -- | Make navigation bar transparent |
 |**setTitleFont(font: UIFont, with color: UIColor)** | Function | -- | Set Navigation Bar title, title color and font |
 
 
@@ -340,6 +347,7 @@
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
+|**makeTransparent(withTint: UIColor)** | Function | -- | Make navigation controller's navigation bar transparent |
 |**popViewControllerWithHandler(completion)** | Function | -- | Pop viewController with completion handler |
 |**pushViewController(viewController, completion)** | Function | -- | Push viewController with completion handler |
 
@@ -349,6 +357,13 @@
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
 |**cancelButton** | Read-Only variable | UIButton? | Cancel button in search bar |
+
+
+## UILabel extensions
+
+|Name | Type | Return Type | Description |
+|:--- | :--- | :---: | :--- |
+|**requiredHeight** | Read-Only variable | CGFloat | Return required height for a label |
 
 
 ## UITableView extensions
@@ -370,7 +385,7 @@
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
 |**isEmpty** | Read-Only Variable | Bool | Return true if text field is empty |
-
+|**trimmedText** | Read-Only Variable | String? | Return text with no spaces or new lines in beginning and end |
 
 # UIViewController extensions
 
@@ -387,6 +402,7 @@
 
 |Name | Type | Return Type | Description |
 |:--- | :--- | :---: | :--- |
+|**addShadow(ofColor color: UIColor, radius: CGFloat, offset: CGSize, opacity: Float)** | Function | -- | Add shadow to view |
 |**add(subViews: [UIView])** | Function | -- | Add array of subviews to view |
 |**borderColor** | IBInspectable variable | UIColor? | Border color of view; also inspectable from Storyboard |
 |**borderWidth** | IBInspectable variable | CGFloat | Border width of view; also inspectable from Storyboard |
@@ -408,6 +424,6 @@
 |**shadowOffset** | IBInspectable variable | CGSize | Shadow offset of view; also inspectable from Storyboard |
 |**shadowOpacity** | IBInspectable variable | Float | Shadow opacity of view; also inspectable from Storyboard |
 |**shadowRadius** | IBInspectable variable | CGFloat | Shadow radius of view; also inspectable from Storyboard |
-|**shake(direction, duration, animationType)** | Function | -- | Shake UIView |
+|**shake(direction, duration, animationType, completion)** | Function | -- | Shake view |
 |**size** | Variable | CGSize | Size of view |
 |**width** | Variable | CGFloat | Width of view |
