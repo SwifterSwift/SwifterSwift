@@ -26,4 +26,14 @@ public extension UINavigationController {
 		pushViewController(viewController, animated: true)
 		CATransaction.commit()
 	}
+	
+	/// Make navigation controller's navigation bar transparent
+	func makeTransparent(withTint: UIColor = .white) {
+		navigationBar.setBackgroundImage(UIImage(), for: .default)
+		navigationBar.shadowImage = UIImage()
+		navigationBar.isTranslucent = true
+		navigationBar.tintColor = withTint
+		navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: withTint]
+	}
+	
 }

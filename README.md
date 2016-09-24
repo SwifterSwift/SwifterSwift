@@ -81,6 +81,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 - [ ] [UINavigationBar extensions](Documentation/ExtensionsTable.md#uinavigationbar-extensions)
 - [ ] [UINavigationController extensions](Documentation/ExtensionsTable.md#uinavigationcontroller-extensions)
 - [ ] [UISearchBar extensions](Documentation/ExtensionsTable.md#uisearchbar-extensions)
+- [ ] [UILabel extensions](Documentation/ExtensionsTable.md#uilabel-extensions)
 - [ ] [UITableView extensions](Documentation/ExtensionsTable.md#uitableview-extensions)
 - [ ] [UITextField extensions](Documentation/ExtensionsTable.md#uitextfield-extensions)
 - [ ] [UIView extensions](Documentation/ExtensionsTable.md#uiview-extensions)

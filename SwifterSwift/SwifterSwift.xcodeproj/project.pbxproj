@@ -43,6 +43,7 @@
 		077445E01D89820E00C1076B /* FloatExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077445D51D89820E00C1076B /* FloatExtensionsTests.swift */; };
 		077445E11D89820E00C1076B /* IntExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077445D61D89820E00C1076B /* IntExtensionsTests.swift */; };
 		077445E21D89820E00C1076B /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077445D71D89820E00C1076B /* StringExtensionsTests.swift */; };
+		07A2EEFA1D956ED500E088E3 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A2EEF91D956ED500E088E3 /* UILabelExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		077445D51D89820E00C1076B /* FloatExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtensionsTests.swift; sourceTree = "<group>"; };
 		077445D61D89820E00C1076B /* IntExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensionsTests.swift; sourceTree = "<group>"; };
 		077445D71D89820E00C1076B /* StringExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
+		07A2EEF91D956ED500E088E3 /* UILabelExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +199,7 @@
 				077445B31D8981E400C1076B /* UITextFieldExtensions.swift */,
 				077445B41D8981E400C1076B /* UIViewControllerExtensions.swift */,
 				077445B51D8981E400C1076B /* UIViewExtensions.swift */,
+				07A2EEF91D956ED500E088E3 /* UILabelExtensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				077445BD1D8981E400C1076B /* IntExtensions.swift in Sources */,
 				077445B81D8981E400C1076B /* ConvenienceExtensions.swift in Sources */,
 				077445BE1D8981E400C1076B /* StringExtensions.swift in Sources */,
+				07A2EEFA1D956ED500E088E3 /* UILabelExtensions.swift in Sources */,
 				077445BF1D8981E400C1076B /* CGFloatExtensions.swift in Sources */,
 				077445C61D8981E400C1076B /* UINavigationBarExtensions.swift in Sources */,
 				077445B91D8981E400C1076B /* DateExtensions.swift in Sources */,
@@ -550,6 +554,7 @@
 				077445991D8981D200C1076B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0774459A1D8981D200C1076B /* Build configuration list for PBXNativeTarget "SwifterSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -558,6 +563,7 @@
 				0774459C1D8981D200C1076B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

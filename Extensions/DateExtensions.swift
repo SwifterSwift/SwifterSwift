@@ -328,6 +328,34 @@ public extension Date {
 		return calendar.component(.nanosecond, from: self)
 	}
 	
+	/// Return nearest five minutes to date
+	var nearestFiveMinutes: Date {
+		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
+		guard let min = components.minute else {
+			return self
+		}
+		components.minute! += 5 - min % 5
+		components.second = 0
+		if min == 0 {
+			components.hour? += 1
+		}
+		return Calendar.current.date(from: components) ?? Date()
+	}
+	
+	/// Return nearest ten minutes to date
+	var nearestTenMinutes: Date {
+		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
+		guard let min = components.minute else {
+			return self
+		}
+		components.minute! += 10 - min % 10
+		components.second = 0
+		if min == 0 {
+			components.hour? += 1
+		}
+		return Calendar.current.date(from: components) ?? Date()
+	}
+
 	/// Quarter.
 	public var quarter: Int {
 		return calendar.component(.quarter, from: self)

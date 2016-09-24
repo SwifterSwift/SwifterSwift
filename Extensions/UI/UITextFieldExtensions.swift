@@ -16,4 +16,9 @@ public extension UITextField {
 		}
 		return true
 	}
+	
+	/// Return text with no spaces or new lines in beginning and end.
+	var trimmedText: String? {
+		return text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+	}
 }

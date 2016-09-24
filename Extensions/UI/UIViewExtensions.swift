@@ -26,6 +26,18 @@ public enum ShakeAnimationType {
 }
 
 public extension UIView {
+	/// Add shadow to view
+	public func addShadow(ofColor color: UIColor = UIColor(netHex: 0x137992),
+	                      radius: CGFloat = 3,
+	                      offset: CGSize = CGSize(width: 0, height: 0),
+	                      opacity: Float = 0.5) {
+		layer.shadowColor = color.cgColor
+		layer.shadowOffset = offset
+		layer.shadowRadius = radius
+		layer.shadowOpacity = opacity
+		layer.masksToBounds = true
+	}
+	
 	/// Add array of subviews to view.
 	public func add(subViews: [UIView]) {
 		subViews.forEach({self.addSubview($0)})
@@ -251,8 +263,9 @@ public extension UIView {
 	}
 	
 	/// Shake view.
-	public func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut) {
+	public func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut, completion:(() -> Void)? = nil) {
 		
+		CATransaction.begin()
 		let animation: CAKeyframeAnimation
 		switch direction {
 		case .horizontal:
@@ -260,7 +273,6 @@ public extension UIView {
 		case .vertical:
 			animation = CAKeyframeAnimation(keyPath: "transform.translation.y")
 		}
-		
 		switch animationType {
 		case .linear:
 			animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
@@ -271,10 +283,11 @@ public extension UIView {
 		case .easeInOut:
 			animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 		}
-		
+		CATransaction.setCompletionBlock(completion)
 		animation.duration = duration
 		animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
 		layer.add(animation, forKey: "shake")
+		CATransaction.commit()
 	}
 	
 	// Size of view

@@ -108,7 +108,7 @@ public extension Array where Element: Equatable {
 	
 	/// Remove duplicates from array.
 	public mutating func removeDuplicates() {
-		var result = [Element]()
+		var result: [Element] = []
 		for value in self {
 			if result.contains(value) == false {
 				result.append(value)
@@ -157,7 +157,7 @@ public extension Array where Element: FloatingPoint {
 public extension Array where Element: Equatable {
 	/// Return unique values of array.
 	public var uniqueValues: [Element] {
-		var result = [Element]()
+		var result: [Element] = []
 		for value in self {
 			if result.contains(value) == false {
 				result.append(value)

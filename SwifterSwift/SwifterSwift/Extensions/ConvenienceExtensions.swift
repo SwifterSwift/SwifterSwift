@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class swifterSwift {
+public class SwifterSwift {
 	/// Return app current build number
 	public static var appBuild: String? {
 		return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
