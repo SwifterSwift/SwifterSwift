@@ -379,8 +379,8 @@ swifterSwift.isRunningOnSimulator
 
 Special thanks to:
 
-* [Eng. Abdul Rahman Dabbour](https://github.com/thedabbour) for documenting the project
-
 * [Mert Akengin](https://github.com/PvtMert) for creating [project website](http://swiftierswift.com) and helping with unit testing
+
+* [Eng. Abdul Rahman Dabbour](https://github.com/thedabbour) for documenting the project
 
 * [John Doe](https://en.wikipedia.org/wiki/John_Doe), This is a random person of our friends who gets us some coffee day to day
