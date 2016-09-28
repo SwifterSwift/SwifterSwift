@@ -265,7 +265,7 @@ button.imageForAllStates(image: UIImage(named: "login"))
 view.cornerRadius = 30
 ```
 <p align="left">
-  <img src="https://github.com/omaralbeik/SwifterSwift/blob/master/Documentation/screenshots/view_storyboard.png" title="UIButton properties from storyboard" width='250px'>
+  <img src="https://github.com/omaralbeik/SwifterSwift/blob/master/Screenshots/view_storyboard.png" title="UIButton properties from storyboard" width='250px'>
 </p>
 
 ```swift
@@ -306,7 +306,7 @@ button.imageForAllStates(image: UIImage(named: "login"))
 button.titleForHighlighted = "Login"
 ```
 <p align="left">
-  <img src="https://github.com/omaralbeik/SwifterSwift/blob/master/Documentation/screenshots/button_storyboard.png" title="UIButton properties from storyboard" width='250px'>
+  <img src="https://github.com/omaralbeik/SwifterSwift/blob/master/Screenshots/button_storyboard.png" title="UIButton properties from storyboard" width='250px'>
 </p>
 
 
