@@ -13,7 +13,7 @@
 A handy collection of native Swift 3 extensions to boost your productivity.
 
 
-## [Whats New in v1.0.4?](/../../wiki/whats-new#v104)
+## [Whats New in v1.1?](/../../wiki/whats-new#v11)
 
 ## Requirements:
 
