@@ -1,21 +1,21 @@
 PODS:
-  - SwifterSwift (1.0.3)
+  - SwifterSwift (1.1)
 
 DEPENDENCIES:
-  - SwifterSwift (from `https://github.com/omaralbeik/SwifterSwift.git`)
+  - SwifterSwift (from `https://github.com/omaralbeik/SwifterSwift`)
 
 EXTERNAL SOURCES:
   SwifterSwift:
-    :git: https://github.com/omaralbeik/SwifterSwift.git
+    :git: https://github.com/omaralbeik/SwifterSwift
 
 CHECKOUT OPTIONS:
   SwifterSwift:
-    :commit: be3541e6180ccb27f4a69fe1f7fb2e0346c91b15
-    :git: https://github.com/omaralbeik/SwifterSwift.git
+    :commit: 809ee16708179c3f9cd608cb50cdae0c9eb69083
+    :git: https://github.com/omaralbeik/SwifterSwift
 
 SPEC CHECKSUMS:
-  SwifterSwift: eca4afe150d763547496f0d4836c5c5288ad3c6b
+  SwifterSwift: 640164de070c0df5fe7b26cecb23c12e35504d2a
 
-PODFILE CHECKSUM: 677d5e7703ad22b29be85686bfd0747c0e440db3
+PODFILE CHECKSUM: b5e461fe0f90cdde237e0df0407c7e98497ba271
 
 COCOAPODS: 1.1.0.rc.2

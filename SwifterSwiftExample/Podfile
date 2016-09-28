@@ -6,6 +6,6 @@ target 'SwifterSwiftExample' do
   use_frameworks!
 
   # Pods for SwifterSwiftExample
-  pod 'SwifterSwift' , :git => 'https://github.com/omaralbeik/SwifterSwift.git'
+  pod 'SwifterSwift' , :git => 'https://github.com/omaralbeik/SwifterSwift'
 
 end
