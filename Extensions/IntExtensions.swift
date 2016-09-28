@@ -13,6 +13,14 @@ public extension Int {
 		return Swift.abs(self)
 	}
 	
+	/// Return string with number and current locale currency
+	public var asLocaleCurrency: String {
+		let formatter = NumberFormatter()
+		formatter.numberStyle = .currency
+		formatter.locale = Locale.current
+		return formatter.string(from: self as NSNumber)!
+	}
+	
 	/// Return radian value of degree input.
 	public var degreesToRadians: Double {
 		return Double(M_PI) * Double(self) / 180.0

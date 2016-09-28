@@ -272,22 +272,26 @@ public extension String {
 	
 	/// Return Double value from string (if applicable.)
 	public var toDouble: Double? {
-		return Double(self)
+		let formatter = NumberFormatter()
+		return formatter.number(from: self) as? Double
 	}
 	
 	/// Return Float value from string (if applicable.)
 	public var toFloat: Float? {
-		return Float(self)
+		let formatter = NumberFormatter()
+		return formatter.number(from: self) as? Float
 	}
 	
 	/// Return Float32 value from string (if applicable.)
 	public var toFloat32: Float32? {
-		return Float32(self)
+		let formatter = NumberFormatter()
+		return formatter.number(from: self) as? Float32
 	}
 	
 	/// Return Float64 value from string (if applicable.)
 	public var toFloat64: Float64? {
-		return Float64(self)
+		let formatter = NumberFormatter()
+		return formatter.number(from: self) as? Float64
 	}
 	
 	/// Return Int value from string (if applicable.)
