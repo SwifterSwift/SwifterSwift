@@ -12,13 +12,12 @@
 
 A handy collection of native Swift 3 extensions to boost your productivity.
 
-## [Whats New in v1.0.4?](https://github.com/omaralbeik/SwifterSwift/wiki/Whats-new-in-v1.0.4)
+## [Whats New in v1.1?](https://github.com/omaralbeik/SwifterSwift/wiki/Whats-new-in-v1.1)
 
 ## Requirements:
 
 Xcode 8 (or later) with Swift 3.
 This library is made for iOS 8 or later, however most of the extensions should work on watchOS, tvOS, and macOS
-
 
 
 ## Installation
@@ -61,37 +60,37 @@ SwifterSwift is in its early stages, any feedback is appreciated and welcomed.
 Please refer to the [contributing guidelines](CONTRIBUTING.md) before participating.
 
 
-## [List Of Extensions](Documentation/ExtensionsTable.md)
+## List Of Extensions
 
-- [x] [Array extensions](Documentation/ExtensionsTable.md#array-extensions)
-- [x] [Character extensions](Documentation/ExtensionsTable.md#character-extensions)
-- [x] [Convenience extensions](Documentation/ExtensionsTable.md#convenience-extensions)
-- [x] [Date extensions](Documentation/ExtensionsTable.md#date-extensions)
-- [x] [Dictionary extensions](Documentation/ExtensionsTable.md#dictionary-extensions)
-- [x] [Double extensions](Documentation/ExtensionsTable.md#double-extensions)
-- [x] [Float extensions](Documentation/ExtensionsTable.md#float-extensions)
-- [x] [Int extensions](Documentation/ExtensionsTable.md#int-extensions)
-- [x] [String extensions](Documentation/ExtensionsTable.md#string-extensions)
-- [x] [CGFloat extensions](Documentation/ExtensionsTable.md#cgfloat-extensions)
-- [x] [CGSize extensions](Documentation/ExtensionsTable.md#cgsize-extensions)
-- [ ] [UIAlertController extensions](Documentation/ExtensionsTable.md#uialertcontroller-extensions)
-- [ ] [UIButton extensions](Documentation/ExtensionsTable.md#uibutton-extensions)
-- [ ] [UIColor extensions](Documentation/ExtensionsTable.md#uicolor-extensions)
-- [ ] [UIImage extensions](Documentation/ExtensionsTable.md#uiimage-extensions)
-- [ ] [UIImageView extensions](Documentation/ExtensionsTable.md#uiimageview-extensions)
-- [ ] [UINavigationBar extensions](Documentation/ExtensionsTable.md#uinavigationbar-extensions)
-- [ ] [UINavigationController extensions](Documentation/ExtensionsTable.md#uinavigationcontroller-extensions)
-- [ ] [UISearchBar extensions](Documentation/ExtensionsTable.md#uisearchbar-extensions)
-- [ ] [UILabel extensions](Documentation/ExtensionsTable.md#uilabel-extensions)
-- [ ] [UITableView extensions](Documentation/ExtensionsTable.md#uitableview-extensions)
-- [ ] [UITextField extensions](Documentation/ExtensionsTable.md#uitextfield-extensions)
-- [ ] [UIView extensions](Documentation/ExtensionsTable.md#uiview-extensions)
-- [ ] [UIViewController extensions](Documentation/ExtensionsTable.md#uiviewcontroller-extensions)
+- [x] [Array extensions](wiki/array-extensions)
+- [x] [Character extensions](wiki/character-extensions)
+- [x] [Convenience extensions](wiki/convenience-extensions)
+- [x] [Date extensions](wiki/date-extensions)
+- [x] [Dictionary extensions](wiki/dictionary-extensions)
+- [x] [Double extensions](wiki/double-extensions)
+- [x] [Float extensions](wiki/float-extensions)
+- [x] [Int extensions](wiki/int-extensions)
+- [x] [String extensions](wiki/string-extensions)
+- [x] [CGFloat extensions](wiki/cgfloat-extensions)
+- [x] [CGSize extensions](wiki/cgsize-extensions)
+- [ ] [UIAlertController extensions](wiki/uialertcontroller-extensions)
+- [ ] [UIButton extensions](wiki/uibutton-extensions)
+- [ ] [UIColor extensions](wiki/uicolor-extensions)
+- [ ] [UIImage extensions](wiki/uiimage-extensions)
+- [ ] [UIImageView extensions](wiki/uiimageview-extensions)
+- [ ] [UINavigationBar extensions](wiki/uinavigationbar-extensions)
+- [ ] [UINavigationController extensions](wiki/uinavigationcontroller-extensions)
+- [ ] [UISearchBar extensions](wiki/uisearchbar-extensions)
+- [ ] [UILabel extensions](wiki/uilabel-extensions)
+- [ ] [UITableView extensions](wiki/uitableview-extensions)
+- [ ] [UITextField extensions](wiki/uitextfield-extensions)
+- [ ] [UIView extensions](wiki/uiview-extensions)
+- [ ] [UIViewController extensions](wiki/uiviewcontroller-extensions)
 
 
 ## How cool is this?
 
-Swifter Swift is a library of over **250** properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
+Swifter Swift is a library of over **280** properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
 Here are some examples:
 
 #### Array Extensions (14)

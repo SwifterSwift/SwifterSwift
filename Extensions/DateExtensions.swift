@@ -9,7 +9,7 @@
 import Foundation
 
 public extension Date {
-	/// Add calendar components to date.
+	/// Add calendar component to date.
 	public mutating func add(component: Calendar.Component, value: Int) {
 		switch component {
 			
@@ -43,6 +43,75 @@ public extension Date {
 			
 		default:
 			break
+		}
+	}
+	
+	/// Return date by adding a component
+	public func adding(component: Calendar.Component, value: Int) -> Date {
+		switch component {
+			
+		case .second:
+			return calendar.date(byAdding: .second, value: value, to: self) ?? self
+			
+		case .minute:
+			return calendar.date(byAdding: .minute, value: value, to: self) ?? self
+			
+		case .hour:
+			return calendar.date(byAdding: .hour, value: value, to: self) ?? self
+			
+		case .day:
+			return calendar.date(byAdding: .day, value: value, to: self) ?? self
+			
+		case .weekOfYear, .weekOfMonth:
+			return calendar.date(byAdding: .day, value: value * 7, to: self) ?? self
+			
+		case .month:
+			return calendar.date(byAdding: .month, value: value, to: self) ?? self
+			
+		case .year:
+			return calendar.date(byAdding: .year, value: value, to: self) ?? self
+			
+		default:
+			return self
+		}
+	}
+	
+	/// Return date by changing a component
+	public func changing(component: Calendar.Component, value: Int) -> Date {
+		switch component {
+			
+		case .second:
+			var date = self
+			date.second = value
+			return date
+			
+		case .minute:
+			var date = self
+			date.minute = value
+			return date
+			
+		case .hour:
+			var date = self
+			date.hour = value
+			return date
+			
+		case .day:
+			var date = self
+			date.day = value
+			return date
+			
+		case .month:
+			var date = self
+			date.month = value
+			return date
+			
+		case .year:
+			var date = self
+			date.year = value
+			return date
+			
+		default:
+			return self
 		}
 	}
 	
@@ -334,9 +403,9 @@ public extension Date {
 		guard let min = components.minute else {
 			return self
 		}
-		components.minute! += 5 - min % 5
+		components.minute! = min % 5 < 3 ? min - min % 5 : min + 5 - (min % 5)
 		components.second = 0
-		if min == 0 {
+		if min > 57 {
 			components.hour? += 1
 		}
 		return Calendar.current.date(from: components) ?? Date()
@@ -348,14 +417,42 @@ public extension Date {
 		guard let min = components.minute else {
 			return self
 		}
-		components.minute! += 10 - min % 10
+		components.minute! = min % 10 < 6 ? min - min % 10 : min + 10 - (min % 10)
 		components.second = 0
-		if min == 0 {
+		if min > 55 {
 			components.hour? += 1
 		}
 		return Calendar.current.date(from: components) ?? Date()
 	}
-
+	
+	/// Return nearest quarter to date
+	var nearestHourQuarter: Date {
+		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
+		guard let min = components.minute else {
+			return self
+		}
+		components.minute! = min % 15 < 8 ? min - min % 15 : min + 15 - (min % 15)
+		components.second = 0
+		if min > 52 {
+			components.hour? += 1
+		}
+		return Calendar.current.date(from: components) ?? Date()
+	}
+	
+	/// Return nearest half hour to date
+	var nearestHalfHour: Date {
+		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
+		guard let min = components.minute else {
+			return self
+		}
+		components.minute! = min % 30 < 15 ? min - min % 30 : min + 30 - (min % 30)
+		components.second = 0
+		if min > 30 {
+			components.hour? += 1
+		}
+		return Calendar.current.date(from: components) ?? Date()
+	}
+	
 	/// Quarter.
 	public var quarter: Int {
 		return calendar.component(.quarter, from: self)

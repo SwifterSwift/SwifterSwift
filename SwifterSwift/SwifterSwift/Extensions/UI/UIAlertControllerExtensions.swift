@@ -31,8 +31,10 @@ public extension UIAlertController {
 	}
 	
 	
-	// Present alert view controller in the current view controller.
-	public func show() {
+	/// Present alert view controller in the current view controller.
+	///
+	/// - parameter vibrate: Set true to vibrate the device while presenting the alert
+	public func show(vibrate: Bool = false) {
 		UIApplication.shared.keyWindow?.rootViewController?.present(self, animated: true, completion: nil)
 	}
 }

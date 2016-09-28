@@ -8,14 +8,13 @@
 
 import UIKit
 
-extension UISearchBar {
-	/// Cancel button in search bar.
-	var cancelButton: UIButton? {
-		for view in subviews {
-			if let button = view as? UIButton {
-				return button
-			}
+public extension UISearchBar {
+	/// Return the text field inside search bar
+	public var textField: UITextField? {
+		let subViews = subviews.flatMap { $0.subviews }
+		guard let textField = (subViews.filter { $0 is UITextField }).first as? UITextField else {
+			return nil
 		}
-		return nil
+		return textField
 	}
 }

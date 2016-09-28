@@ -14,6 +14,14 @@ public extension Double {
 		return Swift.abs(self)
 	}
 	
+	/// Return string with number and current locale currency
+	public var asLocaleCurrency: String {
+		let formatter = NumberFormatter()
+		formatter.numberStyle = .currency
+		formatter.locale = Locale.current
+		return formatter.string(from: self as NSNumber)!
+	}
+	
 	/// Return ceil of double value.
 	public var ceil: Double {
 		return Foundation.ceil(self)

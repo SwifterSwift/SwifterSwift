@@ -14,6 +14,14 @@ public extension Float {
 		return Swift.abs(self)
 	}
 	
+	/// Return string with number and current locale currency
+	public var asLocaleCurrency: String {
+		let formatter = NumberFormatter()
+		formatter.numberStyle = .currency
+		formatter.locale = Locale.current
+		return formatter.string(from: self as NSNumber)!
+	}
+	
 	/// Return ceil of float value.
 	public var ceil: Float {
 		return Foundation.ceil(self)
