@@ -12,7 +12,8 @@
 
 A handy collection of native Swift 3 extensions to boost your productivity.
 
-## [Whats New in v1.1?](https://github.com/omaralbeik/SwifterSwift/wiki/Whats-new-in-v1.1)
+
+## [Whats New in v1.0.4?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v104)
 
 ## Requirements:
 
@@ -378,8 +379,8 @@ swifterSwift.isRunningOnSimulator
 
 Special thanks to:
 
-* [Eng. Abdul Rahman Dabbour](https://github.com/thedabbour) for documenting the project
-
 * [Mert Akengin](https://github.com/PvtMert) for creating [project website](http://swiftierswift.com) and helping with unit testing
+
+* [Abdul Rahman Dabbour](https://github.com/thedabbour) for documenting the project
 
 * [John Doe](https://en.wikipedia.org/wiki/John_Doe), This is a random person of our friends who gets us some coffee day to day
