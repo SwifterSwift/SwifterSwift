@@ -81,13 +81,17 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 - [ ] [UIImageView extensions](/../../wiki/uiimageview-extensions)
 - [ ] [UINavigationBar extensions](/../../wiki/uinavigationbar-extensions)
 - [ ] [UINavigationController extensions](/../../wiki/uinavigationcontroller-extensions)
+- [ ] [UINavigationItem extensions](/../../wiki/uinavigationitem-extensions)
 - [ ] [UISearchBar extensions](/../../wiki/uisearchbar-extensions)
+- [ ] [UISegmentedControl extensions](/../../wiki/uisegmentedcontrol-extensions)
+- [ ] [UISlider extensions](/../../wiki/uislider-extensions)
 - [ ] [UILabel extensions](/../../wiki/uilabel-extensions)
+- [ ] [UITabBar extensions](/../../wiki/uitabbar-extensions)
 - [ ] [UITableView extensions](/../../wiki/uitableview-extensions)
 - [ ] [UITextField extensions](/../../wiki/uitextfield-extensions)
+- [ ] [UITextView extensions](/../../wiki/uitextview-extensions)
 - [ ] [UIView extensions](/../../wiki/uiview-extensions)
 - [ ] [UIViewController extensions](/../../wiki/uiviewcontroller-extensions)
-
 
 ## How cool is this?
 
