@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "SwifterSwift"
-  spec.version = "1.0.3"
+  spec.version = "1.1"
   spec.summary = "A handy collection of native Swift 3 extensions to boost your productivity."
   spec.homepage = "https://github.com/omaralbeik/SwifterSwift"
   spec.license = { type: 'MIT', file: 'LICENSE' }
