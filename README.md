@@ -10,7 +10,7 @@
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-A handy collection of native Swift 3 extensions to boost your productivity.
+A handy collection of more than 280 native Swift 3 extensions to boost your productivity.
 
 
 ## [Whats New in v1.1?](/../../wiki/whats-new#v11)
@@ -39,7 +39,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'SwifterSwift' , :git => 'https://github.com/omaralbeik/SwifterSwift.git'
+    pod 'SwifterSwift'
 end
 ```
 
@@ -99,6 +99,7 @@ Swifter Swift is a library of over **280** properties and methods, designed to e
 Here are some examples:
 
 #### Array Extensions (14)
+
 ```swift
 // Remove duplicates from array
 [1, 2, 3, 1, 3].removeDuplicates() -> [1, 2, 3]
@@ -113,7 +114,8 @@ Here are some examples:
 ```
 
 
-#### Date Extensions (28)
+#### Date Extensions:
+
 ```swift
 // Get and set components from date with ease
 date.hour = 14
@@ -152,7 +154,8 @@ Date().dateTimeString() -> "Aug 26, 2016, 12:55:24 AM"
 ```
 
 
-#### String Extensions (53)
+#### String Extensions:
+
 ```swift
 // Return count of substring in string
 "hello world".count(of "o", caseSensitive: false) -> 2
@@ -210,7 +213,8 @@ String.random(of length: 10) -> "AhEju28kNl"
 ```
 
 
-#### UIColor Extensions (7)
+#### UIColor Extensions:
+
 ```swift
 // Create new UIColor for RGB values
 let color = UIColor(red: 121, green: 220, blue: 164)
@@ -228,7 +232,8 @@ let facebookColor = UIColor.socialColors.facebook
 ```
 
 
-#### Number Types Extensions (33)
+#### Number Types Extensions:
+
 ```swift
 // Return square root of a number
 √ 9 = 3
@@ -255,6 +260,7 @@ Swifter Swift has many great UI extensions:
 
 
 #### UIView Extensions
+
 ```swift
 // Set title, title color and image for all states at once!
 button.titleForAllStates(title: "Login")
@@ -285,6 +291,7 @@ let image = view.screenShot
 
 
 #### UIAlertController Extensions
+
 ```swift
 // Create a new alert controller from string or Error
 let alert = UIAlertController(title: "Couldn't sign in", message: "Invalid username or password!")
@@ -296,6 +303,7 @@ alert.show()
 
 
 #### UIButton Extensions
+
 ```swift
 // Set title, title color and image for all states at once!
 button.titleForAllStates(title: "Login")
@@ -311,6 +319,7 @@ button.titleForHighlighted = "Login"
 
 
 #### UIImage Extensions
+
 ```swift
 // Crop images
 let croppedImage = image.cropped(to CGRect)
@@ -325,6 +334,7 @@ let scaledImage = image.scaledToWidth(height: CGFloat)
 
 
 #### UIImageView Extensions
+
 ```swift
 // Download an image from URL in background
 imageView.download(from url, contentMode: .scaleAspectFit, placeHolder: UIImage?)
@@ -332,6 +342,7 @@ imageView.download(from url, contentMode: .scaleAspectFit, placeHolder: UIImage?
 
 
 #### UINavigationBar Extensions
+
 ```swift
 // Change navigation bar font and color
 navbar.setTitleFont(UIFont, with color: UIColor.black)
@@ -339,6 +350,7 @@ navbar.setTitleFont(UIFont, with color: UIColor.black)
 
 
 #### UINavigationController Extensions
+
 ```swift
 // Pop ViewController with completion handler.
 navController.popViewController(completion: (()->Void)?)
@@ -349,6 +361,7 @@ navController.pushViewController(UIViewController, completion: (()->Void)?)
 
 
 #### UITableView Extensions
+
 ```swift
 // Return index path for last row in section.
 tableView.indexPathForLastRow(in section: 2)
@@ -362,6 +375,7 @@ tableView.scrollToTop(animated: true)
 
 
 #### Misc Extensions
+
 ```swift
 // Return JSON string from a dictionary
 let jsonString = someDictionary.jsonString(prettify: true)
