@@ -440,6 +440,7 @@
 				0786A4041DA8194300DFD5C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0786A4051DA8194300DFD5C0 /* Build configuration list for PBXNativeTarget "SwifterSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +449,7 @@
 				0786A4071DA8194300DFD5C0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
