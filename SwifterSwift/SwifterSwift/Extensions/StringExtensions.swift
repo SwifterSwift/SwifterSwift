@@ -318,6 +318,15 @@ public extension String {
 	public var toInt8: Int8? {
 		return Int8(self)
 	}
+    
+    /// Return Date value from string of date format
+    public func toDate(withFormat format: String) -> Date {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        
+        
+        return dateFormatter.date(from: self)!
+    }
 	
 	/// Removes spaces and new lines in beginning and end of string.
 	public mutating func trim() {
