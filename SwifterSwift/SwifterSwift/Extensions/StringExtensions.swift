@@ -319,8 +319,12 @@ public extension String {
 		return Int8(self)
 	}
     
-    	/// Return Date value from string of date format
-    	public func toDate(withFormat format: String) -> Date? {
+    public var toURL: URL? {
+        return URL(string: self)
+    }
+    
+    /// Return Date value from string of date format
+    public func toDate(withFormat format: String) -> Date? {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = format
 		return dateFormatter.date(from: self)?
