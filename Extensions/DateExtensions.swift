@@ -10,7 +10,7 @@ import Foundation
 
 public extension Date {
 	/// Add calendar component to date.
-	public mutating func add(component: Calendar.Component, value: Int) {
+	public mutating func add(_ component: Calendar.Component, value: Int) {
 		switch component {
 			
 		case .second:
@@ -47,7 +47,7 @@ public extension Date {
 	}
 	
 	/// Return date by adding a component
-	public func adding(component: Calendar.Component, value: Int) -> Date {
+	public func adding(_ component: Calendar.Component, value: Int) -> Date {
 		switch component {
 			
 		case .second:
@@ -77,7 +77,7 @@ public extension Date {
 	}
 	
 	/// Return date by changing a component
-	public func changing(component: Calendar.Component, value: Int) -> Date {
+	public func changing(_ component: Calendar.Component, value: Int) -> Date {
 		switch component {
 			
 		case .second:
@@ -183,40 +183,34 @@ public extension Date {
 		switch component {
 			
 		case .second:
-			var date = self
-			date.add(component: .second, value: 1)
+			var date = self.adding(.second, value: 1)
 			guard let after = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)) else {
 				return nil
 			}
 			date = after
-			date.add(component: .second, value: -1)
+			date.add(.second, value: -1)
 			return date
 			
 		case .minute:
-			var date = self
-			date.add(component: .minute, value: 1)
+			var date = self.adding(.minute, value: 1)
 			guard let after = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date)) else {
 				return nil
 			}
-			date = after
-			date.add(component: .second, value: -1)
+			date = after.adding(.second, value: -1)
 			return date
 			
 		case .hour:
-			var date = self
-			date.add(component: .hour, value: 1)
+			var date = self.adding(.hour, value: 1)
 			guard let after = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: self)) else {
 				return nil
 			}
-			date = after
-			date.add(component: .second, value: -1)
+			date = after.adding(.second, value: -1)
 			return date
 			
 		case .day:
-			var date = self
-			date.add(component: .day, value: 1)
+			var date = self.adding(.day, value: 1)
 			date = date.calendar.startOfDay(for: date)
-			date.add(component: .second, value: -1)
+			date.add(.second, value: -1)
 			return date
 			
 		case .weekOfYear, .weekOfMonth:
@@ -224,29 +218,23 @@ public extension Date {
 			guard let beginningOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) else {
 				return nil
 			}
-			date = beginningOfWeek
-			date.add(component: .day, value: 7)
-			date.add(component: .second, value: -1)
+			date = beginningOfWeek.adding(.day, value: 7).adding(.second, value: -1)
 			return date
 			
 		case .month:
-			var date = self
-			date.add(component: .month, value: 1)
+			var date = self.adding(.month, value: 1)
 			guard let after = calendar.date(from: calendar.dateComponents([.year, .month], from: self)) else {
 				return nil
 			}
-			date = after
-			date.add(component: .second, value: -1)
+			date = after.adding(.second, value: -1)
 			return date
 			
 		case .year:
-			var date = self
-			date.add(component: .year, value: 1)
+			var date = self.adding(.year, value: 1)
 			guard let after = calendar.date(from: calendar.dateComponents([.year], from: self)) else {
 				return nil
 			}
-			date = after
-			date.add(component: .second, value: -1)
+			date = after.adding(.second, value: -1)
 			return date
 			
 		default:
@@ -313,8 +301,9 @@ public extension Date {
 	}
 	
 	/// Return true if date component in current given calendar component.
-	public func isIn(current: Calendar.Component) -> Bool {
-		switch current {
+	public func isInCurrent(_ component: Calendar.Component) -> Bool {
+		
+		switch component {
 		case .second:
 			return second == Date().second && minute == Date().minute && hour == Date().hour && day == Date().day && month == Date().month && year == Date().year && era == Date().era
 			

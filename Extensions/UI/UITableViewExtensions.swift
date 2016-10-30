@@ -16,10 +16,10 @@ public extension UITableView {
 	
 	/// Return index path of last row in table.
 	public var indexPathForLastRow: IndexPath? {
-		guard totalRows > 0 else {
+		guard numberOfRows > 0 else {
 			return nil
 		}
-		return IndexPath(row: totalRows - 1, section: lastSection)
+		return IndexPath(row: numberOfRows - 1, section: lastSection)
 	}
 	
 	/// Return last section in table.
@@ -53,7 +53,7 @@ public extension UITableView {
 	}
 	
 	/// Return number of all rows in all sections of table
-	public var totalRows: Int {
+	public var numberOfRows: Int {
 		var section = 0
 		var rowCount = 0
 		while section < self.numberOfSections {

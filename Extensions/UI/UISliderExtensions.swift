@@ -11,7 +11,7 @@ import UIKit
 public extension UISlider {
 	
 	// Set slide bar value with completion handler
-	public func setValue(value: Float, animated: Bool = true, duration: TimeInterval = 1, completion: (() -> Void)? = nil) {
+	public func setValue(_ value: Float, animated: Bool = true, duration: TimeInterval = 1, completion: (() -> Void)? = nil) {
 		if animated {
 			UIView.animate(withDuration: duration, animations: {
 				self.setValue(value, animated: true)

@@ -29,7 +29,7 @@ public extension String {
 		let source = lowercased()
 		if source.characters.contains(" ") {
 			let first = source.substring(to: source.index(after: source.startIndex))
-			let camel = source.capitalized.replace(string: " ", with: "").replace(string: "\n", with: "")
+			let camel = source.capitalized.replace(" ", with: "").replace("\n", with: "")
 			let rest = String(camel.characters.dropFirst())
 			return "\(first)\(rest)"
 		} else {
@@ -46,7 +46,7 @@ public extension String {
 	}
 	
 	/// Return true if string contains one or more instance of substring.
-	public func contain(string: String, caseSensitive: Bool = true) -> Bool {
+	public func contain(_ string: String, caseSensitive: Bool = true) -> Bool {
 		if !caseSensitive {
 			return range(of: string, options: .caseInsensitive) != nil
 		}
@@ -54,7 +54,7 @@ public extension String {
 	}
 	
 	/// Return true if string contains one or more emojis.
-	public var containEmoji:Bool {
+	public var containEmoji: Bool {
 		// http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
 		for scalar in unicodeScalars {
 			switch scalar.value {
@@ -163,17 +163,12 @@ public extension String {
 	}
 	
 	/// Returns array of strings separated by new lines.
-	public func lines() -> [String] {
+	public var lines: [String] {
 		var result:[String] = []
 		enumerateLines { (line, stop) -> () in
 			result.append(line)
 		}
 		return result
-	}
-	
-	/// Return current locale.
-	public var locale: Locale {
-		return Locale.current
 	}
 	
 	/// Return most common character in string.
@@ -191,10 +186,10 @@ public extension String {
 	}
 	
 	/// Return random string of given length.
-	public static func random(of length: Int) -> String {
+	public static func random(ofLength: Int) -> String {
 		let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 		var string = ""
-		for _ in 0..<length {
+		for _ in 0..<ofLength {
 			let randomIndex = arc4random_uniform(UInt32(base.characters.count))
 			string += "\(base[base.index(base.startIndex, offsetBy: IndexDistance(randomIndex))])"
 		}
@@ -202,8 +197,8 @@ public extension String {
 	}
 	
 	/// Replace part of string with another string.
-	public func replace(string: String, with: String) -> String {
-		return replacingOccurrences(of: string, with: with)
+	public func replace(_ substring: String, with: String) -> String {
+		return replacingOccurrences(of: substring, with: with)
 	}
 	
 	/// Reverse string.
@@ -324,11 +319,11 @@ public extension String {
 		return URL(string: self)
 	}
 	
-	/// Return Date value from string of date format
+	/// Return Date value from string of date format (if applicable.)
 	public func toDate(withFormat format: String) -> Date? {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = format
-		return dateFormatter.date(from: self)?
+		return dateFormatter.date(from: self)
 	}
 	
 	/// Removes spaces and new lines in beginning and end of string.
@@ -342,18 +337,18 @@ public extension String {
 	}
 	
 	/// Truncate string (cut it to a given number of characters).
-	public mutating func truncate(to length: Int, trailing: String? = "...") {
-		if self.characters.count > length {
-			self = self.substring(to: self.index(startIndex, offsetBy: length)) + (trailing ?? "")
+	public mutating func truncate(toLength: Int, trailing: String? = "...") {
+		if self.characters.count > toLength {
+			self = self.substring(to: self.index(startIndex, offsetBy: toLength)) + (trailing ?? "")
 		}
 	}
 	
 	/// Return truncated string (limited to a given number of characters).
-	public func truncated(to length: Int, trailing: String? = "...") -> String {
-		guard self.characters.count > length else {
+	public func truncated(toLength: Int, trailing: String? = "...") -> String {
+		guard self.characters.count > toLength else {
 			return self
 		}
-		return self.substring(to: self.index(startIndex, offsetBy: length)) + (trailing ?? "")
+		return self.substring(to: self.index(startIndex, offsetBy: toLength)) + (trailing ?? "")
 	}
 	
 	/// Return an array with unicodes for all characters in a string.
@@ -383,6 +378,6 @@ public extension String {
 	
 	/// Return string without spaces and new lines.
 	public var withoutSpacesAndNewLines: String {
-		return replace(string: " ", with: "").replace(string: "\n", with: "")
+		return replace(" ", with: "").replace("\n", with: "")
 	}
 }
