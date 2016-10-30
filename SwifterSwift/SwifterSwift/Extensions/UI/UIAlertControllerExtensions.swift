@@ -59,13 +59,14 @@ public extension UIAlertController {
 	///   - placeholder: text field placeholder text
 	///   - editingChangedTarget: an optional target for text field's editingChanged
 	///   - editingChangedSelector: an optional selector for text field's editingChanged
-	func addTextField(text: String? = nil, placeholder: String? = nil, editingChangedTarget: Any?, editingChangedSelector: Selector? = nil) {
+	func addTextField(text: String? = nil, placeholder: String? = nil, editingChangedTarget: Any?, editingChangedSelector: Selector? = nil) -> UITextField {
 		addTextField { tf in
 			tf.text = text
 			tf.placeholder = placeholder
 			if let target = editingChangedTarget, let selector = editingChangedSelector {
 				tf.addTarget(target, action: selector, for: .editingChanged)
 			}
+			return tf
 		}
 	}
 	
