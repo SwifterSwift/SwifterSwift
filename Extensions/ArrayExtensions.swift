@@ -102,7 +102,7 @@ extension Array {
 
 public extension Array where Element: Equatable {
 	/// Remove all instances of an item from array.
-	public mutating func removeAll(item: Element) {
+	public mutating func removeAll(_ item: Element) {
 		self = self.filter() { $0 != item }
 	}
 	

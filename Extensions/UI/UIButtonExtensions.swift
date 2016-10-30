@@ -10,7 +10,7 @@ import UIKit
 
 public extension UIButton {
 	/// Set image for all states.
-	public func imageForAllStates(image: UIImage) {
+	public func setImageForAllStates(_ image: UIImage) {
 		setImage(image, for: .normal)
 		setImage(image, for: .selected)
 		setImage(image, for: .highlighted)
@@ -62,7 +62,7 @@ public extension UIButton {
 	}
 	
 	/// Set title color for all states.
-	public func titleColorForAllStates(color: UIColor) {
+	public func setTitleColorForAllStates(_ color: UIColor) {
 		setTitleColor(color, for: .normal)
 		setTitleColor(color, for: .selected)
 		setTitleColor(color, for: .highlighted)
@@ -114,7 +114,7 @@ public extension UIButton {
 	}
 	
 	/// Set title for all states.
-	public func titleForAllStates(title: String) {
+	public func setTitleForAllStates(_ title: String) {
 		setTitle(title, for: .normal)
 		setTitle(title, for: .selected)
 		setTitle(title, for: .highlighted)

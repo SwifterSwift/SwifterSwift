@@ -40,7 +40,7 @@ public class SwifterSwift {
 	}
 	
 	/// Return device height.
-	var deviceHeight: CGFloat {
+	var screenHeight: CGFloat {
 		return UIScreen.main.bounds.height
 	}
 	
@@ -60,7 +60,7 @@ public class SwifterSwift {
 	}
 	
 	/// Return device width.
-	var deviceWidth: CGFloat {
+	var screenWidth: CGFloat {
 		return UIScreen.main.bounds.width
 	}
 	
@@ -144,8 +144,48 @@ public class SwifterSwift {
 		return UserDefaults.standard.object(forKey: forKey)
 	}
 	
+	/// Get a string from UserDefaults
+	public static func string(forKey: String) -> String? {
+		return UserDefaults.standard.string(forKey: forKey)
+	}
+	
+	/// Get an integer from UserDefaults
+	public static func integer(forKey: String) -> Int? {
+		return UserDefaults.standard.integer(forKey: forKey)
+	}
+	
+	/// Get a double from UserDefaults
+	public static func double(forKey: String) -> Double? {
+		return UserDefaults.standard.double(forKey: forKey)
+	}
+	
+	/// Get a data from UserDefaults
+	public static func data(forKey: String) -> Data? {
+		return UserDefaults.standard.data(forKey: forKey)
+	}
+	
+	/// Get a data from UserDefaults
+	public static func bool(forKey: String) -> Bool? {
+		return UserDefaults.standard.bool(forKey: forKey)
+	}
+	
+	/// Get an array from UserDefaults
+	public static func array(forKey: String) -> [Any]? {
+		return UserDefaults.standard.array(forKey: forKey)
+	}
+	
+	/// Get an dictionary from UserDefaults
+	public static func dictionary(forKey: String) -> [String: Any]? {
+		return UserDefaults.standard.dictionary(forKey: forKey)
+	}
+	
+	/// Get a float from UserDefaults
+	public static func float(forKey: String) -> Float? {
+		return UserDefaults.standard.object(forKey: forKey) as? Float
+	}
+	
 	/// Save an object to UserDefaults
-	public static func set(value: AnyObject?, forKey: String) {
+	public static func set(value: Any?, forKey: String) {
 		UserDefaults.standard.set(value, forKey: forKey)
 	}
 	
@@ -182,5 +222,3 @@ public class SwifterSwift {
 		return UserDefaults.standard
 	}
 }
-
-

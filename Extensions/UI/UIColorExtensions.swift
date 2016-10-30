@@ -21,32 +21,39 @@ public extension UIColor {
 		return NSString(format:"#%06x", rgb).uppercased as String
 	}
 	
-	/// Create UIColor from hexadecimal value.
-	public convenience init(netHex:Int) {
-		self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff)
+	/// Create UIColor from hexadecimal value with optional transparency.
+	public convenience init(hex: Int, transparency: CGFloat = 1) {
+		
+		var trans: CGFloat {
+			if transparency > 1 {
+				return 1
+			} else if transparency < 0 {
+				return 0
+			} else {
+				return transparency
+			}
+		}
+		
+		self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff, transparency: trans)
 	}
 	
-	/// Create new UIColor for a hexadicimal value with transparency
-	public convenience init(netHex:Int, transparency: CGFloat) {
-		self.init(red:(netHex >> 16) & 0xff, green:(netHex >> 8) & 0xff, blue:netHex & 0xff, transparency: transparency)
-	}
-	
-	/// Create UIColor from RGB values.
-	public convenience init(red: Int, green: Int, blue: Int) {
+	/// Create UIColor from RGB values with optioanl transparency.
+	public convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
 		assert(red >= 0 && red <= 255, "Invalid red component")
 		assert(green >= 0 && green <= 255, "Invalid green component")
 		assert(blue >= 0 && blue <= 255, "Invalid blue component")
 		
-		self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
-	}
-	
-	/// Create UIColor from RGB values with transparency.
-	public convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat) {
-		assert(red >= 0 && red <= 255, "Invalid red component")
-		assert(green >= 0 && green <= 255, "Invalid green component")
-		assert(blue >= 0 && blue <= 255, "Invalid blue component")
+		var trans: CGFloat {
+			if transparency > 1 {
+				return 1
+			} else if transparency < 0 {
+				return 0
+			} else {
+				return transparency
+			}
+		}
 		
-		self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: transparency)
+		self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: trans)
 	}
 	
 	/// Return random color.

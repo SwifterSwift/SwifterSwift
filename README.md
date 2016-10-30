@@ -14,7 +14,7 @@
 A handy collection of more than 280 native Swift 3 extensions to boost your productivity.
 
 
-## [Whats New in v1.1?](/../../wiki/whats-new#v11)
+## [Whats New in v1.2?](/../../wiki/whats-new#v12)
 
 ## Requirements:
 
@@ -94,12 +94,14 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 - [ ] [UIView extensions](/../../wiki/uiview-extensions)
 - [ ] [UIViewController extensions](/../../wiki/uiviewcontroller-extensions)
 
+checkbox indicates that all units in an extension were tested
+
 ## How cool is this?
 
-Swifter Swift is a library of over **280** properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
+Swifter Swift is a library of over **290** properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
 Here are some examples:
 
-#### Array Extensions (14)
+#### Array Extensions:
 
 ```swift
 // Remove duplicates from array
@@ -400,6 +402,6 @@ Special thanks to:
 
 * [Mert Akengin](https://github.com/PvtMert) for creating [project website](http://swiftierswift.com) and helping with unit testing
 
-* [Abdul Rahman Dabbour](https://github.com/thedabbour) for documenting the project
+* [Abdul Rahman Dabbour](https://github.com/thedabbour) for helping document the project
 
 * [John Doe](https://en.wikipedia.org/wiki/John_Doe), This is a random person of our friends who gets us some coffee day to day

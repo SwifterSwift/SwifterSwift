@@ -31,22 +31,22 @@ public extension UIImage {
 	}
 	
 	/// Scale image to height with respect to aspect ratio.
-	public func scaledToHeight(height: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
-		let scale = height / self.size.height
+	public func scaled(toHeight: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
+		let scale = toHeight / self.size.height
 		let newWidth = self.size.width * scale
-		UIGraphicsBeginImageContext(CGSize(width: newWidth, height: height))
-		self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: height))
+		UIGraphicsBeginImageContext(CGSize(width: newWidth, height: toHeight))
+		self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: toHeight))
 		let newImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		return newImage
 	}
 	
 	/// Scale image to width with respect to aspect ratio.
-	public func scaledToWidth(width: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
-		let scale = width / self.size.width
+	public func scaled(toWidth: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
+		let scale = toWidth / self.size.width
 		let newHeight = self.size.height * scale
-		UIGraphicsBeginImageContext(CGSize(width: width, height: newHeight))
-		self.draw(in: CGRect(x: 0, y: 0, width: width, height: newHeight))
+		UIGraphicsBeginImageContext(CGSize(width: toWidth, height: newHeight))
+		self.draw(in: CGRect(x: 0, y: 0, width: toWidth, height: newHeight))
 		let newImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		return newImage

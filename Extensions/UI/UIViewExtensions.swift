@@ -27,7 +27,7 @@ public enum ShakeAnimationType {
 
 public extension UIView {
 	/// Add shadow to view
-	public func addShadow(ofColor color: UIColor = UIColor(netHex: 0x137992),
+	public func addShadow(ofColor color: UIColor = UIColor(hex: 0x137992),
 	                      radius: CGFloat = 3,
 	                      offset: CGSize = CGSize(width: 0, height: 0),
 	                      opacity: Float = 0.5) {
@@ -150,8 +150,8 @@ public extension UIView {
 	}
 	
 	/// Load view from nib
-	class func loadFromNibNamed(nibNamed: String, bundle : Bundle? = nil) -> UIView? {
-		return UINib(nibName: nibNamed, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
+	class func loadFromNib(named: String, bundle : Bundle? = nil) -> UIView? {
+		return UINib(nibName: named, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
 	}
 	
 	/// Remove all subviews in view.

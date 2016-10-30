@@ -9,7 +9,7 @@
 import UIKit
 
 public extension UITabBar {
-	// Change UITabBar colors
+	// Set tabBar colors
 	public func setColors(background: UIColor? = nil,
 	               selectedBackground: UIColor? = nil,
 	               item: UIColor? = nil,

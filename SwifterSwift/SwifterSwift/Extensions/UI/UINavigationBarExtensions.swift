@@ -9,6 +9,7 @@
 import UIKit
 
 public extension UINavigationBar {
+	
 	/// Set Navigation Bar title, title color and font.
 	public func setTitleFont(font: UIFont, with color: UIColor = UIColor.black) {
 		var attrs = [String: AnyObject]()
@@ -24,5 +25,15 @@ public extension UINavigationBar {
 		isTranslucent = true
 		tintColor = withTint
 		titleTextAttributes = [NSForegroundColorAttributeName: withTint]
+	}
+	
+	/// Set navigationBar background and text colors
+	func setColors(background: UIColor, text: UIColor) {
+		self.isTranslucent = false
+		self.backgroundColor = background
+		self.barTintColor = background
+		self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+		self.tintColor = text
+		self.titleTextAttributes = [NSForegroundColorAttributeName: text]
 	}
 }
