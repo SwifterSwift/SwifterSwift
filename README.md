@@ -14,7 +14,7 @@
 A handy collection of more than 280 native Swift 3 extensions to boost your productivity.
 
 
-## [Whats New in v1.2?](/../../wiki/whats-new#v12)
+## [Whats New in v1.2.1?](/../../wiki/whats-new#v121)
 
 ## Requirements:
 
