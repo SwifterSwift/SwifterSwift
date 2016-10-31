@@ -11,10 +11,10 @@
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-A handy collection of more than 280 native Swift 3 extensions to boost your productivity.
+A handy collection of more than 290 native Swift 3 extensions to boost your productivity.
 
 
-## [Whats New in v1.2.1?](/../../wiki/whats-new#v121)
+## [Whats New in v1.2.2?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v122)
 
 ## Requirements:
 
@@ -64,35 +64,35 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## List Of Extensions
 
-- [x] [Array extensions](/../../wiki/array-extensions)
-- [x] [Character extensions](/../../wiki/character-extensions)
-- [x] [Convenience extensions](/../../wiki/convenience-extensions)
-- [x] [Date extensions](/../../wiki/date-extensions)
-- [x] [Dictionary extensions](/../../wiki/dictionary-extensions)
-- [x] [Double extensions](/../../wiki/double-extensions)
-- [x] [Float extensions](/../../wiki/float-extensions)
-- [x] [Int extensions](/../../wiki/int-extensions)
-- [x] [String extensions](/../../wiki/string-extensions)
-- [x] [CGFloat extensions](/../../wiki/cgfloat-extensions)
-- [x] [CGSize extensions](/../../wiki/cgsize-extensions)
-- [ ] [UIAlertController extensions](/../../wiki/uialertcontroller-extensions)
-- [ ] [UIButton extensions](/../../wiki/uibutton-extensions)
-- [ ] [UIColor extensions](/../../wiki/uicolor-extensions)
-- [ ] [UIImage extensions](/../../wiki/uiimage-extensions)
-- [ ] [UIImageView extensions](/../../wiki/uiimageview-extensions)
-- [ ] [UINavigationBar extensions](/../../wiki/uinavigationbar-extensions)
-- [ ] [UINavigationController extensions](/../../wiki/uinavigationcontroller-extensions)
-- [ ] [UINavigationItem extensions](/../../wiki/uinavigationitem-extensions)
-- [ ] [UISearchBar extensions](/../../wiki/uisearchbar-extensions)
-- [ ] [UISegmentedControl extensions](/../../wiki/uisegmentedcontrol-extensions)
-- [ ] [UISlider extensions](/../../wiki/uislider-extensions)
-- [ ] [UILabel extensions](/../../wiki/uilabel-extensions)
-- [ ] [UITabBar extensions](/../../wiki/uitabbar-extensions)
-- [ ] [UITableView extensions](/../../wiki/uitableview-extensions)
-- [ ] [UITextField extensions](/../../wiki/uitextfield-extensions)
-- [ ] [UITextView extensions](/../../wiki/uitextview-extensions)
-- [ ] [UIView extensions](/../../wiki/uiview-extensions)
-- [ ] [UIViewController extensions](/../../wiki/uiviewcontroller-extensions)
+- [x] [Array extensions](https://github.com/omaralbeik/SwifterSwift/wiki/array-extensions)
+- [x] [Character extensions](https://github.com/omaralbeik/SwifterSwift/wiki/character-extensions)
+- [x] [Convenience extensions](https://github.com/omaralbeik/SwifterSwift/wiki/convenience-extensions)
+- [x] [Date extensions](https://github.com/omaralbeik/SwifterSwift/wiki/date-extensions)
+- [x] [Dictionary extensions](https://github.com/omaralbeik/SwifterSwift/wiki/dictionary-extensions)
+- [x] [Double extensions](https://github.com/omaralbeik/SwifterSwift/wiki/double-extensions)
+- [x] [Float extensions](https://github.com/omaralbeik/SwifterSwift/wiki/float-extensions)
+- [x] [Int extensions](https://github.com/omaralbeik/SwifterSwift/wiki/int-extensions)
+- [x] [String extensions](https://github.com/omaralbeik/SwifterSwift/wiki/string-extensions)
+- [x] [CGFloat extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgfloat-extensions)
+- [x] [CGSize extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgsize-extensions)
+- [ ] [UIAlertController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uialertcontroller-extensions)
+- [ ] [UIButton extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uibutton-extensions)
+- [ ] [UIColor extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uicolor-extensions)
+- [ ] [UIImage extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiimage-extensions)
+- [ ] [UIImageView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiimageview-extensions)
+- [ ] [UINavigationBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationbar-extensions)
+- [ ] [UINavigationController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationcontroller-extensions)
+- [ ] [UINavigationItem extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationitem-extensions)
+- [ ] [UISearchBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uisearchbar-extensions)
+- [ ] [UISegmentedControl extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uisegmentedcontrol-extensions)
+- [ ] [UISlider extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uislider-extensions)
+- [ ] [UILabel extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uilabel-extensions)
+- [ ] [UITabBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitabbar-extensions)
+- [ ] [UITableView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitableview-extensions)
+- [ ] [UITextField extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitextfield-extensions)
+- [ ] [UITextView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitextview-extensions)
+- [ ] [UIView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiview-extensions)
+- [ ] [UIViewController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiviewcontroller-extensions)
 
 checkbox indicates that all units in an extension were tested
 
@@ -108,7 +108,7 @@ Here are some examples:
 [1, 2, 3, 1, 3].removeDuplicates() -> [1, 2, 3]
 
 // Return all indexes of specified item
-["h", "e", "l", "l", "o"].indexes(of item: "l") -> [2, 3]
+["h", "e", "l", "l", "o"].indexes(of: "l") -> [2, 3]
 
 // Return random item from array
 [1, 2, 3, 4, 5].randomItem -> 3
@@ -127,16 +127,16 @@ date.hour = 14
 Date().isInToday -> true
 
 // Add 1 month to current date
-Date().add(component: .month, value: 1)
+Date().add(.month, value: 1)
 
 // Return date at the beginning of current day
-Date().beginning(of component: .day)
+Date().beginning(of .day)
 
 // Return date at the end of current month
-Date().end(of component: .month)
+Date().end(of .month)
 
 // Check if date is in current calendar unit
-Date().isIn(current: .month) -> true
+Date().isInCurrent(.month) -> true
 
 // Return iso8601 string for date
 Date().iso8601String -> "2016-08-23T21:26:15.287Z"
@@ -164,7 +164,7 @@ Date().dateTimeString() -> "Aug 26, 2016, 12:55:24 AM"
 "hello world".count(of "o", caseSensitive: false) -> 2
 
 // Return an array of strings separated by given string
-"hello world".split(by separator: " ") -> ["hello", "world"]
+"hello world".split(by: " ") -> ["hello", "world"]
 
 // Return string with no spaces or new lines in beginning and end
 "\n Hello   ".trimmed -> "Hello"
@@ -188,10 +188,10 @@ Date().dateTimeString() -> "Aug 26, 2016, 12:55:24 AM"
 "Hèllö Wórld!".latinize() -> "Hello World!"
 
 // Return latinized string
-String.random(of length: 10) -> "AhEju28kNl"
+String.random(ofLength: 10) -> "AhEju28kNl"
 
 // Check if string contains one or more instance of substring
-"Hello World!".contain(string: "o", caseSensitive: false) -> true
+"Hello World!".contain("o", caseSensitive: false) -> true
 
 // Check if string contains one or more emojis
 "string👨‍with😍emojis✊🏿".containEmoji -> true
@@ -208,7 +208,7 @@ String.random(of length: 10) -> "AhEju28kNl"
 "SGVsbG8gV29ybGQh".base64Decoded = "Hello World!"
 
 // Truncate strings with a trailing
-"This is a very long sentence".truncated(to length: 14, trailing: = "...") -> "This is a very..."
+"This is a very long sentence".truncated(toLength: 14, trailing: = "...") -> "This is a very..."
 
 // Repeat a string n times
 "s" * 5 -> "sssss"
@@ -223,13 +223,16 @@ String.random(of length: 10) -> "AhEju28kNl"
 let color = UIColor(red: 121, green: 220, blue: 164)
 
 // Create new UIColor for a hexadecimal value
-let color = UIColor(netHex:0x45C91B)
+let color = UIColor(hex:0x45C91B)
 
 // Return hexadecimal value string
 UIColor.red.hexString -> "#FF0000"
 
+// Use Google Material design colors with ease
+let indigo = UIColor.material.indigo
+
 // Return brand colors from more than 30 social brands
-let facebookColor = UIColor.socialColors.facebook
+let facebookColor = UIColor.social.facebook
 
 // and many others!
 ```
@@ -265,10 +268,6 @@ Swifter Swift has many great UI extensions:
 #### UIView Extensions
 
 ```swift
-// Set title, title color and image for all states at once!
-button.titleForAllStates(title: "Login")
-button.titleColorForAllStates(color: UIColor.blue)
-button.imageForAllStates(image: UIImage(named: "login"))
 
 // Set borderColor, borderWidth, cornerRadius, shadowColor, and many other properties from code or storyboard
 view.cornerRadius = 30
@@ -283,7 +282,7 @@ view.fadeIn(duration: 1, completion:((Bool) -> Void)?)
 view.fadeOut(duration: 1, completion:((Bool) -> Void)?)
 view.rotate(byAngle 90, ofType type: .degrees, animated: true, duration: 1, completion:((Bool) -> Void)?)
 view.rotate(toAngle -3, ofType type: .radians, animated: false, duration: 1, completion:((Bool) -> Void)?)
-view.scale(by offset: 4, animated: true, duration:1, completion:((Bool) -> Void)?)
+view.scale(byOffset: 4, animated: true, duration:1, completion:((Bool) -> Void)?)
 view.shake(direction: .horizontal, duration: 1, animationType: .easeOut)
 
 // save screenshot of a view
@@ -308,10 +307,11 @@ alert.show()
 #### UIButton Extensions
 
 ```swift
+
 // Set title, title color and image for all states at once!
-button.titleForAllStates(title: "Login")
-button.titleColorForAllStates(color: UIColor.blue)
-button.imageForAllStates(image: UIImage(named: "login"))
+button.setTitleForAllStates("Login")
+button.setTitleColorForAllStates(UIColor.blue)
+button.setImageForAllStates(UIImage(named: "login"))
 
 // or set each of them from code or storyboard
 button.titleForHighlighted = "Login"
@@ -331,8 +331,8 @@ let croppedImage = image.cropped(to CGRect)
 let image = UIImage(color: UIColor, size: CGSize)
 
 // scale to fit width or height
-let scaledImage = image.scaledToHeight(height: CGFloat)
-let scaledImage = image.scaledToWidth(height: CGFloat)
+let scaledImage = image.scaled(toHeight: CGFloat)
+let scaledImage = image.scaled(toWidth: CGFloat)
 ```
 
 
