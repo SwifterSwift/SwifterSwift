@@ -90,12 +90,12 @@ public class SwifterSwift {
 	}
 	
 	/// Return true if device is iPad.
-	var isPad: Bool {
+	public var isPad: Bool {
 		return UIDevice.current.userInterfaceIdiom == .pad
 	}
 	
 	/// Return true if device is iPhone.
-	var isPhone: Bool {
+	public var isPhone: Bool {
 		return UIDevice.current.userInterfaceIdiom == .phone
 	}
 	
