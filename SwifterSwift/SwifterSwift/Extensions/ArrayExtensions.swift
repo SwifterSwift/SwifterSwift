@@ -79,7 +79,7 @@ public extension Array where Element: Equatable {
 	public var withoutDuplicates: [Element] {
 		var result: [Element] = []
 		for value in self {
-			if result.contains(value) == false {
+			if result.contains(where: { $0 == value }) {
 				result.append(value)
 			}
 		}
@@ -168,22 +168,12 @@ public extension Array {
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
 	
-	/// SwifterSwift: Difference between two arrays.
-	///
-	/// - Parameter array: array to check difference from.
-	/// - Returns: an array of all items that are in self and not in given array.
-	public func difference(from array: [Element]) -> [Element] {
-		return self.filter {
-			return self.contains($0 as Element) && !array.contains($0 as Element)
-		}
-	}
-	
 	/// SwifterSwift: Check if array contains an element.
 	///
 	/// - Parameter element: element to check.
 	/// - Returns: true if array contains the given item.
 	public func contains(_ element: Element) -> Bool {
-		return contains(where: { $0 == element })
+		return self.contains(where: { $0 == element })
 	}
 	
 	/// SwifterSwift: Check if array contains an array of elements.

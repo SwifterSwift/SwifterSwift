@@ -1,5 +1,5 @@
 <p align="left">
-  <img src="https://github.com/omaralbeik/swifterSwift/blob/master/logo.png" title="swifter Swift">
+  <img src="https://github.com/omaralbeik/swifterSwift/blob/master/logo.png" title="swifterSwift">
 </p>
 
 [![Build Status](https://travis-ci.org/omaralbeik/SwifterSwift.svg?branch=master)](https://travis-ci.org/omaralbeik/SwifterSwift)
@@ -11,10 +11,10 @@
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-A handy collection of more than 290 native Swift 3 extensions to boost your productivity.
+A handy collection of more than 360 native Swift 3 extensions to boost your productivity.
 
 
-## [Whats New in v1.2.2?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v122)
+## [Whats New in v1.3?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v13)
 
 ## Requirements:
 
@@ -64,41 +64,47 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## List Of Extensions
 
-- [x] [Array extensions](https://github.com/omaralbeik/SwifterSwift/wiki/array-extensions)
-- [x] [Character extensions](https://github.com/omaralbeik/SwifterSwift/wiki/character-extensions)
-- [x] [Convenience extensions](https://github.com/omaralbeik/SwifterSwift/wiki/convenience-extensions)
-- [x] [Date extensions](https://github.com/omaralbeik/SwifterSwift/wiki/date-extensions)
-- [x] [Dictionary extensions](https://github.com/omaralbeik/SwifterSwift/wiki/dictionary-extensions)
-- [x] [Double extensions](https://github.com/omaralbeik/SwifterSwift/wiki/double-extensions)
-- [x] [Float extensions](https://github.com/omaralbeik/SwifterSwift/wiki/float-extensions)
-- [x] [Int extensions](https://github.com/omaralbeik/SwifterSwift/wiki/int-extensions)
-- [x] [String extensions](https://github.com/omaralbeik/SwifterSwift/wiki/string-extensions)
-- [x] [CGFloat extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgfloat-extensions)
-- [x] [CGSize extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgsize-extensions)
-- [ ] [UIAlertController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uialertcontroller-extensions)
-- [ ] [UIButton extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uibutton-extensions)
-- [ ] [UIColor extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uicolor-extensions)
-- [ ] [UIImage extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiimage-extensions)
-- [ ] [UIImageView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiimageview-extensions)
-- [ ] [UINavigationBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationbar-extensions)
-- [ ] [UINavigationController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationcontroller-extensions)
-- [ ] [UINavigationItem extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationitem-extensions)
-- [ ] [UISearchBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uisearchbar-extensions)
-- [ ] [UISegmentedControl extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uisegmentedcontrol-extensions)
-- [ ] [UISlider extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uislider-extensions)
-- [ ] [UILabel extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uilabel-extensions)
-- [ ] [UITabBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitabbar-extensions)
-- [ ] [UITableView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitableview-extensions)
-- [ ] [UITextField extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitextfield-extensions)
-- [ ] [UITextView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitextview-extensions)
-- [ ] [UIView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiview-extensions)
-- [ ] [UIViewController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiviewcontroller-extensions)
+- [Array extensions](https://github.com/omaralbeik/SwifterSwift/wiki/array-extensions)
+- [Bool extensions](https://github.com/omaralbeik/SwifterSwift/wiki/bool-extensions)
+- [Character extensions](https://github.com/omaralbeik/SwifterSwift/wiki/character-extensions)
+- [Convenience extensions](https://github.com/omaralbeik/SwifterSwift/wiki/swifterswift-extensions)
+- [Data extensions](https://github.com/omaralbeik/SwifterSwift/wiki/data-extensions)
+- [Date extensions](https://github.com/omaralbeik/SwifterSwift/wiki/date-extensions)
+- [Dictionary extensions](https://github.com/omaralbeik/SwifterSwift/wiki/dictionary-extensions)
+- [Double extensions](https://github.com/omaralbeik/SwifterSwift/wiki/double-extensions)
+- [Float extensions](https://github.com/omaralbeik/SwifterSwift/wiki/float-extensions)
+- [Int extensions](https://github.com/omaralbeik/SwifterSwift/wiki/int-extensions)
+- [String extensions](https://github.com/omaralbeik/SwifterSwift/wiki/string-extensions)
+- [CGFloat extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgfloat-extensions)
+- [CGPoint extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgpoint-extensions)
+- [CGSize extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgsize-extensions)
+- [NSAttributedString extensions](https://github.com/omaralbeik/SwifterSwift/wiki/nsstring-extensions)
+- [UIAlertController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/nsattributedstring-extensions)
+- [UIButton extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uibutton-extensions)
+- [UIColor extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uicolor-extensions)
+- [UIImage extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiimage-extensions)
+- [UIImageView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiimageview-extensions)
+- [UINavigationBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationbar-extensions)
+- [UIBarButtonItem extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uibarbuttonitem-extensions)
+- [UINavigationController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationcontroller-extensions)
+- [UINavigationItem extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationitem-extensions)
+- [UISearchBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uisearchbar-extensions)
+- [UISegmentedControl extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uisegmentedcontrol-extensions)
+- [UISlider extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uislider-extensions)
+- [UISwitch extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiswitch-extensions)
+- [UILabel extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uilabel-extensions)
+- [UITabBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitabbar-extensions)
+- [UITableView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitableview-extensions)
+- [UITextField extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitextfield-extensions)
+- [UITextView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitextview-extensions)
+- [UIView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiview-extensions)
+- [UIViewController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiviewcontroller-extensions)
 
-checkbox indicates that all units in an extension were tested
 
 ## How cool is this?
 
-Swifter Swift is a library of over **290** properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
+SwifterSwift is a library of over **360 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of swift 3.
+
 Here are some examples:
 
 #### Array Extensions:
@@ -109,6 +115,9 @@ Here are some examples:
 
 // Return all indexes of specified item
 ["h", "e", "l", "l", "o"].indexes(of: "l") -> [2, 3]
+
+// Shuffle array
+["h", "e", "l", "l", "o"].shuffled = ["e", "l", "o", "l", "h"]
 
 // Return random item from array
 [1, 2, 3, 4, 5].randomItem -> 3
@@ -173,7 +182,7 @@ Date().dateTimeString() -> "Aug 26, 2016, 12:55:24 AM"
 "swifterSwift is making swift more swifty".mostCommonCharacter -> "i"
 
 // Returns CamelCase of string
-"Some variable name".camelCased -> "someVariableName"
+"Some variable nAme".camelCased -> "someVariableName"
 
 // Check if string is in valid email format
 "omaralbeik@gmail.com".isEmail -> true
@@ -187,7 +196,7 @@ Date().dateTimeString() -> "Aug 26, 2016, 12:55:24 AM"
 // Return latinized string
 "Hèllö Wórld!".latinize() -> "Hello World!"
 
-// Return latinized string
+// Create random string of length
 String.random(ofLength: 10) -> "AhEju28kNl"
 
 // Check if string contains one or more instance of substring
@@ -212,27 +221,27 @@ String.random(ofLength: 10) -> "AhEju28kNl"
 
 // Repeat a string n times
 "s" * 5 -> "sssss"
+
+// NSString has never been easier
+let boldString = "this is string".bold.colored(with: .red)
+
 // and many others!
 ```
 
 
-#### UIColor Extensions:
+#### Dictionary Extensions:
 
 ```swift
-// Create new UIColor for RGB values
-let color = UIColor(red: 121, green: 220, blue: 164)
+let dict = ["id": 1, "Product-Name": "SwifterSwift"]
 
-// Create new UIColor for a hexadecimal value
-let color = UIColor(hex:0x45C91B)
+// Check if key exists in dictionary.
+dict.has(key: "id") -> true
 
-// Return hexadecimal value string
-UIColor.red.hexString -> "#FF0000"
+// Lowercase all keys in dictionary.
+dict.lowercaseAllKeys() -> ["id": 1, "product-name": "SwifterSwift"]
 
-// Use Google Material design colors with ease
-let indigo = UIColor.material.indigo
-
-// Return brand colors from more than 30 social brands
-let facebookColor = UIColor.social.facebook
+// Create JSON Data and string from a dictionary
+let json = dict.jsonString(prettify: true)
 
 // and many others!
 ```
@@ -262,7 +271,31 @@ Int.randomBetween(min: 1, max: 10) = 6
 
 ## UI Extensions
 
-Swifter Swift has many great UI extensions:
+SwifterSwift has many great UI extensions:
+
+#### UIColor Extensions:
+
+```swift
+// Create new UIColor for RGB values
+let color = UIColor(red: 121, green: 220, blue: 164)
+
+// Create new UIColor for a hexadecimal value
+let color = UIColor(hex: 0x45C91B)
+
+// Blend two colors with ease
+UIColor.blend(UIColor.red, intensity1: 0.5, with: UIColor.green, intensity2: 0.3)
+
+// Return hexadecimal value string
+UIColor.red.hexString -> "#FF0000"
+
+// Use Google Material design colors with ease
+let indigo = UIColor.material.indigo
+
+// Return brand colors from more than 30 social brands
+let facebookColor = UIColor.social.facebook
+
+// and many others!
+```
 
 
 #### UIView Extensions
@@ -271,6 +304,14 @@ Swifter Swift has many great UI extensions:
 
 // Set borderColor, borderWidth, cornerRadius, shadowColor, and many other properties from code or storyboard
 view.cornerRadius = 30
+
+// Set some or all corners radiuses of view.
+view.roundCorners([.bottomLeft, .topRight], radius: 30)
+
+
+// Add shadow to view
+view.addShadow(ofColor .black, radius: 3, opacity: 0.5)
+
 ```
 <p align="left">
   <img src="https://github.com/omaralbeik/SwifterSwift/blob/master/Screenshots/view_storyboard.png" title="UIButton properties from storyboard" width='250px'>
@@ -280,13 +321,26 @@ view.cornerRadius = 30
 // Animate view with completion
 view.fadeIn(duration: 1, completion:((Bool) -> Void)?)
 view.fadeOut(duration: 1, completion:((Bool) -> Void)?)
-view.rotate(byAngle 90, ofType type: .degrees, animated: true, duration: 1, completion:((Bool) -> Void)?)
-view.rotate(toAngle -3, ofType type: .radians, animated: false, duration: 1, completion:((Bool) -> Void)?)
-view.scale(byOffset: 4, animated: true, duration:1, completion:((Bool) -> Void)?)
+view.rotate(byAngle 90, ofType type: .degrees, animated: true, duration: 1, completion: { print("done") })
+view.rotate(toAngle -3, ofType type: .radians, animated: false, duration: 1, completion: nil)
+view.scale(byOffset: 4, animated: true, duration:1)
 view.shake(direction: .horizontal, duration: 1, animationType: .easeOut)
 
 // save screenshot of a view
 let image = view.screenShot
+
+// and many others!
+```
+
+
+#### CGPoint Extensions
+
+```swift
+// Get distance from another CGPoint.
+point1.distance(from point2) = 12.45
+
+Multiply a CGPoint with a scalar
+result = 5 * point
 
 // and many others!
 ```
@@ -301,6 +355,8 @@ let alert = UIAlertController(title: "Error", error: Error)
 
 // show alert with ease
 alert.show()
+
+// and many others!
 ```
 
 
@@ -315,6 +371,8 @@ button.setImageForAllStates(UIImage(named: "login"))
 
 // or set each of them from code or storyboard
 button.titleForHighlighted = "Login"
+
+// and many others!
 ```
 <p align="left">
   <img src="https://github.com/omaralbeik/SwifterSwift/blob/master/Screenshots/button_storyboard.png" title="UIButton properties from storyboard" width='250px'>
@@ -333,6 +391,14 @@ let image = UIImage(color: UIColor, size: CGSize)
 // scale to fit width or height
 let scaledImage = image.scaled(toHeight: CGFloat)
 let scaledImage = image.scaled(toWidth: CGFloat)
+
+// Compress images
+let compressedImage = image.compressd(quality: 0.3)
+
+// get image size
+image.kilobytesSize = 114
+
+// and many others!
 ```
 
 
@@ -341,6 +407,11 @@ let scaledImage = image.scaled(toWidth: CGFloat)
 ```swift
 // Download an image from URL in background
 imageView.download(from url, contentMode: .scaleAspectFit, placeHolder: UIImage?)
+
+// Blur image view
+imageVuew.blur(withStyle: .light)
+
+// and many others!
 ```
 
 
@@ -349,6 +420,8 @@ imageView.download(from url, contentMode: .scaleAspectFit, placeHolder: UIImage?
 ```swift
 // Change navigation bar font and color
 navbar.setTitleFont(UIFont, with color: UIColor.black)
+
+// and many others!
 ```
 
 
@@ -360,6 +433,8 @@ navController.popViewController(completion: (()->Void)?)
 
 // Push ViewController with completion handler.
 navController.pushViewController(UIViewController, completion: (()->Void)?)
+
+// and many others!
 ```
 
 
@@ -380,17 +455,16 @@ tableView.scrollToTop(animated: true)
 #### Misc Extensions
 
 ```swift
-// Return JSON string from a dictionary
-let jsonString = someDictionary.jsonString(prettify: true)
-
-// Return JSON data from a dictionary
-let jsonData = someDictionary.jsonData
-
 // Check if app is running in debugging mode
-swifterSwift.isInDebuggingMode
+SwifterSwift.isInDebuggingMode
 
 // Check if app is running on simulator
-swifterSwift.isRunningOnSimulator
+SwifterSwift.isRunningOnSimulator
+
+// Detect screenshots
+SwifterSwift.didTakeScreenShot {
+	print("User did take a screenshot!")
+}
 
 // and many others!
 ```
