@@ -46,7 +46,9 @@ Its in its early stages, any new idea is appreciated and welcomed, however pleas
  
  ```swift
  // MARK: - enums
- public extension SomeType {}
+ public enum {
+ 	// ...
+ }
  
  // MARK: - Properties
  public extension SomeType {}
