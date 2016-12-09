@@ -8,17 +8,12 @@
 
 import UIKit
 
+
+// MARK: - Properties
 public extension UIButton {
-	/// Set image for all states.
-	public func setImageForAllStates(_ image: UIImage) {
-		setImage(image, for: .normal)
-		setImage(image, for: .selected)
-		setImage(image, for: .highlighted)
-		setImage(image, for: .disabled)
-	}
 	
-	/// Image of disabled state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Image of disabled state for button; also inspectable from Storyboard.
 	public var imageForDisabled: UIImage? {
 		get {
 			return image(for: .disabled)
@@ -28,8 +23,8 @@ public extension UIButton {
 		}
 	}
 	
-	/// Image of highlighted state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Image of highlighted state for button; also inspectable from Storyboard.
 	public var imageForHighlighted: UIImage? {
 		get {
 			return image(for: .highlighted)
@@ -39,8 +34,8 @@ public extension UIButton {
 		}
 	}
 	
-	/// Image of normal state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Image of normal state for button; also inspectable from Storyboard.
 	public var imageForNormal: UIImage? {
 		get {
 			return image(for: .normal)
@@ -50,8 +45,8 @@ public extension UIButton {
 		}
 	}
 	
-	/// Image of selected state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Image of selected state for button; also inspectable from Storyboard.
 	public var imageForSelected: UIImage? {
 		get {
 			return image(for: .selected)
@@ -61,16 +56,8 @@ public extension UIButton {
 		}
 	}
 	
-	/// Set title color for all states.
-	public func setTitleColorForAllStates(_ color: UIColor) {
-		setTitleColor(color, for: .normal)
-		setTitleColor(color, for: .selected)
-		setTitleColor(color, for: .highlighted)
-		setTitleColor(color, for: .disabled)
-	}
-	
-	/// Title color of disabled state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Title color of disabled state for button; also inspectable from Storyboard.
 	public var titleColorForDisabled: UIColor? {
 		get {
 			return titleColor(for: .highlighted)
@@ -80,8 +67,8 @@ public extension UIButton {
 		}
 	}
 	
-	/// Title color of highlighted state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Title color of highlighted state for button; also inspectable from Storyboard.
 	public var titleColorForHighlighted: UIColor? {
 		get {
 			return titleColor(for: .highlighted)
@@ -91,8 +78,8 @@ public extension UIButton {
 		}
 	}
 	
-	/// Title color of normal state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Title color of normal state for button; also inspectable from Storyboard.
 	public var titleColorForNormal: UIColor? {
 		get {
 			return titleColor(for: .normal)
@@ -102,8 +89,8 @@ public extension UIButton {
 		}
 	}
 	
-	/// Title color of selected state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Title color of selected state for button; also inspectable from Storyboard.
 	public var titleColorForSelected: UIColor? {
 		get {
 			return titleColor(for: .selected)
@@ -113,16 +100,8 @@ public extension UIButton {
 		}
 	}
 	
-	/// Set title for all states.
-	public func setTitleForAllStates(_ title: String) {
-		setTitle(title, for: .normal)
-		setTitle(title, for: .selected)
-		setTitle(title, for: .highlighted)
-		setTitle(title, for: .disabled)
-	}
-	
-	/// Title of disabled state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Title of disabled state for button; also inspectable from Storyboard.
 	public var titleForDisabled: String? {
 		get {
 			return title(for: .disabled)
@@ -132,8 +111,8 @@ public extension UIButton {
 		}
 	}
 	
-	/// Title of highlighted state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Title of highlighted state for button; also inspectable from Storyboard.
 	public var titleForHighlighted: String? {
 		get {
 			return title(for: .highlighted)
@@ -143,8 +122,8 @@ public extension UIButton {
 		}
 	}
 	
-	/// Title of normal state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Title of normal state for button; also inspectable from Storyboard.
 	public var titleForNormal: String? {
 		get {
 			return title(for: .normal)
@@ -154,8 +133,8 @@ public extension UIButton {
 		}
 	}
 	
-	/// Title of selected state for button; also inspectable from Storyboard.
 	@IBInspectable
+	/// SwifterSwift: Title of selected state for button; also inspectable from Storyboard.
 	public var titleForSelected: String? {
 		get {
 			return title(for: .selected)
@@ -164,4 +143,41 @@ public extension UIButton {
 			setTitle(newValue, for: .selected)
 		}
 	}
+	
+}
+
+
+// MARK: - Methods
+public extension UIButton {
+	
+	/// SwifterSwift: Set image for all states.
+	///
+	/// - Parameter image: UIImage.
+	public func setImageForAllStates(_ image: UIImage) {
+		setImage(image, for: .normal)
+		setImage(image, for: .selected)
+		setImage(image, for: .highlighted)
+		setImage(image, for: .disabled)
+	}
+	
+	/// SwifterSwift: Set title color for all states.
+	///
+	/// - Parameter color: UIColor.
+	public func setTitleColorForAllStates(_ color: UIColor) {
+		setTitleColor(color, for: .normal)
+		setTitleColor(color, for: .selected)
+		setTitleColor(color, for: .highlighted)
+		setTitleColor(color, for: .disabled)
+	}
+	
+	/// SwifterSwift: Set title for all states.
+	///
+	/// - Parameter title: title string.
+	public func setTitleForAllStates(_ title: String) {
+		setTitle(title, for: .normal)
+		setTitle(title, for: .selected)
+		setTitle(title, for: .highlighted)
+		setTitle(title, for: .disabled)
+	}
+	
 }

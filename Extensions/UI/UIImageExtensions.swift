@@ -8,8 +8,49 @@
 
 import UIKit
 
+
+// MARK: - Properties
 public extension UIImage {
-	/// Crop image to CGRect.
+	
+	/// SwifterSwift: Size in bytes of UIImage
+	public var bytesSize: Int {
+		return UIImageJPEGRepresentation(self, 1)?.count ?? 0
+	}
+	
+	/// SwifterSwift: Size in kilo bytes of UIImage
+	public var kilobytesSize: Int {
+		return bytesSize / 1024
+	}
+	
+}
+
+
+// MARK: - Methods
+public extension UIImage {
+	
+	/// SwifterSwift: Compressed UIImage from original UIImage.
+	///
+	/// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
+	/// - Returns: optional UIImage (if applicable).
+	public func compressed(quality: CGFloat = 0.5) -> UIImage? {
+		guard let data = compressedData(quality: quality) else {
+			return nil
+		}
+		return UIImage(data: data)
+	}
+	
+	/// SwifterSwift: Compressed UIImage data from original UIImage.
+	///
+	/// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
+	/// - Returns: optional Data (if applicable).
+	public func compressedData(quality: CGFloat = 0.5) -> Data? {
+		return UIImageJPEGRepresentation(self, quality)
+	}
+	
+	/// SwifterSwift: UIImage Cropped to CGRect.
+	///
+	/// - Parameter rect: CGRect to crop UIImage to.
+	/// - Returns: cropped UIImage
 	public func cropped(to rect: CGRect) -> UIImage {
 		guard rect.size.height < self.size.height && rect.size.height < self.size.height else {
 			return self
@@ -20,17 +61,12 @@ public extension UIImage {
 		return UIImage(cgImage: cgImage)
 	}
 	
-	/// Create image from color and size.
-	public convenience init(color: UIColor, size: CGSize) {
-		UIGraphicsBeginImageContextWithOptions(size, false, 1)
-		color.setFill()
-		UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
-		let image = UIGraphicsGetImageFromCurrentImageContext()!
-		UIGraphicsEndImageContext()
-		self.init(cgImage: image.cgImage!)
-	}
-	
-	/// Scale image to height with respect to aspect ratio.
+	/// SwifterSwift: UIImage scaled to height with respect to aspect ratio.
+	///
+	/// - Parameters:
+	///   - toHeight: new height.
+	///   - orientation: optional UIImage orientation (default is nil).
+	/// - Returns: optional scaled UIImage (if applicable).
 	public func scaled(toHeight: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
 		let scale = toHeight / self.size.height
 		let newWidth = self.size.width * scale
@@ -41,7 +77,12 @@ public extension UIImage {
 		return newImage
 	}
 	
-	/// Scale image to width with respect to aspect ratio.
+	/// SwifterSwift: UIImage scaled to width with respect to aspect ratio.
+	///
+	/// - Parameters:
+	///   - toWidth: new width.
+	///   - orientation: optional UIImage orientation (default is nil).
+	/// - Returns: optional scaled UIImage (if applicable).
 	public func scaled(toWidth: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
 		let scale = toWidth / self.size.width
 		let newHeight = self.size.height * scale
@@ -52,7 +93,10 @@ public extension UIImage {
 		return newImage
 	}
 	
-	/// Return image filled with color
+	/// SwifterSwift: UIImage filled with color
+	///
+	/// - Parameter color: color to fill image with.
+	/// - Returns: UIImage filled with given color.
 	public func filled(withColor color: UIColor) -> UIImage {
 		UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
 		color.setFill()
@@ -75,6 +119,26 @@ public extension UIImage {
 		}
 		UIGraphicsEndImageContext()
 		return newImage
+	}
+	
+}
+
+
+// MARK: - Initializers
+public extension UIImage {
+	
+	/// SwifterSwift: Create UIImage from color and size.
+	///
+	/// - Parameters:
+	///   - color: image fill color.
+	///   - size: image size.
+	public convenience init(color: UIColor, size: CGSize) {
+		UIGraphicsBeginImageContextWithOptions(size, false, 1)
+		color.setFill()
+		UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+		let image = UIGraphicsGetImageFromCurrentImageContext()!
+		UIGraphicsEndImageContext()
+		self.init(cgImage: image.cgImage!)
 	}
 	
 }

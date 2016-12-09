@@ -7,13 +7,17 @@
 //
 
 import Foundation
+
+
+// MARK: - Properties
 public extension Int {
-	/// Return absolute of integer value.
+	
+	/// SwifterSwift: Absolute value of integer.
 	public var abs: Int {
 		return Swift.abs(self)
 	}
 	
-	/// Return string with number and current locale currency
+	/// SwifterSwift: String with number and current locale currency.
 	public var asLocaleCurrency: String {
 		let formatter = NumberFormatter()
 		formatter.numberStyle = .currency
@@ -21,12 +25,12 @@ public extension Int {
 		return formatter.string(from: self as NSNumber)!
 	}
 	
-	/// Return radian value of degree input.
+	/// SwifterSwift: Radian value of degree input.
 	public var degreesToRadians: Double {
 		return Double(M_PI) * Double(self) / 180.0
 	}
 	
-	/// Return array of digits of integer value.
+	/// SwifterSwift: Array of digits of integer value.
 	public var digits: [Int] {
 		var digits: [Int] = []
 		for char in String(self).characters {
@@ -37,53 +41,27 @@ public extension Int {
 		return digits
 	}
 	
-	/// Returns number of digits of integer value.
+	/// SwifterSwift: Number of digits of integer value.
 	public var digitsCount: Int {
 		return String(self).characters.count
 	}
 	
-	/// Return greatest common divisor of integer value and n.
-	public func gcd(of n: Int) -> Int {
-		return n == 0 ? self : n.gcd(of: self % n)
-	}
-	
-}
-
-/// Return value of exponentiation.
-infix operator **
-public func ** (leftInt: Int, rightInt: Int) -> Double {
-	// http://nshipster.com/swift-operators/
-	return pow(Double(leftInt), Double(rightInt))
-}
-
-public extension Int {
-	/// Checks if integer value is even.
+	/// SwifterSwift: Check if integer is even.
 	public var isEven: Bool {
 		return (self % 2) == 0
 	}
 	
-	/// Checks if integer value is odd.
+	/// SwifterSwift: Check if integer is odd.
 	public var isOdd: Bool {
 		return (self % 2) != 0
 	}
 	
-	/// Return least common multiple of integer value and n.
-	public func lcm(of n: Int) -> Int {
-		return (self * n).abs / gcd(of: n)
-	}
-	
-	/// Return degree value of radian input
+	/// SwifterSwift: Degree value of radian input
 	public var radiansToDegrees: Double {
 		return Double(self) * 180 / Double(M_PI)
 	}
 	
-	/// Return random integer value between two integer values.
-	public static func randomBetween(min: Int, max: Int) -> Int {
-		let delta = max - min
-		return min + Int(arc4random_uniform(UInt32(delta)))
-	}
-	
-	/// Return roman numeral from integer.
+	/// SwifterSwift: Roman numeral string from integer (if applicable).
 	public var romanNumeral: String? {
 		// https://gist.github.com/kumo/a8e1cb1f4b7cff1548c7
 		guard self > 0 else { // there is no roman numerals for 0 or negative numbers
@@ -111,7 +89,7 @@ public extension Int {
 		return romanValue
 	}
 	
-	/// Return string of format (XXh XXm) from seconds Int
+	/// SwifterSwift: String of format (XXh XXm) from seconds Int
 	public var timeString: String {
 		guard self > 0 else {
 			return "0 sec"
@@ -135,25 +113,85 @@ public extension Int {
 			return "\(hours) h \(mins) m"
 		}
 	}
+	
 }
 
-/// Return square root of value.
+
+// MARK: - Methods
+public extension Int {
+	
+	/// SwifterSwift: Greatest common divisor of integer value and n.
+	///
+	/// - Parameter n: integer value to find gcd with.
+	/// - Returns: greatest common divisor of self and n.
+	public func gcd(of n: Int) -> Int {
+		return n == 0 ? self : n.gcd(of: self % n)
+	}
+	
+	/// SwifterSwift: Least common multiple of integer and n.
+	///
+	/// - Parameter n: integer value to find lcm with.
+	/// - Returns: least common multiple of self and n.
+	public func lcm(of n: Int) -> Int {
+		return (self * n).abs / gcd(of: n)
+	}
+	
+	/// SwifterSwift: Random integer between two integer values.
+	///
+	/// - Parameters:
+	///   - min: minimum number to start random from.
+	///   - max: maximum number random number end before.
+	/// - Returns: random integer between two integer values.
+	public static func randomBetween(min: Int, max: Int) -> Int {
+		let delta = max - min
+		return min + Int(arc4random_uniform(UInt32(delta)))
+	}
+	
+}
+
+
+// MARK: - Operators
+
+infix operator **
+/// SwifterSwift: Value of exponentiation.
+///
+/// - Parameters:
+///   - lhs: base integer.
+///   - rhs: exponent integer.
+/// - Returns: exponentiation result (2 ** 3 = 8).
+public func ** (lhs: Int, rhs: Int) -> Double {
+	// http://nshipster.com/swift-operators/
+	return pow(Double(lhs), Double(rhs))
+}
+
 prefix operator √
+/// SwifterSwift: Square root of integer.
+///
+/// - Parameter int: integer value to find square root for
+/// - Returns: square root of given integer.
 public prefix func √ (int: Int) -> Double {
 	// http://nshipster.com/swift-operators/
 	return sqrt(Double(int))
 }
 
-/// Return tuple of plus-minus operation.
 infix operator ±
-public func ± (leftInt: Int, rightInt: Int) -> (Int, Int) {
+/// SwifterSwift: Tuple of plus-minus operation.
+///
+/// - Parameters:
+///   - lhs: integer number
+///   - rhs: integer number
+/// - Returns: tuple of plus-minus operation ( 2 ± 3 -> (5, -1)).
+public func ± (lhs: Int, rhs: Int) -> (Int, Int) {
 	// http://nshipster.com/swift-operators/
-	return (leftInt + rightInt, leftInt - rightInt)
+	return (lhs + rhs, lhs - rhs)
 }
 
-// Return tuple of plus-minus operation.
 prefix operator ±
-public prefix func ± (value: Int) -> (Int, Int) {
+/// SwifterSwift: Tuple of plus-minus operation.
+///
+/// - Parameter int: integer number
+/// - Returns: tuple of plus-minus operation (± 2 -> (2, -2)).
+public prefix func ± (int: Int) -> (Int, Int) {
 	// http://nshipster.com/swift-operators/
-	return 0 ± value
+	return 0 ± int
 }

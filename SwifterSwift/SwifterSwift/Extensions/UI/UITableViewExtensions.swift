@@ -8,13 +8,11 @@
 
 import UIKit
 
+
+// MARK: - Properties
 public extension UITableView {
-	/// Return index path for last row in section.
-	public func indexPathForLastRow(in section: Int) -> IndexPath? {
-		return IndexPath(row: numberOfRows(inSection: section) - 1, section: section)
-	}
 	
-	/// Return index path of last row in table.
+	/// SwifterSwift: Index path of last row in table.
 	public var indexPathForLastRow: IndexPath? {
 		guard numberOfRows > 0 else {
 			return nil
@@ -22,37 +20,15 @@ public extension UITableView {
 		return IndexPath(row: numberOfRows - 1, section: lastSection)
 	}
 	
-	/// Return last section in table.
-	var lastSection: Int {
+	/// SwifterSwift: Index of last section in table.
+	public var lastSection: Int {
 		guard numberOfSections > 1 else {
 			return 0
 		}
 		return numberOfSections - 1
 	}
 	
-	/// Remove TableFooterView.
-	public func removeTableFooterView() {
-		tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-	}
-	
-	/// Remove TableHeaderView.
-	public func removeTableHeaderView() {
-		tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-	}
-	
-	
-	/// Scroll to bottom of TableView.
-	public func scrollToBottom(animated: Bool = true) {
-		let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height)
-		setContentOffset(bottomOffset, animated: animated)
-	}
-	
-	/// Scroll to top of TableView.
-	public func scrollToTop(animated: Bool = true) {
-		setContentOffset(CGPoint.zero, animated: animated)
-	}
-	
-	/// Return number of all rows in all sections of table
+	/// SwifterSwift: Number of all rows in all sections of table.
 	public var numberOfRows: Int {
 		var section = 0
 		var rowCount = 0
@@ -62,4 +38,45 @@ public extension UITableView {
 		}
 		return rowCount
 	}
+
+}
+
+
+// MARK: - Methods
+public extension UITableView {
+	
+	///Set place holder text color Index path for last row in section.
+	///
+	/// - Parameter section: section to check
+	/// - Returns: optional last indexPath for last row in section (if applicable).
+	public func indexPathForLastRow(in section: Int) -> IndexPath? {
+		return IndexPath(row: numberOfRows(inSection: section) - 1, section: section)
+	}
+	
+	/// SwifterSwift: Remove TableFooterView.
+	public func removeTableFooterView() {
+		tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+	}
+	
+	/// SwifterSwift: Remove TableHeaderView.
+	public func removeTableHeaderView() {
+		tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+	}
+	
+	
+	/// SwifterSwift: Scroll to bottom of TableView.
+	///
+	/// - Parameter animated: set true to animate scroll (default is true).
+	public func scrollToBottom(animated: Bool = true) {
+		let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height)
+		setContentOffset(bottomOffset, animated: animated)
+	}
+	
+	/// SwifterSwift: Scroll to top of TableView.
+	///
+	/// - Parameter animated: set true to animate scroll (default is true).
+	public func scrollToTop(animated: Bool = true) {
+		setContentOffset(CGPoint.zero, animated: animated)
+	}
+	
 }

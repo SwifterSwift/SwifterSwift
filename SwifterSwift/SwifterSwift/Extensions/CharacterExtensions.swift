@@ -8,17 +8,11 @@
 
 import Foundation
 
-/// Return character repeated n times.
-public func * (leftCharacter: Character, rightInt: Int) -> String {
-	var newString = ""
-	for _ in 0 ..< rightInt {
-		newString += String(leftCharacter)
-	}
-	return newString
-}
 
+// MARK: - Properties
 public extension Character {
-	/// Return true if character is emoji.
+	
+	/// SwifterSwift: Check if character is emoji.
 	public var isEmoji: Bool {
 		// http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
 		guard let scalarValue = String(self).unicodeScalars.first?.value else {
@@ -36,18 +30,53 @@ public extension Character {
 		}
 	}
 	
-	/// Return true if character is number.
+	/// SwifterSwift: Check if character is number.
 	public var isNumber: Bool {
 		return Int(String(self)) != nil
 	}
 	
-	/// Return integer from character (if applicable).
-	public var toInt: Int? {
+	/// SwifterSwift: Integer from character (if applicable).
+	public var int: Int? {
 		return Int(String(self))
 	}
 	
-	/// Return string from character.
-	public var toString: String {
+	/// SwifterSwift: String from character.
+	public var string: String {
 		return String(self)
 	}
+	
+}
+
+
+// MARK: - Operators
+public extension Character {
+	
+	/// SwifterSwift: Repeat character multiple times.
+	///
+	/// - Parameters:
+	///   - lhs: character to repeat.
+	///   - rhs: number of times to repeat character.
+	/// - Returns: string with character repeated n times.
+	static public func * (lhs: Character, rhs: Int) -> String {
+		var newString = ""
+		for _ in 0 ..< rhs {
+			newString += String(lhs)
+		}
+		return newString
+	}
+	
+	/// SwifterSwift: Repeat character multiple times.
+	///
+	/// - Parameters:
+	///   - lhs: number of times to repeat character.
+	///   - rhs: character to repeat.
+	/// - Returns: string with character repeated n times.
+	static public func * (lhs: Int, rhs: Character) -> String {
+		var newString = ""
+		for _ in 0 ..< lhs {
+			newString += String(rhs)
+		}
+		return newString
+	}
+	
 }
