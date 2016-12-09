@@ -21,14 +21,14 @@ SwifterSwift is a collection of extensions found on [Stack Overflow](https://sta
 Its in its early stages, any new idea is appreciated and welcomed, however please refer to the following rules before submitting a pull request:
 
 - Add original place of extension source (if possile) as a comment inside extension:
-```swift
-public extension SomeType {
+ ```swift
+ public extension SomeType {
 	public name: SomeType {
 			// https://stackoverflow.com/somepage
 			// .. code
  	}
-}
-```
+ }
+ ```
 - All extensions should follow [Swift API Design Guidelines](https://developer.apple.com/videos/play/wwdc2016/403/)
 - Always declare extensions as **public**.
 - All extensions names should be as clear as possible.
