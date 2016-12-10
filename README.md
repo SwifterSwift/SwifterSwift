@@ -11,10 +11,12 @@
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-A handy collection of more than 360 native Swift 3 extensions to boost your productivity.
+A handy collection of **more than 360 native Swift 3 extensions** to boost your productivity.
 
 
 ## [Whats New in v1.3?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v13)
+v1.3 adds **more than 90 new extensions** making it the widest extensions library available online for Swift 3 with extensions for more than **35 type**.
+This is the biggest update since library launch! we're so excited 🤓
 
 ## Requirements:
 
