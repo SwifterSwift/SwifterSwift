@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - Properties
 public extension Data {
-	
+
 	/// SwifterSwift: NSAttributedString from Data (if applicable).
 	var attributedString: NSAttributedString? {
 		// http://stackoverflow.com/questions/39248092/nsattributedstring-extension-in-swift-3
@@ -20,7 +20,7 @@ public extension Data {
 				NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil)
 		} catch _ {
 			return nil
-		}		
+		}
 	}
-	
+
 }

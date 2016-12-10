@@ -11,12 +11,12 @@ import Foundation
 
 // MARK: - Properties
 public extension Float {
-	
+
 	/// SwifterSwift: Absolute of float value.
 	public var abs: Float {
 		return Swift.abs(self)
 	}
-	
+
 	/// SwifterSwift: String with number and current locale currency.
 	public var asLocaleCurrency: String {
 		let formatter = NumberFormatter()
@@ -24,33 +24,33 @@ public extension Float {
 		formatter.locale = Locale.current
 		return formatter.string(from: self as NSNumber)!
 	}
-	
+
 	/// SwifterSwift: Ceil of float value.
 	public var ceil: Float {
 		return Foundation.ceil(self)
 	}
-	
+
 	/// SwifterSwift: Radian value of degree input.
 	public var degreesToRadians: Float {
 		return Float(M_PI) * self / 180.0
 	}
-	
+
 	/// SwifterSwift: Floor of float value.
 	public var floor: Float {
 		return Foundation.floor(self)
 	}
-	
+
 	/// SwifterSwift: Degree value of radian input.
 	public var radiansToDegrees: Float {
 		return self * 180 / Float(M_PI)
 	}
-	
+
 }
 
 
 // MARK: - Methods
 extension Float {
-	
+
 	/// SwifterSwift: Random float between two float values.
 	///
 	/// - Parameters:
@@ -61,7 +61,7 @@ extension Float {
 		let delta = max - min
 		return min + Float(arc4random_uniform(UInt32(delta)))
 	}
-	
+
 }
 
 
@@ -110,4 +110,3 @@ public prefix func ± (Float: Float) -> (Float, Float) {
 	// http://nshipster.com/swift-operators/
 	return 0 ± Float
 }
-

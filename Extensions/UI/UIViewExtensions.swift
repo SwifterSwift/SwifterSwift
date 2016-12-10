@@ -8,41 +8,37 @@
 
 import UIKit
 
-
 // MARK: - enums
-public extension UIView {
-	
-	/// SwifterSwift: Shake directions of a view.
-	///
-	/// - horizontal: Shake left and right.
-	/// - vertical: Shake up and down.
-	public enum ShakeDirection {
-		case horizontal
-		case vertical
-	}
-	
-	/// SwifterSwift: Angle units.
-	///
-	/// - degrees: degrees.
-	/// - radians: radians.
-	public enum AngleUnit {
-		case degrees
-		case radians
-	}
-	
-	/// SwifterSwift: Shake animations types.
-	///
-	/// - linear: linear animation.
-	/// - easeIn: easeIn animation
-	/// - easeOut: easeOut animation.
-	/// - easeInOut: easeInOut animation.
-	public enum ShakeAnimationType {
-		case linear
-		case easeIn
-		case easeOut
-		case easeInOut
-	}
-	
+
+/// SwifterSwift: Shake directions of a view.
+///
+/// - horizontal: Shake left and right.
+/// - vertical: Shake up and down.
+public enum ShakeDirection {
+	case horizontal
+	case vertical
+}
+
+/// SwifterSwift: Angle units.
+///
+/// - degrees: degrees.
+/// - radians: radians.
+public enum AngleUnit {
+	case degrees
+	case radians
+}
+
+/// SwifterSwift: Shake animations types.
+///
+/// - linear: linear animation.
+/// - easeIn: easeIn animation
+/// - easeOut: easeOut animation.
+/// - easeInOut: easeInOut animation.
+public enum ShakeAnimationType {
+	case linear
+	case easeIn
+	case easeOut
+	case easeInOut
 }
 
 
@@ -103,7 +99,7 @@ public extension UIView {
 		return nil
 	}
 	
-	// SwifterSwift: Height of view
+	// SwifterSwift: Height of view.
 	public var height: CGFloat {
 		get {
 			return self.frame.size.height
@@ -136,7 +132,7 @@ public extension UIView {
 	}
 	
 	/// SwifterSwift: Take screenshot of view (if applicable).
-	public var screenShot: UIImage? {
+	public var screenshot: UIImage? {
 		UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0.0);
 		defer {
 			UIGraphicsEndImageContext()

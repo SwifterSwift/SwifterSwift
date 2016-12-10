@@ -73,7 +73,7 @@ infix operator **
 /// - Parameters:
 ///   - lhs: base double.
 ///   - rhs: exponent double.
-/// - Returns: exponentiation result (4.4 ** 0.5 = 2.0976176963).
+/// - Returns: exponentiation result (example: 4.4 ** 0.5 = 2.0976176963).
 public func ** (lhs: Double, rhs: Double) -> Double {
 	// http://nshipster.com/swift-operators/
 	return pow(lhs, rhs)
@@ -95,7 +95,7 @@ infix operator ±
 /// - Parameters:
 ///   - lhs: double number
 ///   - rhs: double number
-/// - Returns: tuple of plus-minus operation ( 2.5 ± 1.5 -> (4, 1)).
+/// - Returns: tuple of plus-minus operation (example: 2.5 ± 1.5 -> (4, 1)).
 public func ± (lhs: Double, rhs: Double) -> (Double, Double) {
 	// http://nshipster.com/swift-operators/
 	return (lhs + rhs, lhs - rhs)
@@ -105,7 +105,7 @@ prefix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
 /// - Parameter int: double number
-/// - Returns: tuple of plus-minus operation (± 2.5 -> (2.5, -2.5)).
+/// - Returns: tuple of plus-minus operation (example: ± 2.5 -> (2.5, -2.5)).
 public prefix func ± (double: Double) -> (Double, Double) {
 	// http://nshipster.com/swift-operators/
 	return 0 ± double

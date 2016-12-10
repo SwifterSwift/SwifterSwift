@@ -99,7 +99,7 @@ public extension UIView {
 		return nil
 	}
 	
-	// SwifterSwift: Height of view
+	// SwifterSwift: Height of view.
 	public var height: CGFloat {
 		get {
 			return self.frame.size.height
@@ -132,7 +132,7 @@ public extension UIView {
 	}
 	
 	/// SwifterSwift: Take screenshot of view (if applicable).
-	public var screenShot: UIImage? {
+	public var screenshot: UIImage? {
 		UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0.0);
 		defer {
 			UIGraphicsEndImageContext()

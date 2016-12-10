@@ -119,7 +119,10 @@ public extension String {
 	
 	/// SwifterSwift: Last character of string (if applicable).
 	public var lastCharacter: String? {
-		return Array(characters).map({String($0)}).last
+		guard let last = characters.last else {
+			return nil
+		}
+		return String(last)
 	}
 	
 	/// SwifterSwift: Latinized string.
@@ -337,8 +340,11 @@ public extension String {
 	/// - Parameter ofLength: number of characters in string.
 	/// - Returns: random string of given length.
 	public static func random(ofLength: Int) -> String {
-		let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 		var string = ""
+		guard ofLength > 0 else {
+			return string
+		}
+		let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 		for _ in 0..<ofLength {
 			let randomIndex = arc4random_uniform(UInt32(base.characters.count))
 			string += "\(base[base.index(base.startIndex, offsetBy: IndexDistance(randomIndex))])"
@@ -403,12 +409,15 @@ public extension String {
 	///   - toLength: maximum number of charachters before cutting.
 	///   - trailing: string to add at the end of truncated string.
 	public mutating func truncate(toLength: Int, trailing: String? = "...") {
+		guard toLength > 0 else {
+			return
+		}
 		if self.characters.count > toLength {
 			self = self.substring(to: self.index(startIndex, offsetBy: toLength)) + (trailing ?? "")
 		}
 	}
 	
-	/// SwifterSwift: Return truncated string (limited to a given number of characters).
+	/// SwifterSwift: Truncated string (limited to a given number of characters).
 	/// Truncated string (cut to a given number of characters).
 	///
 	/// - Parameters:
@@ -416,18 +425,18 @@ public extension String {
 	///   - trailing: string to add at the end of truncated string.
 	/// - Returns: truncated string (this is an exa...).
 	public func truncated(toLength: Int, trailing: String? = "...") -> String {
-		guard self.characters.count > toLength else {
+		guard self.characters.count > toLength, toLength > 0 else {
 			return self
 		}
 		return self.substring(to: self.index(startIndex, offsetBy: toLength)) + (trailing ?? "")
 	}
 	
-	/// SwifterSwift: Readable string from URL string.
+	/// SwifterSwift: Convert URL string to readable string.
 	public mutating func urlDecode() {
 		self = removingPercentEncoding ?? self
 	}
 	
-	/// SwifterSwift: URL escaped string.
+	/// SwifterSwift: Escape string.
 	public mutating func urlEncode() {
 		self = addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
 	}
@@ -558,7 +567,7 @@ public extension String {
 		return (self as NSString).appendingPathComponent(str)
 	}
 	
-	/// SwifterSwift: NSString appendingPathExtension(str: String)
+	/// SwifterSwift: NSString appendingPathExtension(str: String) (if applicable).
 	public func appendingPathExtension(_ str: String) -> String? {
 		return (self as NSString).appendingPathExtension(str)
 	}

@@ -11,7 +11,7 @@ import Foundation
 
 // MARK: - Properties
 public extension Character {
-	
+
 	/// SwifterSwift: Check if character is emoji.
 	public var isEmoji: Bool {
 		// http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
@@ -29,28 +29,28 @@ public extension Character {
 			return false
 		}
 	}
-	
+
 	/// SwifterSwift: Check if character is number.
 	public var isNumber: Bool {
 		return Int(String(self)) != nil
 	}
-	
+
 	/// SwifterSwift: Integer from character (if applicable).
 	public var int: Int? {
 		return Int(String(self))
 	}
-	
+
 	/// SwifterSwift: String from character.
 	public var string: String {
 		return String(self)
 	}
-	
+
 }
 
 
 // MARK: - Operators
 public extension Character {
-	
+
 	/// SwifterSwift: Repeat character multiple times.
 	///
 	/// - Parameters:
@@ -64,7 +64,7 @@ public extension Character {
 		}
 		return newString
 	}
-	
+
 	/// SwifterSwift: Repeat character multiple times.
 	///
 	/// - Parameters:
@@ -78,5 +78,5 @@ public extension Character {
 		}
 		return newString
 	}
-	
+
 }

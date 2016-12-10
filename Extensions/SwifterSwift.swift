@@ -58,7 +58,7 @@ public struct SwifterSwift {
 		return UIDevice.current
 	}
 	
-	/// SwifterSwift: Device height.
+	/// SwifterSwift: Screen height.
 	public static var screenHeight: CGFloat {
 		return UIScreen.main.bounds.height
 	}
@@ -78,7 +78,7 @@ public struct SwifterSwift {
 		return UIDevice.current.orientation
 	}
 	
-	/// SwifterSwift: Device width.
+	/// SwifterSwift: Screen width.
 	public static var screenWidth: CGFloat {
 		return UIScreen.main.bounds.width
 	}
@@ -113,17 +113,17 @@ public struct SwifterSwift {
 		return UIDevice.current.userInterfaceIdiom == .pad
 	}
 	
-	/// SwifterSwift: Chek if device is iPhone.
+	/// SwifterSwift: Check if device is iPhone.
 	public static var isPhone: Bool {
 		return UIDevice.current.userInterfaceIdiom == .phone
 	}
 	
-	/// SwifterSwift: Check if device is registered for remote notifications for current app (read only).
+	/// SwifterSwift: Check if device is registered for remote notifications for current app (read-only).
 	public static var isRegisteredForRemoteNotifications: Bool {
 		return UIApplication.shared.isRegisteredForRemoteNotifications
 	}
 	
-	/// SwifterSwift: Check if application is running on simulator.
+	/// SwifterSwift: Check if application is running on simulator (read-only).
 	public static var isRunningOnSimulator: Bool {
 		// http://stackoverflow.com/questions/24869481/detect-if-app-is-being-built-for-device-or-simulator-in-swift
 		#if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
@@ -175,12 +175,12 @@ public struct SwifterSwift {
 		}
 	}
 	
-	/// SwifterSwift: System current version.
+	/// SwifterSwift: System current version (read-only).
 	public static var systemVersion: String {
 		return UIDevice.current.systemVersion
 	}
 	
-	/// SwifterSwift: Shared instance of standard UserDefaults
+	/// SwifterSwift: Shared instance of standard UserDefaults (read-only).
 	public static var userDefaults: UserDefaults {
 		return UserDefaults.standard
 	}

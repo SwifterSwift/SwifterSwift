@@ -189,12 +189,12 @@ public extension Date {
 		return Calendar.current.date(from: components) ?? Date()
 	}
 	
-	/// SwifterSwift: Return time zone used by system.
+	/// SwifterSwift: Time zone used by system.
 	public var timeZone: TimeZone {
 		return self.calendar.timeZone
 	}
 	
-	/// SwifterSwift: Get UNIX timestamp from date.
+	/// SwifterSwift: UNIX timestamp from date.
 	public var unixTimestamp: Double {
 		return timeIntervalSince1970
 	}

@@ -45,7 +45,7 @@ public extension UITableView {
 // MARK: - Methods
 public extension UITableView {
 	
-	///Set place holder text color Index path for last row in section.
+	/// SwifterSwift: IndexPath for last row in section.
 	///
 	/// - Parameter section: section to check
 	/// - Returns: optional last indexPath for last row in section (if applicable).

@@ -266,8 +266,8 @@
 				07A560C21DFAD1A500BB1568 /* UITableViewExtensions.swift */,
 				07A560C31DFAD1A500BB1568 /* UITextFieldExtensions.swift */,
 				07A560C41DFAD1A500BB1568 /* UITextViewExtensions.swift */,
-				07A560C51DFAD1A500BB1568 /* UIViewControllerExtensions.swift */,
 				07A560C61DFAD1A500BB1568 /* UIViewExtensions.swift */,
+				07A560C51DFAD1A500BB1568 /* UIViewControllerExtensions.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";

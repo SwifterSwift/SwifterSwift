@@ -11,7 +11,7 @@ import Foundation
 
 // MARK: - Methods
 public extension Dictionary {
-	
+
 	/// SwifterSwift: Check if key exists in dictionary.
 	///
 	/// - Parameter key: key to search for
@@ -19,7 +19,7 @@ public extension Dictionary {
 	func has(key: Key) -> Bool {
 		return index(forKey: key) != nil
 	}
-	
+
 	/// SwifterSwift: JSON Data from dictionary.
 	///
 	/// - Parameter prettify: set true to prettify data (default is false).
@@ -36,7 +36,7 @@ public extension Dictionary {
 			return nil
 		}
 	}
-	
+
 	/// SwifterSwift: JSON String from dictionary.
 	///
 	/// - Parameter prettify: set true to prettify string (default is false).
@@ -53,13 +53,13 @@ public extension Dictionary {
 			return nil
 		}
 	}
-	
+
 }
 
 
 // MARK: - Methods (ExpressibleByStringLiteral)
 public extension Dictionary where Key: ExpressibleByStringLiteral {
-	
+
 	/// SwifterSwift: Lowercase all keys in dictionary.
 	public mutating func lowercaseAllKeys() {
 		// http://stackoverflow.com/questions/33180028/extend-dictionary-where-key-is-of-type-string
@@ -69,5 +69,5 @@ public extension Dictionary where Key: ExpressibleByStringLiteral {
 			}
 		}
 	}
-	
+
 }

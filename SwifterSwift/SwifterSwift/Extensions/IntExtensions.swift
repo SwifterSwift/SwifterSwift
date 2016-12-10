@@ -158,7 +158,7 @@ infix operator **
 /// - Parameters:
 ///   - lhs: base integer.
 ///   - rhs: exponent integer.
-/// - Returns: exponentiation result (2 ** 3 = 8).
+/// - Returns: exponentiation result (example: 2 ** 3 = 8).
 public func ** (lhs: Int, rhs: Int) -> Double {
 	// http://nshipster.com/swift-operators/
 	return pow(Double(lhs), Double(rhs))
@@ -180,7 +180,7 @@ infix operator ±
 /// - Parameters:
 ///   - lhs: integer number
 ///   - rhs: integer number
-/// - Returns: tuple of plus-minus operation ( 2 ± 3 -> (5, -1)).
+/// - Returns: tuple of plus-minus operation (example: 2 ± 3 -> (5, -1)).
 public func ± (lhs: Int, rhs: Int) -> (Int, Int) {
 	// http://nshipster.com/swift-operators/
 	return (lhs + rhs, lhs - rhs)
@@ -190,7 +190,7 @@ prefix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
 /// - Parameter int: integer number
-/// - Returns: tuple of plus-minus operation (± 2 -> (2, -2)).
+/// - Returns: tuple of plus-minus operation (example: ± 2 -> (2, -2)).
 public prefix func ± (int: Int) -> (Int, Int) {
 	// http://nshipster.com/swift-operators/
 	return 0 ± int
