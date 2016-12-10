@@ -7,9 +7,12 @@
 //
 
 import UIKit
+
+
+// MARK: - Properties
 public extension UITextField {
 	
-	/// Return true if text field is empty.
+	/// SwifterSwift: Check if text field is empty.
 	public var isEmpty: Bool {
 		if let text = self.text {
 			return text.characters.isEmpty
@@ -17,49 +20,57 @@ public extension UITextField {
 		return true
 	}
 	
-	/// Return text with no spaces or new lines in beginning and end.
-	var trimmedText: String? {
+	/// SwifterSwift: Return text with no spaces or new lines in beginning and end.
+	public var trimmedText: String? {
 		return text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
 	}
 	
-	/// Set place holder text color
+	@IBInspectable
+	/// SwifterSwift: Left view tint color.
+	public var leftViewTintColor: UIColor? {
+		get {
+			guard let iconView = self.leftView as? UIImageView else {
+				return nil
+			}
+			return iconView.tintColor
+		}
+		set {
+			guard let iconView = self.leftView as? UIImageView else {
+				return
+			}
+			iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
+			iconView.tintColor = newValue
+		}
+	}
+	
+	@IBInspectable
+	/// SwifterSwift: Right view tint color.
+	public var rightViewTintColor: UIColor? {
+		get {
+			guard let iconView = self.rightView as? UIImageView else {
+				return nil
+			}
+			return iconView.tintColor
+		}
+		set {
+			guard let iconView = self.rightView as? UIImageView else {
+				return
+			}
+			iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
+			iconView.tintColor = newValue
+		}
+	}
+}
+
+
+// MARK: - Methods
+public extension UITextField {
+	
+	/// SwifterSwift: Set placeholder text color.
+	///
+	/// - Parameter color: placeholder text color.
 	public func setPlaceHolderTextColor(_ color: UIColor) {
 		self.attributedPlaceholder = NSAttributedString(string:self.placeholder != nil ? self.placeholder! : "", attributes:[NSForegroundColorAttributeName: color])
 	}
 	
-	/// Left view tint color
-	@IBInspectable
-	var leftViewTintColor: UIColor? {
-		get {
-			guard let iconView = self.leftView as? UIImageView else {
-				return nil
-			}
-			return iconView.tintColor
-		}
-		set {
-			guard let iconView = self.leftView as? UIImageView else {
-				return
-			}
-			iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
-			iconView.tintColor = newValue
-		}
-	}
-	
-	/// Right view tint color
-	@IBInspectable
-	var rightViewTintColor: UIColor? {
-		get {
-			guard let iconView = self.rightView as? UIImageView else {
-				return nil
-			}
-			return iconView.tintColor
-		}
-		set {
-			guard let iconView = self.rightView as? UIImageView else {
-				return
-			}
-			iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
-			iconView.tintColor = newValue
-		}
-	}
 }

@@ -8,10 +8,17 @@
 
 import UIKit
 
+
+// MARK: - Methods
 public extension CGSize {
-	/// Aspect fit CGSize.
+	
+	/// SwifterSwift: Aspect fit CGSize.
+	///
+	/// - Parameter boundingSize: bounding size to fit self to.
+	/// - Returns: self fitted to given bounding size
 	public func aspectFit(to boundingSize: CGSize) -> CGSize {
 		let minRatio = min(boundingSize.width / width, boundingSize.height / height)
-		return CGSize(width: width*minRatio, height: height*minRatio)
+		return CGSize(width: width * minRatio, height: height * minRatio)
 	}
+	
 }

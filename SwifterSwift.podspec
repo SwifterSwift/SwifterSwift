@@ -1,34 +1,40 @@
 Pod::Spec.new do |spec|
   spec.name = "SwifterSwift"
-  spec.version = "1.2.2"
-  spec.summary = "A handy collection of more than 290 native Swift 3 extensions to boost your productivity."
+  spec.version = "1.3"
+  spec.summary = "A handy collection of more than 360 native Swift 3 extensions to boost your productivity."
   spec.description = <<-DESC
-  Swifter Swift is a library of over 290 properties and methods, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3
+  SwifterSwift is a library of over 360 properties and methods for more than 35 types, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3
 
   List Of Extensions
     - Array extensions
+    - Bool extensions
     - Character extensions
-    - Convenience extensions
+    - Data extensions
     - Date extensions
     - Dictionary extensions
     - Double extensions
     - Float extensions
     - Int extensions
     - String extensions
+    - SwifterSwift
     - CGFloat extensions
+    - CGPoint extensions
     - CGSize extensions
+    - NSAttributedString extensions
     - UIAlertController extensions
+    - UIBarButtonItem extensions
     - UIButton extensions
     - UIColor extensions
     - UIImage extensions
     - UIImageView extensions
+    - UILabel extensions
     - UINavigationBar extensions
     - UINavigationController extensions
     - UINavigationItem extensions
     - UISearchBar extensions
     - UISegmentedControl extensions
     - UISlider extensions
-    - UILabel extensions
+    - UISwitch extensions
     - UITabBar extensions
     - UITableView extensions
     - UITextField extensions

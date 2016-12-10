@@ -8,8 +8,11 @@
 
 import UIKit
 
+
+// MARK: - Properties
 public extension UISearchBar {
-	/// Return the text field inside search bar
+	
+	/// SwifterSwift: Text field inside search bar (if applicable).
 	public var textField: UITextField? {
 		let subViews = subviews.flatMap { $0.subviews }
 		guard let textField = (subViews.filter { $0 is UITextField }).first as? UITextField else {
@@ -17,4 +20,5 @@ public extension UISearchBar {
 		}
 		return textField
 	}
+	
 }

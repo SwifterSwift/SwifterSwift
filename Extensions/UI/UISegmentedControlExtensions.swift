@@ -8,9 +8,11 @@
 
 import UIKit
 
+
+// MARK: - Properties
 public extension UISegmentedControl {
 	
-	/// Segments titles
+	/// SwifterSwift: Segments titles.
 	public var segmentTitles: [String?] {
 		get {
 			var titles: [String?] = []
@@ -29,7 +31,7 @@ public extension UISegmentedControl {
 		}
 	}
 	
-	/// Segments images
+	/// SwifterSwift: Segments images.
 	public var segmentImages: [UIImage?] {
 		get {
 			var images: [UIImage?] = []
@@ -47,4 +49,5 @@ public extension UISegmentedControl {
 			}
 		}
 	}
+	
 }
