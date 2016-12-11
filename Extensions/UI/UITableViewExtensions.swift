@@ -12,7 +12,7 @@ import UIKit
 // MARK: - Properties
 public extension UITableView {
 	
-	/// SwifterSwift: Index path of last row in table.
+	/// SwifterSwift: Index path of last row in tableView.
 	public var indexPathForLastRow: IndexPath? {
 		guard numberOfRows > 0 else {
 			return nil
@@ -20,20 +20,17 @@ public extension UITableView {
 		return IndexPath(row: numberOfRows - 1, section: lastSection)
 	}
 	
-	/// SwifterSwift: Index of last section in table.
+	/// SwifterSwift: Index of last section in tableView.
 	public var lastSection: Int {
-		guard numberOfSections > 1 else {
-			return 0
-		}
-		return numberOfSections - 1
+		return numberOfSections > 0 ? numberOfSections - 1 : 0
 	}
 	
-	/// SwifterSwift: Number of all rows in all sections of table.
+	/// SwifterSwift: Number of all rows in all sections of tableView.
 	public var numberOfRows: Int {
 		var section = 0
 		var rowCount = 0
-		while section < self.numberOfSections {
-			rowCount += self.numberOfRows(inSection: section)
+		while section < numberOfSections {
+			rowCount += numberOfRows(inSection: section)
 			section += 1
 		}
 		return rowCount
@@ -47,7 +44,7 @@ public extension UITableView {
 	
 	/// SwifterSwift: IndexPath for last row in section.
 	///
-	/// - Parameter section: section to check
+	/// - Parameter section: section to get last row in.
 	/// - Returns: optional last indexPath for last row in section (if applicable).
 	public func indexPathForLastRow(in section: Int) -> IndexPath? {
 		return IndexPath(row: numberOfRows(inSection: section) - 1, section: section)

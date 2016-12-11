@@ -11,11 +11,11 @@
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-A handy collection of **more than 360 native Swift 3 extensions** to boost your productivity.
+A handy collection of **more than 365 native Swift 3 extensions** to boost your productivity.
 
 
 ## [Whats New in v1.3?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v13)
-v1.3 adds **more than 90 new extensions** making it the widest extensions library available online for Swift 3 with extensions for more than **35 type**.
+v1.3 adds **more than 90 new extensions** making it the widest extensions library available online for Swift 3 with extensions for more than **36 type**.
 This is the biggest update since library launch! we're so excited 🤓
 
 ## Requirements:
@@ -84,6 +84,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 - [UIAlertController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/nsattributedstring-extensions)
 - [UIBarButtonItem extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uibarbuttonitem-extensions)
 - [UIButton extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uibutton-extensions)
+- [UICollectionView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uicollectionview-extensions)
 - [UIColor extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uicolor-extensions)
 - [UIImage extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiimage-extensions)
 - [UIImageView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiimageview-extensions)
@@ -105,7 +106,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## How cool is this?
 
-SwifterSwift is a library of over **360 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of swift 3.
+SwifterSwift is a library of over **365 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of swift 3.
 
 Here are some examples:
 

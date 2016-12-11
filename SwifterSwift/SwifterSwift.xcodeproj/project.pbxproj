@@ -90,6 +90,7 @@
 		07A5610A1DFAD1A600BB1568 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A560C51DFAD1A500BB1568 /* UIViewControllerExtensions.swift */; };
 		07A5610B1DFAD1A600BB1568 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A560C61DFAD1A500BB1568 /* UIViewExtensions.swift */; };
 		07A5610C1DFAD1A600BB1568 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A560C61DFAD1A500BB1568 /* UIViewExtensions.swift */; };
+		07ED1D4F1DFD4910008DAEA8 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ED1D4E1DFD4910008DAEA8 /* UICollectionViewExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +155,7 @@
 		07A560C41DFAD1A500BB1568 /* UITextViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtensions.swift; sourceTree = "<group>"; };
 		07A560C51DFAD1A500BB1568 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		07A560C61DFAD1A500BB1568 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		07ED1D4E1DFD4910008DAEA8 /* UICollectionViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 				07A560B31DFAD1A500BB1568 /* UIAlertControllerExtensions.swift */,
 				07A560B41DFAD1A500BB1568 /* UIBarButtonItemExtensions.swift */,
 				07A560B51DFAD1A500BB1568 /* UIButtonExtensions.swift */,
+				07ED1D4E1DFD4910008DAEA8 /* UICollectionViewExtensions.swift */,
 				07A560B61DFAD1A500BB1568 /* UIColorExtensions.swift */,
 				07A560B71DFAD1A500BB1568 /* UIImageExtensions.swift */,
 				07A560B81DFAD1A500BB1568 /* UIImageViewExtensions.swift */,
@@ -386,6 +389,7 @@
 				07A5610B1DFAD1A600BB1568 /* UIViewExtensions.swift in Sources */,
 				07A561011DFAD1A600BB1568 /* UITabBarExtensions.swift in Sources */,
 				07A560FF1DFAD1A600BB1568 /* UISwitchExtensions.swift in Sources */,
+				07ED1D4F1DFD4910008DAEA8 /* UICollectionViewExtensions.swift in Sources */,
 				07A560C71DFAD1A500BB1568 /* ArrayExtensions.swift in Sources */,
 				07A560E51DFAD1A600BB1568 /* UIAlertControllerExtensions.swift in Sources */,
 				07A560F31DFAD1A600BB1568 /* UINavigationBarExtensions.swift in Sources */,
