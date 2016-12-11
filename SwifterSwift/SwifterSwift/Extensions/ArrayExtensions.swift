@@ -11,13 +11,13 @@ import Foundation
 
 // MARK: - Properties
 public extension Array {
-
+	
 	/// SwifterSwift: Random item from array.
 	public var randomItem: Element {
 		let index = Int(arc4random_uniform(UInt32(self.count)))
 		return self[index]
 	}
-
+	
 	/// SwifterSwift: Shuffled version of array.
 	public var shuffled: [Element] {
 		var arr = self
@@ -26,66 +26,67 @@ public extension Array {
 		}
 		return arr
 	}
-
+	
 }
 
 
 // MARK: - Properties (Integer)
 public extension Collection where Iterator.Element == Int, Index == Int {
-
+	
 	/// SwifterSwift: Average of all elements in array.
 	public var average: Double {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return isEmpty ? 0 : Double(reduce(0, +)) / Double(endIndex-startIndex)
 	}
-
+	
 }
 
 
 // MARK: - Properties (Integer)
 public extension Array where Element: Integer {
-
+	
 	/// SwifterSwift: Sum of all elements in array.
 	public var sum: Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return reduce(0, +)
 	}
-
+	
 }
 
 
 // MARK: - Properties (FloatingPoint)
 public extension Array where Element: FloatingPoint {
-
+	
 	/// SwifterSwift: Average of all elements in array.
 	public var average: Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return isEmpty ? 0 : reduce(0, +) / Element(count)
 	}
-
+	
 	/// SwifterSwift: Sum of all elements in array.
 	public var sum: Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return reduce(0, +)
 	}
-
+	
 }
 
 
 // MARK: - Properties (Equatable)
 public extension Array where Element: Equatable {
-
+	
 	/// SwifterSwift: Array with all duplicates removed from it.
 	public var withoutDuplicates: [Element] {
-		return reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
+		// Thanks to https://github.com/sairamkotha for improving the preperty
+		return reduce([]){ ($0 as [Element]).contains($1) ? $0 : $0 + [$1] }
 	}
-
+	
 }
 
 
 // MARK: - Methods
 public extension Array {
-
+	
 	/// SwifterSwift: Element at the given index if it exists.
 	///
 	/// - Parameter index: index of element.
@@ -94,7 +95,7 @@ public extension Array {
 		guard index >= 0 && index < count else { return nil }
 		return self[index]
 	}
-
+	
 	/// SwifterSwift: First index of a given item in an array.
 	///
 	/// - Parameter item: item to check.
@@ -110,7 +111,7 @@ public extension Array {
 		}
 		return nil
 	}
-
+	
 	/// SwifterSwift: Last index of element in array.
 	///
 	/// - Parameter item: item to check.
@@ -126,7 +127,7 @@ public extension Array {
 		}
 		return nil
 	}
-
+	
 	/// SwifterSwift: Remove last element from array and return it.
 	///
 	/// - Returns: last elemets in array (if applicable).
@@ -136,21 +137,21 @@ public extension Array {
 		}
 		return removeLast()
 	}
-
+	
 	/// SwifterSwift: Insert an element at the beginning of array.
 	///
 	/// - Parameter newElement: element to insert.
 	public mutating func prepend(_ newElement: Element) {
 		self.insert(newElement, at: 0)
 	}
-
+	
 	/// SwifterSwift: Insert an element to the end of array.
 	///
 	/// - Parameter newElement: element to insert.
 	public mutating func push(_ newElement: Element) {
 		return append(newElement)
 	}
-
+	
 	/// SwifterSwift: Shuffle array.
 	public mutating func shuffle() {
 		// https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
@@ -158,21 +159,13 @@ public extension Array {
 			sort { (_,_) in arc4random() < arc4random() }
 		}
 	}
-
+	
 }
 
 
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
-
-	/// SwifterSwift: Check if array contains an element.
-	///
-	/// - Parameter element: element to check.
-	/// - Returns: true if array contains the given item.
-	public func contains(_ element: Element) -> Bool {
-		return self.contains(where: { $0 == element })
-	}
-
+	
 	/// SwifterSwift: Check if array contains an array of elements.
 	///
 	/// - Parameter elements: array of elements to check.
@@ -183,13 +176,13 @@ public extension Array where Element: Equatable {
 		}
 		var found = true
 		for element in elements {
-			if !contains(where: { $0 == element }) {
+			if !contains(element) {
 				found = false
 			}
 		}
 		return found
 	}
-
+	
 	/// SwifterSwift: All indexes of specified item.
 	///
 	/// - Parameter item: item to check.
@@ -203,17 +196,18 @@ public extension Array where Element: Equatable {
 		}
 		return indexes
 	}
-
+	
 	/// SwifterSwift: Remove all instances of an item from array.
 	///
 	/// - Parameter item: item to remove.
 	public mutating func removeAll(_ item: Element) {
 		self = self.filter { $0 != item }
 	}
-
+	
 	/// SwifterSwift: Remove all duplicates from array.
 	public mutating func removeDuplicates() {
+		// Thanks to https://github.com/sairamkotha for improving the method
 		self = reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
 	}
-
+	
 }
