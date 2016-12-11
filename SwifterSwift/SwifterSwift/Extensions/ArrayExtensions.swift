@@ -77,13 +77,7 @@ public extension Array where Element: Equatable {
 
 	/// SwifterSwift: Array with all duplicates removed from it.
 	public var withoutDuplicates: [Element] {
-		var result: [Element] = []
-		for value in self {
-			if result.contains(where: { $0 == value }) {
-				result.append(value)
-			}
-		}
-		return result
+		return reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
 	}
 
 }
@@ -219,13 +213,7 @@ public extension Array where Element: Equatable {
 
 	/// SwifterSwift: Remove all duplicates from array.
 	public mutating func removeDuplicates() {
-		var result: [Element] = []
-		for value in self {
-			if result.contains(value) == false {
-				result.append(value)
-			}
-		}
-		self = result
+		self = reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
 	}
 
 }
