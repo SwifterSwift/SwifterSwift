@@ -54,7 +54,7 @@ $ pod install
 
 ### Manually
 
-Add the [extensions](Extensions) folder to your Xcode project to use all extensions, or a specific extension.
+Add the [extensions](SwifterSwift/SwifterSwift/Extensions) folder to your Xcode project to use all extensions, or a specific extension.
 
 
 
