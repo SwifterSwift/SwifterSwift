@@ -397,7 +397,7 @@ public extension UIView {
 		CATransaction.commit()
 	}
 	
-	/// SwifterSwift: Add Visual Format constraints
+	/// SwifterSwift: Add Visual Format constraints.
 	///
 	/// - Parameters:
 	///   - withFormat: visual Format language
@@ -413,7 +413,7 @@ public extension UIView {
 		addConstraints(NSLayoutConstraint.constraints(withVisualFormat: withFormat, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
 	}
 	
-	/// SwifterSwift: Anchor all sides of the view into it's superview
+	/// SwifterSwift: Anchor all sides of the view into it's superview.
 	@available(iOS 9, *) public func fillToSuperview() {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
