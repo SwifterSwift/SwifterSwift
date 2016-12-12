@@ -412,7 +412,7 @@ image.kilobytesSize = 114
 imageView.download(from url, contentMode: .scaleAspectFit, placeHolder: UIImage?)
 
 // Blur image view
-imageVuew.blur(withStyle: .light)
+imageView.blur(withStyle: .light)
 
 // and many others!
 ```

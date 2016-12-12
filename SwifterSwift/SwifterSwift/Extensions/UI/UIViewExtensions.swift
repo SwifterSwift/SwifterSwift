@@ -397,23 +397,23 @@ public extension UIView {
 		CATransaction.commit()
 	}
 	
-	/// SwifterSwift: Add Visual Format constraints
+	/// SwifterSwift: Add Visual Format constraints.
 	///
 	/// - Parameters:
 	///   - withFormat: visual Format language
 	///   - views: array of views which will be accessed starting with index 0 (example: [v0], [v1], [v2]..)
 	@available(iOS 9, *) public func addConstraints(withFormat: String, views: UIView...) {
 		// https://videos.letsbuildthatapp.com/
-		var viewsDictionary: [String: UIView] = []
+		var viewsDictionary: [String: UIView] = [:]
 		for (index, view) in views.enumerated() {
 			let key = "v\(index)"
 			view.translatesAutoresizingMaskIntoConstraints = false
 			viewsDictionary[key] = view
 		}
-		addConstraints(NSLayoutConstraint.constraints(withVisualFormat: format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
+		addConstraints(NSLayoutConstraint.constraints(withVisualFormat: withFormat, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
 	}
 	
-	/// SwifterSwift: Anchor all sides of the view into it's superview
+	/// SwifterSwift: Anchor all sides of the view into it's superview.
 	@available(iOS 9, *) public func fillToSuperview() {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
@@ -481,7 +481,7 @@ public extension UIView {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		if let anchor = superview?.centerXAnchor {
-			centerXAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
+			centerXAnchor.constraint(equalTo: anchor, constant: withConstant).isActive = true
 		}
 	}
 	
