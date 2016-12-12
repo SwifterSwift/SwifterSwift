@@ -21,4 +21,10 @@ public extension CGSize {
 		return CGSize(width: width * minRatio, height: height * minRatio)
 	}
 	
+	// scale self to boundingSize
+	public func aspectFit(to boundingSize: CGSize) -> CGSize {
+		let minRatio = max(boundingSize.width / width, boundingSize.height / height)
+		return CGSize(width: width * minRatio, height: height * minRatio)
+	}
+	
 }
