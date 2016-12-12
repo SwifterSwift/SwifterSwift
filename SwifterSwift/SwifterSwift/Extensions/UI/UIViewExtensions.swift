@@ -424,7 +424,7 @@ public extension UIView {
 			bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
 		}
 	}
-	
+
 	/// SwifterSwift: Add anchors from any side of the current view into the specified anchors and returns the newly added constraints.
 	///
 	/// - Parameters:
