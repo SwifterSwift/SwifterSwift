@@ -19,7 +19,8 @@ This also allows maintainers to focus on improving the project for others.
 ## Adding new Extensions
 SwifterSwift is a collection of extensions found on [Stack Overflow](https://stackoverflow.com), [Github](https://github.com), and the internet.
 Its in its early stages, any new idea is appreciated and welcomed, however please refer to the following rules before submitting a pull request:
-
+- Add your contributons to [**development branch** ](https://github.com/omaralbeik/SwifterSwift/tree/development):
+	- by doing this we can merge new pull-requests as soon as they are accepted to development, and merge them to master with next releases once they are fully tested.
 - Add original place of extension source (if possile) as a comment inside extension:
 
  ```swift
