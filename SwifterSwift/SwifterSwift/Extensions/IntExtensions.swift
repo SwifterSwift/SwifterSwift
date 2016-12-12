@@ -114,6 +114,23 @@ public extension Int {
 		}
 	}
 	
+	/// SwifterSwift: String formatted for values over ±1000 (example: 1k, -2k, 100k, 1kk, -5kk..)
+	public var kFormatted: String {
+		var sign: String {
+			return self >= 0 ? "" : "-"
+		}
+		let abs = self.abs
+		if abs >= 0 && abs < 1000 {
+			return "0K"
+		} else if abs >= 1000 && abs < 1000000 {
+			return String(format: "\(sign)%ik", abs / 1000)
+		} else if abs >= 1000000 {
+			return String(format: "\(sign)%ikk", abs / 100000)
+		} else {
+			return String(describing: self)
+		}
+	}
+	
 }
 
 
