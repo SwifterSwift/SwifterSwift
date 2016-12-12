@@ -402,7 +402,7 @@ public extension UIView {
 	/// - Parameters:
 	///   - withFormat: visual Format language
 	///   - views: array of views which will be accessed starting with index 0 (example: [v0], [v1], [v2]..)
-	public func addConstraints(withFormat: String, views: UIView...) {
+	@available(iOS 9, *) public func addConstraints(withFormat: String, views: UIView...) {
 		// https://videos.letsbuildthatapp.com/
 		var viewsDictionary: [String: UIView] = []
 		for (index, view) in views.enumerated() {
@@ -414,7 +414,7 @@ public extension UIView {
 	}
 	
 	/// SwifterSwift: Anchor all sides of the view into it's superview
-	public func fillToSuperview() {
+	@available(iOS 9, *) public func fillToSuperview() {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		if let superview = superview {
@@ -424,7 +424,7 @@ public extension UIView {
 			bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
 		}
 	}
-
+	
 	/// SwifterSwift: Add anchors from any side of the current view into the specified anchors and returns the newly added constraints.
 	///
 	/// - Parameters:
@@ -439,7 +439,7 @@ public extension UIView {
 	///   - widthConstant: current view's width
 	///   - heightConstant: current view's height
 	/// - Returns: array of newly added constraints (if applicable).
-	@discardableResult public func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
+	@available(iOS 9, *) @discardableResult public func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		
@@ -477,7 +477,7 @@ public extension UIView {
 	/// SwifterSwift: Anchor center X into current view's superview with a constant margin value.
 	///
 	/// - Parameter withConstant: constant of the anchor constraint.
-	public func anchorCenterXToSuperview(withConstant: CGFloat = 0) {
+	@available(iOS 9, *) public func anchorCenterXToSuperview(withConstant: CGFloat = 0) {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		if let anchor = superview?.centerXAnchor {
@@ -488,7 +488,7 @@ public extension UIView {
 	/// SwifterSwift: Anchor center Y into current view's superview with a constant margin value.
 	///
 	/// - Parameter withConstant: constant of the anchor constraint.
-	public func anchorCenterYToSuperview(constant: CGFloat = 0) {
+	@available(iOS 9, *) public func anchorCenterYToSuperview(constant: CGFloat = 0) {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		if let anchor = superview?.centerYAnchor {
@@ -497,7 +497,7 @@ public extension UIView {
 	}
 	
 	/// SwifterSwift: Anchor center X and Y into current view's superview
-	public func anchorCenterSuperview() {
+	@available(iOS 9, *) public func anchorCenterSuperview() {
 		// https://videos.letsbuildthatapp.com/
 		anchorCenterXToSuperview()
 		anchorCenterYToSuperview()
