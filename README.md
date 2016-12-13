@@ -16,12 +16,12 @@ A handy collection of **more than 370 native Swift 3 extensions** to boost your 
 
 ## [Whats New in v1.3?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v13)
 v1.3 adds **more than 90 new extensions** making it the widest extensions library available online for Swift 3 with extensions for more than **36 type**.
-This is the biggest update since library launch! we're so excited 🤓
+This is the biggest update since library launch! We're so excited 🤓.
 
 ## Requirements:
 
 Xcode 8 (or later) with Swift 3.
-This library is made for iOS 8 or later, however most of the extensions should work on watchOS, tvOS, and macOS
+This library is made for iOS 8 or later, however most of the extensions should work on watchOS, tvOS, and macOS.
 
 
 ## Installation
@@ -128,7 +128,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## How cool is this?
 
-SwifterSwift is a library of over **370 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of swift 3.
+SwifterSwift is a library of over **370 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
 
 Here are some examples:
 
