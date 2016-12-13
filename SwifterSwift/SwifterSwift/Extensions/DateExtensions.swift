@@ -43,7 +43,7 @@ public extension Date {
 			return calendar.component(.month, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: newValue, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: newValue, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond)
 		}
 	}
 	
