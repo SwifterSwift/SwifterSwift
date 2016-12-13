@@ -4,6 +4,7 @@
 
 [![Build Status](https://travis-ci.org/omaralbeik/SwifterSwift.svg?branch=master)](https://travis-ci.org/omaralbeik/SwifterSwift)
 [![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
 [![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://github.com/omaralbeik/swifterSwift)
 [![Xcode](https://img.shields.io/badge/Xcode-8.0-blue.svg)](https://developer.apple.com/xcode)
@@ -16,12 +17,12 @@ A handy collection of **more than 370 native Swift 3 extensions** to boost your 
 
 ## [Whats New in v1.3?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v13)
 v1.3 adds **more than 90 new extensions** making it the widest extensions library available online for Swift 3 with extensions for more than **36 type**.
-This is the biggest update since library launch! we're so excited 🤓
+This is the biggest update since library launch! We're so excited 🤓.
 
 ## Requirements:
 
 Xcode 8 (or later) with Swift 3.
-This library is made for iOS 8 or later, however most of the extensions should work on watchOS, tvOS, and macOS
+This library is made for iOS 8 or later, however most of the extensions should work on watchOS, tvOS, and macOS.
 
 
 ## Installation
@@ -102,8 +103,8 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 - [CGFloat extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgfloat-extensions)
 - [CGPoint extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgpoint-extensions)
 - [CGSize extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgsize-extensions)
-- [NSAttributedString extensions](https://github.com/omaralbeik/SwifterSwift/wiki/nsstring-extensions)
-- [UIAlertController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/nsattributedstring-extensions)
+- [NSAttributedString extensions](https://github.com/omaralbeik/SwifterSwift/wiki/nsattributedstring-extensions)
+- [UIAlertController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uialertcontroller-extensions)
 - [UIBarButtonItem extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uibarbuttonitem-extensions)
 - [UIButton extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uibutton-extensions)
 - [UICollectionView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uicollectionview-extensions)
@@ -128,7 +129,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## How cool is this?
 
-SwifterSwift is a library of over **370 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of swift 3.
+SwifterSwift is a library of over **370 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
 
 Here are some examples:
 
