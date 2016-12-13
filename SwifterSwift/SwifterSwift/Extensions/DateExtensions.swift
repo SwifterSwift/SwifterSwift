@@ -28,7 +28,7 @@ public extension Date {
 			return calendar.component(.year, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: newValue, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: newValue, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond)
 		}
 	}
 	
