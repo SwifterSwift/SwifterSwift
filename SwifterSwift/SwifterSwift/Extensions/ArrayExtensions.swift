@@ -211,3 +211,14 @@ public extension Array where Element: Equatable {
 	}
 	
 }
+
+
+extension CollectionType {
+    
+    /// safe protects the array from out of bounds by use of optional
+    ///
+    ///- Usage: array[safe: index] 
+    subscript (safe index: Index) -> Generator.Element? {
+        return indices.contains(index) ? self[index]: nil
+    }
+}
