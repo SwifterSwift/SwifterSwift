@@ -118,19 +118,6 @@ public extension UIView {
 		}
 	}
 	
-	/// SwifterSwift: Check if view is visible in screen currently and not hidden.
-	public var isVisible: Bool {
-		// https://github.com/hilen/TimedSilver/blob/master/Sources/UIKit/UIView%2BTSExtension.swift
-		if self.window == nil || self.isHidden || self.alpha == 0 {
-			return true
-		}
-		let viewRect = self.convert(self.bounds, to: nil)
-		guard let window = UIApplication.shared.keyWindow else {
-			return true
-		}
-		return viewRect.intersects(window.bounds) == false
-	}
-	
 	/// SwifterSwift: Take screenshot of view (if applicable).
 	public var screenshot: UIImage? {
 		UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0.0);
@@ -191,7 +178,7 @@ public extension UIView {
 		}
 	}
 	
-	// SwifterSwift: Size of view.
+	/// SwifterSwift: Size of view.
 	public var size: CGSize {
 		get {
 			return self.frame.size
@@ -202,7 +189,19 @@ public extension UIView {
 		}
 	}
 	
-	// SwifterSwift: Width of view.
+	/// SwifterSwift: Get view's parent view controller
+	public var parentViewController: UIViewController? {
+		weak var parentResponder: UIResponder? = self
+		while parentResponder != nil {
+			parentResponder = parentResponder!.next
+			if let viewController = parentResponder as? UIViewController {
+				return viewController
+			}
+		}
+		return nil
+	}
+	
+	/// SwifterSwift: Width of view.
 	public var width: CGFloat {
 		get {
 			return self.frame.size.width
@@ -267,7 +266,7 @@ public extension UIView {
 			self.isHidden = false
 		}
 		UIView.animate(withDuration: duration, animations: {
-			self.alpha = 0
+			self.alpha = 1
 		}, completion: completion)
 	}
 	
@@ -281,7 +280,7 @@ public extension UIView {
 			self.isHidden = false
 		}
 		UIView.animate(withDuration: duration, animations: {
-			self.alpha = 1
+			self.alpha = 0
 		}, completion: completion)
 	}
 	
@@ -315,14 +314,10 @@ public extension UIView {
 	///   - completion: optional completion handler to run with animation finishes (default is nil).
 	public func rotate(byAngle angle : CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
 		let angleWithType = (type == .degrees) ? CGFloat(M_PI) * angle / 180.0 : angle
-		if animated {
-			UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
-				self.transform = self.transform.rotated(by: angleWithType)
-			}, completion: completion)
-		} else {
+		let aDuration = animated ? duration : 0
+		UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
 			self.transform = self.transform.rotated(by: angleWithType)
-			completion?(true)
-		}
+		}, completion: completion)
 	}
 	
 	/// SwifterSwift: Rotate view to angle on fixed axis.
@@ -335,14 +330,10 @@ public extension UIView {
 	///   - completion: optional completion handler to run with animation finishes (default is nil).
 	public func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
 		let angleWithType = (type == .degrees) ? CGFloat(M_PI) * angle / 180.0 : angle
-		if animated {
-			UIView.animate(withDuration: duration, animations: {
-				self.transform = CGAffineTransform(rotationAngle: angleWithType)
-			}, completion: completion)
-		} else {
-			transform = CGAffineTransform(rotationAngle: angleWithType)
-			completion?(true)
-		}
+		let aDuration = animated ? duration : 0
+		UIView.animate(withDuration: aDuration, animations: {
+			self.transform = self.transform.concatenating(CGAffineTransform(rotationAngle: angleWithType))
+		}, completion: completion)
 	}
 	
 	/// SwifterSwift: Scale view by offset.
