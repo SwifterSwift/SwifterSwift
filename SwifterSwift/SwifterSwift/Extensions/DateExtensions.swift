@@ -28,7 +28,7 @@ public extension Date {
 			return calendar.component(.year, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: newValue, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond)
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: newValue, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? Date()
 		}
 	}
 	
@@ -43,7 +43,7 @@ public extension Date {
 			return calendar.component(.month, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: newValue, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond)
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: newValue, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? Date()
 		}
 	}
 	
@@ -68,7 +68,7 @@ public extension Date {
 			return calendar.component(.day, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: newValue, hour: hour, minute: minute, second: second, nanosecond: nanosecond)
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: newValue, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? Date()
 		}
 	}
 	
@@ -78,7 +78,7 @@ public extension Date {
 			return calendar.component(.hour, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: newValue, minute: minute, second: second, nanosecond: nanosecond)
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: newValue, minute: minute, second: second, nanosecond: nanosecond) ?? Date()
 		}
 	}
 	
@@ -88,7 +88,7 @@ public extension Date {
 			return calendar.component(.minute, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: newValue, second: second, nanosecond: nanosecond)
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: newValue, second: second, nanosecond: nanosecond) ?? Date()
 		}
 	}
 	
@@ -98,7 +98,7 @@ public extension Date {
 			return calendar.component(.second, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond)
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond) ?? Date()
 		}
 	}
 	
@@ -161,8 +161,8 @@ public extension Date {
 		return Calendar.current.date(from: components) ?? Date()
 	}
 	
-	/// SwifterSwift: Nearest quarter to date.
-	public var nearestHourQuarter: Date {
+	/// SwifterSwift: Nearest quarter hour to date.
+	public var nearestQuarterHour: Date {
 		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
 		guard let min = components.minute else {
 			return self
@@ -509,7 +509,7 @@ public extension Date {
 	///   - minute: Minute (default is current minute).
 	///   - second: Second (default is current second).
 	///   - nanosecond: Nanosecond (default is current nanosecond).
-	public init(
+	public init?(
 		calendar: Calendar? = Calendar.current,
 		timeZone: TimeZone? = TimeZone.current,
 		era: Int? = Date().era,
@@ -533,19 +533,27 @@ public extension Date {
 		components.second = second
 		components.nanosecond = nanosecond
 		
-		self = calendar?.date(from: components) ?? Date()
+		if let date = calendar?.date(from: components) {
+			self = date
+		} else {
+			return nil
+		}
 	}
 	
 	/// SwifterSwift: Create date object from ISO8601 string.
 	///
 	/// - Parameter iso8601String: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSSZ).
-	public init(iso8601String: String) {
+	public init?(iso8601String: String) {
 		// https://github.com/justinmakaila/NSDate-ISO-8601/blob/master/NSDateISO8601.swift
 		let dateFormatter = DateFormatter()
 		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
 		dateFormatter.timeZone = TimeZone.current
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-		self = dateFormatter.date(from: iso8601String) ?? Date()
+		if let date = dateFormatter.date(from: iso8601String) {
+			self = date
+		} else {
+			return nil
+		}
 	}
 	
 	/// SwifterSwift: Create new date object from UNIX timestamp.

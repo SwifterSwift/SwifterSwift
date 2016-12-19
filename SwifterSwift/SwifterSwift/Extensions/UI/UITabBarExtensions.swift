@@ -46,7 +46,9 @@ public extension UITabBar {
 				if let image = barItem.image {
 					barItem.image = image.filled(withColor: itemColor).withRenderingMode(.alwaysOriginal)
 					barItem.setTitleTextAttributes([NSForegroundColorAttributeName : itemColor], for: .normal)
-					barItem.setTitleTextAttributes([NSForegroundColorAttributeName : itemColor], for: .selected)
+					if let selected = selectedItem {
+						barItem.setTitleTextAttributes([NSForegroundColorAttributeName : selected], for: .selected)
+					}
 				}
 			}
 		}

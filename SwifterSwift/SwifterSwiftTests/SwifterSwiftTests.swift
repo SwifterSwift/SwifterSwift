@@ -1,5 +1,5 @@
 //
-//  ConvenienceExtensionsTests.swift
+//  SwifterSwiftTests.swift
 //  SwifterSwift
 //
 //  Created by Omar Albeik on 8/27/16.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class ConvenienceExtensionsTests: XCTestCase {
+class SwifterSwiftTests: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()
@@ -23,6 +23,6 @@ class ConvenienceExtensionsTests: XCTestCase {
 	
 	func testTypeName() {
 		let number = 8
-		XCTAssert(swifterSwift.typeName(for: number) == "Int", "Couldn't get correct value for \(#function)")
+		XCTAssert(SwifterSwift.typeName(for: number) == "Int", "Couldn't get correct value for \(#function)")
 	}
 }
