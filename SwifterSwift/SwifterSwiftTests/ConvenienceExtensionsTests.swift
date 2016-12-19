@@ -23,6 +23,6 @@ class ConvenienceExtensionsTests: XCTestCase {
 	
 	func testTypeName() {
 		let number = 8
-		XCTAssert(swifterSwift.typeName(for: number) == "Int", "Couldn't get correct value for \(#function)")
+		XCTAssert(SwifterSwift.typeName(for: number) == "Int", "Couldn't get correct value for \(#function)")
 	}
 }
