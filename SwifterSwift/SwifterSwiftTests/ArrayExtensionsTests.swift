@@ -26,10 +26,6 @@ class ArrayExtensionsTests: XCTestCase {
 		XCTAssert([1.2, 2.3, 3.4, 4.5, 5.6].average == 3.4, "Couldn't get correct value for \(#function)")
 	}
 	
-	func testDifference() {
-		XCTAssert([1, 2, 3, 4, 5].difference(from: [1, 3, 5, 7]) == [2, 4], "Couldn't get correct value for \(#function)")
-	}
-	
 	func testFirstIndex() {
 		XCTAssert([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2)! == 2, "Couldn't get correct value for \(#function)")
 	}
@@ -62,7 +58,7 @@ class ArrayExtensionsTests: XCTestCase {
 	
 	func testRemoveAll() {
 		var arr = [0, 1, 2, 0, 3, 4, 5, 0, 0]
-		arr.removeAll(item: 0)
+		arr.removeAll(0)
 		XCTAssert(arr == [1, 2, 3, 4, 5], "Couldn't get correct value for \(#function)")
 	}
 	
@@ -88,6 +84,6 @@ class ArrayExtensionsTests: XCTestCase {
 	}
 	
 	func testUniqueValues() {
-		XCTAssert([1, 1, 2, 2, 3, 3, 3, 4, 5].uniqueValues == [1, 2, 3, 4, 5], "Couldn't get correct value for \(#function)")
+		XCTAssert([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates == [1, 2, 3, 4, 5], "Couldn't get correct value for \(#function)")
 	}
 }
