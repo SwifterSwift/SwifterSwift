@@ -6,6 +6,14 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
+//
+//  CharacterExtensionsTests.swift
+//  SwifterSwift
+//
+//  Created by Omar Albeik on 8/27/16.
+//  Copyright © 2016 Omar Albeik. All rights reserved.
+//
+
 import XCTest
 @testable import SwifterSwift
 
@@ -37,11 +45,11 @@ class CharacterExtensionsTests: XCTestCase {
 	}
 	
 	func testToInt() {
-		XCTAssert(Character("1").toInt! == 1, "Couldn't get correct value for \(#function)")
-		XCTAssert(Character("s").toInt == nil, "Couldn't get correct value for \(#function)")
+		XCTAssert(Character("1").int! == 1, "Couldn't get correct value for \(#function)")
+		XCTAssert(Character("s").int == nil, "Couldn't get correct value for \(#function)")
 	}
 	
 	func testToString() {
-		XCTAssert(Character("s").toString == String("s"), "Couldn't get correct value for \(#function)")
+		XCTAssert(Character("s").string == String("s"), "Couldn't get correct value for \(#function)")
 	}
 }

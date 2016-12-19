@@ -13,7 +13,7 @@ class StringExtensionsTests: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
+		NSTimeZone.default = NSTimeZone.system
 	}
 	
 	override func tearDown() {
@@ -40,7 +40,7 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testContain() {
-		XCTAssert("Hello Tests".contain(string: "Hello") == true, "Couldn't get correct value for \(#function)")
+		XCTAssert("Hello Tests".contain("Hello") == true, "Couldn't get correct value for \(#function)")
 	}
 	
 	func testContainEmoji() {
@@ -134,11 +134,7 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testLines() {
-		XCTAssert("Hello\ntest".lines() == ["Hello", "test"], "Couldn't get correct value for \(#function) function")
-	}
-	
-	func testLocale() {
-		XCTAssert("Hello Tests".locale == Locale.current, "Couldn't get correct value for \(#function)")
+		XCTAssert("Hello\ntest".lines == ["Hello", "test"], "Couldn't get correct value for \(#function) function")
 	}
 	
 	func testMostCommonCharacter() {
@@ -147,11 +143,11 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testRandom() {
-		XCTAssert(String.random(of: 10).characters.count == 10, "Couldn't get correct value for \(#function) function")
+		XCTAssert(String.random(ofLength: 10).characters.count == 10, "Couldn't get correct value for \(#function) function")
 	}
 	
 	func testReplace() {
-		XCTAssert("Hello Test".replace(string: "e", with: "a") == "Hallo Tast", "Couldn't get correct value for \(#function) function")
+		XCTAssert("Hello Test".replacing("e", with: "a") == "Hallo Tast", "Couldn't get correct value for \(#function) function")
 	}
 	
 	func testReverse() {
@@ -165,7 +161,7 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testSplit() {
-		XCTAssert("Hello Tests".split(by: " ") == ["Hello", "Tests"], "Couldn't get correct value for \(#function)")
+		XCTAssert("Hello Tests".splited(by: " ") == ["Hello", "Tests"], "Couldn't get correct value for \(#function)")
 	}
 	
 	func testStart() {
@@ -178,22 +174,22 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testToBool() {
-		guard let num = "1".toBool, num == true else {
+		guard let num = "1".bool, num == true else {
 			XCTAssert(false, "Couldn't get correct value for \(#function) function")
 			return
 		}
-		guard let num2 = "false".toBool, num2 == false else {
+		guard let num2 = "false".bool, num2 == false else {
 			XCTAssert(false, "Couldn't get correct value for \(#function) function")
 			return
 		}
-		guard "8s".toBool == nil else {
+		guard "8s".bool == nil else {
 			XCTAssert(false, "Couldn't get correct value for \(#function) function")
 			return
 		}
 	}
 	
 	func testToDate() {
-		let dateFromStr = "2015-06-01".toDate
+		let dateFromStr = "2015-06-01".date
 		let year = dateFromStr?.year
 		let month = dateFromStr?.month
 		let day = dateFromStr?.day
@@ -201,7 +197,7 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testToDateTime() {
-		let dateFromStr = "2015-06-01 14:23:09".toDateTime
+		let dateFromStr = "2015-06-01 14:23:09".dateTime
 		let year = dateFromStr?.year
 		let month = dateFromStr?.month
 		let day = dateFromStr?.day
@@ -212,41 +208,41 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testToDouble() {
-		guard let num = "8".toDouble, num == 8 else {
+		guard let num = "8".double, num == 8 else {
 			XCTAssert(false, "Couldn't get correct value for \(#function) function")
 			return
 		}
-		guard let num2 = "8.23".toDouble, num2 == 8.23 else {
+		guard let num2 = "8.23".double, num2 == 8.23 else {
 			XCTAssert(false, "Couldn't get correct value for \(#function) function")
 			return
 		}
-		guard "8s".toDouble == nil else {
+		guard "8s".double == nil else {
 			XCTAssert(false, "Couldn't get correct value for \(#function) function")
 			return
 		}
 	}
 	
 	func testToFloat() {
-		guard let num = "8".toFloat, num == 8 else {
+		guard let num = "8".float, num == 8 else {
 			XCTAssert(false, "Couldn't get correct value for \(#function) function")
 			return
 		}
-		guard let num2 = "8.23".toFloat, num2 == 8.23 else {
+		guard let num2 = "8.23".float, num2 == 8.23 else {
 			XCTAssert(false, "Couldn't get correct value for \(#function) function")
 			return
 		}
-		guard "8s".toFloat == nil else {
+		guard "8s".float == nil else {
 			XCTAssert(false, "Couldn't get correct value for \(#function) function")
 			return
 		}
 	}
 	
 	func testToInt() {
-		guard let num = "8".toInt, num == 8 else {
+		guard let num = "8".int, num == 8 else {
 			XCTAssert(false, "Couldn't get correct value for \(#function) function")
 			return
 		}
-		guard "8s".toInt == nil else {
+		guard "8s".int == nil else {
 			XCTAssert(false, "Couldn't get correct value for \(#function) function")
 			return
 		}
@@ -264,12 +260,12 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testTruncate() {
 		var str = "This is a very long sentence"
-		str.truncate(to: 14)
+		str.truncate(toLength: 14)
 		XCTAssert(str == "This is a very...", "Couldn't get correct value for \(#function) function")
 	}
 	
 	func testTruncated() {
-		XCTAssert("This is a very long sentence".truncated(to: 14) == "This is a very...", "Couldn't get correct value for \(#function) function")
+		XCTAssert("This is a very long sentence".truncated(toLength: 14) == "This is a very...", "Couldn't get correct value for \(#function) function")
 	}
 	
 	func testUnicodeArray() {
