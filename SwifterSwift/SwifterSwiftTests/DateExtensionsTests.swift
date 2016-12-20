@@ -13,11 +13,7 @@ class DateExtensionsTests: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()
-<<<<<<< HEAD
-        NSTimeZone.default = TimeZone(abbreviation: "UTC")!
-=======
 		NSTimeZone.default = TimeZone(abbreviation: "UTC")!
->>>>>>> omaralbeik/development
 	}
 	
 	func testAdd() {

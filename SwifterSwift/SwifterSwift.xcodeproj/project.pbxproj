@@ -13,7 +13,6 @@
 		0786A4161DA8198D00DFD5C0 /* CGFloatExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A40B1DA8198D00DFD5C0 /* CGFloatExtensionsTests.swift */; };
 		0786A4171DA8198D00DFD5C0 /* CGSizeExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A40C1DA8198D00DFD5C0 /* CGSizeExtensionsTests.swift */; };
 		0786A4181DA8198D00DFD5C0 /* CharacterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A40D1DA8198D00DFD5C0 /* CharacterExtensionsTests.swift */; };
-		0786A4191DA8198D00DFD5C0 /* SwifterSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A40E1DA8198D00DFD5C0 /* SwifterSwiftTests.swift */; };
 		0786A41A1DA8198D00DFD5C0 /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A40F1DA8198D00DFD5C0 /* DateExtensionsTests.swift */; };
 		0786A41B1DA8198D00DFD5C0 /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A4101DA8198D00DFD5C0 /* DictionaryExtensionsTests.swift */; };
 		0786A41C1DA8198D00DFD5C0 /* DoubleExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A4111DA8198D00DFD5C0 /* DoubleExtensionsTests.swift */; };
@@ -89,6 +88,7 @@
 		07A5610B1DFAD1A600BB1568 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A560C61DFAD1A500BB1568 /* UIViewExtensions.swift */; };
 		07A5610C1DFAD1A600BB1568 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A560C61DFAD1A500BB1568 /* UIViewExtensions.swift */; };
 		07ED1D4F1DFD4910008DAEA8 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07ED1D4E1DFD4910008DAEA8 /* UICollectionViewExtensions.swift */; };
+		B3AD57741E094488001E9090 /* SwifterSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A40E1DA8198D00DFD5C0 /* SwifterSwiftTests.swift */; };
 		B3C36DEB1E08580300B48B4A /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C36DEA1E08580300B48B4A /* CollectionExtensions.swift */; };
 		B3C36DED1E08581D00B48B4A /* CollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C36DEC1E08581D00B48B4A /* CollectionExtensionsTests.swift */; };
 /* End PBXBuildFile section */
@@ -455,16 +455,10 @@
 				0786A41E1DA8198D00DFD5C0 /* IntExtensionsTests.swift in Sources */,
 				07A560F21DFAD1A600BB1568 /* UILabelExtensions.swift in Sources */,
 				0786A41B1DA8198D00DFD5C0 /* DictionaryExtensionsTests.swift in Sources */,
+				B3AD57741E094488001E9090 /* SwifterSwiftTests.swift in Sources */,
 				07A561041DFAD1A600BB1568 /* UITableViewExtensions.swift in Sources */,
 				07A5610A1DFAD1A600BB1568 /* UIViewControllerExtensions.swift in Sources */,
 				07A560CE1DFAD1A500BB1568 /* DataExtensions.swift in Sources */,
-<<<<<<< HEAD
-				0786A4191DA8198D00DFD5C0 /* ConvenienceExtensionsTests.swift in Sources */,
-=======
-				07A560C81DFAD1A500BB1568 /* ArrayExtensions.swift in Sources */,
-				07A560D21DFAD1A500BB1568 /* DictionaryExtensions.swift in Sources */,
-				0786A4191DA8198D00DFD5C0 /* SwifterSwiftTests.swift in Sources */,
->>>>>>> omaralbeik/development
 				0786A4171DA8198D00DFD5C0 /* CGSizeExtensionsTests.swift in Sources */,
 				0786A4161DA8198D00DFD5C0 /* CGFloatExtensionsTests.swift in Sources */,
 				07A560D01DFAD1A500BB1568 /* DateExtensions.swift in Sources */,

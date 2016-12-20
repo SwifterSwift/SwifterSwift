@@ -13,11 +13,7 @@ class StringExtensionsTests: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()
-<<<<<<< HEAD
         NSTimeZone.default = NSTimeZone.system
-=======
-		NSTimeZone.default = NSTimeZone.system
->>>>>>> omaralbeik/development
 	}
 	
 	override func tearDown() {
