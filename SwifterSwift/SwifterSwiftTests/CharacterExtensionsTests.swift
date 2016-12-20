@@ -6,6 +6,14 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
+//
+//  CharacterExtensionsTests.swift
+//  SwifterSwift
+//
+//  Created by Omar Albeik on 8/27/16.
+//  Copyright © 2016 Omar Albeik. All rights reserved.
+//
+
 import XCTest
 @testable import SwifterSwift
 
