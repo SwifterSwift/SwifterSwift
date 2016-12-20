@@ -13,7 +13,11 @@ class DateExtensionsTests: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()
+<<<<<<< HEAD
         NSTimeZone.default = TimeZone(abbreviation: "UTC")!
+=======
+		NSTimeZone.default = TimeZone(abbreviation: "UTC")!
+>>>>>>> omaralbeik/development
 	}
 	
 	func testAdd() {
@@ -71,15 +75,15 @@ class DateExtensionsTests: XCTestCase {
 		
 		XCTAssert(Date().beginning(of: .day)?.hour == 0 && (Date().beginning(of: .day)?.isInToday)!, "Could not get correct value for beginning of day in \(#function)")
 		
-		let date = Date(year: 2016, month: 8, day: 9)
+		let date = Date(year: 2016, month: 8, day: 9) ?? Date()
 		
-		let beginningOfWeek = Date(year: 2016, month: 8, day: 7)
+		let beginningOfWeek = Date(year: 2016, month: 8, day: 7) ?? Date()
 		XCTAssert(date.beginning(of: .weekOfMonth)?.day == beginningOfWeek.day, "Could not get correct value for beginning of week in \(#function)")
 		
-		let beginningOfMonth = Date(year: 2016, month: 8, day: 1)
+		let beginningOfMonth = Date(year: 2016, month: 8, day: 1) ?? Date()
 		XCTAssert(Date().beginning(of: .month)?.day == beginningOfMonth.day, "Could not get correct value for beginning of month in \(#function)")
 		
-		let beginningOfYear = Date(year: 2016, month: 1, day: 1)
+		let beginningOfYear = Date(year: 2016, month: 1, day: 1) ?? Date()
 		XCTAssert(Date().beginning(of: .year)?.day == beginningOfYear.day, "Could not get correct value for beginning of year in \(#function)")
 	}
 	
@@ -142,7 +146,7 @@ class DateExtensionsTests: XCTestCase {
 	}
 	
 	func testNewDateFromComponenets() {
-		let date = Date(calendar: Date().calendar, timeZone: Date().timeZone, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
+		let date = Date(calendar: Date().calendar, timeZone: Date().timeZone, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond) ?? Date()
 		let date1 = Date(timeIntervalSince1970: date.timeIntervalSince1970)
 		
 		XCTAssert(date.timeIntervalSince1970 == date1.timeIntervalSince1970, "Could not get correct value for \(#function)")

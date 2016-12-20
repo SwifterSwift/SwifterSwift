@@ -1,5 +1,5 @@
 //
-//  ConvenienceExtensionsTests.swift
+//  SwifterSwiftTests.swift
 //  SwifterSwift
 //
 //  Created by Omar Albeik on 8/27/16.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class ConvenienceExtensionsTests: XCTestCase {
+class SwifterSwiftTests: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()

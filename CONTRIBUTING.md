@@ -61,7 +61,8 @@ Its in its early stages, any new idea is appreciated and welcomed, however pleas
  public extension SomeType {}
  ```
  
-- Please add each extension in its appropriate place in the file
+- Please add each extension in its appropriate place in the file.
+- Please submit **only one commit** per pull-request.
 
 ## Reporting Issues
 A great way to contribute to the project is to send a detailed issue when you encounter an problem.
