@@ -151,6 +151,15 @@ Here are some examples:
 // and many others!
 ```
 
+#### Collection Extensions:
+
+```swift
+// Performs closure for each element of collection in parallel
+[1, 2, 3, 4, 5].forEachInParallel { element in
+            // some work with `element`
+        }
+```
+
 
 #### Date Extensions:
 
