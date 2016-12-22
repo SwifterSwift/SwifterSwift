@@ -165,10 +165,10 @@ Date().isInToday -> true
 Date().add(.month, value: 1)
 
 // Return date at the beginning of current day
-Date().beginning(of .day)
+Date().beginning(of: .day)
 
 // Return date at the end of current month
-Date().end(of .month)
+Date().end(of: .month)
 
 // Check if date is in current calendar unit
 Date().isInCurrent(.month) -> true
