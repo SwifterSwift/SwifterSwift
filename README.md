@@ -97,7 +97,7 @@ Note that the [Swift Package Manager](https://swift.org/package-manager) is stil
 
 ### Manually
 
-Add the [extensions](Sources/Extensions) folder to your Xcode project to use all extensions, or a specific extension.
+Add the [extensions](Source/Extensions) folder to your Xcode project to use all extensions, or a specific extension.
 
 
 
