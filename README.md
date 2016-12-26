@@ -15,9 +15,8 @@
 A handy collection of **more than 375 native Swift 3 extensions** to boost your productivity.
 
 
-## [Whats New in v1.3?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v13)
-v1.3 adds **more than 90 new extensions** making it the widest extensions library available online for Swift 3 with extensions for more than **36 type**.
-This is the biggest update since library launch! We're so excited 🤓.
+## [Whats New in v1.4?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v14)
+v1.4 adds **Swift Package Manager** support, and many bug fixes.
 
 ## Requirements:
 
