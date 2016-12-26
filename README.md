@@ -68,22 +68,42 @@ $ brew install carthage
 To integrate SwifterSwift into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "omaralbeik/SwifterSwift" ~> 1.3.4
+github "omaralbeik/SwifterSwift" ~> 1.3.9
 ```
 
 Run `carthage update` to build the framework and drag the built `SwifterSwift.framework` into your Xcode project.
 
 
 
+### Swift Package Manager
+
+You can use [The Swift Package Manager](https://swift.org/package-manager) to install `SwifterSwift` by adding the proper description to your `Package.swift` file:
+
+```swift
+import PackageDescription
+
+let package = Package(
+    name: "YOUR_PROJECT_NAME",
+    targets: [],
+    dependencies: [
+        .Package(url: "https://github.com/omaralbeik/SwifterSwift.git", versions: Version(1,3,9)..<Version(2, .max, .max)),
+    ]
+)
+```
+
+Note that the [Swift Package Manager](https://swift.org/package-manager) is still in early design and development, for more information checkout its [GitHub Page](https://github.com/apple/swift-package-manager)
+
+
+
 ### Manually
 
-Add the [extensions](SwifterSwift/SwifterSwift/Extensions) folder to your Xcode project to use all extensions, or a specific extension.
+Add the [extensions](Sources/Extensions) folder to your Xcode project to use all extensions, or a specific extension.
 
 
 
 ## How to contribute:
 
-SwifterSwift is in its early stages, any feedback is appreciated and welcomed.
+`SwifterSwift` is in its early stages, any feedback is appreciated and welcomed.
 Please refer to the [contributing guidelines](CONTRIBUTING.md) before participating.
 
 
@@ -130,7 +150,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## How cool is this?
 
-SwifterSwift is a library of over **375 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
+`SwifterSwift` is a library of over **375 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
 
 Here are some examples:
 
