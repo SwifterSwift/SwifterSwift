@@ -50,4 +50,14 @@ public extension UICollectionView {
 		return IndexPath(item: numberOfItems(inSection: section) - 1, section: section)
 	}
 	
+	/// Reload data with a completion handler.
+	///
+	/// - Parameter completion: completion handler to run after reloadData finishes.
+	func reloadData(_ completion: @escaping () -> Void) {
+		UIView.animate(withDuration: 0, animations: {
+			self.reloadData()
+		}, completion: { _ in
+			completion()
+		})
+	}
 }

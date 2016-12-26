@@ -50,6 +50,17 @@ public extension UITableView {
 		return IndexPath(row: numberOfRows(inSection: section) - 1, section: section)
 	}
 	
+	/// Reload data with a completion handler.
+	///
+	/// - Parameter completion: completion handler to run after reloadData finishes.
+	func reloadData(_ completion: @escaping () -> Void) {
+		UIView.animate(withDuration: 0, animations: {
+			self.reloadData()
+		}, completion: { _ in
+			completion()
+		})
+	}
+	
 	/// SwifterSwift: Remove TableFooterView.
 	public func removeTableFooterView() {
 		tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
