@@ -67,7 +67,7 @@ $ brew install carthage
 To integrate SwifterSwift into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "omaralbeik/SwifterSwift" ~> 1.3.9
+github "omaralbeik/SwifterSwift" ~> 1.4
 ```
 
 Run `carthage update` to build the framework and drag the built `SwifterSwift.framework` into your Xcode project.
@@ -85,7 +85,7 @@ let package = Package(
     name: "YOUR_PROJECT_NAME",
     targets: [],
     dependencies: [
-        .Package(url: "https://github.com/omaralbeik/SwifterSwift.git", versions: Version(1,3,9)..<Version(2, .max, .max)),
+        .Package(url: "https://github.com/omaralbeik/SwifterSwift.git", versions: Version(1,4,0)..<Version(2, .max, .max)),
     ]
 )
 ```
