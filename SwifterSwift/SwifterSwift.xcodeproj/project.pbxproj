@@ -20,6 +20,7 @@
 		0786A41D1DA8198D00DFD5C0 /* FloatExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A4121DA8198D00DFD5C0 /* FloatExtensionsTests.swift */; };
 		0786A41E1DA8198D00DFD5C0 /* IntExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A4131DA8198D00DFD5C0 /* IntExtensionsTests.swift */; };
 		0786A41F1DA8198D00DFD5C0 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0786A4141DA8198D00DFD5C0 /* StringExtensionsTests.swift */; };
+		07A226281E11B7B400D109F1 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A226271E11B7B400D109F1 /* CollectionExtensions.swift */; };
 		07A560C71DFAD1A500BB1568 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A560A31DFAD1A500BB1568 /* ArrayExtensions.swift */; };
 		07A560C81DFAD1A500BB1568 /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A560A31DFAD1A500BB1568 /* ArrayExtensions.swift */; };
 		07A560C91DFAD1A500BB1568 /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A560A41DFAD1A500BB1568 /* BoolExtensions.swift */; };
@@ -120,6 +121,7 @@
 		0786A4121DA8198D00DFD5C0 /* FloatExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtensionsTests.swift; sourceTree = "<group>"; };
 		0786A4131DA8198D00DFD5C0 /* IntExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensionsTests.swift; sourceTree = "<group>"; };
 		0786A4141DA8198D00DFD5C0 /* StringExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionsTests.swift; sourceTree = "<group>"; };
+		07A226271E11B7B400D109F1 /* CollectionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensions.swift; sourceTree = "<group>"; };
 		07A560A31DFAD1A500BB1568 /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
 		07A560A41DFAD1A500BB1568 /* BoolExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoolExtensions.swift; sourceTree = "<group>"; };
 		07A560A51DFAD1A500BB1568 /* CharacterExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterExtensions.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				07A560A31DFAD1A500BB1568 /* ArrayExtensions.swift */,
+				07A226271E11B7B400D109F1 /* CollectionExtensions.swift */,
 				07A560A41DFAD1A500BB1568 /* BoolExtensions.swift */,
 				07A560A51DFAD1A500BB1568 /* CharacterExtensions.swift */,
 				07A560A61DFAD1A500BB1568 /* DataExtensions.swift */,
@@ -418,6 +421,7 @@
 				07A560E91DFAD1A600BB1568 /* UIButtonExtensions.swift in Sources */,
 				07A560DF1DFAD1A600BB1568 /* CGPointExtensions.swift in Sources */,
 				07A561031DFAD1A600BB1568 /* UITableViewExtensions.swift in Sources */,
+				07A226281E11B7B400D109F1 /* CollectionExtensions.swift in Sources */,
 				07A560D11DFAD1A500BB1568 /* DictionaryExtensions.swift in Sources */,
 				07A560F91DFAD1A600BB1568 /* UISearchBarExtensions.swift in Sources */,
 				07A561071DFAD1A600BB1568 /* UITextViewExtensions.swift in Sources */,

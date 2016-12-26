@@ -149,35 +149,30 @@ public extension UIButton {
 
 // MARK: - Methods
 public extension UIButton {
+    
+    private var states: [UIControlState] {
+        return [.normal, .selected, .highlighted, .disabled]
+    }
 	
 	/// SwifterSwift: Set image for all states.
 	///
 	/// - Parameter image: UIImage.
 	public func setImageForAllStates(_ image: UIImage) {
-		setImage(image, for: .normal)
-		setImage(image, for: .selected)
-		setImage(image, for: .highlighted)
-		setImage(image, for: .disabled)
+		states.forEach { self.setImage(image, for:  $0) }
 	}
 	
 	/// SwifterSwift: Set title color for all states.
 	///
 	/// - Parameter color: UIColor.
 	public func setTitleColorForAllStates(_ color: UIColor) {
-		setTitleColor(color, for: .normal)
-		setTitleColor(color, for: .selected)
-		setTitleColor(color, for: .highlighted)
-		setTitleColor(color, for: .disabled)
+		states.forEach { self.setTitleColor(color, for: $0) }
 	}
 	
 	/// SwifterSwift: Set title for all states.
 	///
 	/// - Parameter title: title string.
 	public func setTitleForAllStates(_ title: String) {
-		setTitle(title, for: .normal)
-		setTitle(title, for: .selected)
-		setTitle(title, for: .highlighted)
-		setTitle(title, for: .disabled)
+		states.forEach { self.setTitle(title, for: $0) }
 	}
 	
 }
