@@ -12,7 +12,7 @@
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-A handy collection of **more than 370 native Swift 3 extensions** to boost your productivity.
+A handy collection of **more than 375 native Swift 3 extensions** to boost your productivity.
 
 
 ## [Whats New in v1.3?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v13)
@@ -92,6 +92,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 - [Array extensions](https://github.com/omaralbeik/SwifterSwift/wiki/array-extensions)
 - [Bool extensions](https://github.com/omaralbeik/SwifterSwift/wiki/bool-extensions)
 - [Character extensions](https://github.com/omaralbeik/SwifterSwift/wiki/character-extensions)
+- [Collection extensions](https://github.com/omaralbeik/SwifterSwift/wiki/collection-extensions)
 - [Data extensions](https://github.com/omaralbeik/SwifterSwift/wiki/data-extensions)
 - [Date extensions](https://github.com/omaralbeik/SwifterSwift/wiki/date-extensions)
 - [Dictionary extensions](https://github.com/omaralbeik/SwifterSwift/wiki/dictionary-extensions)
@@ -129,7 +130,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## How cool is this?
 
-SwifterSwift is a library of over **370 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
+SwifterSwift is a library of over **375 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
 
 Here are some examples:
 
