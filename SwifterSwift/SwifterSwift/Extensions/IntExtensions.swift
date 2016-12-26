@@ -113,6 +113,17 @@ public extension Int {
 			return "\(hours) h \(mins) m"
 		}
 	}
+    
+    /// SwifterSwift: String formatted for values over 1000 (1k, 2k, 100k, 1kk, 5kk..)
+    var kFormatted: String {
+        if self >= 1000 && self < 1000000 {
+            return String(format: "%iK", self / 1000)
+        } else if self >= 1000000 {
+            return String(format: "%iKK", self / 100000)
+        } else {
+            return String(describing: self)
+        }
+    }
 	
 	/// SwifterSwift: String formatted for values over ±1000 (example: 1k, -2k, 100k, 1kk, -5kk..)
 	public var kFormatted: String {
