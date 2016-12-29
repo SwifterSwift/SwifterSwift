@@ -12,11 +12,11 @@
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-A handy collection of **more than 375 native Swift 3 extensions** to boost your productivity.
+A handy collection of **more than 390 native Swift 3 extensions** to boost your productivity.
 
 
-## [Whats New in v1.4?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v14)
-v1.4 adds **Swift Package Manager** support, and many bug fixes.
+## [Whats New in v1.4.1?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v141)
+v1.4.1 adds **13 new extensions** to String, UIColor, Date and others.
 
 ## Requirements:
 
@@ -149,7 +149,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## How cool is this?
 
-`SwifterSwift` is a library of over **375 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
+`SwifterSwift` is a library of over **390 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
 
 Here are some examples:
 
@@ -208,6 +208,10 @@ Date().dateString(ofStyle: .medium) -> "Aug 26, 2016"
 Date().timeString(ofStyle: .short) -> "12:55 AM"
 Date().dateTimeString() -> "Aug 26, 2016, 12:55:24 AM"
 
+// Get day name or month name from a date
+Date().dayName(ofStyle: .full) -> "Sunday"
+Date().monthName(ofStyle: .threeLetters) -> "Dec"
+
 // and many others!
 ```
 
@@ -250,6 +254,9 @@ String.random(ofLength: 10) -> "AhEju28kNl"
 
 // Check if string contains one or more emojis
 "string👨‍with😍emojis✊🏿".containEmoji -> true
+
+// Subscript strings easily
+"Hello"[2] = "l"
 
 // Convert string to numbers
 "12.12".toDouble -> 12.12
@@ -325,6 +332,9 @@ SwifterSwift has many great UI extensions:
 // Create new UIColor for RGB values
 let color = UIColor(red: 121, green: 220, blue: 164)
 
+// Create new UIColor for a hex string (including strings starting with #, 0x or in short css hex format)
+let color = UIColor(hexString: "#00F")
+
 // Create new UIColor for a hexadecimal value
 let color = UIColor(hex: 0x45C91B)
 
@@ -334,8 +344,14 @@ UIColor.blend(UIColor.red, intensity1: 0.5, with: UIColor.green, intensity2: 0.3
 // Return hexadecimal value string
 UIColor.red.hexString -> "#FF0000"
 
+// Return short hexadecimal value string
+UIColor(hex: #00ffff) -> "#0FF"
+
 // Use Google Material design colors with ease
 let indigo = UIColor.material.indigo
+
+// Use CSS colors with ease:
+let indigo = UIColor.css.beige
 
 // Return brand colors from more than 30 social brands
 let facebookColor = UIColor.social.facebook

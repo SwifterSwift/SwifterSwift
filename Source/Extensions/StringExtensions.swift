@@ -273,6 +273,42 @@ public extension String {
 // MARK: - Methods
 public extension String {
 	
+	/// SwifterSwift: Subscript string with index.
+	///
+	/// - Parameter i: index.
+	public subscript(i: Int) -> String? {
+		guard i >= 0 && i < characters.count else {
+			return nil
+		}
+		return String(self[index(startIndex, offsetBy: i)])
+	}
+	
+	/// SwifterSwift: Subscript string within a half-open range.
+	///
+	/// - Parameter range: Half-open range.
+	public subscript(range: CountableRange<Int>) -> String? {
+		guard let lowerIndex = index(startIndex, offsetBy: max(0,range.lowerBound), limitedBy: endIndex) else {
+			return nil
+		}
+		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound, limitedBy: endIndex) else {
+			return nil
+		}
+		return self[lowerIndex..<upperIndex]
+	}
+	
+	/// SwifterSwift: Subscript string within a closed range.
+	///
+	/// - Parameter range: Closed range.
+	public subscript(range: ClosedRange<Int>) -> String? {
+		guard let lowerIndex = index(startIndex, offsetBy: max(0,range.lowerBound), limitedBy: endIndex) else {
+			return nil
+		}
+		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound + 1, limitedBy: endIndex) else {
+			return nil
+		}
+		return self[lowerIndex..<upperIndex]
+	}
+	
 	/// SwifterSwift: Copy string to global pasteboard.
 	func copyToPasteboard() {
 		UIPasteboard.general.string = self
@@ -480,7 +516,7 @@ public extension String {
 
 // MARK: - Initializers
 public extension String {
-
+	
 	/// SwifterSwift: Create a new string from a base64 string (if applicable).
 	///
 	/// - Parameter base64: base64 string.
