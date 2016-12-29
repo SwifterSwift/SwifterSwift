@@ -9,6 +9,33 @@
 import Foundation
 
 
+public extension Date {
+	
+	/// SwifterSwift: Day name format.
+	///
+	/// - threeLetters: 3 letter day abbreviation of day name.
+	/// - oneLetter: 1 letter day abbreviation of day name.
+	/// - full: Full day name.
+	public enum DayNameStyle {
+		case threeLetters
+		case oneLetter
+		case full
+	}
+	
+	/// SwifterSwift: Month name format.
+	///
+	/// - threeLetters: 3 letter day abbreviation of month name.
+	/// - oneLetter: 1 letter day abbreviation of month name.
+	/// - full: Full month name.
+	public enum MonthNameStyle {
+		case threeLetters
+		case oneLetter
+		case full
+	}
+	
+}
+
+
 // MARK: - Properties
 public extension Date {
 	
@@ -28,7 +55,7 @@ public extension Date {
 			return calendar.component(.year, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: newValue, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? Date()
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: newValue, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? self
 		}
 	}
 	
@@ -43,7 +70,7 @@ public extension Date {
 			return calendar.component(.month, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: newValue, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? Date()
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: newValue, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? self
 		}
 	}
 	
@@ -68,7 +95,7 @@ public extension Date {
 			return calendar.component(.day, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: newValue, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? Date()
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: newValue, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? self
 		}
 	}
 	
@@ -78,7 +105,7 @@ public extension Date {
 			return calendar.component(.hour, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: newValue, minute: minute, second: second, nanosecond: nanosecond) ?? Date()
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: newValue, minute: minute, second: second, nanosecond: nanosecond) ?? self
 		}
 	}
 	
@@ -88,7 +115,7 @@ public extension Date {
 			return calendar.component(.minute, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: newValue, second: second, nanosecond: nanosecond) ?? Date()
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: newValue, second: second, nanosecond: nanosecond) ?? self
 		}
 	}
 	
@@ -98,7 +125,7 @@ public extension Date {
 			return calendar.component(.second, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond) ?? Date()
+			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond) ?? self
 		}
 	}
 	
@@ -120,6 +147,16 @@ public extension Date {
 	/// SwifterSwift: Check if date is in today.
 	public var isInToday: Bool {
 		return self.day == Date().day && self.month == Date().month && self.year == Date().year
+	}
+	
+	/// SwifterSwift: Check if date is in yesterday.
+	public var isInYesterday: Bool {
+		return self.adding(.day, value: 1).isInToday
+	}
+	
+	/// SwifterSwift: Check if date is in tomorrow.
+	public var isInTomorrow: Bool {
+		return self.adding(.day, value: -1).isInToday
 	}
 	
 	/// SwifterSwift: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
@@ -144,7 +181,7 @@ public extension Date {
 		if min > 57 {
 			components.hour? += 1
 		}
-		return Calendar.current.date(from: components) ?? Date()
+		return Calendar.current.date(from: components) ?? self
 	}
 	
 	/// SwifterSwift: Nearest ten minutes to date.
@@ -153,12 +190,12 @@ public extension Date {
 		guard let min = components.minute else {
 			return self
 		}
-		components.minute! = min % 10 < 6 ? min - min % 10 : min + 10 - (min % 10)
+		components.minute? = min % 10 < 6 ? min - min % 10 : min + 10 - (min % 10)
 		components.second = 0
 		if min > 55 {
 			components.hour? += 1
 		}
-		return Calendar.current.date(from: components) ?? Date()
+		return Calendar.current.date(from: components) ?? self
 	}
 	
 	/// SwifterSwift: Nearest quarter hour to date.
@@ -172,7 +209,7 @@ public extension Date {
 		if min > 52 {
 			components.hour? += 1
 		}
-		return Calendar.current.date(from: components) ?? Date()
+		return Calendar.current.date(from: components) ?? self
 	}
 	
 	/// SwifterSwift: Nearest half hour to date.
@@ -186,7 +223,16 @@ public extension Date {
 		if min > 30 {
 			components.hour? += 1
 		}
-		return Calendar.current.date(from: components) ?? Date()
+		return Calendar.current.date(from: components) ?? self
+	}
+	
+	/// SwifterSwift: Nearest hour to date.
+	public var nearestHour: Date {
+		if minute >= 30 {
+			return self.end(of: .hour) ?? self
+		} else {
+			return self.beginning(of: .hour) ?? self
+		}
 	}
 	
 	/// SwifterSwift: Time zone used by system.
@@ -424,7 +470,7 @@ public extension Date {
 	///
 	/// - Parameter style: DateFormatter style (default is .medium)
 	/// - Returns: date string
-	func dateString(ofStyle style: DateFormatter.Style = .medium) -> String {
+	public func dateString(ofStyle style: DateFormatter.Style = .medium) -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.timeStyle = .none
 		dateFormatter.dateStyle = style
@@ -487,6 +533,48 @@ public extension Date {
 		let dateFormatter = DateFormatter()
 		dateFormatter.timeStyle = style
 		dateFormatter.dateStyle = .none
+		return dateFormatter.string(from: self)
+	}
+	
+	/// SwifterSwift: Day name from date.
+	///
+	/// - Parameter Style: style of day name.
+	/// - Returns: Day name string (example: W, Wed, Wednesday).
+	public func dayName(ofStyle style: DayNameStyle = .full) -> String {
+		// http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
+		let dateFormatter = DateFormatter()
+		var format: String {
+			switch style {
+			case .oneLetter:
+				return "EEEEE"
+			case .threeLetters:
+				return "EEE"
+			case .full:
+				return "EEEE"
+			}
+		}
+		dateFormatter.setLocalizedDateFormatFromTemplate(format)
+		return dateFormatter.string(from: self)
+	}
+	
+	/// SwifterSwift: Month name from date.
+	///
+	/// - Parameter Style: style of month name.
+	/// - Returns: Month name string (example: D, Dec, December).
+	public func monthName(ofStyle style: MonthNameStyle = .full) -> String {
+		// http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
+		let dateFormatter = DateFormatter()
+		var format: String {
+			switch style {
+			case .oneLetter:
+				return "MMMMM"
+			case .threeLetters:
+				return "MMM"
+			case .full:
+				return "MMMM"
+			}
+		}
+		dateFormatter.setLocalizedDateFormatFromTemplate(format)
 		return dateFormatter.string(from: self)
 	}
 	

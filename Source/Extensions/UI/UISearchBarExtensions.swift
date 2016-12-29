@@ -21,4 +21,9 @@ public extension UISearchBar {
 		return textField
 	}
 	
+	/// SwifterSwift: test with no spaces or new lines in beginning and end.
+	public var trimmedText: String? {
+		return text?.trimmed
+	}
+	
 }
