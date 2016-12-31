@@ -351,7 +351,7 @@ UIColor(hex: #00ffff) -> "#0FF"
 let indigo = UIColor.material.indigo
 
 // Use CSS colors with ease:
-let indigo = UIColor.css.beige
+let beige = UIColor.css.beige
 
 // Return brand colors from more than 30 social brands
 let facebookColor = UIColor.social.facebook
