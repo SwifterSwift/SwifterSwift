@@ -211,16 +211,3 @@ public extension Array where Element: Equatable {
 	}
 	
 }
-
-
-extension Collection where Indices.Iterator.Element == Index {
-    
-    /// SwifterSwift: safe protects the array from out of bounds by use of optional
-    ///
-    ///- Parameter index: index of element to access element.
-    ///- Returns: an element if found at index else returns nil
-    ///- Usage: array[safe: index]
-    subscript (safe index: Index) -> Generator.Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
-}
