@@ -10,4 +10,4 @@
 - [ ] New extensions were created in **development branch**.
 - [ ] Pull request was created to **development head branch**.
 - [ ] All extensions have a **clear** comments explaining their functionality, all parameters and return type in English.
-- [ ] All comments headears have the word **SwifterSwift:** before description.
+- [ ] All comments headers have the word **SwifterSwift:** before description.
