@@ -69,15 +69,17 @@ public extension UIColor {
 	public var shortHexOrHexString: String {
 		return shortHexString ?? hexString
 	}
-    
-	/// SwifterSwift: Current color complementary (read-only).
-    public var complementary: UIColor {
-        let componentColors = self.cgColor.components
-        let r: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors![0]*255), 2.0))/255
-        let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors![1]*255), 2.0))/255
-        let b: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors![2]*255), 2.0))/255
-        return UIColor(red: r, green: g, blue: b, alpha: 1.0)
-    }
+	
+	/// SwifterSwift: Get color complementary (read-only, if applicable).
+	public var complementary: UIColor? {
+		guard let components = self.cgColor.components else {
+			return nil
+		}
+		let r: CGFloat = sqrt(pow(255.0, 2.0) - pow((components[0]*255), 2.0))/255
+		let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((components[1]*255), 2.0))/255
+		let b: CGFloat = sqrt(pow(255.0, 2.0) - pow((components[2]*255), 2.0))/255
+		return UIColor(red: r, green: g, blue: b, alpha: 1.0)
+	}
 	
 	/// SwifterSwift: Random color.
 	public static var random: UIColor {
@@ -115,19 +117,6 @@ public extension UIColor {
 		color2.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
 		return UIColor(red: l1*r1 + l2*r2, green: l1*g1 + l2*g2, blue: l1*b1 + l2*b2, alpha: l1*a1 + l2*a2)
 	}
-    
-    /// SwifterSwift: Get complementary of a UIColor
-    ///
-    /// - Parameters:
-    ///   - color: color of which opposite color is desired
-    /// - Returns: UIColor initialized from the corresponding complementary color.
-    public static func getComplementary(forColor color: UIColor) -> UIColor {
-        let componentColors = color.cgColor.components
-        let r: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors![0]*255), 2.0))/255
-        let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors![1]*255), 2.0))/255
-        let b: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors![2]*255), 2.0))/255
-        return UIColor(red: r, green: g, blue: b, alpha: 1.0)
-    }
 	
 }
 
@@ -156,7 +145,7 @@ public extension UIColor {
 	/// SwifterSwift: Create UIColor from hexadecimal string with optional transparency (if applicable).
 	///
 	/// - Parameters:
-	///   - hexString: hexadecimal string (examples: EDE7F6, 0xEDE7F6, #EDE7F6, #0ff, 0xF0F, ..)
+	///   - hexString: hexadecimal string (examples: EDE7F6, 0xEDE7F6, #EDE7F6, #0ff, 0xF0F, ..).
 	///   - transparency: optional transparency value (default is 1).
 	public convenience init?(hexString: String, transparency: CGFloat = 1) {
 		var string = ""
@@ -187,7 +176,7 @@ public extension UIColor {
 	///   - red: red component.
 	///   - green: green component.
 	///   - blue: blue component.
-	///   - transparency: optional transparency value (default is 1)
+	///   - transparency: optional transparency value (default is 1).
 	public convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
 		assert(red >= 0 && red <= 255, "Invalid red component")
 		assert(green >= 0 && green <= 255, "Invalid green component")
@@ -202,6 +191,19 @@ public extension UIColor {
 			}
 		}
 		self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: trans)
+	}
+	
+	/// SwifterSwift: Create UIColor from a complementary of a UIColor (if applicable).
+	///
+	/// - Parameter color: color of which opposite color is desired.
+	public convenience init?(complementaryFor color: UIColor) {
+		guard let componentColors = color.cgColor.components else {
+			return nil
+		}
+		let r: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[0]*255), 2.0))/255
+		let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[1]*255), 2.0))/255
+		let b: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[2]*255), 2.0))/255
+		self.init(red: r, green: g, blue: b, alpha: 1.0)
 	}
 	
 }
