@@ -93,6 +93,16 @@ public struct SwifterSwift {
 		#endif
 	}
 	
+	/// SwifterSwift: Check if app is running in TestFlight mode.
+	public static var isInTestFlight: Bool {
+		// http://stackoverflow.com/questions/12431994/detect-testflight
+		guard let path = Bundle.main.appStoreReceiptURL?.path else {
+			return false
+		}
+		return path.contains("sandboxReceipt")
+	}
+	
+	
 	/// SwifterSwift: Check if multitasking is supported in current device.
 	public static var isMultitaskingSupported: Bool {
 		return UIDevice.current.isMultitaskingSupported
