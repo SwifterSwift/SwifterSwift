@@ -402,6 +402,61 @@ public extension String {
 	public mutating func reverse() {
 		self = String(characters.reversed())
 	}
+
+	/// SwifterSwift: Slice string.
+	/// - Parameters:
+	///   - at: string index the slicing should start from.
+	///   - length: amount of characters to be sliced.
+	/// - Returns: sliced substring of length number of characters or nil
+
+	public func slice(at: Int, length: Int) -> String? {
+		if length < 0 {
+			return nil
+		}
+
+		if length == 0 {
+			if at > characters.count {
+				return nil
+			} else {
+				return ""
+			}
+		}
+
+		if at < 0  {
+			let fromIndex = index(endIndex, offsetBy: at)
+			let toIndex = index(fromIndex, offsetBy: (length-1))
+
+			return self[fromIndex...toIndex]
+		} else {
+			let fromIndex = index(startIndex, offsetBy: at)
+			let toIndex = index(startIndex, offsetBy: (length+at-1))
+
+			return self[fromIndex...toIndex]
+		}
+	}
+
+	/// SwifterSwift: Slice string.
+	/// - Parameters:
+	///   - at: index of the character that should be sliced
+	/// - Returns: returns a substring of a character at a given index or nil
+
+	public func slice(at: Int) -> String? {
+		if at >= characters.count {
+			return nil
+		}
+
+		if at < -characters.count {
+			return nil
+		}
+
+		if at >= 0 {
+			let fromIndex = index(startIndex, offsetBy: at)
+			return self[fromIndex...fromIndex]
+		} else {
+			let fromIndex = index(endIndex, offsetBy: at)
+			return self[fromIndex...fromIndex]
+		}
+	}
 	
 	/// SwifterSwift: Array of strings separated by given string.
 	///
