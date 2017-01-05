@@ -69,6 +69,15 @@ public extension UIColor {
 	public var shortHexOrHexString: String {
 		return shortHexString ?? hexString
 	}
+    
+	/// SwifterSwift: Current color complementary (read-only).
+    public var complementary: UIColor {
+        let componentColors = self.cgColor.components
+        let r: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors![0]*255), 2.0))/255
+        let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors![1]*255), 2.0))/255
+        let b: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors![2]*255), 2.0))/255
+        return UIColor(red: r, green: g, blue: b, alpha: 1.0)
+    }
 	
 	/// SwifterSwift: Random color.
 	public static var random: UIColor {
@@ -107,7 +116,7 @@ public extension UIColor {
 		return UIColor(red: l1*r1 + l2*r2, green: l1*g1 + l2*g2, blue: l1*b1 + l2*b2, alpha: l1*a1 + l2*a2)
 	}
     
-    /// SwifterSwift: Blend two UIColors
+    /// SwifterSwift: Get complementary of a UIColor
     ///
     /// - Parameters:
     ///   - color: color of which opposite color is desired
