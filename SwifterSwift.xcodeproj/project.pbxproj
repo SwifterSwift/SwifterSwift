@@ -569,7 +569,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = SwifterSwiftTests/Info.plist;
+				INFOPLIST_FILE = Tests/SwifterSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwifterSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -583,7 +583,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = SwifterSwiftTests/Info.plist;
+				INFOPLIST_FILE = Tests/SwifterSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwifterSwiftTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
