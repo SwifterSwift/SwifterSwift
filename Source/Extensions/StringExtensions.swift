@@ -410,9 +410,11 @@ public extension String {
 	///   - length: Amount of characters to be sliced after given index.
 	/// - Returns: Sliced substring of length number of characters (if applicable) (example: "Hello world".slicing(from: 6, length: 5) -> "world")
 	public func slicing(from i: Int, length: Int) -> String? {
-		guard length >= 0, i >= 0, i < characters.count,
-			i.advanced(by: length) <= characters.count  else {
-				return nil
+		guard length >= 0, i >= 0, i < characters.count  else {
+			return nil
+		}
+		guard i.advanced(by: length) <= characters.count else {
+			return slice(at: i)
 		}
 		guard length > 0 else {
 			return ""
