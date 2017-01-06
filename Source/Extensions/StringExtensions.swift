@@ -440,6 +440,9 @@ public extension String {
 	///   - end: String index the slicing should end at.
 	/// - Returns: Sliced substring starting from start index, and ends at end index (if applicable) (example: "Hello world".slicing(from: 6, to: 11) -> "world")
 	public func slicing(from start: Int, to end: Int) -> String? {
+		guard end >= start else {
+			return nil
+		}
 		return self[start..<end]
 	}
 	
