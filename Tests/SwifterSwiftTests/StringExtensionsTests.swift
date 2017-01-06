@@ -163,7 +163,20 @@ class StringExtensionsTests: XCTestCase {
 	func testReversed() {
 		XCTAssert("Hello".reversed == "olleH", "Couldn't get correct value for \(#function) function")
 	}
-	
+
+	func testSlice() {
+		let error = "Couldn't get correct value for \(#function) function"
+		
+		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345", error)
+		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345", error)
+		XCTAssertEqual("12345678".slicing(from: 2, length: 0)!, "", error)
+		XCTAssertEqual("12345678".slicing(from: 12, length: 0), nil, error)
+		XCTAssertEqual("12345678".slicing(from: 2, length: 100), "345678", error)
+		XCTAssertEqual("12345678".slicing(from: 2, to: 5), "345", error)
+		XCTAssertEqual("12345678".slicing(from: 2, to: 1), nil, error)
+		XCTAssertEqual("12345678".slicing(at: 2)!, "345678", error)
+	}
+
 	func testSplit() {
 		XCTAssert("Hello Tests".splited(by: " ") == ["Hello", "Tests"], "Couldn't get correct value for \(#function)")
 	}

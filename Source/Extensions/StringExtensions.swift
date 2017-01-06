@@ -402,6 +402,80 @@ public extension String {
 	public mutating func reverse() {
 		self = String(characters.reversed())
 	}
+
+	/// SwifterSwift: Sliced string from a start index with length.
+	///
+	/// - Parameters:
+	///   - i: String index the slicing should start from.
+	///   - length: Amount of characters to be sliced after given index.
+	/// - Returns: Sliced substring of length number of characters (if applicable) (example: "Hello world".slicing(from: 6, length: 5) -> "world")
+	public func slicing(from i: Int, length: Int) -> String? {
+		guard length >= 0, i >= 0, i < characters.count  else {
+			return nil
+		}
+		guard i.advanced(by: length) <= characters.count else {
+			return slicing(at: i)
+		}
+		guard length > 0 else {
+			return ""
+		}
+		return self[i..<i.advanced(by: length)]
+	}
+	
+	/// SwifterSwift: Slice given string from a start index with length (if applicable).
+	///
+	/// - Parameters:
+	///   - i: String index the slicing should start from.
+	///   - length: Amount of characters to be sliced after given index.
+	public mutating func slice(from i: Int, length: Int) {
+		if let str = slicing(from: i, length: length) {
+			self = str
+		}
+	}
+	
+	/// SwifterSwift: Sliced string from a start index to an end index.
+	///
+	/// - Parameters:
+	///   - start: String index the slicing should start from.
+	///   - end: String index the slicing should end at.
+	/// - Returns: Sliced substring starting from start index, and ends at end index (if applicable) (example: "Hello world".slicing(from: 6, to: 11) -> "world")
+	public func slicing(from start: Int, to end: Int) -> String? {
+		guard end >= start else {
+			return nil
+		}
+		return self[start..<end]
+	}
+	
+	/// SwifterSwift: Slice given string from a start index to an end index (if applicable).
+	///
+	/// - Parameters:
+	///   - start: String index the slicing should start from.
+	///   - end: String index the slicing should end at.
+	public mutating func slice(from start: Int, to end: Int) {
+		if let str = slicing(from: start, to: end) {
+			self = str
+		}
+	}
+	
+	/// SwifterSwift: Sliced string from a start index.
+	///
+	/// - Parameter i: String index the slicing should start from.
+	/// - Returns: Sliced substring starting from start index (if applicable) (example: "Hello world".slicing(at: 6) -> "world")
+	public func slicing(at i: Int) -> String? {
+		guard i < characters.count else {
+			return nil
+		}
+		return self[i..<characters.count]
+	}
+	
+	/// SwifterSwift: Slice given string from a start index (if applicable).
+	///
+	/// - Parameter i: String index the slicing should start from.
+	public mutating func slice(at i: Int) {
+		if let str = slicing(at: i) {
+			self = str
+		}
+	}
 	
 	/// SwifterSwift: Array of strings separated by given string.
 	///
