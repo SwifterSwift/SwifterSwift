@@ -1,9 +1,9 @@
 Pod::Spec.new do |spec|
   spec.name = "SwifterSwift"
-  spec.version = "1.4.2"
-  spec.summary = "A handy collection of more than 390 native Swift 3 extensions to boost your productivity."
+  spec.version = "1.4.3"
+  spec.summary = "A handy collection of more than 400 native Swift 3 extensions to boost your productivity."
   spec.description = <<-DESC
-  SwifterSwift is a library of over 390 properties and methods for more than 36 types, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
+  SwifterSwift is a library of over 400 properties and methods for more than 36 types, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
 
   List Of Extensions
     - Array extensions

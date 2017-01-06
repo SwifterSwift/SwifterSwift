@@ -7,7 +7,7 @@
 - [ ] I have **only one commit** in this pull request.
 - [ ] New extensions support iOS 8 or later.
 - [ ] New extensions are written in Swift 3.
-- [ ] New extensions were created in **development branch**.
-- [ ] Pull request was created to **development head branch**.
+- [ ] I have added tests for new extensions, and they passed.
+- [ ] Pull request was created to [**master head branch**](https://github.com/omaralbeik/SwifterSwift/tree/master).
 - [ ] All extensions have a **clear** comments explaining their functionality, all parameters and return type in English.
 - [ ] All comments headers have the word **SwifterSwift:** before description.

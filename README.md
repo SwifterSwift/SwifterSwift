@@ -12,11 +12,14 @@
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
-A handy collection of **more than 390 native Swift 3 extensions** to boost your productivity.
+A handy collection of **more than 400 native Swift 3 extensions** to boost your productivity.
 
+## Important Note about releases flow
+Starting from v1.4.3 **development branch is no more maintained**, instead changes will be made to [**master branch**](https://github.com/omaralbeik/SwifterSwift/tree/master) directly and merged into [**stable branch**](https://github.com/omaralbeik/SwifterSwift/tree/stable) for stable releases.
+Please refer to [contributing guidelines](CONTRIBUTING.md) for more information.
 
-## [Whats New in v1.4.1?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v141)
-v1.4.1 adds **13 new extensions** to String, UIColor, Date and others.
+## [Whats New in v1.4.3?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v143)
+v1.4.3 adds slicing methods to String and fixes bugs in UITableView, UICollectionView and String extensions.
 
 ## Requirements:
 
@@ -149,7 +152,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## How cool is this?
 
-`SwifterSwift` is a library of over **390 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
+`SwifterSwift` is a library of over **400 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
 
 Here are some examples:
 
@@ -257,6 +260,12 @@ String.random(ofLength: 10) -> "AhEju28kNl"
 
 // Subscript strings easily
 "Hello"[2] = "l"
+
+// Slice strings
+let s = "Hello world"
+s.slicing(from: 6, length: 5) // -> "world"
+s.slicing(from: 6, to: 11) // -> "world"
+s.slicing(at: 6) // -> "world"
 
 // Convert string to numbers
 "12.12".toDouble -> 12.12
