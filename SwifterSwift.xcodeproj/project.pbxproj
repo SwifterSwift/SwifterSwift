@@ -44,7 +44,6 @@
 		072F7AB91E11DDDD0021AB84 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A921E11DDDD0021AB84 /* UITextViewExtensions.swift */; };
 		072F7ABA1E11DDDD0021AB84 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A931E11DDDD0021AB84 /* UIViewControllerExtensions.swift */; };
 		072F7ABB1E11DDDD0021AB84 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A941E11DDDD0021AB84 /* UIViewExtensions.swift */; };
-		072F7ABC1E11DDDD0021AB84 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 072F7A951E11DDDD0021AB84 /* Info.plist */; };
 		072F7ABD1E11DDDD0021AB84 /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07445BC21E11D1EF000E9A85 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BB61E11D1EF000E9A85 /* ArrayExtensionsTests.swift */; };
 		07445BC31E11D1EF000E9A85 /* CGFloatExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BB71E11D1EF000E9A85 /* CGFloatExtensionsTests.swift */; };
@@ -54,7 +53,6 @@
 		07445BC71E11D1EF000E9A85 /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBB1E11D1EF000E9A85 /* DictionaryExtensionsTests.swift */; };
 		07445BC81E11D1EF000E9A85 /* DoubleExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBC1E11D1EF000E9A85 /* DoubleExtensionsTests.swift */; };
 		07445BC91E11D1EF000E9A85 /* FloatExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBD1E11D1EF000E9A85 /* FloatExtensionsTests.swift */; };
-		07445BCA1E11D1EF000E9A85 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07445BBE1E11D1EF000E9A85 /* Info.plist */; };
 		07445BCB1E11D1EF000E9A85 /* IntExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBF1E11D1EF000E9A85 /* IntExtensionsTests.swift */; };
 		07445BCC1E11D1EF000E9A85 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BC01E11D1EF000E9A85 /* StringExtensionsTests.swift */; };
 		07445BCD1E11D1EF000E9A85 /* SwifterSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BC11E11D1EF000E9A85 /* SwifterSwiftTests.swift */; };
@@ -340,7 +338,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				072F7ABC1E11DDDD0021AB84 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +345,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07445BCA1E11D1EF000E9A85 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@ This document contains information and guidelines about contributing to this pro
 
 * [Asking Questions](#asking-questions)
 * [Adding new Extensions](#adding-new-extensions)
+* [Releases Flow](#releases-flow)
 * [Reporting Issues](#reporting-issues)
 
 
@@ -16,12 +17,20 @@ By doing so, you'll be more likely to quickly solve your problem, and you'll all
 This also allows maintainers to focus on improving the project for others.
 
 
+## Releases Flow
+Starting from v1.4.3 development branch is no more maintained, instead changes will be made to [**master branch**](https://github.com/omaralbeik/SwifterSwift/tree/master) directly and merged into [**stable branch**](https://github.com/omaralbeik/SwifterSwift/tree/stable) for stable releases
+
+- All new extensions and accepted pull requests will be added to [**master branch**](https://github.com/omaralbeik/SwifterSwift/tree/master)
+- Pull requests from master will be created and merged into [**stable branch**](https://github.com/omaralbeik/SwifterSwift/tree/stable) whenever there is a new stable release
+
+
 ## Adding new Extensions
 SwifterSwift is a collection of extensions found on [Stack Overflow](https://stackoverflow.com), [Github](https://github.com), and the internet.
 Its in its early stages, any new idea is appreciated and welcomed, however please refer to the following rules before submitting a pull request:
-- Add your contributons to [**development branch** ](https://github.com/omaralbeik/SwifterSwift/tree/development):
-	- by doing this we can merge new pull-requests as soon as they are accepted to development, and merge them to master with next releases once they are fully tested.
-- Add original place of extension source (if possile) as a comment inside extension:
+
+- Add your contributions to [**master branch** ](https://github.com/omaralbeik/SwifterSwift/tree/master):
+	- by doing this we can merge new pull-requests into **master** branch as soon as they are accepted, and merge them into **stable branch** with next releases once they are fully tested.
+- Add original place of extension source (if possible) as a comment inside extension:
 
  ```swift
  public extension SomeType {
@@ -31,7 +40,7 @@ Its in its early stages, any new idea is appreciated and welcomed, however pleas
  	}
  }
  ```
- 
+
 - All extensions should follow [Swift API Design Guidelines](https://developer.apple.com/videos/play/wwdc2016/403/)
 - Always declare extensions as **public**.
 - All extensions names should be as clear as possible.
@@ -44,23 +53,23 @@ Its in its early stages, any new idea is appreciated and welcomed, however pleas
 	- Initializers
 - Files are named based on the type that the contained extensions extend (example: all String extensions are found in "**StringExtensions.swift**" file)
 - extensions are ordered inside files in the following order:
- 
+
  ```swift
  // MARK: - enums
  public enum {
  	// ...
  }
- 
+
  // MARK: - Properties
  public extension SomeType {}
- 
+
  // MARK: - Methods
  public extension SomeType {}
- 
+
  // MARK: - Initializers
  public extension SomeType {}
  ```
- 
+
 - Please add each extension in its appropriate place in the file.
 - Please submit **only one commit** per pull-request.
 
