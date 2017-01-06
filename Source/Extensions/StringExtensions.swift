@@ -340,7 +340,7 @@ public extension String {
 	/// - Returns:  count of substring in string.
 	public func count(of string: String, caseSensitive: Bool = true) -> Int {
 		if !caseSensitive {
-			return lowercased().components(separatedBy: string).count - 1
+			return lowercased().components(separatedBy: string.lowercased()).count - 1
 		}
 		return components(separatedBy: string).count - 1
 	}
