@@ -161,15 +161,16 @@ class StringExtensionsTests: XCTestCase {
 	}
 
 	func testSlice() {
-		let errMessage = "Couldn't get correct value for \(#function) function"
+		let error = "Couldn't get correct value for \(#function) function"
 		
-		XCTAssertEqual("12345678".slice(at: 2, length: 3)!, "345", errMessage)
-		XCTAssertEqual("12345678".slice(at: 2, length: 0)!, "", errMessage)
-		XCTAssertEqual("12345678".slice(at: 12, length: 0), nil, errMessage)
-		XCTAssertEqual("12345678".slice(at: -2, length: 2)!, "78", errMessage)
-		XCTAssertEqual("12345678".slice(at: 2)!, "3", errMessage)
-		XCTAssertEqual("12345678".slice(at: -1)!, "8", errMessage)
-		XCTAssertEqual("12345678".slice(at: -10), nil, errMessage)
+		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345", error)
+		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345", error)
+		XCTAssertEqual("12345678".slicing(from: 2, length: 0)!, "", error)
+		XCTAssertEqual("12345678".slicing(from: 12, length: 0), nil, error)
+		XCTAssertEqual("12345678".slicing(from: 2, length: 100), "345678", error)
+		XCTAssertEqual("12345678".slicing(from: 2, to: 5), "345", error)
+		XCTAssertEqual("12345678".slicing(from: 2, to: 1), nil, error)
+		XCTAssertEqual("12345678".slicing(at: 2)!, "345678", error)
 	}
 
 	func testSplit() {
