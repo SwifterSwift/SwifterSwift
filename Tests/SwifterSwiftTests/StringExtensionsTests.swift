@@ -49,7 +49,11 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testCount() {
-		XCTAssert("Hello Tests".count(of: "e") == 2, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual("Hello This Tests".count(of: "T"), 2, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual("Hello This Tests".count(of: "t"), 1, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual("Hello This Tests".count(of: "T", caseSensitive: false) , 3, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual("Hello This Tests".count(of: "t", caseSensitive: false), 3, "Couldn't get correct value for \(#function)")
+        
 	}
 	
 	func testEnd() {

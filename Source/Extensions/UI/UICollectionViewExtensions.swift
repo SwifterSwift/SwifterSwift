@@ -14,10 +14,7 @@ public extension UICollectionView {
 	
 	/// SwifterSwift: Index path of last item in collectionView.
 	public var indexPathForLastItem: IndexPath? {
-		guard numberOfSections > 0 else {
-			return nil
-		}
-		return nil
+		return indexPathForLastItem(inSection: lastSection)
 	}
 	
 	/// SwifterSwift: Index of last section in collectionView.
@@ -46,7 +43,13 @@ public extension UICollectionView {
 	///
 	/// - Parameter section: section to get last item in.
 	/// - Returns: optional last indexPath for last item in section (if applicable).
-	public func indexPathForLastItem(in section: Int) -> IndexPath? {
+	public func indexPathForLastItem(inSection section: Int) -> IndexPath? {
+		guard section >= 0 else {
+			return nil
+		}
+		guard numberOfItems(inSection: section) > 0 else {
+			return IndexPath(item: 0, section: section)
+		}
 		return IndexPath(item: numberOfItems(inSection: section) - 1, section: section)
 	}
 	
