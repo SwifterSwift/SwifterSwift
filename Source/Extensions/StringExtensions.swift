@@ -403,7 +403,7 @@ public extension String {
 		self = String(characters.reversed())
 	}
 
-		/// SwifterSwift: Sliced string from a start index with length.
+	/// SwifterSwift: Sliced string from a start index with length.
 	///
 	/// - Parameters:
 	///   - i: String index the slicing should start from.
