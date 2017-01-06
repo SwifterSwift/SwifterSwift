@@ -414,7 +414,7 @@ public extension String {
 			return nil
 		}
 		guard i.advanced(by: length) <= characters.count else {
-			return slice(at: i)
+			return slicing(at: i)
 		}
 		guard length > 0 else {
 			return ""
