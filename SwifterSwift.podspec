@@ -50,7 +50,7 @@ Pod::Spec.new do |spec|
   spec.social_media_url = "http://twitter.com/omaralbeik"
   spec.screenshot  = 'https://raw.githubusercontent.com/omaralbeik/SwifterSwift/master/logo.png'
 
-  spec.platforms = { :ios => "8.0", :tvos => "10.1" }
+  spec.platforms = { :ios => "8.0", :tvos => "9.0" }
   spec.requires_arc = true
   spec.source = { git: "https://github.com/omaralbeik/SwifterSwift.git", tag: "v#{spec.version}" }
   spec.source_files = "Source/**/*.swift"
