@@ -6,7 +6,7 @@
 [![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
-[![Platform](https://img.shields.io/badge/Platform-iOS-lightgrey.svg)](https://github.com/omaralbeik/swifterSwift)
+[![Platform](https://img.shields.io/cocoapods/p/SwifterSwift.svg?style=flat)](https://github.com/omaralbeik/swifterSwift)
 [![Xcode](https://img.shields.io/badge/Xcode-8.0-blue.svg)](https://developer.apple.com/xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -22,9 +22,11 @@ Please refer to [contributing guidelines](CONTRIBUTING.md) for more information.
 v1.4.3 adds slicing methods to String and fixes bugs in UITableView, UICollectionView and String extensions.
 
 ## Requirements:
+- iOS 8.0+ / tvOS 9.0+
+- Xcode 8.1+
+- Swift 3.0+
 
-Xcode 8 (or later) with Swift 3.
-This library is made for iOS 8 or later, however most of the extensions should work on watchOS, tvOS, and macOS.
+SwifterSwift is for both iOS and tvOS, however most of the extensions should work on watchOS, and macOS.
 
 
 ## Installation

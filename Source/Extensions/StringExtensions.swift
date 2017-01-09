@@ -308,13 +308,13 @@ public extension String {
 		}
 		return self[lowerIndex..<upperIndex]
 	}
-  
-#if TARGET_OS_IOS
+	
+	#if os(iOS)
 	/// SwifterSwift: Copy string to global pasteboard.
 	func copyToPasteboard() {
-		UIPasteboard.general.string = self
+	UIPasteboard.general.string = self
 	}
-#endif
+	#endif
 	
 	/// SwifterSwift: Converts string format to CamelCase.
 	public mutating func camelize() {
@@ -404,7 +404,7 @@ public extension String {
 	public mutating func reverse() {
 		self = String(characters.reversed())
 	}
-
+	
 	/// SwifterSwift: Sliced string from a start index with length.
 	///
 	/// - Parameters:
@@ -609,14 +609,14 @@ public extension String {
 
 // MARK: - NSAttributedString extensions
 public extension String {
-
-#if TARGET_OS_IOS
+	
+	#if os(iOS)
 	/// SwifterSwift: Bold string.
 	public var bold: NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
 	}
-#endif
-
+	#endif
+	
 	/// SwifterSwift: Underlined string
 	public var underline: NSAttributedString {
 		return NSAttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
@@ -627,12 +627,12 @@ public extension String {
 		return NSAttributedString(string: self, attributes: [NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
 	}
 	
-#if TARGET_OS_IOS
+	#if os(iOS)
 	/// SwifterSwift: Italic string.
 	public var italic: NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 	}
-#endif
+	#endif
 	
 	/// SwifterSwift: Add color to string.
 	///
