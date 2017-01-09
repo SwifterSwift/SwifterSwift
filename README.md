@@ -18,8 +18,8 @@ A handy collection of **more than 400 native Swift 3 extensions** to boost your 
 Starting from v1.4.3 **development branch is no more maintained**, instead changes will be made to [**master branch**](https://github.com/omaralbeik/SwifterSwift/tree/master) directly and merged into [**stable branch**](https://github.com/omaralbeik/SwifterSwift/tree/stable) for stable releases.
 Please refer to [contributing guidelines](CONTRIBUTING.md) for more information.
 
-## [Whats New in v1.4.3?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v143)
-v1.4.3 adds slicing methods to String and fixes bugs in UITableView, UICollectionView and String extensions.
+## [Whats New in v1.4.5?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v145)
+v1.4.5 adds tvOS support.
 
 ## Requirements:
 - iOS 8.0+ / tvOS 9.0+
@@ -548,6 +548,8 @@ SwifterSwift.didTakeScreenShot {
 Special thanks to:
 
 * [Mert Akengin](https://github.com/PvtMert) for creating [project website](http://swiftierswift.com) and helping with unit testing
+
+* [Paweł Urbanek](https://github.com/pawurb) for adding tvOS initial support and helping with extensions.
 
 * [Abdul Rahman Dabbour](https://github.com/thedabbour) for helping document the project
 
