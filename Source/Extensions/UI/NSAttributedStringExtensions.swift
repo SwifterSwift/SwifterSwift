@@ -11,17 +11,19 @@ import UIKit
 
 // MARK: - Properties
 public extension NSAttributedString {
-
+	
+	#if os(iOS)
 	/// SwifterSwift: Bold string
 	public var bold: NSAttributedString {
-		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
-			return self
-		}
-		let range = (self.string as NSString).range(of: self.string)
-		copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)], range: range)
-		return copy
+	guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
+	return self
 	}
-
+	let range = (self.string as NSString).range(of: self.string)
+	copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)], range: range)
+	return copy
+	}
+	#endif
+	
 	/// SwifterSwift: Underlined string
 	public var underline: NSAttributedString {
 		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
@@ -31,16 +33,18 @@ public extension NSAttributedString {
 		copy.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue], range: range)
 		return copy
 	}
-
+	
+	#if os(iOS)
 	/// SwifterSwift: Italic string
 	public var italic: NSAttributedString {
-		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
-			return self
-		}
-		let range = (self.string as NSString).range(of: self.string)
-		copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)], range: range)
-		return copy
+	guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
+	return self
 	}
+	let range = (self.string as NSString).range(of: self.string)
+	copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)], range: range)
+	return copy
+	}
+	#endif
 	
 	/// SwifterSwift: Strikethrough string
 	public var strikethrough: NSAttributedString {

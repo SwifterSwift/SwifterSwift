@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0778054E1E11D0FC000A21C6"
                BuildableName = "SwifterSwift.framework"
-               BlueprintName = "SwifterSwift"
+               BlueprintName = "SwifterSwift iOS"
                ReferencedContainer = "container:SwifterSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "077805571E11D0FD000A21C6"
-               BuildableName = "SwifterSwiftTests.xctest"
-               BlueprintName = "SwifterSwiftTests"
+               BuildableName = "SwifterSwift iOSTests.xctest"
+               BlueprintName = "SwifterSwift iOSTests"
                ReferencedContainer = "container:SwifterSwift.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,7 +44,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0778054E1E11D0FC000A21C6"
             BuildableName = "SwifterSwift.framework"
-            BlueprintName = "SwifterSwift"
+            BlueprintName = "SwifterSwift iOS"
             ReferencedContainer = "container:SwifterSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -66,7 +66,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0778054E1E11D0FC000A21C6"
             BuildableName = "SwifterSwift.framework"
-            BlueprintName = "SwifterSwift"
+            BlueprintName = "SwifterSwift iOS"
             ReferencedContainer = "container:SwifterSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -84,7 +84,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0778054E1E11D0FC000A21C6"
             BuildableName = "SwifterSwift.framework"
-            BlueprintName = "SwifterSwift"
+            BlueprintName = "SwifterSwift iOS"
             ReferencedContainer = "container:SwifterSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

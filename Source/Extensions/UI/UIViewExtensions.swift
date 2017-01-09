@@ -111,7 +111,7 @@ public extension UIView {
 	
 	/// SwifterSwift: Check if view is in RTL format.
 	public var isRightToLeft: Bool {
-		if #available(iOS 10.0, *) {
+		if #available(iOS 10.0, *, tvOS 10.0, *) {
 			return effectiveUserInterfaceLayoutDirection == .rightToLeft
 		} else {
 			return false
