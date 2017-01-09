@@ -12,6 +12,7 @@ import UIKit
 // MARK: - Properties
 public extension NSAttributedString {
 
+#if TARGET_OS_IOS
 	/// SwifterSwift: Bold string
 	public var bold: NSAttributedString {
 		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
@@ -21,6 +22,7 @@ public extension NSAttributedString {
 		copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)], range: range)
 		return copy
 	}
+#endif
 
 	/// SwifterSwift: Underlined string
 	public var underline: NSAttributedString {
@@ -32,6 +34,7 @@ public extension NSAttributedString {
 		return copy
 	}
 
+#if TARGET_OS_IOS
 	/// SwifterSwift: Italic string
 	public var italic: NSAttributedString {
 		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
@@ -41,6 +44,7 @@ public extension NSAttributedString {
 		copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)], range: range)
 		return copy
 	}
+#endif
 	
 	/// SwifterSwift: Strikethrough string
 	public var strikethrough: NSAttributedString {

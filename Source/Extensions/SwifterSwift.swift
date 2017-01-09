@@ -22,12 +22,14 @@ public struct SwifterSwift {
 	public static var appBundleID: String? {
 		return Bundle.main.bundleIdentifier
 	}
-	
+
+#if TARGET_OS_IOS
 	/// SwifterSwift: StatusBar height
 	public static var statusBarHeight: CGFloat {
 		return UIApplication.shared.statusBarFrame.height
 	}
-	
+#endif
+
 	/// SwifterSwift: App current build number (if applicable).
 	public static var appBuild: String? {
 		return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
@@ -48,10 +50,12 @@ public struct SwifterSwift {
 		return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 	}
 	
+#if TARGET_OS_IOS
 	/// SwifterSwift: Current battery level.
 	public static var batteryLevel: Float {
 		return UIDevice.current.batteryLevel
 	}
+#endif
 	
 	/// SwifterSwift: Shared instance of current device.
 	public static var currentDevice: UIDevice {
@@ -72,11 +76,13 @@ public struct SwifterSwift {
 	public static var deviceName: String {
 		return UIDevice.current.name
 	}
-	
+
+#if TARGET_OS_IOS
 	/// SwifterSwift: Current orientation of device.
 	public static var deviceOrientation: UIDeviceOrientation {
 		return UIDevice.current.orientation
 	}
+#endif
 	
 	/// SwifterSwift: Screen width.
 	public static var screenWidth: CGFloat {
@@ -107,7 +113,8 @@ public struct SwifterSwift {
 	public static var isMultitaskingSupported: Bool {
 		return UIDevice.current.isMultitaskingSupported
 	}
-	
+
+#if TARGET_OS_IOS
 	/// SwifterSwift: Current status bar network activity indicator state.
 	public static var isNetworkActivityIndicatorVisible: Bool {
 		get {
@@ -117,7 +124,8 @@ public struct SwifterSwift {
 			UIApplication.shared.isNetworkActivityIndicatorVisible = newValue
 		}
 	}
-	
+#endif
+
 	/// SwifterSwift: Check if device is iPad.
 	public static var isPad: Bool {
 		return UIDevice.current.userInterfaceIdiom == .pad
@@ -142,7 +150,8 @@ public struct SwifterSwift {
 			return false
 		#endif
 	}
-	
+
+#if TARGET_OS_IOS
 	/// SwifterSwift: Status bar visibility state.
 	public static var isStatusBarHidden: Bool {
 		get {
@@ -152,7 +161,8 @@ public struct SwifterSwift {
 			UIApplication.shared.isStatusBarHidden = newValue
 		}
 	}
-	
+#endif
+
 	/// SwifterSwift: Key window (read only, if applicable).
 	public static var keyWindow: UIView? {
 		return UIApplication.shared.keyWindow
@@ -172,7 +182,8 @@ public struct SwifterSwift {
 	public static var sharedApplication: UIApplication {
 		return UIApplication.shared
 	}
-	
+
+#if TARGET_OS_IOS
 	/// SwifterSwift: Current status bar style (if applicable).
 	public static var statusBarStyle: UIStatusBarStyle? {
 		get {
@@ -184,6 +195,8 @@ public struct SwifterSwift {
 			}
 		}
 	}
+#endif
+
 	
 	/// SwifterSwift: System current version (read-only).
 	public static var systemVersion: String {

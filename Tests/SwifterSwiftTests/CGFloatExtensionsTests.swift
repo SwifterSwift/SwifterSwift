@@ -20,7 +20,7 @@ class CGFloatExtensionsTests: XCTestCase {
 		// Put teardown code here. This method is called after the invocation of each test method in the class.
 		super.tearDown()
 	}
-	
+
 	func testAbs() {
 		XCTAssert(CGFloat(-9.3).abs == CGFloat(9.3), "Couldn't get correct value for \(#function)")
 	}
