@@ -6,7 +6,10 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
+
 
 // MARK: - Methods
 extension UIImageView {
@@ -63,3 +66,5 @@ extension UIImageView {
 	}
 
 }
+
+#endif

@@ -836,7 +836,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwifterSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swifterswift;
 				PRODUCT_NAME = SwifterSwift;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -854,7 +854,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwifterSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swifterswift;
 				PRODUCT_NAME = SwifterSwift;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -901,13 +901,13 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwifterSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swifterswift;
 				PRODUCT_NAME = SwifterSwift;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Debug;
 		};
@@ -923,13 +923,13 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwifterSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swifterswift;
 				PRODUCT_NAME = SwifterSwift;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 3.1;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
 			};
 			name = Release;
 		};
@@ -944,7 +944,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwifterSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swifterswift;
 				PRODUCT_NAME = SwifterSwift;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
@@ -965,7 +965,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.omaralbeik.SwifterSwift;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swifterswift;
 				PRODUCT_NAME = SwifterSwift;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;

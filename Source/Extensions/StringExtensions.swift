@@ -312,7 +312,7 @@ public extension String {
 	#if os(iOS)
 	/// SwifterSwift: Copy string to global pasteboard.
 	func copyToPasteboard() {
-	UIPasteboard.general.string = self
+		UIPasteboard.general.string = self
 	}
 	#endif
 	
@@ -613,7 +613,7 @@ public extension String {
 	#if os(iOS)
 	/// SwifterSwift: Bold string.
 	public var bold: NSAttributedString {
-	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
@@ -630,7 +630,7 @@ public extension String {
 	#if os(iOS)
 	/// SwifterSwift: Italic string.
 	public var italic: NSAttributedString {
-	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	

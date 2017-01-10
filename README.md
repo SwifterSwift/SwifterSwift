@@ -1,12 +1,12 @@
 <p align="left">
-  <img src="https://github.com/omaralbeik/SwifterSwift/blob/master/logo.png?raw=true" title="swifterSwift">
+  <img src="https://github.com/SwifterSwift/SwifterSwift/blob/master/logo.png?raw=true" title="swifterSwift">
 </p>
 
-[![Build Status](https://travis-ci.org/omaralbeik/SwifterSwift.svg?branch=master)](https://travis-ci.org/omaralbeik/SwifterSwift)
+[![Build Status](https://travis-ci.org/SwifterSwift/SwifterSwift.svg?branch=master)](https://travis-ci.org/SwifterSwift/SwifterSwift)
 [![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
-[![Platform](https://img.shields.io/cocoapods/p/SwifterSwift.svg?style=flat)](https://github.com/omaralbeik/swifterSwift)
+[![Platform](https://img.shields.io/cocoapods/p/SwifterSwift.svg?style=flat)](https://github.com/SwifterSwift/swifterSwift)
 [![Xcode](https://img.shields.io/badge/Xcode-8.0-blue.svg)](https://developer.apple.com/xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
@@ -15,18 +15,18 @@
 A handy collection of **more than 400 native Swift 3 extensions** to boost your productivity.
 
 ## Important Note about releases flow
-Starting from v1.4.3 **development branch is no more maintained**, instead changes will be made to [**master branch**](https://github.com/omaralbeik/SwifterSwift/tree/master) directly and merged into [**stable branch**](https://github.com/omaralbeik/SwifterSwift/tree/stable) for stable releases.
+Starting from v1.4.3 **development branch is no more maintained**, instead changes will be made to [**master branch**](https://github.com/SwifterSwift/SwifterSwift/tree/master) directly and merged into [**stable branch**](https://github.com/SwifterSwift/SwifterSwift/tree/stable) for stable releases.
 Please refer to [contributing guidelines](CONTRIBUTING.md) for more information.
 
-## [Whats New in v1.4.5?](https://github.com/omaralbeik/SwifterSwift/wiki/whats-new#v145)
-v1.4.5 adds tvOS support.
+## [Whats New in v1.4.6?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v146)
+v1.4.6 adds watchOS support.
 
 ## Requirements:
-- iOS 8.0+ / tvOS 9.0+
+- iOS 8.0+ / tvOS 9.0+ / watchOS 3+
 - Xcode 8.1+
 - Swift 3.0+
 
-SwifterSwift is for both iOS and tvOS, however most of the extensions should work on watchOS, and macOS.
+SwifterSwift is for iOS, tvOS and watchOS, however most of the extensions should work on macOS.
 
 
 ## Installation
@@ -72,7 +72,7 @@ $ brew install carthage
 To integrate SwifterSwift into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "omaralbeik/SwifterSwift" ~> 1.4
+github "SwifterSwift/SwifterSwift" ~> 1.4
 ```
 
 Run `carthage update` to build the framework and drag the built `SwifterSwift.framework` into your Xcode project.
@@ -90,7 +90,7 @@ let package = Package(
     name: "YOUR_PROJECT_NAME",
     targets: [],
     dependencies: [
-        .Package(url: "https://github.com/omaralbeik/SwifterSwift.git", versions: Version(1,4,0)..<Version(2, .max, .max)),
+        .Package(url: "https://github.com/SwifterSwift/SwifterSwift.git", versions: Version(1,4,0)..<Version(2, .max, .max)),
     ]
 )
 ```
@@ -113,43 +113,43 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## List Of Extensions
 
-- [Array extensions](https://github.com/omaralbeik/SwifterSwift/wiki/array-extensions)
-- [Bool extensions](https://github.com/omaralbeik/SwifterSwift/wiki/bool-extensions)
-- [Character extensions](https://github.com/omaralbeik/SwifterSwift/wiki/character-extensions)
-- [Collection extensions](https://github.com/omaralbeik/SwifterSwift/wiki/collection-extensions)
-- [Data extensions](https://github.com/omaralbeik/SwifterSwift/wiki/data-extensions)
-- [Date extensions](https://github.com/omaralbeik/SwifterSwift/wiki/date-extensions)
-- [Dictionary extensions](https://github.com/omaralbeik/SwifterSwift/wiki/dictionary-extensions)
-- [Double extensions](https://github.com/omaralbeik/SwifterSwift/wiki/double-extensions)
-- [Float extensions](https://github.com/omaralbeik/SwifterSwift/wiki/float-extensions)
-- [Int extensions](https://github.com/omaralbeik/SwifterSwift/wiki/int-extensions)
-- [String extensions](https://github.com/omaralbeik/SwifterSwift/wiki/string-extensions)
-- [SwifterSwift](https://github.com/omaralbeik/SwifterSwift/wiki/swifterswift)
-- [CGFloat extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgfloat-extensions)
-- [CGPoint extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgpoint-extensions)
-- [CGSize extensions](https://github.com/omaralbeik/SwifterSwift/wiki/cgsize-extensions)
-- [NSAttributedString extensions](https://github.com/omaralbeik/SwifterSwift/wiki/nsattributedstring-extensions)
-- [UIAlertController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uialertcontroller-extensions)
-- [UIBarButtonItem extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uibarbuttonitem-extensions)
-- [UIButton extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uibutton-extensions)
-- [UICollectionView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uicollectionview-extensions)
-- [UIColor extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uicolor-extensions)
-- [UIImage extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiimage-extensions)
-- [UIImageView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiimageview-extensions)
-- [UILabel extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uilabel-extensions)
-- [UINavigationBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationbar-extensions)
-- [UINavigationController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationcontroller-extensions)
-- [UINavigationItem extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uinavigationitem-extensions)
-- [UISearchBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uisearchbar-extensions)
-- [UISegmentedControl extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uisegmentedcontrol-extensions)
-- [UISlider extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uislider-extensions)
-- [UISwitch extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiswitch-extensions)
-- [UITabBar extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitabbar-extensions)
-- [UITableView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitableview-extensions)
-- [UITextField extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitextfield-extensions)
-- [UITextView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uitextview-extensions)
-- [UIView extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiview-extensions)
-- [UIViewController extensions](https://github.com/omaralbeik/SwifterSwift/wiki/uiviewcontroller-extensions)
+- [Array extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/array-extensions)
+- [Bool extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/bool-extensions)
+- [Character extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/character-extensions)
+- [Collection extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/collection-extensions)
+- [Data extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/data-extensions)
+- [Date extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/date-extensions)
+- [Dictionary extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/dictionary-extensions)
+- [Double extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/double-extensions)
+- [Float extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/float-extensions)
+- [Int extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/int-extensions)
+- [String extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/string-extensions)
+- [SwifterSwift](https://github.com/SwifterSwift/SwifterSwift/wiki/swifterswift)
+- [CGFloat extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/cgfloat-extensions)
+- [CGPoint extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/cgpoint-extensions)
+- [CGSize extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/cgsize-extensions)
+- [NSAttributedString extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/nsattributedstring-extensions)
+- [UIAlertController extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uialertcontroller-extensions)
+- [UIBarButtonItem extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uibarbuttonitem-extensions)
+- [UIButton extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uibutton-extensions)
+- [UICollectionView extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uicollectionview-extensions)
+- [UIColor extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uicolor-extensions)
+- [UIImage extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uiimage-extensions)
+- [UIImageView extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uiimageview-extensions)
+- [UILabel extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uilabel-extensions)
+- [UINavigationBar extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uinavigationbar-extensions)
+- [UINavigationController extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uinavigationcontroller-extensions)
+- [UINavigationItem extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uinavigationitem-extensions)
+- [UISearchBar extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uisearchbar-extensions)
+- [UISegmentedControl extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uisegmentedcontrol-extensions)
+- [UISlider extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uislider-extensions)
+- [UISwitch extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uiswitch-extensions)
+- [UITabBar extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uitabbar-extensions)
+- [UITableView extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uitableview-extensions)
+- [UITextField extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uitextfield-extensions)
+- [UITextView extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uitextview-extensions)
+- [UIView extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uiview-extensions)
+- [UIViewController extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uiviewcontroller-extensions)
 
 
 ## How cool is this?
@@ -240,7 +240,7 @@ Date().monthName(ofStyle: .threeLetters) -> "Dec"
 "Some variable nAme".camelCased -> "someVariableName"
 
 // Check if string is in valid email format
-"omaralbeik@gmail.com".isEmail -> true
+"someone@somewebsite.com".isEmail -> true
 
 // Check if string contains at least one letter and one number
 "123abc".isAlphaNumeric -> true
@@ -387,7 +387,7 @@ view.addShadow(ofColor .black, radius: 3, opacity: 0.5)
 
 ```
 <p align="left">
-  <img src="https://raw.githubusercontent.com/omaralbeik/SwifterSwift/master/Screenshots/view_storyboard.png" title="UIButton properties from storyboard" width='250px'>
+  <img src="https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/Screenshots/view_storyboard.png" title="UIButton properties from storyboard" width='250px'>
 </p>
 
 ```swift
@@ -448,7 +448,7 @@ button.titleForHighlighted = "Login"
 // and many others!
 ```
 <p align="left">
-  <img src="https://raw.githubusercontent.com/omaralbeik/SwifterSwift/master/Screenshots/button_storyboard.png" title="UIButton properties from storyboard" width='250px'>
+  <img src="https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/Screenshots/button_storyboard.png" title="UIButton properties from storyboard" width='250px'>
 </p>
 
 

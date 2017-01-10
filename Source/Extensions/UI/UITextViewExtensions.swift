@@ -6,7 +6,10 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
+
 import UIKit
+
 
 // MARK: - Methods
 public extension UITextView {
@@ -24,3 +27,5 @@ public extension UITextView {
 	}
 	
 }
+
+#endif

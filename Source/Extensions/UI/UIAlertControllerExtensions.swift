@@ -6,8 +6,11 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
+#if os(iOS)
+	
 import UIKit
 import AudioToolbox
+
 
 // MARK: - Methods
 public extension UIAlertController {
@@ -96,3 +99,5 @@ extension UIAlertController {
 	}
 	
 }
+
+#endif
