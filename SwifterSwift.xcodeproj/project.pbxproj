@@ -176,7 +176,7 @@
 		6EF946D51E263D9A0061AEFC /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A921E11DDDD0021AB84 /* UITextViewExtensions.swift */; };
 		6EF946D61E263D9A0061AEFC /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A931E11DDDD0021AB84 /* UIViewControllerExtensions.swift */; };
 		6EF946D71E263D9A0061AEFC /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A941E11DDDD0021AB84 /* UIViewExtensions.swift */; };
-		6EF946D81E263DC80061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; };
+		6EF946D81E263DC80061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF946D91E263DCA0061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; };
 /* End PBXBuildFile section */
 
@@ -1231,7 +1231,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swifterswift;
 				PRODUCT_NAME = SwifterSwift;
 				SDKROOT = macosx;
@@ -1253,7 +1253,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				PRODUCT_BUNDLE_IDENTIFIER = com.swifterswift;
 				PRODUCT_NAME = SwifterSwift;
 				SDKROOT = macosx;
@@ -1358,6 +1358,7 @@
 				6EF946A21E263C4E0061AEFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6EF946A61E263C4E0061AEFC /* Build configuration list for PBXNativeTarget "SwifterSwift macOSTests" */ = {
 			isa = XCConfigurationList;
@@ -1366,6 +1367,7 @@
 				6EF946A41E263C4E0061AEFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

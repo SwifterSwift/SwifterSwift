@@ -6,7 +6,9 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
+#if !os(macOS)
 import UIKit
+
 
 // MARK: - Methods
 public extension CGPoint {
@@ -77,3 +79,5 @@ public extension CGPoint {
 	}
 
 }
+
+#endif

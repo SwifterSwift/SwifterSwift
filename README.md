@@ -18,15 +18,13 @@ A handy collection of **more than 400 native Swift 3 extensions** to boost your 
 Starting from v1.4.3 **development branch is no more maintained**, instead changes will be made to [**master branch**](https://github.com/SwifterSwift/SwifterSwift/tree/master) directly and merged into [**stable branch**](https://github.com/SwifterSwift/SwifterSwift/tree/stable) for stable releases.
 Please refer to [contributing guidelines](CONTRIBUTING.md) for more information.
 
-## [Whats New in v1.4.6?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v146)
-v1.4.6 adds watchOS support.
+## [Whats New in v1.4.7?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v147)
+v1.4.7 adds macOS support.
 
 ## Requirements:
-- iOS 8.0+ / tvOS 9.0+ / watchOS 3+
+- iOS 8.0+ / tvOS 9.0+ / watchOS 3+ / macOS 10.10+
 - Xcode 8.1+
 - Swift 3.0+
-
-SwifterSwift is for iOS, tvOS and watchOS, however most of the extensions should work on macOS.
 
 
 ## Installation

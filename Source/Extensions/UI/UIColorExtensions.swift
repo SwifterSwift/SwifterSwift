@@ -6,6 +6,8 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
+#if !os(macOS)
+
 import UIKit
 
 // MARK: - Properties
@@ -708,3 +710,5 @@ public extension UIColor {
 	}
 	
 }
+
+#endif

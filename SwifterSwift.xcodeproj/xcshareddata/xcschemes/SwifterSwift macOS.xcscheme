@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6EF9468F1E263C4D0061AEFC"
-               BuildableName = "SwifterSwift macOS.framework"
+               BuildableName = "SwifterSwift.framework"
                BlueprintName = "SwifterSwift macOS"
                ReferencedContainer = "container:SwifterSwift.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6EF9468F1E263C4D0061AEFC"
-            BuildableName = "SwifterSwift macOS.framework"
+            BuildableName = "SwifterSwift.framework"
             BlueprintName = "SwifterSwift macOS"
             ReferencedContainer = "container:SwifterSwift.xcodeproj">
          </BuildableReference>
@@ -65,7 +65,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6EF9468F1E263C4D0061AEFC"
-            BuildableName = "SwifterSwift macOS.framework"
+            BuildableName = "SwifterSwift.framework"
             BlueprintName = "SwifterSwift macOS"
             ReferencedContainer = "container:SwifterSwift.xcodeproj">
          </BuildableReference>
@@ -83,7 +83,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6EF9468F1E263C4D0061AEFC"
-            BuildableName = "SwifterSwift macOS.framework"
+            BuildableName = "SwifterSwift.framework"
             BlueprintName = "SwifterSwift macOS"
             ReferencedContainer = "container:SwifterSwift.xcodeproj">
          </BuildableReference>
