@@ -272,23 +272,23 @@ public extension SwifterSwift {
 	/// SwifterSwift: Delay function or closure call.
 	///
 	/// - Parameters:
-	///   - miliseconds: execute closure after the given delay.
+	///   - milliseconds: execute closure after the given delay.
 	///   - queue: a queue that completion closure should be executed on (default is DispatchQueue.main).
 	///   - completion: closure to be executed after delay.
-	public static func delay(miliseconds: Double, queue: DispatchQueue = .main, completion: @escaping ()-> Void) {
-		queue.asyncAfter(deadline: .now() + (miliseconds/1000), execute: completion)
+	public static func delay(milliseconds: Double, queue: DispatchQueue = .main, completion: @escaping ()-> Void) {
+		queue.asyncAfter(deadline: .now() + (milliseconds/1000), execute: completion)
 	}
 
 	/// SwifterSwift: Debounce function or closure call.
 	///
 	/// - Parameters:
-	///   - milisecondsOffset: allow execution of method if it was not called since milisecondsOffset.
+	///   - millisecondsOffset: allow execution of method if it was not called since millisecondsOffset.
 	///   - queue: a queue that action closure should be executed on (default is DispatchQueue.main).
 	///   - action: closure to be executed in a debounced way.
-	public static func debounce(milisecondsDelay: Int, queue: DispatchQueue = .main, action: @escaping (()->())) -> ()->() {
+	public static func debounce(millisecondsDelay: Int, queue: DispatchQueue = .main, action: @escaping (()->())) -> ()->() {
 	//http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
 		var lastFireTime = DispatchTime.now()
-		let dispatchDelay = DispatchTimeInterval.milliseconds(milisecondsDelay)
+		let dispatchDelay = DispatchTimeInterval.milliseconds(millisecondsDelay)
 
 		return {
 			let dispatchTime: DispatchTime = lastFireTime + dispatchDelay
