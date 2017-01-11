@@ -126,6 +126,58 @@
 		6EBD1A251E23EDCB002186D3 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A921E11DDDD0021AB84 /* UITextViewExtensions.swift */; };
 		6EBD1A261E23EDCB002186D3 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A931E11DDDD0021AB84 /* UIViewControllerExtensions.swift */; };
 		6EBD1A271E23EDCB002186D3 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A941E11DDDD0021AB84 /* UIViewExtensions.swift */; };
+		6EF946991E263C4E0061AEFC /* SwifterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF946901E263C4D0061AEFC /* SwifterSwift.framework */; };
+		6EF946A71E263D860061AEFC /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BB61E11D1EF000E9A85 /* ArrayExtensionsTests.swift */; };
+		6EF946A81E263D860061AEFC /* CGFloatExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BB71E11D1EF000E9A85 /* CGFloatExtensionsTests.swift */; };
+		6EF946A91E263D860061AEFC /* CGSizeExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BB81E11D1EF000E9A85 /* CGSizeExtensionsTests.swift */; };
+		6EF946AA1E263D860061AEFC /* CharacterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BB91E11D1EF000E9A85 /* CharacterExtensionsTests.swift */; };
+		6EF946AB1E263D860061AEFC /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBA1E11D1EF000E9A85 /* DateExtensionsTests.swift */; };
+		6EF946AC1E263D860061AEFC /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBB1E11D1EF000E9A85 /* DictionaryExtensionsTests.swift */; };
+		6EF946AD1E263D860061AEFC /* DoubleExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBC1E11D1EF000E9A85 /* DoubleExtensionsTests.swift */; };
+		6EF946AE1E263D860061AEFC /* FloatExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBD1E11D1EF000E9A85 /* FloatExtensionsTests.swift */; };
+		6EF946AF1E263D860061AEFC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07445BBE1E11D1EF000E9A85 /* Info.plist */; };
+		6EF946B01E263D860061AEFC /* IntExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBF1E11D1EF000E9A85 /* IntExtensionsTests.swift */; };
+		6EF946B11E263D860061AEFC /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BC01E11D1EF000E9A85 /* StringExtensionsTests.swift */; };
+		6EF946B21E263D860061AEFC /* SwifterSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BC11E11D1EF000E9A85 /* SwifterSwiftTests.swift */; };
+		6EF946B31E263D910061AEFC /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A6F1E11DDDD0021AB84 /* ArrayExtensions.swift */; };
+		6EF946B41E263D910061AEFC /* BoolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A701E11DDDD0021AB84 /* BoolExtensions.swift */; };
+		6EF946B51E263D910061AEFC /* CharacterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A711E11DDDD0021AB84 /* CharacterExtensions.swift */; };
+		6EF946B61E263D910061AEFC /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A721E11DDDD0021AB84 /* CollectionExtensions.swift */; };
+		6EF946B71E263D910061AEFC /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A731E11DDDD0021AB84 /* DataExtensions.swift */; };
+		6EF946B81E263D910061AEFC /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A741E11DDDD0021AB84 /* DateExtensions.swift */; };
+		6EF946B91E263D910061AEFC /* DictionaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A751E11DDDD0021AB84 /* DictionaryExtensions.swift */; };
+		6EF946BA1E263D910061AEFC /* DoubleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A761E11DDDD0021AB84 /* DoubleExtensions.swift */; };
+		6EF946BB1E263D910061AEFC /* FloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A771E11DDDD0021AB84 /* FloatExtensions.swift */; };
+		6EF946BC1E263D910061AEFC /* IntExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A781E11DDDD0021AB84 /* IntExtensions.swift */; };
+		6EF946BD1E263D910061AEFC /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A791E11DDDD0021AB84 /* StringExtensions.swift */; };
+		6EF946BE1E263D910061AEFC /* SwifterSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A7A1E11DDDD0021AB84 /* SwifterSwift.swift */; };
+		6EF946BF1E263D9A0061AEFC /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A7C1E11DDDD0021AB84 /* CGFloatExtensions.swift */; };
+		6EF946C01E263D9A0061AEFC /* CGPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A7D1E11DDDD0021AB84 /* CGPointExtensions.swift */; };
+		6EF946C11E263D9A0061AEFC /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A7E1E11DDDD0021AB84 /* CGSizeExtensions.swift */; };
+		6EF946C21E263D9A0061AEFC /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A7F1E11DDDD0021AB84 /* NSAttributedStringExtensions.swift */; };
+		6EF946C31E263D9A0061AEFC /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A801E11DDDD0021AB84 /* UIAlertControllerExtensions.swift */; };
+		6EF946C41E263D9A0061AEFC /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A811E11DDDD0021AB84 /* UIBarButtonItemExtensions.swift */; };
+		6EF946C51E263D9A0061AEFC /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A821E11DDDD0021AB84 /* UIButtonExtensions.swift */; };
+		6EF946C61E263D9A0061AEFC /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A831E11DDDD0021AB84 /* UICollectionViewExtensions.swift */; };
+		6EF946C71E263D9A0061AEFC /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A841E11DDDD0021AB84 /* UIColorExtensions.swift */; };
+		6EF946C81E263D9A0061AEFC /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A851E11DDDD0021AB84 /* UIImageExtensions.swift */; };
+		6EF946C91E263D9A0061AEFC /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A861E11DDDD0021AB84 /* UIImageViewExtensions.swift */; };
+		6EF946CA1E263D9A0061AEFC /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A871E11DDDD0021AB84 /* UILabelExtensions.swift */; };
+		6EF946CB1E263D9A0061AEFC /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A881E11DDDD0021AB84 /* UINavigationBarExtensions.swift */; };
+		6EF946CC1E263D9A0061AEFC /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A891E11DDDD0021AB84 /* UINavigationControllerExtensions.swift */; };
+		6EF946CD1E263D9A0061AEFC /* UINavigationItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A8A1E11DDDD0021AB84 /* UINavigationItemExtensions.swift */; };
+		6EF946CE1E263D9A0061AEFC /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A8B1E11DDDD0021AB84 /* UISearchBarExtensions.swift */; };
+		6EF946CF1E263D9A0061AEFC /* UISegmentedControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A8C1E11DDDD0021AB84 /* UISegmentedControlExtensions.swift */; };
+		6EF946D01E263D9A0061AEFC /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A8D1E11DDDD0021AB84 /* UISliderExtensions.swift */; };
+		6EF946D11E263D9A0061AEFC /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A8E1E11DDDD0021AB84 /* UISwitchExtensions.swift */; };
+		6EF946D21E263D9A0061AEFC /* UITabBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A8F1E11DDDD0021AB84 /* UITabBarExtensions.swift */; };
+		6EF946D31E263D9A0061AEFC /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A901E11DDDD0021AB84 /* UITableViewExtensions.swift */; };
+		6EF946D41E263D9A0061AEFC /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A911E11DDDD0021AB84 /* UITextFieldExtensions.swift */; };
+		6EF946D51E263D9A0061AEFC /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A921E11DDDD0021AB84 /* UITextViewExtensions.swift */; };
+		6EF946D61E263D9A0061AEFC /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A931E11DDDD0021AB84 /* UIViewControllerExtensions.swift */; };
+		6EF946D71E263D9A0061AEFC /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A941E11DDDD0021AB84 /* UIViewExtensions.swift */; };
+		6EF946D81E263DC80061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; };
+		6EF946D91E263DCA0061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +194,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 6EBD19DD1E23E444002186D3;
 			remoteInfo = "SwifterSwift tvOS";
+		};
+		6EF9469A1E263C4E0061AEFC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 077805461E11D0FC000A21C6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6EF9468F1E263C4D0061AEFC;
+			remoteInfo = "SwifterSwift macOS";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -202,6 +261,8 @@
 		6E49334E1E2508C000210167 /* SwifterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EBD19DE1E23E444002186D3 /* SwifterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EBD19E61E23E444002186D3 /* SwifterSwift tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EF946901E263C4D0061AEFC /* SwifterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6EF946981E263C4E0061AEFC /* SwifterSwift macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +300,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EBD19E71E23E444002186D3 /* SwifterSwift.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EF9468C1E263C4D0061AEFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EF946951E263C4E0061AEFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EF946991E263C4E0061AEFC /* SwifterSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +411,8 @@
 				6EBD19DE1E23E444002186D3 /* SwifterSwift.framework */,
 				6EBD19E61E23E444002186D3 /* SwifterSwift tvOSTests.xctest */,
 				6E49334E1E2508C000210167 /* SwifterSwift.framework */,
+				6EF946901E263C4D0061AEFC /* SwifterSwift.framework */,
+				6EF946981E263C4E0061AEFC /* SwifterSwift macOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -364,6 +442,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6EF946D91E263DCA0061AEFC /* SwifterSwift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +451,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EBD1A011E23E4A9002186D3 /* SwifterSwift.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EF9468D1E263C4D0061AEFC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EF946D81E263DC80061AEFC /* SwifterSwift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +555,42 @@
 			productReference = 6EBD19E61E23E444002186D3 /* SwifterSwift tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		6EF9468F1E263C4D0061AEFC /* SwifterSwift macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EF946A51E263C4E0061AEFC /* Build configuration list for PBXNativeTarget "SwifterSwift macOS" */;
+			buildPhases = (
+				6EF9468B1E263C4D0061AEFC /* Sources */,
+				6EF9468C1E263C4D0061AEFC /* Frameworks */,
+				6EF9468D1E263C4D0061AEFC /* Headers */,
+				6EF9468E1E263C4D0061AEFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SwifterSwift macOS";
+			productName = "SwifterSwift macOS";
+			productReference = 6EF946901E263C4D0061AEFC /* SwifterSwift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6EF946971E263C4E0061AEFC /* SwifterSwift macOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6EF946A61E263C4E0061AEFC /* Build configuration list for PBXNativeTarget "SwifterSwift macOSTests" */;
+			buildPhases = (
+				6EF946941E263C4E0061AEFC /* Sources */,
+				6EF946951E263C4E0061AEFC /* Frameworks */,
+				6EF946961E263C4E0061AEFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6EF9469B1E263C4E0061AEFC /* PBXTargetDependency */,
+			);
+			name = "SwifterSwift macOSTests";
+			productName = "SwifterSwift macOSTests";
+			productReference = 6EF946981E263C4E0061AEFC /* SwifterSwift macOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -498,6 +621,14 @@
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 					};
+					6EF9468F1E263C4D0061AEFC = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					6EF946971E263C4E0061AEFC = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 077805491E11D0FC000A21C6 /* Build configuration list for PBXProject "SwifterSwift" */;
@@ -517,6 +648,8 @@
 				6EBD19DD1E23E444002186D3 /* SwifterSwift tvOS */,
 				6EBD19E51E23E444002186D3 /* SwifterSwift tvOSTests */,
 				6E49334D1E2508C000210167 /* SwifterSwift watchOS */,
+				6EF9468F1E263C4D0061AEFC /* SwifterSwift macOS */,
+				6EF946971E263C4E0061AEFC /* SwifterSwift macOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -556,6 +689,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				6EBD19FD1E23E4A5002186D3 /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EF9468E1E263C4D0061AEFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EF946961E263C4E0061AEFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EF946AF1E263D860061AEFC /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +858,68 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		6EF9468B1E263C4D0061AEFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EF946C61E263D9A0061AEFC /* UICollectionViewExtensions.swift in Sources */,
+				6EF946CC1E263D9A0061AEFC /* UINavigationControllerExtensions.swift in Sources */,
+				6EF946C81E263D9A0061AEFC /* UIImageExtensions.swift in Sources */,
+				6EF946B31E263D910061AEFC /* ArrayExtensions.swift in Sources */,
+				6EF946D71E263D9A0061AEFC /* UIViewExtensions.swift in Sources */,
+				6EF946D61E263D9A0061AEFC /* UIViewControllerExtensions.swift in Sources */,
+				6EF946C21E263D9A0061AEFC /* NSAttributedStringExtensions.swift in Sources */,
+				6EF946B91E263D910061AEFC /* DictionaryExtensions.swift in Sources */,
+				6EF946BB1E263D910061AEFC /* FloatExtensions.swift in Sources */,
+				6EF946B61E263D910061AEFC /* CollectionExtensions.swift in Sources */,
+				6EF946C31E263D9A0061AEFC /* UIAlertControllerExtensions.swift in Sources */,
+				6EF946CA1E263D9A0061AEFC /* UILabelExtensions.swift in Sources */,
+				6EF946B41E263D910061AEFC /* BoolExtensions.swift in Sources */,
+				6EF946CE1E263D9A0061AEFC /* UISearchBarExtensions.swift in Sources */,
+				6EF946BC1E263D910061AEFC /* IntExtensions.swift in Sources */,
+				6EF946D21E263D9A0061AEFC /* UITabBarExtensions.swift in Sources */,
+				6EF946D51E263D9A0061AEFC /* UITextViewExtensions.swift in Sources */,
+				6EF946CF1E263D9A0061AEFC /* UISegmentedControlExtensions.swift in Sources */,
+				6EF946D41E263D9A0061AEFC /* UITextFieldExtensions.swift in Sources */,
+				6EF946CB1E263D9A0061AEFC /* UINavigationBarExtensions.swift in Sources */,
+				6EF946BD1E263D910061AEFC /* StringExtensions.swift in Sources */,
+				6EF946BF1E263D9A0061AEFC /* CGFloatExtensions.swift in Sources */,
+				6EF946CD1E263D9A0061AEFC /* UINavigationItemExtensions.swift in Sources */,
+				6EF946BA1E263D910061AEFC /* DoubleExtensions.swift in Sources */,
+				6EF946B71E263D910061AEFC /* DataExtensions.swift in Sources */,
+				6EF946C11E263D9A0061AEFC /* CGSizeExtensions.swift in Sources */,
+				6EF946C01E263D9A0061AEFC /* CGPointExtensions.swift in Sources */,
+				6EF946D01E263D9A0061AEFC /* UISliderExtensions.swift in Sources */,
+				6EF946D31E263D9A0061AEFC /* UITableViewExtensions.swift in Sources */,
+				6EF946C71E263D9A0061AEFC /* UIColorExtensions.swift in Sources */,
+				6EF946D11E263D9A0061AEFC /* UISwitchExtensions.swift in Sources */,
+				6EF946C91E263D9A0061AEFC /* UIImageViewExtensions.swift in Sources */,
+				6EF946C51E263D9A0061AEFC /* UIButtonExtensions.swift in Sources */,
+				6EF946B51E263D910061AEFC /* CharacterExtensions.swift in Sources */,
+				6EF946BE1E263D910061AEFC /* SwifterSwift.swift in Sources */,
+				6EF946C41E263D9A0061AEFC /* UIBarButtonItemExtensions.swift in Sources */,
+				6EF946B81E263D910061AEFC /* DateExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6EF946941E263C4E0061AEFC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EF946AB1E263D860061AEFC /* DateExtensionsTests.swift in Sources */,
+				6EF946A81E263D860061AEFC /* CGFloatExtensionsTests.swift in Sources */,
+				6EF946AD1E263D860061AEFC /* DoubleExtensionsTests.swift in Sources */,
+				6EF946B01E263D860061AEFC /* IntExtensionsTests.swift in Sources */,
+				6EF946B21E263D860061AEFC /* SwifterSwiftTests.swift in Sources */,
+				6EF946AA1E263D860061AEFC /* CharacterExtensionsTests.swift in Sources */,
+				6EF946A71E263D860061AEFC /* ArrayExtensionsTests.swift in Sources */,
+				6EF946A91E263D860061AEFC /* CGSizeExtensionsTests.swift in Sources */,
+				6EF946AE1E263D860061AEFC /* FloatExtensionsTests.swift in Sources */,
+				6EF946B11E263D860061AEFC /* StringExtensionsTests.swift in Sources */,
+				6EF946AC1E263D860061AEFC /* DictionaryExtensionsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -722,6 +932,11 @@
 			isa = PBXTargetDependency;
 			target = 6EBD19DD1E23E444002186D3 /* SwifterSwift tvOS */;
 			targetProxy = 6EBD19E81E23E444002186D3 /* PBXContainerItemProxy */;
+		};
+		6EF9469B1E263C4E0061AEFC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6EF9468F1E263C4D0061AEFC /* SwifterSwift macOS */;
+			targetProxy = 6EF9469A1E263C4E0061AEFC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1003,6 +1218,82 @@
 			};
 			name = Release;
 		};
+		6EF946A11E263C4E0061AEFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swifterswift;
+				PRODUCT_NAME = SwifterSwift;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6EF946A21E263C4E0061AEFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.swifterswift;
+				PRODUCT_NAME = SwifterSwift;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		6EF946A31E263C4E0061AEFC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/SwifterSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.pabloweb.SwifterSwift-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		6EF946A41E263C4E0061AEFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Tests/SwifterSwiftTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = "net.pabloweb.SwifterSwift-macOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1059,6 +1350,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		6EF946A51E263C4E0061AEFC /* Build configuration list for PBXNativeTarget "SwifterSwift macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EF946A11E263C4E0061AEFC /* Debug */,
+				6EF946A21E263C4E0061AEFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6EF946A61E263C4E0061AEFC /* Build configuration list for PBXNativeTarget "SwifterSwift macOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EF946A31E263C4E0061AEFC /* Debug */,
+				6EF946A41E263C4E0061AEFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
