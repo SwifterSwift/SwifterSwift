@@ -1,7 +1,4 @@
+osx_image: xcode8.2
 language: objective-c
-osx_image: xcode8
-xcode_project: SwifterSwift/SwifterSwift.xcodeproj
-before_install:
-  - gem install xcpretty
 script:
-    - xcodebuild -scheme 'SwifterSwift iOS' -sdk iphonesimulator CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO test | xcpretty -c && xcodebuild -scheme 'SwifterSwift tvOS' -destination 'platform=tvOS Simulator,name=Apple TV 1080p' CODE_SIGN_IDENTITY='' CODE_SIGNING_REQUIRED=NO test | xcpretty -c
+    - xcodebuild test -scheme 'SwifterSwift iOS' -destination 'platform=iOS Simulator,name=iPad Pro (12.9 inch),OS=10.2' && xcodebuild test -scheme 'SwifterSwift MacOS' -destination 'platform=OS X' && xcodebuild test -scheme 'SwifterSwift tvOS' -destination 'platform=tvOS Simulator,name=Apple TV 1080p'
