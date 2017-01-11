@@ -266,9 +266,42 @@ public struct SwifterSwift {
 	
 }
 
-
 // MARK: - Methods
 public extension SwifterSwift {
+	
+	/// SwifterSwift: Delay function or closure call.
+	///
+	/// - Parameters:
+	///   - miliseconds: execute closure after the given delay.
+	///   - queue: a queue that completion closure should be executed on (default is DispatchQueue.main).
+	///   - completion: closure to be executed after delay.
+	public static func delay(miliseconds: Double, queue: DispatchQueue = .main, completion: @escaping ()-> Void) {
+		queue.asyncAfter(deadline: .now() + (miliseconds/1000), execute: completion)
+	}
+
+	/// SwifterSwift: Debounce function or closure call.
+	///
+	/// - Parameters:
+	///   - milisecondsOffset: allow execution of method if it was not called since milisecondsOffset.
+	///   - queue: a queue that action closure should be executed on (default is DispatchQueue.main).
+	///   - action: closure to be executed in a debounced way.
+	public static func debounce(milisecondsDelay: Int, queue: DispatchQueue = .main, action: @escaping (()->())) -> ()->() {
+	//http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
+		var lastFireTime = DispatchTime.now()
+		let dispatchDelay = DispatchTimeInterval.milliseconds(milisecondsDelay)
+
+		return {
+			let dispatchTime: DispatchTime = lastFireTime + dispatchDelay
+			queue.asyncAfter(deadline: dispatchTime) {
+				let when: DispatchTime = lastFireTime + dispatchDelay
+				let now = DispatchTime.now()
+				if now.rawValue >= when.rawValue {
+					lastFireTime = DispatchTime.now()
+					action()
+				}
+			}
+		}
+	}
 	
 	#if os(iOS) || os(tvOS)
 	/// SwifterSwift: Called when user takes a screenshot
