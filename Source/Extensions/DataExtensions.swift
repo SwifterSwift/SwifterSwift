@@ -6,8 +6,10 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-import UIKit
 
+#if !os(macOS)
+import UIKit
+	
 // MARK: - Properties
 public extension Data {
 
@@ -24,3 +26,5 @@ public extension Data {
 	}
 
 }
+
+#endif

@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name = "SwifterSwift"
-  spec.version = "1.4.6"
+  spec.version = "1.4.7"
   spec.summary = "A handy collection of more than 400 native Swift 3 extensions to boost your productivity."
   spec.description = <<-DESC
   SwifterSwift is a library of over 400 properties and methods for more than 36 types, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
@@ -44,19 +44,22 @@ Pod::Spec.new do |spec|
     - UIView extensions
     - UIViewController extensions
                    DESC
-  spec.homepage = "https://github.com/omaralbeik/SwifterSwift"
+  spec.homepage = "https://github.com/SwifterSwift/SwifterSwift"
   spec.license = { type: 'MIT', file: 'LICENSE' }
   spec.authors = { "Omar Albeik" => 'omaralbeik@gmail.com' }
   spec.social_media_url = "http://twitter.com/omaralbeik"
-  spec.screenshot  = 'https://raw.githubusercontent.com/omaralbeik/SwifterSwift/master/logo.png'
+  spec.screenshot  = 'https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/logo.png'
 
-  spec.platforms = { :ios => "8.0", :tvos => "9.0", :watchos => "3.0" }
+  spec.ios.deployment_target = '8.0'
+  spec.osx.deployment_target = '10.10'
+  spec.tvos.deployment_target = '9.0'
+  spec.watchos.deployment_target = '3.0'
+
   spec.requires_arc = true
   spec.source = { git: "https://github.com/SwifterSwift/SwifterSwift.git", tag: "v#{spec.version}" }
   spec.source_files = "Source/**/*.swift"
   spec.pod_target_xcconfig = {
     'SWIFT_VERSION' => '3.0',
   }
-  spec.documentation_url = 'https://github.com/omaralbeik/SwifterSwift/wiki'
-  spec.frameworks   = ['Foundation', 'UIKit']
+  spec.documentation_url = 'https://github.com/SwifterSwift/SwifterSwift/wiki'
 end

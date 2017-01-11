@@ -7,8 +7,11 @@
 //
 
 import Foundation
-import UIKit
 
+
+#if !os(macOS)
+import UIKit
+#endif
 
 // MARK: - Properties
 public extension String {
@@ -617,15 +620,19 @@ public extension String {
 	}
 	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Underlined string
 	public var underline: NSAttributedString {
 		return NSAttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Strikethrough string.
 	public var strikethrough: NSAttributedString {
 		return NSAttributedString(string: self, attributes: [NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
 	}
+	#endif
 	
 	#if os(iOS)
 	/// SwifterSwift: Italic string.
@@ -634,6 +641,7 @@ public extension String {
 	}
 	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Add color to string.
 	///
 	/// - Parameter color: text color.
@@ -641,6 +649,7 @@ public extension String {
 	public func colored(with color: UIColor) -> NSAttributedString {
 		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
 	}
+	#endif
 	
 }
 

@@ -6,6 +6,8 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
+#if !os(macOS)
+
 import UIKit
 
 
@@ -55,3 +57,5 @@ public extension CGFloat {
 	}
 	
 }
+
+#endif

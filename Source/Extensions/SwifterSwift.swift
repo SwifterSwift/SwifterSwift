@@ -16,16 +16,20 @@ import WatchKit
 /// SwifterSwift: Common usefull properties and methods.
 public struct SwifterSwift {
 	
+	#if !os(macOS)
 	/// SwifterSwift: App's name (if applicable).
 	public static var appDisplayName: String? {
 		// http://stackoverflow.com/questions/28254377/get-app-name-in-swift
 		return Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: App's bundle ID (if applicable).
 	public static var appBundleID: String? {
 		return Bundle.main.bundleIdentifier
 	}
+	#endif
 	
 	#if os(iOS)
 	/// SwifterSwift: StatusBar height
@@ -34,10 +38,12 @@ public struct SwifterSwift {
 	}
 	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: App current build number (if applicable).
 	public static var appBuild: String? {
 		return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
 	}
+	#endif
 	
 	#if os(iOS) || os(tvOS)
 	/// SwifterSwift: Application icon badge current number.
@@ -51,10 +57,12 @@ public struct SwifterSwift {
 	}
 	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: App's current version (if applicable).
 	public static var appVersion: String? {
 		return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
 	}
+	#endif
 	
 	#if os(iOS)
 	/// SwifterSwift: Current battery level.
@@ -75,6 +83,8 @@ public struct SwifterSwift {
 	}
 	#endif
 	
+	
+	#if !os(macOS)
 	/// SwifterSwift: Screen height.
 	public static var screenHeight: CGFloat {
 		#if os(iOS) || os(tvOS)
@@ -83,16 +93,21 @@ public struct SwifterSwift {
 			return currentDevice.screenBounds.height
 		#endif
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Current device model.
 	public static var deviceModel: String {
 		return currentDevice.model
 	}
-
+	#endif
+	
+	#if !os(macOS)
 	/// SwifterSwift: Current device name.
 	public static var deviceName: String {
 		return currentDevice.name
 	}
+	#endif
 
 	#if os(iOS)
 	/// SwifterSwift: Current orientation of device.
@@ -101,6 +116,7 @@ public struct SwifterSwift {
 	}
 	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Screen width.
 	public static var screenWidth: CGFloat {
 		#if os(iOS) || os(tvOS)
@@ -109,6 +125,7 @@ public struct SwifterSwift {
 			return currentDevice.screenBounds.width
 		#endif
 	}
+	#endif
 
 	/// SwifterSwift: Check if app is running in debug mode.
 	public static var isInDebuggingMode: Bool {
@@ -120,6 +137,7 @@ public struct SwifterSwift {
 		#endif
 	}
 	
+	#if !os(macOS)
 	/// SwifterSwift: Check if app is running in TestFlight mode.
 	public static var isInTestFlight: Bool {
 		// http://stackoverflow.com/questions/12431994/detect-testflight
@@ -128,6 +146,7 @@ public struct SwifterSwift {
 		}
 		return path.contains("sandboxReceipt")
 	}
+	#endif
 	
 	#if os(iOS)
 	/// SwifterSwift: Check if multitasking is supported in current device.
@@ -231,21 +250,58 @@ public struct SwifterSwift {
 	}
 	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: System current version (read-only).
 	public static var systemVersion: String {
 		return currentDevice.systemVersion
 	}
-
+	#endif
+	
+	#if !os(macOS)
 	/// SwifterSwift: Shared instance of standard UserDefaults (read-only).
 	public static var userDefaults: UserDefaults {
 		return UserDefaults.standard
 	}
+	#endif
 	
 }
 
-
 // MARK: - Methods
 public extension SwifterSwift {
+	
+	/// SwifterSwift: Delay function or closure call.
+	///
+	/// - Parameters:
+	///   - milliseconds: execute closure after the given delay.
+	///   - queue: a queue that completion closure should be executed on (default is DispatchQueue.main).
+	///   - completion: closure to be executed after delay.
+	public static func delay(milliseconds: Double, queue: DispatchQueue = .main, completion: @escaping ()-> Void) {
+		queue.asyncAfter(deadline: .now() + (milliseconds/1000), execute: completion)
+	}
+
+	/// SwifterSwift: Debounce function or closure call.
+	///
+	/// - Parameters:
+	///   - millisecondsOffset: allow execution of method if it was not called since millisecondsOffset.
+	///   - queue: a queue that action closure should be executed on (default is DispatchQueue.main).
+	///   - action: closure to be executed in a debounced way.
+	public static func debounce(millisecondsDelay: Int, queue: DispatchQueue = .main, action: @escaping (()->())) -> ()->() {
+	//http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
+		var lastFireTime = DispatchTime.now()
+		let dispatchDelay = DispatchTimeInterval.milliseconds(millisecondsDelay)
+
+		return {
+			let dispatchTime: DispatchTime = lastFireTime + dispatchDelay
+			queue.asyncAfter(deadline: dispatchTime) {
+				let when: DispatchTime = lastFireTime + dispatchDelay
+				let now = DispatchTime.now()
+				if now.rawValue >= when.rawValue {
+					lastFireTime = DispatchTime.now()
+					action()
+				}
+			}
+		}
+	}
 	
 	#if os(iOS) || os(tvOS)
 	/// SwifterSwift: Called when user takes a screenshot
@@ -260,6 +316,7 @@ public extension SwifterSwift {
 	}
 	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Object from UserDefaults.
 	///
 	/// - Parameter forKey: key to find object for.
@@ -267,7 +324,9 @@ public extension SwifterSwift {
 	public static func object(forKey: String) -> Any? {
 		return UserDefaults.standard.object(forKey: forKey)
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: String from UserDefaults.
 	///
 	/// - Parameter forKey: key to find string for.
@@ -275,7 +334,9 @@ public extension SwifterSwift {
 	public static func string(forKey: String) -> String? {
 		return UserDefaults.standard.string(forKey: forKey)
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Integer from UserDefaults.
 	///
 	/// - Parameter forKey: key to find integer for.
@@ -283,7 +344,9 @@ public extension SwifterSwift {
 	public static func integer(forKey: String) -> Int? {
 		return UserDefaults.standard.integer(forKey: forKey)
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Double from UserDefaults.
 	///
 	/// - Parameter forKey: key to find double for.
@@ -291,7 +354,9 @@ public extension SwifterSwift {
 	public static func double(forKey: String) -> Double? {
 		return UserDefaults.standard.double(forKey: forKey)
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Data from UserDefaults.
 	///
 	/// - Parameter forKey: key to find data for.
@@ -299,7 +364,9 @@ public extension SwifterSwift {
 	public static func data(forKey: String) -> Data? {
 		return UserDefaults.standard.data(forKey: forKey)
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Bool from UserDefaults.
 	///
 	/// - Parameter forKey: key to find bool for.
@@ -307,7 +374,9 @@ public extension SwifterSwift {
 	public static func bool(forKey: String) -> Bool? {
 		return UserDefaults.standard.bool(forKey: forKey)
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Array from UserDefaults.
 	///
 	/// - Parameter forKey: key to find array for.
@@ -315,7 +384,9 @@ public extension SwifterSwift {
 	public static func array(forKey: String) -> [Any]? {
 		return UserDefaults.standard.array(forKey: forKey)
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Dictionary from UserDefaults.
 	///
 	/// - Parameter forKey: key to find dictionary for.
@@ -323,7 +394,9 @@ public extension SwifterSwift {
 	public static func dictionary(forKey: String) -> [String: Any]? {
 		return UserDefaults.standard.dictionary(forKey: forKey)
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Float from UserDefaults.
 	///
 	/// - Parameter forKey: key to find float for.
@@ -331,7 +404,9 @@ public extension SwifterSwift {
 	public static func float(forKey: String) -> Float? {
 		return UserDefaults.standard.object(forKey: forKey) as? Float
 	}
+	#endif
 	
+	#if !os(macOS)
 	/// SwifterSwift: Save an object to UserDefaults.
 	///
 	/// - Parameters:
@@ -340,6 +415,7 @@ public extension SwifterSwift {
 	public static func set(value: Any?, forKey: String) {
 		UserDefaults.standard.set(value, forKey: forKey)
 	}
+	#endif
 	
 	/// SwifterSwift: Class name of object as string.
 	///
