@@ -30,7 +30,7 @@ class SwifterSwiftTests: XCTestCase {
 		var value = 0
 		let done = expectation(description: "Execute block after delay")
 
-		SwifterSwift.delay(miliseconds: 500, queue: DispatchQueue.main, completion: {
+		SwifterSwift.delay(milliseconds: 500, queue: DispatchQueue.main, completion: {
 			value = 1
 			done.fulfill()
 		})
@@ -50,14 +50,14 @@ class SwifterSwiftTests: XCTestCase {
 			value += 1
 		}
 
-		let debouncedIncrementor = SwifterSwift.debounce(milisecondsDelay: 200, action: {
+		let debouncedIncrementor = SwifterSwift.debounce(millisecondsDelay: 200, action: {
 			incrementor()
 		})
 
 		for i in 1...10 {
 			debouncedIncrementor()
 			if i == 10 {
-				SwifterSwift.delay(miliseconds: 300, completion: {
+				SwifterSwift.delay(milliseconds: 300, completion: {
 					done.fulfill()
 				})
 			}
