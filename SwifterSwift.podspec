@@ -50,7 +50,11 @@ Pod::Spec.new do |spec|
   spec.social_media_url = "http://twitter.com/omaralbeik"
   spec.screenshot  = 'https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/logo.png'
 
-  spec.platforms = { :ios => "8.0", :tvos => "9.0", :watchos => "3.0", :osx => "10.10" }
+  spec.ios.deployment_target = '8.0'
+  spec.osx.deployment_target = '10.10'
+  spec.tvos.deployment_target = '9.0'
+  spec.watchos.deployment_target = '3.0'
+
   spec.requires_arc = true
   spec.source = { git: "https://github.com/SwifterSwift/SwifterSwift.git", tag: "v#{spec.version}" }
   spec.source_files = "Source/**/*.swift"
@@ -58,5 +62,4 @@ Pod::Spec.new do |spec|
     'SWIFT_VERSION' => '3.0',
   }
   spec.documentation_url = 'https://github.com/SwifterSwift/SwifterSwift/wiki'
-  spec.frameworks   = ['Foundation', 'UIKit']
 end
