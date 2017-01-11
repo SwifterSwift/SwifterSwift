@@ -264,8 +264,62 @@ public struct SwifterSwift {
 	}
 	#endif
 	
-}
+	/// SwifterSwift: Delay function or closure call
+	///
+	/// - Parameters:
+	///   - miliseconds: execute closure after the given delay
+	///   - queue: a queue that completion closure should be executed on
+	///   - completion: closure to be executed after delay
 
+	public static func delay(miliseconds: Double, queue: DispatchQueue, completion: @escaping ()-> Void) {
+		queue.asyncAfter(deadline: .now() + (miliseconds/1000), execute: completion)
+	}
+
+	/// SwifterSwift: Delay function or closure call on a main queue
+	///
+	/// - Parameters:
+	///   - miliseconds: execute closure after the given delay
+	///   - completion: closure to be executed after delay
+
+	public static func delay(miliseconds: Double, completion: @escaping ()-> Void) {
+		delay(miliseconds: miliseconds, queue: DispatchQueue.main, completion: completion)
+	}
+
+	/// SwifterSwift: Debounce function or closure call
+	///
+	/// - Parameters:
+	///   - milisecondsOffset: allow execution of method if it was not called since milisecondsOffset
+	///   - queue: a queue that action closure should be executed on
+	///   - action: closure to be executed in a debounced way
+
+	public static func debounce(milisecondsDelay: Int, queue: DispatchQueue, action: @escaping (()->())) -> ()->() {
+	//http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
+		var lastFireTime = DispatchTime.now()
+		let dispatchDelay = DispatchTimeInterval.milliseconds(milisecondsDelay)
+
+		return {
+			let dispatchTime: DispatchTime = lastFireTime + dispatchDelay
+			queue.asyncAfter(deadline: dispatchTime, execute: {
+				let when: DispatchTime = lastFireTime + dispatchDelay
+				let now = DispatchTime.now()
+				if now.rawValue >= when.rawValue {
+					lastFireTime = DispatchTime.now()
+					action()
+				}
+			})
+		}
+	}
+
+	/// SwifterSwift: Debounce function or closure call on a main queue
+	///
+	/// - Parameters:
+	///   - milisecondsOffset: allow execution of method if it was not called since milisecondsOffset
+	///   - action: closure to be executed in a debounced way
+
+	public static func debounce(milisecondsDelay: Int, action: @escaping (()->())) -> ()->() {
+		return debounce(milisecondsDelay: milisecondsDelay, queue: DispatchQueue.main, action: action)
+	}
+}
 
 // MARK: - Methods
 public extension SwifterSwift {
