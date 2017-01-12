@@ -24,8 +24,8 @@ public extension Date {
 	
 	/// SwifterSwift: Month name format.
 	///
-	/// - threeLetters: 3 letter day abbreviation of month name.
-	/// - oneLetter: 1 letter day abbreviation of month name.
+	/// - threeLetters: 3 letter month abbreviation of month name.
+	/// - oneLetter: 1 letter month abbreviation of month name.
 	/// - full: Full month name.
 	public enum MonthNameStyle {
 		case threeLetters
@@ -178,9 +178,6 @@ public extension Date {
 		}
 		components.minute! = min % 5 < 3 ? min - min % 5 : min + 5 - (min % 5)
 		components.second = 0
-		if min > 57 {
-			components.hour? += 1
-		}
 		return Calendar.current.date(from: components) ?? self
 	}
 	
@@ -192,9 +189,6 @@ public extension Date {
 		}
 		components.minute? = min % 10 < 6 ? min - min % 10 : min + 10 - (min % 10)
 		components.second = 0
-		if min > 55 {
-			components.hour? += 1
-		}
 		return Calendar.current.date(from: components) ?? self
 	}
 	
@@ -206,9 +200,6 @@ public extension Date {
 		}
 		components.minute! = min % 15 < 8 ? min - min % 15 : min + 15 - (min % 15)
 		components.second = 0
-		if min > 52 {
-			components.hour? += 1
-		}
 		return Calendar.current.date(from: components) ?? self
 	}
 	
@@ -220,9 +211,6 @@ public extension Date {
 		}
 		components.minute! = min % 30 < 15 ? min - min % 30 : min + 30 - (min % 30)
 		components.second = 0
-		if min > 30 {
-			components.hour? += 1
-		}
 		return Calendar.current.date(from: components) ?? self
 	}
 	
