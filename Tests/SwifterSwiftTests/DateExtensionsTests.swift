@@ -71,10 +71,9 @@ class DateExtensionsTests: XCTestCase {
 		
 		XCTAssert(Date().beginning(of: .day)?.hour == 0 && (Date().beginning(of: .day)?.isInToday)!, "Could not get correct value for beginning of day in \(#function)")
 		
-		let date = Date(year: 2016, month: 8, day: 9) ?? Date()
-		
-		let beginningOfWeek = Date(year: 2016, month: 8, day: 7) ?? Date()
-		XCTAssert(date.beginning(of: .weekOfMonth)?.day == beginningOfWeek.day, "Could not get correct value for beginning of week in \(#function)")
+		let date = Date()
+		let beginningOfWeek = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))
+		XCTAssert(date.beginning(of: .weekOfMonth)?.day == beginningOfWeek?.day, "Could not get correct value for beginning of week in \(#function)")
 		
 		let beginningOfMonth = Date(year: 2016, month: 8, day: 1) ?? Date()
 		XCTAssert(Date().beginning(of: .month)?.day == beginningOfMonth.day, "Could not get correct value for beginning of month in \(#function)")
@@ -89,16 +88,41 @@ class DateExtensionsTests: XCTestCase {
 	
 	func testDateString() {
 		let date = Date(timeIntervalSince1970: 512)
-		XCTAssert(date.dateString() == "Jan 1, 1970", "Couldn't get correct value for \(#function)")
-		XCTAssert(date.dateString(ofStyle: .short) == "1/1/70", "Couldn't get correct value for \(#function)")
-		XCTAssert(date.dateString(ofStyle: .long) == "January 1, 1970", "Couldn't get correct value for \(#function)")
+		let formatter = DateFormatter()
+		formatter.timeStyle = .none
+		
+		formatter.dateStyle = .short
+		XCTAssert(date.dateString(ofStyle: .short) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		
+		formatter.dateStyle = .medium
+		XCTAssert(date.dateString(ofStyle: .medium) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		
+		formatter.dateStyle = .long
+		XCTAssert(date.dateString(ofStyle: .long) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		
+		formatter.dateStyle = .full
+		XCTAssert(date.dateString(ofStyle: .full) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
 	}
 	
 	func testDateTimeString() {
 		let date = Date(timeIntervalSince1970: 512)
-		XCTAssert(date.dateTimeString() == "Jan 1, 1970, 12:08:32 AM", "Couldn't get correct value for \(#function)")
-		XCTAssert(date.dateTimeString(ofStyle: .short) == "1/1/70, 12:08 AM", "Couldn't get correct value for \(#function)")
-		XCTAssert(date.dateTimeString(ofStyle: .long) == "January 1, 1970 at 12:08:32 AM GMT", "Couldn't get correct value for \(#function)")
+		let formatter = DateFormatter()
+		
+		formatter.timeStyle = .short
+		formatter.dateStyle = .short
+		XCTAssert(date.dateTimeString(ofStyle: .short) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		
+		formatter.timeStyle = .medium
+		formatter.dateStyle = .medium
+		XCTAssert(date.dateTimeString(ofStyle: .medium) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		
+		formatter.timeStyle = .long
+		formatter.dateStyle = .long
+		XCTAssert(date.dateTimeString(ofStyle: .long) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		
+		formatter.timeStyle = .full
+		formatter.dateStyle = .full
+		XCTAssert(date.dateTimeString(ofStyle: .full) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
 	}
 	
 	func testDay() {
@@ -231,9 +255,20 @@ class DateExtensionsTests: XCTestCase {
 	
 	func testTimeString() {
 		let date = Date(timeIntervalSince1970: 512)
-		XCTAssert(date.timeString() == "12:08:32 AM", "Couldn't get correct value for \(#function)")
-		XCTAssert(date.timeString(ofStyle: .short) == "12:08 AM", "Couldn't get correct value for \(#function)")
-		XCTAssert(date.timeString(ofStyle: .long) == "12:08:32 AM GMT", "Couldn't get correct value for \(#function)")
+		let formatter = DateFormatter()
+		formatter.dateStyle = .none
+		
+		formatter.timeStyle = .short
+		XCTAssert(date.timeString(ofStyle: .short) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		
+		formatter.timeStyle = .medium
+		XCTAssert(date.timeString(ofStyle: .medium) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		
+		formatter.timeStyle = .long
+		XCTAssert(date.timeString(ofStyle: .long) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		
+		formatter.timeStyle = .full
+		XCTAssert(date.timeString(ofStyle: .full) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
 	}
 	
 	func testUnixTimestamp() {
