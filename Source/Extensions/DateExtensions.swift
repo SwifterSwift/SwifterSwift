@@ -238,53 +238,13 @@ public extension Date {
 
 // MARK: - Methods
 public extension Date {
-
-	/// SwifterSwift: Add calendar component to date.
-	///
-	/// - Parameters:
-	///   - component: component type.
-	///   - value: multiples of compnenet to add.
-	public mutating func add(_ component: Calendar.Component, value: Int) {
-		switch component {
-		case .second:
-			self = calendar.date(byAdding: .second, value: value, to: self) ?? self
-			break
-			
-		case .minute:
-			self = calendar.date(byAdding: .minute, value: value, to: self) ?? self
-			break
-			
-		case .hour:
-			self = calendar.date(byAdding: .hour, value: value, to: self) ?? self
-			break
-			
-		case .day:
-			self = calendar.date(byAdding: .day, value: value, to: self) ?? self
-			break
-			
-		case .weekOfYear, .weekOfMonth:
-			self = calendar.date(byAdding: .day, value: value * 7, to: self) ?? self
-			break
-			
-		case .month:
-			self = calendar.date(byAdding: .month, value: value, to: self) ?? self
-			break
-			
-		case .year:
-			self = calendar.date(byAdding: .year, value: value, to: self) ?? self
-			break
-			
-		default:
-			break
-		}
-	}
 	
 	/// SwifterSwift: Date by adding multiples of calendar component.
 	///
 	/// - Parameters:
 	///   - component: component type.
-	///   - value: multiples of compnenets to add.
-	/// - Returns: original date + multiples of compnenet added.
+	///   - value: multiples of components to add.
+	/// - Returns: original date + multiples of component added.
 	public func adding(_ component: Calendar.Component, value: Int) -> Date {
 		switch component {
 		case .second:
@@ -313,12 +273,21 @@ public extension Date {
 		}
 	}
 	
+	/// SwifterSwift: Add calendar component to date.
+	///
+	/// - Parameters:
+	///   - component: component type.
+	///   - value: multiples of compnenet to add.
+	public mutating func add(_ component: Calendar.Component, value: Int) {
+		self = self.adding(component, value: value)
+	}
+	
 	/// SwifterSwift: Date by changing value of calendar component.
 	///
 	/// - Parameters:
 	///   - component: component type.
 	///   - value: new value of compnenet to change.
-	/// - Returns: original date + multiples of compnenets added.
+	/// - Returns: original date after changing given component to given value.
 	public func changing(_ component: Calendar.Component, value: Int) -> Date {
 		switch component {
 		case .second:
@@ -413,7 +382,7 @@ public extension Date {
 			
 		case .hour:
 			var date = self.adding(.hour, value: 1)
-			guard let after = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: self)) else {
+			guard let after = calendar.date(from: calendar.dateComponents([.year, .month, .day, .hour], from: date)) else {
 				return nil
 			}
 			date = after.adding(.second, value: -1)
@@ -427,7 +396,7 @@ public extension Date {
 			
 		case .weekOfYear, .weekOfMonth:
 			var date = self
-			guard let beginningOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)) else {
+			guard let beginningOfWeek = calendar.date(from: calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date)) else {
 				return nil
 			}
 			date = beginningOfWeek.adding(.day, value: 7).adding(.second, value: -1)
@@ -435,7 +404,7 @@ public extension Date {
 			
 		case .month:
 			var date = self.adding(.month, value: 1)
-			guard let after = calendar.date(from: calendar.dateComponents([.year, .month], from: self)) else {
+			guard let after = calendar.date(from: calendar.dateComponents([.year, .month], from: date)) else {
 				return nil
 			}
 			date = after.adding(.second, value: -1)
@@ -443,7 +412,7 @@ public extension Date {
 			
 		case .year:
 			var date = self.adding(.year, value: 1)
-			guard let after = calendar.date(from: calendar.dateComponents([.year], from: self)) else {
+			guard let after = calendar.date(from: calendar.dateComponents([.year], from: date)) else {
 				return nil
 			}
 			date = after.adding(.second, value: -1)
@@ -456,8 +425,8 @@ public extension Date {
 	
 	/// SwifterSwift: Date string from date.
 	///
-	/// - Parameter style: DateFormatter style (default is .medium)
-	/// - Returns: date string
+	/// - Parameter style: DateFormatter style (default is .medium).
+	/// - Returns: date string.
 	public func dateString(ofStyle style: DateFormatter.Style = .medium) -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.timeStyle = .none
@@ -467,8 +436,8 @@ public extension Date {
 	
 	/// SwifterSwift: Date and time string from date.
 	///
-	/// - Parameter style: DateFormatter style (default is .medium)
-	/// - Returns: date and time string
+	/// - Parameter style: DateFormatter style (default is .medium).
+	/// - Returns: date and time string.
 	public func dateTimeString(ofStyle style: DateFormatter.Style = .medium) -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.timeStyle = style
@@ -478,7 +447,7 @@ public extension Date {
 	
 	/// SwifterSwift: Check if date is in current given calendar component.
 	///
-	/// - Parameter component: calendar componenet to check.
+	/// - Parameter component: calendar component to check.
 	/// - Returns: true if date is in current given calendar component.
 	public func isInCurrent(_ component: Calendar.Component) -> Bool {
 		switch component {
@@ -517,6 +486,9 @@ public extension Date {
 	}
 	
 	/// SwifterSwift: Time string from date
+	///
+	/// - Parameter style: DateFormatter style (default is .medium).
+	/// - Returns: time string.
 	public func timeString(ofStyle style: DateFormatter.Style = .medium) -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.timeStyle = style
@@ -526,8 +498,8 @@ public extension Date {
 	
 	/// SwifterSwift: Day name from date.
 	///
-	/// - Parameter Style: style of day name.
-	/// - Returns: Day name string (example: W, Wed, Wednesday).
+	/// - Parameter Style: style of day name (default is DayNameStyle.full).
+	/// - Returns: day name string (example: W, Wed, Wednesday).
 	public func dayName(ofStyle style: DayNameStyle = .full) -> String {
 		// http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
 		let dateFormatter = DateFormatter()
@@ -547,8 +519,8 @@ public extension Date {
 	
 	/// SwifterSwift: Month name from date.
 	///
-	/// - Parameter Style: style of month name.
-	/// - Returns: Month name string (example: D, Dec, December).
+	/// - Parameter Style: style of month name (default is MonthNameStyle.full).
+	/// - Returns: month name string (example: D, Dec, December).
 	public func monthName(ofStyle style: MonthNameStyle = .full) -> String {
 		// http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
 		let dateFormatter = DateFormatter()
