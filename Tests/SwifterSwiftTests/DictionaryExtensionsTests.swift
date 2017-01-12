@@ -28,7 +28,7 @@ class DictionaryExtensionsTests: XCTestCase {
 	}
 	
 	func testJsonData() {
-		let jsonString = "{\"testKey\":\"testValue\",\"testArrayKey\":[1,2,3,4,5]}"
-		XCTAssert(testDict.jsonString() == jsonString, "Couldn't get correct value for \(#function)")
+		XCTAssert(testDict.jsonString()!.contain("\"testArrayKey\":[1,2,3,4,5]")
+			&& testDict.jsonString()!.contain("\"testKey\":\"testValue\""), "Couldn't get correct value for \(#function)")
 	}
 }

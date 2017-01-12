@@ -21,10 +21,12 @@ class CGSizeExtensionsTests: XCTestCase {
 		super.tearDown()
 	}
 	
-	func testAbs() {
+	#if !os(macOS)
+	func testAspectFit() {
 		let rect = CGSize(width: 40, height: 80)
 		let parentRect  = CGSize(width: 100, height: 50)
 		let newRect = rect.aspectFit(to: parentRect)
 		XCTAssert(newRect.width == 25 && newRect.height == 50, "Couldn't get correct value for \(#function)")
 	}
+	#endif
 }
