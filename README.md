@@ -2,7 +2,7 @@
   <img src="https://github.com/SwifterSwift/SwifterSwift/blob/master/logo.png?raw=true" title="swifterSwift">
 </p>
 
-[![Build Status](https://api.travis-ci.org/SwifterSwift/SwifterSwift.svg?branch=stable)](https://travis-ci.org/SwifterSwift/SwifterSwift)
+[![Build Status](https://api.travis-ci.org/SwifterSwift/SwifterSwift.svg?branch=master)](https://travis-ci.org/SwifterSwift/SwifterSwift)
 [![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
