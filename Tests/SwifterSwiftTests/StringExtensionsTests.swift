@@ -178,7 +178,7 @@ class StringExtensionsTests: XCTestCase {
 	}
 
 	func testSplit() {
-		XCTAssert("Hello Tests".splited(by: " ") == ["Hello", "Tests"], "Couldn't get correct value for \(#function)")
+		XCTAssert("Hello Tests".splitted(by: " ") == ["Hello", "Tests"], "Couldn't get correct value for \(#function)")
 	}
 	
 	func testStart() {
