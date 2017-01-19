@@ -108,18 +108,18 @@ public extension String {
 	
 	/// SwifterSwift: Check if string is a valid https URL.
 	public var isValidHttpsUrl: Bool {
-		guard let url = URL(string: self), url.scheme == "https" else {
+		guard let url = URL(string: self) else {
 			return false
 		}
-		return true
+		return url.scheme == "https"
 	}
 	
 	/// SwifterSwift: Check if string is a valid http URL.
 	public var isValidHttpUrl: Bool {
-		guard let url = URL(string: self), url.scheme == "http" else {
+		guard let url = URL(string: self) else {
 			return false
 		}
-		return true
+		return url.scheme == "http"
 	}
 	
 	/// SwifterSwift: Check if string contains only numbers.
