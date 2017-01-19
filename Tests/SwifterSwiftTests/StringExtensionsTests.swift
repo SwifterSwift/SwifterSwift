@@ -102,6 +102,14 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssert("omaralbeikgmail.com".isEmail == false, "Couldn't get correct value for \(#function) function")
 	}
 	
+        func testIsValidUrl() {
+                XCTAssert("https://google.com".isValidUrl == true, "Couldn't get correct value for \(#function) function")
+                XCTAssert("http://google.com".isValidUrl == true, "Couldn't get correct value for \(#function) function")
+                XCTAssert("ftp://google.com".isValidUrl == true, "Couldn't get correct value for \(#function) function")
+                XCTAssert("https:/google.com".isValidUrl == false, "Couldn't get correct value for \(#function) function")
+                XCTAssert("google.com".isValidUrl == false, "Couldn't get correct value for \(#function) function")
+        }
+    
 	func testIsHttpsUrl() {
 		XCTAssert("https://google.com".isHttpsUrl == true, "Couldn't get correct value for \(#function) function")
 		XCTAssert("http://google.com".isHttpsUrl == false, "Couldn't get correct value for \(#function) function")
