@@ -101,20 +101,25 @@ public extension String {
 		return emailTest.evaluate(with: self)
 	}
 	
-	/// SwifterSwift: Check if string is https URL.
-	public var isHttpsUrl: Bool {
-		guard start(with: "https://".lowercased()) else {
-			return false
-		}
+	/// SwifterSwift: Check if string is a valid URL.
+	public var isValidUrl: Bool {
 		return URL(string: self) != nil
 	}
 	
-	/// SwifterSwift: Check if string is http URL.
-	public var isHttpUrl: Bool {
-		guard start(with: "http://".lowercased()) else {
+	/// SwifterSwift: Check if string is a valid https URL.
+	public var isValidHttpsUrl: Bool {
+		guard let url = URL(string: self) else {
 			return false
 		}
-		return URL(string: self) != nil
+		return url.scheme == "https"
+	}
+	
+	/// SwifterSwift: Check if string is a valid http URL.
+	public var isValidHttpUrl: Bool {
+		guard let url = URL(string: self) else {
+			return false
+		}
+		return url.scheme == "http"
 	}
 	
 	/// SwifterSwift: Check if string contains only numbers.

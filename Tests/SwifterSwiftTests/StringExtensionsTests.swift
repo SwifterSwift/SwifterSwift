@@ -102,15 +102,24 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssert("omaralbeikgmail.com".isEmail == false, "Couldn't get correct value for \(#function) function")
 	}
 	
-	func testIsHttpsUrl() {
-		XCTAssert("https://google.com".isHttpsUrl == true, "Couldn't get correct value for \(#function) function")
-		XCTAssert("http://google.com".isHttpsUrl == false, "Couldn't get correct value for \(#function) function")
-		XCTAssert("google.com".isHttpsUrl == false, "Couldn't get correct value for \(#function) function")
+	func testIsValidUrl() {
+		let error = "Couldn't get correct value for \(#function) function"
+		XCTAssertTrue("https://google.com".isValidUrl, error)
+		XCTAssertTrue("http://google.com".isValidUrl, error)
+		XCTAssertTrue("ftp://google.com".isValidUrl, error)
 	}
 	
-	func testIsHttpUrl() {
-		XCTAssert("http://google.com".isHttpUrl == true, "Couldn't get correct value for \(#function) function")
-		XCTAssert("google.com".isHttpUrl == false, "Couldn't get correct value for \(#function) function")
+	func testIsValidHttpsUrl() {
+		let error = "Couldn't get correct value for \(#function) function"
+		XCTAssertTrue("https://google.com".isValidHttpsUrl, error)
+		XCTAssertFalse("http://google.com".isValidHttpsUrl, error)
+		XCTAssertFalse("google.com".isValidHttpsUrl, error)
+	}
+	
+	func testIsValidHttpUrl() {
+		let error = "Couldn't get correct value for \(#function) function"
+		XCTAssertTrue("http://google.com".isValidHttpUrl, error)
+		XCTAssertFalse("google.com".isValidHttpUrl, error)
 	}
 	
 	func testIsNumeric() {
