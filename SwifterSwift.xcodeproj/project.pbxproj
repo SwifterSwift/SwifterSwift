@@ -85,7 +85,6 @@
 		6EBD19FA1E23E4A5002186D3 /* DictionaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBB1E11D1EF000E9A85 /* DictionaryExtensionsTests.swift */; };
 		6EBD19FB1E23E4A5002186D3 /* DoubleExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBC1E11D1EF000E9A85 /* DoubleExtensionsTests.swift */; };
 		6EBD19FC1E23E4A5002186D3 /* FloatExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBD1E11D1EF000E9A85 /* FloatExtensionsTests.swift */; };
-		6EBD19FD1E23E4A5002186D3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07445BBE1E11D1EF000E9A85 /* Info.plist */; };
 		6EBD19FE1E23E4A5002186D3 /* IntExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBF1E11D1EF000E9A85 /* IntExtensionsTests.swift */; };
 		6EBD19FF1E23E4A5002186D3 /* StringExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BC01E11D1EF000E9A85 /* StringExtensionsTests.swift */; };
 		6EBD1A001E23E4A5002186D3 /* SwifterSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BC11E11D1EF000E9A85 /* SwifterSwiftTests.swift */; };
@@ -375,6 +374,7 @@
 		07445BB51E11D1EF000E9A85 /* SwifterSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
+				07445BBE1E11D1EF000E9A85 /* Info.plist */,
 				07445BB61E11D1EF000E9A85 /* ArrayExtensionsTests.swift */,
 				07445BB71E11D1EF000E9A85 /* CGFloatExtensionsTests.swift */,
 				07445BB81E11D1EF000E9A85 /* CGSizeExtensionsTests.swift */,
@@ -383,7 +383,6 @@
 				07445BBB1E11D1EF000E9A85 /* DictionaryExtensionsTests.swift */,
 				07445BBC1E11D1EF000E9A85 /* DoubleExtensionsTests.swift */,
 				07445BBD1E11D1EF000E9A85 /* FloatExtensionsTests.swift */,
-				07445BBE1E11D1EF000E9A85 /* Info.plist */,
 				07445BBF1E11D1EF000E9A85 /* IntExtensionsTests.swift */,
 				07445BC01E11D1EF000E9A85 /* StringExtensionsTests.swift */,
 				07445BC11E11D1EF000E9A85 /* SwifterSwiftTests.swift */,
@@ -685,7 +684,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6EBD19FD1E23E4A5002186D3 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,41 +20,42 @@ class CGFloatExtensionsTests: XCTestCase {
 		// Put teardown code here. This method is called after the invocation of each test method in the class.
 		super.tearDown()
 	}
-
+	
 	#if !os(macOS)
 	func testAbs() {
-		XCTAssert(CGFloat(-9.3).abs == CGFloat(9.3), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(CGFloat(-9.3).abs, CGFloat(9.3))
 	}
 	#endif
 	
 	#if !os(macOS)
 	func testCeil() {
-		XCTAssert(CGFloat(9.3).ceil == CGFloat(10.0), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(CGFloat(9.3).ceil, CGFloat(10.0))
 	}
 	#endif
-
+	
 	#if !os(macOS)
 	func testDegreesToRadians() {
-		XCTAssert(CGFloat(180).degreesToRadians == CGFloat(M_PI), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(CGFloat(180).degreesToRadians, CGFloat(M_PI))
 	}
 	#endif
-
+	
 	#if !os(macOS)
 	func testRandomBetween() {
-		XCTAssert(CGFloat.randomBetween(min: 1, max: 5) > 0 && CGFloat.randomBetween(min: 1, max: 5) < 5, "Couldn't get correct value for \(#function)")
+		XCTAssertGreaterThan(CGFloat.randomBetween(min: 1, max: 5), 0)
+		XCTAssertLessThan(CGFloat.randomBetween(min: 1, max: 5), 5)
 	}
 	#endif
-
+	
 	#if !os(macOS)
 	func testFloor() {
-		XCTAssert(CGFloat(9.3).floor == CGFloat(9.0), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(CGFloat(9.3).floor, CGFloat(9.0))
 	}
 	#endif
-
+	
 	#if !os(macOS)
 	func testRadiansToDegrees() {
-		XCTAssert(CGFloat(M_PI).radiansToDegrees == CGFloat(180), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(CGFloat(M_PI).radiansToDegrees, CGFloat(180))
 	}
 	#endif
-
+	
 }

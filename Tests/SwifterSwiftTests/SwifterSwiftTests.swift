@@ -23,7 +23,7 @@ class SwifterSwiftTests: XCTestCase {
 	
 	func testTypeName() {
 		let number = 8
-		XCTAssert(SwifterSwift.typeName(for: number) == "Int", "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(SwifterSwift.typeName(for: number), "Int")
 	}
 
 	func testDelay() {

@@ -17,73 +17,85 @@ class DateExtensionsTests: XCTestCase {
 	}
 	
 	func testAdd() {
-		var date1 = Date()
+		var date = Date()
 		
-		date1.second = 10
-		date1.add(.second, value: -1)
-		XCTAssert(date1.second == 9, "Could not substract seconds in \(#function)")
+		date.second = 10
+		date.add(.second, value: -1)
+		XCTAssertEqual(date.second, 9)
 		
-		date1.add(.second, value: 1)
-		XCTAssert(date1.second == 10, "Could not add seconds in \(#function)")
+		date.add(.second, value: 1)
+		XCTAssertEqual(date.second, 10)
 		
-		date1.minute = 10
-		date1.add(.minute, value: -1)
-		XCTAssert(date1.minute == 9, "Could not substract minutes in \(#function)")
+		date.minute = 10
+		date.add(.minute, value: -1)
+		XCTAssertEqual(date.minute, 9)
 		
-		date1.add(.minute, value: 1)
-		XCTAssert(date1.minute == 10, "Could not add minutes in \(#function)")
+		date.add(.minute, value: 1)
+		XCTAssertEqual(date.minute, 10)
 		
-		date1.hour = 10
-		date1.add(.hour, value: -1)
-		XCTAssert(date1.hour == 9, "Could not substract hours in \(#function)")
+		date.hour = 10
+		date.add(.hour, value: -1)
+		XCTAssertEqual(date.hour, 9)
 		
-		date1.add(.hour, value: 1)
-		XCTAssert(date1.hour == 10, "Could not add hours in \(#function)")
+		date.add(.hour, value: 1)
+		XCTAssertEqual(date.hour, 10)
 		
-		date1.day = 10
-		date1.add(.day, value: -1)
-		XCTAssert(date1.day == 9, "Could not substract days in \(#function)")
+		date.day = 10
+		date.add(.day, value: -1)
+		XCTAssertEqual(date.day, 9)
 		
-		date1.add(.day, value: 1)
-		XCTAssert(date1.day == 10, "Could not add days in \(#function)")
+		date.add(.day, value: 1)
+		XCTAssertEqual(date.day, 10)
 		
-		date1.month = 10
-		date1.add(.month, value: -1)
-		XCTAssert(date1.month == 9, "Could not substract months in \(#function)")
+		date.month = 10
+		date.add(.month, value: -1)
+		XCTAssertEqual(date.month, 9)
 		
-		date1.add(.month, value: 1)
-		XCTAssert(date1.month == 10, "Could not add months in \(#function)")
+		date.add(.month, value: 1)
+		XCTAssertEqual(date.month, 10)
 		
-		date1.year = 2016
-		date1.add(.year, value: -1)
-		XCTAssert(date1.year == 2015, "Could not substract years in \(#function)")
+		date.year = 2016
+		date.add(.year, value: -1)
+		XCTAssertEqual(date.year, 2015)
 		
-		date1.add(.year, value: 1)
-		XCTAssert(date1.year == 2016, "Could not add years in \(#function)")
+		date.add(.year, value: 1)
+		XCTAssertEqual(date.year, 2016)
 	}
 	
 	func testBeginning() {
-		XCTAssert(Date().beginning(of: .second)?.nanosecond == 0, "Could not get correct value for beginning of second in \(#function)")
-		
-		XCTAssert(Date().beginning(of: .minute)?.second == 0, "Could not get correct value for beginning of minute in \(#function)")
-		
-		XCTAssert(Date().beginning(of: .hour)?.minute == 0, "Could not get correct value for beginning of hour in \(#function)")
-		
-		XCTAssert(Date().beginning(of: .day)?.hour == 0 && (Date().beginning(of: .day)?.isInToday)!, "Could not get correct value for beginning of day in \(#function)")
-		
 		let date = Date()
+
+		XCTAssertNotNil(date.beginning(of: .second))
+		XCTAssertEqual(date.beginning(of: .second)!.nanosecond, 0)
+		
+		XCTAssertNotNil(date.beginning(of: .minute))
+		XCTAssertEqual(date.beginning(of: .minute)!.second, 0)
+		
+		XCTAssertNotNil(date.beginning(of: .hour))
+		XCTAssertEqual(date.beginning(of: .hour)!.minute, 0)
+		
+		XCTAssertNotNil(date.beginning(of: .day))
+		XCTAssertEqual(date.beginning(of: .day)!.hour, 0)
+		XCTAssertTrue(date.beginning(of: .day)!.isInToday)
+		
 		let beginningOfWeek = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))
-		XCTAssert(date.beginning(of: .weekOfMonth)?.day == beginningOfWeek?.day, "Could not get correct value for beginning of week in \(#function)")
+		XCTAssertNotNil(date.beginning(of: .weekOfMonth))
+		XCTAssertNotNil(beginningOfWeek)
+		XCTAssertEqual(date.beginning(of: .weekOfMonth)!.day, beginningOfWeek!.day)
 		
-		let beginningOfMonth = Date(year: 2016, month: 8, day: 1) ?? Date()
-		XCTAssert(Date().beginning(of: .month)?.day == beginningOfMonth.day, "Could not get correct value for beginning of month in \(#function)")
+		let beginningOfMonth = Date(year: 2016, month: 8, day: 1)
+		XCTAssertNotNil(date.beginning(of: .month))
+		XCTAssertNotNil(beginningOfMonth)
+		XCTAssertEqual(date.beginning(of: .month)!.day, beginningOfMonth!.day)
 		
-		let beginningOfYear = Date(year: 2016, month: 1, day: 1) ?? Date()
-		XCTAssert(Date().beginning(of: .year)?.day == beginningOfYear.day, "Could not get correct value for beginning of year in \(#function)")
+		let beginningOfYear = Date(year: 2016, month: 1, day: 1)
+		XCTAssertNotNil(date.beginning(of: .year))
+		XCTAssertNotNil(beginningOfYear)
+		XCTAssertEqual(date.beginning(of: .year)!.day, beginningOfYear!.day)
 	}
 	
 	func testCalendar() {
-		XCTAssert(Date().calendar == Calendar.current, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(Date().calendar, Calendar.current)
 	}
 	
 	func testDateString() {
@@ -92,16 +104,16 @@ class DateExtensionsTests: XCTestCase {
 		formatter.timeStyle = .none
 		
 		formatter.dateStyle = .short
-		XCTAssert(date.dateString(ofStyle: .short) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.dateString(ofStyle: .short), formatter.string(from: date))
 		
 		formatter.dateStyle = .medium
-		XCTAssert(date.dateString(ofStyle: .medium) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.dateString(ofStyle: .medium), formatter.string(from: date))
 		
 		formatter.dateStyle = .long
-		XCTAssert(date.dateString(ofStyle: .long) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.dateString(ofStyle: .long), formatter.string(from: date))
 		
 		formatter.dateStyle = .full
-		XCTAssert(date.dateString(ofStyle: .full) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.dateString(ofStyle: .full), formatter.string(from: date))
 	}
 	
 	func testDateTimeString() {
@@ -110,147 +122,170 @@ class DateExtensionsTests: XCTestCase {
 		
 		formatter.timeStyle = .short
 		formatter.dateStyle = .short
-		XCTAssert(date.dateTimeString(ofStyle: .short) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.dateTimeString(ofStyle: .short), formatter.string(from: date))
 		
 		formatter.timeStyle = .medium
 		formatter.dateStyle = .medium
-		XCTAssert(date.dateTimeString(ofStyle: .medium) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.dateTimeString(ofStyle: .medium), formatter.string(from: date))
 		
 		formatter.timeStyle = .long
 		formatter.dateStyle = .long
-		XCTAssert(date.dateTimeString(ofStyle: .long) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.dateTimeString(ofStyle: .long), formatter.string(from: date))
 		
 		formatter.timeStyle = .full
 		formatter.dateStyle = .full
-		XCTAssert(date.dateTimeString(ofStyle: .full) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.dateTimeString(ofStyle: .full), formatter.string(from: date))
 	}
 	
 	func testDay() {
-		XCTAssert(Date().day == Calendar.current.component(.day, from: Date()), "Couldn't get correct value for \(#function)")
+		var date = Date()
+		XCTAssertEqual(date.day, Calendar.current.component(.day, from: date))
 		
-		var date1 = Date()
-		date1.day = 4
-		XCTAssert(date1.day == Calendar.current.component(.day, from: date1), "Couldn't get correct value for \(#function)")
+		date.day = 4
+		XCTAssertEqual(date.day, Calendar.current.component(.day, from: date))
 	}
 	
 	func testEnd() {
 		let date = Date(timeIntervalSince1970: 512) // January 1, 1970 at 2:08:32 AM GMT+2
-		XCTAssert(date.end(of: .second)?.second == 32, "Couldn't get correct value for \(#function)")
 		
-		XCTAssert(date.end(of: .minute)?.second == 59, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.end(of: .second)!.second , 32)
+		XCTAssertEqual(date.end(of: .hour)!.minute, 59)
+		XCTAssertEqual(date.end(of: .minute)!.second, 59)
 		
-		XCTAssert(date.end(of: .hour)?.minute == 59 && date.end(of: .hour)?.second == 59, "Couldn't get correct value for \(#function)")
-		
-		XCTAssert(date.end(of: .day)?.hour == 23 && date.end(of: .day)?.minute == 59 && date.end(of: .day)?.second == 59, "Couldn't get correct value for \(#function)")
-		
+		XCTAssertEqual(date.end(of: .day)!.hour, 23)
+		XCTAssertEqual(date.end(of: .day)!.minute, 59)
+		XCTAssertEqual(date.end(of: .day)!.second, 59)
+
 		var endOfWeek = date.beginning(of: .weekOfYear)
-		endOfWeek?.add(.day, value: 7)
-		endOfWeek?.add(.second, value: -1)
-		XCTAssert(date.end(of: .weekOfYear) == endOfWeek, "Couldn't get correct value for \(#function)")
+		endOfWeek!.add(.day, value: 7)
+		endOfWeek!.add(.second, value: -1)
+		XCTAssertEqual(date.end(of: .weekOfYear), endOfWeek)
 		
-		XCTAssert(date.end(of: .month)?.day == 31 && date.end(of: .month)?.hour == 23 && date.end(of: .month)?.minute == 59 && date.end(of: .month)?.second == 59, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.end(of: .month)!.day, 31)
+		XCTAssertEqual(date.end(of: .month)!.hour, 23)
+		XCTAssertEqual(date.end(of: .month)!.minute, 59)
+		XCTAssertEqual(date.end(of: .month)!.second, 59)
 		
-		XCTAssert(date.end(of: .year)?.month == 12 && date.end(of: .year)?.day == 31 && date.end(of: .year)?.hour == 23 && date.end(of: .year)?.minute == 59 && date.end(of: .year)?.second == 59, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.end(of: .year)!.month, 12)
+		XCTAssertEqual(date.end(of: .year)!.day, 31)
+		XCTAssertEqual(date.end(of: .year)!.hour, 23)
+		XCTAssertEqual(date.end(of: .year)!.minute, 59)
+		XCTAssertEqual(date.end(of: .year)!.second, 59)
+
 	}
 	
 	func testEra() {
-		XCTAssert(Date().era == Calendar.current.component(.era, from: Date()), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(Date().era, Calendar.current.component(.era, from: Date()))
 	}
 	
 	func testHour() {
-		XCTAssert(Date().hour == Calendar.current.component(.hour, from: Date()), "Couldn't get correct value for \(#function)")
+		var date = Date()
+		XCTAssertEqual(date.hour, Calendar.current.component(.hour, from: date))
 		
-		var date1 = Date()
-		date1.hour = 4
-		XCTAssert(date1.hour == Calendar.current.component(.hour, from: date1), "Couldn't get correct value for \(#function)")
+		date.hour = 4
+		XCTAssertEqual(date.hour, Calendar.current.component(.hour, from: date))
 	}
 	
 	func testNewDateFromComponenets() {
 		let date = Date(calendar: Date().calendar, timeZone: Date().timeZone, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond) ?? Date()
 		let date1 = Date(timeIntervalSince1970: date.timeIntervalSince1970)
 		
-		XCTAssert(date.timeIntervalSince1970 == date1.timeIntervalSince1970, "Could not get correct value for \(#function)")
+		XCTAssertEqual(date.timeIntervalSince1970, date1.timeIntervalSince1970)
 	}
 	
 	func testNewDateFromIso8601String() {
 		let date = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
 		let dateFromIso8601 = Date(iso8601String: "1970-01-01T00:08:32.000Z")
-		XCTAssert(date == dateFromIso8601, "Could not get correct value for \(#function)")
+		XCTAssertEqual(date, dateFromIso8601)
 	}
 	
 	func testNewDateFromUnixTimestamp() {
 		let date = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
 		let dateFromUnixTimestamp = Date(unixTimestamp: 512)
-		XCTAssert(date == dateFromUnixTimestamp, "Could not get correct value for \(#function)")
+		XCTAssertEqual(date, dateFromUnixTimestamp)
 	}
 	
 	func testIsInCurrent() {
+		let date = Date()
 		let oldDate = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
-		XCTAssert(oldDate.isInCurrent(.second) == false && Date().isInCurrent(.second) == true, "Could not get correct value for \(#function)")
 		
-		XCTAssert(oldDate.isInCurrent(.second) == false && Date().isInCurrent(.second) == true, "Could not get correct value for \(#function)")
+		XCTAssertTrue(date.isInCurrent(.second))
+		XCTAssertFalse(oldDate.isInCurrent(.second))
 		
-		XCTAssert(oldDate.isInCurrent(.minute) == false && Date().isInCurrent(.minute) == true, "Could not get correct value for \(#function)")
+		XCTAssertTrue(date.isInCurrent(.minute))
+		XCTAssertFalse(oldDate.isInCurrent(.minute))
 		
-		XCTAssert(oldDate.isInCurrent(.hour) == false && Date().isInCurrent(.hour) == true, "Could not get correct value for \(#function)")
+		XCTAssertTrue(date.isInCurrent(.hour))
+		XCTAssertFalse(oldDate.isInCurrent(.hour))
 		
-		XCTAssert(oldDate.isInCurrent(.day) == false && Date().isInCurrent(.day) == true, "Could not get correct value for \(#function)")
+		XCTAssertTrue(date.isInCurrent(.day))
+		XCTAssertFalse(oldDate.isInCurrent(.day))
 		
-		XCTAssert(oldDate.isInCurrent(.weekOfMonth) == false && Date().isInCurrent(.weekOfMonth) == true, "Could not get correct value for \(#function)")
+		XCTAssertTrue(date.isInCurrent(.weekOfMonth))
+		XCTAssertFalse(oldDate.isInCurrent(.weekOfMonth))
 		
-		XCTAssert(oldDate.isInCurrent(.month) == false && Date().isInCurrent(.month) == true, "Could not get correct value for \(#function)")
+		XCTAssertTrue(date.isInCurrent(.month))
+		XCTAssertFalse(oldDate.isInCurrent(.month))
 		
-		XCTAssert(oldDate.isInCurrent(.year) == false && Date().isInCurrent(.year) == true, "Could not get correct value for \(#function)")
+		XCTAssertTrue(date.isInCurrent(.year))
+		XCTAssertFalse(oldDate.isInCurrent(.year))
 	}
 	
 	func testIsInFuture() {
 		let oldDate = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
 		let futureDate = Date(timeIntervalSinceNow: 512)
-		XCTAssert(oldDate.isInFuture == false && futureDate.isInFuture == true, "Could not get correct value for \(#function)")
+		
+		XCTAssertTrue(futureDate.isInFuture)
+		XCTAssertFalse(oldDate.isInFuture)
 	}
 	
 	func testIsInPast() {
 		let oldDate = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
 		let futureDate = Date(timeIntervalSinceNow: 512)
-		XCTAssert(oldDate.isInPast == true && futureDate.isInPast == false, "Could not get correct value for \(#function)")
+		
+		XCTAssertTrue(oldDate.isInPast)
+		XCTAssertFalse(futureDate.isInPast)
 	}
 	
 	func testIso8601String() {
 		let date = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
-		XCTAssert(date.iso8601String == "1970-01-01T00:08:32.000Z", "Could not get correct value for \(#function)")
+		XCTAssertEqual(date.iso8601String, "1970-01-01T00:08:32.000Z")
 	}
 	
 	func testMinute() {
-		XCTAssert(Date().minute == Calendar.current.component(.minute, from: Date()), "Couldn't get correct value for \(#function)")
+		var date = Date()
+		XCTAssertEqual(date.minute, Calendar.current.component(.minute, from: Date()))
 		
-		var date1 = Date()
-		date1.minute = 13
-		XCTAssert(date1.minute == Calendar.current.component(.minute, from: date1) && date1.minute == 13, "Couldn't get correct value for \(#function)")
+		date.minute = 13
+		XCTAssertEqual(date.minute, Calendar.current.component(.minute, from: date))
+		XCTAssertEqual(date.minute, 13)
 	}
 	
 	func testMonth() {
-		XCTAssert(Date().month == Calendar.current.component(.month, from: Date()), "Couldn't get correct value for \(#function)")
+		var date = Date()
+		XCTAssertEqual(date.month, Calendar.current.component(.month, from: date))
 		
-		var date1 = Date()
-		date1.month = 3
-		XCTAssert(date1.month == Calendar.current.component(.month, from: date1) && date1.month == 3, "Couldn't get correct value for \(#function)")
+		date.month = 3
+		XCTAssertEqual(date.month, Calendar.current.component(.month, from: date))
+		XCTAssertEqual(date.month, 3)
 	}
 	
 	func testNanosecond() {
 		let date = Date()
-		XCTAssert(date.nanosecond == Calendar.current.component(.nanosecond, from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.nanosecond, Calendar.current.component(.nanosecond, from: date))
 	}
 	
 	func testQuarter() {
-		XCTAssert(Date().quarter == Calendar.current.component(.quarter, from: Date()), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(Date().quarter, Calendar.current.component(.quarter, from: Date()))
 	}
 	
 	func testSecond() {
-		XCTAssert(Date().second == Calendar.current.component(.second, from: Date()), "Couldn't get correct value for \(#function)")
+		var date = Date()
+		XCTAssertEqual(date.second, Calendar.current.component(.second, from: date))
 		
-		var date1 = Date()
-		date1.second = 12
-		XCTAssert(date1.second == Calendar.current.component(.second, from: date1) && date1.second == 12, "Couldn't get correct value for \(#function)")
+		date.second = 12
+		XCTAssertEqual(date.second, Calendar.current.component(.second, from: date))
+		XCTAssertEqual(date.second, 12)
 	}
 	
 	func testTimeString() {
@@ -259,40 +294,41 @@ class DateExtensionsTests: XCTestCase {
 		formatter.dateStyle = .none
 		
 		formatter.timeStyle = .short
-		XCTAssert(date.timeString(ofStyle: .short) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.timeString(ofStyle: .short), formatter.string(from: date))
 		
 		formatter.timeStyle = .medium
-		XCTAssert(date.timeString(ofStyle: .medium) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.timeString(ofStyle: .medium), formatter.string(from: date))
 		
 		formatter.timeStyle = .long
-		XCTAssert(date.timeString(ofStyle: .long) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.timeString(ofStyle: .long), formatter.string(from: date))
 		
 		formatter.timeStyle = .full
-		XCTAssert(date.timeString(ofStyle: .full) == formatter.string(from: date), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.timeString(ofStyle: .full), formatter.string(from: date))
 	}
 	
 	func testUnixTimestamp() {
 		let date = Date()
-		XCTAssert(date.unixTimestamp == date.timeIntervalSince1970, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(date.unixTimestamp, date.timeIntervalSince1970)
 	}
 	
 	func testWeekday() {
-		XCTAssert(Date().weekday == Calendar.current.component(.weekday, from: Date()), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(Date().weekday, Calendar.current.component(.weekday, from: Date()))
 	}
 	
 	func testWeekOfMonth() {
-		XCTAssert(Date().weekOfMonth == Calendar.current.component(.weekOfMonth, from: Date()), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(Date().weekOfMonth, Calendar.current.component(.weekOfMonth, from: Date()))
 	}
 	
 	func testWeekOfYear() {
-		XCTAssert(Date().weekOfYear == Calendar.current.component(.weekOfYear, from: Date()), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(Date().weekOfYear, Calendar.current.component(.weekOfYear, from: Date()))
 	}
 	
 	func testYear() {
-		XCTAssert(Date().year == Calendar.current.component(.year, from: Date()), "Couldn't get correct value for \(#function)")
+		var date = Date()
+		XCTAssertEqual(date.year, Calendar.current.component(.year, from: date))
 		
-		var date1 = Date()
-		date1.year = 2000
-		XCTAssert(date1.year == Calendar.current.component(.year, from: date1) && date1.year == 2000, "Couldn't get correct value for \(#function)")
+		date.year = 2000
+		XCTAssertEqual(date.year, Calendar.current.component(.year, from: date))
+		XCTAssertEqual(date.year, 2000)
 	}
 }

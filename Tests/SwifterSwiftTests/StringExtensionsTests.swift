@@ -22,304 +22,273 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testBase64Decoded() {
-		XCTAssert("SGVsbG8gV29ybGQh".base64Decoded == "Hello World!", "Couldn't get correct value for \(#function)")
+		XCTAssertEqual("SGVsbG8gV29ybGQh".base64Decoded, "Hello World!")
 	}
 	
 	func testBase64Encoded() {
-		XCTAssert("Hello World!".base64Encoded == "SGVsbG8gV29ybGQh", "Couldn't get correct value for \(#function)")
+		XCTAssertEqual("Hello World!".base64Encoded, "SGVsbG8gV29ybGQh")
 	}
 	
 	func testCamelCased() {
-		XCTAssert("Hello test".camelCased == "helloTest", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("Hello test".camelCased, "helloTest")
 	}
 	
 	func testCamelize() {
 		var str = "Hello test"
 		str.camelize()
-		XCTAssert(str == "helloTest", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual(str, "helloTest")
 	}
 	
 	func testContain() {
-		XCTAssert("Hello Tests".contain("Hello") == true, "Couldn't get correct value for \(#function)")
+		XCTAssert("Hello Tests".contain("Hello"))
+		XCTAssert("Hello Tests".contain("hello", caseSensitive: false))
 	}
 	
 	func testContainEmoji() {
-		XCTAssert("Hello 😂".containEmoji == true, "Couldn't get correct value for \(#function)")
-		XCTAssert("Hello ;)".containEmoji == false, "Couldn't get correct value for \(#function)")
+		XCTAssert("Hello 😂".containEmoji)
+		XCTAssertFalse("Hello ;)".containEmoji)
 	}
 	
 	func testCount() {
-		XCTAssertEqual("Hello This Tests".count(of: "T"), 2, "Couldn't get correct value for \(#function)")
-		XCTAssertEqual("Hello This Tests".count(of: "t"), 1, "Couldn't get correct value for \(#function)")
-		XCTAssertEqual("Hello This Tests".count(of: "T", caseSensitive: false) , 3, "Couldn't get correct value for \(#function)")
-		XCTAssertEqual("Hello This Tests".count(of: "t", caseSensitive: false), 3, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual("Hello This Tests".count(of: "T"), 2)
+		XCTAssertEqual("Hello This Tests".count(of: "t"), 1)
+		XCTAssertEqual("Hello This Tests".count(of: "T", caseSensitive: false) , 3)
+		XCTAssertEqual("Hello This Tests".count(of: "t", caseSensitive: false), 3)
         
 	}
 	
 	func testEnd() {
-		XCTAssert("Hello Tests".end(with: "sts"), "Couldn't get correct value for \(#function)")
+		XCTAssert("Hello Tests".end(with: "sts"))
 	}
 	
 	func testFirstCharacter() {
-		guard let firstCharacter = "Hello".firstCharacter else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
-		XCTAssert(firstCharacter == "H", "Couldn't get correct value for \(#function) function")
+		XCTAssertNotNil("Hello".firstCharacter)
+		XCTAssertEqual("Hello".firstCharacter!, "H")
 	}
 	
 	func testFirstIndex() {
-		XCTAssert("Hello Test".firstIndex(of: "e") == 1, "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("Hello Test".firstIndex(of: "e"), 1)
 	}
 	
 	func testHasLetters() {
-		XCTAssert("hsj 1 wq3".hasLetters == true, "Couldn't get correct value for \(#function) function")
-		XCTAssert("123".hasLetters == false, "Couldn't get correct value for \(#function) function")
-		XCTAssert("Hello test".hasLetters == true, "Couldn't get correct value for \(#function) function")
+		XCTAssert("hsj 1 wq3".hasLetters)
+		XCTAssertFalse("123".hasLetters)
+		XCTAssert("Hello test".hasLetters)
 	}
 	
 	func testHasNumbers() {
-		XCTAssert("hsj 1 wq3".hasNumbers == true, "Couldn't get correct value for \(#function) function")
-		XCTAssert("123".hasNumbers == true, "Couldn't get correct value for \(#function) function")
-		XCTAssert("Hello test".hasNumbers == false, "Couldn't get correct value for \(#function) function")
+		XCTAssert("hsj 1 wq3".hasNumbers)
+		XCTAssert("123".hasNumbers)
+		XCTAssertFalse("Hello test".hasNumbers)
 	}
 	
 	func testIsAlphabetic() {
-		XCTAssert("abc".isAlphabetic == true, "Couldn't get correct value for \(#function) function")
-		XCTAssert("123abc".isAlphabetic == false, "Couldn't get correct value for \(#function) function")
-		XCTAssert("123".isAlphabetic == false, "Couldn't get correct value for \(#function) function")
+		XCTAssert("abc".isAlphabetic)
+		XCTAssertFalse("123abc".isAlphabetic)
+		XCTAssertFalse("123".isAlphabetic)
 	}
 	
 	func testIsAlphaNumeric() {
-		XCTAssert("123abc".isAlphaNumeric == true, "Couldn't get correct value for \(#function) function")
-		XCTAssert("123".isAlphaNumeric == false, "Couldn't get correct value for \(#function) function")
-		XCTAssert("abc".isAlphaNumeric == false, "Couldn't get correct value for \(#function) function")
+		XCTAssert("123abc".isAlphaNumeric)
+		XCTAssertFalse("123".isAlphaNumeric)
+		XCTAssertFalse("abc".isAlphaNumeric)
 	}
 	
 	func testIsEmail() {
-		XCTAssert("omaralbeik@gmail.com".isEmail == true, "Couldn't get correct value for \(#function) function")
-		XCTAssert("omaralbeik@gmailcom".isEmail == false, "Couldn't get correct value for \(#function) function")
-		XCTAssert("omaralbeikgmail.com".isEmail == false, "Couldn't get correct value for \(#function) function")
+		XCTAssert("omaralbeik@gmail.com".isEmail)
+		XCTAssertFalse("omaralbeik@gmailcom".isEmail)
+		XCTAssertFalse("omaralbeikgmail.com".isEmail)
 	}
 	
 	func testIsValidUrl() {
-		let error = "Couldn't get correct value for \(#function) function"
-		XCTAssertTrue("https://google.com".isValidUrl, error)
-		XCTAssertTrue("http://google.com".isValidUrl, error)
-		XCTAssertTrue("ftp://google.com".isValidUrl, error)
+		XCTAssert("https://google.com".isValidUrl)
+		XCTAssert("http://google.com".isValidUrl)
+		XCTAssert("ftp://google.com".isValidUrl)
 	}
 	
 	func testIsValidHttpsUrl() {
-		let error = "Couldn't get correct value for \(#function) function"
-		XCTAssertTrue("https://google.com".isValidHttpsUrl, error)
-		XCTAssertFalse("http://google.com".isValidHttpsUrl, error)
-		XCTAssertFalse("google.com".isValidHttpsUrl, error)
+		XCTAssert("https://google.com".isValidHttpsUrl)
+		XCTAssertFalse("http://google.com".isValidHttpsUrl)
+		XCTAssertFalse("google.com".isValidHttpsUrl)
 	}
 	
 	func testIsValidHttpUrl() {
-		let error = "Couldn't get correct value for \(#function) function"
-		XCTAssertTrue("http://google.com".isValidHttpUrl, error)
-		XCTAssertFalse("google.com".isValidHttpUrl, error)
+		XCTAssert("http://google.com".isValidHttpUrl)
+		XCTAssertFalse("google.com".isValidHttpUrl)
 	}
 	
 	func testIsNumeric() {
-		XCTAssert("123".isNumeric == true, "Couldn't get correct value for \(#function) function")
-		XCTAssert("123abc".isNumeric == false, "Couldn't get correct value for \(#function) function")
-		XCTAssert("abc".isNumeric == false, "Couldn't get correct value for \(#function) function")
+		XCTAssert("123".isNumeric)
+		XCTAssertFalse("123abc".isNumeric)
+		XCTAssertFalse("abc".isNumeric)
 	}
 	
 	func testLastCharacter() {
-		guard let lastCharacter = "Hello".lastCharacter else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
-		XCTAssert(lastCharacter == "o", "Couldn't get correct value for \(#function) function")
+		XCTAssertNotNil("Hello".lastCharacter)
+		XCTAssertEqual("Hello".lastCharacter!, "o")
 	}
 	
 	func testLatinize() {
 		var str = "Hëllô Teśt"
 		str.latinize()
-		XCTAssert(str == "Hello Test", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual(str, "Hello Test")
 	}
 	
 	func testLatinized() {
-		XCTAssert("Hëllô Teśt".latinized == "Hello Test", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("Hëllô Teśt".latinized, "Hello Test")
 	}
 	
 	func testLines() {
-		XCTAssert("Hello\ntest".lines == ["Hello", "test"], "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("Hello\ntest".lines, ["Hello", "test"])
 	}
 	
 	func testMostCommonCharacter() {
 		let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character".mostCommonCharacter
-		XCTAssert(mostCommonCharacter == "e", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual(mostCommonCharacter, "e")
 	}
 	
 	func testRandom() {
-		XCTAssert(String.random(ofLength: 10).characters.count == 10, "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual(String.random(ofLength: 10).characters.count, 10)
 	}
 	
 	func testReplace() {
-		XCTAssert("Hello Test".replacing("e", with: "a") == "Hallo Tast", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("Hello Test".replacing("e", with: "a"), "Hallo Tast")
 	}
 	
 	func testReverse() {
 		var str = "Hello"
 		str.reverse()
-		XCTAssert(str == "olleH", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual(str, "olleH")
 	}
 	
 	func testReversed() {
-		XCTAssert("Hello".reversed == "olleH", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("Hello".reversed, "olleH")
 	}
 
 	func testSlice() {
-		let error = "Couldn't get correct value for \(#function) function"
-		
-		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345", error)
-		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345", error)
-		XCTAssertEqual("12345678".slicing(from: 2, length: 0)!, "", error)
-		XCTAssertEqual("12345678".slicing(from: 12, length: 0), nil, error)
-		XCTAssertEqual("12345678".slicing(from: 2, length: 100), "345678", error)
-		XCTAssertEqual("12345678".slicing(from: 2, to: 5), "345", error)
-		XCTAssertEqual("12345678".slicing(from: 2, to: 1), nil, error)
-		XCTAssertEqual("12345678".slicing(at: 2)!, "345678", error)
+		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345")
+		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345")
+		XCTAssertEqual("12345678".slicing(from: 2, length: 0)!, "")
+		XCTAssertNil("12345678".slicing(from: 12, length: 0))
+		XCTAssertEqual("12345678".slicing(from: 2, length: 100), "345678")
+		XCTAssertEqual("12345678".slicing(from: 2, to: 5), "345")
+		XCTAssertNil("12345678".slicing(from: 2, to: 1))
+		XCTAssertEqual("12345678".slicing(at: 2)!, "345678")
 	}
 
 	func testSplit() {
-		XCTAssert("Hello Tests".splitted(by: " ") == ["Hello", "Tests"], "Couldn't get correct value for \(#function)")
+		XCTAssertEqual("Hello Tests".splitted(by: " "), ["Hello", "Tests"])
 	}
 	
 	func testStart() {
-		XCTAssert("Hello Tests".start(with: "He"), "Couldn't get correct value for \(#function)")
+		XCTAssert("Hello Tests".start(with: "He"))
 	}
 	
 	func testOperators() {
 		let s = Character("s")
-		XCTAssert(s * 5 == "sssss", "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(s * 5, "sssss")
 	}
 	
 	func testToBool() {
-		guard let num = "1".bool, num == true else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
-		guard let num2 = "false".bool, num2 == false else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
-		guard "8s".bool == nil else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
+		XCTAssertNotNil("1".bool)
+		XCTAssert("1".bool!)
+		
+		XCTAssertNotNil("false".bool)
+		XCTAssertFalse("false".bool!)
+		XCTAssertNil("8s".bool)
 	}
 	
 	func testToDate() {
 		let dateFromStr = "2015-06-01".date
-		let year = dateFromStr?.year
-		let month = dateFromStr?.month
-		let day = dateFromStr?.day
-		XCTAssert(year == 2015 && month == 6 && day == 1, "Couldn't get correct value for \(#function) function")
+		XCTAssertNotNil(dateFromStr)
+		XCTAssertEqual(dateFromStr!.year, 2015)
+		XCTAssertEqual(dateFromStr!.month, 6)
+		XCTAssertEqual(dateFromStr!.day, 1)
 	}
 	
 	func testToDateTime() {
 		let dateFromStr = "2015-06-01 14:23:09".dateTime
-		let year = dateFromStr?.year
-		let month = dateFromStr?.month
-		let day = dateFromStr?.day
-		let hour = dateFromStr?.hour
-		let minute = dateFromStr?.minute
-		let second = dateFromStr?.second
-		XCTAssert(year == 2015 && month == 6 && day == 1 && hour == 14 && minute == 23 && second == 9, "Couldn't get correct value for \(#function) function")
+		XCTAssertNotNil(dateFromStr)
+		XCTAssertEqual(dateFromStr!.year, 2015)
+		XCTAssertEqual(dateFromStr!.month, 6)
+		XCTAssertEqual(dateFromStr!.day, 1)
+		XCTAssertEqual(dateFromStr!.hour, 14)
+		XCTAssertEqual(dateFromStr!.minute, 23)
+		XCTAssertEqual(dateFromStr!.second, 9)
 	}
 	
 	func testToDouble() {
-		guard let num = "8".double, num == 8 else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
-		guard let num2 = "8.23".double, num2 == 8.23 else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
-		guard "8s".double == nil else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
+		XCTAssertNotNil("8".double)
+		XCTAssertEqual("8".double!, 8)
+		
+		XCTAssertNotNil("8.23".double)
+		XCTAssertEqual("8.23".double!, 8.23)
+		
+		XCTAssertNil("8s".double)
 	}
 	
 	func testToFloat() {
-		guard let num = "8".float, num == 8 else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
-		guard let num2 = "8.23".float, num2 == 8.23 else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
-		guard "8s".float == nil else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
+		XCTAssertNotNil("8".float)
+		XCTAssertEqual("8".float!, 8)
+		
+		XCTAssertNotNil("8.23".float)
+		XCTAssertEqual("8.23".float!, Float(8.23))
+		
+		XCTAssertNil("8s".float)
 	}
 	
 	func testToInt() {
-		guard let num = "8".int, num == 8 else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
-		guard "8s".int == nil else {
-			XCTAssert(false, "Couldn't get correct value for \(#function) function")
-			return
-		}
+		XCTAssertNotNil("8".int)
+		XCTAssertEqual("8".int!, 8)
+		
+		XCTAssertNil("8s".int)
 	}
 	
 	func testTrim() {
 		var str = "\n Hello \n "
 		str.trim()
-		XCTAssert(str == "Hello", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual(str, "Hello")
 	}
 	
 	func testTrimmed() {
-		XCTAssert("\n Hello \n ".trimmed == "Hello", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("\n Hello \n ".trimmed, "Hello")
 	}
 	
 	func testTruncate() {
 		var str = "This is a very long sentence"
 		str.truncate(toLength: 14)
-		XCTAssert(str == "This is a very...", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual(str, "This is a very...")
 	}
 	
 	func testTruncated() {
-		XCTAssert("This is a very long sentence".truncated(toLength: 14) == "This is a very...", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("This is a very long sentence".truncated(toLength: 14), "This is a very...")
 	}
 	
 	func testUnicodeArray() {
-		print("Hello".unicodeArray)
-		XCTAssert("Hello".unicodeArray == [72, 101, 108, 108, 111], "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("Hello".unicodeArray, [72, 101, 108, 108, 111])
 	}
 	
 	func testUrlDecode() {
 		var url = "it's%20easy%20to%20encode%20strings"
 		url.urlDecode()
-		XCTAssert(url == "it's easy to encode strings", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual(url, "it's easy to encode strings")
 	}
 	
 	func testUrlDecoded() {
-		XCTAssert("it's%20easy%20to%20encode%20strings".urlDecoded == "it's easy to encode strings", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("it's%20easy%20to%20encode%20strings".urlDecoded, "it's easy to encode strings")
 	}
 	
 	func testUrlEncode() {
 		var url = "it's easy to encode strings"
 		url.urlEncode()
-		XCTAssert(url == "it's%20easy%20to%20encode%20strings", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual(url, "it's%20easy%20to%20encode%20strings")
 	}
 	
 	func testUrlEncoded() {
-		XCTAssert("it's easy to encode strings".urlEncoded == "it's%20easy%20to%20encode%20strings", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("it's easy to encode strings".urlEncoded, "it's%20easy%20to%20encode%20strings")
 	}
 	
 	func testWithoutSpacesAndNewLines() {
-		XCTAssert("Hello \n Test".withoutSpacesAndNewLines == "HelloTest", "Couldn't get correct value for \(#function) function")
+		XCTAssertEqual("Hello \n Test".withoutSpacesAndNewLines, "HelloTest")
 	}
 }
