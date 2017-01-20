@@ -5,23 +5,20 @@
 [![Build Status](https://api.travis-ci.org/SwifterSwift/SwifterSwift.svg?branch=master)](https://travis-ci.org/SwifterSwift/SwifterSwift)
 [![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
+[![codecov](https://codecov.io/gh/SwifterSwift/SwifterSwift/branch/master/graph/badge.svg)](https://codecov.io/gh/SwifterSwift/SwifterSwift)
 [![CocoaPods](https://img.shields.io/cocoapods/dm/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![Platform](https://img.shields.io/cocoapods/p/SwifterSwift.svg?style=flat)](https://github.com/SwifterSwift/swifterSwift)
+[![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-8.0-blue.svg)](https://developer.apple.com/xcode)
-[![codecov](https://codecov.io/gh/SwifterSwift/SwifterSwift/branch/master/graph/badge.svg)](https://codecov.io/gh/SwifterSwift/SwifterSwift)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Join the chat at https://gitter.im/swifterswift/Lobby](https://badges.gitter.im/swifterswift/Lobby.svg)](https://gitter.im/swifterswift/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 A handy collection of **more than 400 native Swift 3 extensions** to boost your productivity.
 
-## Important Note about releases flow
-Starting from v1.4.3 **development branch is no more maintained**, instead changes will be made to [**master branch**](https://github.com/SwifterSwift/SwifterSwift/tree/master) directly and merged into [**stable branch**](https://github.com/SwifterSwift/SwifterSwift/tree/stable) for stable releases.
-Please refer to [contributing guidelines](CONTRIBUTING.md) for more information.
 
-## [Whats New in v1.4.8?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v148)
-v1.4.8 brings various bug fixes. 
+## [Whats New in v1.5?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v15)
+v1.5 brings various bug fixes, more tests and improved documentation.
 
 ## Requirements:
 - iOS 8.0+ / tvOS 9.0+ / watchOS 3+ / macOS 10.10+
@@ -72,7 +69,7 @@ $ brew install carthage
 To integrate SwifterSwift into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "SwifterSwift/SwifterSwift" ~> 1.4
+github "SwifterSwift/SwifterSwift" ~> 1.5
 ```
 
 Run `carthage update` to build the framework and drag the built `SwifterSwift.framework` into your Xcode project.
@@ -113,43 +110,43 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 
 ## List Of Extensions
 
-- [Array extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/array-extensions)
-- [Bool extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/bool-extensions)
-- [Character extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/character-extensions)
-- [Collection extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/collection-extensions)
-- [Data extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/data-extensions)
-- [Date extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/date-extensions)
-- [Dictionary extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/dictionary-extensions)
-- [Double extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/double-extensions)
-- [Float extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/float-extensions)
-- [Int extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/int-extensions)
-- [String extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/string-extensions)
-- [SwifterSwift](https://github.com/SwifterSwift/SwifterSwift/wiki/swifterswift)
-- [CGFloat extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/cgfloat-extensions)
-- [CGPoint extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/cgpoint-extensions)
-- [CGSize extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/cgsize-extensions)
-- [NSAttributedString extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/nsattributedstring-extensions)
-- [UIAlertController extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uialertcontroller-extensions)
-- [UIBarButtonItem extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uibarbuttonitem-extensions)
-- [UIButton extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uibutton-extensions)
-- [UICollectionView extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uicollectionview-extensions)
-- [UIColor extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uicolor-extensions)
-- [UIImage extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uiimage-extensions)
-- [UIImageView extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uiimageview-extensions)
-- [UILabel extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uilabel-extensions)
-- [UINavigationBar extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uinavigationbar-extensions)
-- [UINavigationController extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uinavigationcontroller-extensions)
-- [UINavigationItem extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uinavigationitem-extensions)
-- [UISearchBar extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uisearchbar-extensions)
-- [UISegmentedControl extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uisegmentedcontrol-extensions)
-- [UISlider extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uislider-extensions)
-- [UISwitch extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uiswitch-extensions)
-- [UITabBar extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uitabbar-extensions)
-- [UITableView extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uitableview-extensions)
-- [UITextField extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uitextfield-extensions)
-- [UITextView extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uitextview-extensions)
-- [UIView extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uiview-extensions)
-- [UIViewController extensions](https://github.com/SwifterSwift/SwifterSwift/wiki/uiviewcontroller-extensions)
+- [`Array extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/ArrayExtensions.md)
+- [`Bool extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/BoolExtensions.md)
+- [`Character extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/CharacterExtensions.md)
+- [`Collection extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/CollectionExtensions.md)
+- [`Data extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DataExtensions.md)
+- [`Date extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DateExtensions.md)
+- [`Dictionary extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DictionaryExtensions.md)
+- [`Double extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DoubleExtensions.md)
+- [`Float extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/FloatExtensions.md)
+- [`Int extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/IntExtensions.md)
+- [`String extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/StringExtensions.md)
+- [`SwifterSwift`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/SwifterSwift.md)
+- [`CGFloat extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/CGFloatExtensions.md)
+- [`CGPoint extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/CGPointExtensions.md)
+- [`CGSize extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/CGSizeExtensions.md)
+- [`NSAttributedString extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/NSAttributedStringExtensions.md)
+- [`UIAlertController extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIAlertControllerExtensions.md)
+- [`UIBarButtonItem extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIBarButtonItemExtensions.md)
+- [`UIButton extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIButton)
+- [`UICollectionView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UICollectionViewExtensions.md)
+- [`UIColor extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIColorExtensions.md)
+- [`UIImage extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIImageExtensions.md)
+- [`UIImageView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIImageViewExtensions.md)
+- [`UILabel extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UILabelExtensions.md)
+- [`UINavigationBar extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UINavigationBarExtensions.md)
+- [`UINavigationController extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UINavigationControllerExtensions.md)
+- [`UINavigationItem extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UINavigationItemExtensions.md)
+- [`UISearchBar extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UISearchBarExtensions.md)
+- [`UISegmentedControl extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UISegmentedControlExtensions.md)
+- [`UISlider extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UISliderExtensions.md)
+- [`UISwitch extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UISwitchExtensions.md)
+- [`UITabBar extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UITabBarExtensions.md)
+- [`UITableView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UITableViewExtensions.md)
+- [`UITextField extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UITextFieldExtensions.md)
+- [`UITextView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UITextViewExtensions.md)
+- [`UIView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIViewExtensions.md)
+- [`UIViewController extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIViewControllerExtensions.md)
 
 
 ## How cool is this?
@@ -161,16 +158,16 @@ Here are some examples:
 #### Array Extensions:
 
 ```swift
-// Remove duplicates from array
+// Remove duplicates from an array
 [1, 2, 3, 1, 3].removeDuplicates() -> [1, 2, 3]
 
 // Return all indexes of specified item
 ["h", "e", "l", "l", "o"].indexes(of: "l") -> [2, 3]
 
-// Shuffle array
+// Shuffle an array
 ["h", "e", "l", "l", "o"].shuffled = ["e", "l", "o", "l", "h"]
 
-// Return random item from array
+// Return random item from an array
 [1, 2, 3, 4, 5].randomItem -> 3
 
 // and many others!
@@ -547,10 +544,10 @@ SwifterSwift.didTakeScreenShot {
 
 Special thanks to:
 
-* [Mert Akengin](https://github.com/PvtMert) for creating [project website](http://swiftierswift.com) and helping with unit testing
+* [Paweł Urbanek](https://github.com/pawurb) for adding tvOS & watchOS initial support and helping with extensions.
 
-* [Paweł Urbanek](https://github.com/pawurb) for adding tvOS initial support and helping with extensions.
+* [Mert Akengin](https://github.com/PvtMert) for creating [project website](http://swiftierswift.com).
 
-* [Abdul Rahman Dabbour](https://github.com/thedabbour) for helping document the project
+* [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing the project logo.
 
-* [John Doe](https://en.wikipedia.org/wiki/John_Doe), This is a random person of our friends who gets us some coffee day to day
+* [Abdul Rahman Dabbour](https://github.com/thedabbour) for helping document the project.

@@ -89,7 +89,7 @@ public extension Int {
 		return romanValue
 	}
 	
-	/// SwifterSwift: String of format (XXh XXm) from seconds Int
+	/// SwifterSwift: String of format (XXh XXm) from seconds Int.
 	public var timeString: String {
 		guard self > 0 else {
 			return "0 sec"
@@ -107,10 +107,10 @@ public extension Int {
 			return "\(mins) min"
 			
 		} else if hours != 0 && mins == 0 {
-			return "\(hours) h"
-			
+			return "\(hours)h"
+
 		} else {
-			return "\(hours) h \(mins) m"
+			return "\(hours)h \(mins)m"
 		}
 	}
 	
