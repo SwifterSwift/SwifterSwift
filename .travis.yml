@@ -1,8 +1,6 @@
 osx_image: xcode8.2
 language: objective-c
-before_install:
-    - gem install xcpretty
 script:
-    - xcodebuild test -scheme 'SwifterSwift iOS' -destination 'platform=iOS Simulator,name=iPad Pro (12.9 inch),OS=10.2' | xcpretty -c && xcodebuild test -scheme 'SwifterSwift macOS' -destination 'platform=OS X' | xcpretty -c && xcodebuild test -scheme 'SwifterSwift tvOS' -destination 'platform=tvOS Simulator,name=Apple TV 1080p' | xcpretty -c && exit ${PIPESTATUS[0]}
+    - xcodebuild test -scheme 'SwifterSwift iOS' -destination 'platform=iOS Simulator,name=iPad Pro (12.9 inch),OS=10.2' && xcodebuild test -scheme 'SwifterSwift macOS' -destination 'platform=OS X' && xcodebuild test -scheme 'SwifterSwift tvOS' -destination 'platform=tvOS Simulator,name=Apple TV 1080p' && exit ${PIPESTATUS[0]}
 after_success:
   - bash <(curl -s https://codecov.io/bash)
