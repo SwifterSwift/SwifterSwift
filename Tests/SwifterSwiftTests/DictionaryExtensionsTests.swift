@@ -24,11 +24,13 @@ class DictionaryExtensionsTests: XCTestCase {
 	}
 	
 	func testHasKey() {
-		XCTAssert(testDict.has(key: "testKey") == true && testDict.has(key: "anotherKey") == false, "Couldn't get correct value for \(#function)")
+		XCTAssertTrue(testDict.has(key: "testKey"))
+		XCTAssertFalse(testDict.has(key: "anotherKey"))
 	}
 	
 	func testJsonData() {
-		XCTAssert(testDict.jsonString()!.contain("\"testArrayKey\":[1,2,3,4,5]")
-			&& testDict.jsonString()!.contain("\"testKey\":\"testValue\""), "Couldn't get correct value for \(#function)")
+		XCTAssertNotNil(testDict.jsonString())
+		XCTAssertTrue(testDict.jsonString()!.contain("\"testArrayKey\":[1,2,3,4,5]"))
+		XCTAssertTrue(testDict.jsonString()!.contain("\"testKey\":\"testValue\""))
 	}
 }

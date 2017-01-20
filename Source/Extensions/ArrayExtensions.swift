@@ -18,15 +18,6 @@ public extension Array {
 		return self[index]
 	}
 	
-	/// SwifterSwift: Shuffled version of array.
-	public var shuffled: [Element] {
-		var arr = self
-		for _ in 0..<10 {
-			arr.sort { (_,_) in arc4random() < arc4random() }
-		}
-		return arr
-	}
-	
 }
 
 
@@ -74,6 +65,13 @@ public extension Array where Element: FloatingPoint {
 
 // MARK: - Properties (Equatable)
 public extension Array where Element: Equatable {
+	
+	/// SwifterSwift: Shuffled version of array.
+	public var shuffled: [Element] {
+		var arr = self
+		arr.shuffle()
+		return arr
+	}
 	
 	/// SwifterSwift: Array with all duplicates removed from it.
 	public var withoutDuplicates: [Element] {
@@ -152,19 +150,23 @@ public extension Array {
 		return append(newElement)
 	}
 	
-	/// SwifterSwift: Shuffle array.
-	public mutating func shuffle() {
-		// https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
-		for _ in 0..<10 {
-			sort { (_,_) in arc4random() < arc4random() }
-		}
-	}
-	
 }
 
 
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
+	
+	/// SwifterSwift: Shuffle array.
+	public mutating func shuffle() {
+		// https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
+		let arr = self
+		for _ in 0..<10 {
+			sort { (_,_) in arc4random() < arc4random() }
+		}
+		if self == arr {
+			shuffle()
+		}
+	}
 	
 	/// SwifterSwift: Check if array contains an array of elements.
 	///
@@ -172,7 +174,7 @@ public extension Array where Element: Equatable {
 	/// - Returns: true if array contains all given items.
 	public func contains(_ elements: [Element]) -> Bool {
 		guard !elements.isEmpty else { // elements array is empty
-			return false
+			return true
 		}
 		var found = true
 		for element in elements {

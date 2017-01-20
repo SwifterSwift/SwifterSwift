@@ -20,69 +20,104 @@ class ArrayExtensionsTests: XCTestCase {
 		super.tearDown()
 	}
 	
+	func testRandomItem() {
+		XCTAssert([1, 2, 3].contains([1, 2, 3].randomItem))
+	}
+	
 	func testAverage() {
-		XCTAssert([1, 2, 3, 4, 5].average == 3, "Couldn't get correct value for \(#function)")
-		XCTAssert([1.2, 2.3, 3.4, 4.5, 5.6].average == 3.4, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual([1, 2, 3, 4, 5].average, 3)
+		XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].average, 3.4)
+		XCTAssertEqual([Int]().average, 0)
+		XCTAssertEqual([Double]().average, 0)
 	}
 	
 	func testFirstIndex() {
-		XCTAssert([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2)! == 2, "Couldn't get correct value for \(#function)")
+		XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2))
+		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2)!, 2)
+		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 7))
+		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: "7"))
 	}
 	
 	func testIndexes() {
-		XCTAssert([1, 1, 2, 3, 4, 1, 2, 1].indexes(of: 1) == [0, 1, 5, 7], "Couldn't get correct value for \(#function)")
+		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].indexes(of: 1), [0, 1, 5, 7])
 	}
 	
 	func testLastIndex() {
-		XCTAssert([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2) == 6, "Couldn't get correct value for \(#function)")
+		XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2))
+		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2)!, 6)
+		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 7))
+		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: "7"))
 	}
 	
 	func testPop() {
 		var arr = [1, 2, 3, 4, 5]
 		let item = arr.pop()
-		XCTAssert(arr == [1, 2, 3, 4] && item! == 5, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(arr, [1, 2, 3, 4])
+		XCTAssertNotNil(item)
+		XCTAssertEqual(item, 5)
+		arr.removeAll()
+		XCTAssertNil(arr.pop())
 	}
 	
 	func testPrepend() {
 		var arr = [2, 3, 4, 5]
 		arr.prepend(1)
-		XCTAssert(arr == [1, 2, 3, 4, 5], "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(arr, [1, 2, 3, 4, 5])
 	}
 	
 	func testPush() {
 		var arr = [1, 2, 3, 4]
 		arr.push(5)
-		XCTAssert(arr == [1, 2, 3, 4, 5], "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(arr, [1, 2, 3, 4, 5])
 	}
 	
 	func testRemoveAll() {
 		var arr = [0, 1, 2, 0, 3, 4, 5, 0, 0]
 		arr.removeAll(0)
-		XCTAssert(arr == [1, 2, 3, 4, 5], "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(arr, [1, 2, 3, 4, 5])
 	}
 	
 	func testRemoveDuplicates() {
 		var arr = [1, 2, 1, 3, 4, 5, 1, 1]
 		arr.removeDuplicates()
-		XCTAssert(arr == [1, 2, 3, 4, 5], "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(arr, [1, 2, 3, 4, 5])
 	}
 	
 	func testShuffle() {
 		var arr = [1, 2, 3, 4, 5]
 		arr.shuffle()
-		XCTAssert(arr != [1, 2, 3, 4, 5] && arr.count == 5, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(arr.count, 5)
+		XCTAssertNotEqual(arr, [1, 2, 3, 4, 5])
 	}
 	
 	func testShuffled() {
-		XCTAssert([1, 2, 3, 4, 5].shuffled != [1, 2, 3, 4, 5], "Couldn't get correct value for \(#function)")
+		XCTAssertEqual([1, 2, 3, 4, 5].shuffled.count, 5)
+		XCTAssertNotEqual([1, 2, 3, 4, 5].shuffled, [1, 2, 3, 4, 5])
 	}
 	
 	func testSum() {
-		XCTAssert([1, 2, 3, 4, 5].sum == 15, "Couldn't get correct value for \(#function)")
-		XCTAssert([1.2, 2.3, 3.4, 4.5, 5.6].sum == 17, "Couldn't get correct value for \(#function)")
+		XCTAssertEqual([1, 2, 3, 4, 5].sum, 15)
+		XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum, 17)
 	}
 	
-	func testUniqueValues() {
-		XCTAssert([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates == [1, 2, 3, 4, 5], "Couldn't get correct value for \(#function)")
+	func testWithoutDuplicates() {
+		XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates, [1, 2, 3, 4, 5])
 	}
+	
+	func testItemAtIndex() {
+		XCTAssertEqual([1, 2, 3].item(at: 0), 1)
+		XCTAssertEqual([1, 2, 3].item(at: 1), 2)
+		XCTAssertEqual([1, 2, 3].item(at: 2), 3)
+		XCTAssertNil([1, 2, 3].item(at: 5))
+	}
+	
+	func testContains() {
+		XCTAssert([Int]().contains([]))
+		XCTAssertFalse([Int]().contains([1, 2]))
+		XCTAssert([1, 2, 3].contains([1, 2]))
+		XCTAssert([1, 2, 3].contains([2, 3]))
+		XCTAssert([1, 2, 3].contains([1, 3]))
+		XCTAssertFalse([1, 2, 3].contains([4, 5]))
+	}
+	
 }

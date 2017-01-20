@@ -23,14 +23,14 @@ class SwifterSwiftTests: XCTestCase {
 	
 	func testTypeName() {
 		let number = 8
-		XCTAssert(SwifterSwift.typeName(for: number) == "Int", "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(SwifterSwift.typeName(for: number), "Int")
 	}
 
 	func testDelay() {
 		var value = 0
 		let done = expectation(description: "Execute block after delay")
 
-		SwifterSwift.delay(milliseconds: 500, queue: DispatchQueue.main, completion: {
+		SwifterSwift.delay(milliseconds: 50, queue: DispatchQueue.main, completion: {
 			value = 1
 			done.fulfill()
 		})
@@ -50,14 +50,14 @@ class SwifterSwiftTests: XCTestCase {
 			value += 1
 		}
 
-		let debouncedIncrementor = SwifterSwift.debounce(millisecondsDelay: 200, action: {
+		let debouncedIncrementor = SwifterSwift.debounce(millisecondsDelay: 20, action: {
 			incrementor()
 		})
 
 		for i in 1...10 {
 			debouncedIncrementor()
 			if i == 10 {
-				SwifterSwift.delay(milliseconds: 300, completion: {
+				SwifterSwift.delay(milliseconds: 30, completion: {
 					done.fulfill()
 				})
 			}

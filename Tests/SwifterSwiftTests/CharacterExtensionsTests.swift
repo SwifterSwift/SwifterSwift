@@ -31,25 +31,26 @@ class CharacterExtensionsTests: XCTestCase {
 	
 	func testOperators() {
 		let s = Character("s")
-		XCTAssert(s * 5 == "sssss", "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(s * 5, "sssss")
 	}
 	
 	func testIsEmoji() {
-		XCTAssert(Character("😂").isEmoji == true, "Couldn't get correct value for \(#function)")
-		XCTAssert(Character("j").isEmoji == false, "Couldn't get correct value for \(#function)")
+		XCTAssertTrue(Character("😂").isEmoji)
+		XCTAssertFalse(Character("j").isEmoji)
 	}
 	
 	func testIsNumber() {
-		XCTAssert(Character("1").isNumber == true, "Couldn't get correct value for \(#function)")
-		XCTAssert(Character("s").isNumber == false, "Couldn't get correct value for \(#function)")
+		XCTAssertTrue(Character("1").isNumber)
+		XCTAssertFalse(Character("s").isNumber)
 	}
 	
 	func testToInt() {
-		XCTAssert(Character("1").int! == 1, "Couldn't get correct value for \(#function)")
-		XCTAssert(Character("s").int == nil, "Couldn't get correct value for \(#function)")
+		XCTAssertNotNil(Character("1").int)
+		XCTAssertEqual(Character("1").int!, 1)
+		XCTAssertNil(Character("s").int)
 	}
 	
 	func testToString() {
-		XCTAssert(Character("s").string == String("s"), "Couldn't get correct value for \(#function)")
+		XCTAssertEqual(Character("s").string, String("s"))
 	}
 }
