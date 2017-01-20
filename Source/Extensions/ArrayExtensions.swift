@@ -174,7 +174,7 @@ public extension Array where Element: Equatable {
 	/// - Returns: true if array contains all given items.
 	public func contains(_ elements: [Element]) -> Bool {
 		guard !elements.isEmpty else { // elements array is empty
-			return false
+			return true
 		}
 		var found = true
 		for element in elements {

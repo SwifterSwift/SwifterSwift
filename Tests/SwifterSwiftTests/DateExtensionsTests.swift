@@ -187,10 +187,11 @@ class DateExtensionsTests: XCTestCase {
 	}
 	
 	func testNewDateFromComponenets() {
-		let date = Date(calendar: Date().calendar, timeZone: Date().timeZone, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond) ?? Date()
-		let date1 = Date(timeIntervalSince1970: date.timeIntervalSince1970)
+		let date = Date(calendar: Date().calendar, timeZone: Date().timeZone, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
+		XCTAssertNotNil(date)
+		let date1 = Date(timeIntervalSince1970: date!.timeIntervalSince1970)
 		
-		XCTAssertEqual(date.timeIntervalSince1970, date1.timeIntervalSince1970)
+		XCTAssertEqual(date!.timeIntervalSince1970, date1.timeIntervalSince1970)
 	}
 	
 	func testNewDateFromIso8601String() {
