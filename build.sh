@@ -1,7 +1,7 @@
 #!/bin/sh
 # Builds all targets and runs tests.
 
-DERIVED_DATA=${1:-/tmp/LayoutKit}
+DERIVED_DATA=${1:-/tmp/SwifterSwift}
 echo "Derived data location: $DERIVED_DATA";
 
 set -o pipefail &&
