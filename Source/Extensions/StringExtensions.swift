@@ -100,11 +100,19 @@ public extension String {
 		let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
 		return emailTest.evaluate(with: self)
 	}
-	
+    
 	/// SwifterSwift: Check if string is a valid URL.
 	public var isValidUrl: Bool {
 		return URL(string: self) != nil
 	}
+    
+        /// SwifterSwift: Check if string is a valid schemed URL.
+        public var isValidSchemedUrl: Bool {
+                guard let url = URL(string: self) else {
+                    return false
+                }
+                return url.scheme != nil
+        }
 	
 	/// SwifterSwift: Check if string is a valid https URL.
 	public var isValidHttpsUrl: Bool {
