@@ -7,7 +7,7 @@
 //
 
 #if !os(macOS)
-
+	
 import UIKit
 
 // MARK: - Properties
@@ -56,13 +56,10 @@ public extension UIColor {
 	/// SwifterSwift: Short hexadecimal value string (read-only, if applicable).
 	public var shortHexString: String? {
 		let string = hexString.replacing("#", with: "")
-		guard string[0] == string[1]
-			&& string[2] == string[3]
-			&& string[4] == string[5] else {
+		guard let first = string[0], first == string[1],
+			let second = string[2], second == string[3],
+			let third = string[4], third == string[5] else {
 				return nil
-		}
-		guard let first = string[0], let second = string[2], let third = string[5] else {
-			return nil
 		}
 		return  "#" + first + second + third
 	}
@@ -74,13 +71,7 @@ public extension UIColor {
 	
 	/// SwifterSwift: Get color complementary (read-only, if applicable).
 	public var complementary: UIColor? {
-		guard let components = self.cgColor.components else {
-			return nil
-		}
-		let r: CGFloat = sqrt(pow(255.0, 2.0) - pow((components[0]*255), 2.0))/255
-		let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((components[1]*255), 2.0))/255
-		let b: CGFloat = sqrt(pow(255.0, 2.0) - pow((components[2]*255), 2.0))/255
-		return UIColor(red: r, green: g, blue: b, alpha: 1.0)
+		return UIColor.init(complementaryFor: self)
 	}
 	
 	/// SwifterSwift: Random color.
@@ -151,7 +142,6 @@ public extension UIColor {
 	///   - transparency: optional transparency value (default is 1).
 	public convenience init?(hexString: String, transparency: CGFloat = 1) {
 		var string = ""
-		
 		if hexString.lowercased().start(with: "0x") {
 			string =  hexString.replacing("0x", with: "")
 		} else if hexString.start(with: "#") {
@@ -165,10 +155,11 @@ public extension UIColor {
 			string.characters.forEach({ str.append($0 * 2) })
 			string = str
 		}
-		var hexValue: UInt64 = 0
-		guard Scanner(string: string).scanHexInt64(&hexValue) else {
+		
+		guard let hexValue = Int(string, radix: 16) else {
 			return nil
 		}
+		
 		self.init(hex: Int(hexValue), transparency: transparency)
 	}
 	
@@ -199,9 +190,25 @@ public extension UIColor {
 	///
 	/// - Parameter color: color of which opposite color is desired.
 	public convenience init?(complementaryFor color: UIColor) {
-		guard let componentColors = color.cgColor.components else {
+		let colorSpaceRGB = CGColorSpaceCreateDeviceRGB()
+		let convertColorToRGBSpace : ((_ color : UIColor) -> UIColor?) = { (color) -> UIColor? in
+			if color.cgColor.colorSpace!.model == CGColorSpaceModel.monochrome {
+				let oldComponents = color.cgColor.components
+				let components : [CGFloat] = [ oldComponents![0], oldComponents![0], oldComponents![0], oldComponents![1] ]
+				let colorRef = CGColor(colorSpace: colorSpaceRGB, components: components)
+				let colorOut = UIColor(cgColor: colorRef!)
+				return colorOut
+			}
+			else {
+				return color
+			}
+		}
+		
+		let c = convertColorToRGBSpace(color)
+		guard let componentColors = c?.cgColor.components else {
 			return nil
 		}
+		
 		let r: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[0]*255), 2.0))/255
 		let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[1]*255), 2.0))/255
 		let b: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[2]*255), 2.0))/255
@@ -710,5 +717,5 @@ public extension UIColor {
 	}
 	
 }
-
+	
 #endif
