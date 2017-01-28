@@ -8,83 +8,62 @@
 
 #if !os(macOS)
 
-import UIKit
-
-
 // MARK: - Properties
 public extension NSAttributedString {
-	
+
 	#if os(iOS)
-	/// SwifterSwift: Bold string
-	public var bold: NSAttributedString {
-		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
-			return self
-		}
-		let range = (self.string as NSString).range(of: self.string)
-		copy.addAttributes([NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)], range: range)
-		return copy
+	/// SwifterSwift: Bolded string
+	public var bolded: NSAttributedString {
+		return applying(attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
 	/// SwifterSwift: Underlined string
-	public var underline: NSAttributedString {
-		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
-			return self
-		}
-		let range = (self.string as NSString).range(of: self.string)
-		copy.addAttributes([NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue], range: range)
-		return copy
+	public var underlined: NSAttributedString {
+		return applying(attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
 	}
-	
+
 	#if os(iOS)
-	/// SwifterSwift: Italic string
-	public var italic: NSAttributedString {
-		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
-			return self
-		}
-		let range = (self.string as NSString).range(of: self.string)
-		copy.addAttributes([NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)], range: range)
-		return copy
+	/// SwifterSwift: Italicized string
+	public var italicized: NSAttributedString {
+		return applying(attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
-	/// SwifterSwift: Strikethrough string
-	public var strikethrough: NSAttributedString {
-		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
-			return self
-		}
-		let range = (self.string as NSString).range(of: self.string)
-		let attributes = [
-			NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)]
-		copy.addAttributes(attributes, range: range)
-		return copy
+	/// SwifterSwift: Struckthrough string
+	public var struckthrough: NSAttributedString {
+		return applying(attributes: [NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
 	}
-	
 }
-
 
 // MARK: - Methods
 public extension NSAttributedString {
-	
+
+	/// SwifterSwift: Applies given attributes to the new instance
+	/// of NSAttributedString initialized with self object
+	///
+	/// - Parameter attributes: Dictionary of attributes
+	/// - Returns: NSAttributedString with applied attributes
+	fileprivate func applying(attributes: [String: Any]) -> NSAttributedString {
+		let copy = NSMutableAttributedString(attributedString: self)
+		let range = (self.string as NSString).range(of: self.string)
+		copy.addAttributes(attributes, range: range)
+
+		return copy
+	}
+
 	/// SwifterSwift: Add color to NSAttributedString.
 	///
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString colored with given color.
 	public func colored(with color: UIColor) -> NSAttributedString {
-		guard let copy = self.mutableCopy() as? NSMutableAttributedString else {
-			return self
-		}
-		let range = (self.string as NSString).range(of: self.string)
-		copy.addAttributes([NSForegroundColorAttributeName: color], range: range)
-		return copy
+		return applying(attributes: [NSForegroundColorAttributeName: color])
 	}
-	
 }
-
 
 // MARK: - Operators
 public extension NSAttributedString {
-	
+
 	/// SwifterSwift: Add a NSAttributedString to another NSAttributedString
 	///
 	/// - Parameters:
@@ -95,7 +74,6 @@ public extension NSAttributedString {
 		ns.append(rhs)
 		lhs = ns
 	}
-	
 }
 
 #endif

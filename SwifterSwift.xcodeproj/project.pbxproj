@@ -181,6 +181,7 @@
 		6EF946D71E263D9A0061AEFC /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072F7A941E11DDDD0021AB84 /* UIViewExtensions.swift */; };
 		6EF946D81E263DC80061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF946D91E263DCA0061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9FD870C1E3A001000ADBD19 /* NSAttributedStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9FD870B1E3A001000ADBD19 /* NSAttributedStringTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -223,7 +224,7 @@
 		072F7A7C1E11DDDD0021AB84 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 		072F7A7D1E11DDDD0021AB84 /* CGPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
 		072F7A7E1E11DDDD0021AB84 /* CGSizeExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGSizeExtensions.swift; sourceTree = "<group>"; };
-		072F7A7F1E11DDDD0021AB84 /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
+		072F7A7F1E11DDDD0021AB84 /* NSAttributedStringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSAttributedStringExtensions.swift; path = UI/NSAttributedStringExtensions.swift; sourceTree = "<group>"; };
 		072F7A801E11DDDD0021AB84 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
 		072F7A811E11DDDD0021AB84 /* UIBarButtonItemExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtensions.swift; sourceTree = "<group>"; };
 		072F7A821E11DDDD0021AB84 /* UIButtonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtensions.swift; sourceTree = "<group>"; };
@@ -268,6 +269,7 @@
 		6EBD19E61E23E444002186D3 /* SwifterSwift tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF946901E263C4D0061AEFC /* SwifterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF946981E263C4E0061AEFC /* SwifterSwift macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9FD870B1E3A001000ADBD19 /* NSAttributedStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSAttributedStringTests.swift; path = UIExtensionsTests/NSAttributedStringTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +341,7 @@
 				072F7A761E11DDDD0021AB84 /* DoubleExtensions.swift */,
 				072F7A771E11DDDD0021AB84 /* FloatExtensions.swift */,
 				072F7A781E11DDDD0021AB84 /* IntExtensions.swift */,
+				072F7A7F1E11DDDD0021AB84 /* NSAttributedStringExtensions.swift */,
 				072F7A791E11DDDD0021AB84 /* StringExtensions.swift */,
 				072F7A7A1E11DDDD0021AB84 /* SwifterSwift.swift */,
 				072F7A7B1E11DDDD0021AB84 /* UI */,
@@ -353,7 +356,6 @@
 				072F7A7C1E11DDDD0021AB84 /* CGFloatExtensions.swift */,
 				072F7A7D1E11DDDD0021AB84 /* CGPointExtensions.swift */,
 				072F7A7E1E11DDDD0021AB84 /* CGSizeExtensions.swift */,
-				072F7A7F1E11DDDD0021AB84 /* NSAttributedStringExtensions.swift */,
 				072F7A801E11DDDD0021AB84 /* UIAlertControllerExtensions.swift */,
 				072F7A811E11DDDD0021AB84 /* UIBarButtonItemExtensions.swift */,
 				072F7A821E11DDDD0021AB84 /* UIButtonExtensions.swift */,
@@ -394,6 +396,7 @@
 				07445BBC1E11D1EF000E9A85 /* DoubleExtensionsTests.swift */,
 				07445BBD1E11D1EF000E9A85 /* FloatExtensionsTests.swift */,
 				07445BBF1E11D1EF000E9A85 /* IntExtensionsTests.swift */,
+				C9FD870B1E3A001000ADBD19 /* NSAttributedStringTests.swift */,
 				07445BC01E11D1EF000E9A85 /* StringExtensionsTests.swift */,
 				07445BC11E11D1EF000E9A85 /* SwifterSwiftTests.swift */,
 			);
@@ -771,6 +774,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07445BC61E11D1EF000E9A85 /* DateExtensionsTests.swift in Sources */,
+				C9FD870C1E3A001000ADBD19 /* NSAttributedStringTests.swift in Sources */,
 				07445BC31E11D1EF000E9A85 /* CGFloatExtensionsTests.swift in Sources */,
 				07445BC81E11D1EF000E9A85 /* DoubleExtensionsTests.swift in Sources */,
 				07445BCB1E11D1EF000E9A85 /* IntExtensionsTests.swift in Sources */,
