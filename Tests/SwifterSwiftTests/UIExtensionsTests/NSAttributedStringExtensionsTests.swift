@@ -9,8 +9,9 @@
 import XCTest
 @testable import SwifterSwift
 
-class NSAttributedStringTests: XCTestCase {
-	// MARK: - Properties
+class NSAttributedStringExtensionsTests: XCTestCase {
+	
+	#if !os(macOS) && !os(tvOS)
 	func testBolded() {
 		let string = NSAttributedString(string: "Bolded")
 		let out = string.bolded
@@ -23,7 +24,9 @@ class NSAttributedStringTests: XCTestCase {
 		let filteredAttributes = attributes.filter { filterClosure($0, $1) }
 		XCTAssertEqual(filteredAttributes.count, 1)
 	}
+	#endif
 
+	#if !os(macOS)
 	func testUnderlined() {
 		let string = NSAttributedString(string: "Underlined")
 		let out = string.underlined
@@ -34,7 +37,9 @@ class NSAttributedStringTests: XCTestCase {
 
 		XCTAssertEqual(filteredAttributes.count, 1)
 	}
-
+	#endif
+	
+	#if !os(macOS) && !os(tvOS)
 	func testItalicized() {
 		let string = NSAttributedString(string: "Italicized")
 		let out = string.italicized
@@ -45,7 +50,9 @@ class NSAttributedStringTests: XCTestCase {
 
 		XCTAssertEqual(filteredAttributes.count, 1)
 	}
+	#endif
 
+	#if !os(macOS)
 	func testStruckthrough() {
 		let string = NSAttributedString(string: "Struck through")
 		let out = string.struckthrough
@@ -56,7 +63,9 @@ class NSAttributedStringTests: XCTestCase {
 
 		XCTAssertEqual(filteredAttributes.count, 1)
 	}
+	#endif
 
+	#if !os(macOS)
 	// MARK: - Methods
 	func testColored() {
 		let string = NSAttributedString(string: "Colored")
@@ -73,7 +82,9 @@ class NSAttributedStringTests: XCTestCase {
 		XCTAssertEqual(attributes[NSForegroundColorAttributeName] as? UIColor, UIColor.blue)
 		XCTAssertNotEqual(attributes[NSForegroundColorAttributeName] as? UIColor, .red)
 	}
+	#endif
 
+	#if !os(macOS) && !os(tvOS)
 	// MARK: - Operators
 	func testAppending() {
 		var string = NSAttributedString(string: "Test").italicized.underlined.struckthrough
@@ -106,4 +117,5 @@ class NSAttributedStringTests: XCTestCase {
 
 		XCTAssertEqual(filteredAttributes.count, 1)
 	}
+	#endif
 }
