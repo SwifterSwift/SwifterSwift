@@ -90,7 +90,7 @@ public extension Array {
 	/// - Parameter index: index of element.
 	/// - Returns: optional element (if exists).
 	public func item(at index: Int) -> Element? {
-		guard index >= 0 && index < count else { return nil }
+		guard 0..<count ~= index else { return nil }
 		return self[index]
 	}
 	
@@ -130,9 +130,7 @@ public extension Array {
 	///
 	/// - Returns: last elemets in array (if applicable).
 	@discardableResult public mutating func pop() -> Element? {
-		guard self.count > 0 else {
-			return nil
-		}
+		guard !self.isEmpty else { return nil }
 		return removeLast()
 	}
 	
