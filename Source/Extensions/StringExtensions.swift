@@ -262,7 +262,7 @@ public extension String {
 	
 	/// SwifterSwift: String with no spaces or new lines in beginning and end.
 	public var trimmed: String {
-		return trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+		return trimmingCharacters(in: .whitespacesAndNewlines)
 	}
 	
 	/// SwifterSwift: Array with unicodes for all characters in a string.
@@ -558,9 +558,7 @@ public extension String {
 	///   - trailing: string to add at the end of truncated string.
 	/// - Returns: truncated string (this is an extr...).
 	public func truncated(toLength: Int, trailing: String? = "...") -> String {
-		guard self.characters.count > toLength, toLength > 0 else {
-			return self
-		}
+        guard 1..<self.characters.count ~= toLength else { return self }
 		return self.substring(to: self.index(startIndex, offsetBy: toLength)) + (trailing ?? "")
 	}
 	
