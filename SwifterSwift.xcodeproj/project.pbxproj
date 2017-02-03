@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		072F7ABD1E11DDDD0021AB84 /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07400BE61E44B06B001B2FD7 /* NSColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074821F61E446D4C00B0C580 /* NSColorExtensions.swift */; };
 		07445BC21E11D1EF000E9A85 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BB61E11D1EF000E9A85 /* ArrayExtensionsTests.swift */; };
 		07445BC51E11D1EF000E9A85 /* CharacterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BB91E11D1EF000E9A85 /* CharacterExtensionsTests.swift */; };
 		07445BC61E11D1EF000E9A85 /* DateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BBA1E11D1EF000E9A85 /* DateExtensionsTests.swift */; };
@@ -49,7 +50,6 @@
 		074822341E446D4D00B0C580 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074821F51E446D4C00B0C580 /* NSAttributedStringExtensions.swift */; };
 		074822351E446D4D00B0C580 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074821F51E446D4C00B0C580 /* NSAttributedStringExtensions.swift */; };
 		074822361E446D4D00B0C580 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074821F51E446D4C00B0C580 /* NSAttributedStringExtensions.swift */; };
-		0748223A1E446D4D00B0C580 /* NSColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074821F61E446D4C00B0C580 /* NSColorExtensions.swift */; };
 		0748223B1E446D4D00B0C580 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074821F71E446D4C00B0C580 /* CollectionExtensions.swift */; };
 		0748223C1E446D4D00B0C580 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074821F71E446D4C00B0C580 /* CollectionExtensions.swift */; };
 		0748223D1E446D4D00B0C580 /* CollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074821F71E446D4C00B0C580 /* CollectionExtensions.swift */; };
@@ -919,9 +919,9 @@
 				074822261E446D4D00B0C580 /* CGColorExtensions.swift in Sources */,
 				0748223E1E446D4D00B0C580 /* CollectionExtensions.swift in Sources */,
 				0748222E1E446D4D00B0C580 /* CGPointExtensions.swift in Sources */,
+				07400BE61E44B06B001B2FD7 /* NSColorExtensions.swift in Sources */,
 				0748222A1E446D4D00B0C580 /* CGFloatExtensions.swift in Sources */,
 				074822321E446D4D00B0C580 /* CGSizeExtensions.swift in Sources */,
-				0748223A1E446D4D00B0C580 /* NSColorExtensions.swift in Sources */,
 				0748225A1E446D4D00B0C580 /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

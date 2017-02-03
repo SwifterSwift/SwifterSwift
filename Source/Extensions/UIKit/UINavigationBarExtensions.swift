@@ -6,6 +6,7 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
 import UIKit
 
 
@@ -49,3 +50,4 @@ public extension UINavigationBar {
 		self.titleTextAttributes = [NSForegroundColorAttributeName: text]
 	}
 }
+#endif

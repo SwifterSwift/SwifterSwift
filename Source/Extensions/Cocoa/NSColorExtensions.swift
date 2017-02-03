@@ -6,6 +6,7 @@
 //  Copyright © 2017 omaralbeik. All rights reserved.
 //
 
+#if os(macOS)
 import Cocoa
 
 
@@ -583,3 +584,4 @@ public extension NSColor {
 	}
 	
 }
+#endif
