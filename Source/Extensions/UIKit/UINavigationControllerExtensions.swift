@@ -6,8 +6,6 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS)
-
 import UIKit
 
 
@@ -50,5 +48,3 @@ public extension UINavigationController {
 	}
 	
 }
-
-#endif

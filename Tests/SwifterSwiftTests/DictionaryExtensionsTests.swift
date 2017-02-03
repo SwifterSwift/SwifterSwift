@@ -33,4 +33,22 @@ class DictionaryExtensionsTests: XCTestCase {
 		XCTAssertTrue(testDict.jsonString()!.contain("\"testArrayKey\":[1,2,3,4,5]"))
 		XCTAssertTrue(testDict.jsonString()!.contain("\"testKey\":\"testValue\""))
 	}
+	
+	func testJsonString() {
+		let jsonString = "{\"testKey\":\"testValue\",\"testArrayKey\":[1,2,3,4,5]}"
+		XCTAssertEqual(testDict.jsonString(), jsonString)
+		
+		let prettyJsonString = "{\n  \"testKey\" : \"testValue\",\n  \"testArrayKey\" : [\n    1,\n    2,\n    3,\n    4,\n    5\n  ]\n}"
+		XCTAssertEqual(testDict.jsonString(prettify: true), prettyJsonString)
+		
+		let dict = ["key": NSObject()]
+		XCTAssertNil(dict.jsonString())
+	}
+	
+	func testLowercaseAllKeys() {
+		var dict = ["tEstKeY": "value"]
+		dict.lowercaseAllKeys()
+		XCTAssertEqual(dict, ["testkey": "value"])
+	}
+	
 }

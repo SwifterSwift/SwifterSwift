@@ -44,13 +44,13 @@ class CharacterExtensionsTests: XCTestCase {
 		XCTAssertFalse(Character("s").isNumber)
 	}
 	
-	func testToInt() {
+	func testInt() {
 		XCTAssertNotNil(Character("1").int)
 		XCTAssertEqual(Character("1").int!, 1)
 		XCTAssertNil(Character("s").int)
 	}
 	
-	func testToString() {
+	func testString() {
 		XCTAssertEqual(Character("s").string, String("s"))
 	}
 }

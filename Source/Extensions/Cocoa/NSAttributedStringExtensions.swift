@@ -6,10 +6,16 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
+#if os(macOS)
+	import Cocoa
+#else
+	import UIKit
+#endif
+
 
 // MARK: - Properties
 public extension NSAttributedString {
-
+	
 	#if os(iOS)
 	/// SwifterSwift: Bolded string.
 	public var bolded: NSAttributedString {
@@ -21,7 +27,7 @@ public extension NSAttributedString {
 	public var underlined: NSAttributedString {
 		return applying(attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
 	}
-
+	
 	#if os(iOS)
 	/// SwifterSwift: Italicized string.
 	public var italicized: NSAttributedString {
@@ -37,7 +43,7 @@ public extension NSAttributedString {
 
 // MARK: - Methods
 public extension NSAttributedString {
-
+	
 	/// SwifterSwift: Applies given attributes to the new instance
 	/// of NSAttributedString initialized with self object
 	///
@@ -47,7 +53,7 @@ public extension NSAttributedString {
 		let copy = NSMutableAttributedString(attributedString: self)
 		let range = (self.string as NSString).range(of: self.string)
 		copy.addAttributes(attributes, range: range)
-
+		
 		return copy
 	}
 	
@@ -57,7 +63,7 @@ public extension NSAttributedString {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString colored with given color.
 	public func colored(with color: NSColor) -> NSAttributedString {
-		return applying(attributes: [NSForegroundColorAttributeName: color])
+	return applying(attributes: [NSForegroundColorAttributeName: color])
 	}
 	#else
 	/// SwifterSwift: Add color to NSAttributedString.
@@ -72,7 +78,7 @@ public extension NSAttributedString {
 
 // MARK: - Operators
 public extension NSAttributedString {
-
+	
 	/// SwifterSwift: Add a NSAttributedString to another NSAttributedString.
 	///
 	/// - Parameters:

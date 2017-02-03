@@ -62,9 +62,21 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date.year, 2016)
 	}
 	
+	func testChanging() {
+		let date = Date()
+		
+		XCTAssertEqual(date.changing(.second, value: 10).second, 10)
+		XCTAssertEqual(date.changing(.minute, value: 12).minute, 12)
+		XCTAssertEqual(date.changing(.hour, value: 5).hour, 5)
+		XCTAssertEqual(date.changing(.day, value: 1).day, 1)
+		XCTAssertEqual(date.changing(.month, value: 6).month, 6)
+		XCTAssertEqual(date.changing(.year, value: 2000).year, 2000)
+		XCTAssertEqual(date.changing(.weekdayOrdinal, value: 10), date)
+	}
+	
 	func testBeginning() {
 		let date = Date()
-
+		
 		XCTAssertNotNil(date.beginning(of: .second))
 		XCTAssertEqual(date.beginning(of: .second)!.nanosecond, 0)
 		
@@ -76,7 +88,7 @@ class DateExtensionsTests: XCTestCase {
 		
 		XCTAssertNotNil(date.beginning(of: .day))
 		XCTAssertEqual(date.beginning(of: .day)!.hour, 0)
-		XCTAssertTrue(date.beginning(of: .day)!.isInToday)
+		XCTAssert(date.beginning(of: .day)!.isInToday)
 		
 		let beginningOfWeek = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))
 		XCTAssertNotNil(date.beginning(of: .weekOfMonth))
@@ -92,10 +104,47 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertNotNil(date.beginning(of: .year))
 		XCTAssertNotNil(beginningOfYear)
 		XCTAssertEqual(date.beginning(of: .year)!.day, beginningOfYear!.day)
+		
+		XCTAssertNil(date.beginning(of: .quarter))
 	}
 	
 	func testCalendar() {
-		XCTAssertEqual(Date().calendar, Calendar.current)
+		
+		switch Calendar.current.identifier {
+			
+		case .buddhist:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .buddhist).identifier)
+		case .chinese:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .chinese).identifier)
+		case .coptic:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .coptic).identifier)
+		case .ethiopicAmeteAlem:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .ethiopicAmeteAlem).identifier)
+		case .ethiopicAmeteMihret:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .ethiopicAmeteMihret).identifier)
+		case .gregorian:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .gregorian).identifier)
+		case .hebrew:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .hebrew).identifier)
+		case .indian:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .indian).identifier)
+		case .islamic:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .islamic).identifier)
+		case .islamicCivil:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .islamicCivil).identifier)
+		case .islamicTabular:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .islamicTabular).identifier)
+		case .islamicUmmAlQura:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .islamicUmmAlQura).identifier)
+		case .iso8601:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .iso8601).identifier)
+		case .japanese:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .japanese).identifier)
+		case .persian:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .persian).identifier)
+		case .republicOfChina:
+			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .republicOfChina).identifier)
+		}
 	}
 	
 	func testDateString() {
@@ -145,6 +194,20 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date.day, Calendar.current.component(.day, from: date))
 	}
 	
+	func testDayName() {
+		let date = Date(timeIntervalSince1970: 1486121165)
+		XCTAssertEqual(date.dayName(ofStyle: .full), "Friday")
+		XCTAssertEqual(date.dayName(ofStyle: .threeLetters), "Fri")
+		XCTAssertEqual(date.dayName(ofStyle: .oneLetter), "F")
+	}
+	
+	func testMonthName() {
+		let date = Date(timeIntervalSince1970: 1486121165)
+		XCTAssertEqual(date.monthName(ofStyle: .full), "February")
+		XCTAssertEqual(date.monthName(ofStyle: .threeLetters), "Feb")
+		XCTAssertEqual(date.monthName(ofStyle: .oneLetter), "F")
+	}
+	
 	func testEnd() {
 		let date = Date(timeIntervalSince1970: 512) // January 1, 1970 at 2:08:32 AM GMT+2
 		
@@ -155,7 +218,7 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date.end(of: .day)!.hour, 23)
 		XCTAssertEqual(date.end(of: .day)!.minute, 59)
 		XCTAssertEqual(date.end(of: .day)!.second, 59)
-
+		
 		var endOfWeek = date.beginning(of: .weekOfYear)
 		endOfWeek!.add(.day, value: 7)
 		endOfWeek!.add(.second, value: -1)
@@ -171,7 +234,9 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date.end(of: .year)!.hour, 23)
 		XCTAssertEqual(date.end(of: .year)!.minute, 59)
 		XCTAssertEqual(date.end(of: .year)!.second, 59)
-
+		
+		XCTAssertNil(date.end(of: .quarter))
+		
 	}
 	
 	func testEra() {
@@ -198,6 +263,7 @@ class DateExtensionsTests: XCTestCase {
 		let date = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
 		let dateFromIso8601 = Date(iso8601String: "1970-01-01T00:08:32.000Z")
 		XCTAssertEqual(date, dateFromIso8601)
+		XCTAssertNil(Date(iso8601String: "hello"))
 	}
 	
 	func testNewDateFromUnixTimestamp() {
@@ -206,37 +272,57 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date, dateFromUnixTimestamp)
 	}
 	
+	func testIsInYesterday() {
+		XCTAssertFalse(Date().isInYesterday)
+		let tomorrow = Date().adding(.day, value: 1)
+		XCTAssertFalse(tomorrow.isInYesterday)
+		let yesterday = Date().adding(.day, value: -1)
+		XCTAssert(yesterday.isInYesterday)
+	}
+	
+	func testIsInTomorrow() {
+		XCTAssertFalse(Date().isInTomorrow)
+		let tomorrow = Date().adding(.day, value: 1)
+		XCTAssert(tomorrow.isInTomorrow)
+		let yesterday = Date().adding(.day, value: -1)
+		XCTAssertFalse(yesterday.isInTomorrow)
+	}
+	
 	func testIsInCurrent() {
 		let date = Date()
 		let oldDate = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
 		
-		XCTAssertTrue(date.isInCurrent(.second))
+		XCTAssert(date.isInCurrent(.second))
 		XCTAssertFalse(oldDate.isInCurrent(.second))
 		
-		XCTAssertTrue(date.isInCurrent(.minute))
+		XCTAssert(date.isInCurrent(.minute))
 		XCTAssertFalse(oldDate.isInCurrent(.minute))
 		
-		XCTAssertTrue(date.isInCurrent(.hour))
+		XCTAssert(date.isInCurrent(.hour))
 		XCTAssertFalse(oldDate.isInCurrent(.hour))
 		
-		XCTAssertTrue(date.isInCurrent(.day))
+		XCTAssert(date.isInCurrent(.day))
 		XCTAssertFalse(oldDate.isInCurrent(.day))
 		
-		XCTAssertTrue(date.isInCurrent(.weekOfMonth))
+		XCTAssert(date.isInCurrent(.weekOfMonth))
 		XCTAssertFalse(oldDate.isInCurrent(.weekOfMonth))
 		
-		XCTAssertTrue(date.isInCurrent(.month))
+		XCTAssert(date.isInCurrent(.month))
 		XCTAssertFalse(oldDate.isInCurrent(.month))
 		
-		XCTAssertTrue(date.isInCurrent(.year))
+		XCTAssert(date.isInCurrent(.year))
 		XCTAssertFalse(oldDate.isInCurrent(.year))
+		
+		XCTAssert(date.isInCurrent(.era))
+		XCTAssertFalse(date.isInCurrent(.weekdayOrdinal))
+		
 	}
 	
 	func testIsInFuture() {
 		let oldDate = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
 		let futureDate = Date(timeIntervalSinceNow: 512)
 		
-		XCTAssertTrue(futureDate.isInFuture)
+		XCTAssert(futureDate.isInFuture)
 		XCTAssertFalse(oldDate.isInFuture)
 	}
 	
@@ -244,7 +330,7 @@ class DateExtensionsTests: XCTestCase {
 		let oldDate = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
 		let futureDate = Date(timeIntervalSinceNow: 512)
 		
-		XCTAssertTrue(oldDate.isInPast)
+		XCTAssert(oldDate.isInPast)
 		XCTAssertFalse(futureDate.isInPast)
 	}
 	
@@ -331,5 +417,6 @@ class DateExtensionsTests: XCTestCase {
 		date.year = 2000
 		XCTAssertEqual(date.year, Calendar.current.component(.year, from: date))
 		XCTAssertEqual(date.year, 2000)
+		
 	}
 }

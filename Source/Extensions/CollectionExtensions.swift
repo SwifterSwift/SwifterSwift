@@ -36,13 +36,13 @@ public extension Collection {
 }
 
 extension Collection where Indices.Iterator.Element == Index {
-    
-    /// SwifterSwift: Safe protects the array from out of bounds by use of optional.
-    ///
-    ///- Parameter index: Index of element to access element.
-    ///- Returns: Optional element at index (if applicable).
-    ///- Usage: array[safe: index]
-    subscript (safe index: Index) -> Generator.Element? {
-        return indices.contains(index) ? self[index] : nil
-    }
+	
+	/// SwifterSwift: Safe protects the array from out of bounds by use of optional.
+	///
+	///- Parameter index: Index of element to access element.
+	///- Returns: Optional element at index (if applicable).
+	///- Usage: array[safe: index]
+	subscript (safe index: Index) -> Generator.Element? {
+		return indices.contains(index) ? self[index] : nil
+	}
 }

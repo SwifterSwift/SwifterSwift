@@ -145,7 +145,7 @@ public extension Array {
 	///
 	/// - Parameter newElement: element to insert.
 	public mutating func push(_ newElement: Element) {
-		return append(newElement)
+		append(newElement)
 	}
 	
 }

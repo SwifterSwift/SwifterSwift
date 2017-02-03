@@ -1,9 +1,9 @@
-Pod::Spec.new do |spec|
-  spec.name = "SwifterSwift"
-  spec.version = "1.5"
-  spec.summary = "A handy collection of more than 400 native Swift 3 extensions to boost your productivity."
-  spec.description = <<-DESC
-  SwifterSwift is a library of over 400 properties and methods for more than 36 types, designed to extend Swift's functionality and productivity, staying faithful to the original design guidelines of swift 3.
+Pod::Spec.new do |s|
+  s.name = "SwifterSwift"
+  s.version = "1.6"
+  s.summary = "A handy collection of more than 500 native Swift 3 extensions to boost your productivity."
+  s.description = <<-DESC
+  SwifterSwift is a collection of over 500 native Swift 3 extensions, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.
 
   List Of Extensions
     - Array extensions
@@ -17,11 +17,10 @@ Pod::Spec.new do |spec|
     - Float extensions
     - Int extensions
     - String extensions
+    - URL extensions
     - SwifterSwift
-    - CGFloat extensions
-    - CGPoint extensions
-    - CGSize extensions
-    - NSAttributedString extensions
+
+  List of UIKit Extensions
     - UIAlertController extensions
     - UIBarButtonItem extensions
     - UIButton extensions
@@ -43,23 +42,33 @@ Pod::Spec.new do |spec|
     - UITextView extensions
     - UIView extensions
     - UIViewController extensions
+
+  List of Cocoa Extensions
+    - CGColor extensions
+    - CGFloat extensions
+    - CGPoint extensions
+    - CGSize extensions
+    - NSAttributedString extensions
+    - NSColor extensions
+
                    DESC
-  spec.homepage = "https://github.com/SwifterSwift/SwifterSwift"
-  spec.license = { type: 'MIT', file: 'LICENSE' }
-  spec.authors = { "Omar Albeik" => 'omaralbeik@gmail.com' }
-  spec.social_media_url = "http://twitter.com/omaralbeik"
-  spec.screenshot  = 'https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/logo.png'
 
-  spec.ios.deployment_target = '8.0'
-  spec.osx.deployment_target = '10.10'
-  spec.tvos.deployment_target = '9.0'
-  spec.watchos.deployment_target = '3.0'
+  s.homepage = "https://github.com/SwifterSwift/SwifterSwift"
+  s.license = { type: 'MIT', file: 'LICENSE' }
+  s.authors = { "Omar Albeik" => 'omaralbeik@gmail.com' }
+  s.social_media_url = "http://twitter.com/omaralbeik"
+  s.screenshot  = 'https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/logo.png'
 
-  spec.requires_arc = true
-  spec.source = { git: "https://github.com/SwifterSwift/SwifterSwift.git", tag: "v#{spec.version}" }
-  spec.source_files = "Source/**/*.swift"
-  spec.pod_target_xcconfig = {
+  s.ios.deployment_target = '8.0'
+  s.osx.deployment_target = '10.10'
+  s.tvos.deployment_target = '9.0'
+  s.watchos.deployment_target = '3.0'
+
+  s.requires_arc = true
+  s.source = { git: "https://github.com/SwifterSwift/SwifterSwift.git", tag: "v#{s.version}" }
+  s.source_files = "Source/**/*.swift"
+  s.pod_target_xcconfig = {
     'SWIFT_VERSION' => '3.0',
   }
-  spec.documentation_url = 'https://github.com/SwifterSwift/SwifterSwiftDocs'
+  s.documentation_url = 'https://github.com/SwifterSwift/SwifterSwiftDocs'
 end

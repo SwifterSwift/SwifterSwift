@@ -108,7 +108,7 @@ public extension Int {
 			
 		} else if hours != 0 && mins == 0 {
 			return "\(hours)h"
-
+			
 		} else {
 			return "\(hours)h \(mins)m"
 		}

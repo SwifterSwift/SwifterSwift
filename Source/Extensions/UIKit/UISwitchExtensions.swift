@@ -6,9 +6,8 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-#if os(iOS)
-
 import UIKit
+
 
 // MARK: - Methods
 public extension UISwitch {
@@ -20,5 +19,3 @@ public extension UISwitch {
 		setOn(!isOn, animated: animated)
 	}
 }
-
-#endif

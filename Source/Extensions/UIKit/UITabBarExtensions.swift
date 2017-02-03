@@ -6,8 +6,6 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS)
-
 import UIKit
 
 
@@ -22,9 +20,9 @@ public extension UITabBar {
 	///   - item: icon tint color for items.
 	///   - selectedItem: icon tint color for item.
 	public func setColors(background: UIColor? = nil,
-	               selectedBackground: UIColor? = nil,
-	               item: UIColor? = nil,
-	               selectedItem: UIColor? = nil) {
+	                      selectedBackground: UIColor? = nil,
+	                      item: UIColor? = nil,
+	                      selectedItem: UIColor? = nil) {
 		
 		// background
 		self.barTintColor = background ?? self.barTintColor
@@ -56,5 +54,3 @@ public extension UITabBar {
 		}
 	}
 }
-
-#endif
