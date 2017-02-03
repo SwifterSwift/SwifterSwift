@@ -84,10 +84,12 @@ class ArrayExtensionsTests: XCTestCase {
 	}
 	
 	func testShuffle() {
-		var arr = [1, 2, 3, 4, 5]
-		arr.shuffle()
-		XCTAssertEqual(arr.count, 5)
-		XCTAssertNotEqual(arr, [1, 2, 3, 4, 5])
+		for _ in 1...1000 {
+			var arr = [1, 2, 3, 4, 5]
+			arr.shuffle()
+			XCTAssertEqual(arr.count, 5)
+			XCTAssertNotEqual(arr, [1, 2, 3, 4, 5])
+		}
 	}
 	
 	func testShuffled() {

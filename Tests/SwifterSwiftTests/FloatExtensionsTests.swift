@@ -52,4 +52,13 @@ class FloatExtensionsTests: XCTestCase {
 		XCTAssert((±Float(2.0)) == (Float(2.0), Float(-2.0)) || (±Float(2.0)) == (Float(-2.0), Float(2.0)))
 		XCTAssertEqual((√Float(25.0)), Float(5.0))
 	}
+	
+	func testAsLocaleCurrency() {
+		let num = Float(10.23)
+		let asLocaleCurrency = "\(Locale.current.currencySymbol ?? "")\(num)"
+		if let symbol = Locale.current.currencySymbol {
+			XCTAssert(num.asLocaleCurrency.contains(symbol))
+		}
+		XCTAssert(num.asLocaleCurrency.contains("\(num)"))
+	}
 }

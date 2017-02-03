@@ -55,7 +55,9 @@ public extension Date {
 			return calendar.component(.year, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: newValue, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? self
+			if let date = Date(calendar: calendar, timeZone: timeZone, era: era, year: newValue, month: month, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) {
+				self = date
+			}
 		}
 	}
 	
@@ -70,7 +72,9 @@ public extension Date {
 			return calendar.component(.month, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: newValue, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? self
+			if let date = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: newValue, day: day, hour: hour, minute: minute, second: second, nanosecond: nanosecond) {
+				self = date
+			}
 		}
 	}
 	
@@ -95,7 +99,9 @@ public extension Date {
 			return calendar.component(.day, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: newValue, hour: hour, minute: minute, second: second, nanosecond: nanosecond) ?? self
+			if let date = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: newValue, hour: hour, minute: minute, second: second, nanosecond: nanosecond) {
+				self = date
+			}
 		}
 	}
 	
@@ -105,7 +111,9 @@ public extension Date {
 			return calendar.component(.hour, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: newValue, minute: minute, second: second, nanosecond: nanosecond) ?? self
+			if let date = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: newValue, minute: minute, second: second, nanosecond: nanosecond) {
+				self = date
+			}
 		}
 	}
 	
@@ -115,7 +123,9 @@ public extension Date {
 			return calendar.component(.minute, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: newValue, second: second, nanosecond: nanosecond) ?? self
+			if let date = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: newValue, second: second, nanosecond: nanosecond) {
+				self = date
+			}
 		}
 	}
 	
@@ -125,7 +135,9 @@ public extension Date {
 			return calendar.component(.second, from: self)
 		}
 		set {
-			self = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond) ?? self
+			if let date = Date(calendar: calendar, timeZone: timeZone, era: era, year: year, month: month, day: day, hour: hour, minute: minute, second: newValue, nanosecond: nanosecond) {
+				self = date
+			}
 		}
 	}
 	
@@ -479,7 +491,6 @@ public extension Date {
 			
 		case .era:
 			return era == Date().era
-			
 		default:
 			return false
 		}

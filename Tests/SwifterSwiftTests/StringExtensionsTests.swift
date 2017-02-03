@@ -144,6 +144,10 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertEqual("Hëllô Teśt".latinized, "Hello Test")
 	}
 	
+	func testLength() {
+		XCTAssertEqual("Hello world!".length, 12)
+	}
+	
 	func testLines() {
 		XCTAssertEqual("Hello\ntest".lines, ["Hello", "test"])
 	}
