@@ -6,8 +6,6 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS)
-
 import UIKit
 
 
@@ -30,4 +28,12 @@ public extension UISearchBar {
 	
 }
 
-#endif
+
+// MARK: - Methods
+public extension UISearchBar {
+	
+	/// SwifterSwift: Clear text.
+	public func clear() {
+		text = ""
+	}
+}

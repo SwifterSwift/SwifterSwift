@@ -6,9 +6,11 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-#if !os(macOS)
-
-import UIKit
+#if os(macOS)
+	import Cocoa
+#else
+	import UIKit
+#endif
 
 
 // MARK: - Methods
@@ -33,5 +35,3 @@ public extension CGSize {
 	}
 	
 }
-
-#endif

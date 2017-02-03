@@ -6,14 +6,16 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-#if !os(macOS)
-
-import UIKit
+#if os(macOS)
+	import Cocoa
+#else
+	import UIKit
+#endif
 
 
 // MARK: - Methods
 public extension CGPoint {
-
+	
 	/// SwifterSwift: Distance from another CGPoint.
 	///
 	/// - Parameter point: CGPoint to get distance from.
@@ -21,7 +23,7 @@ public extension CGPoint {
 	public func distance(from point: CGPoint) -> CGFloat {
 		return CGPoint.distance(from: self, to: point)
 	}
-
+	
 	/// SwifterSwift: Distance between two CGPoints.
 	///
 	/// - Parameters:
@@ -32,13 +34,13 @@ public extension CGPoint {
 		// http://stackoverflow.com/questions/6416101/calculate-the-distance-between-two-cgpoints
 		return sqrt(pow(point2.x - point1.x, 2) + pow(point2.y - point1.y, 2))
 	}
-
+	
 }
 
 
 // MARK: - Operators
 public extension CGPoint {
-
+	
 	/// SwifterSwift: Add two CGPoints.
 	///
 	/// - Parameters:
@@ -48,7 +50,7 @@ public extension CGPoint {
 	public static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
 		return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
 	}
-
+	
 	/// SwifterSwift: Subtract two CGPoints.
 	///
 	/// - Parameters:
@@ -58,7 +60,7 @@ public extension CGPoint {
 	public static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
 		return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
 	}
-
+	
 	/// SwifterSwift: Multiply a CGPoint with a scalar
 	///
 	/// - Parameters:
@@ -68,7 +70,7 @@ public extension CGPoint {
 	public static func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
 		return CGPoint(x: point.x * scalar, y: point.y * scalar)
 	}
-
+	
 	/// SwifterSwift: Multiply a CGPoint with a scalar
 	///
 	/// - Parameters:
@@ -78,7 +80,6 @@ public extension CGPoint {
 	public static func * (scalar: CGFloat, point: CGPoint) -> CGPoint {
 		return CGPoint(x: point.x * scalar, y: point.y * scalar)
 	}
-
+	
 }
 
-#endif

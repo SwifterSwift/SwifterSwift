@@ -6,12 +6,14 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-#if os(iOS) || os(tvOS)
-import UIKit
+#if os(macOS)
+	import Cocoa
 #elseif os(watchOS)
-import WatchKit
+	import WatchKit
+#else
+	import UIKit
 #endif
-	
+
 // MARK: - Properties
 /// SwifterSwift: Common usefull properties and methods.
 public struct SwifterSwift {
@@ -79,7 +81,7 @@ public struct SwifterSwift {
 	#elseif os(watchOS)
 	/// SwifterSwift: Shared instance of current device.
 	public static var currentDevice: WKInterfaceDevice {
-		return WKInterfaceDevice.current()
+	return WKInterfaceDevice.current()
 	}
 	#endif
 	
@@ -108,7 +110,7 @@ public struct SwifterSwift {
 		return currentDevice.name
 	}
 	#endif
-
+	
 	#if os(iOS)
 	/// SwifterSwift: Current orientation of device.
 	public static var deviceOrientation: UIDeviceOrientation {
@@ -126,7 +128,7 @@ public struct SwifterSwift {
 		#endif
 	}
 	#endif
-
+	
 	/// SwifterSwift: Check if app is running in debug mode.
 	public static var isInDebuggingMode: Bool {
 		// http://stackoverflow.com/questions/9063100/xcode-ios-how-to-determine-whether-code-is-running-in-debug-release-build
@@ -170,21 +172,21 @@ public struct SwifterSwift {
 		return UIDevice.current.userInterfaceIdiom == .pad
 	}
 	#endif
-
+	
 	#if os(iOS)
 	/// SwifterSwift: Check if device is iPhone.
 	public static var isPhone: Bool {
 		return UIDevice.current.userInterfaceIdiom == .phone
 	}
 	#endif
-
+	
 	#if os(iOS) || os(tvOS)
 	/// SwifterSwift: Check if device is registered for remote notifications for current app (read-only).
 	public static var isRegisteredForRemoteNotifications: Bool {
 		return UIApplication.shared.isRegisteredForRemoteNotifications
 	}
 	#endif
-
+	
 	/// SwifterSwift: Check if application is running on simulator (read-only).
 	public static var isRunningOnSimulator: Bool {
 		// http://stackoverflow.com/questions/24869481/detect-if-app-is-being-built-for-device-or-simulator-in-swift
@@ -213,7 +215,7 @@ public struct SwifterSwift {
 		return UIApplication.shared.keyWindow
 	}
 	#endif
-
+	
 	#if os(iOS) || os(tvOS)
 	/// SwifterSwift: Most top view controller (if applicable).
 	public static var mostTopViewController: UIViewController? {
@@ -225,14 +227,14 @@ public struct SwifterSwift {
 		}
 	}
 	#endif
-
+	
 	#if os(iOS) || os(tvOS)
 	/// SwifterSwift: Shared instance UIApplication.
 	public static var sharedApplication: UIApplication {
 		return UIApplication.shared
 	}
 	#endif
-
+	
 	#if os(iOS)
 	/// SwifterSwift: Current status bar style (if applicable).
 	public static var statusBarStyle: UIStatusBarStyle? {
@@ -275,7 +277,7 @@ public extension SwifterSwift {
 	public static func delay(milliseconds: Double, queue: DispatchQueue = .main, completion: @escaping ()-> Void) {
 		queue.asyncAfter(deadline: .now() + (milliseconds/1000), execute: completion)
 	}
-
+	
 	/// SwifterSwift: Debounce function or closure call.
 	///
 	/// - Parameters:
@@ -283,10 +285,10 @@ public extension SwifterSwift {
 	///   - queue: a queue that action closure should be executed on (default is DispatchQueue.main).
 	///   - action: closure to be executed in a debounced way.
 	public static func debounce(millisecondsDelay: Int, queue: DispatchQueue = .main, action: @escaping (()->())) -> ()->() {
-	//http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
+		//http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
 		var lastFireTime = DispatchTime.now()
 		let dispatchDelay = DispatchTimeInterval.milliseconds(millisecondsDelay)
-
+		
 		return {
 			let dispatchTime: DispatchTime = lastFireTime + dispatchDelay
 			queue.asyncAfter(deadline: dispatchTime) {
