@@ -20,13 +20,13 @@ SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with han
 v1.6 is the biggest update since v1.3! With over 100 new extensions, improved Cocoa support, new tests and many minor bug fixes.
 
 
-## Requirements:
+# Requirements:
 - **iOS** 8.0+ / **tvOS** 9.0+ / **watchOS** 3+ / **macOS** 10.10+
 - Xcode 8.1+
 - Swift 3.0+
 
 
-## Installation
+# Installation
 
 ### CocoaPods
 
@@ -75,7 +75,6 @@ github "SwifterSwift/SwifterSwift" ~> 1.5
 Run `carthage update` to build the framework and drag the built `SwifterSwift.framework` into your Xcode project.
 
 
-
 ### Swift Package Manager
 
 You can use [The Swift Package Manager](https://swift.org/package-manager) to install `SwifterSwift` by adding the proper description to your `Package.swift` file:
@@ -95,20 +94,19 @@ let package = Package(
 Note that the [Swift Package Manager](https://swift.org/package-manager) is still in early design and development, for more information checkout its [GitHub Page](https://github.com/apple/swift-package-manager)
 
 
-
 ### Manually
 
 Add the [extensions](Source/Extensions) folder to your Xcode project to use all extensions, or a specific extension.
 
 
+--
 
-## How to contribute:
+# Read the Full Documentation
+Full documentation with code examples is available in the [Docs repo](https://github.com/SwifterSwift/SwifterSwiftDocs)
 
-`SwifterSwift` is in its early stages, any feedback is appreciated and welcomed.
-Please refer to the [contributing guidelines](CONTRIBUTING.md) before participating.
+--
 
-
-## List Of Extensions
+# List of Extensions
 
 - [`Array extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/ArrayExtensions.md)
 - [`Bool extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/BoolExtensions.md)
@@ -125,7 +123,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 - [`SwifterSwift`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/SwifterSwift.md)
 
 
-## List Of UIKit Extensions
+# List of UIKit Extensions
 
 - [`UIAlertController extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIAlertControllerExtensions.md)
 - [`UIBarButtonItem extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIBarButtonItemExtensions.md)
@@ -150,7 +148,7 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 - [`UIViewController extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIViewControllerExtensions.md)
 
 
-## List Of Cocoa Extensions
+# List of Cocoa Extensions
 
 - [`CGColor extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CGColorExtensions.md)
 - [`CGFloat extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CGFloatExtensions.md)
@@ -159,14 +157,16 @@ Please refer to the [contributing guidelines](CONTRIBUTING.md) before participat
 - [`NSAttributedString extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/Docs/Cocoa/UIKit/NSAttributedStringExtensions.md)
 - [`NSColor extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/NSColorExtensions.md)
 
+--
 
-## How cool is this?
+
+# How cool is this?
 
 `SwifterSwift` is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
 
 Here are some examples:
 
-#### Array Extensions:
+### Array Extensions:
 
 ```swift
 // Remove duplicates from an array
@@ -187,7 +187,7 @@ Here are some examples:
 
 --
 
-#### Date Extensions:
+### Date Extensions:
 
 ```swift
 // Get and set components from date with ease
@@ -233,7 +233,7 @@ Date().monthName(ofStyle: .threeLetters) -> "Dec"
 
 --
 
-#### String Extensions:
+### String Extensions:
 
 ```swift
 // Return count of substring in string
@@ -307,7 +307,7 @@ let boldString = "this is string".bold.colored(with: .red)
 
 --
 
-#### Dictionary Extensions:
+### Dictionary Extensions:
 
 ```swift
 let dict = ["id": 1, "Product-Name": "SwifterSwift"]
@@ -328,7 +328,7 @@ let json = dict.jsonString(prettify: true)
 --
 
 
-#### Number Types Extensions:
+### Number Types Extensions:
 
 ```swift
 // Return square root of a number
@@ -357,7 +357,7 @@ Int.randomBetween(min: 1, max: 10) = 6
 
 SwifterSwift has many great extensions for UIKit also:
 
-#### UIColor Extensions:
+### UIColor Extensions:
 
 ```swift
 // Create new UIColor for RGB values
@@ -394,7 +394,7 @@ let facebookColor = UIColor.social.facebook
 --
 
 
-#### UIView Extensions
+### UIView Extensions
 
 ```swift
 
@@ -432,7 +432,7 @@ let image = view.screenShot
 --
 
 
-#### UIAlertController Extensions
+### UIAlertController Extensions
 
 ```swift
 // Create a new alert controller from string or Error
@@ -448,7 +448,7 @@ alert.show()
 
 --
 
-#### UIButton Extensions
+### UIButton Extensions
 
 ```swift
 
@@ -471,7 +471,7 @@ button.titleForHighlighted = "Login"
 --
 
 
-#### UIImage Extensions
+### UIImage Extensions
 
 ```swift
 // Crop images
@@ -497,7 +497,7 @@ image.kilobytesSize = 114
 --
 
 
-#### UIImageView Extensions
+### UIImageView Extensions
 
 ```swift
 // Download an image from URL in background
@@ -512,7 +512,7 @@ imageView.blur(withStyle: .light)
 
 --
 
-#### UINavigationBar Extensions
+### UINavigationBar Extensions
 
 ```swift
 // Change navigation bar font and color
@@ -525,7 +525,7 @@ navbar.setTitleFont(UIFont, with color: UIColor.black)
 --
 
 
-#### UINavigationController Extensions
+### UINavigationController Extensions
 
 ```swift
 // Pop ViewController with completion handler.
@@ -541,7 +541,7 @@ navController.pushViewController(UIViewController, completion: (()->Void)?)
 --
 
 
-#### UITableView Extensions
+### UITableView Extensions
 
 ```swift
 // Return index path for last row in section.
@@ -564,7 +564,7 @@ tableView.scrollToTop(animated: true)
 SwifterSwift has many great extensions for Cocoa too:
 
 
-#### CGPoint Extensions
+### CGPoint Extensions
 
 ```swift
 // Get distance from another CGPoint.
@@ -599,7 +599,17 @@ SwifterSwift.didTakeScreenShot {
 
 --
 
-## Thanks:
+# Get involved:
+
+Your feedback is always appreciated and welcomed.
+Please refer to contributing guidelines before participating.
+
+- [Contributing guidelines for extensions](https://github.com/SwifterSwift/SwifterSwift/blob/master/CONTRIBUTING.md)
+- [Contributing guidelines for documentations](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/CONTRIBUTING.md)
+
+--
+
+# Thanks:
 
 Special thanks to:
 
