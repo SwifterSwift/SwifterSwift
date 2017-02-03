@@ -19,7 +19,7 @@ public extension URL {
 			return self
 		}
 		var items = urlComponents.queryItems ?? []
-		items += parameters.map({ URLQueryItem(name: $0.urlEncoded, value: $1.urlEncoded) })
+		items += parameters.map({ URLQueryItem(name: $0, value: $1) })
 		urlComponents.queryItems = items
 		return urlComponents.url ?? self
 	}

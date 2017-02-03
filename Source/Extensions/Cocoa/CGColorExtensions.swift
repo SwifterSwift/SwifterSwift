@@ -24,7 +24,7 @@ public extension CGColor {
 	
 	#if os(macOS)
 	/// SwifterSwift: NSColor.
-	var uiColor: NSColor? {
+	var nsColor: NSColor? {
 	return NSColor(cgColor: self)
 	}
 	#endif
