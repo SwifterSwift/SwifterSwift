@@ -274,8 +274,11 @@ public extension SwifterSwift {
 	///   - milliseconds: execute closure after the given delay.
 	///   - queue: a queue that completion closure should be executed on (default is DispatchQueue.main).
 	///   - completion: closure to be executed after delay.
-	public static func delay(milliseconds: Double, queue: DispatchQueue = .main, completion: @escaping ()-> Void) {
-		queue.asyncAfter(deadline: .now() + (milliseconds/1000), execute: completion)
+	///   - Returns: DispatchWorkItem task. You can call .cancel() on it to cancel delayed execution.
+	@discardableResult public static func delay(milliseconds: Double, queue: DispatchQueue = .main, completion: @escaping ()-> Void) -> DispatchWorkItem {
+		let task = DispatchWorkItem { completion() }
+		queue.asyncAfter(deadline: .now() + (milliseconds/1000), execute: task)
+		return task
 	}
 	
 	/// SwifterSwift: Debounce function or closure call.
