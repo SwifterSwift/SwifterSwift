@@ -26,23 +26,23 @@ public extension UITabBar {
 	                      selectedItem: UIColor? = nil) {
 		
 		// background
-		self.barTintColor = background ?? self.barTintColor
+		barTintColor = background ?? barTintColor
 		
 		// selectedItem
-		self.tintColor = selectedItem ?? self.tintColor
-		//		self.shadowImage = UIImage()
-		self.backgroundImage = UIImage()
-		self.isTranslucent = false
+		tintColor = selectedItem ?? tintColor
+		// shadowImage = UIImage()
+		backgroundImage = UIImage()
+		isTranslucent = false
 		
 		// selectedBackgoundColor
 		
 		if let selectedbg = selectedBackground {
-			let rect = CGSize(width: self.frame.width/CGFloat(self.items!.count), height: self.frame.height)
-			self.selectionIndicatorImage = UIImage(color: selectedbg, size: rect)
+			let rect = CGSize(width: frame.width/CGFloat(items!.count), height: frame.height)
+			selectionIndicatorImage = UIImage(color: selectedbg, size: rect)
 		}
 		
 		if let itemColor = item {
-			for barItem in self.items! as [UITabBarItem] {
+			for barItem in items! as [UITabBarItem] {
 				// item
 				if let image = barItem.image {
 					barItem.image = image.filled(withColor: itemColor).withRenderingMode(.alwaysOriginal)

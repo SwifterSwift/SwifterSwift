@@ -63,9 +63,9 @@ public extension Dictionary where Key: ExpressibleByStringLiteral {
 	/// SwifterSwift: Lowercase all keys in dictionary.
 	public mutating func lowercaseAllKeys() {
 		// http://stackoverflow.com/questions/33180028/extend-dictionary-where-key-is-of-type-string
-		for key in self.keys {
+		for key in keys {
 			if let lowercaseKey = String(describing: key).lowercased() as? Key {
-				self[lowercaseKey] = self.removeValue(forKey: key)
+				self[lowercaseKey] = removeValue(forKey: key)
 			}
 		}
 	}

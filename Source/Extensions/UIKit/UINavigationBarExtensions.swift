@@ -42,12 +42,12 @@ public extension UINavigationBar {
 	///   - background: backgound color
 	///   - text: text color
 	public func setColors(background: UIColor, text: UIColor) {
-		self.isTranslucent = false
-		self.backgroundColor = background
-		self.barTintColor = background
-		self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-		self.tintColor = text
-		self.titleTextAttributes = [NSForegroundColorAttributeName: text]
+		isTranslucent = false
+		backgroundColor = background
+		barTintColor = background
+		setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+		tintColor = text
+		titleTextAttributes = [NSForegroundColorAttributeName: text]
 	}
 }
 #endif

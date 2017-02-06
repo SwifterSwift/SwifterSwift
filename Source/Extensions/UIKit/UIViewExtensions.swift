@@ -90,7 +90,7 @@ public extension UIView {
 	
 	/// SwifterSwift: First responder.
 	public var firstResponder: UIView? {
-		guard !self.isFirstResponder else {
+		guard !isFirstResponder else {
 			return self
 		}
 		for subView in subviews {
@@ -104,10 +104,10 @@ public extension UIView {
 	// SwifterSwift: Height of view.
 	public var height: CGFloat {
 		get {
-			return self.frame.size.height
+			return frame.size.height
 		}
 		set {
-			self.frame.size.height = newValue
+			frame.size.height = newValue
 		}
 	}
 	
@@ -183,11 +183,11 @@ public extension UIView {
 	/// SwifterSwift: Size of view.
 	public var size: CGSize {
 		get {
-			return self.frame.size
+			return frame.size
 		}
 		set {
-			self.width = newValue.width
-			self.height = newValue.height
+			width = newValue.width
+			height = newValue.height
 		}
 	}
 	
@@ -206,10 +206,10 @@ public extension UIView {
 	/// SwifterSwift: Width of view.
 	public var width: CGFloat {
 		get {
-			return self.frame.size.width
+			return frame.size.width
 		}
 		set {
-			self.frame.size.width = newValue
+			frame.size.width = newValue
 		}
 	}
 	
@@ -264,8 +264,8 @@ public extension UIView {
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil)
 	public func fadeIn(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
-		if self.isHidden {
-			self.isHidden = false
+		if isHidden {
+			isHidden = false
 		}
 		UIView.animate(withDuration: duration, animations: {
 			self.alpha = 1
@@ -278,8 +278,8 @@ public extension UIView {
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil)
 	public func fadeOut(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
-		if self.isHidden {
-			self.isHidden = false
+		if isHidden {
+			isHidden = false
 		}
 		UIView.animate(withDuration: duration, animations: {
 			self.alpha = 0
@@ -298,7 +298,7 @@ public extension UIView {
 	
 	/// SwifterSwift: Remove all subviews in view.
 	public func removeSubViews() {
-		self.subviews.forEach({$0.removeFromSuperview()})
+		subviews.forEach({$0.removeFromSuperview()})
 	}
 	
 	/// SwifterSwift: Remove all gesture recognizers from view.
@@ -351,7 +351,7 @@ public extension UIView {
 				self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
 			}, completion: completion)
 		} else {
-			self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
+			transform = transform.scaledBy(x: offset.x, y: offset.y)
 			completion?(true)
 		}
 	}

@@ -51,7 +51,7 @@ public extension NSAttributedString {
 	/// - Returns: NSAttributedString with applied attributes
 	fileprivate func applying(attributes: [String: Any]) -> NSAttributedString {
 		let copy = NSMutableAttributedString(attributedString: self)
-		let range = (self.string as NSString).range(of: self.string)
+		let range = (string as NSString).range(of: string)
 		copy.addAttributes(attributes, range: range)
 		
 		return copy

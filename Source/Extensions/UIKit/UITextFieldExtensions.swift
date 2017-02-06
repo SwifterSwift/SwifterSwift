@@ -30,13 +30,13 @@ public extension UITextField {
 	/// SwifterSwift: Left view tint color.
 	public var leftViewTintColor: UIColor? {
 		get {
-			guard let iconView = self.leftView as? UIImageView else {
+			guard let iconView = leftView as? UIImageView else {
 				return nil
 			}
 			return iconView.tintColor
 		}
 		set {
-			guard let iconView = self.leftView as? UIImageView else {
+			guard let iconView = leftView as? UIImageView else {
 				return
 			}
 			iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
@@ -48,13 +48,13 @@ public extension UITextField {
 	/// SwifterSwift: Right view tint color.
 	public var rightViewTintColor: UIColor? {
 		get {
-			guard let iconView = self.rightView as? UIImageView else {
+			guard let iconView = rightView as? UIImageView else {
 				return nil
 			}
 			return iconView.tintColor
 		}
 		set {
-			guard let iconView = self.rightView as? UIImageView else {
+			guard let iconView = rightView as? UIImageView else {
 				return
 			}
 			iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)

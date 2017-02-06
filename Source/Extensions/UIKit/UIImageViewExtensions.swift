@@ -50,10 +50,10 @@ extension UIImageView {
 	func blur(withStyle: UIBlurEffectStyle = .light) {
 		let blurEffect = UIBlurEffect(style: withStyle)
 		let blurEffectView = UIVisualEffectView(effect: blurEffect)
-		blurEffectView.frame = self.bounds
+		blurEffectView.frame = bounds
 		blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
-		self.addSubview(blurEffectView)
-		self.clipsToBounds = true
+		addSubview(blurEffectView)
+		clipsToBounds = true
 	}
 	
 	/// SwifterSwift: Blurred version of an image view

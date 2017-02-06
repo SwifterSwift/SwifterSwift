@@ -31,6 +31,7 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testCamelCased() {
 		XCTAssertEqual("Hello test".camelCased, "helloTest")
+		XCTAssertEqual("Hellotest".camelCased, "hellotest")
 	}
 	
 	func testCamelize() {
@@ -54,14 +55,16 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertEqual("Hello This Tests".count(of: "t"), 1)
 		XCTAssertEqual("Hello This Tests".count(of: "T", caseSensitive: false) , 3)
 		XCTAssertEqual("Hello This Tests".count(of: "t", caseSensitive: false), 3)
-        
+		
 	}
 	
 	func testEnd() {
+		XCTAssert("Hello Test".end(with: "test", caseSensitive: false))
 		XCTAssert("Hello Tests".end(with: "sts"))
 	}
 	
 	func testFirstCharacter() {
+		XCTAssertNil("".firstCharacter)
 		XCTAssertNotNil("Hello".firstCharacter)
 		XCTAssertEqual("Hello".firstCharacter!, "H")
 	}
@@ -106,19 +109,22 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssert("ftp://google.com".isValidUrl)
 	}
 	
-        func testIsValidSchemedUrl() {
-                XCTAssert("https://google.com".isValidSchemedUrl)
-                XCTAssert("ftp://google.com".isValidSchemedUrl)
-                XCTAssertFalse("google.com".isValidSchemedUrl)
-        }
-    
+	func testIsValidSchemedUrl() {
+		XCTAssertFalse("hello world!".isValidSchemedUrl)
+		XCTAssert("https://google.com".isValidSchemedUrl)
+		XCTAssert("ftp://google.com".isValidSchemedUrl)
+		XCTAssertFalse("google.com".isValidSchemedUrl)
+	}
+	
 	func testIsValidHttpsUrl() {
+		XCTAssertFalse("hello world!".isValidHttpsUrl)
 		XCTAssert("https://google.com".isValidHttpsUrl)
 		XCTAssertFalse("http://google.com".isValidHttpsUrl)
 		XCTAssertFalse("google.com".isValidHttpsUrl)
 	}
 	
 	func testIsValidHttpUrl() {
+		XCTAssertFalse("hello world!".isValidHttpUrl)
 		XCTAssert("http://google.com".isValidHttpUrl)
 		XCTAssertFalse("google.com".isValidHttpUrl)
 	}
@@ -132,6 +138,7 @@ class StringExtensionsTests: XCTestCase {
 	func testLastCharacter() {
 		XCTAssertNotNil("Hello".lastCharacter)
 		XCTAssertEqual("Hello".lastCharacter!, "o")
+		XCTAssertNil("".lastCharacter)
 	}
 	
 	func testLatinize() {
@@ -158,7 +165,15 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testRandom() {
-		XCTAssertEqual(String.random(ofLength: 10).characters.count, 10)
+		let str1 = String.random(ofLength: 10)
+		XCTAssertEqual(str1.length, 10)
+		
+		let str2 = String.random(ofLength: 10)
+		XCTAssertEqual(str2.length, 10)
+		
+		XCTAssertNotEqual(str1, str2)
+		
+		XCTAssertEqual(String.random(ofLength: 0), "")
 	}
 	
 	func testReplace() {
@@ -174,9 +189,8 @@ class StringExtensionsTests: XCTestCase {
 	func testReversed() {
 		XCTAssertEqual("Hello".reversed, "olleH")
 	}
-
+	
 	func testSlice() {
-		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345")
 		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345")
 		XCTAssertEqual("12345678".slicing(from: 2, length: 0)!, "")
 		XCTAssertNil("12345678".slicing(from: 12, length: 0))
@@ -184,13 +198,43 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertEqual("12345678".slicing(from: 2, to: 5), "345")
 		XCTAssertNil("12345678".slicing(from: 2, to: 1))
 		XCTAssertEqual("12345678".slicing(at: 2)!, "345678")
+		
+		var str = "12345678"
+		str.slice(from: 2, length: 3)
+		XCTAssertEqual(str, "345")
+		
+		str = "12345678"
+		str.slice(from: 2, length: 0)
+		print(str)
+		XCTAssertEqual(str, "")
+		
+		str = "12345678"
+		str.slice(from: 12, length: 0)
+		XCTAssertEqual(str, "12345678")
+		
+		str = "12345678"
+		str.slice(from: 2, length: 100)
+		XCTAssertEqual(str, "345678")
+		
+		str = "12345678"
+		str.slice(from: 2, to: 5)
+		XCTAssertEqual(str, "345")
+		
+		str = "12345678"
+		str.slice(from: 2, to: 1)
+		XCTAssertEqual(str, "12345678")
+		
+		str = "12345678"
+		str.slice(at: 2)
+		XCTAssertEqual(str, "345678")
 	}
-
+	
 	func testSplit() {
 		XCTAssertEqual("Hello Tests".splitted(by: " "), ["Hello", "Tests"])
 	}
 	
 	func testStart() {
+		XCTAssert("Hello Test".start(with: "hello", caseSensitive: false))
 		XCTAssert("Hello Tests".start(with: "He"))
 	}
 	
@@ -208,7 +252,7 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertNil("8s".bool)
 	}
 	
-	func testToDate() {
+	func testDate() {
 		let dateFromStr = "2015-06-01".date
 		XCTAssertNotNil(dateFromStr)
 		XCTAssertEqual(dateFromStr!.year, 2015)
@@ -216,7 +260,7 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertEqual(dateFromStr!.day, 1)
 	}
 	
-	func testToDateTime() {
+	func testDateTime() {
 		let dateFromStr = "2015-06-01 14:23:09".dateTime
 		XCTAssertNotNil(dateFromStr)
 		XCTAssertEqual(dateFromStr!.year, 2015)
@@ -227,7 +271,7 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertEqual(dateFromStr!.second, 9)
 	}
 	
-	func testToDouble() {
+	func testDouble() {
 		XCTAssertNotNil("8".double)
 		XCTAssertEqual("8".double!, 8)
 		
@@ -237,7 +281,7 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertNil("8s".double)
 	}
 	
-	func testToFloat() {
+	func testFloat() {
 		XCTAssertNotNil("8".float)
 		XCTAssertEqual("8".float!, 8)
 		
@@ -247,11 +291,66 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertNil("8s".float)
 	}
 	
-	func testToInt() {
+	func testFloat32() {
+		XCTAssertNotNil("8".float32)
+		XCTAssertEqual("8".float32!, 8)
+		
+		XCTAssertNotNil("8.23".float32)
+		XCTAssertEqual("8.23".float32!, Float32(8.23))
+		
+		XCTAssertNil("8s".float32)
+	}
+	
+	func testFloat64() {
+		XCTAssertNotNil("8".float64)
+		XCTAssertEqual("8".float64!, 8)
+		
+		XCTAssertNotNil("8.23".float64)
+		XCTAssertEqual("8.23".float64!, Float64(8.23))
+		
+		XCTAssertNil("8s".float64)
+	}
+	
+	func testInt() {
 		XCTAssertNotNil("8".int)
 		XCTAssertEqual("8".int!, 8)
 		
 		XCTAssertNil("8s".int)
+	}
+	
+	func testInt16() {
+		XCTAssertNotNil("8".int16)
+		XCTAssertEqual("8".int16!, 8)
+		
+		XCTAssertNil("8s".int16)
+	}
+	
+	func testInt32() {
+		XCTAssertNotNil("8".int32)
+		XCTAssertEqual("8".int32!, 8)
+		
+		XCTAssertNil("8s".int32)
+	}
+	
+	func testInt64() {
+		XCTAssertNotNil("8".int64)
+		XCTAssertEqual("8".int64!, 8)
+		
+		XCTAssertNil("8s".int64)
+	}
+	
+	func testInt8() {
+		XCTAssertNotNil("8".int8)
+		XCTAssertEqual("8".int8!, 8)
+		
+		XCTAssertNil("8s".int8)
+	}
+	
+	func testUrl() {
+		XCTAssertNil("hello world".url)
+		
+		let google = "https://www.google.com"
+		XCTAssertEqual(google.url, URL(string: google)!)
 	}
 	
 	func testTrim() {
@@ -268,10 +367,24 @@ class StringExtensionsTests: XCTestCase {
 		var str = "This is a very long sentence"
 		str.truncate(toLength: 14)
 		XCTAssertEqual(str, "This is a very...")
+		
+		str = "This is a very long sentence"
+		str.truncate(toLength: 14, trailing: nil)
+		XCTAssertEqual(str, "This is a very")
+		
+		str = "This is a short sentence"
+		str.truncate(toLength: 100)
+		XCTAssertEqual(str, "This is a short sentence")
+		
+		str.truncate(toLength: -1)
+		XCTAssertEqual(str, "This is a short sentence")
 	}
 	
 	func testTruncated() {
 		XCTAssertEqual("This is a very long sentence".truncated(toLength: 14), "This is a very...")
+		
+		XCTAssertEqual("This is a very long sentence".truncated(toLength: 14, trailing: nil), "This is a very")
+		XCTAssertEqual("This is a short sentence".truncated(toLength: 100), "This is a short sentence")
 	}
 	
 	func testUnicodeArray() {
@@ -300,5 +413,46 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testWithoutSpacesAndNewLines() {
 		XCTAssertEqual("Hello \n Test".withoutSpacesAndNewLines, "HelloTest")
+	}
+	
+	func testSubscript() {
+		let str = "Hello world!"
+		XCTAssertEqual(str[1], "e")
+		XCTAssertNil(str[18])
+		
+		XCTAssertEqual(str[1..<5], "ello")
+		XCTAssertNil(str[10..<18])
+		XCTAssertNil(""[1..<2])
+		
+		XCTAssertEqual(str[0...4], "Hello")
+		XCTAssertNil(str[10...18])
+		XCTAssertNil(""[1...2])
+	}
+	
+	func testCopyToPasteboard() {
+		let str = "Hello World!"
+		#if os(iOS)
+			str.copyToPasteboard()
+			let strFromPasteboard = UIPasteboard.general.string
+			XCTAssertEqual(strFromPasteboard, str)
+			
+		#elseif os(macOS)
+			str.copyToPasteboard()
+			let strFromPasteboard = NSPasteboard.general().string(forType: NSPasteboardTypeString)
+			XCTAssertEqual(strFromPasteboard, str)
+		#endif
+	}
+	
+	func testInitRandomOfLength() {
+		let str1 = String(randomOfLength: 10)
+		XCTAssertEqual(str1.length, 10)
+		
+		let str2 = String(randomOfLength: 10)
+		XCTAssertEqual(str2.length, 10)
+		
+		XCTAssertNotEqual(str1, str2)
+		
+		XCTAssertEqual(String(randomOfLength: 0), "")
+		
 	}
 }

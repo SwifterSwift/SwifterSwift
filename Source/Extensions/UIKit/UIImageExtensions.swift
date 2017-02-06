@@ -63,13 +63,13 @@ public extension UIImage {
 	/// - Parameter rect: CGRect to crop UIImage to.
 	/// - Returns: cropped UIImage
 	public func cropped(to rect: CGRect) -> UIImage {
-		guard rect.size.height < self.size.height && rect.size.height < self.size.height else {
+		guard rect.size.height < size.height && rect.size.height < size.height else {
 			return self
 		}
-		guard let cgImage: CGImage = self.cgImage?.cropping(to: rect) else {
+		guard let image: CGImage = cgImage?.cropping(to: rect) else {
 			return self
 		}
-		return UIImage(cgImage: cgImage)
+		return UIImage(cgImage: image)
 	}
 	
 	/// SwifterSwift: UIImage scaled to height with respect to aspect ratio.
@@ -79,10 +79,10 @@ public extension UIImage {
 	///   - orientation: optional UIImage orientation (default is nil).
 	/// - Returns: optional scaled UIImage (if applicable).
 	public func scaled(toHeight: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
-		let scale = toHeight / self.size.height
-		let newWidth = self.size.width * scale
+		let scale = toHeight / size.height
+		let newWidth = size.width * scale
 		UIGraphicsBeginImageContext(CGSize(width: newWidth, height: toHeight))
-		self.draw(in: CGRect(x: 0, y: 0, width: newWidth, height: toHeight))
+		draw(in: CGRect(x: 0, y: 0, width: newWidth, height: toHeight))
 		let newImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		return newImage
@@ -95,10 +95,10 @@ public extension UIImage {
 	///   - orientation: optional UIImage orientation (default is nil).
 	/// - Returns: optional scaled UIImage (if applicable).
 	public func scaled(toWidth: CGFloat, with orientation: UIImageOrientation? = nil) -> UIImage? {
-		let scale = toWidth / self.size.width
-		let newHeight = self.size.height * scale
+		let scale = toWidth / size.width
+		let newHeight = size.height * scale
 		UIGraphicsBeginImageContext(CGSize(width: toWidth, height: newHeight))
-		self.draw(in: CGRect(x: 0, y: 0, width: toWidth, height: newHeight))
+		draw(in: CGRect(x: 0, y: 0, width: toWidth, height: newHeight))
 		let newImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		return newImage
@@ -109,17 +109,17 @@ public extension UIImage {
 	/// - Parameter color: color to fill image with.
 	/// - Returns: UIImage filled with given color.
 	public func filled(withColor color: UIColor) -> UIImage {
-		UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+		UIGraphicsBeginImageContextWithOptions(size, false, scale)
 		color.setFill()
 		guard let context = UIGraphicsGetCurrentContext() else {
 			return self
 		}
-		context.translateBy(x: 0, y: self.size.height)
+		context.translateBy(x: 0, y: size.height)
 		context.scaleBy(x: 1.0, y: -1.0);
 		context.setBlendMode(CGBlendMode.normal)
 		
-		let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
-		guard let mask = self.cgImage else {
+		let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+		guard let mask = cgImage else {
 			return self
 		}
 		context.clip(to: rect, mask: mask)

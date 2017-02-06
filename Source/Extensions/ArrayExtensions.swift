@@ -14,7 +14,7 @@ public extension Array {
 	
 	/// SwifterSwift: Random item from array.
 	public var randomItem: Element {
-		let index = Int(arc4random_uniform(UInt32(self.count)))
+		let index = Int(arc4random_uniform(UInt32(count)))
 		return self[index]
 	}
 	
@@ -100,7 +100,7 @@ public extension Array {
 	/// - Returns: first index of item in array (if exists).
 	public func firstIndex <Item: Equatable> (of item: Item) -> Int? {
 		if item is Element {
-			for (index, value) in self.lazy.enumerated() {
+			for (index, value) in lazy.enumerated() {
 				if value as! Item == item {
 					return index
 				}
@@ -116,7 +116,7 @@ public extension Array {
 	/// - Returns: last index of item in array (if exists).
 	public func lastIndex <Item: Equatable> (of item: Item) -> Int? {
 		if item is Element {
-			for (index, value) in self.reversed().lazy.enumerated() {
+			for (index, value) in reversed().lazy.enumerated() {
 				if value as! Item == item {
 					return count - 1 - index
 				}
@@ -128,9 +128,9 @@ public extension Array {
 	
 	/// SwifterSwift: Remove last element from array and return it.
 	///
-	/// - Returns: last elemets in array (if applicable).
+	/// - Returns: last element in array (if applicable).
 	@discardableResult public mutating func pop() -> Element? {
-		guard !self.isEmpty else { return nil }
+		guard !isEmpty else { return nil }
 		return removeLast()
 	}
 	
@@ -138,7 +138,7 @@ public extension Array {
 	///
 	/// - Parameter newElement: element to insert.
 	public mutating func prepend(_ newElement: Element) {
-		self.insert(newElement, at: 0)
+		insert(newElement, at: 0)
 	}
 	
 	/// SwifterSwift: Insert an element to the end of array.
@@ -189,7 +189,7 @@ public extension Array where Element: Equatable {
 	/// - Returns: an array with all indexes of the given item.
 	public func indexes(of item: Element) -> [Int] {
 		var indexes: [Int] = []
-		for index in 0..<self.count {
+		for index in 0..<count {
 			if self[index] == item {
 				indexes.append(index)
 			}
@@ -201,7 +201,7 @@ public extension Array where Element: Equatable {
 	///
 	/// - Parameter item: item to remove.
 	public mutating func removeAll(_ item: Element) {
-		self = self.filter { $0 != item }
+		self = filter { $0 != item }
 	}
 	
 	/// SwifterSwift: Remove all duplicates from array.

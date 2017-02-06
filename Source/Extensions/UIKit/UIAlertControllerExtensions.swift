@@ -38,7 +38,7 @@ public extension UIAlertController {
 	@discardableResult func addAction(title: String, style: UIAlertActionStyle = .default, isEnabled: Bool = true, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
 		let action = UIAlertAction(title: title, style: style, handler: handler)
 		action.isEnabled = isEnabled
-		self.addAction(action)
+		addAction(action)
 		return action
 	}
 	
@@ -75,9 +75,9 @@ extension UIAlertController {
 	public convenience init(title: String, message: String? = nil, defaultActionButtonTitle: String = "OK", tintColor: UIColor? = nil) {
 		self.init(title: title, message: message, preferredStyle: .alert)
 		let defaultAction = UIAlertAction(title: defaultActionButtonTitle, style: .default, handler: nil)
-		self.addAction(defaultAction)
+		addAction(defaultAction)
 		if let color = tintColor {
-			self.view.tintColor = color
+			view.tintColor = color
 		}
 	}
 	
@@ -91,9 +91,9 @@ extension UIAlertController {
 	public convenience init(title: String = "Error", error: Error, defaultActionButtonTitle: String = "OK", tintColor: UIColor? = nil) {
 		self.init(title: title, message: error.localizedDescription, preferredStyle: .alert)
 		let defaultAction = UIAlertAction(title: defaultActionButtonTitle, style: .default, handler: nil)
-		self.addAction(defaultAction)
+		addAction(defaultAction)
 		if let color = tintColor {
-			self.view.tintColor = color
+			view.tintColor = color
 		}
 	}
 	

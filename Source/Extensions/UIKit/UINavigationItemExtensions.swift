@@ -20,7 +20,7 @@ public extension UINavigationItem {
 		let logoImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 30))
 		logoImageView.contentMode = .scaleAspectFit
 		logoImageView.image = image
-		self.titleView = logoImageView
+		titleView = logoImageView
 	}
 	
 }

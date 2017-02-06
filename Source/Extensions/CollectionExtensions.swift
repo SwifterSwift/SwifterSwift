@@ -14,10 +14,10 @@ public extension Collection {
 	
 	private func indicesArray() -> [Self.Index] {
 		var indices: [Self.Index] = []
-		var index = self.startIndex
-		while index != self.endIndex {
-			indices.append(index)
-			index = self.index(after: index)
+		var anIndex = startIndex
+		while anIndex != endIndex {
+			indices.append(anIndex)
+			anIndex = index(after: anIndex)
 		}
 		return indices
 	}

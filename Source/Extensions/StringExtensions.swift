@@ -30,7 +30,7 @@ public extension String {
 	/// SwifterSwift: String encoded in base64 (if applicable).
 	public var base64Encoded: String? {
 		// https://github.com/Reza-Rg/Base64-Swift-Extension/blob/master/Base64.swift
-		let plainData = self.data(using: .utf8)
+		let plainData = data(using: .utf8)
 		return plainData?.base64EncodedString()
 	}
 	
@@ -166,10 +166,10 @@ public extension String {
 	public var mostCommonCharacter: String {
 		var mostCommon = ""
 		let charSet = Set(withoutSpacesAndNewLines.characters.map{String($0)})
-		var count = 0
+		var mostCommonCount = 0
 		for string in charSet {
-			if self.count(of: string) > count {
-				count = self.count(of: string)
+			if count(of: string) > mostCommonCount {
+				mostCommonCount = count(of: string)
 				mostCommon = string
 			}
 		}
@@ -183,7 +183,7 @@ public extension String {
 	
 	/// SwifterSwift: Bool value from string (if applicable).
 	public var bool: Bool? {
-		let selfLowercased = self.trimmed.lowercased()
+		let selfLowercased = trimmed.lowercased()
 		if selfLowercased == "true" || selfLowercased == "1" {
 			return true
 		} else if selfLowercased == "false" || selfLowercased == "0" {
@@ -195,7 +195,7 @@ public extension String {
 	
 	/// SwifterSwift: Date object from "yyyy-MM-dd" formatted string
 	public var date: Date? {
-		let selfLowercased = self.trimmed.lowercased()
+		let selfLowercased = trimmed.lowercased()
 		let formatter = DateFormatter()
 		formatter.timeZone = TimeZone.current
 		formatter.dateFormat = "yyyy-MM-dd"
@@ -204,7 +204,7 @@ public extension String {
 	
 	/// SwifterSwift: Date object from "yyyy-MM-dd HH:mm:ss" formatted string.
 	public var dateTime: Date? {
-		let selfLowercased = self.trimmed.lowercased()
+		let selfLowercased = trimmed.lowercased()
 		let formatter = DateFormatter()
 		formatter.timeZone = TimeZone.current
 		formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -338,6 +338,7 @@ public extension String {
 		#if os(iOS)
 			UIPasteboard.general.string = self
 		#elseif os(macOS)
+			NSPasteboard.general().clearContents()
 			NSPasteboard.general().setString(self, forType: NSPasteboardTypeString)
 		#endif
 	}
@@ -392,7 +393,7 @@ public extension String {
 	/// - Parameter string: substring to search for.
 	/// - Returns: first index of substring in string (if applicable).
 	public func firstIndex(of string: String) -> Int? {
-		return Array(self.characters).map({String($0)}).index(of: string)
+		return Array(characters).map({String($0)}).index(of: string)
 	}
 	
 	/// SwifterSwift: Latinize string.
@@ -548,8 +549,8 @@ public extension String {
 		guard toLength > 0 else {
 			return
 		}
-		if self.characters.count > toLength {
-			self = self.substring(to: self.index(startIndex, offsetBy: toLength)) + (trailing ?? "")
+		if characters.count > toLength {
+			self = substring(to: index(startIndex, offsetBy: toLength)) + (trailing ?? "")
 		}
 	}
 	
@@ -560,8 +561,8 @@ public extension String {
 	///   - trailing: string to add at the end of truncated string.
 	/// - Returns: truncated string (this is an extr...).
 	public func truncated(toLength: Int, trailing: String? = "...") -> String {
-        guard 1..<self.characters.count ~= toLength else { return self }
-		return self.substring(to: self.index(startIndex, offsetBy: toLength)) + (trailing ?? "")
+		guard 1..<characters.count ~= toLength else { return self }
+		return substring(to: index(startIndex, offsetBy: toLength)) + (trailing ?? "")
 	}
 	
 	/// SwifterSwift: Convert URL string to readable string.
@@ -662,7 +663,7 @@ public extension String {
 	#if os(iOS)
 	/// SwifterSwift: Italic string.
 	public var italic: NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
@@ -672,7 +673,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: NSColor) -> NSAttributedString {
-	return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
 	}
 	#else
 	/// SwifterSwift: Add color to string.
@@ -680,7 +681,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: UIColor) -> NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+	return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
 	}
 	#endif
 	
