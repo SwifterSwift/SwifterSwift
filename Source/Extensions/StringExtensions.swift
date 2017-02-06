@@ -397,15 +397,15 @@ public extension String {
 	
 	/// SwifterSwift: Random string of given length.
 	///
-	/// - Parameter ofLength: number of characters in string.
+	/// - Parameter length: number of characters in string.
 	/// - Returns: random string of given length.
-	public static func random(ofLength: Int) -> String {
-		guard ofLength > 0 else { return "" }
+	public static func random(ofLength length: Int) -> String {
+		guard length > 0 else { return "" }
 		let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        
-		return (0..<ofLength).reduce("") {
+		return (0..<length).reduce("") {
 			let randomIndex = arc4random_uniform(UInt32(base.characters.count))
-			return $0.0 + "\(base[base.index(base.startIndex, offsetBy: IndexDistance(randomIndex))])"
+			let randomCharacter = "\(base[base.index(base.startIndex, offsetBy: IndexDistance(randomIndex))])"
+			return $0.0 + randomCharacter
 		}
 	}
 	
@@ -614,12 +614,19 @@ public extension String {
 	/// SwifterSwift: Create a new string from a base64 string (if applicable).
 	///
 	/// - Parameter base64: base64 string.
-	init?(base64: String) {
+	public init?(base64: String) {
 		if let str = base64.base64Decoded {
 			self.init(str)
 			return
 		}
 		return nil
+	}
+	
+	/// SwifterSwift: Create a new random string of given length.
+	///
+	/// - Parameter length: number of characters in string.
+	public init(randomOfLength length: Int) {
+		self = String.random(ofLength: length)
 	}
 	
 }
