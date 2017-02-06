@@ -400,16 +400,13 @@ public extension String {
 	/// - Parameter ofLength: number of characters in string.
 	/// - Returns: random string of given length.
 	public static func random(ofLength: Int) -> String {
-		var string = ""
-		guard ofLength > 0 else {
-			return string
-		}
+		guard ofLength > 0 else { return "" }
 		let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-		for _ in 0..<ofLength {
+        
+		return (0..<ofLength).reduce("") {
 			let randomIndex = arc4random_uniform(UInt32(base.characters.count))
-			string += "\(base[base.index(base.startIndex, offsetBy: IndexDistance(randomIndex))])"
+			return $0.0 + "\(base[base.index(base.startIndex, offsetBy: IndexDistance(randomIndex))])"
 		}
-		return string
 	}
 	
 	/// SwifterSwift: String by replacing part of string with another string.
