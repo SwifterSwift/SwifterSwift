@@ -22,7 +22,7 @@ public extension Collection {
 		return indices
 	}
 	
-	/// SwifterSwift: performs `each` closure for each element of collection in parallel.
+	/// SwifterSwift: Performs `each` closure for each element of collection in parallel.
 	///
 	/// - Parameter each: closure to run for each element.
 	public func forEachInParallel(_ each: (Self.Iterator.Element) -> ()) {

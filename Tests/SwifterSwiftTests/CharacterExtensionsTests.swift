@@ -32,6 +32,13 @@ class CharacterExtensionsTests: XCTestCase {
 	func testOperators() {
 		let s = Character("s")
 		XCTAssertEqual(s * 5, "sssss")
+		XCTAssertEqual(5 * s, "sssss")
+		
+		XCTAssertEqual(s * 0, "")
+		XCTAssertEqual(0 * s, "")
+		
+		XCTAssertEqual(s * -5, "")
+		XCTAssertEqual(-5 * s, "")
 	}
 	
 	func testIsEmoji() {
@@ -53,4 +60,5 @@ class CharacterExtensionsTests: XCTestCase {
 	func testString() {
 		XCTAssertEqual(Character("s").string, String("s"))
 	}
+
 }

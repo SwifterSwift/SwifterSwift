@@ -58,6 +58,9 @@ public extension Character {
 	///   - rhs: number of times to repeat character.
 	/// - Returns: string with character repeated n times.
 	static public func * (lhs: Character, rhs: Int) -> String {
+		guard rhs > 0 else {
+			return ""
+		}
 		var newString = ""
 		for _ in 0 ..< rhs {
 			newString += String(lhs)
@@ -72,6 +75,9 @@ public extension Character {
 	///   - rhs: character to repeat.
 	/// - Returns: string with character repeated n times.
 	static public func * (lhs: Int, rhs: Character) -> String {
+		guard lhs > 0 else {
+			return ""
+		}
 		var newString = ""
 		for _ in 0 ..< lhs {
 			newString += String(rhs)

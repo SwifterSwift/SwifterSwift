@@ -41,13 +41,12 @@ public extension String {
 			let first = source.substring(to: source.index(after: source.startIndex))
 			let camel = source.capitalized.replacing(" ", with: "").replacing("\n", with: "")
 			let rest = String(camel.characters.dropFirst())
-			return "\(first)\(rest)"
-		} else {
-			let first = source.lowercased().substring(to: source.index(after: source.startIndex))
-			let rest = String(source.characters.dropFirst())
-			return "\(first)\(rest)"
-			
+			return first + rest
 		}
+		
+		let first = source.lowercased().substring(to: source.index(after: source.startIndex))
+		let rest = String(source.characters.dropFirst())
+		return first + rest
 	}
 	
 	/// SwifterSwift: Check if string contains one or more emojis.
@@ -188,9 +187,8 @@ public extension String {
 			return true
 		} else if selfLowercased == "false" || selfLowercased == "0" {
 			return false
-		} else {
-			return nil
 		}
+		return nil
 	}
 	
 	/// SwifterSwift: Date object from "yyyy-MM-dd" formatted string
@@ -567,12 +565,16 @@ public extension String {
 	
 	/// SwifterSwift: Convert URL string to readable string.
 	public mutating func urlDecode() {
-		self = removingPercentEncoding ?? self
+		if let decoded = removingPercentEncoding {
+			self = decoded
+		}
 	}
 	
 	/// SwifterSwift: Escape string.
 	public mutating func urlEncode() {
-		self = addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
+		if let encoded = addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
+			self = encoded
+		}
 	}
 	
 }
@@ -588,6 +590,9 @@ public extension String {
 	///   - rhs: number of times to repeat character.
 	/// - Returns: new string with given string repeated n times.
 	static public func * (lhs: String, rhs: Int) -> String {
+		guard rhs > 0 else {
+			return ""
+		}
 		var newString = ""
 		for _ in 0 ..< rhs {
 			newString += lhs
@@ -602,6 +607,9 @@ public extension String {
 	///   - rhs: string to repeat.
 	/// - Returns: new string with given string repeated n times.
 	static public func * (lhs: Int, rhs: String) -> String {
+		guard lhs > 0 else {
+			return ""
+		}
 		var newString = ""
 		for _ in 0 ..< lhs {
 			newString += rhs
@@ -663,7 +671,7 @@ public extension String {
 	#if os(iOS)
 	/// SwifterSwift: Italic string.
 	public var italic: NSAttributedString {
-	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+		return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
@@ -673,7 +681,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: NSColor) -> NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+	return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
 	}
 	#else
 	/// SwifterSwift: Add color to string.
@@ -681,7 +689,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: UIColor) -> NSAttributedString {
-	return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
 	}
 	#endif
 	

@@ -23,6 +23,7 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testBase64Decoded() {
 		XCTAssertEqual("SGVsbG8gV29ybGQh".base64Decoded, "Hello World!")
+		XCTAssertNil("hello".base64Decoded)
 	}
 	
 	func testBase64Encoded() {
@@ -192,6 +193,7 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testSlice() {
 		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345")
+		XCTAssertNil("12345678".slicing(at: 50))
 		XCTAssertEqual("12345678".slicing(from: 2, length: 0)!, "")
 		XCTAssertNil("12345678".slicing(from: 12, length: 0))
 		XCTAssertEqual("12345678".slicing(from: 2, length: 100), "345678")
@@ -238,9 +240,24 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssert("Hello Tests".start(with: "He"))
 	}
 	
+	func testDateWithFormat() {
+		let dateString = "2012-12-08 17:00:00.0"
+		let date = dateString.date(withFormat: "yyyy-dd-MM HH:mm:ss.S")
+		XCTAssertNotNil(date)
+		XCTAssertNil(dateString.date(withFormat: "hello world!"))
+	}
+	
 	func testOperators() {
-		let s = Character("s")
-		XCTAssertEqual(s * 5, "sssss")
+		let sa = "sa"
+		
+		XCTAssertEqual(sa * 5, "sasasasasa")
+		XCTAssertEqual(5 * sa, "sasasasasa")
+		
+		XCTAssertEqual(sa * 0, "")
+		XCTAssertEqual(0 * sa, "")
+		
+		XCTAssertEqual(sa * -5, "")
+		XCTAssertEqual(-5 * sa, "")
 	}
 	
 	func testToBool() {
@@ -399,6 +416,7 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testUrlDecoded() {
 		XCTAssertEqual("it's%20easy%20to%20encode%20strings".urlDecoded, "it's easy to encode strings")
+		XCTAssertEqual("%%".urlDecoded, "%%")
 	}
 	
 	func testUrlEncode() {
@@ -454,5 +472,107 @@ class StringExtensionsTests: XCTestCase {
 		
 		XCTAssertEqual(String(randomOfLength: 0), "")
 		
+	}
+	
+	func testInitFromBase64() {
+		XCTAssertNotNil(String(base64: "SGVsbG8gV29ybGQh"))
+		XCTAssertEqual(String(base64: "SGVsbG8gV29ybGQh")!, "Hello World!")
+		XCTAssertNil(String(base64: "hello"))
+	}
+	
+	func testNSString() {
+		XCTAssertEqual("Hello".nsString, NSString(string: "Hello"))
+	}
+	
+	func testLastPathComponent() {
+		let string = "hello"
+		let nsString = NSString(string: "hello")
+		XCTAssertEqual(string.lastPathComponent, nsString.lastPathComponent)
+		
+	}
+	
+	func testLastPathExtension() {
+		let string = "hello"
+		let nsString = NSString(string: "hello")
+		XCTAssertEqual(string.pathExtension, nsString.pathExtension)
+	}
+	
+	func testLastDeletingLastPathComponent() {
+		let string = "hello"
+		let nsString = NSString(string: "hello")
+		XCTAssertEqual(string.deletingLastPathComponent, nsString.deletingLastPathComponent)
+	}
+	
+	func testLastDeletingPathExtension() {
+		let string = "hello"
+		let nsString = NSString(string: "hello")
+		XCTAssertEqual(string.deletingPathExtension, nsString.deletingPathExtension)
+	}
+	
+	func testLastPathComponents() {
+		let string = "hello"
+		let nsString = NSString(string: "hello")
+		XCTAssertEqual(string.pathComponents, nsString.pathComponents)
+	}
+	
+	func testAppendingPathComponent() {
+		let string = "hello".appendingPathComponent("world")
+		let nsString = NSString(string: "hello").appendingPathComponent("world")
+		XCTAssertEqual(string, nsString)
+	}
+	
+	func testAppendingPathExtension() {
+		let string = "hello".appendingPathExtension("world")
+		let nsString = NSString(string: "hello").appendingPathExtension("world")
+		XCTAssertEqual(string, nsString)
+	}
+	
+	#if !os(tvOS) && !os(watchOS)
+	func testBold() {
+		let boldString = "hello".bold
+		let attrs = boldString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, boldString.length))
+		XCTAssertNotNil(attrs[NSFontAttributeName])
+		
+		#if os(macOS)
+			XCTAssertEqual(attrs[NSFontAttributeName] as! NSFont, NSFont.boldSystemFont(ofSize: NSFont.systemFontSize()))
+		#elseif os(iOS)
+			XCTAssertEqual(attrs[NSFontAttributeName] as! UIFont, UIFont.boldSystemFont(ofSize: UIFont.systemFontSize))
+		#endif
+	}
+	#endif
+	
+	func testUnderline() {
+		let underlinedString = "hello".underline
+		let attrs = underlinedString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, underlinedString.length))
+		XCTAssertNotNil(attrs[NSUnderlineStyleAttributeName])
+		XCTAssertEqual(attrs[NSUnderlineStyleAttributeName] as! Int, NSUnderlineStyle.styleSingle.rawValue)
+	}
+	
+	func testStrikethrough() {
+		let strikedthroughString = "hello".strikethrough
+		let attrs = strikedthroughString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, strikedthroughString.length))
+		XCTAssertNotNil(attrs[NSStrikethroughStyleAttributeName])
+		XCTAssertEqual(attrs[NSStrikethroughStyleAttributeName] as! NSNumber, NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int))
+	}
+	
+	#if os(iOS)
+	func testItalic() {
+		let italicString = "hello".italic
+		let attrs = italicString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, italicString.length))
+		XCTAssertNotNil(attrs[NSFontAttributeName])
+		XCTAssertEqual(attrs[NSFontAttributeName] as! UIFont, UIFont.italicSystemFont(ofSize: UIFont.systemFontSize))
+	}
+	#endif
+	
+	func testColored() {
+		let coloredString = "hello".colored(with: .orange)
+		let attrs = coloredString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, coloredString.length))
+		XCTAssertNotNil(attrs[NSForegroundColorAttributeName])
+		
+		#if os(macOS)
+			XCTAssertEqual(attrs[NSForegroundColorAttributeName] as! NSColor, NSColor.orange)
+		#else
+			XCTAssertEqual(attrs[NSForegroundColorAttributeName] as! UIColor, UIColor.orange)
+		#endif
 	}
 }

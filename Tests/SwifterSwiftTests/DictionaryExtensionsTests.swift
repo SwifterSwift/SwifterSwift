@@ -27,14 +27,13 @@ class DictionaryExtensionsTests: XCTestCase {
 		XCTAssertTrue(testDict.has(key: "testKey"))
 		XCTAssertFalse(testDict.has(key: "anotherKey"))
 	}
-	
-	func testJsonData() {
+
+	func testJsonString() {
+		
 		XCTAssertNotNil(testDict.jsonString())
 		XCTAssertTrue(testDict.jsonString()!.contain("\"testArrayKey\":[1,2,3,4,5]"))
 		XCTAssertTrue(testDict.jsonString()!.contain("\"testKey\":\"testValue\""))
-	}
-	
-	func testJsonString() {
+		
 		let jsonString = "{\"testKey\":\"testValue\",\"testArrayKey\":[1,2,3,4,5]}"
 		XCTAssertEqual(testDict.jsonString(), jsonString)
 		
