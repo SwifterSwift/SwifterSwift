@@ -173,6 +173,8 @@
 		6EF946B21E263D860061AEFC /* SwifterSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BC11E11D1EF000E9A85 /* SwifterSwiftTests.swift */; };
 		6EF946D81E263DC80061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF946D91E263DCA0061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4C9A6291E49CAA2006019DC /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9A6281E49CAA2006019DC /* UIDeviceExtensions.swift */; };
+		B4C9A62B1E49CC20006019DC /* UIDeviceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C9A62A1E49CC20006019DC /* UIDeviceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,6 +267,8 @@
 		6EBD19E61E23E444002186D3 /* SwifterSwift tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF946901E263C4D0061AEFC /* SwifterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF946981E263C4E0061AEFC /* SwifterSwift macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4C9A6281E49CAA2006019DC /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
+		B4C9A62A1E49CC20006019DC /* UIDeviceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDeviceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +409,7 @@
 				074822131E446D4D00B0C580 /* UITextViewExtensions.swift */,
 				074822141E446D4D00B0C580 /* UIViewControllerExtensions.swift */,
 				074822151E446D4D00B0C580 /* UIViewExtensions.swift */,
+				B4C9A6281E49CAA2006019DC /* UIDeviceExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -456,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				07AB1A611E448C4500CEF96C /* UIColorExtensionsTests.swift */,
+				B4C9A62A1E49CC20006019DC /* UIDeviceTests.swift */,
 			);
 			path = UIKitExtensionsTests;
 			sourceTree = "<group>";
@@ -753,6 +759,7 @@
 				0748227F1E446D4D00B0C580 /* UINavigationBarExtensions.swift in Sources */,
 				074822931E446D4D00B0C580 /* UISliderExtensions.swift in Sources */,
 				074822731E446D4D00B0C580 /* UIImageExtensions.swift in Sources */,
+				B4C9A6291E49CAA2006019DC /* UIDeviceExtensions.swift in Sources */,
 				074822471E446D4D00B0C580 /* DictionaryExtensions.swift in Sources */,
 				074822631E446D4D00B0C580 /* UIBarButtonItemExtensions.swift in Sources */,
 				074822831E446D4D00B0C580 /* UINavigationControllerExtensions.swift in Sources */,
@@ -805,6 +812,7 @@
 				07AB1A651E448C4500CEF96C /* UIColorExtensionsTests.swift in Sources */,
 				07445BCC1E11D1EF000E9A85 /* StringExtensionsTests.swift in Sources */,
 				07445BC71E11D1EF000E9A85 /* DictionaryExtensionsTests.swift in Sources */,
+				B4C9A62B1E49CC20006019DC /* UIDeviceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
