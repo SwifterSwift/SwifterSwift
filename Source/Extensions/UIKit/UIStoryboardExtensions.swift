@@ -6,6 +6,7 @@
 //  Copyright © 2017 omaralbeik. All rights reserved.
 //
 
+#if os(iOS) || os(tvOS)
 import UIKit
 
 // MARK: - Methods
@@ -19,3 +20,4 @@ extension UIStoryboard {
         return instantiateViewController(withIdentifier: String(describing: name)) as! T
     }
 }
+#endif
