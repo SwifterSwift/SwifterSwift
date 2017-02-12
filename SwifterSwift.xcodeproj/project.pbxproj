@@ -173,6 +173,7 @@
 		6EF946B21E263D860061AEFC /* SwifterSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BC11E11D1EF000E9A85 /* SwifterSwiftTests.swift */; };
 		6EF946D81E263DC80061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF946D91E263DCA0061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0C4D1D51E48A52400DACC28 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4D1D41E48A52400DACC28 /* UIStoryboardExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -265,6 +266,7 @@
 		6EBD19E61E23E444002186D3 /* SwifterSwift tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF946901E263C4D0061AEFC /* SwifterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF946981E263C4E0061AEFC /* SwifterSwift macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0C4D1D41E48A52400DACC28 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,6 +407,7 @@
 				074822131E446D4D00B0C580 /* UITextViewExtensions.swift */,
 				074822141E446D4D00B0C580 /* UIViewControllerExtensions.swift */,
 				074822151E446D4D00B0C580 /* UIViewExtensions.swift */,
+				B0C4D1D41E48A52400DACC28 /* UIStoryboardExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				0748228F1E446D4D00B0C580 /* UISegmentedControlExtensions.swift in Sources */,
 				0748222F1E446D4D00B0C580 /* CGSizeExtensions.swift in Sources */,
 				0748225F1E446D4D00B0C580 /* UIAlertControllerExtensions.swift in Sources */,
+				B0C4D1D51E48A52400DACC28 /* UIStoryboardExtensions.swift in Sources */,
 				074822571E446D4D00B0C580 /* StringExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
