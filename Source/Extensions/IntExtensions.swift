@@ -83,9 +83,6 @@ public extension Int {
 				startingValue -= arabicValue * div
 			}
 		}
-		guard romanValue.characters.count > 0 else {
-			return nil
-		}
 		return romanValue
 	}
 	
@@ -103,15 +100,10 @@ public extension Int {
 		let hours = self / 3600
 		let mins = (self % 3600) / 60
 		
-		if hours == 0 && mins != 0 {
-			return "\(mins) min"
-			
-		} else if hours != 0 && mins == 0 {
+		if hours != 0 && mins == 0 {
 			return "\(hours)h"
-			
-		} else {
-			return "\(hours)h \(mins)m"
 		}
+		return "\(hours)h \(mins)m"
 	}
 	
 	/// SwifterSwift: String formatted for values over ±1000 (example: 1k, -2k, 100k, 1kk, -5kk..)
@@ -120,15 +112,14 @@ public extension Int {
 			return self >= 0 ? "" : "-"
 		}
 		let abs = self.abs
-		if abs >= 0 && abs < 1000 {
-			return "0K"
+		if abs == 0 {
+			return "0k"
+		} else if abs >= 0 && abs < 1000 {
+			return "0k"
 		} else if abs >= 1000 && abs < 1000000 {
 			return String(format: "\(sign)%ik", abs / 1000)
-		} else if abs >= 1000000 {
-			return String(format: "\(sign)%ikk", abs / 100000)
-		} else {
-			return String(describing: self)
 		}
+		return String(format: "\(sign)%ikk", abs / 100000)
 	}
 	
 }

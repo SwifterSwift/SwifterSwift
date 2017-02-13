@@ -27,7 +27,7 @@ class DictionaryExtensionsTests: XCTestCase {
 		XCTAssertTrue(testDict.has(key: "testKey"))
 		XCTAssertFalse(testDict.has(key: "anotherKey"))
 	}
-
+	
 	func testJsonString() {
 		
 		XCTAssertNotNil(testDict.jsonString())

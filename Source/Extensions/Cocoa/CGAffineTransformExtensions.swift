@@ -18,9 +18,7 @@ extension CGAffineTransform {
     /// SwifterSwift: Subtract CGAffineTransform from existing transform
     ///
     /// - Parameter transform: The tranform to remove
-    /// - Returns: A new transform with the specified transform removed by concatening its inverse.
-    ///            If the transform cannot be inverted, the original transform is returned.
-    
+    /// - Returns: A new transform with the specified transform removed by concatening its inverse (if the transform cannot be inverted, the original transform is returned).
     public func subtracting(transform: CGAffineTransform) -> CGAffineTransform {
         return transform.inverted() == transform ? self : self.concatenating(transform.inverted())
     }
