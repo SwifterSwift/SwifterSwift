@@ -280,7 +280,7 @@ public extension String {
 	
 	/// SwifterSwift: URL escaped string.
 	public var urlEncoded: String {
-		return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? self
+		return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
 	}
 	
 	/// SwifterSwift: String without spaces and new lines.

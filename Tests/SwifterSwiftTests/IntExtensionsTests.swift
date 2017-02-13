@@ -70,7 +70,34 @@ class IntExtensionsTests: XCTestCase {
 	}
 	
 	func testTimeString() {
+		XCTAssertEqual((-1).timeString, "0 sec")
+		XCTAssertEqual(45.timeString, "45 sec")
 		XCTAssertEqual(120.timeString, "2 min")
+		XCTAssertEqual(3600.timeString, "1h")
+		XCTAssertEqual(3660.timeString, "1h 1m")
+	}
+	
+	func testKFormatted() {
+		XCTAssertEqual(10.kFormatted, "0k")
+		XCTAssertEqual((-10).kFormatted, "0k")
+		
+		XCTAssertEqual(0.kFormatted, "0k")
+		
+		XCTAssertEqual(1000.kFormatted, "1k")
+		XCTAssertEqual((-1000).kFormatted, "-1k")
+		
+		XCTAssertEqual(100000.kFormatted, "100k")
+		XCTAssertEqual((-100000).kFormatted, "-100k")
+		
+		XCTAssertEqual(1000000.kFormatted, "10kk")
+	}
+	
+	func testAsLocaleCurrency() {
+		let num = 10
+		if let symbol = Locale.current.currencySymbol {
+			XCTAssert(num.asLocaleCurrency.contains(symbol))
+		}
+		XCTAssert(num.asLocaleCurrency.contains("\(num)"))
 	}
 	
 	func testOperators() {

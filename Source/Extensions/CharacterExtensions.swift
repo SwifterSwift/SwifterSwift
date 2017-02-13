@@ -15,9 +15,7 @@ public extension Character {
 	/// SwifterSwift: Check if character is emoji.
 	public var isEmoji: Bool {
 		// http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
-		guard let scalarValue = String(self).unicodeScalars.first?.value else {
-			return false
-		}
+		let scalarValue = String(self).unicodeScalars.first!.value
 		switch scalarValue {
 		case 0x3030, 0x00AE, 0x00A9,// Special Characters
 		0x1D000...0x1F77F, // Emoticons
