@@ -42,12 +42,12 @@ class CharacterExtensionsTests: XCTestCase {
 	}
 	
 	func testIsEmoji() {
-		XCTAssertTrue(Character("😂").isEmoji)
+		XCTAssert(Character("😂").isEmoji)
 		XCTAssertFalse(Character("j").isEmoji)
 	}
 	
 	func testIsNumber() {
-		XCTAssertTrue(Character("1").isNumber)
+		XCTAssert(Character("1").isNumber)
 		XCTAssertFalse(Character("s").isNumber)
 	}
 	

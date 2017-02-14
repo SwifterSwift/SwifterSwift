@@ -9,7 +9,6 @@ import XCTest
 @testable import SwifterSwift
 
 #if !os(macOS)
-
 class UIColorExtensionsTests: XCTestCase {
 	
 	override func setUp() {
@@ -24,85 +23,31 @@ class UIColorExtensionsTests: XCTestCase {
 	
 	// MARK: - Test properties
 	func testRedComponent() {
-		var color = UIColor.blue
-		var component = color.redComponent
-		XCTAssertEqual(component, 0)
-		
-		color = UIColor.red
-		component = color.redComponent
-		XCTAssertEqual(component, 255)
-		
-		color = UIColor(red: 12, green: 23, blue: 22)
-		component = color.redComponent
-		XCTAssertEqual(component, 12)
-		
-		color = UIColor(red: 0.5, green: 1, blue: 1, alpha: 0)
-		component = color.redComponent
-		XCTAssertEqual(component, Int(0.5 * 255))
-		
-		color = UIColor(hex: 0x12FFFF)
-		component = color.redComponent
-		XCTAssertEqual(component, 0x12)
-		
-		color = UIColor.black
-		component = color.redComponent
-		XCTAssertEqual(component, 0)
-		
-		color = UIColor.white
-		component = color.redComponent
-		XCTAssertEqual(component, 255)
+		XCTAssertEqual(UIColor.blue.redComponent, 0)
+		XCTAssertEqual(UIColor.red.redComponent, 255)
+		XCTAssertEqual(UIColor(red: 12, green: 23, blue: 22).redComponent, 12)
+		XCTAssertEqual(UIColor(red: 0.5, green: 1, blue: 1, alpha: 0).redComponent, Int(0.5 * 255))
+		XCTAssertEqual(UIColor(hex: 0x12FFFF).redComponent, 0x12)
+		XCTAssertEqual(UIColor.black.redComponent, 0)
+		XCTAssertEqual(UIColor.white.redComponent, 255)
 	}
 	
 	func testGreenComponent() {
-		var color = UIColor.blue
-		var component = color.greenComponent
-		XCTAssertEqual(component, 0)
-		
-		color = UIColor.green
-		component = color.greenComponent
-		XCTAssertEqual(component, 255)
-		
-		color = UIColor(red: 12, green: 23, blue: 22)
-		component = color.greenComponent
-		XCTAssertEqual(component, 23)
-		
-		color = UIColor(hex: 0x12BCFF)
-		component = color.greenComponent
-		XCTAssertEqual(component, 0xbc)
-		
-		color = UIColor.black
-		component = color.redComponent
-		XCTAssertEqual(component, 0)
-		
-		color = UIColor.white
-		component = color.redComponent
-		XCTAssertEqual(component, 255)
+		XCTAssertEqual(UIColor.blue.greenComponent, 0)
+		XCTAssertEqual(UIColor.green.greenComponent, 255)
+		XCTAssertEqual(UIColor(red: 12, green: 23, blue: 22).greenComponent, 23)
+		XCTAssertEqual(UIColor(hex: 0x12BCFF).greenComponent, 0xbc)
+		XCTAssertEqual(UIColor.black.greenComponent, 0)
+		XCTAssertEqual(UIColor.white.greenComponent, 255)
 	}
 	
 	func testBlueComponent() {
-		var color = UIColor.blue
-		var component = color.blueComponent
-		XCTAssertEqual(component, 255)
-		
-		color = UIColor.green
-		component = color.blueComponent
-		XCTAssertEqual(component, 0)
-		
-		color = UIColor(red: 12, green: 23, blue: 22)
-		component = color.blueComponent
-		XCTAssertEqual(component, 22)
-		
-		color = UIColor(hex: 0x12BCEE)
-		component = color.blueComponent
-		XCTAssertEqual(component, 0xee)
-		
-		color = UIColor.black
-		component = color.redComponent
-		XCTAssertEqual(component, 0)
-		
-		color = UIColor.white
-		component = color.redComponent
-		XCTAssertEqual(component, 255)
+		XCTAssertEqual(UIColor.blue.blueComponent, 255)
+		XCTAssertEqual(UIColor.green.blueComponent, 0)
+		XCTAssertEqual(UIColor(red: 12, green: 23, blue: 22).blueComponent, 22)
+		XCTAssertEqual(UIColor(hex: 0x12BCEE).blueComponent, 0xee)
+		XCTAssertEqual(UIColor.black.blueComponent, 0)
+		XCTAssertEqual(UIColor.white.blueComponent, 255)
 	}
 	
 	func testAlpha() {

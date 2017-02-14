@@ -29,12 +29,7 @@ public extension Dictionary {
 			return nil
 		}
 		let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
-		do {
-			let jsonData = try JSONSerialization.data(withJSONObject: self, options: options)
-			return jsonData
-		} catch {
-			return nil
-		}
+		return try? JSONSerialization.data(withJSONObject: self, options: options)
 	}
 	
 	/// SwifterSwift: JSON String from dictionary.
@@ -46,12 +41,8 @@ public extension Dictionary {
 			return nil
 		}
 		let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
-		do {
-			let jsonData = try JSONSerialization.data(withJSONObject: self, options: options)
-			return String(data: jsonData, encoding: .utf8)
-		} catch {
-			return nil
-		}
+		let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options)
+		return jsonData?.string(encoding: .utf8)
 	}
 	
 }

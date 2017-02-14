@@ -42,12 +42,12 @@ class IntExtensionsTests: XCTestCase {
 	}
 	
 	func testIsEven() {
-		XCTAssertTrue(2.isEven)
+		XCTAssert(2.isEven)
 		XCTAssertFalse(3.isEven)
 	}
 	
 	func testIsOdd() {
-		XCTAssertTrue(3.isOdd)
+		XCTAssert(3.isOdd)
 		XCTAssertFalse(2.isOdd)
 	}
 	

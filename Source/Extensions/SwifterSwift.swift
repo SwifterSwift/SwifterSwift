@@ -318,7 +318,6 @@ public extension SwifterSwift {
 	}
 	#endif
 	
-	#if !os(macOS)
 	/// SwifterSwift: Object from UserDefaults.
 	///
 	/// - Parameter forKey: key to find object for.
@@ -326,9 +325,7 @@ public extension SwifterSwift {
 	public static func object(forKey: String) -> Any? {
 		return UserDefaults.standard.object(forKey: forKey)
 	}
-	#endif
 	
-	#if !os(macOS)
 	/// SwifterSwift: String from UserDefaults.
 	///
 	/// - Parameter forKey: key to find string for.
@@ -336,9 +333,7 @@ public extension SwifterSwift {
 	public static func string(forKey: String) -> String? {
 		return UserDefaults.standard.string(forKey: forKey)
 	}
-	#endif
 	
-	#if !os(macOS)
 	/// SwifterSwift: Integer from UserDefaults.
 	///
 	/// - Parameter forKey: key to find integer for.
@@ -346,9 +341,7 @@ public extension SwifterSwift {
 	public static func integer(forKey: String) -> Int? {
 		return UserDefaults.standard.integer(forKey: forKey)
 	}
-	#endif
 	
-	#if !os(macOS)
 	/// SwifterSwift: Double from UserDefaults.
 	///
 	/// - Parameter forKey: key to find double for.
@@ -356,9 +349,7 @@ public extension SwifterSwift {
 	public static func double(forKey: String) -> Double? {
 		return UserDefaults.standard.double(forKey: forKey)
 	}
-	#endif
 	
-	#if !os(macOS)
 	/// SwifterSwift: Data from UserDefaults.
 	///
 	/// - Parameter forKey: key to find data for.
@@ -366,9 +357,7 @@ public extension SwifterSwift {
 	public static func data(forKey: String) -> Data? {
 		return UserDefaults.standard.data(forKey: forKey)
 	}
-	#endif
 	
-	#if !os(macOS)
 	/// SwifterSwift: Bool from UserDefaults.
 	///
 	/// - Parameter forKey: key to find bool for.
@@ -376,9 +365,7 @@ public extension SwifterSwift {
 	public static func bool(forKey: String) -> Bool? {
 		return UserDefaults.standard.bool(forKey: forKey)
 	}
-	#endif
 	
-	#if !os(macOS)
 	/// SwifterSwift: Array from UserDefaults.
 	///
 	/// - Parameter forKey: key to find array for.
@@ -386,9 +373,7 @@ public extension SwifterSwift {
 	public static func array(forKey: String) -> [Any]? {
 		return UserDefaults.standard.array(forKey: forKey)
 	}
-	#endif
 	
-	#if !os(macOS)
 	/// SwifterSwift: Dictionary from UserDefaults.
 	///
 	/// - Parameter forKey: key to find dictionary for.
@@ -396,9 +381,7 @@ public extension SwifterSwift {
 	public static func dictionary(forKey: String) -> [String: Any]? {
 		return UserDefaults.standard.dictionary(forKey: forKey)
 	}
-	#endif
 	
-	#if !os(macOS)
 	/// SwifterSwift: Float from UserDefaults.
 	///
 	/// - Parameter forKey: key to find float for.
@@ -406,19 +389,16 @@ public extension SwifterSwift {
 	public static func float(forKey: String) -> Float? {
 		return UserDefaults.standard.object(forKey: forKey) as? Float
 	}
-	#endif
 	
-	#if !os(macOS)
 	/// SwifterSwift: Save an object to UserDefaults.
 	///
 	/// - Parameters:
 	///   - value: object to save in UserDefaults.
 	///   - forKey: key to save object for.
-	public static func set(value: Any?, forKey: String) {
+	public static func set(_ value: Any?, forKey: String) {
 		UserDefaults.standard.set(value, forKey: forKey)
 	}
-	#endif
-	
+
 	/// SwifterSwift: Class name of object as string.
 	///
 	/// - Parameter object: Any object to find its class name.
