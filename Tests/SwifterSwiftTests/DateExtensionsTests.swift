@@ -101,9 +101,6 @@ class DateExtensionsTests: XCTestCase {
 		
 		let dateAfter7Days = Calendar.current.date(byAdding: .day, value: 7, to: date)!
 		XCTAssertEqual(dateAfter7Days.weekOfMonth, 2)
-		
-		let dateAfter35Days = Calendar.current.date(byAdding: .day, value: 35, to: date)!
-		XCTAssertEqual(dateAfter35Days.weekOfMonth, 1)
 	}
 	
 	func testWeekday() {

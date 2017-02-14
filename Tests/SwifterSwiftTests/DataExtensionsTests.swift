@@ -21,4 +21,16 @@ class DataExtensionsTests: XCTestCase {
 		super.tearDown()
 	}
 	
+	func testAttributedString() {
+		let attrString = "Hello".colored(with: .orange)
+		XCTAssertNotEqual(Data().attributedString, attrString)
+	}
+	
+	func testString() {
+		let dataFromString = "hello".data(using: .utf8)
+		XCTAssertNotNil(dataFromString)
+		XCTAssertNotNil(dataFromString!.string(encoding: .utf8))
+		XCTAssertEqual(dataFromString!.string(encoding: .utf8)!, "hello")
+	}
+	
 }
