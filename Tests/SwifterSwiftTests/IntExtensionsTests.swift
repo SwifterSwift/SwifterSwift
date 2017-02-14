@@ -26,7 +26,7 @@ class IntExtensionsTests: XCTestCase {
 	}
 	
 	func testDegreesToRadians() {
-		XCTAssertEqual(180.degreesToRadians, M_PI)
+		XCTAssertEqual(180.degreesToRadians, Double.pi)
 	}
 	
 	func testDigits() {

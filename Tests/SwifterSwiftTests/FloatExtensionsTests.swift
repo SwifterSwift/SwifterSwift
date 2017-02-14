@@ -30,7 +30,7 @@ class FloatExtensionsTests: XCTestCase {
 	}
 	
 	func testDegreesToRadians() {
-		XCTAssertEqual(Float(180).degreesToRadians, Float(M_PI))
+		XCTAssertEqual(Float(180).degreesToRadians, Float.pi)
 	}
 	
 	func testRandomBetween() {
@@ -43,7 +43,7 @@ class FloatExtensionsTests: XCTestCase {
 	}
 	
 	func testRadiansToDegrees() {
-		XCTAssertEqual(Float(M_PI).radiansToDegrees, Float(180))
+		XCTAssertEqual(Float.pi.radiansToDegrees, Float(180))
 	}
 	
 	func testOperators() {

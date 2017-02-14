@@ -32,7 +32,7 @@ public extension Double {
 	
 	/// SwifterSwift: Radian value of degree input.
 	public var degreesToRadians: Double {
-		return Double(M_PI) * self / 180.0
+		return Double.pi * self / 180.0
 	}
 	
 	/// SwifterSwift: Floor of double value.
@@ -42,7 +42,7 @@ public extension Double {
 	
 	/// SwifterSwift: Degree value of radian input.
 	public var radiansToDegrees: Double {
-		return self * 180 / Double(M_PI)
+		return self * 180 / Double.pi
 	}
 	
 }
