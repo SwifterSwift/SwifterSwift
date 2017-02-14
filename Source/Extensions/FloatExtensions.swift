@@ -32,7 +32,7 @@ public extension Float {
 	
 	/// SwifterSwift: Radian value of degree input.
 	public var degreesToRadians: Float {
-		return Float(M_PI) * self / 180.0
+		return Float.pi * self / 180.0
 	}
 	
 	/// SwifterSwift: Floor of float value.
@@ -42,7 +42,7 @@ public extension Float {
 	
 	/// SwifterSwift: Degree value of radian input.
 	public var radiansToDegrees: Float {
-		return self * 180 / Float(M_PI)
+		return self * 180 / Float.pi
 	}
 	
 }

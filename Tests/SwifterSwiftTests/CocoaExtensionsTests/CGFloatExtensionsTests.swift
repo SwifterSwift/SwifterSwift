@@ -35,7 +35,7 @@ class CGFloatExtensionsTests: XCTestCase {
 	
 	#if !os(macOS)
 	func testDegreesToRadians() {
-		XCTAssertEqual(CGFloat(180).degreesToRadians, CGFloat(M_PI))
+		XCTAssertEqual(CGFloat(180).degreesToRadians, CGFloat.pi)
 	}
 	#endif
 	
@@ -54,7 +54,7 @@ class CGFloatExtensionsTests: XCTestCase {
 	
 	#if !os(macOS)
 	func testRadiansToDegrees() {
-		XCTAssertEqual(CGFloat(M_PI).radiansToDegrees, CGFloat(180))
+		XCTAssertEqual(CGFloat.pi.radiansToDegrees, CGFloat(180))
 	}
 	#endif
 	

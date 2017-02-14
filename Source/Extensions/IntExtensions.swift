@@ -27,7 +27,7 @@ public extension Int {
 	
 	/// SwifterSwift: Radian value of degree input.
 	public var degreesToRadians: Double {
-		return Double(M_PI) * Double(self) / 180.0
+		return Double.pi * Double(self) / 180.0
 	}
 	
 	/// SwifterSwift: Array of digits of integer value.
@@ -58,7 +58,7 @@ public extension Int {
 	
 	/// SwifterSwift: Degree value of radian input
 	public var radiansToDegrees: Double {
-		return Double(self) * 180 / Double(M_PI)
+		return Double(self) * 180 / Double.pi
 	}
 	
 	/// SwifterSwift: Roman numeral string from integer (if applicable).

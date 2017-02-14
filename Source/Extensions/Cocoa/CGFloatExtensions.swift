@@ -28,7 +28,7 @@ public extension CGFloat {
 	
 	/// SwifterSwift: Radian value of degree input.
 	public var degreesToRadians: CGFloat {
-		return CGFloat(M_PI) * self / 180.0
+		return CGFloat.pi * self / 180.0
 	}
 	
 	/// SwifterSwift: Floor of CGFloat value.
@@ -38,7 +38,7 @@ public extension CGFloat {
 	
 	/// SwifterSwift: Degree value of radian input.
 	public var radiansToDegrees: CGFloat {
-		return self * 180 / CGFloat(M_PI)
+		return self * 180 / CGFloat.pi
 	}
 	
 }
