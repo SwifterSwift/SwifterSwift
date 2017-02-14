@@ -43,8 +43,9 @@ class UIAlertControllerExtensionsTests: XCTestCase {
         
         XCTAssertEqual(textField?.text, "TextField")
         XCTAssertEqual(textField?.placeholder, "PlaceHolder")
-        XCTAssertEqual(textField?.allTargets.first, self)
+        XCTAssertNotNil(textField?.allTargets)
         XCTAssertNotNil(textField?.actions(forTarget: self, forControlEvent: .editingChanged))
+
     }
     
     func testMessageInit() {
