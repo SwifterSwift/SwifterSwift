@@ -184,6 +184,7 @@
 		B0E3B7891E51741300B50FE3 /* CGAffineTransformExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B7871E51741300B50FE3 /* CGAffineTransformExtensions.swift */; };
 		B0E3B78B1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B78A1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift */; };
 		B0E3B78C1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B78A1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift */; };
+		B0E3B7901E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B78F1E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -281,6 +282,7 @@
 		B0C4D1D41E48A52400DACC28 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
 		B0E3B7871E51741300B50FE3 /* CGAffineTransformExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAffineTransformExtensions.swift; sourceTree = "<group>"; };
 		B0E3B78A1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAffineTransformExtensionsTests.swift; sourceTree = "<group>"; };
+		B0E3B78F1E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -477,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				07AB1A611E448C4500CEF96C /* UIColorExtensionsTests.swift */,
+				B0E3B78F1E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift */,
 			);
 			path = UIKitExtensionsTests;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				07AB1A621E448C4500CEF96C /* NSAttributedStringExtensionsTests.swift in Sources */,
 				07AB1A6D1E448CD800CEF96C /* CGSizeExtensionsTests.swift in Sources */,
 				B0E3B78B1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift in Sources */,
+				B0E3B7901E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift in Sources */,
 				07445BC81E11D1EF000E9A85 /* DoubleExtensionsTests.swift in Sources */,
 				07445BCB1E11D1EF000E9A85 /* IntExtensionsTests.swift in Sources */,
 				078B0E4C1E507E7F009189B3 /* DataExtensionsTests.swift in Sources */,
