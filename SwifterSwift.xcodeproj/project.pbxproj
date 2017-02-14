@@ -180,10 +180,6 @@
 		6EF946D81E263DC80061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF946D91E263DCA0061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0C4D1D51E48A52400DACC28 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4D1D41E48A52400DACC28 /* UIStoryboardExtensions.swift */; };
-		B0E3B7881E51741300B50FE3 /* CGAffineTransformExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B7871E51741300B50FE3 /* CGAffineTransformExtensions.swift */; };
-		B0E3B7891E51741300B50FE3 /* CGAffineTransformExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B7871E51741300B50FE3 /* CGAffineTransformExtensions.swift */; };
-		B0E3B78B1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B78A1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift */; };
-		B0E3B78C1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B78A1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift */; };
 		B0E3B7901E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B78F1E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -280,8 +276,6 @@
 		6EF946901E263C4D0061AEFC /* SwifterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF946981E263C4E0061AEFC /* SwifterSwift macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0C4D1D41E48A52400DACC28 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
-		B0E3B7871E51741300B50FE3 /* CGAffineTransformExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAffineTransformExtensions.swift; sourceTree = "<group>"; };
-		B0E3B78A1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGAffineTransformExtensionsTests.swift; sourceTree = "<group>"; };
 		B0E3B78F1E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -397,7 +391,6 @@
 				074821F41E446D4C00B0C580 /* CGSizeExtensions.swift */,
 				074821F51E446D4C00B0C580 /* NSAttributedStringExtensions.swift */,
 				074821F61E446D4C00B0C580 /* NSColorExtensions.swift */,
-				B0E3B7871E51741300B50FE3 /* CGAffineTransformExtensions.swift */,
 			);
 			path = Cocoa;
 			sourceTree = "<group>";
@@ -470,7 +463,6 @@
 				07AB1A681E448CD800CEF96C /* CGFloatExtensionsTests.swift */,
 				07AB1A691E448CD800CEF96C /* CGSizeExtensionsTests.swift */,
 				07AB1A5F1E448C4500CEF96C /* NSAttributedStringExtensionsTests.swift */,
-				B0E3B78A1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift */,
 			);
 			path = CocoaExtensionsTests;
 			sourceTree = "<group>";
@@ -802,7 +794,6 @@
 				0748222B1E446D4D00B0C580 /* CGPointExtensions.swift in Sources */,
 				074822271E446D4D00B0C580 /* CGFloatExtensions.swift in Sources */,
 				0748229B1E446D4D00B0C580 /* UITabBarExtensions.swift in Sources */,
-				B0E3B7881E51741300B50FE3 /* CGAffineTransformExtensions.swift in Sources */,
 				074822871E446D4D00B0C580 /* UINavigationItemExtensions.swift in Sources */,
 				0748228F1E446D4D00B0C580 /* UISegmentedControlExtensions.swift in Sources */,
 				0748222F1E446D4D00B0C580 /* CGSizeExtensions.swift in Sources */,
@@ -819,7 +810,6 @@
 				07445BC61E11D1EF000E9A85 /* DateExtensionsTests.swift in Sources */,
 				07AB1A621E448C4500CEF96C /* NSAttributedStringExtensionsTests.swift in Sources */,
 				07AB1A6D1E448CD800CEF96C /* CGSizeExtensionsTests.swift in Sources */,
-				B0E3B78B1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift in Sources */,
 				B0E3B7901E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift in Sources */,
 				07445BC81E11D1EF000E9A85 /* DoubleExtensionsTests.swift in Sources */,
 				07445BCB1E11D1EF000E9A85 /* IntExtensionsTests.swift in Sources */,
@@ -941,7 +931,6 @@
 				074822521E446D4D00B0C580 /* FloatExtensions.swift in Sources */,
 				0748224A1E446D4D00B0C580 /* DictionaryExtensions.swift in Sources */,
 				0748225E1E446D4D00B0C580 /* SwifterSwift.swift in Sources */,
-				B0E3B7891E51741300B50FE3 /* CGAffineTransformExtensions.swift in Sources */,
 				074822361E446D4D00B0C580 /* NSAttributedStringExtensions.swift in Sources */,
 				0748224E1E446D4D00B0C580 /* DoubleExtensions.swift in Sources */,
 				074822B61E446D4D00B0C580 /* URLExtensions.swift in Sources */,
@@ -966,7 +955,6 @@
 				6EF946AB1E263D860061AEFC /* DateExtensionsTests.swift in Sources */,
 				07AB1A641E448C4500CEF96C /* NSAttributedStringExtensionsTests.swift in Sources */,
 				07AB1A6F1E448CD800CEF96C /* CGSizeExtensionsTests.swift in Sources */,
-				B0E3B78C1E51747E00B50FE3 /* CGAffineTransformExtensionsTests.swift in Sources */,
 				6EF946AD1E263D860061AEFC /* DoubleExtensionsTests.swift in Sources */,
 				6EF946B01E263D860061AEFC /* IntExtensionsTests.swift in Sources */,
 				078B0E4E1E507E7F009189B3 /* DataExtensionsTests.swift in Sources */,
