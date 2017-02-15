@@ -256,12 +256,10 @@ public struct SwifterSwift {
 	}
 	#endif
 	
-	#if !os(macOS)
 	/// SwifterSwift: Shared instance of standard UserDefaults (read-only).
 	public static var userDefaults: UserDefaults {
 		return UserDefaults.standard
 	}
-	#endif
 	
 }
 

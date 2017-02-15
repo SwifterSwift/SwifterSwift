@@ -36,6 +36,31 @@ public extension CGFloat {
 		return Foundation.floor(self)
 	}
 	
+	/// SwifterSwift: Check if CGFloat is positive.
+	public var isPositive: Bool {
+		return self > 0
+	}
+	
+	/// SwifterSwift: Check if CGFloat is negative.
+	public var isNegative: Bool {
+		return self < 0
+	}
+	
+	/// SwifterSwift: Int.
+	public var int: Int {
+		return Int(self)
+	}
+	
+	/// SwifterSwift: Float.
+	public var float: Float {
+		return Float(self)
+	}
+	
+	/// SwifterSwift: Double.
+	public var double: Double {
+		return Double(self)
+	}
+	
 	/// SwifterSwift: Degree value of radian input.
 	public var radiansToDegrees: CGFloat {
 		return self * 180 / CGFloat.pi

@@ -40,6 +40,31 @@ public extension Float {
 		return Foundation.floor(self)
 	}
 	
+	/// SwifterSwift: Check if float is positive.
+	public var isPositive: Bool {
+		return self > 0
+	}
+	
+	/// SwifterSwift: Check if float is negative.
+	public var isNegative: Bool {
+		return self < 0
+	}
+	
+	/// SwifterSwift: Int.
+	public var int: Int {
+		return Int(self)
+	}
+	
+	/// SwifterSwift: Double.
+	public var double: Double {
+		return Double(self)
+	}
+	
+	/// SwifterSwift: String.
+	public var string: String {
+		return String(self)
+	}
+	
 	/// SwifterSwift: Degree value of radian input.
 	public var radiansToDegrees: Float {
 		return self * 180 / Float.pi
@@ -56,10 +81,39 @@ extension Float {
 	/// - Parameters:
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
-	/// - Returns: random float between two Float values.
-	public static func randomBetween(min: Float, max: Float) -> Float {
-		let delta = max - min
-		return min + Float(arc4random_uniform(UInt32(delta)))
+	/// - Returns: random double between two double values.
+	public static func random(between min: Float, max: Float) -> Float {
+		return random(inRange: min...max)
+	}
+	
+	/// SwifterSwift: Random float in a closed interval range.
+	///
+	/// - Parameter range: closed interval range.
+	public static func random(inRange range: ClosedRange<Float>) -> Float {
+		let delta = range.upperBound - range.lowerBound
+		return Float(arc4random()) / Float(UInt64(UINT32_MAX)) * delta + range.lowerBound
+	}
+	
+}
+
+
+// MARK: - Initializers
+public extension Float {
+	
+	/// SwifterSwift: Created a random float between two float values.
+	///
+	/// - Parameters:
+	///   - min: minimum number to start random from.
+	///   - max: maximum number random number end before.
+	public init(randomBetween min: Float, max: Float) {
+		self = Float.random(between: min, max: max)
+	}
+	
+	/// SwifterSwift: Create a random float in a closed interval range.
+	///
+	/// - Parameter range: closed interval range.
+	public init(randomInRange range: ClosedRange<Float>) {
+		self = Float.random(inRange: range)
 	}
 	
 }

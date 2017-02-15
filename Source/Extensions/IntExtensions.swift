@@ -6,7 +6,12 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-import Foundation
+#if os(macOS)
+	import Cocoa
+#else
+	import UIKit
+#endif
+
 
 
 // MARK: - Properties
@@ -54,6 +59,36 @@ public extension Int {
 	/// SwifterSwift: Check if integer is odd.
 	public var isOdd: Bool {
 		return (self % 2) != 0
+	}
+	
+	/// SwifterSwift: Check if integer is positive.
+	public var isPositive: Bool {
+		return self > 0
+	}
+	
+	/// SwifterSwift: Check if integer is negative.
+	public var isNegative: Bool {
+		return self < 0
+	}
+	
+	/// SwifterSwift: Double.
+	public var double: Double {
+		return Double(self)
+	}
+	
+	/// SwifterSwift: Float.
+	public var float: Float {
+		return Float(self)
+	}
+	
+	/// SwifterSwift: CGFloat.
+	public var cgFloat: CGFloat {
+		return CGFloat(self)
+	}
+	
+	/// SwifterSwift: String.
+	public var string: String {
+		return String(self)
 	}
 	
 	/// SwifterSwift: Degree value of radian input
@@ -149,10 +184,39 @@ public extension Int {
 	/// - Parameters:
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
-	/// - Returns: random integer between two integer values.
-	public static func randomBetween(min: Int, max: Int) -> Int {
-		let delta = max - min
-		return min + Int(arc4random_uniform(UInt32(delta)))
+	/// - Returns: random double between two double values.
+	public static func random(between min: Int, max: Int) -> Int {
+		return random(inRange: min...max)
+	}
+	
+	/// SwifterSwift: Random integer in a closed interval range.
+	///
+	/// - Parameter range: closed interval range.
+	public static func random(inRange range: ClosedRange<Int>) -> Int {
+		let delta = UInt32(range.upperBound - range.lowerBound + 1)
+		return range.lowerBound + Int(arc4random_uniform(delta))
+	}
+	
+}
+
+
+// MARK: - Initializers
+public extension Int {
+	
+	/// SwifterSwift: Created a random integer between two integer values.
+	///
+	/// - Parameters:
+	///   - min: minimum number to start random from.
+	///   - max: maximum number random number end before.
+	public init(randomBetween min: Int, max: Int) {
+		self = Int.random(between: min, max: max)
+	}
+	
+	/// SwifterSwift: Create a random integer in a closed interval range.
+	///
+	/// - Parameter range: closed interval range.
+	public init(randomInRange range: ClosedRange<Int>) {
+		self = Int.random(inRange: range)
 	}
 	
 }

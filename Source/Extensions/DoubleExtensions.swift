@@ -40,6 +40,31 @@ public extension Double {
 		return Foundation.floor(self)
 	}
 	
+	/// SwifterSwift: Check if double is positive.
+	public var isPositive: Bool {
+		return self > 0
+	}
+	
+	/// SwifterSwift: Check if double is negative.
+	public var isNegative: Bool {
+		return self < 0
+	}
+	
+	/// SwifterSwift: Int.
+	public var int: Int {
+		return Int(self)
+	}
+	
+	/// SwifterSwift: Float.
+	public var float: Float {
+		return Float(self)
+	}
+	
+	/// SwifterSwift: String.
+	public var string: String {
+		return String(self)
+	}
+	
 	/// SwifterSwift: Degree value of radian input.
 	public var radiansToDegrees: Double {
 		return self * 180 / Double.pi
@@ -57,9 +82,38 @@ extension Double {
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
 	/// - Returns: random double between two double values.
-	public static func randomBetween(min: Double, max: Double) -> Double {
-		let delta = max - min
-		return min + Double(arc4random_uniform(UInt32(delta)))
+	public static func random(between min: Double, max: Double) -> Double {
+		return random(inRange: min...max)
+	}
+	
+	/// SwifterSwift: Random double in a closed interval range.
+	///
+	/// - Parameter range: closed interval range.
+	public static func random(inRange range: ClosedRange<Double>) -> Double {
+		let delta = range.upperBound - range.lowerBound
+		return Double(arc4random()) / Double(UInt64(UINT32_MAX)) * delta + range.lowerBound
+	}
+	
+}
+
+
+// MARK: - Initializers
+public extension Double {
+	
+	/// SwifterSwift: Created a random double between two double values.
+	///
+	/// - Parameters:
+	///   - min: minimum number to start random from.
+	///   - max: maximum number random number end before.
+	public init(randomBetween min: Double, max: Double) {
+		self = Double.random(between: min, max: max)
+	}
+	
+	/// SwifterSwift: Create a random double in a closed interval range.
+	///
+	/// - Parameter range: closed interval range.
+	public init(randomInRange range: ClosedRange<Double>) {
+		self = Double.random(inRange: range)
 	}
 	
 }
