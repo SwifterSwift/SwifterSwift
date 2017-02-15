@@ -34,12 +34,53 @@ class DoubleExtensionsTests: XCTestCase {
 	}
 	
 	func testRandomBetween() {
-		XCTAssertGreaterThan(Double.randomBetween(min: 1, max: 5), 0)
-		XCTAssertLessThan(Double.randomBetween(min: 1, max: 5), 5)
+		XCTAssertGreaterThan(Double.random(between: 1, max: 5), 0)
+		XCTAssertLessThan(Double.random(between: 1, max: 5), 6)
+		
+		XCTAssertGreaterThan(Double(randomBetween: 1, max: 5), 0)
+		XCTAssertLessThan(Double(randomBetween: 1, max: 5), 6)
+		
+		XCTAssertGreaterThan(Double.random(inRange: 1...5), 0)
+		XCTAssertLessThan(Double.random(inRange: 1...5), 6)
+		
+		XCTAssertGreaterThan(Double(randomInRange: 1...5), 0)
+		XCTAssertLessThan(Double(randomInRange: 1...5), 6)
 	}
 	
 	func testFloor() {
 		XCTAssertEqual(Double(9.3).floor, Double(9.0))
+	}
+	
+	func testIsPositive() {
+		XCTAssert(Double(1).isPositive)
+		XCTAssertFalse(Double(0).isPositive)
+		XCTAssertFalse(Double(-1).isPositive)
+	}
+	
+	func testIsNegative() {
+		XCTAssert(Double(-1).isNegative)
+		XCTAssertFalse(Double(0).isNegative)
+		XCTAssertFalse(Double(1).isNegative)
+	}
+	
+	func testInt() {
+		XCTAssertEqual(Double(-1).int, -1)
+		XCTAssertEqual(Double(2).int, 2)
+		XCTAssertEqual(Double(4.3).int, 4)
+	}
+	
+	func testFloat() {
+		XCTAssertEqual(Double(-1).float, Float(-1))
+		XCTAssertEqual(Double(2).float, Float(2))
+		XCTAssertEqual(Double(4.3).float, Float(4.3))
+	}
+	
+	func testCGFloat() {
+		XCTAssertEqual(Double(4.3).cgFloat, CGFloat(4.3))
+	}
+	
+	func testString() {
+		XCTAssertEqual(Double(2.3).string, "2.3")
 	}
 	
 	func testRadiansToDegrees() {

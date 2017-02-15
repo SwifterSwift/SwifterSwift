@@ -134,4 +134,8 @@ class SwifterSwiftTests: XCTestCase {
 		XCTAssertEqual(float, Float(1.32))
 	}
 	
+	func testUserDefaults() {
+		XCTAssertEqual(SwifterSwift.userDefaults, UserDefaults.standard)
+	}
+	
 }

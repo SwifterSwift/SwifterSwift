@@ -25,6 +25,32 @@ class IntExtensionsTests: XCTestCase {
 		XCTAssertEqual((-9).abs, 9)
 	}
 	
+	func testIsPositive() {
+		XCTAssert(1.isPositive)
+		XCTAssertFalse(0.isPositive)
+		XCTAssertFalse((-1).isPositive)
+	}
+	
+	func testIsNegative() {
+		XCTAssert((-1).isNegative)
+		XCTAssertFalse(0.isNegative)
+		XCTAssertFalse(1.isNegative)
+	}
+	
+	func testDouble() {
+		XCTAssertEqual((-1).double, Double(-1))
+		XCTAssertEqual(2.double, Double(2))
+	}
+	
+	func testFloat() {
+		XCTAssertEqual((-1).float, Float(-1))
+		XCTAssertEqual(2.float, Float(2))
+	}
+	
+	func testString() {
+		XCTAssertEqual(2.string, "2")
+	}
+	
 	func testDegreesToRadians() {
 		XCTAssertEqual(180.degreesToRadians, Double.pi)
 	}
@@ -39,6 +65,10 @@ class IntExtensionsTests: XCTestCase {
 	
 	func testGcd() {
 		XCTAssertEqual(8.gcd(of: 20), 4)
+	}
+	
+	func testCGFloat() {
+		XCTAssertEqual(1.cgFloat, CGFloat(1))
 	}
 	
 	func testIsEven() {
@@ -60,8 +90,17 @@ class IntExtensionsTests: XCTestCase {
 	}
 	
 	func testRandomBetween() {
-		XCTAssertGreaterThan(Int.randomBetween(min: 1, max: 5), 0)
-		XCTAssertLessThan(Int.randomBetween(min: 1, max: 5), 5)
+		XCTAssertGreaterThan(Int.random(between: 1, max: 5), 0)
+		XCTAssertLessThan(Int.random(between: 1, max: 5), 6)
+		
+		XCTAssertGreaterThan(Int(randomBetween: 1, max: 5), 0)
+		XCTAssertLessThan(Int(randomBetween: 1, max: 5), 6)
+		
+		XCTAssertGreaterThan(Int.random(inRange: 1...5), 0)
+		XCTAssertLessThan(Int.random(inRange: 1...5), 6)
+		
+		XCTAssertGreaterThan(Int(randomInRange: 1...5), 0)
+		XCTAssertLessThan(Int(randomInRange: 1...5), 6)
 	}
 	
 	func testRomanNumeral() {

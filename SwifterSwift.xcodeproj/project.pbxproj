@@ -131,6 +131,14 @@
 		074822B41E446D4D00B0C580 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074822161E446D4D00B0C580 /* URLExtensions.swift */; };
 		074822B51E446D4D00B0C580 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074822161E446D4D00B0C580 /* URLExtensions.swift */; };
 		074822B61E446D4D00B0C580 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074822161E446D4D00B0C580 /* URLExtensions.swift */; };
+		07750B5C1E54A5F00034E625 /* UISwitchExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07750B5B1E54A5F00034E625 /* UISwitchExtensionsTests.swift */; };
+		07750B5E1E54A78F0034E625 /* UISearchBarExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07750B5D1E54A78F0034E625 /* UISearchBarExtensionsTests.swift */; };
+		07750B5F1E54A78F0034E625 /* UISearchBarExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07750B5D1E54A78F0034E625 /* UISearchBarExtensionsTests.swift */; };
+		07750B611E54AB090034E625 /* UITextFieldExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07750B601E54AB090034E625 /* UITextFieldExtensionsTests.swift */; };
+		07750B631E54AC990034E625 /* UITextViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07750B621E54AC990034E625 /* UITextViewExtensionsTests.swift */; };
+		07750B641E54AC990034E625 /* UITextViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07750B621E54AC990034E625 /* UITextViewExtensionsTests.swift */; };
+		07750B661E54AD8E0034E625 /* UIViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07750B651E54AD8E0034E625 /* UIViewExtensionsTests.swift */; };
+		07750B671E54AD8E0034E625 /* UIViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07750B651E54AD8E0034E625 /* UIViewExtensionsTests.swift */; };
 		077805591E11D0FD000A21C6 /* SwifterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0778054F1E11D0FC000A21C6 /* SwifterSwift.framework */; };
 		078B0E481E507E4C009189B3 /* CollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078B0E471E507E4C009189B3 /* CollectionExtensionsTests.swift */; };
 		078B0E491E507E4C009189B3 /* CollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078B0E471E507E4C009189B3 /* CollectionExtensionsTests.swift */; };
@@ -264,6 +272,11 @@
 		074822141E446D4D00B0C580 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		074822151E446D4D00B0C580 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		074822161E446D4D00B0C580 /* URLExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
+		07750B5B1E54A5F00034E625 /* UISwitchExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISwitchExtensionsTests.swift; sourceTree = "<group>"; };
+		07750B5D1E54A78F0034E625 /* UISearchBarExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISearchBarExtensionsTests.swift; sourceTree = "<group>"; };
+		07750B601E54AB090034E625 /* UITextFieldExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensionsTests.swift; sourceTree = "<group>"; };
+		07750B621E54AC990034E625 /* UITextViewExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextViewExtensionsTests.swift; sourceTree = "<group>"; };
+		07750B651E54AD8E0034E625 /* UIViewExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensionsTests.swift; sourceTree = "<group>"; };
 		0778054F1E11D0FC000A21C6 /* SwifterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		077805581E11D0FD000A21C6 /* SwifterSwift iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		078B0E471E507E4C009189B3 /* CollectionExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionExtensionsTests.swift; sourceTree = "<group>"; };
@@ -477,6 +490,11 @@
 			isa = PBXGroup;
 			children = (
 				07AB1A611E448C4500CEF96C /* UIColorExtensionsTests.swift */,
+				07750B5B1E54A5F00034E625 /* UISwitchExtensionsTests.swift */,
+				07750B651E54AD8E0034E625 /* UIViewExtensionsTests.swift */,
+				07750B601E54AB090034E625 /* UITextFieldExtensionsTests.swift */,
+				07750B5D1E54A78F0034E625 /* UISearchBarExtensionsTests.swift */,
+				07750B621E54AC990034E625 /* UITextViewExtensionsTests.swift */,
 				B0E3B78F1E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift */,
 				B0E3B7981E52F25800B50FE3 /* UIButtonExtensionsTests.swift */,
 				B0E3B79B1E52F47500B50FE3 /* UIBarButtonExtensionsTests.swift */,
@@ -828,12 +846,17 @@
 				07445BC51E11D1EF000E9A85 /* CharacterExtensionsTests.swift in Sources */,
 				078B0E481E507E4C009189B3 /* CollectionExtensionsTests.swift in Sources */,
 				07445BC21E11D1EF000E9A85 /* ArrayExtensionsTests.swift in Sources */,
+				07750B661E54AD8E0034E625 /* UIViewExtensionsTests.swift in Sources */,
 				07AB1A6A1E448CD800CEF96C /* CGFloatExtensionsTests.swift in Sources */,
 				07445BC91E11D1EF000E9A85 /* FloatExtensionsTests.swift in Sources */,
 				07AB1A651E448C4500CEF96C /* UIColorExtensionsTests.swift in Sources */,
 				B0E3B7991E52F25800B50FE3 /* UIButtonExtensionsTests.swift in Sources */,
 				07445BCC1E11D1EF000E9A85 /* StringExtensionsTests.swift in Sources */,
+				07750B611E54AB090034E625 /* UITextFieldExtensionsTests.swift in Sources */,
+				07750B631E54AC990034E625 /* UITextViewExtensionsTests.swift in Sources */,
+				07750B5E1E54A78F0034E625 /* UISearchBarExtensionsTests.swift in Sources */,
 				B0E3B79C1E52F47500B50FE3 /* UIBarButtonExtensionsTests.swift in Sources */,
+				07750B5C1E54A5F00034E625 /* UISwitchExtensionsTests.swift in Sources */,
 				07445BC71E11D1EF000E9A85 /* DictionaryExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -918,10 +941,12 @@
 				07AB1A6E1E448CD800CEF96C /* CGSizeExtensionsTests.swift in Sources */,
 				6EBD19FB1E23E4A5002186D3 /* DoubleExtensionsTests.swift in Sources */,
 				6EBD19FE1E23E4A5002186D3 /* IntExtensionsTests.swift in Sources */,
+				07750B671E54AD8E0034E625 /* UIViewExtensionsTests.swift in Sources */,
 				078B0E4D1E507E7F009189B3 /* DataExtensionsTests.swift in Sources */,
 				07AB1A721E44AABB00CEF96C /* URLExtensionsTests.swift in Sources */,
 				6EBD1A001E23E4A5002186D3 /* SwifterSwiftTests.swift in Sources */,
 				07B897E71E3218E400A09B44 /* BoolExtensionsTests.swift in Sources */,
+				07750B641E54AC990034E625 /* UITextViewExtensionsTests.swift in Sources */,
 				6EBD19F81E23E4A5002186D3 /* CharacterExtensionsTests.swift in Sources */,
 				078B0E491E507E4C009189B3 /* CollectionExtensionsTests.swift in Sources */,
 				6EBD19F51E23E49B002186D3 /* ArrayExtensionsTests.swift in Sources */,
@@ -930,6 +955,7 @@
 				B0E3B79D1E52F47500B50FE3 /* UIBarButtonExtensionsTests.swift in Sources */,
 				07AB1A661E448C4500CEF96C /* UIColorExtensionsTests.swift in Sources */,
 				6EBD19FF1E23E4A5002186D3 /* StringExtensionsTests.swift in Sources */,
+				07750B5F1E54A78F0034E625 /* UISearchBarExtensionsTests.swift in Sources */,
 				6EBD19FA1E23E4A5002186D3 /* DictionaryExtensionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

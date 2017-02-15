@@ -16,7 +16,7 @@ public extension UITextField {
 	/// SwifterSwift: Check if text field is empty.
 	public var isEmpty: Bool {
 		if let text = self.text {
-			return text.characters.isEmpty
+			return text.isEmpty
 		}
 		return true
 	}

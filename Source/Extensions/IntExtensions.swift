@@ -13,7 +13,6 @@
 #endif
 
 
-
 // MARK: - Properties
 public extension Int {
 	

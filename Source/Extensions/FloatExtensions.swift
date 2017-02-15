@@ -6,7 +6,11 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-import Foundation
+#if os(macOS)
+	import Cocoa
+#else
+	import UIKit
+#endif
 
 
 // MARK: - Properties
@@ -58,6 +62,11 @@ public extension Float {
 	/// SwifterSwift: Double.
 	public var double: Double {
 		return Double(self)
+	}
+	
+	/// SwifterSwift: CGFloat.
+	public var cgFloat: CGFloat {
+		return CGFloat(self)
 	}
 	
 	/// SwifterSwift: String.
