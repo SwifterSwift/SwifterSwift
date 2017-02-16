@@ -46,6 +46,13 @@ import XCTest
 			textField.clear()
 			XCTAssertEqual(textField.text!, "")
 		}
-		
+        
+        func testSetPlaceHolderTextColor() {
+            let textField = UITextField()
+            textField.attributedPlaceholder = NSAttributedString(string: "Attributed Placeholder")
+            textField.setPlaceHolderTextColor(.blue)
+            let color = textField.attributedPlaceholder?.attribute(NSForegroundColorAttributeName, at: 0, effectiveRange: nil) as? UIColor
+            XCTAssertEqual(color, .blue)
+        }
 	}
 #endif
