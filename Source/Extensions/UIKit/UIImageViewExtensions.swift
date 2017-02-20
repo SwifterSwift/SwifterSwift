@@ -61,8 +61,8 @@ extension UIImageView {
 	/// - Parameter withStyle: UIBlurEffectStyle (default is .light).
 	/// - Returns: blurred version of self.
 	func blurred(withStyle: UIBlurEffectStyle = .light) -> UIImageView {
-		return self.blurred(withStyle: withStyle)
+		self.blur(withStyle: withStyle)
+        return self
 	}
-	
 }
 #endif
