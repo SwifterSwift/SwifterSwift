@@ -23,7 +23,7 @@ extension UIImageView {
 	public func download(from url: URL,
 	                     contentMode: UIViewContentMode = .scaleAspectFit,
 	                     placeholder: UIImage? = nil,
-	                     completionHandler: ((UIImage?, Error?) -> Void)? = nil) {
+	                     completionHandler: ((UIImage?) -> Void)? = nil) {
 		
 		image = placeholder
 		self.contentMode = contentMode
@@ -31,24 +31,24 @@ extension UIImageView {
 			guard
 				let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
 				let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-				let data = data, error == nil,
+				let data = data,
 				let image = UIImage(data: data)
 				else {
-					completionHandler?(nil, error)
+					completionHandler?(nil)
 					return
 			}
 			DispatchQueue.main.async() { () -> Void in
 				self.image = image
-				completionHandler?(image, nil)
+				completionHandler?(image)
 			}
 			}.resume()
 	}
 	
 	/// SwifterSwift: Make image view blurry
 	///
-	/// - Parameter withStyle: UIBlurEffectStyle (default is .light).
-	func blur(withStyle: UIBlurEffectStyle = .light) {
-		let blurEffect = UIBlurEffect(style: withStyle)
+	/// - Parameter style: UIBlurEffectStyle (default is .light).
+	func blur(withStyle style: UIBlurEffectStyle = .light) {
+		let blurEffect = UIBlurEffect(style: style)
 		let blurEffectView = UIVisualEffectView(effect: blurEffect)
 		blurEffectView.frame = bounds
 		blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
@@ -58,11 +58,13 @@ extension UIImageView {
 	
 	/// SwifterSwift: Blurred version of an image view
 	///
-	/// - Parameter withStyle: UIBlurEffectStyle (default is .light).
+	/// - Parameter style: UIBlurEffectStyle (default is .light).
 	/// - Returns: blurred version of self.
-	func blurred(withStyle: UIBlurEffectStyle = .light) -> UIImageView {
-		self.blur(withStyle: withStyle)
-        return self
+	func blurred(withStyle style: UIBlurEffectStyle = .light) -> UIImageView {
+		let imgView = self
+		imgView.blur(withStyle: style)
+		return imgView
 	}
+	
 }
 #endif
