@@ -65,7 +65,7 @@ Pod::Spec.new do |s|
   s.watchos.deployment_target = '3.0'
 
   s.requires_arc = true
-  s.source = { git: "https://github.com/SwifterSwift/SwifterSwift.git", tag: "v#{s.version}" }
+  s.source = { git: "https://github.com/SwifterSwift/SwifterSwift.git", tag: "#{s.version}" }
   s.source_files = "Source/**/*.swift"
   s.pod_target_xcconfig = {
     'SWIFT_VERSION' => '3.0',
