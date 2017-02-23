@@ -2,6 +2,5 @@ import PackageDescription
 
 let package = Package(
     name: "SwifterSwift",
-    dependencies : [],
-    exclude: ["Tests"]
+    dependencies : []
 )
