@@ -60,5 +60,15 @@ class CharacterExtensionsTests: XCTestCase {
 	func testString() {
 		XCTAssertEqual(Character("s").string, String("s"))
 	}
-
+	
+	func testIsUpercased() {
+		XCTAssert(Character("S").isUppercased)
+		XCTAssertFalse(Character("s").isUppercased)
+	}
+	
+	func testIsLowercased() {
+		XCTAssert(Character("s").isLowercased)
+		XCTAssertFalse(Character("S").isLowercased)
+	}
+	
 }
