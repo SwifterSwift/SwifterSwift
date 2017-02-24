@@ -60,5 +60,14 @@ class CharacterExtensionsTests: XCTestCase {
 	func testString() {
 		XCTAssertEqual(Character("s").string, String("s"))
 	}
-
+    
+    func testUpercase() {
+        XCTAssert(Character("S").isUpper == true, "Couldn't get correct value for \(#function)")
+        XCTAssert(Character("s").isUpper == false, "Couldn't get correct value for \(#function)")
+    }
+    
+    func testLowercase() {
+        XCTAssert(Character("S").isLower == false, "Couldn't get correct value for \(#function)")
+        XCTAssert(Character("s").isLower == true, "Couldn't get correct value for \(#function)")
+    }
 }
