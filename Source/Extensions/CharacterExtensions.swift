@@ -33,6 +33,16 @@ public extension Character {
 		return Int(String(self)) != nil
 	}
 	
+	/// SwifterSwift: Check if character is uppercased.
+	public var isUppercased: Bool {
+		return String(self) == String(self).uppercased()
+	}
+	
+	/// SwifterSwift: Check if character is lowercased.
+	public var isLowercased: Bool {
+		return String(self) == String(self).lowercased()
+	}
+	
 	/// SwifterSwift: Integer from character (if applicable).
 	public var int: Int? {
 		return Int(String(self))
@@ -42,19 +52,7 @@ public extension Character {
 	public var string: String {
 		return String(self)
 	}
-    
-    /// SwifterSwift: Check if character is uppercase.
-    public var isUpper: Bool {
-        if String(self).range(of: "[A-Z]", options: .regularExpression) != nil {
-            return true
-        }
-        return false
-    }
-    
-    /// SwifterSwift: Check if character is lowercase.
-    public var isLower: Bool {
-        return !isUpper
-    }
+	
 }
 
 
