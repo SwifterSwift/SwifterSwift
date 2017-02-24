@@ -466,12 +466,12 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertNotNil(beginningOfWeek)
 		XCTAssertEqual(date.beginning(of: .weekOfMonth)!.day, beginningOfWeek!.day)
 		
-		let beginningOfMonth = Date(year: 2016, month: 8, day: 1)
+		let beginningOfMonth = Date(year: 2016, month: 8, day: 1, hour: 5)
 		XCTAssertNotNil(date.beginning(of: .month))
 		XCTAssertNotNil(beginningOfMonth)
 		XCTAssertEqual(date.beginning(of: .month)!.day, beginningOfMonth!.day)
 		
-		let beginningOfYear = Date(year: 2016, month: 1, day: 1)
+		let beginningOfYear = Date(year: 2016, month: 1, day: 1, hour: 5)
 		XCTAssertNotNil(date.beginning(of: .year))
 		XCTAssertNotNil(beginningOfYear)
 		XCTAssertEqual(date.beginning(of: .year)!.day, beginningOfYear!.day)
