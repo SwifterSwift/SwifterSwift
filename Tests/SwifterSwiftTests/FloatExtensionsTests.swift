@@ -34,11 +34,11 @@ class FloatExtensionsTests: XCTestCase {
 	}
 	
 	func testRandomBetween() {
-		XCTAssertGreaterThan(Float.random(between: 1, max: 5), 0)
-		XCTAssertLessThan(Float.random(between: 1, max: 5), 6)
+		XCTAssertGreaterThan(Float.random(between: 1, and: 5), 0)
+		XCTAssertLessThan(Float.random(between: 1, and: 5), 6)
 		
-		XCTAssertGreaterThan(Float(randomBetween: 1, max: 5), 0)
-		XCTAssertLessThan(Float(randomBetween: 1, max: 5), 6)
+		XCTAssertGreaterThan(Float(randomBetween: 1, and: 5), 0)
+		XCTAssertLessThan(Float(randomBetween: 1, and: 5), 6)
 		
 		XCTAssertGreaterThan(Float.random(inRange: 1...5), 0)
 		XCTAssertLessThan(Float.random(inRange: 1...5), 6)

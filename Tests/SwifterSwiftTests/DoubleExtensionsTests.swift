@@ -34,11 +34,11 @@ class DoubleExtensionsTests: XCTestCase {
 	}
 	
 	func testRandomBetween() {
-		XCTAssertGreaterThan(Double.random(between: 1, max: 5), 0)
-		XCTAssertLessThan(Double.random(between: 1, max: 5), 6)
+		XCTAssertGreaterThan(Double.random(between: 1, and: 5), 0)
+		XCTAssertLessThan(Double.random(between: 1, and: 5), 6)
 		
-		XCTAssertGreaterThan(Double(randomBetween: 1, max: 5), 0)
-		XCTAssertLessThan(Double(randomBetween: 1, max: 5), 6)
+		XCTAssertGreaterThan(Double(randomBetween: 1, and: 5), 0)
+		XCTAssertLessThan(Double(randomBetween: 1, and: 5), 6)
 		
 		XCTAssertGreaterThan(Double.random(inRange: 1...5), 0)
 		XCTAssertLessThan(Double.random(inRange: 1...5), 6)

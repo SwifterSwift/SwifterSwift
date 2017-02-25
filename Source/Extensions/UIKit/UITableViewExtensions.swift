@@ -66,12 +66,12 @@ public extension UITableView {
 	
 	/// SwifterSwift: Remove TableFooterView.
 	public func removeTableFooterView() {
-		tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+		tableFooterView = nil
 	}
 	
 	/// SwifterSwift: Remove TableHeaderView.
 	public func removeTableHeaderView() {
-		tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+		tableHeaderView = nil
 	}
 	
 	

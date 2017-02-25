@@ -90,11 +90,11 @@ class IntExtensionsTests: XCTestCase {
 	}
 	
 	func testRandomBetween() {
-		XCTAssertGreaterThan(Int.random(between: 1, max: 5), 0)
-		XCTAssertLessThan(Int.random(between: 1, max: 5), 6)
+		XCTAssertGreaterThan(Int.random(between: 1, and: 5), 0)
+		XCTAssertLessThan(Int.random(between: 1, and: 5), 6)
 		
-		XCTAssertGreaterThan(Int(randomBetween: 1, max: 5), 0)
-		XCTAssertLessThan(Int(randomBetween: 1, max: 5), 6)
+		XCTAssertGreaterThan(Int(randomBetween: 1, and: 5), 0)
+		XCTAssertLessThan(Int(randomBetween: 1, and: 5), 6)
 		
 		XCTAssertGreaterThan(Int.random(inRange: 1...5), 0)
 		XCTAssertLessThan(Int.random(inRange: 1...5), 6)

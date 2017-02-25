@@ -91,7 +91,7 @@ extension Float {
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
 	/// - Returns: random double between two double values.
-	public static func random(between min: Float, max: Float) -> Float {
+	public static func random(between min: Float, and max: Float) -> Float {
 		return random(inRange: min...max)
 	}
 	
@@ -114,8 +114,8 @@ public extension Float {
 	/// - Parameters:
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
-	public init(randomBetween min: Float, max: Float) {
-		self = Float.random(between: min, max: max)
+	public init(randomBetween min: Float, and max: Float) {
+		self = Float.random(between: min, and: max)
 	}
 	
 	/// SwifterSwift: Create a random float in a closed interval range.
