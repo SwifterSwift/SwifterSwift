@@ -193,6 +193,12 @@
 		6EF946D91E263DCA0061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B070A0C21E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070A0C11E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift */; };
 		B070A0C31E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070A0C11E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift */; };
+		B070A0D41E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070A0D31E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift */; };
+		B070A0D51E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070A0D31E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift */; };
+		B070A0D71E62868800EBBD25 /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B070A0D61E62868800EBBD25 /* TestStoryboard.storyboard */; };
+		B070A0D81E62868800EBBD25 /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B070A0D61E62868800EBBD25 /* TestStoryboard.storyboard */; };
+		B070A0E41E6291AA00EBBD25 /* UIViewControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070A0E31E6291AA00EBBD25 /* UIViewControllerExtensionsTests.swift */; };
+		B070A0E51E6291AA00EBBD25 /* UIViewControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070A0E31E6291AA00EBBD25 /* UIViewControllerExtensionsTests.swift */; };
 		B0C4D1D51E48A52400DACC28 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C4D1D41E48A52400DACC28 /* UIStoryboardExtensions.swift */; };
 		B0E3B7901E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B78F1E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift */; };
 		B0E3B7991E52F25800B50FE3 /* UIButtonExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B7981E52F25800B50FE3 /* UIButtonExtensionsTests.swift */; };
@@ -310,6 +316,9 @@
 		6EF946901E263C4D0061AEFC /* SwifterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF946981E263C4E0061AEFC /* SwifterSwift macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B070A0C11E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensionsTests.swift; sourceTree = "<group>"; };
+		B070A0D31E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensionsTests.swift; sourceTree = "<group>"; };
+		B070A0D61E62868800EBBD25 /* TestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
+		B070A0E31E6291AA00EBBD25 /* UIViewControllerExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionsTests.swift; sourceTree = "<group>"; };
 		B0C4D1D41E48A52400DACC28 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
 		B0E3B78F1E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensionsTests.swift; sourceTree = "<group>"; };
 		B0E3B7981E52F25800B50FE3 /* UIButtonExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonExtensionsTests.swift; sourceTree = "<group>"; };
@@ -529,6 +538,9 @@
 				B0E3B7CB1E559BCF00B50FE3 /* UINavigationBarExtensionTests.swift */,
 				B070A0C11E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift */,
 				07AE0C2F1E614EB8002FC982 /* UITableViewExtensionsTests.swift */,
+				B070A0E31E6291AA00EBBD25 /* UIViewControllerExtensionsTests.swift */,
+				B070A0D31E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift */,
+				B070A0D61E62868800EBBD25 /* TestStoryboard.storyboard */,
 			);
 			path = UIKitExtensionsTests;
 			sourceTree = "<group>";
@@ -772,6 +784,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B070A0D71E62868800EBBD25 /* TestStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -793,6 +806,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B070A0D81E62868800EBBD25 /* TestStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,10 +894,12 @@
 				B0E3B7C91E559B7800B50FE3 /* UINavigationControllerExtensionsTests.swift in Sources */,
 				078B0E481E507E4C009189B3 /* CollectionExtensionsTests.swift in Sources */,
 				07445BC21E11D1EF000E9A85 /* ArrayExtensionsTests.swift in Sources */,
+				B070A0E41E6291AA00EBBD25 /* UIViewControllerExtensionsTests.swift in Sources */,
 				07750B661E54AD8E0034E625 /* UIViewExtensionsTests.swift in Sources */,
 				B0E3B7C71E559B3100B50FE3 /* UISliderExtensionsTests.swift in Sources */,
 				07AE0C331E615892002FC982 /* UICollectionViewExtensionsTests.swift in Sources */,
 				07AB1A6A1E448CD800CEF96C /* CGFloatExtensionsTests.swift in Sources */,
+				B070A0D41E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift in Sources */,
 				07445BC91E11D1EF000E9A85 /* FloatExtensionsTests.swift in Sources */,
 				07AB1A651E448C4500CEF96C /* UIColorExtensionsTests.swift in Sources */,
 				B0E3B7991E52F25800B50FE3 /* UIButtonExtensionsTests.swift in Sources */,
@@ -979,9 +995,11 @@
 				B0E3B7CA1E559B7800B50FE3 /* UINavigationControllerExtensionsTests.swift in Sources */,
 				B0E3B79A1E52F25800B50FE3 /* UIButtonExtensionsTests.swift in Sources */,
 				07AB1A631E448C4500CEF96C /* NSAttributedStringExtensionsTests.swift in Sources */,
+				B070A0E51E6291AA00EBBD25 /* UIViewControllerExtensionsTests.swift in Sources */,
 				07AB1A6E1E448CD800CEF96C /* CGSizeExtensionsTests.swift in Sources */,
 				6EBD19FB1E23E4A5002186D3 /* DoubleExtensionsTests.swift in Sources */,
 				6EBD19FE1E23E4A5002186D3 /* IntExtensionsTests.swift in Sources */,
+				B070A0D51E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift in Sources */,
 				07750B671E54AD8E0034E625 /* UIViewExtensionsTests.swift in Sources */,
 				B0E3B7CD1E559BCF00B50FE3 /* UINavigationBarExtensionTests.swift in Sources */,
 				078B0E4D1E507E7F009189B3 /* DataExtensionsTests.swift in Sources */,
