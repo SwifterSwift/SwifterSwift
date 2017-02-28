@@ -38,6 +38,40 @@ class CGFloatExtensionsTests: XCTestCase {
 		XCTAssertEqual(CGFloat(180).degreesToRadians, CGFloat.pi)
 	}
 	#endif
+    
+    #if !os(macOS)
+    func testIsPositive() {
+        XCTAssert(CGFloat(9.3).isPositive)
+        XCTAssertFalse(CGFloat(0).isPositive)
+        XCTAssertFalse(CGFloat(-9.2).isPositive)
+    }
+    #endif
+    
+    #if !os(macOS)
+    func testIsNegative() {
+        XCTAssert(CGFloat(-9.3).isNegative)
+        XCTAssertFalse(CGFloat(0).isNegative)
+        XCTAssertFalse(CGFloat(9.3).isNegative)
+    }
+    #endif
+    
+    #if !os(macOS)
+    func testInt() {
+        XCTAssertEqual(CGFloat(9.3).int, Int(9))
+    }
+    #endif
+    
+    #if !os(macOS)
+    func testDouble() {
+        XCTAssertEqual(CGFloat(9.3).double, Double(9.3))
+    }
+    #endif
+    
+    #if !os(macOS)
+    func testFloat() {
+        XCTAssertEqual(CGFloat(9.3).float, Float(9.3))
+    }
+    #endif
 	
 	#if !os(macOS)
 	func testRandomBetween() {

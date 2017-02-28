@@ -57,7 +57,7 @@ public extension UICollectionView {
 	/// Reload data with a completion handler.
 	///
 	/// - Parameter completion: completion handler to run after reloadData finishes.
-	func reloadData(_ completion: @escaping () -> Void) {
+	public func reloadData(_ completion: @escaping () -> Void) {
 		UIView.animate(withDuration: 0, animations: {
 			self.reloadData()
 		}, completion: { _ in
@@ -65,54 +65,54 @@ public extension UICollectionView {
 		})
 	}
     
-    /// SwifterSwift: Deque reusable UICollectionViewCell using class name
+    /// SwifterSwift: Deque reusable UICollectionViewCell using class name.
     ///
-    /// - Parameter name: UICollectionViewCell type
-    /// - Parameter indexPath: Location of cell in collectionView
-    /// - Returns: UICollectionViewCell object with associated class name
+    /// - Parameter name: UICollectionViewCell type.
+    /// - Parameter indexPath: Location of cell in collectionView.
+    /// - Returns: UICollectionViewCell object with associated class name.
     public func dequeReusableCell<T: UICollectionViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
         return dequeueReusableCell(withReuseIdentifier: String(describing: name), for: indexPath) as! T
     }
     
-    /// SwifterSwift: Deque reusable UICollectionReusableView using class name
+    /// SwifterSwift: Deque reusable UICollectionReusableView using class name.
     ///
-    /// - Parameter ofKind: The kind of supplementary view to retrieve. This value is defined by the layout object
-    /// - Parameter name: UICollectionReusableView type
-    /// - Parameter indexPath: Location of cell in collectionView
-    /// - Returns: UICollectionReusableView object with associated class name
+    /// - Parameter ofKind: The kind of supplementary view to retrieve. This value is defined by the layout object.
+    /// - Parameter name: UICollectionReusableView type.
+    /// - Parameter indexPath: Location of cell in collectionView.
+    /// - Returns: UICollectionReusableView object with associated class name.
     func dequeReusableSupplementaryView<T: UICollectionReusableView>(ofKind: String, withClass name: T.Type, for indexPath: IndexPath) -> T {
         return dequeueReusableSupplementaryView(ofKind: ofKind, withReuseIdentifier: String(describing: name), for: indexPath) as! T
     }
     
-    /// SwifterSwift: Register UICollectionReusableView using class name
+    /// SwifterSwift: Register UICollectionReusableView using class name.
     ///
-    /// - Parameter kind: The kind of supplementary view to retrieve. This value is defined by the layout object
-    /// - Parameter name: UICollectionReusableViewType
+    /// - Parameter kind: The kind of supplementary view to retrieve. This value is defined by the layout object.
+    /// - Parameter name: UICollectionReusableView type.
     func register<T: UICollectionReusableView>(supplementaryViewOfKind kind: String, withClass name: T.Type) {
         register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: name))
     }
     
     
-    /// SwifterSwift: Register UICollectionViewCell using class name
+    /// SwifterSwift: Register UICollectionViewCell using class name.
     ///
-    /// - Parameter nib: Nib file used to create the collectionView cell
-    /// - Parameter name: UICollectionViewCell type
+    /// - Parameter nib: Nib file used to create the collectionView cell.
+    /// - Parameter name: UICollectionViewCell type.
     func register<T: UICollectionViewCell>(nib: UINib?, forCellWithClass name: T.Type) {
         register(nib, forCellWithReuseIdentifier: String(describing: name))
     }
     
-    /// SwifterSwift: Register UICollectionReusableView using class name
+    /// SwifterSwift: Register UICollectionViewCell using class name.
     ///
-    /// - Parameter name: UICollectionReusableView type
-    func register<T: UICollectionReusableView>(cellWithClass name: T.Type) {
+    /// - Parameter name: UICollectionViewCell type.
+    func register<T: UICollectionViewCell>(cellWithClass name: T.Type) {
         register(T.self, forCellWithReuseIdentifier: String(describing: name))
     }
     
-    /// SwifterSwift: Register UICollectionReusableView using class name
+    /// SwifterSwift: Register UICollectionReusableView using class name.
     ///
-    /// - Parameter nib: Nib file used to create the reusable view
-    /// - Parameter kind: The kind of supplementary view to retrieve. This value is defined by the layout object
-    /// - Parameter name: UICollectionReusableView type
+    /// - Parameter nib: Nib file used to create the reusable view.
+    /// - Parameter kind: The kind of supplementary view to retrieve. This value is defined by the layout object.
+    /// - Parameter name: UICollectionReusableView type.
     func register<T: UICollectionReusableView>(nib: UINib?, forSupplementaryViewOfKind kind: String, withClass name: T.Type) {
         register(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: name))
     }
