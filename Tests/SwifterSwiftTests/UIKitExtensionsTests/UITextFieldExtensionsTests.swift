@@ -38,6 +38,36 @@ import XCTest
 			XCTAssertNotNil(textField.trimmedText)
 			XCTAssertEqual(textField.trimmedText!, "Hello")
 		}
+        
+        func testLeftViewTintColor() {
+            let frame = CGRect(x: 0, y: 0, width: 100, height: 30)
+            let textField = UITextField(frame: frame)
+            
+            let imageView = UIImageView()
+            imageView.tintColor = .red
+            
+            textField.leftView = imageView
+            XCTAssertEqual(textField.leftViewTintColor, .red)
+            
+            textField.leftViewTintColor = .blue
+            XCTAssertEqual(textField.leftViewTintColor, .blue)
+        }
+        
+        func testRightViewTintColor() {
+            
+            let frame = CGRect(x: 0, y: 0, width: 100, height: 30)
+            let textField = UITextField(frame: frame)
+            
+            let imageView = UIImageView()
+            imageView.tintColor = .red
+            
+            textField.rightView = imageView
+            XCTAssertEqual(textField.rightViewTintColor, .red)
+            
+            textField.rightViewTintColor = .blue
+            XCTAssertEqual(textField.rightViewTintColor, .blue)
+        }
+        
 		
 		func testClear() {
 			let frame = CGRect(x: 0, y: 0, width: 100, height: 30)
