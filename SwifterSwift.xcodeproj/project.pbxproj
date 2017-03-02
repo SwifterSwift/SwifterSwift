@@ -191,6 +191,13 @@
 		6EF946B21E263D860061AEFC /* SwifterSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BC11E11D1EF000E9A85 /* SwifterSwiftTests.swift */; };
 		6EF946D81E263DC80061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6EF946D91E263DCA0061AEFC /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B02BE35A1E65732000523EBD /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B02BE3591E65732000523EBD /* TestImage.png */; };
+		B02BE35B1E65732000523EBD /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B02BE3591E65732000523EBD /* TestImage.png */; };
+		B02BE35C1E65732000523EBD /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = B02BE3591E65732000523EBD /* TestImage.png */; };
+		B02BE3651E663FED00523EBD /* UITableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02BE3641E663FED00523EBD /* UITableViewHeaderFooterView.xib */; };
+		B02BE3661E663FED00523EBD /* UITableViewHeaderFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02BE3641E663FED00523EBD /* UITableViewHeaderFooterView.xib */; };
+		B02BE3681E66426500523EBD /* UITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02BE3671E66426500523EBD /* UITableViewCell.xib */; };
+		B02BE3691E66426500523EBD /* UITableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B02BE3671E66426500523EBD /* UITableViewCell.xib */; };
 		B070A0C21E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070A0C11E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift */; };
 		B070A0C31E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070A0C11E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift */; };
 		B070A0D41E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B070A0D31E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift */; };
@@ -315,9 +322,12 @@
 		6EBD19E61E23E444002186D3 /* SwifterSwift tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF946901E263C4D0061AEFC /* SwifterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF946981E263C4E0061AEFC /* SwifterSwift macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B02BE3591E65732000523EBD /* TestImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TestImage.png; path = UIKitExtensionsTests/TestImage.png; sourceTree = "<group>"; };
+		B02BE3641E663FED00523EBD /* UITableViewHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UITableViewHeaderFooterView.xib; sourceTree = "<group>"; };
+		B02BE3671E66426500523EBD /* UITableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UITableViewCell.xib; sourceTree = "<group>"; };
 		B070A0C11E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensionsTests.swift; sourceTree = "<group>"; };
 		B070A0D31E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensionsTests.swift; sourceTree = "<group>"; };
-		B070A0D61E62868800EBBD25 /* TestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
+		B070A0D61E62868800EBBD25 /* TestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = TestStoryboard.storyboard; path = UIKitExtensionsTests/TestStoryboard.storyboard; sourceTree = "<group>"; };
 		B070A0E31E6291AA00EBBD25 /* UIViewControllerExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensionsTests.swift; sourceTree = "<group>"; };
 		B0C4D1D41E48A52400DACC28 /* UIStoryboardExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIStoryboardExtensions.swift; sourceTree = "<group>"; };
 		B0E3B78F1E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensionsTests.swift; sourceTree = "<group>"; };
@@ -405,6 +415,7 @@
 				07445BC11E11D1EF000E9A85 /* SwifterSwiftTests.swift */,
 				07AB1A601E448C4500CEF96C /* UIKitExtensionsTests */,
 				07AB1A5E1E448C4500CEF96C /* CocoaExtensionsTests */,
+				B02BE35D1E65734B00523EBD /* TestResources */,
 			);
 			name = SwifterSwiftTests;
 			path = Tests/SwifterSwiftTests;
@@ -540,9 +551,19 @@
 				07AE0C2F1E614EB8002FC982 /* UITableViewExtensionsTests.swift */,
 				B070A0E31E6291AA00EBBD25 /* UIViewControllerExtensionsTests.swift */,
 				B070A0D31E6284E300EBBD25 /* UIStoryboardExtensionsTests.swift */,
-				B070A0D61E62868800EBBD25 /* TestStoryboard.storyboard */,
 			);
 			path = UIKitExtensionsTests;
+			sourceTree = "<group>";
+		};
+		B02BE35D1E65734B00523EBD /* TestResources */ = {
+			isa = PBXGroup;
+			children = (
+				B02BE3591E65732000523EBD /* TestImage.png */,
+				B070A0D61E62868800EBBD25 /* TestStoryboard.storyboard */,
+				B02BE3641E663FED00523EBD /* UITableViewHeaderFooterView.xib */,
+				B02BE3671E66426500523EBD /* UITableViewCell.xib */,
+			);
+			name = TestResources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -784,6 +805,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02BE35A1E65732000523EBD /* TestImage.png in Resources */,
+				B02BE3681E66426500523EBD /* UITableViewCell.xib in Resources */,
+				B02BE3651E663FED00523EBD /* UITableViewHeaderFooterView.xib in Resources */,
 				B070A0D71E62868800EBBD25 /* TestStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -806,6 +830,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02BE35B1E65732000523EBD /* TestImage.png in Resources */,
+				B02BE3691E66426500523EBD /* UITableViewCell.xib in Resources */,
+				B02BE3661E663FED00523EBD /* UITableViewHeaderFooterView.xib in Resources */,
 				B070A0D81E62868800EBBD25 /* TestStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -821,6 +848,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02BE35C1E65732000523EBD /* TestImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

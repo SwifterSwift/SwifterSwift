@@ -111,7 +111,7 @@ public extension UITableView {
     ///
     /// - Parameter name: UITableViewHeaderFooterView type
     /// - Returns: UITableViewHeaderFooterView object with associated class name (optional value)
-    func dequeReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withClass name: T.Type, for indexPath: IndexPath) -> T? {
+    func dequeReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withClass name: T.Type) -> T? {
         return dequeueReusableHeaderFooterView(withIdentifier: String(describing: name)) as? T
     }
     

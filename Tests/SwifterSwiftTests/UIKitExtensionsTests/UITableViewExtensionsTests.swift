@@ -13,7 +13,7 @@
 	
 	class UITableViewExtensionsTests: XCTestCase {
 		
-		let tableView = UITableView()
+        let tableView = UITableView()
 		let emptyTableView = UITableView()
 		
 		override func setUp() {
@@ -42,6 +42,14 @@
 			XCTAssertEqual(tableView.indexPathForLastRow(inSection: 0), IndexPath(row: 4, section: 0))
 			XCTAssertEqual(emptyTableView.indexPathForLastRow(inSection: 0), IndexPath(row: 0, section: 0))
 		}
+        
+        func testReloadData() {
+            var completionCalled = false
+            tableView.reloadData {
+                completionCalled = true
+                XCTAssert(completionCalled)
+            }
+        }
 		
 		func testRemoveTableFooterView() {
 			tableView.tableFooterView = UIView()
@@ -56,7 +64,70 @@
 			tableView.removeTableHeaderView()
 			XCTAssertNil(tableView.tableHeaderView)
 		}
-		
+        
+        func testScrollToBottom() {
+            let bottomOffset = CGPoint(x: 0, y: tableView.contentSize.height - tableView.bounds.size.height)
+            tableView.scrollToBottom()
+            XCTAssertEqual(bottomOffset, tableView.contentOffset)
+        }
+        
+        func testScrollToTop() {
+            tableView.scrollToTop()
+            XCTAssertEqual(CGPoint.zero, tableView.contentOffset)
+        }
+
+        func testDequeReusableCellWithClass() {
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+            let cell = tableView.dequeReusableCell(withClass: UITableViewCell.self)
+            XCTAssertNotNil(cell)
+        }
+        
+        func testDequeReusableCellWithClassForIndexPath() {
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
+            let indexPath = tableView.indexPathForLastRow!
+            let cell = tableView.dequeReusableCell(withClass: UITableViewCell.self, for: indexPath)
+            XCTAssertNotNil(cell)
+        }
+        
+        func testDequeReusableHeaderFooterView() {
+            tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "UITableViewHeaderFooterView")
+            let headerFooterView = tableView.dequeReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+            XCTAssertNotNil(headerFooterView)
+        }
+        
+        func testRegisterReusableViewWithClassAndNib() {
+            let nilView = tableView.dequeReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+            XCTAssertNil(nilView)
+            let nib = UINib(nibName: "UITableViewHeaderFooterView", bundle: Bundle(for: UITableViewExtensionsTests.self))
+            tableView.register(nib: nib, withHeaderFooterViewClass: UITableViewHeaderFooterView.self)
+            let view = tableView.dequeReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+            XCTAssertNotNil(view)
+        }
+        
+        func testRegisterReusableViewWithClass() {
+            let nilView = tableView.dequeReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+            XCTAssertNil(nilView)
+            tableView.register(headerFooterViewClassWith: UITableViewHeaderFooterView.self)
+            let view = tableView.dequeReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+            XCTAssertNotNil(view)
+        }
+        
+        func testRegisterCellWithClass() {
+            let nilCell = tableView.dequeReusableCell(withClass: UITableViewCell.self)
+            XCTAssertNil(nilCell)
+            tableView.register(cellWithClass: UITableViewCell.self)
+            let cell = tableView.dequeReusableCell(withClass: UITableViewCell.self)
+            XCTAssertNotNil(cell)
+        }
+        
+        func testRegisterCellWithClassAndNib() {
+            let nilCell = tableView.dequeReusableCell(withClass: UITableViewCell.self)
+            XCTAssertNil(nilCell)
+            let nib = UINib(nibName: "UITableViewCell", bundle: Bundle(for: UITableViewExtensionsTests.self))
+            tableView.register(nib: nib, withCellClass: UITableViewCell.self)
+            let cell = tableView.dequeReusableCell(withClass: UITableViewCell.self)
+            XCTAssertNotNil(cell)
+        }
 	}
 	
 	extension UITableViewExtensionsTests: UITableViewDataSource {

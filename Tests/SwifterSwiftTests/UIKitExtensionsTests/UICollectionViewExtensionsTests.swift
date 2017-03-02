@@ -42,10 +42,17 @@
 			XCTAssertEqual(collectionView.indexPathForLastItem(inSection: 0), IndexPath(item: 4, section: 0))
 			XCTAssertEqual(emptyCollectionView.indexPathForLastItem(inSection: 0), IndexPath(item: 0, section: 0))
 		}
-		
-	}
-	
-	extension UICollectionViewExtensionsTests: UICollectionViewDataSource {
+        
+        func testReloadData() {
+            var completionCalled = false
+            collectionView.reloadData {
+                completionCalled = true
+                XCTAssert(completionCalled)
+            }
+        }
+    }
+    
+	extension UICollectionViewExtensionsTests: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 		
 		func numberOfSections(in collectionView: UICollectionView) -> Int {
 			return 2
