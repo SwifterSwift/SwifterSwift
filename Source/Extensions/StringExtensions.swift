@@ -34,6 +34,11 @@ public extension String {
 		return plainData?.base64EncodedString()
 	}
 	
+	/// SwifterSwift: Array of characters of a string.
+	public var charactersArray: [Character] {
+		return Array(characters)
+	}
+	
 	/// SwifterSwift: CamelCase of string.
 	public var camelCased: String {
 		let source = lowercased()
@@ -69,7 +74,10 @@ public extension String {
 	
 	/// SwifterSwift: First character of string (if applicable).
 	public var firstCharacter: String? {
-		return Array(characters).map({String($0)}).first
+		guard let first = characters.first else {
+			return nil
+		}
+		return String(first)
 	}
 	
 	/// SwifterSwift: Check if string contains one or more letters.
@@ -84,7 +92,7 @@ public extension String {
 	
 	/// SwifterSwift: Check if string contains only letters.
 	public var isAlphabetic: Bool {
-		return  hasLetters && !hasNumbers
+		return hasLetters && !hasNumbers
 	}
 	
 	/// SwifterSwift: Check if string contains at least one letter and one number.
@@ -154,8 +162,8 @@ public extension String {
 	
 	/// SwifterSwift: Array of strings separated by new lines.
 	public var lines: [String] {
-		var result:[String] = []
-		enumerateLines { (line, stop) -> () in
+		var result = [String]()
+		enumerateLines { line, _ in
 			result.append(line)
 		}
 		return result
@@ -163,16 +171,12 @@ public extension String {
 	
 	/// SwifterSwift: The most common character in string.
 	public var mostCommonCharacter: String {
-		var mostCommon = ""
-		let charSet = Set(withoutSpacesAndNewLines.characters.map{String($0)})
-		var mostCommonCount = 0
-		for string in charSet {
-			if count(of: string) > mostCommonCount {
-				mostCommonCount = count(of: string)
-				mostCommon = string
-			}
-		}
-		return mostCommon
+		let mostCommon = withoutSpacesAndNewLines.characters.reduce([Character: Int]()) {
+			var counts = $0
+			counts[$1] = ($0[$1] ?? 0) + 1
+			return counts
+			}.max { $0.1 < $1.1 }?.0
+		return mostCommon?.string ?? ""
 	}
 	
 	/// SwifterSwift: Reversed string.
@@ -332,7 +336,7 @@ public extension String {
 	
 	#if os(iOS) || os(macOS)
 	/// SwifterSwift: Copy string to global pasteboard.
-	func copyToPasteboard() {
+	public func copyToPasteboard() {
 		#if os(iOS)
 			UIPasteboard.general.string = self
 		#elseif os(macOS)
@@ -353,7 +357,7 @@ public extension String {
 	///   - string: substring to search for.
 	///   - caseSensitive: set true for case sensitive search (default is true).
 	/// - Returns: true if string contains one or more instance of substring.
-	public func contain(_ string: String, caseSensitive: Bool = true) -> Bool {
+	public func contains(_ string: String, caseSensitive: Bool = true) -> Bool {
 		if !caseSensitive {
 			return range(of: string, options: .caseInsensitive) != nil
 		}
@@ -379,7 +383,7 @@ public extension String {
 	///   - suffix: substring to search if string ends with.
 	///   - caseSensitive: set true for case sensitive search (default is true).
 	/// - Returns: true if string ends with substring.
-	public func end(with suffix: String, caseSensitive: Bool = true) -> Bool {
+	public func ends(with suffix: String, caseSensitive: Bool = true) -> Bool {
 		if !caseSensitive {
 			return lowercased().hasSuffix(suffix.lowercased())
 		}
@@ -516,7 +520,7 @@ public extension String {
 	///   - suffix: substring to search if string starts with.
 	///   - caseSensitive: set true for case sensitive search (default is true).
 	/// - Returns: true if string starts with substring.
-	public func start(with prefix: String, caseSensitive: Bool = true) -> Bool {
+	public func starts(with prefix: String, caseSensitive: Bool = true) -> Bool {
 		if !caseSensitive {
 			return lowercased().hasPrefix(prefix.lowercased())
 		}
@@ -593,11 +597,7 @@ public extension String {
 		guard rhs > 0 else {
 			return ""
 		}
-		var newString = ""
-		for _ in 0 ..< rhs {
-			newString += lhs
-		}
-		return newString
+		return String(repeating: lhs, count: rhs)
 	}
 	
 	/// SwifterSwift: Repeat string multiple times.
@@ -610,11 +610,7 @@ public extension String {
 		guard lhs > 0 else {
 			return ""
 		}
-		var newString = ""
-		for _ in 0 ..< lhs {
-			newString += rhs
-		}
-		return newString
+		return String(repeating: rhs, count: lhs)
 	}
 	
 }
@@ -627,11 +623,10 @@ public extension String {
 	///
 	/// - Parameter base64: base64 string.
 	public init?(base64: String) {
-		if let str = base64.base64Decoded {
-			self.init(str)
-			return
+		guard let str = base64.base64Decoded else {
+			return nil
 		}
-		return nil
+		self.init(str)
 	}
 	
 	/// SwifterSwift: Create a new random string of given length.

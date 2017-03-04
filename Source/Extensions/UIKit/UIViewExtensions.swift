@@ -54,11 +54,7 @@
 				return layer.borderColor?.uiColor
 			}
 			set {
-				guard let color = newValue else {
-					layer.borderColor = nil
-					return
-				}
-				layer.borderColor = color.cgColor
+				layer.borderColor = newValue?.cgColor
 			}
 		}
 		

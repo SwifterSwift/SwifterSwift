@@ -9,30 +9,6 @@
 import Foundation
 
 
-// MARK: - Properties
-public extension Array {
-	
-	/// SwifterSwift: Random item from array.
-	public var randomItem: Element {
-		let index = Int(arc4random_uniform(UInt32(count)))
-		return self[index]
-	}
-	
-}
-
-
-// MARK: - Properties (Integer)
-public extension Collection where Iterator.Element == Int, Index == Int {
-	
-	/// SwifterSwift: Average of all elements in array.
-	public var average: Double {
-		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
-		return isEmpty ? 0 : Double(reduce(0, +)) / Double(endIndex-startIndex)
-	}
-	
-}
-
-
 // MARK: - Properties (Integer)
 public extension Array where Element: Integer {
 	

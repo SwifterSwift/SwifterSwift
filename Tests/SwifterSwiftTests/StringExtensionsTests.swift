@@ -42,8 +42,8 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testContain() {
-		XCTAssert("Hello Tests".contain("Hello"))
-		XCTAssert("Hello Tests".contain("hello", caseSensitive: false))
+		XCTAssert("Hello Tests".contains("Hello"))
+		XCTAssert("Hello Tests".contains("hello", caseSensitive: false))
 	}
 	
 	func testContainEmoji() {
@@ -60,8 +60,8 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testEnd() {
-		XCTAssert("Hello Test".end(with: "test", caseSensitive: false))
-		XCTAssert("Hello Tests".end(with: "sts"))
+		XCTAssert("Hello Test".ends(with: "test", caseSensitive: false))
+		XCTAssert("Hello Tests".ends(with: "sts"))
 	}
 	
 	func testFirstCharacter() {
@@ -236,8 +236,8 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testStart() {
-		XCTAssert("Hello Test".start(with: "hello", caseSensitive: false))
-		XCTAssert("Hello Tests".start(with: "He"))
+		XCTAssert("Hello Test".starts(with: "hello", caseSensitive: false))
+		XCTAssert("Hello Tests".starts(with: "He"))
 	}
 	
 	func testDateWithFormat() {

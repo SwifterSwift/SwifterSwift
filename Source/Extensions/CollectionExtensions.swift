@@ -33,6 +33,7 @@ public extension Collection {
 			each(self[elementIndex])
 		}
 	}
+	
 }
 
 extension Collection where Indices.Iterator.Element == Index {
@@ -45,4 +46,27 @@ extension Collection where Indices.Iterator.Element == Index {
 	public subscript (safe index: Index) -> Generator.Element? {
 		return indices.contains(index) ? self[index] : nil
 	}
+	
 }
+
+public extension Collection where Index == Int, IndexDistance == Int {
+	
+	/// SwifterSwift: Random item from array.
+	public var randomItem: Generator.Element {
+		let index = Int(arc4random_uniform(UInt32(count)))
+		return self[index]
+	}
+
+}
+
+// MARK: - Properties (Integer)
+public extension Collection where Iterator.Element == Int, Index == Int {
+	
+	/// SwifterSwift: Average of all elements in array.
+	public var average: Double {
+		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
+		return isEmpty ? 0 : Double(reduce(0, +)) / Double(endIndex-startIndex)
+	}
+	
+}
+

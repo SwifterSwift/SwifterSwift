@@ -156,6 +156,5 @@ import XCTest
 			XCTAssertEqual(view.gestureRecognizers!.count, 0)
 		}
 		
-		
 	}
 #endif
