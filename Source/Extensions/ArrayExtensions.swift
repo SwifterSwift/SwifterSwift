@@ -38,26 +38,6 @@ public extension Array where Element: FloatingPoint {
 	
 }
 
-
-// MARK: - Properties (Equatable)
-public extension Array where Element: Equatable {
-	
-	/// SwifterSwift: Shuffled version of array.
-	public var shuffled: [Element] {
-		var arr = self
-		arr.shuffle()
-		return arr
-	}
-	
-	/// SwifterSwift: Array with all duplicates removed from it.
-	public var withoutDuplicates: [Element] {
-		// Thanks to https://github.com/sairamkotha for improving the preperty
-		return reduce([]){ ($0 as [Element]).contains($1) ? $0 : $0 + [$1] }
-	}
-	
-}
-
-
 // MARK: - Methods
 public extension Array {
 	
@@ -106,8 +86,7 @@ public extension Array {
 	///
 	/// - Returns: last element in array (if applicable).
 	@discardableResult public mutating func pop() -> Element? {
-		guard !isEmpty else { return nil }
-		return removeLast()
+        return popLast()
 	}
 	
 	/// SwifterSwift: Insert an element at the beginning of array.
@@ -130,17 +109,22 @@ public extension Array {
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
 	
-	/// SwifterSwift: Shuffle array.
-	public mutating func shuffle() {
-		// https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
-		let arr = self
-		for _ in 0..<10 {
-			sort { (_,_) in arc4random() < arc4random() }
-		}
-		if self == arr {
-			shuffle()
-		}
-	}
+    /// SwifterSwift: Shuffle array. (Using Fisher-Yates Algorithm)
+    public mutating func shuffle() {
+        //http://stackoverflow.com/questions/37843647/shuffle-array-swift-3
+        guard count > 1 else { return }
+        for index in startIndex..<endIndex - 1 {
+            let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
+            if index != randomIndex { swap(&self[index], &self[randomIndex]) }
+        }
+    }
+    
+    /// SwifterSwift: Shuffled version of array. (Using Fisher-Yates Algorithm)
+    public func shuffled() -> [Element] {
+        var array = self
+        array.shuffle()
+        return array
+    }
 	
 	/// SwifterSwift: Check if array contains an array of elements.
 	///
@@ -180,10 +164,16 @@ public extension Array where Element: Equatable {
 		self = filter { $0 != item }
 	}
 	
-	/// SwifterSwift: Remove all duplicates from array.
-	public mutating func removeDuplicates() {
-		// Thanks to https://github.com/sairamkotha for improving the method
-		self = reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
-	}
-	
+    /// SwifterSwift: Remove all duplicate elements from Array.
+    public mutating func removeDuplicates() {
+        // Thanks to https://github.com/sairamkotha for improving the method
+        self = reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
+    }
+    
+    /// SwifterSwift: Return array with all duplicate elements removed.
+    /// - Returns: An array of unique elements.
+    public func duplicatesRemoved() -> [Element] {
+        // Thanks to https://github.com/sairamkotha for improving the property
+        return reduce([]){ ($0 as [Element]).contains($1) ? $0 : $0 + [$1] }
+    }
 }

@@ -77,34 +77,43 @@ class ArrayExtensionsTests: XCTestCase {
 		XCTAssertEqual(arr, [1, 2, 3, 4, 5])
 	}
 	
-	func testRemoveDuplicates() {
-		var arr = [1, 2, 1, 3, 4, 5, 1, 1]
-		arr.removeDuplicates()
-		XCTAssertEqual(arr, [1, 2, 3, 4, 5])
-	}
-	
-	func testShuffle() {
-		for _ in 1...1000 {
-			var arr = [1, 2, 3, 4, 5]
-			arr.shuffle()
-			XCTAssertEqual(arr.count, 5)
-			XCTAssertNotEqual(arr, [1, 2, 3, 4, 5])
-		}
-	}
-	
-	func testShuffled() {
-		XCTAssertEqual([1, 2, 3, 4, 5].shuffled.count, 5)
-		XCTAssertNotEqual([1, 2, 3, 4, 5].shuffled, [1, 2, 3, 4, 5])
-	}
+    func testShuffle() {
+        
+        let original = [1, 2, 3, 4, 5]
+        var array = original
+        
+        while original == array {
+            array.shuffle()
+        }
+        XCTAssertEqual(array.count, 5)
+        XCTAssertNotEqual(original, array)
+    }
+    
+    func testShuffled() {
+        let original = [1, 2, 3, 4, 5]
+        var array = original
+        
+        while original == array {
+            array = array.shuffled()
+        }
+        XCTAssertEqual(array.count, 5)
+        XCTAssertNotEqual(original, array)
+    }
 	
 	func testSum() {
 		XCTAssertEqual([1, 2, 3, 4, 5].sum, 15)
 		XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum, 17)
 	}
 	
-	func testWithoutDuplicates() {
-		XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates, [1, 2, 3, 4, 5])
-	}
+    func testRemoveDuplicates() {
+        var array = [1, 1, 2, 2, 3, 3, 3, 4, 5]
+        array.removeDuplicates()
+        XCTAssertEqual(array, [1, 2, 3, 4, 5])
+    }
+    
+    func testDuplicatesRemoved() {
+        XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].duplicatesRemoved(), [1, 2, 3, 4, 5])
+    }
 	
 	func testItemAtIndex() {
 		XCTAssertEqual([1, 2, 3].item(at: 0), 1)
