@@ -76,7 +76,7 @@ public extension CGPoint {
 	///   - lhs: self
 	///   - rhs: CGPoint to subtract.
 	public static func -= (lhs: inout CGPoint, rhs: CGPoint) {
-		lhs = lhs + rhs
+		lhs = lhs - rhs
 	}
 	
 	/// SwifterSwift: Multiply a CGPoint with a scalar
