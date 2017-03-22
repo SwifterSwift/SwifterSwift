@@ -70,7 +70,7 @@ public extension Array {
 	///
 	/// - Parameter item: item to check.
 	/// - Returns: last index of item in array (if exists).
-	public func lastIndex <Item: Equatable> (of item: Item) -> Int? {
+	public func lastIndex<Item: Equatable>(of item: Item) -> Int? {
 		if item is Element {
 			for (index, value) in reversed().lazy.enumerated() {
 				if value as! Item == item {
