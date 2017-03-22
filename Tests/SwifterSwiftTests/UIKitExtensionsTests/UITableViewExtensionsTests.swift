@@ -76,56 +76,56 @@
             XCTAssertEqual(CGPoint.zero, tableView.contentOffset)
         }
 
-        func testDequeReusableCellWithClass() {
+        func testDequeueReusableCellWithClass() {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-            let cell = tableView.dequeReusableCell(withClass: UITableViewCell.self)
+            let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
             XCTAssertNotNil(cell)
         }
         
-        func testDequeReusableCellWithClassForIndexPath() {
+        func testDequeueReusableCellWithClassForIndexPath() {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
             let indexPath = tableView.indexPathForLastRow!
-            let cell = tableView.dequeReusableCell(withClass: UITableViewCell.self, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self, for: indexPath)
             XCTAssertNotNil(cell)
         }
         
-        func testDequeReusableHeaderFooterView() {
+        func testDequeueReusableHeaderFooterView() {
             tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: "UITableViewHeaderFooterView")
-            let headerFooterView = tableView.dequeReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+            let headerFooterView = tableView.dequeueReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
             XCTAssertNotNil(headerFooterView)
         }
         
         func testRegisterReusableViewWithClassAndNib() {
-            let nilView = tableView.dequeReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+            let nilView = tableView.dequeueReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
             XCTAssertNil(nilView)
             let nib = UINib(nibName: "UITableViewHeaderFooterView", bundle: Bundle(for: UITableViewExtensionsTests.self))
             tableView.register(nib: nib, withHeaderFooterViewClass: UITableViewHeaderFooterView.self)
-            let view = tableView.dequeReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+            let view = tableView.dequeueReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
             XCTAssertNotNil(view)
         }
         
         func testRegisterReusableViewWithClass() {
-            let nilView = tableView.dequeReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+            let nilView = tableView.dequeueReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
             XCTAssertNil(nilView)
             tableView.register(headerFooterViewClassWith: UITableViewHeaderFooterView.self)
-            let view = tableView.dequeReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
+            let view = tableView.dequeueReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
             XCTAssertNotNil(view)
         }
         
         func testRegisterCellWithClass() {
-            let nilCell = tableView.dequeReusableCell(withClass: UITableViewCell.self)
+            let nilCell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
             XCTAssertNil(nilCell)
             tableView.register(cellWithClass: UITableViewCell.self)
-            let cell = tableView.dequeReusableCell(withClass: UITableViewCell.self)
+            let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
             XCTAssertNotNil(cell)
         }
         
         func testRegisterCellWithClassAndNib() {
-            let nilCell = tableView.dequeReusableCell(withClass: UITableViewCell.self)
+            let nilCell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
             XCTAssertNil(nilCell)
             let nib = UINib(nibName: "UITableViewCell", bundle: Bundle(for: UITableViewExtensionsTests.self))
             tableView.register(nib: nib, withCellClass: UITableViewCell.self)
-            let cell = tableView.dequeReusableCell(withClass: UITableViewCell.self)
+            let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
             XCTAssertNotNil(cell)
         }
 	}
