@@ -90,28 +90,28 @@ public extension UITableView {
 		setContentOffset(CGPoint.zero, animated: animated)
 	}
     
-    /// SwifterSwift: Deque reusable UITableViewCell using class name
+    /// SwifterSwift: Dequeue reusable UITableViewCell using class name
     ///
     /// - Parameter name: UITableViewCell type
     /// - Returns: UITableViewCell object with associated class name (optional value)
-    public func dequeReusableCell<T: UITableViewCell>(withClass name: T.Type) -> T? {
+    public func dequeueReusableCell<T: UITableViewCell>(withClass name: T.Type) -> T? {
         return dequeueReusableCell(withIdentifier: String(describing: name)) as? T
     }
     
-    /// SwiferSwift: Deque reusable UITableViewCell using class name for indexPath
+    /// SwiferSwift: Dequeue reusable UITableViewCell using class name for indexPath
     ///
     /// - Parameter name: UITableViewCell type
     /// - Parameter indexPath: Location of cell in tableView
     /// - Returns: UITableViewCell object with associated class name
-    public func dequeReusableCell<T: UITableViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
+    public func dequeueReusableCell<T: UITableViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
         return dequeueReusableCell(withIdentifier: String(describing: name), for: indexPath) as! T
     }
     
-    /// SwiferSwift: Deque reusable UITableViewHeaderFooterView using class name
+    /// SwiferSwift: Dequeue reusable UITableViewHeaderFooterView using class name
     ///
     /// - Parameter name: UITableViewHeaderFooterView type
     /// - Returns: UITableViewHeaderFooterView object with associated class name (optional value)
-    func dequeReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withClass name: T.Type) -> T? {
+    func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withClass name: T.Type) -> T? {
         return dequeueReusableHeaderFooterView(withIdentifier: String(describing: name)) as? T
     }
     
