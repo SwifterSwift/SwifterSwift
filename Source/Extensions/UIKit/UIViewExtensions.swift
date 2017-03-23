@@ -206,7 +206,27 @@
 				frame.size.width = newValue
 			}
 		}
-		
+
+    /// SwifterSwift: x of view.
+    public var x: CGFloat {
+      get {
+        return frame.origin.x
+      }
+      set {
+        frame.origin.x = newValue
+      }
+    }
+
+    /// SwifterSwift: y of view.
+    public var y: CGFloat {
+      get {
+        return frame.origin.y
+      }
+      set {
+        frame.origin.y = newValue
+      }
+    }
+
 	}
 	
 	
