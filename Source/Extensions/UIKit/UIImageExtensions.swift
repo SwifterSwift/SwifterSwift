@@ -66,7 +66,7 @@ public extension UIImage {
 		guard rect.size.height < size.height && rect.size.height < size.height else {
 			return self
 		}
-		guard let image: CGImage = cgImage?.cropping(to: rect) else {
+		guard let image: CGImage = cgImage!.cropping(to: rect) else {
 			return self
 		}
 		return UIImage(cgImage: image)

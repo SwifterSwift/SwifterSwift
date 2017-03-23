@@ -78,7 +78,10 @@ class ArrayExtensionsTests: XCTestCase {
 	}
 	
     func testShuffle() {
-        
+		var arr = ["a"]
+		arr.shuffle()
+		XCTAssertEqual(arr, arr)
+		
         let original = [1, 2, 3, 4, 5]
         var array = original
         

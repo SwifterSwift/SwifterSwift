@@ -119,10 +119,8 @@
 			defer {
 				UIGraphicsEndImageContext()
 			}
-			guard let context = UIGraphicsGetCurrentContext() else {
-				return nil
-			}
-			layer.render(in: context)
+			let context = UIGraphicsGetCurrentContext()
+			layer.render(in: context!)
 			return UIGraphicsGetImageFromCurrentImageContext()
 		}
 		
@@ -215,6 +213,10 @@
 		///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
 		///   - radius: radius for selected corners.
 		public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+			if corners == [.allCorners] {
+				cornerRadius = radius
+				return
+			}
 			let maskPath = UIBezierPath(roundedRect: bounds,
 			                            byRoundingCorners: corners,
 			                            cornerRadii: CGSize(width: radius, height: radius))
@@ -336,14 +338,10 @@
 		///   - duration: animation duration in seconds (default is 1 second).
 		///   - completion: optional completion handler to run with animation finishes (default is nil).
 		public func scale(by offset: CGPoint, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
-			if animated {
-				UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
-					self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
-				}, completion: completion)
-			} else {
-				transform = transform.scaledBy(x: offset.x, y: offset.y)
-				completion?(true)
-			}
+			let aDuration = animated ? duration : 0
+			UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
+				self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
+			}, completion: completion)
 		}
 		
 		/// SwifterSwift: Shake view.

@@ -30,6 +30,12 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertEqual("Hello World!".base64Encoded, "SGVsbG8gV29ybGQh")
 	}
 	
+	func testCharactersArray() {
+		let str = "Swift"
+		let chars = [Character("S"), Character("w"), Character("i"), Character("f"), Character("t")]
+		XCTAssertEqual(str.charactersArray, chars)
+	}
+	
 	func testCamelCased() {
 		XCTAssertEqual("Hello test".camelCased, "helloTest")
 		XCTAssertEqual("Hellotest".camelCased, "hellotest")
@@ -42,7 +48,7 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testContain() {
-		XCTAssert("Hello Tests".contains("Hello"))
+		XCTAssert("Hello Tests".contains("Hello", caseSensitive: true))
 		XCTAssert("Hello Tests".contains("hello", caseSensitive: false))
 	}
 	
@@ -163,6 +169,7 @@ class StringExtensionsTests: XCTestCase {
 	func testMostCommonCharacter() {
 		let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character".mostCommonCharacter
 		XCTAssertEqual(mostCommonCharacter, "e")
+		XCTAssertEqual("".mostCommonCharacter, "")
 	}
 	
 	func testRandom() {
