@@ -48,6 +48,9 @@ public extension UICollectionView {
 		guard section >= 0 else {
 			return nil
 		}
+		guard section < numberOfSections else {
+			return nil
+		}
 		guard numberOfItems(inSection: section) > 0 else {
 			return IndexPath(item: 0, section: section)
 		}

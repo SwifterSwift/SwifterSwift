@@ -16,11 +16,6 @@ class DateExtensionsTests: XCTestCase {
 		NSTimeZone.default = TimeZone(abbreviation: "UTC")!
 	}
 	
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-	
 	func testCalendar() {
 		switch Calendar.current.identifier {
 		case .buddhist:

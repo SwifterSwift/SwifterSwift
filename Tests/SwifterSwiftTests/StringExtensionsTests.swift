@@ -16,11 +16,6 @@ class StringExtensionsTests: XCTestCase {
 		NSTimeZone.default = NSTimeZone.system
 	}
 	
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-	
 	func testBase64Decoded() {
 		XCTAssertEqual("SGVsbG8gV29ybGQh".base64Decoded, "Hello World!")
 		XCTAssertNil("hello".base64Decoded)

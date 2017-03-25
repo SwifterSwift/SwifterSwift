@@ -19,16 +19,6 @@ import XCTest
 
 class CharacterExtensionsTests: XCTestCase {
 	
-	override func setUp() {
-		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
-	}
-	
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-	
 	func testOperators() {
 		let s = Character("s")
 		XCTAssertEqual(s * 5, "sssss")

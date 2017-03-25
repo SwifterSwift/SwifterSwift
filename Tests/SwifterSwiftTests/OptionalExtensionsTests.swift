@@ -11,14 +11,6 @@ import XCTest
 
 class OptionalExtensionsTests: XCTestCase {
 	
-	override func setUp() {
-		super.setUp()
-	}
-	
-	override func tearDown() {
-		super.tearDown()
-	}
-	
 	func testUnwrappedOrDefault() {
 		var str: String? = nil
 		
