@@ -28,9 +28,11 @@ class UIImageViewExtensionsTests: XCTestCase {
 		
 		let failingURL = URL(string: "https://developer.apple.com/")!
 		var failingCompletionCalled = false
+		imageView.image = nil
 		imageView.download(from: failingURL, contentMode: .center, placeholder: nil) { image in
 			failingCompletionCalled = true
 			XCTAssertNil(image)
+			XCTAssertNil(imageView.image)
 			XCTAssert(failingCompletionCalled)
 		}
 		XCTAssertEqual(imageView.contentMode, .center)

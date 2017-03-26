@@ -41,6 +41,13 @@ class UITextFieldExtensionsTests: XCTestCase {
 		
 		textField.leftViewTintColor = .blue
 		XCTAssertEqual(textField.leftViewTintColor, .blue)
+		
+		textField.leftView = nil
+		XCTAssertNil(textField.leftViewTintColor)
+		
+		textField.leftViewTintColor = .yellow
+		XCTAssertNil(textField.leftViewTintColor)
+
 	}
 	
 	func testRightViewTintColor() {
@@ -56,6 +63,12 @@ class UITextFieldExtensionsTests: XCTestCase {
 		
 		textField.rightViewTintColor = .blue
 		XCTAssertEqual(textField.rightViewTintColor, .blue)
+		
+		textField.rightView = nil
+		XCTAssertNil(textField.rightViewTintColor)
+		
+		textField.rightViewTintColor = .yellow
+		XCTAssertNil(textField.rightViewTintColor)
 	}
 	
 	
@@ -73,6 +86,11 @@ class UITextFieldExtensionsTests: XCTestCase {
 		textField.setPlaceHolderTextColor(.blue)
 		let color = textField.attributedPlaceholder?.attribute(NSForegroundColorAttributeName, at: 0, effectiveRange: nil) as? UIColor
 		XCTAssertEqual(color, .blue)
+		
+		textField.placeholder = nil
+		textField.setPlaceHolderTextColor(.yellow)
+		let emptyColor = textField.attributedPlaceholder?.attribute(NSForegroundColorAttributeName, at: 0, effectiveRange: nil) as? UIColor
+		XCTAssertNil(emptyColor)
 	}
 }
 #endif

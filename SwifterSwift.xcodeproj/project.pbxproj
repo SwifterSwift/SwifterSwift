@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		072711AD1E88528D0020CA34 /* UILabelExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072711AA1E8852610020CA34 /* UILabelExtensionsTests.swift */; };
+		072711AE1E88528E0020CA34 /* UILabelExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072711AA1E8852610020CA34 /* UILabelExtensionsTests.swift */; };
+		072711B01E8854A80020CA34 /* UITabBarExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072711AF1E8854A80020CA34 /* UITabBarExtensionsTests.swift */; };
+		072711B11E8854A80020CA34 /* UITabBarExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072711AF1E8854A80020CA34 /* UITabBarExtensionsTests.swift */; };
 		072F7ABD1E11DDDD0021AB84 /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 072F7A961E11DDDD0021AB84 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07400BE61E44B06B001B2FD7 /* NSColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074821F61E446D4C00B0C580 /* NSColorExtensions.swift */; };
 		07445BC21E11D1EF000E9A85 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07445BB61E11D1EF000E9A85 /* ArrayExtensionsTests.swift */; };
@@ -258,6 +262,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		072711AA1E8852610020CA34 /* UILabelExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtensionsTests.swift; sourceTree = "<group>"; };
+		072711AF1E8854A80020CA34 /* UITabBarExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITabBarExtensionsTests.swift; sourceTree = "<group>"; };
 		072F7A951E11DDDD0021AB84 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Source/Info.plist; sourceTree = SOURCE_ROOT; };
 		072F7A961E11DDDD0021AB84 /* SwifterSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwifterSwift.h; path = Source/SwifterSwift.h; sourceTree = SOURCE_ROOT; };
 		07445BB61E11D1EF000E9A85 /* ArrayExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensionsTests.swift; sourceTree = "<group>"; };
@@ -565,7 +571,9 @@
 				B0E3B7C31E559AE300B50FE3 /* UINavigationItemExtensionsTests.swift */,
 				B0E3B7C61E559B3100B50FE3 /* UISliderExtensionsTests.swift */,
 				B0E3B7C81E559B7800B50FE3 /* UINavigationControllerExtensionsTests.swift */,
+				072711AF1E8854A80020CA34 /* UITabBarExtensionsTests.swift */,
 				B0E3B7CB1E559BCF00B50FE3 /* UINavigationBarExtensionTests.swift */,
+				072711AA1E8852610020CA34 /* UILabelExtensionsTests.swift */,
 				B070A0C11E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift */,
 				076A10A61E83A1A800D9E90F /* UIImageExtensionsTests.swift */,
 				07AE0C2F1E614EB8002FC982 /* UITableViewExtensionsTests.swift */,
@@ -940,6 +948,7 @@
 				076A10A71E83A1A800D9E90F /* UIImageExtensionsTests.swift in Sources */,
 				07445BC51E11D1EF000E9A85 /* CharacterExtensionsTests.swift in Sources */,
 				B0E3B7C41E559AE300B50FE3 /* UINavigationItemExtensionsTests.swift in Sources */,
+				072711AD1E88528D0020CA34 /* UILabelExtensionsTests.swift in Sources */,
 				B0E3B7C91E559B7800B50FE3 /* UINavigationControllerExtensionsTests.swift in Sources */,
 				078B0E481E507E4C009189B3 /* CollectionExtensionsTests.swift in Sources */,
 				07445BC21E11D1EF000E9A85 /* ArrayExtensionsTests.swift in Sources */,
@@ -956,6 +965,7 @@
 				07445BCC1E11D1EF000E9A85 /* StringExtensionsTests.swift in Sources */,
 				07750B611E54AB090034E625 /* UITextFieldExtensionsTests.swift in Sources */,
 				07750B631E54AC990034E625 /* UITextViewExtensionsTests.swift in Sources */,
+				072711B01E8854A80020CA34 /* UITabBarExtensionsTests.swift in Sources */,
 				07750B5E1E54A78F0034E625 /* UISearchBarExtensionsTests.swift in Sources */,
 				B0E3B79C1E52F47500B50FE3 /* UIBarButtonExtensionsTests.swift in Sources */,
 				B070A0C21E5A813D00EBBD25 /* UIImageViewExtensionsTests.swift in Sources */,
@@ -1048,7 +1058,9 @@
 				B0E3B7CA1E559B7800B50FE3 /* UINavigationControllerExtensionsTests.swift in Sources */,
 				B0E3B79A1E52F25800B50FE3 /* UIButtonExtensionsTests.swift in Sources */,
 				07AB1A631E448C4500CEF96C /* NSAttributedStringExtensionsTests.swift in Sources */,
+				072711AE1E88528E0020CA34 /* UILabelExtensionsTests.swift in Sources */,
 				B070A0E51E6291AA00EBBD25 /* UIViewControllerExtensionsTests.swift in Sources */,
+				072711B11E8854A80020CA34 /* UITabBarExtensionsTests.swift in Sources */,
 				07AB1A6E1E448CD800CEF96C /* CGSizeExtensionsTests.swift in Sources */,
 				6EBD19FB1E23E4A5002186D3 /* DoubleExtensionsTests.swift in Sources */,
 				6EBD19FE1E23E4A5002186D3 /* IntExtensionsTests.swift in Sources */,

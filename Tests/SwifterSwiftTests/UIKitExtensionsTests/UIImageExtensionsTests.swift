@@ -55,10 +55,36 @@ class UIImageExtensionsTests: XCTestCase {
 		XCTAssertEqual(cropped.bytesSize, small.bytesSize)
 	}
 	
+	func testScaledToHeight() {
+		let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+		let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+		
+		let scaledImage = image.scaled(toHeight: 300)
+		XCTAssertNotNil(scaledImage)
+		XCTAssertEqual(scaledImage!.size.height, 300)
+	}
+	
+	func testScaledToWidth() {
+		let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+		let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+		
+		let scaledImage = image.scaled(toWidth: 300)
+		XCTAssertNotNil(scaledImage)
+		XCTAssertEqual(scaledImage!.size.width, 300)
+	}
+	
 	func testFilled() {
 		let image = UIImage(color: .black, size: CGSize(width: 20, height: 20))
 		let image2 = UIImage(color: .yellow, size: CGSize(width: 20, height: 20))
 		XCTAssertEqual(image.filled(withColor: .yellow).bytesSize, image2.bytesSize)
+		
+		var emptyImage = UIImage()
+		var filledImage = emptyImage.filled(withColor: .red)
+		XCTAssertEqual(emptyImage, filledImage)
+		
+		emptyImage = UIImage(color: .yellow, size: CGSize.zero)
+		filledImage = emptyImage.filled(withColor: .red)
+		XCTAssertEqual(emptyImage, filledImage)
 	}
 	
 }

@@ -66,7 +66,7 @@ public extension UIImage {
 		guard rect.size.height < size.height && rect.size.height < size.height else {
 			return self
 		}
-		guard let image: CGImage = cgImage!.cropping(to: rect) else {
+		guard let image: CGImage = cgImage?.cropping(to: rect) else {
 			return self
 		}
 		return UIImage(cgImage: image)
@@ -114,20 +114,19 @@ public extension UIImage {
 		guard let context = UIGraphicsGetCurrentContext() else {
 			return self
 		}
+		
 		context.translateBy(x: 0, y: size.height)
 		context.scaleBy(x: 1.0, y: -1.0);
 		context.setBlendMode(CGBlendMode.normal)
 		
 		let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-		guard let mask = cgImage else {
+		guard let mask = self.cgImage else {
 			return self
 		}
 		context.clip(to: rect, mask: mask)
 		context.fill(rect)
 		
-		guard let newImage = UIGraphicsGetImageFromCurrentImageContext() else {
-			return self
-		}
+		let newImage = UIGraphicsGetImageFromCurrentImageContext()!
 		UIGraphicsEndImageContext()
 		return newImage
 	}
@@ -147,9 +146,16 @@ public extension UIImage {
 		UIGraphicsBeginImageContextWithOptions(size, false, 1)
 		color.setFill()
 		UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
-		let image = UIGraphicsGetImageFromCurrentImageContext()!
+		guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
+			self.init()
+			return
+		}
 		UIGraphicsEndImageContext()
-		self.init(cgImage: image.cgImage!)
+		guard let aCgImage = image.cgImage else {
+			self.init()
+			return
+		}
+		self.init(cgImage: aCgImage)
 	}
 	
 }
