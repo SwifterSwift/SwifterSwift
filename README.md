@@ -7,6 +7,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/SwifterSwift/SwifterSwift/branch/master/graph/badge.svg)](https://codecov.io/gh/SwifterSwift/SwifterSwift)
 [![CocoaPods](https://img.shields.io/cocoapods/dt/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
+[![CocoaPods](https://img.shields.io/cocoapods/dm/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![Platform](https://img.shields.io/cocoapods/p/SwifterSwift.svg?style=flat)](https://github.com/SwifterSwift/swifterSwift)
 [![Swift](https://img.shields.io/badge/Swift-3.0-orange.svg)](https://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-8.0-blue.svg)](https://developer.apple.com/xcode)
@@ -16,8 +17,8 @@
 SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.
 
 
-## [Whats New in v1.6?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v16)
-v1.6 is the biggest update since v1.3! With over 100 new extensions, improved Cocoa support, new tests and many minor bug fixes.
+## [Whats New in v1.6.3?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v163)
+v1.6.3 brings more than 20 new extensions, drastically improved tests and minor bug fixes
 
 
 # Requirements:
@@ -99,12 +100,12 @@ Note that the [Swift Package Manager](https://swift.org/package-manager) is stil
 Add the [extensions](Source/Extensions) folder to your Xcode project to use all extensions, or a specific extension.
 
 
---
+---
 
 # Read the Full Documentation
 Full documentation with code examples is available in the [Docs repo](https://github.com/SwifterSwift/SwifterSwiftDocs)
 
---
+---
 
 # List of Extensions
 
@@ -139,6 +140,7 @@ Full documentation with code examples is available in the [Docs repo](https://gi
 - [`UISearchBar extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UISearchBarExtensions.md)
 - [`UISegmentedControl extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UISegmentedControlExtensions.md)
 - [`UISlider extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UISliderExtensions.md)
+- [`UIStoryboard extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIStoryboardExtensions.md)
 - [`UISwitch extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UISwitchExtensions.md)
 - [`UITabBar extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UITabBarExtensions.md)
 - [`UITableView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UITableViewExtensions.md)
@@ -156,8 +158,9 @@ Full documentation with code examples is available in the [Docs repo](https://gi
 - [`CGSize extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CGSizeExtensions.md)
 - [`NSAttributedString extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/Docs/Cocoa/UIKit/NSAttributedStringExtensions.md)
 - [`NSColor extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/NSColorExtensions.md)
+- [`NSView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/NSViewExtensions.md)
 
---
+---
 
 
 # How cool is this?
@@ -185,7 +188,7 @@ Here are some examples:
 ```
 [Check All Array Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/ArrayExtensions.md)
 
---
+---
 
 ### Date Extensions:
 
@@ -231,7 +234,7 @@ Date().monthName(ofStyle: .threeLetters) -> "Dec"
 ```
 [Check All Date Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DateExtensions.md)
 
---
+---
 
 ### String Extensions:
 
@@ -305,7 +308,7 @@ let boldString = "this is string".bold.colored(with: .red)
 ```
 [Check All String Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/StringExtensions.md)
 
---
+---
 
 ### Dictionary Extensions:
 
@@ -325,7 +328,7 @@ let json = dict.jsonString(prettify: true)
 ```
 [Check All Dictionary Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DictionaryExtensions.md)
 
---
+---
 
 
 ### Number Types Extensions:
@@ -351,7 +354,7 @@ Int.randomBetween(min: 1, max: 10) = 6
 
 [Check All Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/tree/master/Docs)
 
---
+---
 
 ## UIKit Extensions
 
@@ -391,7 +394,7 @@ let facebookColor = UIColor.social.facebook
 ```
 [Check UIColor Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIColorExtensions.md)
 
---
+---
 
 
 ### UIView Extensions
@@ -429,7 +432,7 @@ let image = view.screenShot
 ```
 [Check UIView Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIViewExtensions.md)
 
---
+---
 
 
 ### UIAlertController Extensions
@@ -446,7 +449,7 @@ alert.show()
 ```
 [Check UIAlertController Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIAlertControllerExtensions.md)
 
---
+---
 
 ### UIButton Extensions
 
@@ -468,7 +471,7 @@ button.titleForHighlighted = "Login"
 
 [Check UIButton Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIButtonExtensions.md)
 
---
+---
 
 
 ### UIImage Extensions
@@ -494,7 +497,7 @@ image.kilobytesSize = 114
 ```
 [Check UIImage Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIImageExtensions.md)
 
---
+---
 
 
 ### UIImageView Extensions
@@ -510,7 +513,7 @@ imageView.blur(withStyle: .light)
 ```
 [Check UIImageView Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIImageViewExtensions.md)
 
---
+---
 
 ### UINavigationBar Extensions
 
@@ -522,7 +525,7 @@ navbar.setTitleFont(UIFont, with color: UIColor.black)
 ```
 [Check UINavigationBar Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UINavigationBarExtensions.md)
 
---
+---
 
 
 ### UINavigationController Extensions
@@ -538,7 +541,7 @@ navController.pushViewController(UIViewController, completion: (()->Void)?)
 ```
 [Check UINavigationController Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UINavigationControllerExtensions.md)
 
---
+---
 
 
 ### UITableView Extensions
@@ -556,7 +559,7 @@ tableView.scrollToTop(animated: true)
 
 [Check All UIKit Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/tree/master/Docs/UIKit)
 
---
+---
 
 
 ## Cocoa Extensions
@@ -577,7 +580,7 @@ result = 5 * point
 ```
 [Check All Cocoa Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/tree/master/Docs/Cocoa)
 
---
+---
 
 ## Misc Extensions
 
@@ -597,7 +600,7 @@ SwifterSwift.didTakeScreenShot {
 ```
 [Check SwifterSwift Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/SwifterSwift.md)
 
---
+---
 
 # Get involved:
 
@@ -607,16 +610,16 @@ Please refer to contributing guidelines before participating.
 - [Contributing guidelines for extensions](https://github.com/SwifterSwift/SwifterSwift/blob/master/CONTRIBUTING.md)
 - [Contributing guidelines for documentations](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/CONTRIBUTING.md)
 
---
+---
 
 # Thanks:
 
 Special thanks to:
 
-* [Paweł Urbanek](https://github.com/pawurb) for adding tvOS & watchOS initial support and helping with extensions.
+* [Paweł Urbanek](https://github.com/pawurb) for adding tvOS, watchOS and macOS initial support and helping with extensions.
 
-* [Mert Akengin](https://github.com/PvtMert) for creating [project website](http://swiftierswift.com).
+* [Steven Deutsch](https://github.com/SD10) for his latest contributions to extensions, docs and tests.
 
-* [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing the project logo.
+* [Mert Akengin](https://github.com/PvtMert) and [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing [project website](http://swiftierswift.com) and logo.
 
 * [Abdul Rahman Dabbour](https://github.com/thedabbour) for helping document the project.
