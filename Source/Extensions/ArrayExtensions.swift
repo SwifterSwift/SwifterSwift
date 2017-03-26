@@ -148,6 +148,23 @@ public extension Array {
 		append(newElement)
 	}
 	
+    /// SwifterSwift: Swap values at index positions.
+    ///
+    /// - Parameters:
+    ///   - from: index of first element.
+    ///   - to: index of other element.
+    public mutating func swap(from index: Int, to otherIndex: Int)  {
+        guard
+            index != otherIndex &&
+                index >= 0 && index < count &&
+                otherIndex >= 0 && otherIndex < count else {
+                    return
+        }
+        let aux = self[index]
+        self[index] = self[otherIndex]
+        self[otherIndex] = aux
+    }
+    
 }
 
 
