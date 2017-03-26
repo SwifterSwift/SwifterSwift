@@ -5,9 +5,8 @@
 //  Created by Omar Albeik on 2/24/17.
 //  Copyright © 2017 omaralbeik. All rights reserved.
 //
-
 #if os(iOS) || os(tvOS)
-	
+
 import XCTest
 @testable import SwifterSwift
 
@@ -75,7 +74,7 @@ class UITableViewExtensionsTests: XCTestCase {
 		tableView.scrollToTop()
 		XCTAssertEqual(CGPoint.zero, tableView.contentOffset)
 	}
-
+	
 	func testDequeueReusableCellWithClass() {
 		tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
 		let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
@@ -145,5 +144,5 @@ extension UITableViewExtensionsTests: UITableViewDataSource {
 	}
 	
 }
-	
+
 #endif

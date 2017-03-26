@@ -10,9 +10,9 @@ import Foundation
 
 
 #if os(macOS)
-	import Cocoa
+import Cocoa
 #else
-	import UIKit
+import UIKit
 #endif
 
 // MARK: - Properties

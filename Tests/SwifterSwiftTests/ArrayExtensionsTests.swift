@@ -59,6 +59,20 @@ class ArrayExtensionsTests: XCTestCase {
 		XCTAssertEqual(arr, [1, 2, 3, 4, 5])
 	}
 	
+    func testSwap() {
+        var array: [Int] = [1, 2, 3, 4, 5]
+        array.swap(from: 3, to: 0)
+        XCTAssertEqual(array[3], 1)
+        XCTAssertEqual(array[0], 4)
+    }
+    
+    func testSafeSwap() {
+        var array: [Int] = [1, 2, 3, 4, 5]
+        array.safeSwap(from: 3, to: 0)
+        XCTAssertEqual(array[3], 1)
+        XCTAssertEqual(array[0], 4)
+    }
+    
 	func testRemoveAll() {
 		var arr = [0, 1, 2, 0, 3, 4, 5, 0, 0]
 		arr.removeAll(0)
