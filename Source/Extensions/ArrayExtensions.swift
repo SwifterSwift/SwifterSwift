@@ -148,21 +148,31 @@ public extension Array {
 		append(newElement)
 	}
 	
+    /// SwifterSwift: Safelly Swap values at index positions.
+    ///
+    /// - Parameters:
+    ///   - from: index of first element.
+    ///   - to: index of other element.
+    public mutating func safeSwap(from index: Int, to otherIndex: Int)  {
+        guard index != otherIndex else {
+            return
+        }
+        guard startIndex...endIndex ~= index else {
+            return
+        }
+        guard startIndex...endIndex ~= otherIndex  else {
+            return
+        }
+        Swift.swap(&self[index], &self[otherIndex])
+    }
+    
     /// SwifterSwift: Swap values at index positions.
     ///
     /// - Parameters:
     ///   - from: index of first element.
     ///   - to: index of other element.
     public mutating func swap(from index: Int, to otherIndex: Int)  {
-        guard
-            index != otherIndex &&
-                index >= 0 && index < count &&
-                otherIndex >= 0 && otherIndex < count else {
-                    return
-        }
-        let aux = self[index]
-        self[index] = self[otherIndex]
-        self[otherIndex] = aux
+        Swift.swap(&self[index], &self[otherIndex])
     }
     
 }
