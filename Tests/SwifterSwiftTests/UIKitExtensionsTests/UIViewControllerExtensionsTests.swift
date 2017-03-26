@@ -37,7 +37,12 @@ class UIViewControllerExtensionsTests: XCTestCase {
         NotificationCenter.default.post(name: notificationIdentifier, object: nil)
         XCTAssert(viewController.notificationFired)
     }
-    
+	
+	func testIsVisible() {
+		let viewController = UIViewController()
+		XCTAssertFalse(viewController.isVisible)
+	}
+	
     func testRemoveNotificationObserver() {
         let viewController = MockNotificationViewController()
         let selector = #selector(MockNotificationViewController.testSelector)

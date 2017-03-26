@@ -9,33 +9,22 @@ import XCTest
 @testable import SwifterSwift
 
 class ArrayExtensionsTests: XCTestCase {
-	
-	override func setUp() {
-		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
-	}
-	
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-	
+
 	func testRandomItem() {
 		XCTAssert([1, 2, 3].contains([1, 2, 3].randomItem))
 	}
 	
 	func testAverage() {
-		XCTAssertEqual([1, 2, 3, 4, 5].average, 3)
-		XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].average, 3.4)
-		XCTAssertEqual([Int]().average, 0)
-		XCTAssertEqual([Double]().average, 0)
+		XCTAssertEqual([1, 2, 3, 4, 5].average(), 3)
+		XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].average(), 3.4)
+		XCTAssertEqual([Int]().average(), 0)
+		XCTAssertEqual([Double]().average(), 0)
 	}
 	
 	func testFirstIndex() {
 		XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2))
 		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2)!, 2)
 		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 7))
-		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: "7"))
 	}
 	
 	func testIndexes() {
@@ -46,7 +35,6 @@ class ArrayExtensionsTests: XCTestCase {
 		XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2))
 		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2)!, 6)
 		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 7))
-		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: "7"))
 	}
 	
 	func testPop() {
@@ -83,6 +71,21 @@ class ArrayExtensionsTests: XCTestCase {
         array.safeSwap(from: 3, to: 0)
         XCTAssertEqual(array[3], 1)
         XCTAssertEqual(array[0], 4)
+		
+		var newArray = array
+		newArray.safeSwap(from: 1, to: 1)
+		XCTAssertEqual(newArray, array)
+		
+		
+		newArray = array
+		newArray.safeSwap(from: 1, to: 12)
+		XCTAssertEqual(newArray, array)
+		
+		let emptyArray: [Int] = []
+		var swappedEmptyArray = emptyArray
+		swappedEmptyArray.safeSwap(from: 1, to: 3)
+		XCTAssertEqual(swappedEmptyArray, emptyArray)
+		
     }
     
 	func testRemoveAll() {
@@ -91,34 +94,46 @@ class ArrayExtensionsTests: XCTestCase {
 		XCTAssertEqual(arr, [1, 2, 3, 4, 5])
 	}
 	
-	func testRemoveDuplicates() {
-		var arr = [1, 2, 1, 3, 4, 5, 1, 1]
-		arr.removeDuplicates()
-		XCTAssertEqual(arr, [1, 2, 3, 4, 5])
-	}
-	
-	func testShuffle() {
-		for _ in 1...1000 {
-			var arr = [1, 2, 3, 4, 5]
-			arr.shuffle()
-			XCTAssertEqual(arr.count, 5)
-			XCTAssertNotEqual(arr, [1, 2, 3, 4, 5])
-		}
-	}
-	
-	func testShuffled() {
-		XCTAssertEqual([1, 2, 3, 4, 5].shuffled.count, 5)
-		XCTAssertNotEqual([1, 2, 3, 4, 5].shuffled, [1, 2, 3, 4, 5])
-	}
+    func testShuffle() {
+		var arr = ["a"]
+		arr.shuffle()
+		XCTAssertEqual(arr, arr)
+		
+        let original = [1, 2, 3, 4, 5]
+        var array = original
+        
+        while original == array {
+            array.shuffle()
+        }
+        XCTAssertEqual(array.count, 5)
+        XCTAssertNotEqual(original, array)
+    }
+    
+    func testShuffled() {
+        let original = [1, 2, 3, 4, 5]
+        var array = original
+        
+        while original == array {
+            array = array.shuffled()
+        }
+        XCTAssertEqual(array.count, 5)
+        XCTAssertNotEqual(original, array)
+    }
 	
 	func testSum() {
-		XCTAssertEqual([1, 2, 3, 4, 5].sum, 15)
-		XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum, 17)
+		XCTAssertEqual([1, 2, 3, 4, 5].sum(), 15)
+		XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum(), 17)
 	}
 	
-	func testWithoutDuplicates() {
-		XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates, [1, 2, 3, 4, 5])
-	}
+    func testRemoveDuplicates() {
+        var array = [1, 1, 2, 2, 3, 3, 3, 4, 5]
+        array.removeDuplicates()
+        XCTAssertEqual(array, [1, 2, 3, 4, 5])
+    }
+    
+    func testDuplicatesRemoved() {
+        XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].duplicatesRemoved(), [1, 2, 3, 4, 5])
+    }
 	
 	func testItemAtIndex() {
 		XCTAssertEqual([1, 2, 3].item(at: 0), 1)

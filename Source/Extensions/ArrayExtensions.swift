@@ -9,35 +9,12 @@
 import Foundation
 
 
-// MARK: - Properties
-public extension Array {
-	
-	/// SwifterSwift: Random item from array.
-	public var randomItem: Element {
-		let index = Int(arc4random_uniform(UInt32(count)))
-		return self[index]
-	}
-	
-}
-
-
-// MARK: - Properties (Integer)
-public extension Collection where Iterator.Element == Int, Index == Int {
-	
-	/// SwifterSwift: Average of all elements in array.
-	public var average: Double {
-		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
-		return isEmpty ? 0 : Double(reduce(0, +)) / Double(endIndex-startIndex)
-	}
-	
-}
-
-
-// MARK: - Properties (Integer)
+// MARK: - Methods (Integer)
 public extension Array where Element: Integer {
 	
 	/// SwifterSwift: Sum of all elements in array.
-	public var sum: Element {
+	/// Returns: sum of the array's elements (Integer).
+	public func sum() -> Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return reduce(0, +)
 	}
@@ -45,42 +22,24 @@ public extension Array where Element: Integer {
 }
 
 
-// MARK: - Properties (FloatingPoint)
+// MARK: - Methods (FloatingPoint)
 public extension Array where Element: FloatingPoint {
 	
 	/// SwifterSwift: Average of all elements in array.
-	public var average: Element {
+	/// Returns: average of the array's elements (FloatingPoint).
+	public func average() -> Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return isEmpty ? 0 : reduce(0, +) / Element(count)
 	}
 	
 	/// SwifterSwift: Sum of all elements in array.
-	public var sum: Element {
+	/// Returns: sum of the array's elements (FloatingPoint).
+	public func sum() -> Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return reduce(0, +)
 	}
 	
 }
-
-
-// MARK: - Properties (Equatable)
-public extension Array where Element: Equatable {
-	
-	/// SwifterSwift: Shuffled version of array.
-	public var shuffled: [Element] {
-		var arr = self
-		arr.shuffle()
-		return arr
-	}
-	
-	/// SwifterSwift: Array with all duplicates removed from it.
-	public var withoutDuplicates: [Element] {
-		// Thanks to https://github.com/sairamkotha for improving the preperty
-		return reduce([]){ ($0 as [Element]).contains($1) ? $0 : $0 + [$1] }
-	}
-	
-}
-
 
 // MARK: - Methods
 public extension Array {
@@ -90,48 +49,15 @@ public extension Array {
 	/// - Parameter index: index of element.
 	/// - Returns: optional element (if exists).
 	public func item(at index: Int) -> Element? {
-		guard 0..<count ~= index else { return nil }
+		guard startIndex...endIndex ~= index else { return nil }
 		return self[index]
-	}
-	
-	/// SwifterSwift: First index of a given item in an array.
-	///
-	/// - Parameter item: item to check.
-	/// - Returns: first index of item in array (if exists).
-	public func firstIndex <Item: Equatable> (of item: Item) -> Int? {
-		if item is Element {
-			for (index, value) in lazy.enumerated() {
-				if value as! Item == item {
-					return index
-				}
-			}
-			return nil
-		}
-		return nil
-	}
-	
-	/// SwifterSwift: Last index of element in array.
-	///
-	/// - Parameter item: item to check.
-	/// - Returns: last index of item in array (if exists).
-	public func lastIndex <Item: Equatable> (of item: Item) -> Int? {
-		if item is Element {
-			for (index, value) in reversed().lazy.enumerated() {
-				if value as! Item == item {
-					return count - 1 - index
-				}
-			}
-			return nil
-		}
-		return nil
 	}
 	
 	/// SwifterSwift: Remove last element from array and return it.
 	///
 	/// - Returns: last element in array (if applicable).
 	@discardableResult public mutating func pop() -> Element? {
-		guard !isEmpty else { return nil }
-		return removeLast()
+		return popLast()
 	}
 	
 	/// SwifterSwift: Insert an element at the beginning of array.
@@ -148,49 +74,55 @@ public extension Array {
 		append(newElement)
 	}
 	
-    /// SwifterSwift: Safelly Swap values at index positions.
-    ///
-    /// - Parameters:
-    ///   - from: index of first element.
-    ///   - to: index of other element.
-    public mutating func safeSwap(from index: Int, to otherIndex: Int)  {
-        guard index != otherIndex else {
-            return
-        }
-        guard startIndex...endIndex ~= index else {
-            return
-        }
-        guard startIndex...endIndex ~= otherIndex  else {
-            return
-        }
-        Swift.swap(&self[index], &self[otherIndex])
-    }
-    
-    /// SwifterSwift: Swap values at index positions.
-    ///
-    /// - Parameters:
-    ///   - from: index of first element.
-    ///   - to: index of other element.
-    public mutating func swap(from index: Int, to otherIndex: Int)  {
-        Swift.swap(&self[index], &self[otherIndex])
-    }
-    
+	/// SwifterSwift: Safely Swap values at index positions.
+	///
+	/// - Parameters:
+	///   - index: index of first element.
+	///   - otherIndex: index of other element.
+	public mutating func safeSwap(from index: Int, to otherIndex: Int)  {
+		guard index != otherIndex else {
+			return
+		}
+		guard startIndex...endIndex ~= index else {
+			return
+		}
+		guard startIndex...endIndex ~= otherIndex  else {
+			return
+		}
+		Swift.swap(&self[index], &self[otherIndex])
+	}
+	
+	/// SwifterSwift: Swap values at index positions.
+	///
+	/// - Parameters:
+	///   - from: index of first element.
+	///   - to: index of other element.
+	public mutating func swap(from index: Int, to otherIndex: Int)  {
+		Swift.swap(&self[index], &self[otherIndex])
+	}
+	
 }
 
 
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
 	
-	/// SwifterSwift: Shuffle array.
+	/// SwifterSwift: Shuffle array. (Using Fisher-Yates Algorithm)
 	public mutating func shuffle() {
-		// https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
-		let arr = self
-		for _ in 0..<10 {
-			sort { (_,_) in arc4random() < arc4random() }
+		//http://stackoverflow.com/questions/37843647/shuffle-array-swift-3
+		guard count > 1 else { return }
+		for index in startIndex..<endIndex - 1 {
+			let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
+			if index != randomIndex { Swift.swap(&self[index], &self[randomIndex]) }
 		}
-		if self == arr {
-			shuffle()
-		}
+	}
+	
+	/// SwifterSwift: Shuffled version of array. (Using Fisher-Yates Algorithm)
+	/// Returns: the array with its elements shuffled.
+	public func shuffled() -> [Element] {
+		var array = self
+		array.shuffle()
+		return array
 	}
 	
 	/// SwifterSwift: Check if array contains an array of elements.
@@ -216,7 +148,7 @@ public extension Array where Element: Equatable {
 	/// - Returns: an array with all indexes of the given item.
 	public func indexes(of item: Element) -> [Int] {
 		var indexes: [Int] = []
-		for index in 0..<count {
+		for index in startIndex..<endIndex {
 			if self[index] == item {
 				indexes.append(index)
 			}
@@ -231,10 +163,39 @@ public extension Array where Element: Equatable {
 		self = filter { $0 != item }
 	}
 	
-	/// SwifterSwift: Remove all duplicates from array.
+	/// SwifterSwift: Remove all duplicate elements from Array.
 	public mutating func removeDuplicates() {
 		// Thanks to https://github.com/sairamkotha for improving the method
 		self = reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
+	}
+	
+	/// SwifterSwift: Return array with all duplicate elements removed.
+	/// - Returns: An array of unique elements.
+	public func duplicatesRemoved() -> [Element] {
+		// Thanks to https://github.com/sairamkotha for improving the property
+		return reduce([]){ ($0 as [Element]).contains($1) ? $0 : $0 + [$1] }
+	}
+	
+	/// SwifterSwift: First index of a given item in an array.
+	///
+	/// - Parameter item: item to check.
+	/// - Returns: first index of item in array (if exists).
+	public func firstIndex(of item: Element) -> Int? {
+		for (index, value) in lazy.enumerated() {
+			if value == item { return index }
+		}
+		return nil
+	}
+	
+	/// SwifterSwift: Last index of element in array.
+	///
+	/// - Parameter item: item to check.
+	/// - Returns: last index of item in array (if exists).
+	public func lastIndex(of item: Element) -> Int? {
+		for (index, value) in lazy.enumerated().reversed() {
+			if value == item { return index }
+		}
+		return nil
 	}
 	
 }

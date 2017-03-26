@@ -7,9 +7,9 @@
 //
 
 #if os(macOS)
-	import Cocoa
+import Cocoa
 #else
-	import UIKit
+import UIKit
 #endif
 
 
@@ -130,7 +130,8 @@ public extension Float {
 
 // MARK: - Operators
 
-infix operator **
+precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
+infix operator ** : PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
 ///
 /// - Parameters:

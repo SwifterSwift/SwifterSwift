@@ -23,7 +23,7 @@ class UISliderExtensionsTests: XCTestCase {
             completionCalled = true
             XCTAssert(completionCalled)
         }
-        XCTAssert(slider.value == 99)
+        XCTAssertEqual(slider.value, 99)
         
         completionCalled = false
         XCTAssertFalse(completionCalled)
@@ -33,6 +33,14 @@ class UISliderExtensionsTests: XCTestCase {
             XCTAssert(completionCalled)
         }
         XCTAssert(slider.value == 50)
+		
+		completionCalled = false
+		slider.setValue(90, animated: true, duration: 0.2) {
+			completionCalled = true
+			XCTAssert(completionCalled)
+			XCTAssertEqual(slider.value, 90)
+		}
+		
     }
 }
 #endif

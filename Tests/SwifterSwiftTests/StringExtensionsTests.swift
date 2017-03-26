@@ -16,11 +16,6 @@ class StringExtensionsTests: XCTestCase {
 		NSTimeZone.default = NSTimeZone.system
 	}
 	
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-	
 	func testBase64Decoded() {
 		XCTAssertEqual("SGVsbG8gV29ybGQh".base64Decoded, "Hello World!")
 		XCTAssertNil("hello".base64Decoded)
@@ -28,6 +23,12 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testBase64Encoded() {
 		XCTAssertEqual("Hello World!".base64Encoded, "SGVsbG8gV29ybGQh")
+	}
+	
+	func testCharactersArray() {
+		let str = "Swift"
+		let chars = [Character("S"), Character("w"), Character("i"), Character("f"), Character("t")]
+		XCTAssertEqual(str.charactersArray, chars)
 	}
 	
 	func testCamelCased() {
@@ -42,8 +43,8 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testContain() {
-		XCTAssert("Hello Tests".contain("Hello"))
-		XCTAssert("Hello Tests".contain("hello", caseSensitive: false))
+		XCTAssert("Hello Tests".contains("Hello", caseSensitive: true))
+		XCTAssert("Hello Tests".contains("hello", caseSensitive: false))
 	}
 	
 	func testContainEmoji() {
@@ -60,8 +61,8 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testEnd() {
-		XCTAssert("Hello Test".end(with: "test", caseSensitive: false))
-		XCTAssert("Hello Tests".end(with: "sts"))
+		XCTAssert("Hello Test".ends(with: "test", caseSensitive: false))
+		XCTAssert("Hello Tests".ends(with: "sts"))
 	}
 	
 	func testFirstCharacter() {
@@ -163,6 +164,7 @@ class StringExtensionsTests: XCTestCase {
 	func testMostCommonCharacter() {
 		let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character".mostCommonCharacter
 		XCTAssertEqual(mostCommonCharacter, "e")
+		XCTAssertEqual("".mostCommonCharacter, "")
 	}
 	
 	func testRandom() {
@@ -236,8 +238,8 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testStart() {
-		XCTAssert("Hello Test".start(with: "hello", caseSensitive: false))
-		XCTAssert("Hello Tests".start(with: "He"))
+		XCTAssert("Hello Test".starts(with: "hello", caseSensitive: false))
+		XCTAssert("Hello Tests".starts(with: "He"))
 	}
 	
 	func testDateWithFormat() {

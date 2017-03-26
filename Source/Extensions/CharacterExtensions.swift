@@ -69,11 +69,7 @@ public extension Character {
 		guard rhs > 0 else {
 			return ""
 		}
-		var newString = ""
-		for _ in 0 ..< rhs {
-			newString += String(lhs)
-		}
-		return newString
+		return String(repeating: String(lhs), count: rhs)
 	}
 	
 	/// SwifterSwift: Repeat character multiple times.
@@ -86,11 +82,7 @@ public extension Character {
 		guard lhs > 0 else {
 			return ""
 		}
-		var newString = ""
-		for _ in 0 ..< lhs {
-			newString += String(rhs)
-		}
-		return newString
+		return String(repeating: String(rhs), count: lhs)
 	}
 	
 }

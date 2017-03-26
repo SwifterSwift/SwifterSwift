@@ -35,21 +35,25 @@ public extension UITabBar {
 		isTranslucent = false
 		
 		// selectedBackgoundColor
+		guard let barItems = items else {
+			return
+		}
 		
 		if let selectedbg = selectedBackground {
-			let rect = CGSize(width: frame.width/CGFloat(items!.count), height: frame.height)
+			let rect = CGSize(width: frame.width/CGFloat(barItems.count), height: frame.height)
 			selectionIndicatorImage = UIImage(color: selectedbg, size: rect)
 		}
 		
 		if let itemColor = item {
-			for barItem in items! as [UITabBarItem] {
+			for barItem in barItems as [UITabBarItem] {
 				// item
-				if let image = barItem.image {
-					barItem.image = image.filled(withColor: itemColor).withRenderingMode(.alwaysOriginal)
-					barItem.setTitleTextAttributes([NSForegroundColorAttributeName : itemColor], for: .normal)
-					if let selected = selectedItem {
-						barItem.setTitleTextAttributes([NSForegroundColorAttributeName : selected], for: .selected)
-					}
+				guard let image = barItem.image else {
+					continue
+				}
+				barItem.image = image.filled(withColor: itemColor).withRenderingMode(.alwaysOriginal)
+				barItem.setTitleTextAttributes([NSForegroundColorAttributeName : itemColor], for: .normal)
+				if let selected = selectedItem {
+					barItem.setTitleTextAttributes([NSForegroundColorAttributeName : selected], for: .selected)
 				}
 			}
 		}

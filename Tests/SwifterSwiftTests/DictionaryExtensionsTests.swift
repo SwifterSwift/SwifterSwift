@@ -13,16 +13,6 @@ class DictionaryExtensionsTests: XCTestCase {
 	
 	var testDict: [String : Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
 	
-	override func setUp() {
-		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
-	}
-	
-	override func tearDown() {
-		// Put teardown code here. This method is called after the invocation of each test method in the class.
-		super.tearDown()
-	}
-	
 	func testHasKey() {
 		XCTAssert(testDict.has(key: "testKey"))
 		XCTAssertFalse(testDict.has(key: "anotherKey"))
@@ -30,10 +20,10 @@ class DictionaryExtensionsTests: XCTestCase {
 	
 	func testJsonString() {
 		XCTAssertNotNil(testDict.jsonString())
-		XCTAssert(testDict.jsonString()!.contain("\"testArrayKey\":[1,2,3,4,5]"))
-		XCTAssert(testDict.jsonString()!.contain("\"testKey\":\"testValue\""))
+		XCTAssert(testDict.jsonString()!.contains("\"testArrayKey\":[1,2,3,4,5]"))
+		XCTAssert(testDict.jsonString()!.contains("\"testKey\":\"testValue\""))
 		
-		XCTAssert(testDict.jsonString(prettify: true)!.contain("[\n    1,\n    2,\n    3,\n    4,\n    5\n  ]"))
+		XCTAssert(testDict.jsonString(prettify: true)!.contains("[\n    1,\n    2,\n    3,\n    4,\n    5\n  ]"))
 		
 		XCTAssertNil(["key": NSObject()].jsonString())
 		XCTAssertNil([1:2].jsonString())
