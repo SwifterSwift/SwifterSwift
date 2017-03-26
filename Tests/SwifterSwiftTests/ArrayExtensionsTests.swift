@@ -15,17 +15,16 @@ class ArrayExtensionsTests: XCTestCase {
 	}
 	
 	func testAverage() {
-		XCTAssertEqual([1, 2, 3, 4, 5].average, 3)
-		XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].average, 3.4)
-		XCTAssertEqual([Int]().average, 0)
-		XCTAssertEqual([Double]().average, 0)
+		XCTAssertEqual([1, 2, 3, 4, 5].average(), 3)
+		XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].average(), 3.4)
+		XCTAssertEqual([Int]().average(), 0)
+		XCTAssertEqual([Double]().average(), 0)
 	}
 	
 	func testFirstIndex() {
 		XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2))
 		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2)!, 2)
 		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 7))
-		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: "7"))
 	}
 	
 	func testIndexes() {
@@ -36,7 +35,6 @@ class ArrayExtensionsTests: XCTestCase {
 		XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2))
 		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2)!, 6)
 		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 7))
-		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: "7"))
 	}
 	
 	func testPop() {
@@ -94,8 +92,8 @@ class ArrayExtensionsTests: XCTestCase {
     }
 	
 	func testSum() {
-		XCTAssertEqual([1, 2, 3, 4, 5].sum, 15)
-		XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum, 17)
+		XCTAssertEqual([1, 2, 3, 4, 5].sum(), 15)
+		XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum(), 17)
 	}
 	
     func testRemoveDuplicates() {
