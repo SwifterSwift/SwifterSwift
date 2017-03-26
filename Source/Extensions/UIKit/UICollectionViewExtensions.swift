@@ -57,7 +57,7 @@ public extension UICollectionView {
 		return IndexPath(item: numberOfItems(inSection: section) - 1, section: section)
 	}
 	
-	/// Reload data with a completion handler.
+	/// SwifterSwift: Reload data with a completion handler.
 	///
 	/// - Parameter completion: completion handler to run after reloadData finishes.
 	public func reloadData(_ completion: @escaping () -> Void) {

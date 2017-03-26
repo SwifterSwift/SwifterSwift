@@ -9,11 +9,12 @@
 import Foundation
 
 
-// MARK: - Properties (Integer)
+// MARK: - Methods (Integer)
 public extension Array where Element: Integer {
-	
+    
 	/// SwifterSwift: Sum of all elements in array.
-	public var sum: Element {
+    /// Returns: sum of the array's elements (Integer).
+	public func sum() -> Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return reduce(0, +)
 	}
@@ -21,17 +22,19 @@ public extension Array where Element: Integer {
 }
 
 
-// MARK: - Properties (FloatingPoint)
+// MARK: - Methods (FloatingPoint)
 public extension Array where Element: FloatingPoint {
 	
 	/// SwifterSwift: Average of all elements in array.
-	public var average: Element {
+    /// Returns: average of the array's elements (FloatingPoint).
+	public func average() -> Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return isEmpty ? 0 : reduce(0, +) / Element(count)
 	}
 	
 	/// SwifterSwift: Sum of all elements in array.
-	public var sum: Element {
+    /// Returns: sum of the array's elements (FloatingPoint).
+	public func sum() -> Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return reduce(0, +)
 	}
@@ -46,40 +49,8 @@ public extension Array {
 	/// - Parameter index: index of element.
 	/// - Returns: optional element (if exists).
 	public func item(at index: Int) -> Element? {
-		guard 0..<count ~= index else { return nil }
+		guard startIndex...endIndex ~= index else { return nil }
 		return self[index]
-	}
-	
-	/// SwifterSwift: First index of a given item in an array.
-	///
-	/// - Parameter item: item to check.
-	/// - Returns: first index of item in array (if exists).
-	public func firstIndex <Item: Equatable> (of item: Item) -> Int? {
-		if item is Element {
-			for (index, value) in lazy.enumerated() {
-				if value as! Item == item {
-					return index
-				}
-			}
-			return nil
-		}
-		return nil
-	}
-	
-	/// SwifterSwift: Last index of element in array.
-	///
-	/// - Parameter item: item to check.
-	/// - Returns: last index of item in array (if exists).
-	public func lastIndex<Item: Equatable>(of item: Item) -> Int? {
-		if item is Element {
-			for (index, value) in reversed().lazy.enumerated() {
-				if value as! Item == item {
-					return count - 1 - index
-				}
-			}
-			return nil
-		}
-		return nil
 	}
 	
 	/// SwifterSwift: Remove last element from array and return it.
@@ -120,6 +91,7 @@ public extension Array where Element: Equatable {
     }
     
     /// SwifterSwift: Shuffled version of array. (Using Fisher-Yates Algorithm)
+    /// Returns: the array with its elements shuffled.
     public func shuffled() -> [Element] {
         var array = self
         array.shuffle()
@@ -149,7 +121,7 @@ public extension Array where Element: Equatable {
 	/// - Returns: an array with all indexes of the given item.
 	public func indexes(of item: Element) -> [Int] {
 		var indexes: [Int] = []
-		for index in 0..<count {
+		for index in startIndex..<endIndex {
 			if self[index] == item {
 				indexes.append(index)
 			}
@@ -176,4 +148,27 @@ public extension Array where Element: Equatable {
         // Thanks to https://github.com/sairamkotha for improving the property
         return reduce([]){ ($0 as [Element]).contains($1) ? $0 : $0 + [$1] }
     }
+    
+    /// SwifterSwift: First index of a given item in an array.
+    ///
+    /// - Parameter item: item to check.
+    /// - Returns: first index of item in array (if exists).
+    public func firstIndex(of item: Element) -> Int? {
+        for (index, value) in lazy.enumerated() {
+            if value == item { return index }
+        }
+        return nil
+    }
+    
+    /// SwifterSwift: Last index of element in array.
+    ///
+    /// - Parameter item: item to check.
+    /// - Returns: last index of item in array (if exists).
+    public func lastIndex(of item: Element) -> Int? {
+        for (index, value) in lazy.enumerated().reversed() {
+            if value == item { return index }
+        }
+        return nil
+    }
+
 }
