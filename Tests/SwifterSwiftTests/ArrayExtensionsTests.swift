@@ -157,5 +157,67 @@ class ArrayExtensionsTests: XCTestCase {
 		XCTAssert([1, 2, 3].contains([1, 3]))
 		XCTAssertFalse([1, 2, 3].contains([4, 5]))
 	}
+    
+    func testFirstIndexWhere() {
+        let array = [1, 7, 1, 2, 4, 1, 6]
+        let index = array.firstIndex { $0 % 2 == 0 }
+        XCTAssertEqual(index, 3)
+        XCTAssertNil([Int]().firstIndex { $0 % 2 == 0 })
+    }
+    
+    func testLastIndexWhere() {
+        let array = [1, 1, 1, 2, 2, 1, 1, 2, 1]
+        let index = array.lastIndex { $0 % 2 == 0 }
+        XCTAssertEqual(index, 7)
+        XCTAssertNil([Int]().lastIndex { $0 % 2 == 0 })
+    }
+    
+    func testIndicesWhere() {
+        let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        let indices = array.indices { $0 % 2 == 0 }
+        XCTAssertEqual(indices!, [0, 2, 4, 6, 8])
+    }
+    
+    func testAllMatch() {
+        let array = [2, 4, 6, 8, 10, 12]
+        XCTAssert(array.all { $0 % 2 == 0 })
+    }
+    
+    func testNoneMatch() {
+        let array = [3, 5, 7, 9, 11, 13]
+        XCTAssert(array.none { $0 % 2 == 0 })
+    }
+    
+    func testLastWhere() {
+        let array = [1, 1, 2, 1, 1, 1, 2, 1, 4, 1]
+        let element = array.last { $0 % 2 == 0 }
+        XCTAssertEqual(element, 4)
+        XCTAssertNil([Int]().last { $0 % 2 == 0 })
+    }
+    
+    func testReject() {
+        let input = [1, 2, 3, 4, 5]
+        let output = input.reject { $0 % 2 == 0 }
+        XCTAssertEqual(output, [1, 3, 5])
+    }
+    
+    func testCountWhere() {
+        let array = [1, 1, 1, 1, 4, 4, 1, 1, 1]
+        let count = array.count { $0 % 2 == 0 }
+        XCTAssertEqual(count, 2)
+    }
+    
+    func testForEachReversed() {
+        let input = [1, 2, 3, 4, 5]
+        var output: [Int] = []
+        input.forEachReversed { output.append($0) }
+        XCTAssertEqual(output.first, 5)
+    }
+    
+    func testAccumulate() {
+        let input = [1, 2, 3]
+        let result = input.accumulate(initial: 0, next: +)
+        XCTAssertEqual([1, 3, 6], result)
+    }
 	
 }
