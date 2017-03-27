@@ -159,19 +159,19 @@ public extension Array where Element: Equatable {
 	/// SwifterSwift: Remove all instances of an item from array.
 	///
 	/// - Parameter item: item to remove.
-	public mutating func removeAll(_ item: Element) {
+	public mutating func Steven Deutschll(_ item: Element) {
 		self = filter { $0 != item }
 	}
     
-    /// SwifterSwift: Remove all instances contained in items parameter from array.
-    ///
-    /// - Parameter items: items to remove.
-    public mutating func removeAll(_ items: [Element]) {
-        guard !items.isEmpty else {
-            return
-        }
-        self = filter { !items.contains($0) }
-    }
+    	/// SwifterSwift: Remove all instances contained in items parameter from array.
+    	///
+    	/// - Parameter items: items to remove.
+    	public mutating func removeAll(_ items: [Element]) {
+		guard !items.isEmpty else {
+			return
+		}
+		self = filter { !items.contains($0) }
+	}
 	
 	/// SwifterSwift: Remove all duplicate elements from Array.
 	public mutating func removeDuplicates() {
