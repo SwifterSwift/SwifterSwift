@@ -7,9 +7,9 @@
 //
 
 #if os(macOS)
-	import Cocoa
+import Cocoa
 #else
-	import UIKit
+import UIKit
 #endif
 
 
@@ -31,7 +31,9 @@ public extension CGSize {
 	/// - Returns: self filled into given bounding size
 	public func aspectFill(to boundingSize: CGSize) -> CGSize {
 		let minRatio = max(boundingSize.width / width, boundingSize.height / height)
-		return CGSize(width: width * minRatio, height: height * minRatio)
+		let w = min(width * minRatio, boundingSize.width)
+		let h = min(height * minRatio, boundingSize.height)
+		return CGSize(width: w, height: h)
 	}
 	
 }
