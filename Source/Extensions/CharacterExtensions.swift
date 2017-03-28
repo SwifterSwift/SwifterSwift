@@ -33,6 +33,11 @@ public extension Character {
 		return Int(String(self)) != nil
 	}
 	
+    /// SwifterSwift: Check if character is a letter.
+    public var isLetter: Bool {
+        return String(self).hasLetters
+    }
+    
 	/// SwifterSwift: Check if character is uppercased.
 	public var isUppercased: Bool {
 		return String(self) == String(self).uppercased()
@@ -43,6 +48,11 @@ public extension Character {
 		return String(self) == String(self).lowercased()
 	}
 	
+    /// SwifterSwift: Check if character is white space.
+    public var isWhiteSpace: Bool {
+        return String(self) == " "
+    }
+    
 	/// SwifterSwift: Integer from character (if applicable).
 	public var int: Int? {
 		return Int(String(self))
@@ -53,6 +63,16 @@ public extension Character {
 		return String(self)
 	}
 	
+    /// SwifterSwift: Return the character lowercased.
+    public var lowercased: Character {
+        return String(self).lowercased().characters.first!
+    }
+    
+    /// SwifterSwift: Return the character uppercased.
+    public var uppercased: Character {
+        return String(self).uppercased().characters.first!
+    }
+    
 }
 
 
