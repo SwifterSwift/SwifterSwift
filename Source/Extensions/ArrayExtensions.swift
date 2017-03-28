@@ -49,7 +49,7 @@ public extension Array {
 	/// - Parameter index: index of element.
 	/// - Returns: optional element (if exists).
 	public func item(at index: Int) -> Element? {
-		guard startIndex...endIndex ~= index else { return nil }
+		guard startIndex..<endIndex ~= index else { return nil }
 		return self[index]
 	}
 	
@@ -81,8 +81,8 @@ public extension Array {
 	///   - otherIndex: index of other element.
 	public mutating func safeSwap(from index: Int, to otherIndex: Int)  {
 		guard index != otherIndex,
-              startIndex...endIndex ~= index,
-              startIndex...endIndex ~= otherIndex else { return }
+              startIndex..<endIndex ~= index,
+              startIndex..<endIndex ~= otherIndex else { return }
         
 		Swift.swap(&self[index], &self[otherIndex])
 	}
@@ -90,16 +90,16 @@ public extension Array {
 	/// SwifterSwift: Swap values at index positions.
 	///
 	/// - Parameters:
-	///   - from: index of first element.
-	///   - to: index of other element.
+	///   - index: index of first element.
+	///   - otherIndex: index of other element.
 	public mutating func swap(from index: Int, to otherIndex: Int)  {
 		Swift.swap(&self[index], &self[otherIndex])
 	}
     
     /// SwifterSwift: Get first index where condition is met.
     ///
-    /// - Parameter where: condition to evaluate each element against.
-    /// - Returns: first index where the specified condition evaluates to true.
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: first index where the specified condition evaluates to true. (optional)
     public func firstIndex(where condition: (Element) -> Bool) -> Int? {
         for (index, value) in lazy.enumerated() {
             if condition(value) { return index }
@@ -109,8 +109,8 @@ public extension Array {
     
     /// SwifterSwift: Get last index where condition is met.
     ///
-    /// - Parameter where: condition to evaluate each element against.
-    /// - Returns: last index where the specified condition evaluates to true.
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: last index where the specified condition evaluates to true. (optional)
     public func lastIndex(where condition: (Element) -> Bool) -> Int? {
         for (index, value) in lazy.enumerated().reversed() {
             if condition(value) { return index }
@@ -120,19 +120,19 @@ public extension Array {
     
     /// SwifterSwift: Get all indices where condition is met.
     ///
-    /// - Parameter where: condition to evaluate each element against.
-    /// - Returns: all indices where the specified condition evaluates to true.
-    public func indices(where conditon: (Element) -> Bool) -> [Int]? {
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: all indices where the specified condition evaluates to true. (optional)
+    public func indices(where condition: (Element) -> Bool) -> [Int]? {
         var indicies: [Int] = []
         for (index, value) in lazy.enumerated() {
-            if conditon(value) { indicies.append(index) }
+            if condition(value) { indicies.append(index) }
         }
         return indicies.isEmpty ? nil : indicies
     }
     
     /// SwifterSwift: Check if all elements in array match a conditon.
     ///
-    /// - Parameter match: condition to evaluate each element against.
+    /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when all elements in the array match the specified condition.
     public func all(match condition: (Element) -> Bool) -> Bool {
         return !contains { !condition($0) }
@@ -140,7 +140,7 @@ public extension Array {
     
     /// SwifterSwift: Check if no elements in array match a conditon.
     ///
-    /// - Parameter match: condition to evaluate each element against.
+    /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when no elements in the array match the specified condition.
     public func none(match condition: (Element) -> Bool) -> Bool {
         return !contains { condition($0) }
@@ -148,8 +148,8 @@ public extension Array {
     
     /// SwifterSwift: Get last element that satisfies a conditon.
     ///
-    /// - Parameter where: condition to evaluate each element against.
-    /// - Returns: the last element in the array matching the specified condition.
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: the last element in the array matching the specified condition. (optional)
     public func last(where condition: (Element) -> Bool) -> Element? {
         for element in reversed() where condition(element) { return element }
         return nil
@@ -157,7 +157,7 @@ public extension Array {
     
     /// SwifterSwift: Filter elements based on a rejection condition.
     ///
-    /// - Parameter: condition to evaluate the exclusion of an element from the array.
+    /// - Parameter condition: to evaluate the exclusion of an element from the array.
     /// - Returns: the array with rejected values filtered from it.
     public func reject(where condition: (Element) -> Bool) -> [Element] {
         return filter { return !condition($0) }
@@ -165,7 +165,7 @@ public extension Array {
     
     /// SwifterSwift: Get element count based on condition.
     ///
-    /// - Parameter where: condition to evaluate each element against.
+    /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: number of times the condition evaluated to true.
     public func count(where condition: (Element) -> Bool) -> Int {
         var count = 0
@@ -194,7 +194,6 @@ public extension Array {
             return runningTotal
         }
     }
-
 }
 
 
