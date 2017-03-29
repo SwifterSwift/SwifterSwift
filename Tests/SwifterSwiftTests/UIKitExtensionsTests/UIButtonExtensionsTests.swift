@@ -58,8 +58,8 @@ class UIButtonExtensionsTests: XCTestCase {
 		let button = UIButton()
 		XCTAssertEqual(button.titleColorForDisabled, button.titleColor(for: .disabled))
 		
-		button.titleColorForDisabled = .black
-		XCTAssertEqual(button.titleColorForDisabled, .black)
+		button.titleColorForDisabled = .green
+		XCTAssertEqual(button.titleColorForDisabled, .green)
 	}
 	
 	func testTitleColorForHighlighted() {
@@ -67,8 +67,8 @@ class UIButtonExtensionsTests: XCTestCase {
 		let button = UIButton()
 		XCTAssertEqual(button.titleColorForHighlighted, button.titleColor(for: .highlighted))
 		
-		button.titleColorForHighlighted = .black
-		XCTAssertEqual(button.titleColorForHighlighted, .black)
+		button.titleColorForHighlighted = .green
+		XCTAssertEqual(button.titleColorForHighlighted, .green)
 	}
 	
 	func testTitleColorForNormal() {
@@ -76,8 +76,8 @@ class UIButtonExtensionsTests: XCTestCase {
 		let button = UIButton()
 		XCTAssertEqual(button.titleColorForNormal, button.titleColor(for: .normal))
 		
-		button.titleColorForNormal = .black
-		XCTAssertEqual(button.titleColorForNormal, .black)
+		button.titleColorForNormal = .green
+		XCTAssertEqual(button.titleColorForNormal, .green)
 	}
 	
 	func testTitleColorForSelected() {
@@ -85,8 +85,8 @@ class UIButtonExtensionsTests: XCTestCase {
 		let button = UIButton()
 		XCTAssertEqual(button.titleColorForSelected, button.titleColor(for: .selected))
 		
-		button.titleColorForSelected = .black
-		XCTAssertEqual(button.titleColorForSelected, .black)
+		button.titleColorForSelected = .green
+		XCTAssertEqual(button.titleColorForSelected, .green)
 	}
 	
 	func testTitleForDisabled() {
@@ -144,7 +144,7 @@ class UIButtonExtensionsTests: XCTestCase {
 	func testSetTitleColorForAllStates() {
 		
 		let button = UIButton()
-		let color = UIColor.white
+		let color = UIColor.green
 		button.setTitleColorForAllStates(color)
 		
 		XCTAssertEqual(button.titleColorForDisabled, color)

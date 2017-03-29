@@ -61,10 +61,10 @@ public extension UIButton {
 	/// SwifterSwift: Title color of disabled state for button; also inspectable from Storyboard.
 	public var titleColorForDisabled: UIColor? {
 		get {
-			return titleColor(for: .highlighted)
+			return titleColor(for: .disabled)
 		}
 		set {
-			setTitleColor(newValue, for: .highlighted)
+			setTitleColor(newValue, for: .disabled)
 		}
 	}
 	
