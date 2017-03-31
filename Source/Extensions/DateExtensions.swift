@@ -49,33 +49,9 @@ public extension Date {
 		return Calendar.current.component(.era, from: self)
 	}
 	
-	/// SwifterSwift: Year.
-	public var year: Int {
-		get {
-			return Calendar.current.component(.year, from: self)
-		}
-		set {
-			if let date = Calendar.current.date(bySetting: .year, value: newValue, of: self) {
-				self = date
-			}
-		}
-	}
-	
 	/// SwifterSwift: Quarter.
 	public var quarter: Int {
 		return Calendar.current.component(.quarter, from: self)
-	}
-	
-	/// SwifterSwift: Month.
-	public var month: Int {
-		get {
-			return Calendar.current.component(.month, from: self)
-		}
-		set {
-			if let date = Calendar.current.date(bySetting: .month, value: newValue, of: self) {
-				self = date
-			}
-		}
 	}
 	
 	/// SwifterSwift: Week of year.
@@ -88,17 +64,29 @@ public extension Date {
 		return Calendar.current.component(.weekOfMonth, from: self)
 	}
 	
-	/// SwifterSwift: Weekday.
-	public var weekday: Int {
-		get {
-			return Calendar.current.component(.weekday, from: self)
-		}
-		set {
-			if let date = Calendar.current.date(bySetting: .weekday, value: newValue, of: self) {
-				self = date
-			}
-		}
-	}
+    /// SwifterSwift: Year.
+    public var year: Int {
+        get {
+            return Calendar.current.component(.year, from: self)
+        }
+        set {
+            if let date = Calendar.current.date(bySetting: .year, value: newValue, of: self) {
+                self = date
+            }
+        }
+    }
+    
+    /// SwifterSwift: Month.
+    public var month: Int {
+        get {
+            return Calendar.current.component(.month, from: self)
+        }
+        set {
+            if let date = Calendar.current.date(bySetting: .month, value: newValue, of: self) {
+                self = date
+            }
+        }
+    }
 	
 	/// SwifterSwift: Day.
 	public var day: Int {
@@ -111,6 +99,18 @@ public extension Date {
 			}
 		}
 	}
+    
+    /// SwifterSwift: Weekday.
+    public var weekday: Int {
+        get {
+            return Calendar.current.component(.weekday, from: self)
+        }
+        set {
+            if let date = Calendar.current.date(bySetting: .weekday, value: newValue, of: self) {
+                self = date
+            }
+        }
+    }
 	
 	/// SwifterSwift: Hour.
 	public var hour: Int {
@@ -202,6 +202,11 @@ public extension Date {
 	public var isInWeekend: Bool {
 		return Calendar.current.isDateInWeekend(self)
 	}
+    
+    /// SwifterSwift: Check if date is within a weekday period.
+    public var isInWeekday: Bool {
+        return !Calendar.current.isDateInWeekend(self)
+    }
 	
 	/// SwifterSwift: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
 	public var iso8601String: String {

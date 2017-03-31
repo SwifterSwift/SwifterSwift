@@ -214,10 +214,57 @@ class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(output.first, 5)
     }
     
+    func testForEachWhere() {
+        let input = [1, 2, 2, 2, 1, 4, 1]
+        var output: [Int] = []
+        input.forEach(where: {$0 % 2 == 0}) { output.append($0 * 2) }
+        XCTAssertEqual(output, [4, 4, 4, 8])
+    }
+    
     func testAccumulate() {
         let input = [1, 2, 3]
         let result = input.accumulate(initial: 0, next: +)
         XCTAssertEqual([1, 3, 6], result)
+    }
+    
+    func testKeepWhile() {
+        var input = [2, 4, 6, 7, 8, 9, 10]
+        input.keep(while: {$0 % 2 == 0 })
+        XCTAssertEqual(input, [2, 4, 6])
+        
+        input = [7, 7, 8, 10]
+        input.keep(while: {$0 % 2 == 0 })
+        XCTAssertEqual(input, [Int]())
+    }
+    
+    func testDropWhile() {
+        var input = [2, 4, 6, 7, 8, 9, 10]
+        input.drop(while: { $0 % 2 == 0 })
+        XCTAssertEqual(input, [7, 8, 9, 10])
+        
+        input = [7, 7, 8, 10, 7]
+        input.drop(while: { $0 % 2 == 0 })
+        XCTAssertEqual(input, [7, 7, 8, 10, 7])
+    }
+    
+    func testTakeWhile() {
+        var input = [2, 4, 6, 7, 8, 9, 10]
+        var output = input.take(while: {$0 % 2 == 0 })
+        XCTAssertEqual(output, [2, 4, 6])
+        
+        input = [7, 7, 8, 10]
+        output = input.take(while: {$0 % 2 == 0 })
+        XCTAssertEqual(output, [Int]())
+    }
+    
+    func testSkipWhile() {
+        var input = [2, 4, 6, 7, 8, 9, 10]
+        var output = input.skip(while: {$0 % 2 == 0 })
+        XCTAssertEqual(output, [7, 8, 9, 10])
+        
+        input = [7, 7, 8, 10]
+        output = input.skip(while: {$0 % 2 == 0 })
+        XCTAssertEqual(output, [7, 7, 8, 10])
     }
 	
 }
