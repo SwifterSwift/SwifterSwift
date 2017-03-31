@@ -237,6 +237,11 @@ class DateExtensionsTests: XCTestCase {
 		let date = Date()
 		XCTAssertEqual(date.isInWeekend, Calendar.current.isDateInWeekend(date))
 	}
+    
+    func testIsInWeekday() {
+        let date = Date()
+        XCTAssertEqual(date.isInWeekday, !Calendar.current.isDateInWeekend(date))
+    }
 	
 	func testIso8601String() {
 		let date = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z

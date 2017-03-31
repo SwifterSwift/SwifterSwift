@@ -177,9 +177,20 @@ public extension Array {
     
     /// SwifterSwift: Iterate over a collection in reverse order. (right to left)
     ///
-    /// - Parameter body: a closure that takes an element of the collection as a parameter.
+    /// - Parameter body: a closure that takes an element of the array as a parameter.
     public func forEachReversed(body: (Element) -> Void) {
         reversed().forEach { body($0) }
+    }
+    
+    
+    /// SwifterSwift: Calls given closure with each element where condition is true.
+    ///
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Parameter body: a closure that takes an element of the array as a parameter.
+    public func forEach(where condition: (Element) -> Bool, body: (Element) -> Void) {
+        for element in self where condition(element) {
+            body(element)
+        }
     }
     
     /// SwifterSwift: Reduces an array while returning each interim combination.
@@ -193,6 +204,57 @@ public extension Array {
             runningTotal = next(runningTotal, element)
             return runningTotal
         }
+    }
+    
+    /// SwifterSwift: Keep elements of Array while condition is true.
+    ///
+    /// - Parameter condition: condition to evaluate each element against.
+    public mutating func keep(while condition: (Element) -> Bool) {
+        for (index, element) in lazy.enumerated() {
+            if !condition(element) {
+                self = Array(self[startIndex..<index])
+                break
+            }
+        }
+    }
+    
+    /// SwifterSwift: Drop elements of Array while condition is true.
+    ///
+    /// - Parameter condition: condition to evaluate each element against.
+    public mutating func drop(while condition: (Element) -> Bool) {
+        for (index, element) in lazy.enumerated() {
+            if !condition(element) {
+                self = Array(self[index..<endIndex])
+                return
+            }
+        }
+        self = []
+    }
+    
+    /// SwifterSwift: Take element of Array while condition is true.
+    ///
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: All elements up until condition evaluates to false.
+    public func take(while condition: (Element) -> Bool) -> [Element] {
+        for (index, element) in lazy.enumerated() {
+            if !condition(element) {
+                return Array(self[startIndex..<index])
+            }
+        }
+        return self
+    }
+    
+    /// SwifterSwift: Skip elements of Array while condition is true.
+    ///
+    /// - Parameter condition: condition to eveluate each element against.
+    /// - Returns: All elements after the condition evaluates to false.
+    public func skip(while condition: (Element) -> Bool) -> [Element] {
+        for (index, element) in lazy.enumerated() {
+            if !condition(element) {
+                return Array(self[index..<endIndex])
+            }
+        }
+        return [Element]()
     }
 }
 
