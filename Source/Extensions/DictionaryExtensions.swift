@@ -20,6 +20,13 @@ public extension Dictionary {
 		return index(forKey: key) != nil
 	}
 	
+    /// SwifterSwift: Remove all keys of the dictionary.
+    ///
+    /// - Parameter keys: keys to be removed
+    mutating func removeAll(keys: [Key]) {
+        keys.forEach({ removeValue(forKey: $0)})
+    }
+    
 	/// SwifterSwift: JSON Data from dictionary.
 	///
 	/// - Parameter prettify: set true to prettify data (default is false).
@@ -45,6 +52,56 @@ public extension Dictionary {
 		return jsonData?.string(encoding: .utf8)
 	}
 	
+    
+    
+    // MARK: - Operators
+    
+    /// SwifterSwift: Merge the keys/values of two dictionaries.
+    ///
+    /// - Parameters:
+    ///   - lhs: dictionary
+    ///   - rhs: dictionary
+    /// - Returns: An dictionary with keys and values from both.
+    static public func +(lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
+        var result = lhs
+        rhs.forEach{ result[$0] = $1 }
+        return result
+    }
+    
+    // MARK: - Operators
+    
+    /// SwifterSwift: Append the keys and values from the second dictionary into the first one.
+    ///
+    /// - Parameters:
+    ///   - lhs: dictionary
+    ///   - rhs: dictionary
+    static public func +=(lhs: inout [Key: Value], rhs: [Key: Value]) {
+        rhs.forEach({ lhs[$0] = $1})
+    }
+    
+    
+    /// SwifterSwift: Remove contained in the array from the dictionary
+    ///
+    /// - Parameters:
+    ///   - lhs: dictionary
+    ///   - rhs: array with the keys to be removed.
+    ///   - Returns: A new dictionary with keys removed.
+    
+    static public func -(lhs: [Key: Value], keys: [Key]) -> [Key: Value]{
+        var result = lhs
+        result.removeAll(keys: keys)
+        return result
+    }
+    
+    /// SwifterSwift: Remove contained in the array from the dictionary
+    ///
+    /// - Parameters:
+    ///   - lhs: dictionary
+    ///   - rhs: array with the keys to be removed.
+    static public func -=(lhs: inout [Key: Value], keys: [Key]) {
+        lhs.removeAll(keys: keys)
+    }
+
 }
 
 
@@ -62,3 +119,4 @@ public extension Dictionary where Key: ExpressibleByStringLiteral {
 	}
 	
 }
+
