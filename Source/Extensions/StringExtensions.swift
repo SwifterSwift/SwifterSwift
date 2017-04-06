@@ -103,9 +103,7 @@ public extension String {
 	/// SwifterSwift: Check if string is valid email format.
 	public var isEmail: Bool {
 		// http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
-		let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-		let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-		return emailTest.evaluate(with: self)
+		return self.matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
 	}
 	
 	/// SwifterSwift: Check if string is a valid URL.
@@ -581,6 +579,15 @@ public extension String {
 		}
 	}
 	
+    /// SwifterSwift: Verify if string matches the regex pattern.
+    /// - Parameter pattern: Pattern to verify.
+    /// - Returns: true if string matches the pattern.
+    func matches(pattern: String) -> Bool {
+        return self.range(of: pattern,
+                              options: String.CompareOptions.regularExpression,
+                              range: nil, locale: nil) != nil
+    }
+
 }
 
 

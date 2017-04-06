@@ -431,6 +431,14 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertEqual("it's easy to encode strings".urlEncoded, "it's%20easy%20to%20encode%20strings")
 	}
 	
+    func testMatches() {
+        XCTAssertTrue("123".matches(pattern: "\\d{3}"))
+        XCTAssertFalse("dasda".matches(pattern: "\\d{3}"))
+        XCTAssertFalse("notanemail.com".matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"))
+        XCTAssertTrue("email@mail.com".matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"))
+    }
+    
+    
 	func testWithoutSpacesAndNewLines() {
 		XCTAssertEqual("Hello \n Test".withoutSpacesAndNewLines, "HelloTest")
 	}
