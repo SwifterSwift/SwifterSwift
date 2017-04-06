@@ -32,7 +32,7 @@ time xcodebuild clean test \
     -scheme 'SwifterSwift iOS' \
     -sdk iphonesimulator10.3 \
     -derivedDataPath $DERIVED_DATA \
-    -destination 'platform=iOS Simulator,name=iPad Pro (12.9 inch),OS=10.3' \
+    -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3' \
     OTHER_SWIFT_FLAGS='-Xfrontend -debug-time-function-bodies' \
     | tee build.log \
     | xcpretty &&
