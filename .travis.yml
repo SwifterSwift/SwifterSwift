@@ -1,10 +1,7 @@
-osx_image: xcode8.2
+osx_image: xcode8.3
 language: objective-c
 before_install:
     - gem install xcpretty
 script: sh build.sh /tmp/SwifterSwift
 after_success:
   - bash <(curl -s https://codecov.io/bash) -D /tmp/SwifterSwift
-before_install:
-  - xcrun simctl delete 22FA2149-1241-469C-BF6D-462D3837DB72
-  - xcrun simctl delete 8188B40E-F57F-4519-AC47-E43D884B9016
