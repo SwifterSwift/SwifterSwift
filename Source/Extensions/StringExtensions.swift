@@ -748,3 +748,11 @@ public extension String {
 	}
 	
 }
+
+public extension Optional where Wrapped == String {
+
+    /// A Boolean value indicating whether a string is `nil` or has no characters.
+    public var isNilOrEmpty: Bool {
+        return self?.isEmpty ?? true
+    }
+}
