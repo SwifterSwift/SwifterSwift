@@ -212,7 +212,7 @@ public extension Date {
 	public var iso8601String: String {
 		// https://github.com/justinmakaila/NSDate-ISO-8601/blob/master/NSDateISO8601.swift
 		let dateFormatter = DateFormatter()
-		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+		dateFormatter.locale = .posix
 		dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
 		
@@ -544,7 +544,7 @@ public extension Date {
 	public init?(iso8601String: String) {
 		// https://github.com/justinmakaila/NSDate-ISO-8601/blob/master/NSDateISO8601.swift
 		let dateFormatter = DateFormatter()
-		dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+		dateFormatter.locale = .posix
 		dateFormatter.timeZone = TimeZone.current
 		dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
 		if let date = dateFormatter.date(from: iso8601String) {
