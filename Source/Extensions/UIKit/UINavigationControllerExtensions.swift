@@ -13,7 +13,7 @@ import UIKit
 // MARK: - Methods
 public extension UINavigationController {
 	
-	///  SwifterSwift: Pop ViewController with completion handler.
+	/// SwifterSwift: Pop ViewController with completion handler.
 	///
 	/// - Parameter completion: optional completion handler (default is nil).
 	public func popViewController(completion: (()->Void)? = nil) {
@@ -23,12 +23,12 @@ public extension UINavigationController {
 		popViewController(animated: true)
 		CATransaction.commit()
 	}
-	
+
 	/// SwifterSwift: Push ViewController with completion handler.
 	///
 	/// - Parameters:
 	///   - viewController: viewController to push.
-	/// - Parameter completion: optional completion handler (default is nil).
+	///   - completion: optional completion handler (default is nil).
 	public func pushViewController(viewController: UIViewController, completion: (()->Void)? = nil)  {
 		// https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
 		CATransaction.begin()

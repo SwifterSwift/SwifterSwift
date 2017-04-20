@@ -13,7 +13,8 @@ import Foundation
 public extension Array where Element: Integer {
 	
 	/// SwifterSwift: Sum of all elements in array.
-	/// Returns: sum of the array's elements (Integer).
+	///
+	/// - Returns: sum of the array's elements.
 	public func sum() -> Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return reduce(0, +)
@@ -26,14 +27,16 @@ public extension Array where Element: Integer {
 public extension Array where Element: FloatingPoint {
 	
 	/// SwifterSwift: Average of all elements in array.
-	/// Returns: average of the array's elements (FloatingPoint).
+	///
+	/// - Returns: average of the array's elements.
 	public func average() -> Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return isEmpty ? 0 : reduce(0, +) / Element(count)
 	}
-	
+
 	/// SwifterSwift: Sum of all elements in array.
-	/// Returns: sum of the array's elements (FloatingPoint).
+	///
+	/// - Returns: sum of the array's elements.
 	public func sum() -> Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return reduce(0, +)
@@ -181,22 +184,23 @@ public extension Array {
     public func forEachReversed(body: (Element) -> Void) {
         reversed().forEach { body($0) }
     }
-    
-    
-    /// SwifterSwift: Calls given closure with each element where condition is true.
+	
+	/// SwifterSwift: Calls given closure with each element where condition is true.
     ///
-    /// - Parameter condition: condition to evaluate each element against.
-    /// - Parameter body: a closure that takes an element of the array as a parameter.
+    /// - Parameters:
+    ///   - condition: condition to evaluate each element against.
+    ///   - body: a closure that takes an element of the array as a parameter.
     public func forEach(where condition: (Element) -> Bool, body: (Element) -> Void) {
         for element in self where condition(element) {
             body(element)
         }
     }
-    
-    /// SwifterSwift: Reduces an array while returning each interim combination.
+	
+	/// SwifterSwift: Reduces an array while returning each interim combination.
     ///
-    /// - Parameter initial: initial value.
-    /// - Parameter next: closure that combines the accumulating value and next element of the array.
+    /// - Parameters:
+    ///   - initial: initial value.
+    ///   - next: closure that combines the accumulating value and next element of the array.
     /// - Returns: an array of the final accumulated value and each interim combination.
     public func accumulate<U>(initial: U, next: (U, Element) -> U) -> [U] {
         var runningTotal = initial
@@ -271,9 +275,10 @@ public extension Array where Element: Equatable {
 			if index != randomIndex { Swift.swap(&self[index], &self[randomIndex]) }
 		}
 	}
-	
+
 	/// SwifterSwift: Shuffled version of array. (Using Fisher-Yates Algorithm)
-	/// Returns: the array with its elements shuffled.
+	///
+	/// - Returns: the array with its elements shuffled.
 	public func shuffled() -> [Element] {
 		var array = self
 		array.shuffle()
@@ -331,9 +336,10 @@ public extension Array where Element: Equatable {
 		// Thanks to https://github.com/sairamkotha for improving the method
 		self = reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
 	}
-	
+
 	/// SwifterSwift: Return array with all duplicate elements removed.
-	/// - Returns: An array of unique elements.
+	///
+	/// - Returns: an array of unique elements.
 	public func duplicatesRemoved() -> [Element] {
 		// Thanks to https://github.com/sairamkotha for improving the property
 		return reduce([]){ ($0 as [Element]).contains($1) ? $0 : $0 + [$1] }

@@ -37,12 +37,10 @@ public extension Collection {
 }
 
 extension Collection where Indices.Iterator.Element == Index {
-	
+
 	/// SwifterSwift: Safe protects the array from out of bounds by use of optional.
 	///
-	///- Parameter index: Index of element to access element.
-	///- Returns: Optional element at index (if applicable).
-	///- Usage: array[safe: index]
+	/// - Parameter index: index of element to access element.
 	public subscript (safe index: Index) -> Generator.Element? {
 		return indices.contains(index) ? self[index] : nil
 	}
@@ -61,9 +59,10 @@ public extension Collection where Index == Int, IndexDistance == Int {
 
 // MARK: - Methods (Integer)
 public extension Collection where Iterator.Element == Int, Index == Int {
-	
+
 	/// SwifterSwift: Average of all elements in array.
-    /// Returns: the average of the array's elements (Double).
+	///
+	/// - Returns: the average of the array's elements.
 	public func average() -> Double {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return isEmpty ? 0 : Double(reduce(0, +)) / Double(endIndex-startIndex)

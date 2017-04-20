@@ -94,10 +94,11 @@ extension Double {
 	public static func random(between min: Double, and max: Double) -> Double {
 		return random(inRange: min...max)
 	}
-	
+
 	/// SwifterSwift: Random double in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.
+	/// - Returns: random double in the given closed range.
 	public static func random(inRange range: ClosedRange<Double>) -> Double {
 		let delta = range.upperBound - range.lowerBound
 		return Double(arc4random()) / Double(UInt64(UINT32_MAX)) * delta + range.lowerBound
@@ -146,7 +147,7 @@ public func ** (lhs: Double, rhs: Double) -> Double {
 prefix operator √
 /// SwifterSwift: Square root of double.
 ///
-/// - Parameter int: double value to find square root for
+/// - Parameter double: double value to find square root for.
 /// - Returns: square root of given double.
 public prefix func √ (double: Double) -> Double {
 	// http://nshipster.com/swift-operators/
@@ -157,8 +158,8 @@ infix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
 /// - Parameters:
-///   - lhs: double number
-///   - rhs: double number
+///   - lhs: double number.
+///   - rhs: double number.
 /// - Returns: tuple of plus-minus operation (example: 2.5 ± 1.5 -> (4, 1)).
 public func ± (lhs: Double, rhs: Double) -> (Double, Double) {
 	// http://nshipster.com/swift-operators/

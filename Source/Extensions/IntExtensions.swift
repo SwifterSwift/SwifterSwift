@@ -7,9 +7,9 @@
 //
 
 #if os(macOS)
-import Cocoa
+	import Cocoa
 #else
-import UIKit
+	import UIKit
 #endif
 
 
@@ -191,6 +191,7 @@ public extension Int {
 	/// SwifterSwift: Random integer in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.
+	/// - Returns: random double in the given closed range.
 	public static func random(inRange range: ClosedRange<Int>) -> Int {
 		let delta = UInt32(range.upperBound - range.lowerBound + 1)
 		return range.lowerBound + Int(arc4random_uniform(delta))
@@ -250,8 +251,8 @@ infix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
 /// - Parameters:
-///   - lhs: integer number
-///   - rhs: integer number
+///   - lhs: integer number.
+///   - rhs: integer number.
 /// - Returns: tuple of plus-minus operation (example: 2 ± 3 -> (5, -1)).
 public func ± (lhs: Int, rhs: Int) -> (Int, Int) {
 	// http://nshipster.com/swift-operators/
