@@ -85,11 +85,10 @@ public extension Dictionary {
     /// - Parameters:
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
-    ///   - Returns: A new dictionary with keys removed.
-    
+    /// - Returns: a new dictionary with keys removed.
     static public func -(lhs: [Key: Value], keys: [Key]) -> [Key: Value]{
         var result = lhs
-        result.removeAll(keys: keys)
+		result.removeAll(keys: keys)
         return result
     }
     
@@ -99,7 +98,7 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
     static public func -=(lhs: inout [Key: Value], keys: [Key]) {
-        lhs.removeAll(keys: keys)
+		lhs.removeAll(keys: keys)
     }
 
 }

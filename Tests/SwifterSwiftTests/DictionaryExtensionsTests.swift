@@ -20,7 +20,7 @@ class DictionaryExtensionsTests: XCTestCase {
 	
     func testRemoveAll() {
         var dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
-        dict.removeAll(keys: ["key1", "key2"])
+		dict.removeAll(keys: ["key1", "key2"])
         XCTAssertTrue(dict.keys.contains("key3"))
         XCTAssertFalse(dict.keys.contains("key1"))
         XCTAssertFalse(dict.keys.contains("key2"))

@@ -94,10 +94,11 @@ extension Float {
 	public static func random(between min: Float, and max: Float) -> Float {
 		return random(inRange: min...max)
 	}
-	
+
 	/// SwifterSwift: Random float in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.
+	/// - Returns: random float in the given closed range.
 	public static func random(inRange range: ClosedRange<Float>) -> Float {
 		let delta = range.upperBound - range.lowerBound
 		return Float(arc4random()) / Float(UInt64(UINT32_MAX)) * delta + range.lowerBound
@@ -146,11 +147,11 @@ public func ** (lhs: Float, rhs: Float) -> Float {
 prefix operator √
 /// SwifterSwift: Square root of float.
 ///
-/// - Parameter int: float value to find square root for
+/// - Parameter float: float value to find square root for
 /// - Returns: square root of given float.
-public prefix func √ (Float: Float) -> Float {
+public prefix func √ (float: Float) -> Float {
 	// http://nshipster.com/swift-operators/
-	return sqrt(Float)
+	return sqrt(float)
 }
 
 infix operator ±
@@ -170,7 +171,7 @@ prefix operator ±
 ///
 /// - Parameter int: float number
 /// - Returns: tuple of plus-minus operation (± 2.5 -> (2.5, -2.5)).
-public prefix func ± (Float: Float) -> (Float, Float) {
+public prefix func ± (float: Float) -> (Float, Float) {
 	// http://nshipster.com/swift-operators/
-	return 0 ± Float
+	return 0 ± float
 }

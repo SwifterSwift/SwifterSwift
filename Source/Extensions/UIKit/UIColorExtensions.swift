@@ -224,32 +224,85 @@ public extension UIColor {
 	/// SwifterSwift: Brand identity color of popular social media platform.
 	public struct social {
 		// https://www.lockedowndesign.com/social-media-colors/
+		
+		/// red: 59, green: 89, blue: 152
 		public static let facebook = UIColor(red: 59, green: 89, blue: 152)
+		
+		/// red: 0, green: 182, blue: 241
 		public static let twitter = UIColor(red: 0, green: 182, blue: 241)
+		
+		/// red: 223, green: 74, blue: 50
 		public static let googlePlus = UIColor(red: 223, green: 74, blue: 50)
+		
+		/// red: 0, green: 123, blue: 182
 		public static let linkedIn = UIColor(red: 0, green: 123, blue: 182)
+		
+		/// red: 69, green: 187, blue: 255
 		public static let vimeo = UIColor(red: 69, green: 187, blue: 255)
+		
+		/// red: 179, green: 18, blue: 23
 		public static let youtube = UIColor(red: 179, green: 18, blue: 23)
+		
+		/// red: 195, green: 42, blue: 163
 		public static let instagram = UIColor(red: 195, green: 42, blue: 163)
+		
+		/// red: 203, green: 32, blue: 39
 		public static let pinterest = UIColor(red: 203, green: 32, blue: 39)
+		
+		/// red: 244, green: 0, blue: 131
 		public static let flickr = UIColor(red: 244, green: 0, blue: 131)
+		
+		/// red: 67, green: 2, blue: 151
 		public static let yahoo = UIColor(red: 67, green: 2, blue: 151)
-		public static let soundCloud = UIColor(red: 255, green: 85, blue: 0)
+		
+		/// red: 67, green: 2, blue: 151
+		public static let soundCloud = UIColor(red: 67, green: 2, blue: 151)
+		
+		/// red: 44, green: 71, blue: 98
 		public static let tumblr = UIColor(red: 44, green: 71, blue: 98)
+		
+		/// red: 252, green: 69, blue: 117
 		public static let foursquare = UIColor(red: 252, green: 69, blue: 117)
+		
+		/// red: 255, green: 176, blue: 0
 		public static let swarm = UIColor(red: 255, green: 176, blue: 0)
+		
+		/// red: 234, green: 76, blue: 137
 		public static let dribbble = UIColor(red: 234, green: 76, blue: 137)
+		
+		/// red: 255, green: 87, blue: 0
 		public static let reddit = UIColor(red: 255, green: 87, blue: 0)
+		
+		/// red: 74, green: 93, blue: 78
 		public static let devianArt = UIColor(red: 74, green: 93, blue: 78)
+		
+		/// red: 238, green: 64, blue: 86
 		public static let pocket = UIColor(red: 238, green: 64, blue: 86)
+		
+		/// red: 170, green: 34, blue: 182
 		public static let quora = UIColor(red: 170, green: 34, blue: 182)
+		
+		/// red: 247, green: 146, blue: 30
 		public static let slideShare = UIColor(red: 247, green: 146, blue: 30)
+		
+		/// red: 0, green: 153, blue: 229
 		public static let px500 = UIColor(red: 0, green: 153, blue: 229)
+		
+		/// red: 223, green: 109, blue: 70
 		public static let listly = UIColor(red: 223, green: 109, blue: 70)
+		
+		/// red: 0, green: 180, blue: 137
 		public static let vine = UIColor(red: 0, green: 180, blue: 137)
+		
+		/// red: 0, green: 175, blue: 240
 		public static let skype = UIColor(red: 0, green: 175, blue: 240)
+		
+		/// red: 235, green: 73, blue: 36
 		public static let stumbleUpon = UIColor(red: 235, green: 73, blue: 36)
+		
+		/// red: 255, green: 252, blue: 0
 		public static let snapchat = UIColor(red: 255, green: 252, blue: 0)
+		
 	}
 }
 

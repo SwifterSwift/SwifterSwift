@@ -580,6 +580,7 @@ public extension String {
 	}
 	
     /// SwifterSwift: Verify if string matches the regex pattern.
+	///
     /// - Parameter pattern: Pattern to verify.
     /// - Returns: true if string matches the pattern.
     func matches(pattern: String) -> Bool {

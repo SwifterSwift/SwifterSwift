@@ -27,13 +27,13 @@ public extension UINavigationBar {
 	
 	/// SwifterSwift: Make navigation bar transparent.
 	///
-	/// - Parameter withTint: tint color (default is .white).
-	public func makeTransparent(withTint: UIColor = .white) {
+	/// - Parameter tint: tint color (default is .white).
+	public func makeTransparent(withTint tint: UIColor = .white) {
 		setBackgroundImage(UIImage(), for: .default)
 		shadowImage = UIImage()
 		isTranslucent = true
-		tintColor = withTint
-		titleTextAttributes = [NSForegroundColorAttributeName: withTint]
+		tintColor = tint
+		titleTextAttributes = [NSForegroundColorAttributeName: tint]
 	}
 	
 	/// SwifterSwift: Set navigationBar background and text colors

@@ -36,7 +36,7 @@ class UINavigationControllerExtensionsTests: XCTestCase {
         
         var completionCalled = false
         
-        navigationController.pushViewController(viewController: vcToPush) {
+        navigationController.pushViewController(vcToPush) {
             completionCalled = true
             XCTAssert(completionCalled)
             XCTAssert(navigationController.viewControllers.count == 1)

@@ -97,13 +97,14 @@ public extension UITableView {
     public func dequeueReusableCell<T: UITableViewCell>(withClass name: T.Type) -> T? {
         return dequeueReusableCell(withIdentifier: String(describing: name)) as? T
     }
-    
-    /// SwiferSwift: Dequeue reusable UITableViewCell using class name for indexPath
-    ///
-    /// - Parameter name: UITableViewCell type
-    /// - Parameter indexPath: Location of cell in tableView
-    /// - Returns: UITableViewCell object with associated class name
-    public func dequeueReusableCell<T: UITableViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
+
+	/// SwiferSwift: Dequeue reusable UITableViewCell using class name for indexPath
+	///
+	/// - Parameters:
+	///   - name: UITableViewCell type.
+	///   - indexPath: location of cell in tableView.
+	/// - Returns: UITableViewCell object with associated class name.
+	public func dequeueReusableCell<T: UITableViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
         return dequeueReusableCell(withIdentifier: String(describing: name), for: indexPath) as! T
     }
     
@@ -111,37 +112,39 @@ public extension UITableView {
     ///
     /// - Parameter name: UITableViewHeaderFooterView type
     /// - Returns: UITableViewHeaderFooterView object with associated class name (optional value)
-    func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withClass name: T.Type) -> T? {
+    public func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withClass name: T.Type) -> T? {
         return dequeueReusableHeaderFooterView(withIdentifier: String(describing: name)) as? T
     }
-    
-    /// SwifterSwift: Register UITableViewHeaderFooterView using class name
-    ///
-    /// - Parameter nib: Nib file used to create the header or footer view
-    /// - Parameter name: UITableViewHeaderFooterView type
-    func register<T: UITableViewHeaderFooterView>(nib: UINib?, withHeaderFooterViewClass name: T.Type) {
+
+	/// SwifterSwift: Register UITableViewHeaderFooterView using class name
+	///
+	/// - Parameters:
+	///   - nib: Nib file used to create the header or footer view.
+	///   - name: UITableViewHeaderFooterView type.
+	public func register<T: UITableViewHeaderFooterView>(nib: UINib?, withHeaderFooterViewClass name: T.Type) {
         register(nib, forHeaderFooterViewReuseIdentifier: String(describing: name))
     }
     
     /// SwifterSwift: Register UITableViewHeaderFooterView using class name
     ///
     /// - Parameter name: UITableViewHeaderFooterView type
-    func register<T: UITableViewHeaderFooterView>(headerFooterViewClassWith name: T.Type) {
+    public func register<T: UITableViewHeaderFooterView>(headerFooterViewClassWith name: T.Type) {
         register(T.self, forHeaderFooterViewReuseIdentifier: String(describing: name))
     }
     
     /// SwifterSwift: Register UITableViewCell using class name
     ///
     /// - Parameter name: UITableViewCell type
-    func register<T: UITableViewCell>(cellWithClass name: T.Type) {
+    public func register<T: UITableViewCell>(cellWithClass name: T.Type) {
         register(T.self, forCellReuseIdentifier: String(describing: name))
     }
-    
-    /// SwifterSwift: Register UITableViewCell using class name
-    ///
-    /// - Parameter nib: Nib file used to create the tableView cell
-    /// - Paramter name: UITableViewCell type
-    func register<T: UITableViewCell>(nib: UINib?, withCellClass name: T.Type) {
+
+	/// SwifterSwift: Register UITableViewCell using class name
+	///
+	/// - Parameters:
+	///   - nib: Nib file used to create the tableView cell.
+	///   - name: UITableViewCell type.
+	public func register<T: UITableViewCell>(nib: UINib?, withCellClass name: T.Type) {
         register(nib, forCellReuseIdentifier: String(describing: name))
     }
 	
