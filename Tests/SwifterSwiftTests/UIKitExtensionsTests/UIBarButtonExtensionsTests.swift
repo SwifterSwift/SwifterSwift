@@ -20,7 +20,7 @@ class UIBarButtonExtensionsTests: XCTestCase {
 		let barButton = UIBarButtonItem()
 		let selector = #selector(testSelector)
 		
-		barButton.addTargetForAction(target: self, action: selector)
+		barButton.addTargetForAction(self, action: selector)
 		
 		let target = barButton.target as? UIBarButtonExtensionsTests
 		

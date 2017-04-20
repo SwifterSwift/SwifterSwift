@@ -81,12 +81,12 @@ public extension UICollectionView {
 	/// SwifterSwift: Dequeue reusable UICollectionReusableView using class name.
 	///
 	/// - Parameters:
-	///   - ofKind: the kind of supplementary view to retrieve. This value is defined by the layout object.
+	///   - kind: the kind of supplementary view to retrieve. This value is defined by the layout object.
 	///   - name: UICollectionReusableView type.
 	///   - indexPath: location of cell in collectionView.
 	/// - Returns: UICollectionReusableView object with associated class name.
-	public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind: String, withClass name: T.Type, for indexPath: IndexPath) -> T {
-        return dequeueReusableSupplementaryView(ofKind: ofKind, withReuseIdentifier: String(describing: name), for: indexPath) as! T
+	public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind kind: String, withClass name: T.Type, for indexPath: IndexPath) -> T {
+        return dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: name), for: indexPath) as! T
     }
 
 	/// SwifterSwift: Register UICollectionReusableView using class name.

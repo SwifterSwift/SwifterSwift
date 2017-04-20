@@ -277,7 +277,7 @@ public extension UIView {
 	/// - Parameters:
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil)
-	public func fadeIn(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+	public func fadeIn(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
 		if isHidden {
 			isHidden = false
 		}
@@ -291,7 +291,7 @@ public extension UIView {
 	/// - Parameters:
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil)
-	public func fadeOut(duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+	public func fadeOut(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
 		if isHidden {
 			isHidden = false
 		}
@@ -303,11 +303,11 @@ public extension UIView {
 	/// SwifterSwift: Load view from nib.
 	///
 	/// - Parameters:
-	///   - named: nib name.
+	///   - name: nib name.
 	///   - bundle: bundle of nib (default is nil).
 	/// - Returns: optional UIView (if applicable).
-	class func loadFromNib(named: String, bundle : Bundle? = nil) -> UIView? {
-		return UINib(nibName: named, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
+	class func loadFromNib(named name: String, bundle : Bundle? = nil) -> UIView? {
+		return UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
 	}
 	
 	/// SwifterSwift: Remove all subviews in view.
@@ -446,7 +446,17 @@ public extension UIView {
 	///   - widthConstant: current view's width
 	///   - heightConstant: current view's height
 	/// - Returns: array of newly added constraints (if applicable).
-	@available(iOS 9, *) @discardableResult public func anchor(top: NSLayoutYAxisAnchor? = nil, left: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, right: NSLayoutXAxisAnchor? = nil, topConstant: CGFloat = 0, leftConstant: CGFloat = 0, bottomConstant: CGFloat = 0, rightConstant: CGFloat = 0, widthConstant: CGFloat = 0, heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
+	@available(iOS 9, *) @discardableResult public func anchor(
+		top: NSLayoutYAxisAnchor? = nil,
+		left: NSLayoutXAxisAnchor? = nil,
+		bottom: NSLayoutYAxisAnchor? = nil,
+		right: NSLayoutXAxisAnchor? = nil,
+		topConstant: CGFloat = 0,
+		leftConstant: CGFloat = 0,
+		bottomConstant: CGFloat = 0,
+		rightConstant: CGFloat = 0,
+		widthConstant: CGFloat = 0,
+		heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		
@@ -483,18 +493,18 @@ public extension UIView {
 	
 	/// SwifterSwift: Anchor center X into current view's superview with a constant margin value.
 	///
-	/// - Parameter withConstant: constant of the anchor constraint.
-	@available(iOS 9, *) public func anchorCenterXToSuperview(withConstant: CGFloat = 0) {
+	/// - Parameter constant: constant of the anchor constraint (default is 0).
+	@available(iOS 9, *) public func anchorCenterXToSuperview(constant: CGFloat = 0) {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		if let anchor = superview?.centerXAnchor {
-			centerXAnchor.constraint(equalTo: anchor, constant: withConstant).isActive = true
+			centerXAnchor.constraint(equalTo: anchor, constant: constant).isActive = true
 		}
 	}
 	
 	/// SwifterSwift: Anchor center Y into current view's superview with a constant margin value.
 	///
-	/// - Parameter withConstant: constant of the anchor constraint.
+	/// - Parameter withConstant: constant of the anchor constraint (default is 0).
 	@available(iOS 9, *) public func anchorCenterYToSuperview(constant: CGFloat = 0) {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false

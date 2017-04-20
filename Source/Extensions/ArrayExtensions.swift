@@ -137,7 +137,7 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when all elements in the array match the specified condition.
-    public func all(match condition: (Element) -> Bool) -> Bool {
+    public func all(matching condition: (Element) -> Bool) -> Bool {
         return !contains { !condition($0) }
     }
     
@@ -145,7 +145,7 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when no elements in the array match the specified condition.
-    public func none(match condition: (Element) -> Bool) -> Bool {
+    public func none(matching condition: (Element) -> Bool) -> Bool {
         return !contains { condition($0) }
     }
     
@@ -181,7 +181,7 @@ public extension Array {
     /// SwifterSwift: Iterate over a collection in reverse order. (right to left)
     ///
     /// - Parameter body: a closure that takes an element of the array as a parameter.
-    public func forEachReversed(body: (Element) -> Void) {
+    public func forEachReversed(_ body: (Element) -> Void) {
         reversed().forEach { body($0) }
     }
 	

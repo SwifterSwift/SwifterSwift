@@ -91,32 +91,85 @@ public extension NSColor {
 	/// SwifterSwift: Brand identity color of popular social media platform.
 	public struct social {
 		// https://www.lockedowndesign.com/social-media-colors/
+		
+		/// red: 59, green: 89, blue: 152
 		public static let facebook = NSColor(red: 59, green: 89, blue: 152)
+		
+		/// red: 0, green: 182, blue: 241
 		public static let twitter = NSColor(red: 0, green: 182, blue: 241)
+		
+		/// red: 223, green: 74, blue: 50
 		public static let googlePlus = NSColor(red: 223, green: 74, blue: 50)
+		
+		/// red: 0, green: 123, blue: 182
 		public static let linkedIn = NSColor(red: 0, green: 123, blue: 182)
+		
+		/// red: 69, green: 187, blue: 255
 		public static let vimeo = NSColor(red: 69, green: 187, blue: 255)
+		
+		/// red: 179, green: 18, blue: 23
 		public static let youtube = NSColor(red: 179, green: 18, blue: 23)
+		
+		/// red: 195, green: 42, blue: 163
 		public static let instagram = NSColor(red: 195, green: 42, blue: 163)
+		
+		/// red: 203, green: 32, blue: 39
 		public static let pinterest = NSColor(red: 203, green: 32, blue: 39)
+		
+		/// red: 244, green: 0, blue: 131
 		public static let flickr = NSColor(red: 244, green: 0, blue: 131)
+		
+		/// red: 67, green: 2, blue: 151
 		public static let yahoo = NSColor(red: 67, green: 2, blue: 151)
-		public static let soundCloud = NSColor(red: 255, green: 85, blue: 0)
+		
+		/// red: 67, green: 2, blue: 151
+		public static let soundCloud = NSColor(red: 67, green: 2, blue: 151)
+		
+		/// red: 44, green: 71, blue: 98
 		public static let tumblr = NSColor(red: 44, green: 71, blue: 98)
+		
+		/// red: 252, green: 69, blue: 117
 		public static let foursquare = NSColor(red: 252, green: 69, blue: 117)
+		
+		/// red: 255, green: 176, blue: 0
 		public static let swarm = NSColor(red: 255, green: 176, blue: 0)
+		
+		/// red: 234, green: 76, blue: 137
 		public static let dribbble = NSColor(red: 234, green: 76, blue: 137)
+		
+		/// red: 255, green: 87, blue: 0
 		public static let reddit = NSColor(red: 255, green: 87, blue: 0)
+		
+		/// red: 74, green: 93, blue: 78
 		public static let devianArt = NSColor(red: 74, green: 93, blue: 78)
+		
+		/// red: 238, green: 64, blue: 86
 		public static let pocket = NSColor(red: 238, green: 64, blue: 86)
+		
+		/// red: 170, green: 34, blue: 182
 		public static let quora = NSColor(red: 170, green: 34, blue: 182)
+		
+		/// red: 247, green: 146, blue: 30
 		public static let slideShare = NSColor(red: 247, green: 146, blue: 30)
+		
+		/// red: 0, green: 153, blue: 229
 		public static let px500 = NSColor(red: 0, green: 153, blue: 229)
+		
+		/// red: 223, green: 109, blue: 70
 		public static let listly = NSColor(red: 223, green: 109, blue: 70)
+		
+		/// red: 0, green: 180, blue: 137
 		public static let vine = NSColor(red: 0, green: 180, blue: 137)
+		
+		/// red: 0, green: 175, blue: 240
 		public static let skype = NSColor(red: 0, green: 175, blue: 240)
+		
+		/// red: 235, green: 73, blue: 36
 		public static let stumbleUpon = NSColor(red: 235, green: 73, blue: 36)
+		
+		/// red: 255, green: 252, blue: 0
 		public static let snapchat = NSColor(red: 255, green: 252, blue: 0)
+		
 	}
 }
 
