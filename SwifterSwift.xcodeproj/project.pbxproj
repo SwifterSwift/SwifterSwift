@@ -245,6 +245,11 @@
 		B0E3B7CA1E559B7800B50FE3 /* UINavigationControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B7C81E559B7800B50FE3 /* UINavigationControllerExtensionsTests.swift */; };
 		B0E3B7CC1E559BCF00B50FE3 /* UINavigationBarExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B7CB1E559BCF00B50FE3 /* UINavigationBarExtensionTests.swift */; };
 		B0E3B7CD1E559BCF00B50FE3 /* UINavigationBarExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E3B7CB1E559BCF00B50FE3 /* UINavigationBarExtensionTests.swift */; };
+		B21CB4BA1EAAED2F00595C76 /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CB4B91EAAED2F00595C76 /* CLLocationExtensions.swift */; };
+		B21CB4BC1EAAFE2100595C76 /* CLLocationExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CB4BB1EAAFE2100595C76 /* CLLocationExtensionsTests.swift */; };
+		B21CB4BD1EAAFF1100595C76 /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CB4B91EAAED2F00595C76 /* CLLocationExtensions.swift */; };
+		B21CB4BE1EAAFF1200595C76 /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CB4B91EAAED2F00595C76 /* CLLocationExtensions.swift */; };
+		B21CB4BF1EAAFF1300595C76 /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B21CB4B91EAAED2F00595C76 /* CLLocationExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -372,6 +377,8 @@
 		B0E3B7C61E559B3100B50FE3 /* UISliderExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISliderExtensionsTests.swift; sourceTree = "<group>"; };
 		B0E3B7C81E559B7800B50FE3 /* UINavigationControllerExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtensionsTests.swift; sourceTree = "<group>"; };
 		B0E3B7CB1E559BCF00B50FE3 /* UINavigationBarExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBarExtensionTests.swift; sourceTree = "<group>"; };
+		B21CB4B91EAAED2F00595C76 /* CLLocationExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationExtensions.swift; sourceTree = "<group>"; };
+		B21CB4BB1EAAFE2100595C76 /* CLLocationExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLLocationExtensionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,6 +499,7 @@
 				07770F591E6A902C003339B2 /* NSViewExtensions.swift */,
 				074821F51E446D4C00B0C580 /* NSAttributedStringExtensions.swift */,
 				074821F61E446D4C00B0C580 /* NSColorExtensions.swift */,
+				B21CB4B91EAAED2F00595C76 /* CLLocationExtensions.swift */,
 			);
 			path = Cocoa;
 			sourceTree = "<group>";
@@ -566,6 +574,7 @@
 				07CBDFDC1E88AA020056E514 /* CGPointExtensionsTests.swift */,
 				07AB1A5F1E448C4500CEF96C /* NSAttributedStringExtensionsTests.swift */,
 				07770F5D1E6A9612003339B2 /* NSViewExtensionsTests.swift */,
+				B21CB4BB1EAAFE2100595C76 /* CLLocationExtensionsTests.swift */,
 			);
 			path = CocoaExtensionsTests;
 			sourceTree = "<group>";
@@ -944,6 +953,7 @@
 				0748225F1E446D4D00B0C580 /* UIAlertControllerExtensions.swift in Sources */,
 				B0C4D1D51E48A52400DACC28 /* UIStoryboardExtensions.swift in Sources */,
 				074822571E446D4D00B0C580 /* StringExtensions.swift in Sources */,
+				B21CB4BA1EAAED2F00595C76 /* CLLocationExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -954,6 +964,7 @@
 				07445BC61E11D1EF000E9A85 /* DateExtensionsTests.swift in Sources */,
 				07AB1A621E448C4500CEF96C /* NSAttributedStringExtensionsTests.swift in Sources */,
 				07AB1A6D1E448CD800CEF96C /* CGSizeExtensionsTests.swift in Sources */,
+				B21CB4BC1EAAFE2100595C76 /* CLLocationExtensionsTests.swift in Sources */,
 				B0E3B7901E52970500B50FE3 /* UIAlertControllerExtensionsTests.swift in Sources */,
 				07445BC81E11D1EF000E9A85 /* DoubleExtensionsTests.swift in Sources */,
 				07445BCB1E11D1EF000E9A85 /* IntExtensionsTests.swift in Sources */,
@@ -1006,6 +1017,7 @@
 				074822491E446D4D00B0C580 /* DictionaryExtensions.swift in Sources */,
 				0748225D1E446D4D00B0C580 /* SwifterSwift.swift in Sources */,
 				074822351E446D4D00B0C580 /* NSAttributedStringExtensions.swift in Sources */,
+				B21CB4BE1EAAFF1200595C76 /* CLLocationExtensions.swift in Sources */,
 				0748224D1E446D4D00B0C580 /* DoubleExtensions.swift in Sources */,
 				074822B51E446D4D00B0C580 /* URLExtensions.swift in Sources */,
 				0748221D1E446D4D00B0C580 /* BoolExtensions.swift in Sources */,
@@ -1038,6 +1050,7 @@
 				074822741E446D4D00B0C580 /* UIImageExtensions.swift in Sources */,
 				074822481E446D4D00B0C580 /* DictionaryExtensions.swift in Sources */,
 				074822641E446D4D00B0C580 /* UIBarButtonItemExtensions.swift in Sources */,
+				B21CB4BD1EAAFF1100595C76 /* CLLocationExtensions.swift in Sources */,
 				074822841E446D4D00B0C580 /* UINavigationControllerExtensions.swift in Sources */,
 				0748225C1E446D4D00B0C580 /* SwifterSwift.swift in Sources */,
 				074822681E446D4D00B0C580 /* UIButtonExtensions.swift in Sources */,
@@ -1124,6 +1137,7 @@
 				0748225E1E446D4D00B0C580 /* SwifterSwift.swift in Sources */,
 				074822361E446D4D00B0C580 /* NSAttributedStringExtensions.swift in Sources */,
 				0748224E1E446D4D00B0C580 /* DoubleExtensions.swift in Sources */,
+				B21CB4BF1EAAFF1300595C76 /* CLLocationExtensions.swift in Sources */,
 				8B4967C81EA8043600091A7D /* LocaleExtensions.swift in Sources */,
 				074822B61E446D4D00B0C580 /* URLExtensions.swift in Sources */,
 				0748221E1E446D4D00B0C580 /* BoolExtensions.swift in Sources */,
