@@ -154,7 +154,9 @@ public extension Array {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: the last element in the array matching the specified condition. (optional)
     public func last(where condition: (Element) -> Bool) -> Element? {
-        for element in reversed() where condition(element) { return element }
+        for element in reversed() {
+          if condition(element) { return element }
+        }
         return nil
     }
     
