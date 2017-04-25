@@ -12,8 +12,6 @@
 [![Swift](https://img.shields.io/badge/Swift-3.1-orange.svg)](https://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-8.3-blue.svg)](https://developer.apple.com/xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
-[![Slack Status](https://swifterswift.herokuapp.com/badge.svg)](https://swifterswift.herokuapp.com/)
-
 
 
 SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.
