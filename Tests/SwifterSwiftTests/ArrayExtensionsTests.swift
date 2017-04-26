@@ -227,6 +227,13 @@ class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual([1, 3, 6], result)
     }
     
+    func testFilteredMap() {
+        let input = [1,2,3,4,5]
+        let result = input.filtered({ $0 % 2 == 0 }) { $0.string }
+        XCTAssertEqual(result.count, 2)
+        XCTAssertEqual(["2", "4"], result)
+    }
+    
     func testKeepWhile() {
         var input = [2, 4, 6, 7, 8, 9, 10]
         input.keep(while: {$0 % 2 == 0 })

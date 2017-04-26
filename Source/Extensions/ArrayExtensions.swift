@@ -212,6 +212,22 @@ public extension Array {
         }
     }
     
+    /// SwifterSwift: Filtered and map in a single operation.
+    ///
+    /// - Parameters:
+    ///   - isIncluded: condition of inclusion to evaluate each element against.
+    ///   - transform: transform element function to evaluate every element.
+    /// - Returns: Return an filtered and mapped array.
+    public func filtered<T>(_ isIncluded: (Element) throws -> Bool, map transform: (Element) throws -> T) rethrows ->  [T] {
+        return try flatMap({
+            if try isIncluded($0) {
+                return try transform($0)
+            }
+            return nil
+        })
+    }
+
+    
     /// SwifterSwift: Keep elements of Array while condition is true.
     ///
     /// - Parameter condition: condition to evaluate each element against.
