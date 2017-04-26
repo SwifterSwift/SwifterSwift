@@ -272,6 +272,8 @@ class ArrayExtensionsTests: XCTestCase {
         input = [7, 7, 8, 10]
         output = input.skip(while: {$0 % 2 == 0 })
         XCTAssertEqual(output, [7, 7, 8, 10])
+      
+        XCTAssertEqual([].skip(while: { $0 % 2 == 0}), [])
     }
 	
 }
