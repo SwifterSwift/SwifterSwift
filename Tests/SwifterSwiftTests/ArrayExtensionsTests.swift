@@ -252,6 +252,10 @@ class ArrayExtensionsTests: XCTestCase {
         input = [7, 7, 8, 10, 7]
         input.drop(while: { $0 % 2 == 0 })
         XCTAssertEqual(input, [7, 7, 8, 10, 7])
+      
+        input = []
+        input.drop(while: { $0 % 2 == 0 })
+        XCTAssertEqual(input, [])
     }
     
     func testTakeWhile() {
@@ -262,6 +266,8 @@ class ArrayExtensionsTests: XCTestCase {
         input = [7, 7, 8, 10]
         output = input.take(while: {$0 % 2 == 0 })
         XCTAssertEqual(output, [Int]())
+      
+        XCTAssertEqual([].take(while: {$0 % 2 == 0 }), [])
     }
     
     func testSkipWhile() {
