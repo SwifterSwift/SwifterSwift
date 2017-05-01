@@ -244,20 +244,6 @@ class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(input, [Int]())
     }
     
-    func testDropWhile() {
-        var input = [2, 4, 6, 7, 8, 9, 10]
-        input.drop(while: { $0 % 2 == 0 })
-        XCTAssertEqual(input, [7, 8, 9, 10])
-        
-        input = [7, 7, 8, 10, 7]
-        input.drop(while: { $0 % 2 == 0 })
-        XCTAssertEqual(input, [7, 7, 8, 10, 7])
-      
-        input = []
-        input.drop(while: { $0 % 2 == 0 })
-        XCTAssertEqual(input, [])
-    }
-    
     func testTakeWhile() {
         var input = [2, 4, 6, 7, 8, 9, 10]
         var output = input.take(while: {$0 % 2 == 0 })

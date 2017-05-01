@@ -240,19 +240,6 @@ public extension Array {
         }
     }
     
-    /// SwifterSwift: Drop elements of Array while condition is true.
-    ///
-    /// - Parameter condition: condition to evaluate each element against.
-    public mutating func drop(while condition: (Element) -> Bool) {
-        for (index, element) in lazy.enumerated() {
-            if !condition(element) {
-                self = Array(self[index..<endIndex])
-                return
-            }
-        }
-        self = []
-    }
-    
     /// SwifterSwift: Take element of Array while condition is true.
     ///
     /// - Parameter condition: condition to evaluate each element against.
