@@ -16,6 +16,8 @@ Pod::Spec.new do |s|
     - Double extensions
     - Float extensions
     - Int extensions
+    - Locale extensions
+    - Optional extensions
     - String extensions
     - URL extensions
     - SwifterSwift
@@ -48,6 +50,7 @@ Pod::Spec.new do |s|
     - CGFloat extensions
     - CGPoint extensions
     - CGSize extensions
+    - CLLocation extensions
     - NSAttributedString extensions
     - NSColor extensions
 

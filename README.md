@@ -17,8 +17,8 @@
 SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.
 
 
-## [Whats New in v1.6.3?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v163)
-v1.6.3 brings more than 20 new extensions, drastically improved tests and minor bug fixes
+## [Whats New in v1.6.4?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v164)
+v1.6.4 brings new extensions, improved tests and minor bug fixes
 
 
 # Requirements:
@@ -119,6 +119,8 @@ Full documentation with code examples is available in the [Docs repo](https://gi
 - [`Double extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DoubleExtensions.md)
 - [`Float extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/FloatExtensions.md)
 - [`Int extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/IntExtensions.md)
+- [`Locale extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/LocaleExtensions.md)
+- [`Optional extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/OptionalExtensions.md)
 - [`String extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/StringExtensions.md)
 - [`URL extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/URLExtensions.md)
 - [`SwifterSwift`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/SwifterSwift.md)
@@ -156,6 +158,7 @@ Full documentation with code examples is available in the [Docs repo](https://gi
 - [`CGFloat extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CGFloatExtensions.md)
 - [`CGPoint extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CGPointExtensions.md)
 - [`CGSize extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CGSizeExtensions.md)
+- [`CLLocation extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CLLocationExtensions.md)
 - [`NSAttributedString extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/Docs/Cocoa/UIKit/NSAttributedStringExtensions.md)
 - [`NSColor extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/NSColorExtensions.md)
 - [`NSView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/NSViewExtensions.md)
