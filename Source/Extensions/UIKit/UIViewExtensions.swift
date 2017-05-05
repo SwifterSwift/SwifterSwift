@@ -306,7 +306,7 @@ public extension UIView {
 	///   - name: nib name.
 	///   - bundle: bundle of nib (default is nil).
 	/// - Returns: optional UIView (if applicable).
-	class func loadFromNib(named name: String, bundle : Bundle? = nil) -> UIView? {
+	public class func loadFromNib(named name: String, bundle : Bundle? = nil) -> UIView? {
 		return UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
 	}
 	

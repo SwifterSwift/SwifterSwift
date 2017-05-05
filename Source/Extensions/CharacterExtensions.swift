@@ -85,7 +85,7 @@ public extension Character {
 	///   - lhs: character to repeat.
 	///   - rhs: number of times to repeat character.
 	/// - Returns: string with character repeated n times.
-	static public func * (lhs: Character, rhs: Int) -> String {
+	public static func * (lhs: Character, rhs: Int) -> String {
 		guard rhs > 0 else {
 			return ""
 		}
@@ -98,7 +98,7 @@ public extension Character {
 	///   - lhs: number of times to repeat character.
 	///   - rhs: character to repeat.
 	/// - Returns: string with character repeated n times.
-	static public func * (lhs: Int, rhs: Character) -> String {
+	public static func * (lhs: Int, rhs: Character) -> String {
 		guard lhs > 0 else {
 			return ""
 		}

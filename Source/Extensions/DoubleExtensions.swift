@@ -83,7 +83,7 @@ public extension Double {
 
 
 // MARK: - Methods
-extension Double {
+public extension Double {
 	
 	/// SwifterSwift: Random double between two double values.
 	///
