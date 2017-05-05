@@ -63,7 +63,7 @@ public extension NSAttributedString {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString colored with given color.
 	public func colored(with color: NSColor) -> NSAttributedString {
-	return applying(attributes: [NSForegroundColorAttributeName: color])
+		return applying(attributes: [NSForegroundColorAttributeName: color])
 	}
 	#else
 	/// SwifterSwift: Add color to NSAttributedString.

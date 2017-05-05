@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "SwifterSwift"
-  s.version = "1.6.3"
+  s.version = "1.6.4"
   s.summary = "A handy collection of more than 500 native Swift 3 extensions to boost your productivity."
   s.description = <<-DESC
   SwifterSwift is a collection of over 500 native Swift 3 extensions, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.
@@ -16,6 +16,8 @@ Pod::Spec.new do |s|
     - Double extensions
     - Float extensions
     - Int extensions
+    - Locale extensions
+    - Optional extensions
     - String extensions
     - URL extensions
     - SwifterSwift
@@ -48,6 +50,7 @@ Pod::Spec.new do |s|
     - CGFloat extensions
     - CGPoint extensions
     - CGSize extensions
+    - CLLocation extensions
     - NSAttributedString extensions
     - NSColor extensions
 

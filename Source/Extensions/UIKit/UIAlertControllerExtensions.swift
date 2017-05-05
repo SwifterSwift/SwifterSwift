@@ -35,7 +35,7 @@ public extension UIAlertController {
 	///   - isEnabled: isEnabled status for action (default is true)
 	///   - handler: optional action handler to be called when button is tapped (default is nil)
 	/// - Returns: action created by this method
-	@discardableResult func addAction(title: String, style: UIAlertActionStyle = .default, isEnabled: Bool = true, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
+	@discardableResult public func addAction(title: String, style: UIAlertActionStyle = .default, isEnabled: Bool = true, handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
 		let action = UIAlertAction(title: title, style: style, handler: handler)
 		action.isEnabled = isEnabled
 		addAction(action)
@@ -49,7 +49,7 @@ public extension UIAlertController {
 	///   - placeholder: text field placeholder text (default is nil)
 	///   - editingChangedTarget: an optional target for text field's editingChanged
 	///   - editingChangedSelector: an optional selector for text field's editingChanged
-	func addTextField(text: String? = nil, placeholder: String? = nil, editingChangedTarget: Any?, editingChangedSelector: Selector?) {
+	public func addTextField(text: String? = nil, placeholder: String? = nil, editingChangedTarget: Any?, editingChangedSelector: Selector?) {
 		addTextField { tf in
 			tf.text = text
 			tf.placeholder = placeholder
@@ -63,7 +63,7 @@ public extension UIAlertController {
 
 
 // MARK: - Initializers
-extension UIAlertController {
+public extension UIAlertController {
 	
 	/// SwifterSwift: Create new alert view controller with default OK action.
 	///

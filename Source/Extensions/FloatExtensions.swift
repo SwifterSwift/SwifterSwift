@@ -83,7 +83,7 @@ public extension Float {
 
 
 // MARK: - Methods
-extension Float {
+public extension Float {
 	
 	/// SwifterSwift: Random float between two float values.
 	///

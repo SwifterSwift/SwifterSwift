@@ -601,7 +601,7 @@ public extension String {
 	///   - lhs: string to repeat.
 	///   - rhs: number of times to repeat character.
 	/// - Returns: new string with given string repeated n times.
-	static public func * (lhs: String, rhs: Int) -> String {
+	public static func * (lhs: String, rhs: Int) -> String {
 		guard rhs > 0 else {
 			return ""
 		}
@@ -614,7 +614,7 @@ public extension String {
 	///   - lhs: number of times to repeat character.
 	///   - rhs: string to repeat.
 	/// - Returns: new string with given string repeated n times.
-	static public func * (lhs: Int, rhs: String) -> String {
+	public static func * (lhs: Int, rhs: String) -> String {
 		guard lhs > 0 else {
 			return ""
 		}
@@ -684,7 +684,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: NSColor) -> NSAttributedString {
-	return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
 	}
 	#else
 	/// SwifterSwift: Add color to string.
