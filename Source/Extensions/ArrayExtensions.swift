@@ -103,9 +103,9 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: first index where the specified condition evaluates to true. (optional)
-    public func firstIndex(where condition: (Element) -> Bool) -> Int? {
+    public func firstIndex(where condition: (Element) throws -> Bool) rethrows -> Int? {
         for (index, value) in lazy.enumerated() {
-            if condition(value) { return index }
+            if try condition(value) { return index }
         }
         return nil
     }
@@ -114,9 +114,9 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: last index where the specified condition evaluates to true. (optional)
-    public func lastIndex(where condition: (Element) -> Bool) -> Int? {
+    public func lastIndex(where condition: (Element) throws -> Bool) rethrows -> Int? {
         for (index, value) in lazy.enumerated().reversed() {
-            if condition(value) { return index }
+            if try condition(value) { return index }
         }
         return nil
     }
@@ -125,10 +125,10 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: all indices where the specified condition evaluates to true. (optional)
-    public func indices(where condition: (Element) -> Bool) -> [Int]? {
+    public func indices(where condition: (Element) throws -> Bool) rethrows -> [Int]? {
         var indicies: [Int] = []
         for (index, value) in lazy.enumerated() {
-            if condition(value) { indicies.append(index) }
+            if try condition(value) { indicies.append(index) }
         }
         return indicies.isEmpty ? nil : indicies
     }
@@ -137,25 +137,25 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when all elements in the array match the specified condition.
-    public func all(matching condition: (Element) -> Bool) -> Bool {
-        return !contains { !condition($0) }
+    public func all(matching condition: (Element) throws -> Bool) rethrows -> Bool {
+        return try !contains { try !condition($0) }
     }
     
     /// SwifterSwift: Check if no elements in array match a conditon.
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when no elements in the array match the specified condition.
-    public func none(matching condition: (Element) -> Bool) -> Bool {
-        return !contains { condition($0) }
+    public func none(matching condition: (Element) throws -> Bool) rethrows -> Bool {
+        return try !contains { try condition($0) }
     }
     
     /// SwifterSwift: Get last element that satisfies a conditon.
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: the last element in the array matching the specified condition. (optional)
-    public func last(where condition: (Element) -> Bool) -> Element? {
+    public func last(where condition: (Element) throws -> Bool) rethrows -> Element? {
         for element in reversed() {
-          if condition(element) { return element }
+          if try condition(element) { return element }
         }
         return nil
     }
@@ -164,18 +164,18 @@ public extension Array {
     ///
     /// - Parameter condition: to evaluate the exclusion of an element from the array.
     /// - Returns: the array with rejected values filtered from it.
-    public func reject(where condition: (Element) -> Bool) -> [Element] {
-        return filter { return !condition($0) }
+    public func reject(where condition: (Element) throws -> Bool) rethrows -> [Element] {
+        return try filter { return try !condition($0) }
     }
     
     /// SwifterSwift: Get element count based on condition.
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: number of times the condition evaluated to true.
-    public func count(where condition: (Element) -> Bool) -> Int {
+    public func count(where condition: (Element) throws -> Bool) rethrows -> Int {
         var count = 0
         for element in self {
-            if condition(element) { count += 1 }
+            if try condition(element) { count += 1 }
         }
         return count
     }
@@ -183,8 +183,8 @@ public extension Array {
     /// SwifterSwift: Iterate over a collection in reverse order. (right to left)
     ///
     /// - Parameter body: a closure that takes an element of the array as a parameter.
-    public func forEachReversed(_ body: (Element) -> Void) {
-        reversed().forEach { body($0) }
+    public func forEachReversed(_ body: (Element) throws -> Void) rethrows {
+        try reversed().forEach { try body($0) }
     }
 	
 	/// SwifterSwift: Calls given closure with each element where condition is true.
@@ -192,9 +192,9 @@ public extension Array {
     /// - Parameters:
     ///   - condition: condition to evaluate each element against.
     ///   - body: a closure that takes an element of the array as a parameter.
-    public func forEach(where condition: (Element) -> Bool, body: (Element) -> Void) {
-        for element in self where condition(element) {
-            body(element)
+    public func forEach(where condition: (Element) throws -> Bool, body: (Element) throws -> Void) rethrows {
+        for element in self where try condition(element) {
+           try body(element)
         }
     }
 	
@@ -204,10 +204,10 @@ public extension Array {
     ///   - initial: initial value.
     ///   - next: closure that combines the accumulating value and next element of the array.
     /// - Returns: an array of the final accumulated value and each interim combination.
-    public func accumulate<U>(initial: U, next: (U, Element) -> U) -> [U] {
+    public func accumulate<U>(initial: U, next: (U, Element) throws -> U) rethrows -> [U] {
         var runningTotal = initial
-        return map { element in
-            runningTotal = next(runningTotal, element)
+        return try map { element in
+            runningTotal = try next(runningTotal, element)
             return runningTotal
         }
     }
@@ -231,9 +231,9 @@ public extension Array {
     /// SwifterSwift: Keep elements of Array while condition is true.
     ///
     /// - Parameter condition: condition to evaluate each element against.
-    public mutating func keep(while condition: (Element) -> Bool) {
+    public mutating func keep(while condition: (Element) throws -> Bool) rethrows {
         for (index, element) in lazy.enumerated() {
-            if !condition(element) {
+            if try !condition(element) {
                 self = Array(self[startIndex..<index])
                 break
             }
@@ -244,9 +244,9 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements up until condition evaluates to false.
-    public func take(while condition: (Element) -> Bool) -> [Element] {
+    public func take(while condition: (Element) throws -> Bool) rethrows -> [Element] {
         for (index, element) in lazy.enumerated() {
-            if !condition(element) {
+            if try !condition(element) {
                 return Array(self[startIndex..<index])
             }
         }
@@ -257,9 +257,9 @@ public extension Array {
     ///
     /// - Parameter condition: condition to eveluate each element against.
     /// - Returns: All elements after the condition evaluates to false.
-    public func skip(while condition: (Element) -> Bool) -> [Element] {
+    public func skip(while condition: (Element) throws-> Bool) rethrows -> [Element] {
         for (index, element) in lazy.enumerated() {
-            if !condition(element) {
+            if try !condition(element) {
                 return Array(self[index..<endIndex])
             }
         }
