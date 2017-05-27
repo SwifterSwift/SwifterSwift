@@ -134,6 +134,11 @@ public extension String {
 		}
 		return url.scheme == "http"
 	}
+    
+    /// SwifterSwift: Check if string is a valid file URL.
+    public var isValidFileUrl: Bool {
+        return URL(string: self)?.isFileURL ?? false
+    }
 	
 	/// SwifterSwift: Check if string contains only numbers.
 	public var isNumeric: Bool {

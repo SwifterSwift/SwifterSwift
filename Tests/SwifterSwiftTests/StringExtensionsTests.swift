@@ -131,6 +131,12 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertFalse("google.com".isValidHttpUrl)
 	}
 	
+    func testIsValidFileURL() {
+        XCTAssertFalse("hello world!".isValidFileUrl)
+        XCTAssert("file://var/folder/file.txt".isValidFileUrl)
+        XCTAssertFalse("google.com".isValidFileUrl)
+    }
+    
 	func testIsNumeric() {
 		XCTAssert("123".isNumeric)
 		XCTAssertFalse("123abc".isNumeric)
