@@ -268,4 +268,13 @@ class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual([].skip(while: { $0 % 2 == 0}), [])
     }
 	
+    
+    func testGroupBy() {
+        let array : [String] = [ "james", "irving", "jordan", "jonshon", "iverson"]
+        let grouped = array.groupByKey { (element) -> String in
+            return String(element.characters.first ?? Character(""))
+        }
+        XCTAssertEqual(grouped["j"] ?? [], [ "james", "jordan", "jonshon" ])
+        XCTAssertEqual(grouped["i"] ?? [], [ "irving", "iverson" ])
+    }
 }
