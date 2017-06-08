@@ -590,4 +590,19 @@ class StringExtensionsTests: XCTestCase {
 			XCTAssertEqual(attrs[NSForegroundColorAttributeName] as! UIColor, UIColor.orange)
 		#endif
 	}
+	
+	func testIsNilOrEmpty() {
+        var test: String?
+        
+		XCTAssertTrue(test.isNilOrEmpty)
+        XCTAssertFalse(!test.isNilOrEmpty)
+        
+        test = ""
+		XCTAssertTrue(test.isNilOrEmpty)
+        XCTAssertFalse(!test.isNilOrEmpty)
+        
+        test = "abc"
+		XCTAssertFalse(test.isNilOrEmpty)
+        XCTAssertTrue(!test.isNilOrEmpty)
+	}
 }
