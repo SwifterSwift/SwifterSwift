@@ -378,12 +378,12 @@ public extension Array where Element: Equatable {
     /// - Parameter getKey: Clousure to define the key for each element.
     /// - Returns: A dictionary with values grouped with keys.
     public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
-        return try reduce([:], { (result, current) -> [K: [Element]] in
-            var group = result
-            let key = try keyForValue(current)
-            group[key] = (group[key] ?? []) + [current]
-            return group
-        })
+        var group : [K: [Element]] = [:]
+        for value in self {
+            let key = try keyForValue(value)
+            group[key] = (group[key] ?? []) + [value]
+        }
+        return group
     }
 
 }
