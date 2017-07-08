@@ -9,7 +9,6 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
-
 // MARK: - Properties
 public extension UITextField {
 	
@@ -40,7 +39,7 @@ public extension UITextField {
 			iconView.tintColor = newValue
 		}
 	}
-	
+
 	@IBInspectable
 	/// SwifterSwift: Right view tint color.
 	public var rightViewTintColor: UIColor? {
@@ -58,8 +57,8 @@ public extension UITextField {
 			iconView.tintColor = newValue
 		}
 	}
-}
 
+}
 
 // MARK: - Methods
 public extension UITextField {
@@ -79,6 +78,15 @@ public extension UITextField {
 		}
 		self.attributedPlaceholder = NSAttributedString(string: holder, attributes: [NSForegroundColorAttributeName: color])
 	}
-	
+  
+  /// SwifterSwift: Add padding to the left of the textfield rect.
+  ///
+  /// - Parameter padding: amount of padding to apply to the left of the textfield rect.
+  public func addPaddingLeft(_ padding: CGFloat) {
+    let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: padding, height: frame.height))
+    leftView = paddingView
+    leftViewMode = .always
+  }
+
 }
 #endif

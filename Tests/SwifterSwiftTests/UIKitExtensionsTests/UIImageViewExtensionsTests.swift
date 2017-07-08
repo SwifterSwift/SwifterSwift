@@ -14,29 +14,31 @@ import XCTest
 class UIImageViewExtensionsTests: XCTestCase {
 	
 	func testDownload() {
+    // Success
 		let imageView = UIImageView()
 		let url = URL(string: "https://developer.apple.com/swift/images/swift-og.png")!
 		let placeHolder = UIImage()
-		var completionCalled = false
+    let downloadExpectation = expectation(description: "Download success")
 		imageView.download(from: url, contentMode: .scaleAspectFill, placeholder: placeHolder) { image in
-			completionCalled = true
-			XCTAssert(completionCalled)
 			XCTAssertEqual(imageView.image, image)
+      downloadExpectation.fulfill()
 		}
 		XCTAssertEqual(imageView.image, placeHolder)
 		XCTAssertEqual(imageView.contentMode, .scaleAspectFill)
-		
+    
+    // Failure
+    let failImageView = UIImageView()
 		let failingURL = URL(string: "https://developer.apple.com/")!
-		var failingCompletionCalled = false
-		imageView.image = nil
-		imageView.download(from: failingURL, contentMode: .center, placeholder: nil) { image in
-			failingCompletionCalled = true
+    let failExpectation = expectation(description: "Download failure")
+		failImageView.image = nil
+		failImageView.download(from: failingURL, contentMode: .center, placeholder: nil) { image in
 			XCTAssertNil(image)
-			XCTAssertNil(imageView.image)
-			XCTAssert(failingCompletionCalled)
+			XCTAssertNil(failImageView.image)
+      failExpectation.fulfill()
 		}
-		XCTAssertEqual(imageView.contentMode, .center)
-		XCTAssertNil(imageView.image)
+		XCTAssertEqual(failImageView.contentMode, .center)
+		XCTAssertNil(failImageView.image)
+    waitForExpectations(timeout: 15, handler: nil)
 	}
 	
 	func testBlur() {
