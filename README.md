@@ -182,7 +182,7 @@ Here are some examples:
 ["h", "e", "l", "l", "o"].indexes(of: "l") -> [2, 3]
 
 // Shuffle an array
-["h", "e", "l", "l", "o"].shuffled = ["e", "l", "o", "l", "h"]
+["h", "e", "l", "l", "o"].shuffled -> ["e", "l", "o", "l", "h"]
 
 // Return random item from an array
 [1, 2, 3, 4, 5].randomItem -> 3
@@ -279,16 +279,16 @@ String.random(ofLength: 10) -> "AhEju28kNl"
 "string👨‍with😍emojis✊🏿".containEmoji -> true
 
 // Subscript strings easily
-"Hello"[2] = "l"
+"Hello"[2] -> "l"
 
 // Slice strings
 let s = "Hello world"
-s.slicing(from: 6, length: 5) // -> "world"
-s.slicing(from: 6, to: 11) // -> "world"
-s.slicing(at: 6) // -> "world"
+s.slicing(from: 6, length: 5) -> "world"
+s.slicing(from: 6, to: 11) -> "world"
+s.slicing(at: 6) -> "world"
 
 // Convert string to numbers
-"12.12".toDouble -> 12.12
+"12.12".double -> 12.12
 
 // Encode and decode URLs
 "it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
@@ -338,19 +338,19 @@ let json = dict.jsonString(prettify: true)
 
 ```swift
 // Return square root of a number
-√ 9 = 3
+√ 9 -> 3
 
 // Return square power of a number
-5 ** 2 = 25
+5 ** 2 -> 25
 
 // Return a number plus or minus another number
-5 ± 2 = (3, 7)
+5 ± 2 -> (3, 7)
 
 // Return random number in range
-Int.randomBetween(min: 1, max: 10) = 6
+Int.randomBetween(min: 1, max: 10) -> 6
 
 // Return roman numeral for a number
-134.romanNumeral = "CXXXIV"
+134.romanNumeral -> "CXXXIV"
 
 // and many others!
 ```
@@ -494,7 +494,7 @@ let scaledImage = image.scaled(toWidth: CGFloat)
 let compressedImage = image.compressd(quality: 0.3)
 
 // get image size
-image.kilobytesSize = 114
+image.kilobytesSize -> 114
 
 // and many others!
 ```
@@ -574,9 +574,9 @@ SwifterSwift has many great extensions for Cocoa too:
 
 ```swift
 // Get distance from another CGPoint.
-point1.distance(from point2) = 12.45
+point1.distance(from point2) -> 12.45
 
-Multiply a CGPoint with a scalar
+// Multiply a CGPoint with a scalar
 result = 5 * point
 
 // and many others!
