@@ -92,5 +92,12 @@ class UITextFieldExtensionsTests: XCTestCase {
 		let emptyColor = textField.attributedPlaceholder?.attribute(NSForegroundColorAttributeName, at: 0, effectiveRange: nil) as? UIColor
 		XCTAssertNil(emptyColor)
 	}
+  
+  func testAddPaddingLeft() {
+    let textfield = UITextField()
+    textfield.frame = CGRect(x: 0, y: 0, width: 100, height: 30)
+    textfield.addPaddingLeft(40)
+    XCTAssertEqual(textfield.leftView?.frame.width, 40)
+  }
 }
 #endif
