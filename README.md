@@ -574,7 +574,7 @@ SwifterSwift has many great extensions for Cocoa too:
 
 ```swift
 // Get distance from another CGPoint.
-point1.distance(from point2) -> 12.45
+point1.distance(from: point2) -> 12.45
 
 // Multiply a CGPoint with a scalar
 result = 5 * point
