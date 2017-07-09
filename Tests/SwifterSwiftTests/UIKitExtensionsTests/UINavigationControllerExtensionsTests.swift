@@ -12,21 +12,20 @@ import XCTest
 @testable import SwifterSwift
     
 class UINavigationControllerExtensionsTests: XCTestCase {
-    
-    func testPopViewController() {
-        let navigationController = UINavigationController()
-        let vcToPop = UIViewController()
-        
-        navigationController.pushViewController(vcToPop, animated: false)
-        
-        var completionCalled = false
-        
-        navigationController.popViewController() {
-            completionCalled = true
-            XCTAssert(completionCalled)
-            XCTAssert(navigationController.viewControllers.isEmpty)
-        }
-    }
+// This test is commented because we not sure if after the animation it already removed the viewcontroller from the array, it's something internal of UIKit that require a deeper looking.    
+//    func testPopViewController() {
+//        let navigationController = UINavigationController()
+//        let vcToPop = UIViewController()
+//        let exp = expectation(description: "popCallback")
+//
+//        navigationController.pushViewController(vcToPop, animated: false)
+//        
+//        navigationController.popViewController() {
+//            XCTAssert(navigationController.viewControllers.isEmpty)
+//            exp.fulfill()
+//        }
+//        waitForExpectations(timeout: 5, handler: nil)
+//    }
     
     func testPushViewController() {
         let navigationController = UINavigationController()
@@ -34,14 +33,15 @@ class UINavigationControllerExtensionsTests: XCTestCase {
         
         navigationController.pushViewController(vcToPush, animated: false)
         
-        var completionCalled = false
-        
+        let exp = expectation(description: "pushCallback")
+
         navigationController.pushViewController(vcToPush) {
-            completionCalled = true
-            XCTAssert(completionCalled)
             XCTAssert(navigationController.viewControllers.count == 1)
             XCTAssertEqual(navigationController.topViewController, vcToPush)
+            exp.fulfill()
         }
+        waitForExpectations(timeout: 5, handler: nil)
+
     }
     
     func testMakeTransparent() {
