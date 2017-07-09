@@ -43,11 +43,12 @@ class UITableViewExtensionsTests: XCTestCase {
 	}
 	
 	func testReloadData() {
-		var completionCalled = false
+        let exp = expectation(description: "reloadCallback")
 		tableView.reloadData {
-			completionCalled = true
-			XCTAssert(completionCalled)
+			XCTAssert(true)
+            exp.fulfill()
 		}
+        waitForExpectations(timeout: 5, handler: nil)
 	}
 	
 	func testRemoveTableFooterView() {
