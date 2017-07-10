@@ -6,7 +6,7 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-#if !os(macOS)
+#if os(iOS) || os(tvOS) || os(watchOS)
 import UIKit
 
 

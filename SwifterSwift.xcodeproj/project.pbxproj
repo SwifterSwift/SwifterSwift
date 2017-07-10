@@ -99,91 +99,69 @@
 		07897FC61F138A3300A3A4E1 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F581F138A3300A3A4E1 /* URLExtensions.swift */; };
 		07897FC71F138A3300A3A4E1 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F581F138A3300A3A4E1 /* URLExtensions.swift */; };
 		07897FC81F138A3300A3A4E1 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5A1F138A3300A3A4E1 /* UIAlertControllerExtensions.swift */; };
-		07897FC91F138A3300A3A4E1 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5A1F138A3300A3A4E1 /* UIAlertControllerExtensions.swift */; };
 		07897FCA1F138A3300A3A4E1 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5A1F138A3300A3A4E1 /* UIAlertControllerExtensions.swift */; };
 		07897FCB1F138A3300A3A4E1 /* UIAlertControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5A1F138A3300A3A4E1 /* UIAlertControllerExtensions.swift */; };
 		07897FCC1F138A3300A3A4E1 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5B1F138A3300A3A4E1 /* UIBarButtonItemExtensions.swift */; };
-		07897FCD1F138A3300A3A4E1 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5B1F138A3300A3A4E1 /* UIBarButtonItemExtensions.swift */; };
 		07897FCE1F138A3300A3A4E1 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5B1F138A3300A3A4E1 /* UIBarButtonItemExtensions.swift */; };
 		07897FCF1F138A3300A3A4E1 /* UIBarButtonItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5B1F138A3300A3A4E1 /* UIBarButtonItemExtensions.swift */; };
 		07897FD01F138A3300A3A4E1 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5C1F138A3300A3A4E1 /* UIButtonExtensions.swift */; };
-		07897FD11F138A3300A3A4E1 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5C1F138A3300A3A4E1 /* UIButtonExtensions.swift */; };
 		07897FD21F138A3300A3A4E1 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5C1F138A3300A3A4E1 /* UIButtonExtensions.swift */; };
 		07897FD31F138A3300A3A4E1 /* UIButtonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5C1F138A3300A3A4E1 /* UIButtonExtensions.swift */; };
 		07897FD41F138A3300A3A4E1 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5D1F138A3300A3A4E1 /* UICollectionViewExtensions.swift */; };
-		07897FD51F138A3300A3A4E1 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5D1F138A3300A3A4E1 /* UICollectionViewExtensions.swift */; };
 		07897FD61F138A3300A3A4E1 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5D1F138A3300A3A4E1 /* UICollectionViewExtensions.swift */; };
 		07897FD71F138A3300A3A4E1 /* UICollectionViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5D1F138A3300A3A4E1 /* UICollectionViewExtensions.swift */; };
 		07897FD81F138A3300A3A4E1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5E1F138A3300A3A4E1 /* UIColorExtensions.swift */; };
-		07897FD91F138A3300A3A4E1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5E1F138A3300A3A4E1 /* UIColorExtensions.swift */; };
 		07897FDA1F138A3300A3A4E1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5E1F138A3300A3A4E1 /* UIColorExtensions.swift */; };
 		07897FDB1F138A3300A3A4E1 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5E1F138A3300A3A4E1 /* UIColorExtensions.swift */; };
 		07897FDC1F138A3300A3A4E1 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5F1F138A3300A3A4E1 /* UIImageExtensions.swift */; };
-		07897FDD1F138A3300A3A4E1 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5F1F138A3300A3A4E1 /* UIImageExtensions.swift */; };
 		07897FDE1F138A3300A3A4E1 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5F1F138A3300A3A4E1 /* UIImageExtensions.swift */; };
 		07897FDF1F138A3300A3A4E1 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F5F1F138A3300A3A4E1 /* UIImageExtensions.swift */; };
 		07897FE01F138A3300A3A4E1 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F601F138A3300A3A4E1 /* UIImageViewExtensions.swift */; };
-		07897FE11F138A3300A3A4E1 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F601F138A3300A3A4E1 /* UIImageViewExtensions.swift */; };
 		07897FE21F138A3300A3A4E1 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F601F138A3300A3A4E1 /* UIImageViewExtensions.swift */; };
 		07897FE31F138A3300A3A4E1 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F601F138A3300A3A4E1 /* UIImageViewExtensions.swift */; };
 		07897FE41F138A3300A3A4E1 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F611F138A3300A3A4E1 /* UILabelExtensions.swift */; };
-		07897FE51F138A3300A3A4E1 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F611F138A3300A3A4E1 /* UILabelExtensions.swift */; };
 		07897FE61F138A3300A3A4E1 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F611F138A3300A3A4E1 /* UILabelExtensions.swift */; };
 		07897FE71F138A3300A3A4E1 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F611F138A3300A3A4E1 /* UILabelExtensions.swift */; };
 		07897FE81F138A3300A3A4E1 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F621F138A3300A3A4E1 /* UINavigationBarExtensions.swift */; };
-		07897FE91F138A3300A3A4E1 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F621F138A3300A3A4E1 /* UINavigationBarExtensions.swift */; };
 		07897FEA1F138A3300A3A4E1 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F621F138A3300A3A4E1 /* UINavigationBarExtensions.swift */; };
 		07897FEB1F138A3300A3A4E1 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F621F138A3300A3A4E1 /* UINavigationBarExtensions.swift */; };
 		07897FEC1F138A3300A3A4E1 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F631F138A3300A3A4E1 /* UINavigationControllerExtensions.swift */; };
-		07897FED1F138A3300A3A4E1 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F631F138A3300A3A4E1 /* UINavigationControllerExtensions.swift */; };
 		07897FEE1F138A3300A3A4E1 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F631F138A3300A3A4E1 /* UINavigationControllerExtensions.swift */; };
 		07897FEF1F138A3300A3A4E1 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F631F138A3300A3A4E1 /* UINavigationControllerExtensions.swift */; };
 		07897FF01F138A3300A3A4E1 /* UINavigationItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F641F138A3300A3A4E1 /* UINavigationItemExtensions.swift */; };
-		07897FF11F138A3300A3A4E1 /* UINavigationItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F641F138A3300A3A4E1 /* UINavigationItemExtensions.swift */; };
 		07897FF21F138A3300A3A4E1 /* UINavigationItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F641F138A3300A3A4E1 /* UINavigationItemExtensions.swift */; };
 		07897FF31F138A3300A3A4E1 /* UINavigationItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F641F138A3300A3A4E1 /* UINavigationItemExtensions.swift */; };
 		07897FF41F138A3300A3A4E1 /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F651F138A3300A3A4E1 /* UISearchBarExtensions.swift */; };
-		07897FF51F138A3300A3A4E1 /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F651F138A3300A3A4E1 /* UISearchBarExtensions.swift */; };
 		07897FF61F138A3300A3A4E1 /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F651F138A3300A3A4E1 /* UISearchBarExtensions.swift */; };
 		07897FF71F138A3300A3A4E1 /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F651F138A3300A3A4E1 /* UISearchBarExtensions.swift */; };
 		07897FF81F138A3300A3A4E1 /* UISegmentedControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F661F138A3300A3A4E1 /* UISegmentedControlExtensions.swift */; };
-		07897FF91F138A3300A3A4E1 /* UISegmentedControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F661F138A3300A3A4E1 /* UISegmentedControlExtensions.swift */; };
 		07897FFA1F138A3300A3A4E1 /* UISegmentedControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F661F138A3300A3A4E1 /* UISegmentedControlExtensions.swift */; };
 		07897FFB1F138A3300A3A4E1 /* UISegmentedControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F661F138A3300A3A4E1 /* UISegmentedControlExtensions.swift */; };
 		07897FFC1F138A3300A3A4E1 /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F671F138A3300A3A4E1 /* UISliderExtensions.swift */; };
-		07897FFD1F138A3300A3A4E1 /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F671F138A3300A3A4E1 /* UISliderExtensions.swift */; };
 		07897FFE1F138A3300A3A4E1 /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F671F138A3300A3A4E1 /* UISliderExtensions.swift */; };
 		07897FFF1F138A3300A3A4E1 /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F671F138A3300A3A4E1 /* UISliderExtensions.swift */; };
 		078980001F138A3300A3A4E1 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F681F138A3300A3A4E1 /* UIStoryboardExtensions.swift */; };
-		078980011F138A3300A3A4E1 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F681F138A3300A3A4E1 /* UIStoryboardExtensions.swift */; };
 		078980021F138A3300A3A4E1 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F681F138A3300A3A4E1 /* UIStoryboardExtensions.swift */; };
 		078980031F138A3300A3A4E1 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F681F138A3300A3A4E1 /* UIStoryboardExtensions.swift */; };
 		078980041F138A3300A3A4E1 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F691F138A3300A3A4E1 /* UISwitchExtensions.swift */; };
-		078980051F138A3300A3A4E1 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F691F138A3300A3A4E1 /* UISwitchExtensions.swift */; };
 		078980061F138A3300A3A4E1 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F691F138A3300A3A4E1 /* UISwitchExtensions.swift */; };
 		078980071F138A3300A3A4E1 /* UISwitchExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F691F138A3300A3A4E1 /* UISwitchExtensions.swift */; };
 		078980081F138A3300A3A4E1 /* UITabBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6A1F138A3300A3A4E1 /* UITabBarExtensions.swift */; };
-		078980091F138A3300A3A4E1 /* UITabBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6A1F138A3300A3A4E1 /* UITabBarExtensions.swift */; };
 		0789800A1F138A3300A3A4E1 /* UITabBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6A1F138A3300A3A4E1 /* UITabBarExtensions.swift */; };
 		0789800B1F138A3300A3A4E1 /* UITabBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6A1F138A3300A3A4E1 /* UITabBarExtensions.swift */; };
 		0789800C1F138A3300A3A4E1 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6B1F138A3300A3A4E1 /* UITableViewExtensions.swift */; };
-		0789800D1F138A3300A3A4E1 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6B1F138A3300A3A4E1 /* UITableViewExtensions.swift */; };
 		0789800E1F138A3300A3A4E1 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6B1F138A3300A3A4E1 /* UITableViewExtensions.swift */; };
 		0789800F1F138A3300A3A4E1 /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6B1F138A3300A3A4E1 /* UITableViewExtensions.swift */; };
 		078980101F138A3300A3A4E1 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6C1F138A3300A3A4E1 /* UITextFieldExtensions.swift */; };
-		078980111F138A3300A3A4E1 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6C1F138A3300A3A4E1 /* UITextFieldExtensions.swift */; };
 		078980121F138A3300A3A4E1 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6C1F138A3300A3A4E1 /* UITextFieldExtensions.swift */; };
 		078980131F138A3300A3A4E1 /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6C1F138A3300A3A4E1 /* UITextFieldExtensions.swift */; };
 		078980141F138A3300A3A4E1 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6D1F138A3300A3A4E1 /* UITextViewExtensions.swift */; };
-		078980151F138A3300A3A4E1 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6D1F138A3300A3A4E1 /* UITextViewExtensions.swift */; };
 		078980161F138A3300A3A4E1 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6D1F138A3300A3A4E1 /* UITextViewExtensions.swift */; };
 		078980171F138A3300A3A4E1 /* UITextViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6D1F138A3300A3A4E1 /* UITextViewExtensions.swift */; };
 		078980181F138A3300A3A4E1 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6E1F138A3300A3A4E1 /* UIViewControllerExtensions.swift */; };
-		078980191F138A3300A3A4E1 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6E1F138A3300A3A4E1 /* UIViewControllerExtensions.swift */; };
 		0789801A1F138A3300A3A4E1 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6E1F138A3300A3A4E1 /* UIViewControllerExtensions.swift */; };
 		0789801B1F138A3300A3A4E1 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6E1F138A3300A3A4E1 /* UIViewControllerExtensions.swift */; };
 		0789801C1F138A3300A3A4E1 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6F1F138A3300A3A4E1 /* UIViewExtensions.swift */; };
-		0789801D1F138A3300A3A4E1 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6F1F138A3300A3A4E1 /* UIViewExtensions.swift */; };
 		0789801E1F138A3300A3A4E1 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6F1F138A3300A3A4E1 /* UIViewExtensions.swift */; };
 		0789801F1F138A3300A3A4E1 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F6F1F138A3300A3A4E1 /* UIViewExtensions.swift */; };
 		0789802F1F138A5E00A3A4E1 /* ArrayExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078980211F138A5E00A3A4E1 /* ArrayExtensionsTests.swift */; };
@@ -1166,10 +1144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07897FD91F138A3300A3A4E1 /* UIColorExtensions.swift in Sources */,
 				07897F811F138A3300A3A4E1 /* CLLocationExtensions.swift in Sources */,
-				07897FE51F138A3300A3A4E1 /* UILabelExtensions.swift in Sources */,
-				07897FED1F138A3300A3A4E1 /* UINavigationControllerExtensions.swift in Sources */,
 				07897F9D1F138A3300A3A4E1 /* CollectionExtensions.swift in Sources */,
 				07897FB91F138A3300A3A4E1 /* LocaleExtensions.swift in Sources */,
 				07897FC11F138A3300A3A4E1 /* StringExtensions.swift in Sources */,
@@ -1177,40 +1152,21 @@
 				07897F991F138A3300A3A4E1 /* CharacterExtensions.swift in Sources */,
 				07897F791F138A3300A3A4E1 /* CGPointExtensions.swift in Sources */,
 				07897FA91F138A3300A3A4E1 /* DictionaryExtensions.swift in Sources */,
-				07897FD51F138A3300A3A4E1 /* UICollectionViewExtensions.swift in Sources */,
 				07897F891F138A3300A3A4E1 /* NSColorExtensions.swift in Sources */,
 				07897F7D1F138A3300A3A4E1 /* CGSizeExtensions.swift in Sources */,
 				07897FA51F138A3300A3A4E1 /* DateExtensions.swift in Sources */,
-				0789800D1F138A3300A3A4E1 /* UITableViewExtensions.swift in Sources */,
 				07897FB51F138A3300A3A4E1 /* IntExtensions.swift in Sources */,
-				07897FFD1F138A3300A3A4E1 /* UISliderExtensions.swift in Sources */,
-				078980051F138A3300A3A4E1 /* UISwitchExtensions.swift in Sources */,
-				078980111F138A3300A3A4E1 /* UITextFieldExtensions.swift in Sources */,
-				07897FF91F138A3300A3A4E1 /* UISegmentedControlExtensions.swift in Sources */,
 				07897F8D1F138A3300A3A4E1 /* NSViewExtensions.swift in Sources */,
-				0789801D1F138A3300A3A4E1 /* UIViewExtensions.swift in Sources */,
 				07897FB11F138A3300A3A4E1 /* FloatExtensions.swift in Sources */,
 				07897FBD1F138A3300A3A4E1 /* OptionalExtensions.swift in Sources */,
 				07897F711F138A3300A3A4E1 /* CGColorExtensions.swift in Sources */,
-				078980191F138A3300A3A4E1 /* UIViewControllerExtensions.swift in Sources */,
-				07897FCD1F138A3300A3A4E1 /* UIBarButtonItemExtensions.swift in Sources */,
-				07897FF51F138A3300A3A4E1 /* UISearchBarExtensions.swift in Sources */,
-				07897FF11F138A3300A3A4E1 /* UINavigationItemExtensions.swift in Sources */,
 				07897F951F138A3300A3A4E1 /* BoolExtensions.swift in Sources */,
 				078980E21F138B7900A3A4E1 /* SwifterSwift.swift in Sources */,
 				07897FAD1F138A3300A3A4E1 /* DoubleExtensions.swift in Sources */,
 				07897FA11F138A3300A3A4E1 /* DataExtensions.swift in Sources */,
-				07897FD11F138A3300A3A4E1 /* UIButtonExtensions.swift in Sources */,
-				07897FDD1F138A3300A3A4E1 /* UIImageExtensions.swift in Sources */,
-				078980091F138A3300A3A4E1 /* UITabBarExtensions.swift in Sources */,
-				078980011F138A3300A3A4E1 /* UIStoryboardExtensions.swift in Sources */,
-				078980151F138A3300A3A4E1 /* UITextViewExtensions.swift in Sources */,
-				07897FE11F138A3300A3A4E1 /* UIImageViewExtensions.swift in Sources */,
 				07897FC51F138A3300A3A4E1 /* URLExtensions.swift in Sources */,
-				07897FE91F138A3300A3A4E1 /* UINavigationBarExtensions.swift in Sources */,
 				07897F911F138A3300A3A4E1 /* ArrayExtensions.swift in Sources */,
 				07897F851F138A3300A3A4E1 /* NSAttributedStringExtensions.swift in Sources */,
-				07897FC91F138A3300A3A4E1 /* UIAlertControllerExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
