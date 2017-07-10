@@ -9,7 +9,6 @@ rm -rf $DERIVED_DATA &&
 time xcodebuild clean test \
     -project SwifterSwift.xcodeproj \
     -scheme 'SwifterSwift macOS' \
-    -sdk macosx10.12 \
     -derivedDataPath $DERIVED_DATA \
     | tee build.log \
     | xcpretty &&
