@@ -7,9 +7,9 @@
 //
 
 #if os(macOS)
-import Cocoa
+	import Cocoa
 #else
-import UIKit
+	import UIKit
 #endif
 
 
@@ -94,7 +94,7 @@ public extension Double {
 	public static func random(between min: Double, and max: Double) -> Double {
 		return random(inRange: min...max)
 	}
-
+	
 	/// SwifterSwift: Random double in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.

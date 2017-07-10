@@ -7,11 +7,11 @@
 //
 
 #if os(macOS)
-import Cocoa
+	import Cocoa
 #elseif os(watchOS)
-import WatchKit
+	import WatchKit
 #else
-import UIKit
+	import UIKit
 #endif
 
 // MARK: - Properties

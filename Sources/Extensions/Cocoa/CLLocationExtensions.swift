@@ -6,7 +6,6 @@
 //  Copyright © 2017 omaralbeik. All rights reserved.
 //
 
-import Foundation
 import CoreLocation
 
 

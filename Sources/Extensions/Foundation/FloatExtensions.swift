@@ -7,9 +7,9 @@
 //
 
 #if os(macOS)
-import Cocoa
+	import Cocoa
 #else
-import UIKit
+	import UIKit
 #endif
 
 
@@ -94,7 +94,7 @@ public extension Float {
 	public static func random(between min: Float, and max: Float) -> Float {
 		return random(inRange: min...max)
 	}
-
+	
 	/// SwifterSwift: Random float in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.
