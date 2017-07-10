@@ -26,9 +26,25 @@ public extension Array where Element: Integer {
 // MARK: - Methods (FloatingPoint)
 public extension Array where Element: FloatingPoint {
 	
-	/// SwifterSwift: Average of all elements in array.
-	///
-	/// - Returns: average of the array's elements.
+    /**
+     
+     Sum of all elements in array.
+     
+     - Example:
+     
+     
+     ````
+     
+     [1, 2, 3, 4, 5].average // average == 3.0
+     [1.2, 2.3, 4.5, 3.4, 4.5].average // average == 3.18
+     
+     
+     ````
+     
+     * Availability: iOS 8+ tvOS 9+ watchOS 3+ macOS 10.10+
+     
+     - Returns: sum of the array's elements.
+     */
 	public func average() -> Element {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return isEmpty ? 0 : reduce(0, +) / Element(count)
