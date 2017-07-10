@@ -80,7 +80,6 @@ let package = Package(
 Add the [extensions](Sources/Extensions) folder to your Xcode project to use all extensions, or a specific extension.
 
 
----
 
 
 ## List of All Extensions
@@ -140,13 +139,11 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 - [`NSColor extensions`](Sources/Extensions/Cocoa/NSColorExtensions.swift)
 - [`NSView extensions`](Sources/Extensions/Cocoa/NSViewExtensions.swift)
 
----
 
 ### [Misc. Extensions](Sources/Extensions/SwifterSwift.swift)
 
 - [`SwifterSwift`](Sources/Extensions/SwifterSwift.swift)
 
----
 
 
 ## How cool is this?
@@ -155,15 +152,12 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 
 Check [Examples.playground](Examples.playground) for some examples!
 
----
-
 
 ## Get involved:
 
 Your feedback is always appreciated and welcomed.
 Please refer to [contributing guidelines](CONTRIBUTING.md) before participating.
 
----
 
 
 ## Thanks:
