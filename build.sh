@@ -11,29 +11,26 @@ time xcodebuild clean test \
     -scheme 'SwifterSwift macOS' \
     -sdk macosx10.12 \
     -derivedDataPath $DERIVED_DATA \
-    OTHER_SWIFT_FLAGS='-Xfrontend -debug-time-function-bodies' \
     | tee build.log \
     | xcpretty &&
-cat build.log | sh debug-time-function-bodies.sh &&
+cat build.log &&
 rm -rf $DERIVED_DATA &&
 time xcodebuild clean test \
     -project SwifterSwift.xcodeproj \
     -scheme 'SwifterSwift tvOS' \
-    -sdk appletvsimulator10.1 \
+    -sdk appletvsimulator10.2 \
     -derivedDataPath $DERIVED_DATA \
     -destination 'platform=tvOS Simulator,name=Apple TV 1080p' \
-    OTHER_SWIFT_FLAGS='-Xfrontend -debug-time-function-bodies' \
     | tee build.log \
     | xcpretty &&
-cat build.log | sh debug-time-function-bodies.sh &&
+cat build.log &&
 rm -rf $DERIVED_DATA &&
 time xcodebuild clean test \
     -project SwifterSwift.xcodeproj \
     -scheme 'SwifterSwift iOS' \
-    -sdk iphonesimulator10.2 \
+    -sdk iphonesimulator10.3 \
     -derivedDataPath $DERIVED_DATA \
-    -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.2' \
-    OTHER_SWIFT_FLAGS='-Xfrontend -debug-time-function-bodies' \
+    -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3' \
     | tee build.log \
     | xcpretty &&
-cat build.log | sh debug-time-function-bodies.sh
+cat build.log
