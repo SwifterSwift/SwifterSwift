@@ -19,9 +19,25 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.source = { git: "https://github.com/SwifterSwift/SwifterSwift.git", tag: "#{s.version}" }
-  s.source_files = "Source/**/*.swift"
+  s.source_files = "Sources/**/*.swift"
   s.pod_target_xcconfig = {
     'SWIFT_VERSION' => '3.0',
   }
   s.documentation_url = 'https://swifterswift.com/docs'
+
+  # Foundation Extensions
+  s.subspec 'Foundation' do |sp|
+    sp.source_files  = "Sources/Foundation/*.swift"
+  end
+
+  # UIKit Extensions
+  s.subspec 'UIKit' do |sp|
+    sp.source_files  = "Sources/UIKit/*.swift"
+  end
+
+  # Cocoa Extensions
+  s.subspec 'Cocoa' do |sp|
+    sp.source_files  = "Sources/Cocoa/*.swift"
+  end
+
 end
