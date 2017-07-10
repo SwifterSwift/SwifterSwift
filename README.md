@@ -17,16 +17,16 @@
 SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.
 
 
-## [Whats New in v3?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v3
+### [Whats New in v3?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v3)
 
 
-# Requirements:
+## Requirements:
 - **iOS** 8.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+
 - Xcode 8.0+
 - Swift 3.0+
 
 
-# Installation
+## Installation
 
 ### CocoaPods
 
@@ -83,7 +83,9 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 ---
 
 
-# [Foundation Extensions](Sources/Extensions/Foundation)
+## List of All Extensions
+
+### [Foundation Extensions](Sources/Extensions/Foundation)
 
 - [`Array extensions`](Sources/Extensions/Foundation/ArrayExtensions.swift)
 - [`Bool extensions`](Sources/Extensions/Foundation/BoolExtensions.swift)
@@ -101,7 +103,7 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 - [`URL extensions`](Sources/Extensions/Foundation/URLExtensions.swift)
 
 
-# [UIKit Extensions](Sources/Extensions/UIKit)
+### [UIKit Extensions](Sources/Extensions/UIKit)
 
 - [`UIAlertController extensions`](Sources/Extensions/UIKit/UIAlertControllerExtensions.swift)
 - [`UIBarButtonItem extensions`](Sources/Extensions/UIKit/UIBarButtonItemExtensions.swift)
@@ -127,7 +129,7 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 - [`UIViewController extensions`](Sources/Extensions/UIKit/UIViewControllerExtensions.swift)
 
 
-# [Cocoa Extensions](Sources/Extensions/Cocoa)
+### [Cocoa Extensions](Sources/Extensions/Cocoa)
 
 - [`CGColor extensions`](Sources/Extensions/Cocoa/CGColorExtensions.swift)
 - [`CGFloat extensions`](Sources/Extensions/Cocoa/CGFloatExtensions.swift)
@@ -140,14 +142,14 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 
 ---
 
-# [Misc. Extensions](Sources/Extensions/SwifterSwift.swift)
+### [Misc. Extensions](Sources/Extensions/SwifterSwift.swift)
 
 - [`SwifterSwift`](Sources/Extensions/SwifterSwift.swift)
 
 ---
 
 
-# How cool is this?
+## How cool is this?
 
 `SwifterSwift` is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
 
@@ -156,7 +158,7 @@ Check [Examples.playground](Examples.playground) for some examples!
 ---
 
 
-# Get involved:
+## Get involved:
 
 Your feedback is always appreciated and welcomed.
 Please refer to [contributing guidelines](CONTRIBUTING.md) before participating.
@@ -164,7 +166,7 @@ Please refer to [contributing guidelines](CONTRIBUTING.md) before participating.
 ---
 
 
-# Thanks:
+## Thanks:
 
 Special thanks to:
 
