@@ -101,6 +101,7 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 
 <details>
 <summary>Foundation Extensions</summary>
+</br>
 
 - [`Array extensions`](Sources/Extensions/Foundation/ArrayExtensions.swift)
 - [`Bool extensions`](Sources/Extensions/Foundation/BoolExtensions.swift)
@@ -122,6 +123,7 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 
 <details>
 <summary>UIKit Extensions</summary>
+</br>
 
 - [`UIAlertController extensions`](Sources/Extensions/UIKit/UIAlertControllerExtensions.swift)
 - [`UIBarButtonItem extensions`](Sources/Extensions/UIKit/UIBarButtonItemExtensions.swift)
@@ -152,6 +154,7 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 
 <details>
 <summary>Cocoa Extensions</summary>
+</br>
 
 - [`CGColor extensions`](Sources/Extensions/Cocoa/CGColorExtensions.swift)
 - [`CGFloat extensions`](Sources/Extensions/Cocoa/CGFloatExtensions.swift)
@@ -167,6 +170,7 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 
 <details>
 <summary>Misc. Extensions</summary>
+</br>
 
 - [`SwifterSwift`](Sources/Extensions/SwifterSwift.swift)
 
