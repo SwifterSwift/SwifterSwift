@@ -30,7 +30,7 @@ time xcodebuild clean test \
     -scheme 'SwifterSwift iOS' \
     -sdk iphonesimulator10.3 \
     -derivedDataPath $DERIVED_DATA \
-    -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3' \
+    -destination 'platform=iOS Simulator,name=iPhone 7,OS=10.3.1' \
     | tee build.log \
     | xcpretty &&
 cat build.log
