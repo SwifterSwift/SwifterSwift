@@ -28,7 +28,9 @@ SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with han
 
 ## Installation
 
-### CocoaPods
+<details>
+<summary>CocoaPods</summary>
+</br>
 
 To integrate SwifterSwift into your Xcode project using [CocoaPods](http://cocoapods.org), specify it in your `Podfile`:
 
@@ -46,8 +48,12 @@ Then, run the following command:
 $ pod install
 ```
 
+</details>
 
-### Carthage
+
+<details>
+<summary>Carthage</summary>
+</br>
 
 To integrate SwifterSwift into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your `Cartfile`:
 
@@ -57,8 +63,12 @@ github "SwifterSwift/SwifterSwift" ~> 3
 
 Run `carthage update` to build the framework and drag the built `SwifterSwift.framework` into your Xcode project.
 
+</details>
 
-### Swift Package Manager
+
+<details>
+<summary>Swift Package Manager</summary>
+</br>
 
 You can use [The Swift Package Manager](https://swift.org/package-manager) to install `SwifterSwift` by adding the proper description to your `Package.swift` file:
 
@@ -74,17 +84,23 @@ let package = Package(
 )
 ```
 
+</details>
 
-### Manually
+
+<details>
+<summary>Manually</summary>
+</br>
 
 Add the [extensions](Sources/Extensions) folder to your Xcode project to use all extensions, or a specific extension.
 
+</details>
 
 
 
 ## List of All Extensions
 
-### [Foundation Extensions](Sources/Extensions/Foundation)
+<details>
+<summary>Foundation Extensions</summary>
 
 - [`Array extensions`](Sources/Extensions/Foundation/ArrayExtensions.swift)
 - [`Bool extensions`](Sources/Extensions/Foundation/BoolExtensions.swift)
@@ -101,8 +117,11 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 - [`String extensions`](Sources/Extensions/Foundation/StringExtensions.swift)
 - [`URL extensions`](Sources/Extensions/Foundation/URLExtensions.swift)
 
+</details>
 
-### [UIKit Extensions](Sources/Extensions/UIKit)
+
+<details>
+<summary>UIKit Extensions</summary>
 
 - [`UIAlertController extensions`](Sources/Extensions/UIKit/UIAlertControllerExtensions.swift)
 - [`UIBarButtonItem extensions`](Sources/Extensions/UIKit/UIBarButtonItemExtensions.swift)
@@ -127,8 +146,12 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 - [`UIView extensions`](Sources/Extensions/UIKit/UIViewExtensions.swift)
 - [`UIViewController extensions`](Sources/Extensions/UIKit/UIViewControllerExtensions.swift)
 
+</details>
 
-### [Cocoa Extensions](Sources/Extensions/Cocoa)
+
+
+<details>
+<summary>Cocoa Extensions</summary>
 
 - [`CGColor extensions`](Sources/Extensions/Cocoa/CGColorExtensions.swift)
 - [`CGFloat extensions`](Sources/Extensions/Cocoa/CGFloatExtensions.swift)
@@ -139,10 +162,15 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 - [`NSColor extensions`](Sources/Extensions/Cocoa/NSColorExtensions.swift)
 - [`NSView extensions`](Sources/Extensions/Cocoa/NSViewExtensions.swift)
 
+</details>
 
-### [Misc. Extensions](Sources/Extensions/SwifterSwift.swift)
+
+<details>
+<summary>Misc. Extensions</summary>
 
 - [`SwifterSwift`](Sources/Extensions/SwifterSwift.swift)
+
+</details>
 
 
 
