@@ -7,6 +7,7 @@ This document contains information and guidelines about contributing to this pro
 - [Asking Questions](#asking-questions)
 - [Ways to Contribute](#ways-to-contribute)
 - [Adding new Extensions](#adding-new-extensions)
+- [Adding documentation](#adding-documentation)
 - [Reporting Issues](#reporting-issues)
 
 ---
@@ -58,7 +59,7 @@ Please refer to the following rules before submitting a pull request with your n
 - All extensions should follow [Swift API Design Guidelines](https://developer.apple.com/videos/play/wwdc2016/403/)
 - Always declare extensions as **public**.
 - All extensions names should be as clear as possible.
-- All extensions should be well documented.
+- All extensions should be well documented. see [Adding documentation](#adding-documentation)
 - Avoid using custom classes and objects the goal for this library is to extend the standards types available natively in Swift, iOS, macOS, watchOS and tvOS.
 - extensions could be:
  	- enums
@@ -88,6 +89,83 @@ Please refer to the following rules before submitting a pull request with your n
 
 ---
 
+
+## Adding documentation
+
+Use the following template to add documentation for extensions
+> Replace words with <>
+> Remove any extra lines, eg. if method does not return any value, delete the Returns: line
+
+#### Documentation template for units with single parameter:
+
+```swift
+/// **SwifterSwift**: <Description>.
+///
+///		<Example Code>
+///
+/// - Parameter <Paramenter>: <Description>.
+/// - Throws: <Error>
+/// - Returns: <Description>
+```
+
+
+#### Documentation template for units with multiple parameters:
+
+```swift
+/// **SwifterSwift**: <Description>.
+///
+///		<Example Code>
+///
+/// - Parameters:
+///   - <Paramenter>: <Description>.
+///   - <Paramenter>: <Description>.
+/// - Throws: <Error>
+/// - Returns: <Description>
+```
+
+
+#### Documentation template for enums:
+
+```swift
+/// **SwifterSwift**: <Description>.
+///
+/// - <Case1>: <Description>
+/// - <Case2>: <Description>
+/// - <Case3>: <Description>
+/// - <Case4>: <Description>
+```
+
+#### Documentation Examples:
+
+```swift
+
+/// **SwifterSwift**: Sum of all elements in array.
+///
+///		[1, 2, 3, 4, 5].sum() -> 15
+///
+/// - Returns: Sum of the array's elements.
+public func sum() -> Element {
+	// ...
+}
+
+/// **SwifterSwift**: Date by changing value of calendar component.
+///
+/// - Parameters:
+///   - component: component type.
+///   - value: new value of component to change.
+/// - Returns: original date after changing given component to given value.
+public func changing(_ component: Calendar.Component, value: Int) -> Date? {
+	// ...
+}
+
+```
+
+#### Power Tip:
+
+In Xcode select a method and press `command` + `alt` + `/` to create a documentation template!
+
+
+---
 
 ## Reporting Issues
 A great way to contribute to the project is to send a detailed issue when you encounter an problem.
