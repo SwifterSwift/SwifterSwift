@@ -244,6 +244,11 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 Check [Examples.playground](Examples.playground) for some examples!
 
 
+## Documentation
+
+A complete documentation for all extensions with examples is available at [swifterswift.com/docs](http://swifterswift.com/docs)
+
+
 
 ## Get involved:
 
