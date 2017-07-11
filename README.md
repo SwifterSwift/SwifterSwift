@@ -20,10 +20,12 @@ SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with han
 ### [Whats New in v3?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v3)
 
 
+
 ## Requirements:
 - **iOS** 8.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+
 - Xcode 8.0+
 - Swift 3.0+
+
 
 
 ## Installation
@@ -32,13 +34,59 @@ SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with han
 <summary>CocoaPods</summary>
 </br>
 
-To integrate SwifterSwift into your Xcode project using [CocoaPods](http://cocoapods.org), specify it in your `Podfile`:
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+To integrate SwifterSwift into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+### 1. Integrate All extensions:
 
 ```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
     pod 'SwifterSwift'
+end
+```
+
+### 2. Integrate Foundation extensions only:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'SwifterSwift/Foundation'
+end
+```
+
+### 3. Integrate UIKit extensions only:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'SwifterSwift/UIKit'
+end
+```
+
+### 4. Integrate Cocoa extensions only:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '<Your Target Name>' do
+    pod 'SwifterSwift/Cocoa'
 end
 ```
 
@@ -55,10 +103,20 @@ $ pod install
 <summary>Carthage</summary>
 </br>
 
-To integrate SwifterSwift into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your `Cartfile`:
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate SwifterSwift into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "SwifterSwift/SwifterSwift" ~> 3
+github "SwifterSwift/SwifterSwift" ~> 3.0
 ```
 
 Run `carthage update` to build the framework and drag the built `SwifterSwift.framework` into your Xcode project.
@@ -83,6 +141,8 @@ let package = Package(
     ]
 )
 ```
+
+Note that the [Swift Package Manager](https://swift.org/package-manager) is still in early design and development, for more information checkout its [GitHub Page](https://github.com/apple/swift-package-manager)
 
 </details>
 
@@ -151,7 +211,6 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 </details>
 
 
-
 <details>
 <summary>Cocoa Extensions</summary>
 </br>
@@ -185,6 +244,7 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 Check [Examples.playground](Examples.playground) for some examples!
 
 
+
 ## Get involved:
 
 Your feedback is always appreciated and welcomed.
@@ -196,7 +256,7 @@ Please refer to [contributing guidelines](CONTRIBUTING.md) before participating.
 
 Special thanks to:
 
+- [Steven Deutsch](https://github.com/SD10) and [Luciano Almeida](https://github.com/LucianoPAlmeida) for their latest contributions to extensions, docs and tests.
 - [Paweł Urbanek](https://github.com/pawurb) for adding tvOS, watchOS and macOS initial support and helping with extensions.
-- [Steven Deutsch](https://github.com/SD10) for his latest contributions to extensions, docs and tests.
 - [Mert Akengin](https://github.com/PvtMert) and [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing [project website](http://swiftierswift.com) and logo.
 - [Abdul Rahman Dabbour](https://github.com/thedabbour) for helping document the project.
