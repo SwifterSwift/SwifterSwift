@@ -227,7 +227,7 @@ let facebookColor = UIColor.social.facebook
 
 // and many others!
 ```
-[Check UIColor Extensions!](http://swifterswift.com/docs/UIColor)
+[Check UIColor Extensions!](http://swifterswift.com/docs/Extensions/UIColor)
 
 ---
 
@@ -365,7 +365,7 @@ navController.pushViewController(UIViewController, completion: (()->Void)?)
 
 // and many others!
 ```
-[Check UINavigationController Extensions!](http://swifterswift.com/docs/Extensions/UIButton/UINavigationController)
+[Check UINavigationController Extensions!](http://swifterswift.com/docs/Extensions/UINavigationController)
 
 ---
 
