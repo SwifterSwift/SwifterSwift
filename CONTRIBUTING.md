@@ -48,12 +48,12 @@ Please refer to the following rules before submitting a pull request with your n
 - Mention the original source of extension source (if possible) as a comment inside extension:
 
  ```swift
- public extension SomeType {
-	public name: SomeType {
-			// https://stackoverflow.com/somepage
-			// .. code
- 	}
- }
+public extension SomeType {
+    public name: SomeType {
+        // https://stackoverflow.com/somepage
+        // .. code
+    }
+}
  ```
 
 - All extensions should follow [Swift API Design Guidelines](https://developer.apple.com/videos/play/wwdc2016/403/)
@@ -69,21 +69,21 @@ Please refer to the following rules before submitting a pull request with your n
 - Files are named based on the type that the contained extensions extend (example: all String extensions are found in "**StringExtensions.swift**" file)
 - extensions are ordered inside files in the following order:
 
- ```swift
- // MARK: - enums
- public enum {
- 	// ...
- }
+```swift
+// MARK: - enums
+public enum {
+    // ...
+}
 
- // MARK: - Properties
- public extension SomeType {}
+// MARK: - Properties
+public extension SomeType {}
 
- // MARK: - Methods
- public extension SomeType {}
+// MARK: - Methods
+public extension SomeType {}
 
- // MARK: - Initializers
- public extension SomeType {}
- ```
+// MARK: - Initializers
+public extension SomeType {}
+```
 
 - Please add each extension in its appropriate place in the file.
 
@@ -102,7 +102,7 @@ Use the following template to add documentation for extensions
 ```swift
 /// **SwifterSwift**: <Description>.
 ///
-///		<Example Code>
+///    <Example Code>
 ///
 /// - Parameter <Paramenter>: <Description>.
 /// - Throws: <Error>
@@ -115,7 +115,7 @@ Use the following template to add documentation for extensions
 ```swift
 /// **SwifterSwift**: <Description>.
 ///
-///		<Example Code>
+///    <Example Code>
 ///
 /// - Parameters:
 ///   - <Paramenter>: <Description>.
@@ -142,11 +142,11 @@ Use the following template to add documentation for extensions
 
 /// **SwifterSwift**: Sum of all elements in array.
 ///
-///		[1, 2, 3, 4, 5].sum() -> 15
+///    [1, 2, 3, 4, 5].sum() -> 15
 ///
 /// - Returns: Sum of the array's elements.
 public func sum() -> Element {
-	// ...
+    // ...
 }
 
 /// **SwifterSwift**: Date by changing value of calendar component.
@@ -156,7 +156,7 @@ public func sum() -> Element {
 ///   - value: new value of component to change.
 /// - Returns: original date after changing given component to given value.
 public func changing(_ component: Calendar.Component, value: Int) -> Date? {
-	// ...
+    // ...
 }
 
 ```
@@ -179,10 +179,14 @@ Doing this helps prioritize the most common problems and requests.
 
 **When reporting issues, please include the following:**
 
-- The version of Xcode you're using
-- The version of iOS you're targeting
-- The full output of any stack trace or compiler error
-- A code snippet that reproduces the described behavior, if applicable
-- Any other details that would be useful in understanding the problem
+- What did you do?
+- What did you expect to happen?
+- What happened instead?
+- SwifterSwift version
+- Xcode version
+- macOS version running Xcode
+- Swift version
+- Platform(s) running SwifterSwift
+- Demo Project (if available)
 
 This information will help us review and fix your issue faster.
