@@ -93,8 +93,9 @@ Please refer to the following rules before submitting a pull request with your n
 ## Adding documentation
 
 Use the following template to add documentation for extensions
-> Replace words with <>
-> Remove any extra lines, eg. if method does not return any value, delete the Returns: line
+> Replace placeholders inside <>
+
+> Remove any extra lines, eg. if method does not return any value, delete the `- Returns:` line
 
 #### Documentation template for units with single parameter:
 
