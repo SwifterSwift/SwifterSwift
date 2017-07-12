@@ -1,5 +1,7 @@
 # CHANGELOG
-SwifterSwift adheres to [Semantic Versioning](http://semver.org/) for all versions after v1.6.4. All notable changes to this project will be documented in this file.
+SwifterSwift adheres to [Semantic Versioning](http://semver.org/) for all versions after v1.6.4. 
+
+All notable changes to this project will be documented in this file.
 
 # Versions
 
@@ -20,7 +22,7 @@ SwifterSwift adheres to [Semantic Versioning](http://semver.org/) for all versio
     - added `bytes` to return data as an array of bytes. [#171](https://github.com/SwifterSwift/SwifterSwift/pull/171) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 - New **UITextField** extensions
-    - added 'addPaddingLeft` extension to add padding to a UITextField. [#185](https://github.com/SwifterSwift/SwifterSwift/pull/185) by [@SD10](https://github.com/SD10)
+    - added `addPaddingLeft` extension to add padding to a UITextField. [#185](https://github.com/SwifterSwift/SwifterSwift/pull/185) by [@SD10](https://github.com/SD10)
 
 ### Bugfixes
 - Fixes asynchronous `iOS`/`tvOS`/`watchOS` unit tests causing crashes. [#191](https://github.com/SwifterSwift/SwifterSwift/pull/191) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
