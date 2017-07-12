@@ -35,67 +35,61 @@ SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with han
 <summary>CocoaPods</summary>
 </br>
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+<p><a href="http://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. You can install it with the following command:</p>
 
-```bash
-$ gem install cocoapods
-```
+<pre><code class="bash language-bash">$ gem install cocoapods
+</code></pre>
 
-To integrate SwifterSwift into your Xcode project using CocoaPods, specify it in your `Podfile`:
+<p>To integrate SwifterSwift into your Xcode project using CocoaPods, specify it in your <code>Podfile</code>:</p>
 
-### 1. Integrate All extensions:
+<h3 id="1integrateallextensions">1. Integrate All extensions:</h3>
 
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
+<pre><code class="ruby language-ruby">source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-target '<Your Target Name>' do
+target '&lt;Your Target Name&gt;' do
     pod 'SwifterSwift'
 end
-```
+</code></pre>
 
-### 2. Integrate Foundation extensions only:
+<h3 id="2integratefoundationextensionsonly">2. Integrate Foundation extensions only:</h3>
 
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
+<pre><code class="ruby language-ruby">source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-target '<Your Target Name>' do
+target '&lt;Your Target Name&gt;' do
     pod 'SwifterSwift/Foundation'
 end
-```
+</code></pre>
 
-### 3. Integrate UIKit extensions only:
+<h3 id="3integrateuikitextensionsonly">3. Integrate UIKit extensions only:</h3>
 
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
+<pre><code class="ruby language-ruby">source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-target '<Your Target Name>' do
+target '&lt;Your Target Name&gt;' do
     pod 'SwifterSwift/UIKit'
 end
-```
+</code></pre>
 
-### 4. Integrate Cocoa extensions only:
+<h3 id="4integratecocoaextensionsonly">4. Integrate Cocoa extensions only:</h3>
 
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
+<pre><code class="ruby language-ruby">source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-target '<Your Target Name>' do
+target '&lt;Your Target Name&gt;' do
     pod 'SwifterSwift/Cocoa'
 end
-```
+</code></pre>
 
-Then, run the following command:
+<p>Then, run the following command:</p>
 
-```bash
-$ pod install
-```
+<pre><code class="bash language-bash">$ pod install
+</code></pre>
 
 </details>
 
@@ -104,23 +98,20 @@ $ pod install
 <summary>Carthage</summary>
 </br>
 
+<p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.</p>
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+<p>You can install Carthage with <a href="http://brew.sh/">Homebrew</a> using the following command:</p>
 
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
-
-```bash
-$ brew update
+<pre><code class="bash language-bash">$ brew update
 $ brew install carthage
-```
+</code></pre>
 
-To integrate SwifterSwift into your Xcode project using Carthage, specify it in your `Cartfile`:
+<p>To integrate SwifterSwift into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
 
-```ogdl
-github "SwifterSwift/SwifterSwift" ~> 3.0
-```
+<pre><code class="ogdl language-ogdl">github "SwifterSwift/SwifterSwift" ~&gt; 3.0
+</code></pre>
 
-Run `carthage update` to build the framework and drag the built `SwifterSwift.framework` into your Xcode project.
+<p>Run <code>carthage update</code> to build the framework and drag the built <code>SwifterSwift.framework</code> into your Xcode project.</p>
 
 </details>
 
@@ -129,10 +120,9 @@ Run `carthage update` to build the framework and drag the built `SwifterSwift.fr
 <summary>Swift Package Manager</summary>
 </br>
 
-You can use [The Swift Package Manager](https://swift.org/package-manager) to install `SwifterSwift` by adding the proper description to your `Package.swift` file:
+<p>You can use <a href="https://swift.org/package-manager">The Swift Package Manager</a> to install <code>SwifterSwift</code> by adding the proper description to your <code>Package.swift</code> file:</p>
 
-```swift
-import PackageDescription
+<pre><code class="swift language-swift">import PackageDescription
 
 let package = Package(
     name: "YOUR_PROJECT_NAME",
@@ -141,9 +131,9 @@ let package = Package(
         .Package(url: "https://github.com/SwifterSwift/SwifterSwift.git", majorVersion: 3),
     ]
 )
-```
+</code></pre>
 
-Note that the [Swift Package Manager](https://swift.org/package-manager) is still in early design and development, for more information checkout its [GitHub Page](https://github.com/apple/swift-package-manager)
+<p>Note that the <a href="https://swift.org/package-manager">Swift Package Manager</a> is still in early design and development, for more information checkout its <a href="https://github.com/apple/swift-package-manager">GitHub Page</a></p>
 
 </details>
 
@@ -152,7 +142,7 @@ Note that the [Swift Package Manager](https://swift.org/package-manager) is stil
 <summary>Manually</summary>
 </br>
 
-Add the [extensions](Sources/Extensions) folder to your Xcode project to use all extensions, or a specific extension.
+<p>Add the <a href="Sources/Extensions">extensions</a> folder to your Xcode project to use all extensions, or a specific extension.</p>
 
 </details>
 
@@ -164,20 +154,35 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 <summary>Foundation Extensions</summary>
 </br>
 
-- [`Array extensions`](Sources/Extensions/Foundation/ArrayExtensions.swift)
-- [`Bool extensions`](Sources/Extensions/Foundation/BoolExtensions.swift)
-- [`Character extensions`](Sources/Extensions/Foundation/CharacterExtensions.swift)
-- [`Collection extensions`](Sources/Extensions/Foundation/CollectionExtensions.swift)
-- [`Data extensions`](Sources/Extensions/Foundation/DataExtensions.swift)
-- [`Date extensions`](Sources/Extensions/Foundation/DateExtensions.swift)
-- [`Dictionary extensions`](Sources/Extensions/Foundation/DictionaryExtensions.swift)
-- [`Double extensions`](Sources/Extensions/Foundation/DoubleExtensions.swift)
-- [`Float extensions`](Sources/Extensions/Foundation/FloatExtensions.swift)
-- [`Int extensions`](Sources/Extensions/Foundation/IntExtensions.swift)
-- [`Locale extensions`](Sources/Extensions/Foundation/LocaleExtensions.swift)
-- [`Optional extensions`](Sources/Extensions/Foundation/OptionalExtensions.swift)
-- [`String extensions`](Sources/Extensions/Foundation/StringExtensions.swift)
-- [`URL extensions`](Sources/Extensions/Foundation/URLExtensions.swift)
+<ul>
+<li><a href="Sources/Extensions/Foundation/ArrayExtensions.swift"><code>Array extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/BoolExtensions.swift"><code>Bool extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/CharacterExtensions.swift"><code>Character extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/CollectionExtensions.swift"><code>Collection extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/DataExtensions.swift"><code>Data extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/DateExtensions.swift"><code>Date extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/DictionaryExtensions.swift"><code>Dictionary extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/DoubleExtensions.swift"><code>Double extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/FloatExtensions.swift"><code>Float extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/IntExtensions.swift"><code>Int extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/LocaleExtensions.swift"><code>Locale extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/OptionalExtensions.swift"><code>Optional extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/StringExtensions.swift"><code>String extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Foundation/URLExtensions.swift"><code>URL extensions</code></a></li>
+</ul>
 
 </details>
 
@@ -186,28 +191,51 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 <summary>UIKit Extensions</summary>
 </br>
 
-- [`UIAlertController extensions`](Sources/Extensions/UIKit/UIAlertControllerExtensions.swift)
-- [`UIBarButtonItem extensions`](Sources/Extensions/UIKit/UIBarButtonItemExtensions.swift)
-- [`UIButton extensions`](Sources/Extensions/UIKit/UIButtonExtensions.swift)
-- [`UICollectionView extensions`](Sources/Extensions/UIKit/UICollectionViewExtensions.swift)
-- [`UIColor extensions`](Sources/Extensions/UIKit/UIColorExtensions.swift)
-- [`UIImage extensions`](Sources/Extensions/UIKit/UIImageExtensions.swift)
-- [`UIImageView extensions`](Sources/Extensions/UIKit/UIImageViewExtensions.swift)
-- [`UILabel extensions`](Sources/Extensions/UIKit/UILabelExtensions.swift)
-- [`UINavigationBar extensions`](Sources/Extensions/UIKit/UINavigationBarExtensions.swift)
-- [`UINavigationController extensions`](Sources/Extensions/UIKit/UINavigationControllerExtensions.swift)
-- [`UINavigationItem extensions`](Sources/Extensions/UIKit/UINavigationItemExtensions.swift)
-- [`UISearchBar extensions`](Sources/Extensions/UIKit/UISearchBarExtensions.swift)
-- [`UISegmentedControl extensions`](Sources/Extensions/UIKit/UISegmentedControlExtensions.swift)
-- [`UISlider extensions`](Sources/Extensions/UIKit/UISliderExtensions.swift)
-- [`UIStoryboard extensions`](Sources/Extensions/UIKit/UIStoryboardExtensions.swift)
-- [`UISwitch extensions`](Sources/Extensions/UIKit/UISwitchExtensions.swift)
-- [`UITabBar extensions`](Sources/Extensions/UIKit/UITabBarExtensions.swift)
-- [`UITableView extensions`](Sources/Extensions/UIKit/UITableViewExtensions.swift)
-- [`UITextField extensions`](Sources/Extensions/UIKit/UITextFieldExtensions.swift)
-- [`UITextView extensions`](Sources/Extensions/UIKit/UITextViewExtensions.swift)
-- [`UIView extensions`](Sources/Extensions/UIKit/UIViewExtensions.swift)
-- [`UIViewController extensions`](Sources/Extensions/UIKit/UIViewControllerExtensions.swift)
+<ul>
+<li><a href="Sources/Extensions/UIKit/UIAlertControllerExtensions.swift"><code>UIAlertController extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UIBarButtonItemExtensions.swift"><code>UIBarButtonItem extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UIButtonExtensions.swift"><code>UIButton extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UICollectionViewExtensions.swift"><code>UICollectionView extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UIColorExtensions.swift"><code>UIColor extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UIImageExtensions.swift"><code>UIImage extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UIImageViewExtensions.swift"><code>UIImageView extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UILabelExtensions.swift"><code>UILabel extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UINavigationBarExtensions.swift"><code>UINavigationBar extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UINavigationControllerExtensions.swift"><code>UINavigationController extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UINavigationItemExtensions.swift"><code>UINavigationItem extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UISearchBarExtensions.swift"><code>UISearchBar extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UISegmentedControlExtensions.swift"><code>UISegmentedControl extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UISliderExtensions.swift"><code>UISlider extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UIStoryboardExtensions.swift"><code>UIStoryboard extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UISwitchExtensions.swift"><code>UISwitch extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UITabBarExtensions.swift"><code>UITabBar extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UITableViewExtensions.swift"><code>UITableView extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UITextFieldExtensions.swift"><code>UITextField extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UITextViewExtensions.swift"><code>UITextView extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UIViewExtensions.swift"><code>UIView extensions</code></a></li>
+
+<li><a href="Sources/Extensions/UIKit/UIViewControllerExtensions.swift"><code>UIViewController extensions</code></a></li>
+</ul>
 
 </details>
 
@@ -216,14 +244,23 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 <summary>Cocoa Extensions</summary>
 </br>
 
-- [`CGColor extensions`](Sources/Extensions/Cocoa/CGColorExtensions.swift)
-- [`CGFloat extensions`](Sources/Extensions/Cocoa/CGFloatExtensions.swift)
-- [`CGPoint extensions`](Sources/Extensions/Cocoa/CGPointExtensions.swift)
-- [`CGSize extensions`](Sources/Extensions/Cocoa/CGSizeExtensions.swift)
-- [`CLLocation extensions`](Sources/Extensions/Cocoa/CLLocationExtensions.swift)
-- [`NSAttributedString extensions`](Sources/Extensions/Cocoa/NSAttributedStringExtensions.swift)
-- [`NSColor extensions`](Sources/Extensions/Cocoa/NSColorExtensions.swift)
-- [`NSView extensions`](Sources/Extensions/Cocoa/NSViewExtensions.swift)
+<ul>
+<li><a href="Sources/Extensions/Cocoa/CGColorExtensions.swift"><code>CGColor extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Cocoa/CGFloatExtensions.swift"><code>CGFloat extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Cocoa/CGPointExtensions.swift"><code>CGPoint extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Cocoa/CGSizeExtensions.swift"><code>CGSize extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Cocoa/CLLocationExtensions.swift"><code>CLLocation extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Cocoa/NSAttributedStringExtensions.swift"><code>NSAttributedString extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Cocoa/NSColorExtensions.swift"><code>NSColor extensions</code></a></li>
+
+<li><a href="Sources/Extensions/Cocoa/NSViewExtensions.swift"><code>NSView extensions</code></a></li>
+</ul>
 
 </details>
 
@@ -232,7 +269,9 @@ Add the [extensions](Sources/Extensions) folder to your Xcode project to use all
 <summary>Misc. Extensions</summary>
 </br>
 
-- [`SwifterSwift`](Sources/Extensions/SwifterSwift.swift)
+<ul>
+<li><a href="Sources/Extensions/SwifterSwift.swift"><code>SwifterSwift</code></a></li>
+</ul>
 
 </details>
 
