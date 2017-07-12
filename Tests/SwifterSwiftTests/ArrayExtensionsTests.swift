@@ -277,4 +277,60 @@ class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(grouped["j"] ?? [], [ "james", "jordan", "jonshon" ])
         XCTAssertEqual(grouped["i"] ?? [], [ "irving", "iverson" ])
     }
+    
+    func testForEachSlice() {
+        var iterations : Int = 0
+        
+        // A slice with value zero
+        var array : [String] = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
+        array.forEach(slice: 0) { (sliceArray) in
+            iterations += 1
+        }
+        XCTAssertEqual(iterations, 0)
+        
+        // A slice that divide the total evenly
+        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
+        
+        array.forEach(slice: 2) { (sliceArray) in
+            switch iterations {
+            case 0:
+                XCTAssertEqual(sliceArray, [ "james", "irving" ])
+            case 1:
+                XCTAssertEqual(sliceArray, [ "jordan", "jonshon" ])
+            case 2:
+                XCTAssertEqual(sliceArray, [ "iverson", "shaq" ])
+            default: break
+            }
+            iterations += 1
+        }
+
+        // A slice that does not divide the total evenly
+        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq", "bird"]
+        
+        iterations = 0
+        
+        array.forEach(slice: 2) { (sliceArray) in
+            switch iterations {
+            case 0:
+                XCTAssertEqual(sliceArray, [ "james", "irving" ])
+            case 1:
+                XCTAssertEqual(sliceArray, [ "jordan", "jonshon" ])
+            case 2:
+                XCTAssertEqual(sliceArray, [ "iverson", "shaq" ])
+            case 3:
+                XCTAssertEqual(sliceArray, [ "bird" ])
+            default: break
+            }
+            iterations += 1
+
+        }
+        
+        // A slice greater than the array count
+        array = [ "james", "irving", "jordan", "jonshon" ]
+        array.forEach(slice: 6) { (sliceArray) in
+            XCTAssertEqual(sliceArray, [ "james", "irving", "jordan", "jonshon"])
+        }
+        
+    }
+    
 }
