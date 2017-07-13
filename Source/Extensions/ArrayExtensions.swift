@@ -265,6 +265,21 @@ public extension Array {
         }
         return [Element]()
     }
+    
+    /// SwifterSwift: Calls given closure with an array of size of the parameter slice where condition is true.
+    ///
+    /// - Parameters:
+    ///   - slice: size of array in each interation.
+    ///   - body: a closure that takes an array of slice size as a parameter.
+    public func forEach(slice: Int,  body: ([Element]) throws -> Void) rethrows {
+        guard slice > 0, !isEmpty else { return }
+        
+        var value : Int = 0
+        while value < count {
+            try body(Array(self[Swift.max(value,startIndex)..<Swift.min(value + slice, endIndex)]))
+            value += slice
+        }
+    }
 }
 
 
