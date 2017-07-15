@@ -142,6 +142,12 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertFalse("123abc".isNumeric)
 		XCTAssertFalse("abc".isNumeric)
 	}
+
+    func testHasUniqueCharacters() {
+        XCTAssert("swift".hasUniqueCharacters())
+        XCTAssertFalse("language".hasUniqueCharacters())
+        XCTAssertFalse("".hasUniqueCharacters())
+    }
 	
 	func testLastCharacter() {
 		XCTAssertNotNil("Hello".lastCharacter)
