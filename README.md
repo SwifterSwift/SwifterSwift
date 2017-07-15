@@ -13,6 +13,7 @@
 [![Swift](https://img.shields.io/badge/Swift-3.2-orange.svg)](https://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-8.3-blue.svg)](https://developer.apple.com/xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
+[![Slack Channel](http://slack.swifterswift.com/badge.svg)](http://slack.swifterswift.com/)
 
 
 SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.
@@ -294,6 +295,12 @@ A complete documentation for all extensions with examples is available at [swift
 
 Your feedback is always appreciated and welcomed.
 Please refer to [contributing guidelines](https://github.com/SwifterSwift/SwifterSwift/tree/master/CONTRIBUTING.md) before participating.
+
+
+
+## Slack Channel: [![Slack](http://slack.swifterswift.com/badge.svg)](http://slack.swifterswift.com/)
+
+It is always nice to talk with other people using SwifterSwift and exchange experiences, [Join Channel](http://slack.swifterswift.com/)
 
 
 
