@@ -12,7 +12,7 @@ import Foundation
 // MARK: - Methods
 public extension Dictionary {
 	
-	/// **SwifterSwift**: Check if key exists in dictionary.
+	/// SwifterSwift: Check if key exists in dictionary.
 	///
 	/// - Parameter key: key to search for
 	/// - Returns: true if key exists in dictionary.
@@ -20,14 +20,14 @@ public extension Dictionary {
 		return index(forKey: key) != nil
 	}
 	
-    /// **SwifterSwift**: Remove all keys of the dictionary.
+    /// SwifterSwift: Remove all keys of the dictionary.
     ///
     /// - Parameter keys: keys to be removed
     public mutating func removeAll(keys: [Key]) {
         keys.forEach({ removeValue(forKey: $0)})
     }
     
-	/// **SwifterSwift**: JSON Data from dictionary.
+	/// SwifterSwift: JSON Data from dictionary.
 	///
 	/// - Parameter prettify: set true to prettify data (default is false).
 	/// - Returns: optional JSON Data (if applicable).
@@ -39,7 +39,7 @@ public extension Dictionary {
 		return try? JSONSerialization.data(withJSONObject: self, options: options)
 	}
 	
-	/// **SwifterSwift**: JSON String from dictionary.
+	/// SwifterSwift: JSON String from dictionary.
 	///
 	/// - Parameter prettify: set true to prettify string (default is false).
 	/// - Returns: optional JSON String (if applicable).
@@ -58,7 +58,7 @@ public extension Dictionary {
 
 public extension Dictionary {
     
-    /// **SwifterSwift**: Merge the keys/values of two dictionaries.
+    /// SwifterSwift: Merge the keys/values of two dictionaries.
     ///
     /// - Parameters:
     ///   - lhs: dictionary
@@ -72,7 +72,7 @@ public extension Dictionary {
     
     // MARK: - Operators
     
-    /// **SwifterSwift**: Append the keys and values from the second dictionary into the first one.
+    /// SwifterSwift: Append the keys and values from the second dictionary into the first one.
     ///
     /// - Parameters:
     ///   - lhs: dictionary
@@ -82,7 +82,7 @@ public extension Dictionary {
     }
     
     
-    /// **SwifterSwift**: Remove contained in the array from the dictionary
+    /// SwifterSwift: Remove contained in the array from the dictionary
     ///
     /// - Parameters:
     ///   - lhs: dictionary
@@ -94,7 +94,7 @@ public extension Dictionary {
         return result
     }
     
-    /// **SwifterSwift**: Remove contained in the array from the dictionary
+    /// SwifterSwift: Remove contained in the array from the dictionary
     ///
     /// - Parameters:
     ///   - lhs: dictionary
@@ -109,7 +109,7 @@ public extension Dictionary {
 // MARK: - Methods (ExpressibleByStringLiteral)
 public extension Dictionary where Key: ExpressibleByStringLiteral {
 	
-	/// **SwifterSwift**: Lowercase all keys in dictionary.
+	/// SwifterSwift: Lowercase all keys in dictionary.
 	public mutating func lowercaseAllKeys() {
 		// http://stackoverflow.com/questions/33180028/extend-dictionary-where-key-is-of-type-string
 		for key in keys {

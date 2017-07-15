@@ -12,7 +12,7 @@ import CoreLocation
 // MARK: - Methods
 public extension CLLocation {
 	
-	/// **SwifterSwift**: Calculate the half-way point along a great circle path between the two points.
+	/// SwifterSwift: Calculate the half-way point along a great circle path between the two points.
 	///
 	/// - Parameters:
 	///   - start: Start location.
@@ -39,7 +39,7 @@ public extension CLLocation {
 		return CLLocation(latitude: mlat.radiansToDegrees, longitude: mlong.radiansToDegrees)
 	}
 	
-	/// **SwifterSwift**: Calculate the half-way point along a great circle path between self and another points.
+	/// SwifterSwift: Calculate the half-way point along a great circle path between self and another points.
 	///
 	/// - Parameter point: End location.
 	/// - Returns: Location that represents the half-way point.
@@ -47,7 +47,7 @@ public extension CLLocation {
 		return CLLocation.midLocation(start: self, end: point)
 	}
 	
-	/// **SwifterSwift**: Calculates the bearing to another CLLocation.
+	/// SwifterSwift: Calculates the bearing to another CLLocation.
 	///
 	/// - Parameters:
 	///   - destination: Location to calculate bearing.

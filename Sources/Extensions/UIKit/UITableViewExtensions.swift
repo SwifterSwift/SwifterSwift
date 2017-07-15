@@ -13,17 +13,17 @@ import UIKit
 // MARK: - Properties
 public extension UITableView {
 	
-	/// **SwifterSwift**: Index path of last row in tableView.
+	/// SwifterSwift: Index path of last row in tableView.
 	public var indexPathForLastRow: IndexPath? {
 		return indexPathForLastRow(inSection: lastSection)
 	}
 	
-	/// **SwifterSwift**: Index of last section in tableView.
+	/// SwifterSwift: Index of last section in tableView.
 	public var lastSection: Int {
 		return numberOfSections > 0 ? numberOfSections - 1 : 0
 	}
 	
-	/// **SwifterSwift**: Number of all rows in all sections of tableView.
+	/// SwifterSwift: Number of all rows in all sections of tableView.
 	public var numberOfRows: Int {
 		var section = 0
 		var rowCount = 0
@@ -39,7 +39,7 @@ public extension UITableView {
 // MARK: - Methods
 public extension UITableView {
 
-	/// **SwifterSwift**: IndexPath for last row in section.
+	/// SwifterSwift: IndexPath for last row in section.
 	///
 	/// - Parameter section: section to get last row in.
 	/// - Returns: optional last indexPath for last row in section (if applicable).
@@ -64,18 +64,18 @@ public extension UITableView {
 		})
 	}
 	
-	/// **SwifterSwift**: Remove TableFooterView.
+	/// SwifterSwift: Remove TableFooterView.
 	public func removeTableFooterView() {
 		tableFooterView = nil
 	}
 	
-	/// **SwifterSwift**: Remove TableHeaderView.
+	/// SwifterSwift: Remove TableHeaderView.
 	public func removeTableHeaderView() {
 		tableHeaderView = nil
 	}
 	
 	
-	/// **SwifterSwift**: Scroll to bottom of TableView.
+	/// SwifterSwift: Scroll to bottom of TableView.
 	///
 	/// - Parameter animated: set true to animate scroll (default is true).
 	public func scrollToBottom(animated: Bool = true) {
@@ -83,14 +83,14 @@ public extension UITableView {
 		setContentOffset(bottomOffset, animated: animated)
 	}
 	
-	/// **SwifterSwift**: Scroll to top of TableView.
+	/// SwifterSwift: Scroll to top of TableView.
 	///
 	/// - Parameter animated: set true to animate scroll (default is true).
 	public func scrollToTop(animated: Bool = true) {
 		setContentOffset(CGPoint.zero, animated: animated)
 	}
     
-    /// **SwifterSwift**: Dequeue reusable UITableViewCell using class name
+    /// SwifterSwift: Dequeue reusable UITableViewCell using class name
     ///
     /// - Parameter name: UITableViewCell type
     /// - Returns: UITableViewCell object with associated class name (optional value)
@@ -116,7 +116,7 @@ public extension UITableView {
         return dequeueReusableHeaderFooterView(withIdentifier: String(describing: name)) as? T
     }
 
-	/// **SwifterSwift**: Register UITableViewHeaderFooterView using class name
+	/// SwifterSwift: Register UITableViewHeaderFooterView using class name
 	///
 	/// - Parameters:
 	///   - nib: Nib file used to create the header or footer view.
@@ -125,21 +125,21 @@ public extension UITableView {
         register(nib, forHeaderFooterViewReuseIdentifier: String(describing: name))
     }
     
-    /// **SwifterSwift**: Register UITableViewHeaderFooterView using class name
+    /// SwifterSwift: Register UITableViewHeaderFooterView using class name
     ///
     /// - Parameter name: UITableViewHeaderFooterView type
     public func register<T: UITableViewHeaderFooterView>(headerFooterViewClassWith name: T.Type) {
         register(T.self, forHeaderFooterViewReuseIdentifier: String(describing: name))
     }
     
-    /// **SwifterSwift**: Register UITableViewCell using class name
+    /// SwifterSwift: Register UITableViewCell using class name
     ///
     /// - Parameter name: UITableViewCell type
     public func register<T: UITableViewCell>(cellWithClass name: T.Type) {
         register(T.self, forCellReuseIdentifier: String(describing: name))
     }
 
-	/// **SwifterSwift**: Register UITableViewCell using class name
+	/// SwifterSwift: Register UITableViewCell using class name
 	///
 	/// - Parameters:
 	///   - nib: Nib file used to create the tableView cell.

@@ -16,7 +16,7 @@ This document contains information and guidelines about contributing to this pro
 ## Asking Questions
 
 We don't use GitHub as a support forum.
-For any usage questions that are not specific to the project itself, please ask on [Stack Overflow](https://stackoverflow.com) instead with the tag **swifterswift**.
+For any usage questions that are not specific to the project itself, please ask on [Stack Overflow](https://stackoverflow.com) instead with the tag SwifterSwift.
 By doing so, you'll be more likely to quickly solve your problem, and you'll allow anyone else with the same question to find the answer.
 This also allows us to focus on improving the project for others.
 
@@ -100,7 +100,7 @@ Use the following template to add documentation for extensions
 #### Documentation template for units with single parameter:
 
 ```swift
-/// **SwifterSwift**: <Description>.
+/// SwifterSwift: <Description>.
 ///
 ///    <Example Code>
 ///
@@ -113,7 +113,7 @@ Use the following template to add documentation for extensions
 #### Documentation template for units with multiple parameters:
 
 ```swift
-/// **SwifterSwift**: <Description>.
+/// SwifterSwift: <Description>.
 ///
 ///    <Example Code>
 ///
@@ -128,7 +128,7 @@ Use the following template to add documentation for extensions
 #### Documentation template for enums:
 
 ```swift
-/// **SwifterSwift**: <Description>.
+/// SwifterSwift: <Description>.
 ///
 /// - <Case1>: <Description>
 /// - <Case2>: <Description>
@@ -140,7 +140,7 @@ Use the following template to add documentation for extensions
 
 ```swift
 
-/// **SwifterSwift**: Sum of all elements in array.
+/// SwifterSwift: Sum of all elements in array.
 ///
 ///    [1, 2, 3, 4, 5].sum() -> 15
 ///
@@ -149,7 +149,7 @@ public func sum() -> Element {
     // ...
 }
 
-/// **SwifterSwift**: Date by changing value of calendar component.
+/// SwifterSwift: Date by changing value of calendar component.
 ///
 /// - Parameters:
 ///   - component: component type.

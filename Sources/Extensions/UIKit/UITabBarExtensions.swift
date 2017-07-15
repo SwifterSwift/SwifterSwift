@@ -13,7 +13,7 @@ import UIKit
 // MARK: - Methods
 public extension UITabBar {
 	
-	/// **SwifterSwift**: Set tabBar colors.
+	/// SwifterSwift: Set tabBar colors.
 	///
 	/// - Parameters:
 	///   - background: background color.

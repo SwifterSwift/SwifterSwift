@@ -13,17 +13,17 @@ import UIKit
 // MARK: - Properties
 public extension UICollectionView {
 	
-	/// **SwifterSwift**: Index path of last item in collectionView.
+	/// SwifterSwift: Index path of last item in collectionView.
 	public var indexPathForLastItem: IndexPath? {
 		return indexPathForLastItem(inSection: lastSection)
 	}
 	
-	/// **SwifterSwift**: Index of last section in collectionView.
+	/// SwifterSwift: Index of last section in collectionView.
 	public var lastSection: Int {
 		return numberOfSections > 0 ? numberOfSections - 1 : 0
 	}
 	
-	/// **SwifterSwift**: Number of all items in all sections of collectionView.
+	/// SwifterSwift: Number of all items in all sections of collectionView.
 	public var numberOfItems: Int {
 		var section = 0
 		var itemsCount = 0
@@ -40,7 +40,7 @@ public extension UICollectionView {
 // MARK: - Methods
 public extension UICollectionView {
     
-	/// **SwifterSwift**: IndexPath for last item in section.
+	/// SwifterSwift: IndexPath for last item in section.
 	///
 	/// - Parameter section: section to get last item in.
 	/// - Returns: optional last indexPath for last item in section (if applicable).
@@ -57,7 +57,7 @@ public extension UICollectionView {
 		return IndexPath(item: numberOfItems(inSection: section) - 1, section: section)
 	}
 	
-	/// **SwifterSwift**: Reload data with a completion handler.
+	/// SwifterSwift: Reload data with a completion handler.
 	///
 	/// - Parameter completion: completion handler to run after reloadData finishes.
 	public func reloadData(_ completion: @escaping () -> Void) {
@@ -68,7 +68,7 @@ public extension UICollectionView {
 		})
 	}
 	
-	/// **SwifterSwift**: Dequeue reusable UICollectionViewCell using class name.
+	/// SwifterSwift: Dequeue reusable UICollectionViewCell using class name.
 	///
 	/// - Parameters:
 	///   - name: UICollectionViewCell type.
@@ -78,7 +78,7 @@ public extension UICollectionView {
         return dequeueReusableCell(withReuseIdentifier: String(describing: name), for: indexPath) as! T
     }
 
-	/// **SwifterSwift**: Dequeue reusable UICollectionReusableView using class name.
+	/// SwifterSwift: Dequeue reusable UICollectionReusableView using class name.
 	///
 	/// - Parameters:
 	///   - kind: the kind of supplementary view to retrieve. This value is defined by the layout object.
@@ -89,7 +89,7 @@ public extension UICollectionView {
         return dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: name), for: indexPath) as! T
     }
 
-	/// **SwifterSwift**: Register UICollectionReusableView using class name.
+	/// SwifterSwift: Register UICollectionReusableView using class name.
 	///
 	/// - Parameters:
 	///   - kind: the kind of supplementary view to retrieve. This value is defined by the layout object.
@@ -98,7 +98,7 @@ public extension UICollectionView {
         register(T.self, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: name))
     }
 	
-	/// **SwifterSwift**: Register UICollectionViewCell using class name.
+	/// SwifterSwift: Register UICollectionViewCell using class name.
     ///
     /// - Parameters:
     ///   - nib: Nib file used to create the collectionView cell.
@@ -107,14 +107,14 @@ public extension UICollectionView {
         register(nib, forCellWithReuseIdentifier: String(describing: name))
     }
     
-    /// **SwifterSwift**: Register UICollectionViewCell using class name.
+    /// SwifterSwift: Register UICollectionViewCell using class name.
     ///
     /// - Parameter name: UICollectionViewCell type.
     public func register<T: UICollectionViewCell>(cellWithClass name: T.Type) {
         register(T.self, forCellWithReuseIdentifier: String(describing: name))
     }
 
-	/// **SwifterSwift**: Register UICollectionReusableView using class name.
+	/// SwifterSwift: Register UICollectionReusableView using class name.
 	///
 	/// - Parameters:
 	///   - nib: Nib file used to create the reusable view.

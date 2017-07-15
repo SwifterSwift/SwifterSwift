@@ -16,7 +16,7 @@
 // MARK: - Methods
 public extension CGPoint {
 	
-	/// **SwifterSwift**: Distance from another CGPoint.
+	/// SwifterSwift: Distance from another CGPoint.
 	///
 	/// - Parameter point: CGPoint to get distance from.
 	/// - Returns: Distance between self and given CGPoint.
@@ -24,7 +24,7 @@ public extension CGPoint {
 		return CGPoint.distance(from: self, to: point)
 	}
 	
-	/// **SwifterSwift**: Distance between two CGPoints.
+	/// SwifterSwift: Distance between two CGPoints.
 	///
 	/// - Parameters:
 	///   - point1: first CGPoint.
@@ -41,7 +41,7 @@ public extension CGPoint {
 // MARK: - Operators
 public extension CGPoint {
 	
-	/// **SwifterSwift**: Add two CGPoints.
+	/// SwifterSwift: Add two CGPoints.
 	///
 	/// - Parameters:
 	///   - lhs: CGPoint to add to.
@@ -51,7 +51,7 @@ public extension CGPoint {
 		return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
 	}
 	
-	/// **SwifterSwift**: Add a CGPoints to self.
+	/// SwifterSwift: Add a CGPoints to self.
 	///
 	/// - Parameters:
 	///   - lhs: self
@@ -60,7 +60,7 @@ public extension CGPoint {
 		lhs = lhs + rhs
 	}
 	
-	/// **SwifterSwift**: Subtract two CGPoints.
+	/// SwifterSwift: Subtract two CGPoints.
 	///
 	/// - Parameters:
 	///   - lhs: CGPoint to subtract from.
@@ -70,7 +70,7 @@ public extension CGPoint {
 		return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
 	}
 	
-	/// **SwifterSwift**: Subtract a CGPoints from self.
+	/// SwifterSwift: Subtract a CGPoints from self.
 	///
 	/// - Parameters:
 	///   - lhs: self
@@ -79,7 +79,7 @@ public extension CGPoint {
 		lhs = lhs - rhs
 	}
 	
-	/// **SwifterSwift**: Multiply a CGPoint with a scalar
+	/// SwifterSwift: Multiply a CGPoint with a scalar
 	///
 	/// - Parameters:
 	///   - point: CGPoint to multiply.
@@ -89,7 +89,7 @@ public extension CGPoint {
 		return CGPoint(x: point.x * scalar, y: point.y * scalar)
 	}
 	
-	/// **SwifterSwift**: Multiply self with a scalar
+	/// SwifterSwift: Multiply self with a scalar
 	///
 	/// - Parameters:
 	///   - point: self.
@@ -99,7 +99,7 @@ public extension CGPoint {
 		point = point * scalar
 	}
 	
-	/// **SwifterSwift**: Multiply a CGPoint with a scalar
+	/// SwifterSwift: Multiply a CGPoint with a scalar
 	///
 	/// - Parameters:
 	///   - scalar: scalar value.

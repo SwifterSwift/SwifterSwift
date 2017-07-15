@@ -11,7 +11,7 @@ import Foundation
 
 public extension URL {
 	
-	/// **SwifterSwift**: URL with appending query parameters.
+	/// SwifterSwift: URL with appending query parameters.
 	///
 	/// - Parameter parameters: parameters dictionary.
 	/// - Returns: URL with appending given query parameters.
@@ -23,7 +23,7 @@ public extension URL {
 		return urlComponents.url!
 	}
 	
-	/// **SwifterSwift**: Append query parameters to URL.
+	/// SwifterSwift: Append query parameters to URL.
 	///
 	/// - Parameter parameters: parameters dictionary.
 	public mutating func appendQueryParameters(_ parameters: [String: String]) {

@@ -13,7 +13,7 @@ import UIKit
 // MARK: - Methods
 public extension UILabel {
 	
-	/// **SwifterSwift**: Required height for a label
+	/// SwifterSwift: Required height for a label
 	public var requiredHeight: CGFloat {
 		let label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: CGFloat.greatestFiniteMagnitude))
 		label.numberOfLines = 0

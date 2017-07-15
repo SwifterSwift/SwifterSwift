@@ -279,7 +279,7 @@ let package = Package(
 
 ## How cool is this?
 
-**SwifterSwift** is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
+SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
 
 Check [Examples.md](Examples/Examples.md) for some cool examples!
 

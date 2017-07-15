@@ -11,7 +11,7 @@ import Foundation
 
 public extension Date {
 	
-	/// **SwifterSwift**: Day name format.
+	/// SwifterSwift: Day name format.
 	///
 	/// - threeLetters: 3 letter day abbreviation of day name.
 	/// - oneLetter: 1 letter day abbreviation of day name.
@@ -22,7 +22,7 @@ public extension Date {
 		case full
 	}
 	
-	/// **SwifterSwift**: Month name format.
+	/// SwifterSwift: Month name format.
 	///
 	/// - threeLetters: 3 letter month abbreviation of month name.
 	/// - oneLetter: 1 letter month abbreviation of month name.
@@ -39,32 +39,32 @@ public extension Date {
 // MARK: - Properties
 public extension Date {
 	
-	/// **SwifterSwift**: User’s current calendar.
+	/// SwifterSwift: User’s current calendar.
 	public var calendar: Calendar {
 		return Calendar.current
 	}
 	
-	/// **SwifterSwift**: Era.
+	/// SwifterSwift: Era.
 	public var era: Int {
 		return Calendar.current.component(.era, from: self)
 	}
 	
-	/// **SwifterSwift**: Quarter.
+	/// SwifterSwift: Quarter.
 	public var quarter: Int {
 		return Calendar.current.component(.quarter, from: self)
 	}
 	
-	/// **SwifterSwift**: Week of year.
+	/// SwifterSwift: Week of year.
 	public var weekOfYear: Int {
 		return Calendar.current.component(.weekOfYear, from: self)
 	}
 	
-	/// **SwifterSwift**: Week of month.
+	/// SwifterSwift: Week of month.
 	public var weekOfMonth: Int {
 		return Calendar.current.component(.weekOfMonth, from: self)
 	}
 	
-    /// **SwifterSwift**: Year.
+    /// SwifterSwift: Year.
     public var year: Int {
         get {
             return Calendar.current.component(.year, from: self)
@@ -76,7 +76,7 @@ public extension Date {
         }
     }
     
-    /// **SwifterSwift**: Month.
+    /// SwifterSwift: Month.
     public var month: Int {
         get {
             return Calendar.current.component(.month, from: self)
@@ -88,7 +88,7 @@ public extension Date {
         }
     }
 	
-	/// **SwifterSwift**: Day.
+	/// SwifterSwift: Day.
 	public var day: Int {
 		get {
 			return Calendar.current.component(.day, from: self)
@@ -100,7 +100,7 @@ public extension Date {
 		}
 	}
     
-    /// **SwifterSwift**: Weekday.
+    /// SwifterSwift: Weekday.
     public var weekday: Int {
         get {
             return Calendar.current.component(.weekday, from: self)
@@ -112,7 +112,7 @@ public extension Date {
         }
     }
 	
-	/// **SwifterSwift**: Hour.
+	/// SwifterSwift: Hour.
 	public var hour: Int {
 		get {
 			return Calendar.current.component(.hour, from: self)
@@ -124,7 +124,7 @@ public extension Date {
 		}
 	}
 	
-	/// **SwifterSwift**: Minutes.
+	/// SwifterSwift: Minutes.
 	public var minute: Int {
 		get {
 			return Calendar.current.component(.minute, from: self)
@@ -136,7 +136,7 @@ public extension Date {
 		}
 	}
 	
-	/// **SwifterSwift**: Seconds.
+	/// SwifterSwift: Seconds.
 	public var second: Int {
 		get {
 			return Calendar.current.component(.second, from: self)
@@ -148,7 +148,7 @@ public extension Date {
 		}
 	}
 	
-	/// **SwifterSwift**: Nanoseconds.
+	/// SwifterSwift: Nanoseconds.
 	public var nanosecond: Int {
 		get {
 			return Calendar.current.component(.nanosecond, from: self)
@@ -160,7 +160,7 @@ public extension Date {
 		}
 	}
 	
-	/// **SwifterSwift**: Milliseconds.
+	/// SwifterSwift: Milliseconds.
 	public var millisecond: Int {
 		get {
 			return Calendar.current.component(.nanosecond, from: self) / 1000000
@@ -173,42 +173,42 @@ public extension Date {
 		}
 	}
 	
-	/// **SwifterSwift**: Check if date is in future.
+	/// SwifterSwift: Check if date is in future.
 	public var isInFuture: Bool {
 		return self > Date()
 	}
 	
-	/// **SwifterSwift**: Check if date is in past.
+	/// SwifterSwift: Check if date is in past.
 	public var isInPast: Bool {
 		return self < Date()
 	}
 	
-	/// **SwifterSwift**: Check if date is in today.
+	/// SwifterSwift: Check if date is in today.
 	public var isInToday: Bool {
 		return Calendar.current.isDateInToday(self)
 	}
 	
-	/// **SwifterSwift**: Check if date is within yesterday.
+	/// SwifterSwift: Check if date is within yesterday.
 	public var isInYesterday: Bool {
 		return Calendar.current.isDateInYesterday(self)
 	}
 	
-	/// **SwifterSwift**: Check if date is within tomorrow.
+	/// SwifterSwift: Check if date is within tomorrow.
 	public var isInTomorrow: Bool {
 		return Calendar.current.isDateInTomorrow(self)
 	}
 	
-	/// **SwifterSwift**: Check if date is within a weekend period.
+	/// SwifterSwift: Check if date is within a weekend period.
 	public var isInWeekend: Bool {
 		return Calendar.current.isDateInWeekend(self)
 	}
     
-    /// **SwifterSwift**: Check if date is within a weekday period.
+    /// SwifterSwift: Check if date is within a weekday period.
     public var isInWeekday: Bool {
         return !Calendar.current.isDateInWeekend(self)
     }
 	
-	/// **SwifterSwift**: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
+	/// SwifterSwift: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
 	public var iso8601String: String {
 		// https://github.com/justinmakaila/NSDate-ISO-8601/blob/master/NSDateISO8601.swift
 		let dateFormatter = DateFormatter()
@@ -219,7 +219,7 @@ public extension Date {
 		return dateFormatter.string(from: self).appending("Z")
 	}
 	
-	/// **SwifterSwift**: Nearest five minutes to date.
+	/// SwifterSwift: Nearest five minutes to date.
 	public var nearestFiveMinutes: Date {
 		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
 		let min = components.minute!
@@ -228,7 +228,7 @@ public extension Date {
 		return Calendar.current.date(from: components)!
 	}
 	
-	/// **SwifterSwift**: Nearest ten minutes to date.
+	/// SwifterSwift: Nearest ten minutes to date.
 	public var nearestTenMinutes: Date {
 		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
 		let min = components.minute!
@@ -237,7 +237,7 @@ public extension Date {
 		return Calendar.current.date(from: components)!
 	}
 	
-	/// **SwifterSwift**: Nearest quarter hour to date.
+	/// SwifterSwift: Nearest quarter hour to date.
 	public var nearestQuarterHour: Date {
 		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
 		let min = components.minute!
@@ -246,7 +246,7 @@ public extension Date {
 		return Calendar.current.date(from: components)!
 	}
 	
-	/// **SwifterSwift**: Nearest half hour to date.
+	/// SwifterSwift: Nearest half hour to date.
 	public var nearestHalfHour: Date {
 		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
 		let min = components.minute!
@@ -255,7 +255,7 @@ public extension Date {
 		return Calendar.current.date(from: components)!
 	}
 	
-	/// **SwifterSwift**: Nearest hour to date.
+	/// SwifterSwift: Nearest hour to date.
 	public var nearestHour: Date {
 		if minute >= 30 {
 			return beginning(of: .hour)!.adding(.hour, value: 1)
@@ -263,12 +263,12 @@ public extension Date {
 		return beginning(of: .hour)!
 	}
 	
-	/// **SwifterSwift**: Time zone used by system.
+	/// SwifterSwift: Time zone used by system.
 	public var timeZone: TimeZone {
 		return Calendar.current.timeZone
 	}
 	
-	/// **SwifterSwift**: UNIX timestamp from date.
+	/// SwifterSwift: UNIX timestamp from date.
 	public var unixTimestamp: Double {
 		return timeIntervalSince1970
 	}
@@ -279,7 +279,7 @@ public extension Date {
 // MARK: - Methods
 public extension Date {
 	
-	/// **SwifterSwift**: Date by adding multiples of calendar component.
+	/// SwifterSwift: Date by adding multiples of calendar component.
 	///
 	/// - Parameters:
 	///   - component: component type.
@@ -289,7 +289,7 @@ public extension Date {
 		return Calendar.current.date(byAdding: component, value: value, to: self)!
 	}
 	
-	/// **SwifterSwift**: Add calendar component to date.
+	/// SwifterSwift: Add calendar component to date.
 	///
 	/// - Parameters:
 	///   - component: component type.
@@ -298,7 +298,7 @@ public extension Date {
 		self = adding(component, value: value)
 	}
 	
-	/// **SwifterSwift**: Date by changing value of calendar component.
+	/// SwifterSwift: Date by changing value of calendar component.
 	///
 	/// - Parameters:
 	///   - component: component type.
@@ -308,7 +308,7 @@ public extension Date {
 		return Calendar.current.date(bySetting: component, value: value, of: self)
 	}
 	
-	/// **SwifterSwift**: Data at the beginning of calendar component.
+	/// SwifterSwift: Data at the beginning of calendar component.
 	///
 	/// - Parameter component: calendar component to get date at the beginning of.
 	/// - Returns: date at the beginning of calendar component (if applicable).
@@ -346,7 +346,7 @@ public extension Date {
 		}
 	}
 	
-	/// **SwifterSwift**: Date at the end of calendar component.
+	/// SwifterSwift: Date at the end of calendar component.
 	///
 	/// - Parameter component: calendar component to get date at the end of.
 	/// - Returns: date at the end of calendar component (if applicable).
@@ -405,7 +405,7 @@ public extension Date {
 		}
 	}
 	
-	/// **SwifterSwift**: Date string from date.
+	/// SwifterSwift: Date string from date.
 	///
 	/// - Parameter style: DateFormatter style (default is .medium).
 	/// - Returns: date string.
@@ -416,7 +416,7 @@ public extension Date {
 		return dateFormatter.string(from: self)
 	}
 	
-	/// **SwifterSwift**: Date and time string from date.
+	/// SwifterSwift: Date and time string from date.
 	///
 	/// - Parameter style: DateFormatter style (default is .medium).
 	/// - Returns: date and time string.
@@ -427,7 +427,7 @@ public extension Date {
 		return dateFormatter.string(from: self)
 	}
 	
-	/// **SwifterSwift**: Check if date is in current given calendar component.
+	/// SwifterSwift: Check if date is in current given calendar component.
 	///
 	/// - Parameter component: calendar component to check.
 	/// - Returns: true if date is in current given calendar component.
@@ -435,7 +435,7 @@ public extension Date {
 		return calendar.isDate(self, equalTo: Date(), toGranularity: component)
 	}
 	
-	/// **SwifterSwift**: Time string from date
+	/// SwifterSwift: Time string from date
 	///
 	/// - Parameter style: DateFormatter style (default is .medium).
 	/// - Returns: time string.
@@ -446,7 +446,7 @@ public extension Date {
 		return dateFormatter.string(from: self)
 	}
 	
-	/// **SwifterSwift**: Day name from date.
+	/// SwifterSwift: Day name from date.
 	///
 	/// - Parameter Style: style of day name (default is DayNameStyle.full).
 	/// - Returns: day name string (example: W, Wed, Wednesday).
@@ -467,7 +467,7 @@ public extension Date {
 		return dateFormatter.string(from: self)
 	}
 	
-	/// **SwifterSwift**: Month name from date.
+	/// SwifterSwift: Month name from date.
 	///
 	/// - Parameter Style: style of month name (default is MonthNameStyle.full).
 	/// - Returns: month name string (example: D, Dec, December).
@@ -494,7 +494,7 @@ public extension Date {
 // MARK: - Initializers
 public extension Date {
 	
-	/// **SwifterSwift**: Create a new date form calendar components.
+	/// SwifterSwift: Create a new date form calendar components.
 	///
 	/// - Parameters:
 	///   - calendar: Calendar (default is current).
@@ -538,7 +538,7 @@ public extension Date {
 		}
 	}
 	
-	/// **SwifterSwift**: Create date object from ISO8601 string.
+	/// SwifterSwift: Create date object from ISO8601 string.
 	///
 	/// - Parameter iso8601String: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSSZ).
 	public init?(iso8601String: String) {
@@ -554,7 +554,7 @@ public extension Date {
 		}
 	}
 	
-	/// **SwifterSwift**: Create new date object from UNIX timestamp.
+	/// SwifterSwift: Create new date object from UNIX timestamp.
 	///
 	/// - Parameter unixTimestamp: UNIX timestamp.
 	public init(unixTimestamp: Double) {
