@@ -11,7 +11,7 @@ import Foundation
 
 public extension Optional {
 	
-	/// SwifterSwift: Get self of default value (if self is nil).
+	/// **SwifterSwift**: Get self of default value (if self is nil).
 	///
 	/// - Parameter defaultValue: default value to return if self is nil.
 	/// - Returns: self if not nil or default value if nil.
@@ -20,7 +20,7 @@ public extension Optional {
 		return self ?? defaultValue
 	}
 	
-	/// SwifterSwift: Runs a block to Wrapped if not nil
+	/// **SwifterSwift**: Runs a block to Wrapped if not nil
 	///
 	/// - Parameter block: a block to run if self is not nil.
 	public func run(_ block: (Wrapped) -> Void) {

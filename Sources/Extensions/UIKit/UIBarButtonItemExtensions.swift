@@ -13,7 +13,7 @@ import UIKit
 // MARK: - Methods
 public extension UIBarButtonItem {
 	
-	/// SwifterSwift: Add Target to UIBarButtonItem
+	/// **SwifterSwift**: Add Target to UIBarButtonItem
 	///
 	/// - Parameters:
 	///   - target: target.

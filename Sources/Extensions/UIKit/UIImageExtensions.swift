@@ -13,22 +13,22 @@ import UIKit
 // MARK: - Properties
 public extension UIImage {
 	
-	/// SwifterSwift: Size in bytes of UIImage
+	/// **SwifterSwift**: Size in bytes of UIImage
 	public var bytesSize: Int {
 		return UIImageJPEGRepresentation(self, 1)?.count ?? 0
 	}
 	
-	/// SwifterSwift: Size in kilo bytes of UIImage
+	/// **SwifterSwift**: Size in kilo bytes of UIImage
 	public var kilobytesSize: Int {
 		return bytesSize / 1024
 	}
 	
-	/// SwifterSwift: UIImage with .alwaysOriginal rendering mode.
+	/// **SwifterSwift**: UIImage with .alwaysOriginal rendering mode.
 	public var original: UIImage {
 		return withRenderingMode(.alwaysOriginal)
 	}
 	
-	/// SwifterSwift: UIImage with .alwaysTemplate rendering mode.
+	/// **SwifterSwift**: UIImage with .alwaysTemplate rendering mode.
 	public var template: UIImage {
 		return withRenderingMode(.alwaysTemplate)
 	}
@@ -39,7 +39,7 @@ public extension UIImage {
 // MARK: - Methods
 public extension UIImage {
 	
-	/// SwifterSwift: Compressed UIImage from original UIImage.
+	/// **SwifterSwift**: Compressed UIImage from original UIImage.
 	///
 	/// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
 	/// - Returns: optional UIImage (if applicable).
@@ -50,7 +50,7 @@ public extension UIImage {
 		return UIImage(data: data)
 	}
 	
-	/// SwifterSwift: Compressed UIImage data from original UIImage.
+	/// **SwifterSwift**: Compressed UIImage data from original UIImage.
 	///
 	/// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
 	/// - Returns: optional Data (if applicable).
@@ -58,7 +58,7 @@ public extension UIImage {
 		return UIImageJPEGRepresentation(self, quality)
 	}
 	
-	/// SwifterSwift: UIImage Cropped to CGRect.
+	/// **SwifterSwift**: UIImage Cropped to CGRect.
 	///
 	/// - Parameter rect: CGRect to crop UIImage to.
 	/// - Returns: cropped UIImage
@@ -72,7 +72,7 @@ public extension UIImage {
 		return UIImage(cgImage: image)
 	}
 	
-	/// SwifterSwift: UIImage scaled to height with respect to aspect ratio.
+	/// **SwifterSwift**: UIImage scaled to height with respect to aspect ratio.
 	///
 	/// - Parameters:
 	///   - toHeight: new height.
@@ -88,7 +88,7 @@ public extension UIImage {
 		return newImage
 	}
 	
-	/// SwifterSwift: UIImage scaled to width with respect to aspect ratio.
+	/// **SwifterSwift**: UIImage scaled to width with respect to aspect ratio.
 	///
 	/// - Parameters:
 	///   - toWidth: new width.
@@ -104,7 +104,7 @@ public extension UIImage {
 		return newImage
 	}
 	
-	/// SwifterSwift: UIImage filled with color
+	/// **SwifterSwift**: UIImage filled with color
 	///
 	/// - Parameter color: color to fill image with.
 	/// - Returns: UIImage filled with given color.
@@ -137,7 +137,7 @@ public extension UIImage {
 // MARK: - Initializers
 public extension UIImage {
 	
-	/// SwifterSwift: Create UIImage from color and size.
+	/// **SwifterSwift**: Create UIImage from color and size.
 	///
 	/// - Parameters:
 	///   - color: image fill color.

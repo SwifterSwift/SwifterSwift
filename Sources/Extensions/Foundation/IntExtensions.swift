@@ -16,12 +16,12 @@
 // MARK: - Properties
 public extension Int {
 	
-	/// SwifterSwift: Absolute value of integer.
+	/// **SwifterSwift**: Absolute value of integer.
 	public var abs: Int {
 		return Swift.abs(self)
 	}
 	
-	/// SwifterSwift: String with number and current locale currency.
+	/// **SwifterSwift**: String with number and current locale currency.
 	public var asLocaleCurrency: String {
 		let formatter = NumberFormatter()
 		formatter.numberStyle = .currency
@@ -29,12 +29,12 @@ public extension Int {
 		return formatter.string(from: self as NSNumber)!
 	}
 	
-	/// SwifterSwift: Radian value of degree input.
+	/// **SwifterSwift**: Radian value of degree input.
 	public var degreesToRadians: Double {
 		return Double.pi * Double(self) / 180.0
 	}
 	
-	/// SwifterSwift: Array of digits of integer value.
+	/// **SwifterSwift**: Array of digits of integer value.
 	public var digits: [Int] {
 		var digits: [Int] = []
 		for char in String(self).characters {
@@ -45,57 +45,57 @@ public extension Int {
 		return digits
 	}
 	
-	/// SwifterSwift: Number of digits of integer value.
+	/// **SwifterSwift**: Number of digits of integer value.
 	public var digitsCount: Int {
 		return String(self).characters.count
 	}
 	
-	/// SwifterSwift: Check if integer is even.
+	/// **SwifterSwift**: Check if integer is even.
 	public var isEven: Bool {
 		return (self % 2) == 0
 	}
 	
-	/// SwifterSwift: Check if integer is odd.
+	/// **SwifterSwift**: Check if integer is odd.
 	public var isOdd: Bool {
 		return (self % 2) != 0
 	}
 	
-	/// SwifterSwift: Check if integer is positive.
+	/// **SwifterSwift**: Check if integer is positive.
 	public var isPositive: Bool {
 		return self > 0
 	}
 	
-	/// SwifterSwift: Check if integer is negative.
+	/// **SwifterSwift**: Check if integer is negative.
 	public var isNegative: Bool {
 		return self < 0
 	}
 	
-	/// SwifterSwift: Double.
+	/// **SwifterSwift**: Double.
 	public var double: Double {
 		return Double(self)
 	}
 	
-	/// SwifterSwift: Float.
+	/// **SwifterSwift**: Float.
 	public var float: Float {
 		return Float(self)
 	}
 	
-	/// SwifterSwift: CGFloat.
+	/// **SwifterSwift**: CGFloat.
 	public var cgFloat: CGFloat {
 		return CGFloat(self)
 	}
 	
-	/// SwifterSwift: String.
+	/// **SwifterSwift**: String.
 	public var string: String {
 		return String(self)
 	}
 	
-	/// SwifterSwift: Degree value of radian input
+	/// **SwifterSwift**: Degree value of radian input
 	public var radiansToDegrees: Double {
 		return Double(self) * 180 / Double.pi
 	}
 	
-	/// SwifterSwift: Roman numeral string from integer (if applicable).
+	/// **SwifterSwift**: Roman numeral string from integer (if applicable).
 	public var romanNumeral: String? {
 		// https://gist.github.com/kumo/a8e1cb1f4b7cff1548c7
 		guard self > 0 else { // there is no roman numerals for 0 or negative numbers
@@ -120,7 +120,7 @@ public extension Int {
 		return romanValue
 	}
 	
-	/// SwifterSwift: String of format (XXh XXm) from seconds Int.
+	/// **SwifterSwift**: String of format (XXh XXm) from seconds Int.
 	public var timeString: String {
 		guard self > 0 else {
 			return "0 sec"
@@ -140,7 +140,7 @@ public extension Int {
 		return "\(hours)h \(mins)m"
 	}
 	
-	/// SwifterSwift: String formatted for values over ±1000 (example: 1k, -2k, 100k, 1kk, -5kk..)
+	/// **SwifterSwift**: String formatted for values over ±1000 (example: 1k, -2k, 100k, 1kk, -5kk..)
 	public var kFormatted: String {
 		var sign: String {
 			return self >= 0 ? "" : "-"
@@ -162,7 +162,7 @@ public extension Int {
 // MARK: - Methods
 public extension Int {
 	
-	/// SwifterSwift: Greatest common divisor of integer value and n.
+	/// **SwifterSwift**: Greatest common divisor of integer value and n.
 	///
 	/// - Parameter n: integer value to find gcd with.
 	/// - Returns: greatest common divisor of self and n.
@@ -170,7 +170,7 @@ public extension Int {
 		return n == 0 ? self : n.gcd(of: self % n)
 	}
 	
-	/// SwifterSwift: Least common multiple of integer and n.
+	/// **SwifterSwift**: Least common multiple of integer and n.
 	///
 	/// - Parameter n: integer value to find lcm with.
 	/// - Returns: least common multiple of self and n.
@@ -178,7 +178,7 @@ public extension Int {
 		return (self * n).abs / gcd(of: n)
 	}
 	
-	/// SwifterSwift: Random integer between two integer values.
+	/// **SwifterSwift**: Random integer between two integer values.
 	///
 	/// - Parameters:
 	///   - min: minimum number to start random from.
@@ -188,7 +188,7 @@ public extension Int {
 		return random(inRange: min...max)
 	}
 	
-	/// SwifterSwift: Random integer in a closed interval range.
+	/// **SwifterSwift**: Random integer in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.
 	/// - Returns: random double in the given closed range.
@@ -203,7 +203,7 @@ public extension Int {
 // MARK: - Initializers
 public extension Int {
 	
-	/// SwifterSwift: Created a random integer between two integer values.
+	/// **SwifterSwift**: Created a random integer between two integer values.
 	///
 	/// - Parameters:
 	///   - min: minimum number to start random from.
@@ -212,7 +212,7 @@ public extension Int {
 		self = Int.random(between: min, and: max)
 	}
 	
-	/// SwifterSwift: Create a random integer in a closed interval range.
+	/// **SwifterSwift**: Create a random integer in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.
 	public init(randomInRange range: ClosedRange<Int>) {
@@ -226,7 +226,7 @@ public extension Int {
 
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator ** : PowerPrecedence
-/// SwifterSwift: Value of exponentiation.
+/// **SwifterSwift**: Value of exponentiation.
 ///
 /// - Parameters:
 ///   - lhs: base integer.
@@ -238,7 +238,7 @@ public func ** (lhs: Int, rhs: Int) -> Double {
 }
 
 prefix operator √
-/// SwifterSwift: Square root of integer.
+/// **SwifterSwift**: Square root of integer.
 ///
 /// - Parameter int: integer value to find square root for
 /// - Returns: square root of given integer.
@@ -248,7 +248,7 @@ public prefix func √ (int: Int) -> Double {
 }
 
 infix operator ±
-/// SwifterSwift: Tuple of plus-minus operation.
+/// **SwifterSwift**: Tuple of plus-minus operation.
 ///
 /// - Parameters:
 ///   - lhs: integer number.
@@ -260,7 +260,7 @@ public func ± (lhs: Int, rhs: Int) -> (Int, Int) {
 }
 
 prefix operator ±
-/// SwifterSwift: Tuple of plus-minus operation.
+/// **SwifterSwift**: Tuple of plus-minus operation.
 ///
 /// - Parameter int: integer number
 /// - Returns: tuple of plus-minus operation (example: ± 2 -> (2, -2)).

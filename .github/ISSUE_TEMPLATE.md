@@ -3,7 +3,7 @@
 > All comment lines beginning with an **>** instruct you with what info we expect. You can delete those lines once you've filled in the info.
 >
 
-[ ] I've read, understood, and done my best to follow the [Contributing guidelines](CONTRIBUTING.md).
+[ ] I've read, understood, and done my best to follow the [Contributing guidelines](CONTRIBUTING.md) before opening this issue.
 
 
 ### What did you do?

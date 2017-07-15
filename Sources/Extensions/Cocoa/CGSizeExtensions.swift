@@ -16,7 +16,7 @@
 // MARK: - Methods
 public extension CGSize {
 	
-	/// SwifterSwift: Aspect fit CGSize.
+	/// **SwifterSwift**: Aspect fit CGSize.
 	///
 	/// - Parameter boundingSize: bounding size to fit self to.
 	/// - Returns: self fitted into given bounding size
@@ -25,7 +25,7 @@ public extension CGSize {
 		return CGSize(width: width * minRatio, height: height * minRatio)
 	}
 	
-	/// SwifterSwift: Aspect fill CGSize.
+	/// **SwifterSwift**: Aspect fill CGSize.
 	///
 	/// - Parameter boundingSize: bounding size to fill self to.
 	/// - Returns: self filled into given bounding size

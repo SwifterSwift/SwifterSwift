@@ -16,12 +16,12 @@
 // MARK: - Properties
 public extension Double {
 	
-	/// SwifterSwift: Absolute of double value.
+	/// **SwifterSwift**: Absolute of double value.
 	public var abs: Double {
 		return Swift.abs(self)
 	}
 	
-	/// SwifterSwift: String with number and current locale currency.
+	/// **SwifterSwift**: String with number and current locale currency.
 	public var asLocaleCurrency: String {
 		let formatter = NumberFormatter()
 		formatter.numberStyle = .currency
@@ -29,52 +29,52 @@ public extension Double {
 		return formatter.string(from: self as NSNumber)!
 	}
 	
-	/// SwifterSwift: Ceil of double value.
+	/// **SwifterSwift**: Ceil of double value.
 	public var ceil: Double {
 		return Foundation.ceil(self)
 	}
 	
-	/// SwifterSwift: Radian value of degree input.
+	/// **SwifterSwift**: Radian value of degree input.
 	public var degreesToRadians: Double {
 		return Double.pi * self / 180.0
 	}
 	
-	/// SwifterSwift: Floor of double value.
+	/// **SwifterSwift**: Floor of double value.
 	public var floor: Double {
 		return Foundation.floor(self)
 	}
 	
-	/// SwifterSwift: Check if double is positive.
+	/// **SwifterSwift**: Check if double is positive.
 	public var isPositive: Bool {
 		return self > 0
 	}
 	
-	/// SwifterSwift: Check if double is negative.
+	/// **SwifterSwift**: Check if double is negative.
 	public var isNegative: Bool {
 		return self < 0
 	}
 	
-	/// SwifterSwift: Int.
+	/// **SwifterSwift**: Int.
 	public var int: Int {
 		return Int(self)
 	}
 	
-	/// SwifterSwift: Float.
+	/// **SwifterSwift**: Float.
 	public var float: Float {
 		return Float(self)
 	}
 	
-	/// SwifterSwift: CGFloat.
+	/// **SwifterSwift**: CGFloat.
 	public var cgFloat: CGFloat {
 		return CGFloat(self)
 	}
 	
-	/// SwifterSwift: String.
+	/// **SwifterSwift**: String.
 	public var string: String {
 		return String(self)
 	}
 	
-	/// SwifterSwift: Degree value of radian input.
+	/// **SwifterSwift**: Degree value of radian input.
 	public var radiansToDegrees: Double {
 		return self * 180 / Double.pi
 	}
@@ -85,7 +85,7 @@ public extension Double {
 // MARK: - Methods
 public extension Double {
 	
-	/// SwifterSwift: Random double between two double values.
+	/// **SwifterSwift**: Random double between two double values.
 	///
 	/// - Parameters:
 	///   - min: minimum number to start random from.
@@ -95,7 +95,7 @@ public extension Double {
 		return random(inRange: min...max)
 	}
 	
-	/// SwifterSwift: Random double in a closed interval range.
+	/// **SwifterSwift**: Random double in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.
 	/// - Returns: random double in the given closed range.
@@ -110,7 +110,7 @@ public extension Double {
 // MARK: - Initializers
 public extension Double {
 	
-	/// SwifterSwift: Created a random double between two double values.
+	/// **SwifterSwift**: Created a random double between two double values.
 	///
 	/// - Parameters:
 	///   - min: minimum number to start random from.
@@ -119,7 +119,7 @@ public extension Double {
 		self = Double.random(between: min, and: max)
 	}
 	
-	/// SwifterSwift: Create a random double in a closed interval range.
+	/// **SwifterSwift**: Create a random double in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.
 	public init(randomInRange range: ClosedRange<Double>) {
@@ -133,7 +133,7 @@ public extension Double {
 
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator ** : PowerPrecedence
-/// SwifterSwift: Value of exponentiation.
+/// **SwifterSwift**: Value of exponentiation.
 ///
 /// - Parameters:
 ///   - lhs: base double.
@@ -145,7 +145,7 @@ public func ** (lhs: Double, rhs: Double) -> Double {
 }
 
 prefix operator √
-/// SwifterSwift: Square root of double.
+/// **SwifterSwift**: Square root of double.
 ///
 /// - Parameter double: double value to find square root for.
 /// - Returns: square root of given double.
@@ -155,7 +155,7 @@ public prefix func √ (double: Double) -> Double {
 }
 
 infix operator ±
-/// SwifterSwift: Tuple of plus-minus operation.
+/// **SwifterSwift**: Tuple of plus-minus operation.
 ///
 /// - Parameters:
 ///   - lhs: double number.
@@ -167,7 +167,7 @@ public func ± (lhs: Double, rhs: Double) -> (Double, Double) {
 }
 
 prefix operator ±
-/// SwifterSwift: Tuple of plus-minus operation.
+/// **SwifterSwift**: Tuple of plus-minus operation.
 ///
 /// - Parameter int: double number
 /// - Returns: tuple of plus-minus operation (example: ± 2.5 -> (2.5, -2.5)).

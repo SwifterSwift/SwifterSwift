@@ -16,14 +16,14 @@
 public extension CGColor {
 	
 	#if !os(macOS)
-	/// SwifterSwift: UIColor.
+	/// **SwifterSwift**: UIColor.
 	public var uiColor: UIColor? {
 		return UIColor(cgColor: self)
 	}
 	#endif
 	
 	#if os(macOS)
-	/// SwifterSwift: NSColor.
+	/// **SwifterSwift**: NSColor.
 	public var nsColor: NSColor? {
 		return NSColor(cgColor: self)
 	}

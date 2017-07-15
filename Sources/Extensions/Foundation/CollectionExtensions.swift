@@ -22,7 +22,7 @@ public extension Collection {
 		return indices
 	}
 	
-	/// SwifterSwift: Performs `each` closure for each element of collection in parallel.
+	/// **SwifterSwift**: Performs `each` closure for each element of collection in parallel.
 	///
 	/// - Parameter each: closure to run for each element.
 	public func forEachInParallel(_ each: (Self.Iterator.Element) -> ()) {
@@ -38,7 +38,7 @@ public extension Collection {
 
 public extension Collection where Indices.Iterator.Element == Index {
 
-	/// SwifterSwift: Safe protects the array from out of bounds by use of optional.
+	/// **SwifterSwift**: Safe protects the array from out of bounds by use of optional.
 	///
 	/// - Parameter index: index of element to access element.
 	public subscript (safe index: Index) -> Generator.Element? {
@@ -49,7 +49,7 @@ public extension Collection where Indices.Iterator.Element == Index {
 
 public extension Collection where Index == Int, IndexDistance == Int {
 	
-	/// SwifterSwift: Random item from array.
+	/// **SwifterSwift**: Random item from array.
 	public var randomItem: Generator.Element {
 		let index = Int(arc4random_uniform(UInt32(count)))
 		return self[index]
@@ -60,7 +60,7 @@ public extension Collection where Index == Int, IndexDistance == Int {
 // MARK: - Methods (Integer)
 public extension Collection where Iterator.Element == Int, Index == Int {
 
-	/// SwifterSwift: Average of all elements in array.
+	/// **SwifterSwift**: Average of all elements in array.
 	///
 	/// - Returns: the average of the array's elements.
 	public func average() -> Double {

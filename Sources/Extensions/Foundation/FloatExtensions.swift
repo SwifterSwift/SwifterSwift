@@ -16,12 +16,12 @@
 // MARK: - Properties
 public extension Float {
 	
-	/// SwifterSwift: Absolute of float value.
+	/// **SwifterSwift**: Absolute of float value.
 	public var abs: Float {
 		return Swift.abs(self)
 	}
 	
-	/// SwifterSwift: String with number and current locale currency.
+	/// **SwifterSwift**: String with number and current locale currency.
 	public var asLocaleCurrency: String {
 		let formatter = NumberFormatter()
 		formatter.numberStyle = .currency
@@ -29,52 +29,52 @@ public extension Float {
 		return formatter.string(from: self as NSNumber)!
 	}
 	
-	/// SwifterSwift: Ceil of float value.
+	/// **SwifterSwift**: Ceil of float value.
 	public var ceil: Float {
 		return Foundation.ceil(self)
 	}
 	
-	/// SwifterSwift: Radian value of degree input.
+	/// **SwifterSwift**: Radian value of degree input.
 	public var degreesToRadians: Float {
 		return Float.pi * self / 180.0
 	}
 	
-	/// SwifterSwift: Floor of float value.
+	/// **SwifterSwift**: Floor of float value.
 	public var floor: Float {
 		return Foundation.floor(self)
 	}
 	
-	/// SwifterSwift: Check if float is positive.
+	/// **SwifterSwift**: Check if float is positive.
 	public var isPositive: Bool {
 		return self > 0
 	}
 	
-	/// SwifterSwift: Check if float is negative.
+	/// **SwifterSwift**: Check if float is negative.
 	public var isNegative: Bool {
 		return self < 0
 	}
 	
-	/// SwifterSwift: Int.
+	/// **SwifterSwift**: Int.
 	public var int: Int {
 		return Int(self)
 	}
 	
-	/// SwifterSwift: Double.
+	/// **SwifterSwift**: Double.
 	public var double: Double {
 		return Double(self)
 	}
 	
-	/// SwifterSwift: CGFloat.
+	/// **SwifterSwift**: CGFloat.
 	public var cgFloat: CGFloat {
 		return CGFloat(self)
 	}
 	
-	/// SwifterSwift: String.
+	/// **SwifterSwift**: String.
 	public var string: String {
 		return String(self)
 	}
 	
-	/// SwifterSwift: Degree value of radian input.
+	/// **SwifterSwift**: Degree value of radian input.
 	public var radiansToDegrees: Float {
 		return self * 180 / Float.pi
 	}
@@ -85,7 +85,7 @@ public extension Float {
 // MARK: - Methods
 public extension Float {
 	
-	/// SwifterSwift: Random float between two float values.
+	/// **SwifterSwift**: Random float between two float values.
 	///
 	/// - Parameters:
 	///   - min: minimum number to start random from.
@@ -95,7 +95,7 @@ public extension Float {
 		return random(inRange: min...max)
 	}
 	
-	/// SwifterSwift: Random float in a closed interval range.
+	/// **SwifterSwift**: Random float in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.
 	/// - Returns: random float in the given closed range.
@@ -110,7 +110,7 @@ public extension Float {
 // MARK: - Initializers
 public extension Float {
 	
-	/// SwifterSwift: Created a random float between two float values.
+	/// **SwifterSwift**: Created a random float between two float values.
 	///
 	/// - Parameters:
 	///   - min: minimum number to start random from.
@@ -119,7 +119,7 @@ public extension Float {
 		self = Float.random(between: min, and: max)
 	}
 	
-	/// SwifterSwift: Create a random float in a closed interval range.
+	/// **SwifterSwift**: Create a random float in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.
 	public init(randomInRange range: ClosedRange<Float>) {
@@ -133,7 +133,7 @@ public extension Float {
 
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator ** : PowerPrecedence
-/// SwifterSwift: Value of exponentiation.
+/// **SwifterSwift**: Value of exponentiation.
 ///
 /// - Parameters:
 ///   - lhs: base float.
@@ -145,7 +145,7 @@ public func ** (lhs: Float, rhs: Float) -> Float {
 }
 
 prefix operator √
-/// SwifterSwift: Square root of float.
+/// **SwifterSwift**: Square root of float.
 ///
 /// - Parameter float: float value to find square root for
 /// - Returns: square root of given float.
@@ -155,7 +155,7 @@ public prefix func √ (float: Float) -> Float {
 }
 
 infix operator ±
-/// SwifterSwift: Tuple of plus-minus operation.
+/// **SwifterSwift**: Tuple of plus-minus operation.
 ///
 /// - Parameters:
 ///   - lhs: float number
@@ -167,7 +167,7 @@ public func ± (lhs: Float, rhs: Float) -> (Float, Float) {
 }
 
 prefix operator ±
-/// SwifterSwift: Tuple of plus-minus operation.
+/// **SwifterSwift**: Tuple of plus-minus operation.
 ///
 /// - Parameter int: float number
 /// - Returns: tuple of plus-minus operation (± 2.5 -> (2.5, -2.5)).
