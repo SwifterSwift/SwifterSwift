@@ -14,6 +14,10 @@ All notable changes to this project will be documented in this file.
 
 - New **Array** extensions
     - added `groupByKey` to group the elements of the array by key in a dictionary. [#181](https://github.com/SwifterSwift/SwifterSwift/pull/181) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+    - added `forEach(slice:body:)` to iterate an array based on a specified slice size and apply a closure to that slice. [#194](https://github.com/SwifterSwift/SwifterSwift/pull/194/files) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+
+- New **Dictionary** extensions
+    - add `count(where:)` to count dictionary elements where the condition returns true. [#193](https://github.com/SwifterSwift/SwifterSwift/pull/193) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 - New **String** extensions
     - added `isValidFileUrl` to check if a String is a valid file URL. [#175](https://github.com/SwifterSwift/SwifterSwift/pull/175) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
