@@ -142,7 +142,7 @@ let package = Package(
 <summary>Manually</summary>
 </br>
 
-<p>Add the <a href="Sources/Extensions">extensions</a> folder to your Xcode project to use all extensions, or a specific extension.</p>
+<p>Add the <a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions">extensions</a> folder to your Xcode project to use all extensions, or a specific extension.</p>
 
 </details>
 
@@ -155,33 +155,33 @@ let package = Package(
 </br>
 
 <ul>
-<li><a href="Sources/Extensions/Foundation/ArrayExtensions.swift"><code>Array extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/ArrayExtensions.swift"><code>Array extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/BoolExtensions.swift"><code>Bool extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/BoolExtensions.swift"><code>Bool extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/CharacterExtensions.swift"><code>Character extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/CharacterExtensions.swift"><code>Character extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/CollectionExtensions.swift"><code>Collection extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/CollectionExtensions.swift"><code>Collection extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/DataExtensions.swift"><code>Data extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/DataExtensions.swift"><code>Data extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/DateExtensions.swift"><code>Date extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/DateExtensions.swift"><code>Date extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/DictionaryExtensions.swift"><code>Dictionary extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/DictionaryExtensions.swift"><code>Dictionary extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/DoubleExtensions.swift"><code>Double extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/DoubleExtensions.swift"><code>Double extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/FloatExtensions.swift"><code>Float extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/FloatExtensions.swift"><code>Float extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/IntExtensions.swift"><code>Int extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/IntExtensions.swift"><code>Int extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/LocaleExtensions.swift"><code>Locale extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/LocaleExtensions.swift"><code>Locale extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/OptionalExtensions.swift"><code>Optional extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/OptionalExtensions.swift"><code>Optional extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/StringExtensions.swift"><code>String extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/StringExtensions.swift"><code>String extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Foundation/URLExtensions.swift"><code>URL extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/URLExtensions.swift"><code>URL extensions</code></a></li>
 </ul>
 
 </details>
@@ -192,49 +192,49 @@ let package = Package(
 </br>
 
 <ul>
-<li><a href="Sources/Extensions/UIKit/UIAlertControllerExtensions.swift"><code>UIAlertController extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIAlertControllerExtensions.swift"><code>UIAlertController extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UIBarButtonItemExtensions.swift"><code>UIBarButtonItem extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIBarButtonItemExtensions.swift"><code>UIBarButtonItem extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UIButtonExtensions.swift"><code>UIButton extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIButtonExtensions.swift"><code>UIButton extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UICollectionViewExtensions.swift"><code>UICollectionView extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UICollectionViewExtensions.swift"><code>UICollectionView extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UIColorExtensions.swift"><code>UIColor extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIColorExtensions.swift"><code>UIColor extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UIImageExtensions.swift"><code>UIImage extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIImageExtensions.swift"><code>UIImage extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UIImageViewExtensions.swift"><code>UIImageView extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIImageViewExtensions.swift"><code>UIImageView extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UILabelExtensions.swift"><code>UILabel extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UILabelExtensions.swift"><code>UILabel extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UINavigationBarExtensions.swift"><code>UINavigationBar extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UINavigationBarExtensions.swift"><code>UINavigationBar extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UINavigationControllerExtensions.swift"><code>UINavigationController extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UINavigationControllerExtensions.swift"><code>UINavigationController extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UINavigationItemExtensions.swift"><code>UINavigationItem extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UINavigationItemExtensions.swift"><code>UINavigationItem extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UISearchBarExtensions.swift"><code>UISearchBar extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UISearchBarExtensions.swift"><code>UISearchBar extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UISegmentedControlExtensions.swift"><code>UISegmentedControl extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UISegmentedControlExtensions.swift"><code>UISegmentedControl extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UISliderExtensions.swift"><code>UISlider extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UISliderExtensions.swift"><code>UISlider extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UIStoryboardExtensions.swift"><code>UIStoryboard extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIStoryboardExtensions.swift"><code>UIStoryboard extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UISwitchExtensions.swift"><code>UISwitch extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UISwitchExtensions.swift"><code>UISwitch extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UITabBarExtensions.swift"><code>UITabBar extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UITabBarExtensions.swift"><code>UITabBar extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UITableViewExtensions.swift"><code>UITableView extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UITableViewExtensions.swift"><code>UITableView extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UITextFieldExtensions.swift"><code>UITextField extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UITextFieldExtensions.swift"><code>UITextField extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UITextViewExtensions.swift"><code>UITextView extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UITextViewExtensions.swift"><code>UITextView extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UIViewExtensions.swift"><code>UIView extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIViewExtensions.swift"><code>UIView extensions</code></a></li>
 
-<li><a href="Sources/Extensions/UIKit/UIViewControllerExtensions.swift"><code>UIViewController extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIViewControllerExtensions.swift"><code>UIViewController extensions</code></a></li>
 </ul>
 
 </details>
@@ -245,21 +245,21 @@ let package = Package(
 </br>
 
 <ul>
-<li><a href="Sources/Extensions/Cocoa/CGColorExtensions.swift"><code>CGColor extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/CGColorExtensions.swift"><code>CGColor extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Cocoa/CGFloatExtensions.swift"><code>CGFloat extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/CGFloatExtensions.swift"><code>CGFloat extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Cocoa/CGPointExtensions.swift"><code>CGPoint extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/CGPointExtensions.swift"><code>CGPoint extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Cocoa/CGSizeExtensions.swift"><code>CGSize extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/CGSizeExtensions.swift"><code>CGSize extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Cocoa/CLLocationExtensions.swift"><code>CLLocation extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/CLLocationExtensions.swift"><code>CLLocation extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Cocoa/NSAttributedStringExtensions.swift"><code>NSAttributedString extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/NSAttributedStringExtensions.swift"><code>NSAttributedString extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Cocoa/NSColorExtensions.swift"><code>NSColor extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/NSColorExtensions.swift"><code>NSColor extensions</code></a></li>
 
-<li><a href="Sources/Extensions/Cocoa/NSViewExtensions.swift"><code>NSView extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/NSViewExtensions.swift"><code>NSView extensions</code></a></li>
 </ul>
 
 </details>
@@ -270,7 +270,7 @@ let package = Package(
 </br>
 
 <ul>
-<li><a href="Sources/Extensions/SwifterSwift.swift"><code>SwifterSwift</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/SwifterSwift.swift"><code>SwifterSwift</code></a></li>
 </ul>
 
 </details>
@@ -281,7 +281,7 @@ let package = Package(
 
 SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
 
-Check [Examples.md](Examples/Examples.md) for some cool examples!
+Check [Examples.md](https://github.com/SwifterSwift/SwifterSwift/tree/master/Examples/Examples.md) for some cool examples!
 
 
 ## Documentation
@@ -293,7 +293,7 @@ A complete documentation for all extensions with examples is available at [swift
 ## Get involved:
 
 Your feedback is always appreciated and welcomed.
-Please refer to [contributing guidelines](CONTRIBUTING.md) before participating.
+Please refer to [contributing guidelines](https://github.com/SwifterSwift/SwifterSwift/tree/master/CONTRIBUTING.md) before participating.
 
 
 
