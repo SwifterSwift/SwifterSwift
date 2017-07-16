@@ -8,19 +8,39 @@ All notable changes to this project will be documented in this file.
 # Next Release
 
 ### API Breaking
+N/A
 
 ### Enhancements
+N/A
+
+### Bugfixes
+N/A
+
+# v3.0.0
+
+### API Breaking
+
+### Enhancements
+
+- Documentation should be greatly improved and up to date now that we are using [Jazzy](https://github.com/realm/jazzy) to auto-generate docs! :tada: [#198](https://github.com/SwifterSwift/SwifterSwift/pull/198) by [@omaralbeik](https://github.com/omaralbeik)
+
+- SwifterSwift now supports subspecs to offer more control over imported extensions: [#198](https://github.com/SwifterSwift/SwifterSwift/pull/198) by [@omaralbeik](https://github.com/omaralbeik)
+    - SwifterSwift/Foundation
+    - SwifterSwift/UIKit
+    - SwifterSwift/Cocoa
+
 - `Array` extensions now have throwing signatures. [#170](https://github.com/SwifterSwift/SwifterSwift/pull/170) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 - New **Array** extensions
     - added `groupByKey` to group the elements of the array by key in a dictionary. [#181](https://github.com/SwifterSwift/SwifterSwift/pull/181) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-    - added `forEach(slice:body:)` to iterate an array based on a specified slice size and apply a closure to that slice. [#194](https://github.com/SwifterSwift/SwifterSwift/pull/194/files) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+    - added `forEach(slice:body:)` to iterate by specified slice size and call a closure. [#194](https://github.com/SwifterSwift/SwifterSwift/pull/194/files) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 - New **Dictionary** extensions
     - add `count(where:)` to count dictionary elements where the condition returns true. [#193](https://github.com/SwifterSwift/SwifterSwift/pull/193) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 - New **String** extensions
     - added `isValidFileUrl` to check if a String is a valid file URL. [#175](https://github.com/SwifterSwift/SwifterSwift/pull/175) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+    - added `hasUniqueCharacters()` method to check if string only contains unique characters. [#195](https://github.com/SwifterSwift/SwifterSwift/pull/195) by [@FrankKair](https://github.com/FrankKair)
 
 - New **Data** extensions
     - added `bytes` to return data as an array of bytes. [#171](https://github.com/SwifterSwift/SwifterSwift/pull/171) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
