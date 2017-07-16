@@ -1,5 +1,5 @@
 <p align="left">
-  <img src="https://github.com/SwifterSwift/SwifterSwift/blob/master/logo.png?raw=true" title="swifterSwift">
+  <img src="https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/Assets/logo.png" title="swifterSwift">
 </p>
 
 [![Build Status](https://api.travis-ci.org/SwifterSwift/SwifterSwift.svg?branch=master)](https://travis-ci.org/SwifterSwift/SwifterSwift)
