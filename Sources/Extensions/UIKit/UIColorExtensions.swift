@@ -55,13 +55,12 @@ public extension UIColor {
 	
 	/// SwifterSwift: Short hexadecimal value string (read-only, if applicable).
 	public var shortHexString: String? {
-		let string = hexString.replacing("#", with: "")
-		guard let first = string[0], first == string[1],
-			let second = string[2], second == string[3],
-			let third = string[4], third == string[5] else {
+		let string = hexString.replacingOccurrences(of: "#", with: "")
+		let chrs = Array(string.characters)
+		guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5] else {
 				return nil
 		}
-		return  "#" + first + second + third
+		return  "#" + "\(chrs[0])\(chrs[2])\(chrs[4])"
 	}
 	
 	/// SwifterSwift: Short hexadecimal value string, or full hexadecimal string if not possible (read-only).
@@ -143,16 +142,16 @@ public extension UIColor {
 	public convenience init?(hexString: String, transparency: CGFloat = 1) {
 		var string = ""
 		if hexString.lowercased().starts(with: "0x") {
-			string =  hexString.replacing("0x", with: "")
+			string =  hexString.replacingOccurrences(of: "0x", with: "")
 		} else if hexString.starts(with: "#") {
-			string = hexString.replacing("#", with: "")
+			string = hexString.replacingOccurrences(of: "#", with: "")
 		} else {
 			string = hexString
 		}
 		
 		if string.characters.count == 3 { // convert hex to 6 digit format if in short format
 			var str = ""
-			string.characters.forEach({ str.append($0 * 2) })
+			string.characters.forEach({ str.append(String(repeating: String($0), count: 2)) })
 			string = str
 		}
 		

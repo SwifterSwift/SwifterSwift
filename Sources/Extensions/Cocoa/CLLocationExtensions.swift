@@ -19,10 +19,10 @@ public extension CLLocation {
 	///   - end: End location.
 	/// - Returns: Location that represents the half-way point.
 	public static func midLocation(start: CLLocation, end: CLLocation) -> CLLocation {
-		let lat1 = start.coordinate.latitude.degreesToRadians
-		let long1 = start.coordinate.longitude.degreesToRadians
-		let lat2 = end.coordinate.latitude.degreesToRadians
-		let long2 = end.coordinate.longitude.degreesToRadians
+		let lat1 = Double.pi * start.coordinate.latitude / 180.0
+		let long1 = Double.pi * start.coordinate.longitude / 180.0
+		let lat2 = Double.pi * end.coordinate.latitude / 180.0
+		let long2 = Double.pi * end.coordinate.longitude / 180.0
 		
 		// Formula
 		//    Bx = cos φ2 ⋅ cos Δλ
@@ -36,7 +36,7 @@ public extension CLLocation {
 		let mlat = atan2(sin(lat1) + sin(lat2), sqrt((cos(lat1) + bx) * (cos(lat1) + bx) + (by * by)))
 		let mlong = (long1) + atan2(by, cos(lat1) + bx)
 		
-		return CLLocation(latitude: mlat.radiansToDegrees, longitude: mlong.radiansToDegrees)
+		return CLLocation(latitude: (mlat * 180 / Double.pi), longitude: (mlong * 180 / Double.pi))
 	}
 	
 	/// SwifterSwift: Calculate the half-way point along a great circle path between self and another points.
@@ -54,18 +54,20 @@ public extension CLLocation {
 	/// - Returns: Calculated bearing degrees in the range 0° ... 360°
 	public func bearing(to destination: CLLocation) -> Double {
 		//http://stackoverflow.com/questions/3925942/cllocation-category-for-calculating-bearing-w-haversine-function
-		let lat1 = self.coordinate.latitude.degreesToRadians
-		let long1 = self.coordinate.longitude.degreesToRadians
-		let lat2 = destination.coordinate.latitude.degreesToRadians
-		let long2 = destination.coordinate.longitude.degreesToRadians
+		let lat1 = Double.pi * coordinate.latitude / 180.0
+		let long1 = Double.pi * coordinate.longitude / 180.0
+		let lat2 = Double.pi * destination.coordinate.latitude / 180.0
+		let long2 = Double.pi * destination.coordinate.longitude / 180.0
 		
 		//Formula: θ = atan2( sin Δλ ⋅ cos φ2 , cos φ1 ⋅ sin φ2 − sin φ1 ⋅ cos φ2 ⋅ cos Δλ )
 		//Source: http://www.movable-type.co.uk/scripts/latlong.html
 		
-		let degrees = atan2(sin(long2 - long1) * cos(lat2),
-		                    cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(long2 - long1)).radiansToDegrees
+		let rads = atan2(sin(long2 - long1) * cos(lat2),
+		                    cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(long2 - long1))
+		let degrees = rads * 180 / Double.pi
 		
 		return (degrees+360).truncatingRemainder(dividingBy: 360)
 	}
 	
 }
+

@@ -51,7 +51,10 @@ public extension UIView {
 	/// SwifterSwift: Border color of view; also inspectable from Storyboard.
 	public var borderColor: UIColor? {
 		get {
-			return layer.borderColor?.uiColor
+			guard let color = layer.borderColor else {
+				return nil
+			}
+			return UIColor(cgColor: color)
 		}
 		set {
 			guard let color = newValue else {
@@ -134,7 +137,10 @@ public extension UIView {
 	/// SwifterSwift: Shadow color of view; also inspectable from Storyboard.
 	public var shadowColor: UIColor? {
 		get {
-			return layer.shadowColor?.uiColor
+			guard let color = layer.shadowColor else {
+				return nil
+			}
+			return UIColor(cgColor: color)
 		}
 		set {
 			layer.shadowColor = newValue?.cgColor

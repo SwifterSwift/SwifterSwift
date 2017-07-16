@@ -36,7 +36,7 @@ public extension Collection {
 	
 }
 
-public extension Collection where Indices.Iterator.Element == Index {
+public extension Collection where Index == Indices.Iterator.Element {
 
 	/// SwifterSwift: Safe protects the array from out of bounds by use of optional.
 	///

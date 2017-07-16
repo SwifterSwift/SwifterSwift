@@ -19,7 +19,7 @@ public extension UITextField {
 	
 	/// SwifterSwift: Return text with no spaces or new lines in beginning and end.
 	public var trimmedText: String? {
-		return text?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+		return text?.trimmingCharacters(in: .whitespacesAndNewlines)
 	}
 	
 	@IBInspectable

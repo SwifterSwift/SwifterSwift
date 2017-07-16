@@ -38,16 +38,16 @@ public extension NSColor {
 	public convenience init?(hexString: String, transparency: CGFloat = 1) {
 		var string = ""
 		if hexString.lowercased().starts(with: "0x") {
-			string =  hexString.replacing("0x", with: "")
+			string =  hexString.replacingOccurrences(of: "0x", with: "")
 		} else if hexString.starts(with: "#") {
-			string = hexString.replacing("#", with: "")
+			string = hexString.replacingOccurrences(of: "#", with: "")
 		} else {
 			string = hexString
 		}
 		
 		if string.characters.count == 3 { // convert hex to 6 digit format if in short format
 			var str = ""
-			string.characters.forEach({ str.append($0 * 2) })
+			string.characters.forEach({ str.append(String(repeating: String($0), count: 2)) })
 			string = str
 		}
 		
