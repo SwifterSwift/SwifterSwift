@@ -4,40 +4,63 @@ This document contains information and guidelines about contributing to this pro
 
 **Topics**
 
-* [Asking Questions](#asking-questions)
-* [Adding new Extensions](#adding-new-extensions)
-* [Reporting Issues](#reporting-issues)
+- [Asking Questions](#asking-questions)
+- [Ways to Contribute](#ways-to-contribute)
+- [Adding new Extensions](#adding-new-extensions)
+- [Adding documentation](#adding-documentation)
+- [Reporting Issues](#reporting-issues)
+
+---
 
 
 ## Asking Questions
+
 We don't use GitHub as a support forum.
-For any usage questions that are not specific to the project itself, please ask on [Stack Overflow](https://stackoverflow.com) instead with the tag **swifterswift**.
+For any usage questions that are not specific to the project itself, please ask on [Stack Overflow](https://stackoverflow.com) instead with the tag SwifterSwift.
 By doing so, you'll be more likely to quickly solve your problem, and you'll allow anyone else with the same question to find the answer.
-This also allows maintainers to focus on improving the project for others.
+This also allows us to focus on improving the project for others.
+
+---
+
+
+## Ways to Contribute
+
+You can contribute to the project in a variety of ways:
+
+- Improve documentation 🙏
+- Add more extensions 👍
+- Add missing unit tests 😅
+- Fixing or reporting bugs 😱
+
+If you're new to Open Source or Swift the SwifterSwift community is a great place to get involved
+
+**Your contribution is always welcomed, no contribution is too small.**
+
+---
 
 
 ## Adding new Extensions
-SwifterSwift is a collection of extensions found on [Stack Overflow](https://stackoverflow.com), [Github](https://github.com), and the internet.
-Its in its early stages, any new idea is appreciated and welcomed, however please refer to the following rules before submitting a pull request:
 
-- Add your contributions to [**master branch** ](https://github.com/omaralbeik/SwifterSwift/tree/master):
+Please refer to the following rules before submitting a pull request with your new extensions:
+
+- Add your contributions to [**master branch** ](https://github.com/SwifterSwift/SwifterSwift/tree/master):
 	- by doing this we can merge new pull-requests into **master** branch as soon as they are accepted, and add them to the next releases once they are fully tested.
-- Add original place of extension source (if possible) as a comment inside extension:
+- Mention the original source of extension source (if possible) as a comment inside extension:
 
  ```swift
- public extension SomeType {
-	public name: SomeType {
-			// https://stackoverflow.com/somepage
-			// .. code
- 	}
- }
+public extension SomeType {
+    public name: SomeType {
+        // https://stackoverflow.com/somepage
+        // .. code
+    }
+}
  ```
 
 - All extensions should follow [Swift API Design Guidelines](https://developer.apple.com/videos/play/wwdc2016/403/)
 - Always declare extensions as **public**.
 - All extensions names should be as clear as possible.
-- All extensions should be well documented.
-- Avoid using custom classes and objects the goal for this library is to extend the standards types available nativly in Swift, iOS, MacOS, WatchOS and tvOS.
+- All extensions should be well documented. see [Adding documentation](#adding-documentation)
+- Avoid using custom classes and objects the goal for this library is to extend the standards types available natively in Swift, iOS, macOS, watchOS and tvOS.
 - extensions could be:
  	- enums
 	- Properties & static properties
@@ -46,24 +69,104 @@ Its in its early stages, any new idea is appreciated and welcomed, however pleas
 - Files are named based on the type that the contained extensions extend (example: all String extensions are found in "**StringExtensions.swift**" file)
 - extensions are ordered inside files in the following order:
 
- ```swift
- // MARK: - enums
- public enum {
- 	// ...
- }
+```swift
+// MARK: - enums
+public enum {
+    // ...
+}
 
- // MARK: - Properties
- public extension SomeType {}
+// MARK: - Properties
+public extension SomeType {}
 
- // MARK: - Methods
- public extension SomeType {}
+// MARK: - Methods
+public extension SomeType {}
 
- // MARK: - Initializers
- public extension SomeType {}
- ```
+// MARK: - Initializers
+public extension SomeType {}
+```
 
 - Please add each extension in its appropriate place in the file.
-- Please submit **only one commit** per pull-request.
+
+---
+
+
+## Adding documentation
+
+Use the following template to add documentation for extensions
+> Replace placeholders inside <>
+
+> Remove any extra lines, eg. if method does not return any value, delete the `- Returns:` line
+
+#### Documentation template for units with single parameter:
+
+```swift
+/// SwifterSwift: <Description>.
+///
+///    <Example Code>
+///
+/// - Parameter <Paramenter>: <Description>.
+/// - Throws: <Error>
+/// - Returns: <Description>
+```
+
+
+#### Documentation template for units with multiple parameters:
+
+```swift
+/// SwifterSwift: <Description>.
+///
+///    <Example Code>
+///
+/// - Parameters:
+///   - <Paramenter>: <Description>.
+///   - <Paramenter>: <Description>.
+/// - Throws: <Error>
+/// - Returns: <Description>
+```
+
+
+#### Documentation template for enums:
+
+```swift
+/// SwifterSwift: <Description>.
+///
+/// - <Case1>: <Description>
+/// - <Case2>: <Description>
+/// - <Case3>: <Description>
+/// - <Case4>: <Description>
+```
+
+#### Documentation Examples:
+
+```swift
+
+/// SwifterSwift: Sum of all elements in array.
+///
+///    [1, 2, 3, 4, 5].sum() -> 15
+///
+/// - Returns: Sum of the array's elements.
+public func sum() -> Element {
+    // ...
+}
+
+/// SwifterSwift: Date by changing value of calendar component.
+///
+/// - Parameters:
+///   - component: component type.
+///   - value: new value of component to change.
+/// - Returns: original date after changing given component to given value.
+public func changing(_ component: Calendar.Component, value: Int) -> Date? {
+    // ...
+}
+
+```
+
+#### Power Tip:
+
+In Xcode select a method and press `command` + `alt` + `/` to create a documentation template!
+
+
+---
 
 ## Reporting Issues
 A great way to contribute to the project is to send a detailed issue when you encounter an problem.
@@ -76,10 +179,14 @@ Doing this helps prioritize the most common problems and requests.
 
 **When reporting issues, please include the following:**
 
-* The version of Xcode you're using
-* The version of iOS you're targeting
-* The full output of any stack trace or compiler error
-* A code snippet that reproduces the described behavior, if applicable
-* Any other details that would be useful in understanding the problem
+- What did you do?
+- What did you expect to happen?
+- What happened instead?
+- SwifterSwift version
+- Xcode version
+- macOS version running Xcode
+- Swift version
+- Platform(s) running SwifterSwift
+- Demo Project (if available)
 
 This information will help us review and fix your issue faster.

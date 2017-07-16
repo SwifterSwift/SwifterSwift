@@ -6,623 +6,309 @@
 [![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/SwifterSwift/SwifterSwift/branch/master/graph/badge.svg)](https://codecov.io/gh/SwifterSwift/SwifterSwift)
+[![docs](http://swifterswift.com/docs/badge.svg)](http://swifterswift.com/docs)
 [![CocoaPods](https://img.shields.io/cocoapods/dt/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![CocoaPods](https://img.shields.io/cocoapods/dm/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![Platform](https://img.shields.io/cocoapods/p/SwifterSwift.svg?style=flat)](https://github.com/SwifterSwift/swifterSwift)
-[![Swift](https://img.shields.io/badge/Swift-3.1-orange.svg)](https://swift.org)
+[![Swift](https://img.shields.io/badge/Swift-3.2-orange.svg)](https://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-8.3-blue.svg)](https://developer.apple.com/xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
+[![Slack Channel](http://slack.swifterswift.com/badge.svg)](http://slack.swifterswift.com/)
 
 
 SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.
 
 
-## [Whats New in v1.6.4?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v164)
-v1.6.4 brings new extensions, improved tests and minor bug fixes
+### [Whats New in v3?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v300)
 
 
-# Requirements:
-- **iOS** 8.0+ / **tvOS** 9.0+ / **watchOS** 3+ / **macOS** 10.10+
-- Xcode 8.1+
+
+## Requirements:
+- **iOS** 8.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+
+- Xcode 8.0+
 - Swift 3.0+
 
 
-# Installation
 
-### CocoaPods
+## Installation
 
-[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+<details>
+<summary>CocoaPods</summary>
+</br>
 
-```bash
-$ gem install cocoapods
-```
+<p><a href="http://cocoapods.org">CocoaPods</a> is a dependency manager for Cocoa projects. You can install it with the following command:</p>
 
-To integrate SwifterSwift into your Xcode project using CocoaPods, specify it in your `Podfile`:
+<pre><code class="bash language-bash">$ gem install cocoapods
+</code></pre>
 
-```ruby
-source 'https://github.com/CocoaPods/Specs.git'
+<p>To integrate SwifterSwift into your Xcode project using CocoaPods, specify it in your <code>Podfile</code>:</p>
+
+<h3 id="1integrateallextensions">1. Integrate All extensions:</h3>
+
+<pre><code class="ruby language-ruby">source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-target '<Your Target Name>' do
+target '&lt;Your Target Name&gt;' do
     pod 'SwifterSwift'
 end
-```
+</code></pre>
 
-Then, run the following command:
+<h3 id="2integratefoundationextensionsonly">2. Integrate Foundation extensions only:</h3>
 
-```bash
-$ pod install
-```
+<pre><code class="ruby language-ruby">source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '&lt;Your Target Name&gt;' do
+    pod 'SwifterSwift/Foundation'
+end
+</code></pre>
+
+<h3 id="3integrateuikitextensionsonly">3. Integrate UIKit extensions only:</h3>
+
+<pre><code class="ruby language-ruby">source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '&lt;Your Target Name&gt;' do
+    pod 'SwifterSwift/UIKit'
+end
+</code></pre>
+
+<h3 id="4integratecocoaextensionsonly">4. Integrate Cocoa extensions only:</h3>
+
+<pre><code class="ruby language-ruby">source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+target '&lt;Your Target Name&gt;' do
+    pod 'SwifterSwift/Cocoa'
+end
+</code></pre>
+
+<p>Then, run the following command:</p>
+
+<pre><code class="bash language-bash">$ pod install
+</code></pre>
+
+</details>
 
 
-### Carthage
+<details>
+<summary>Carthage</summary>
+</br>
 
-[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+<p><a href="https://github.com/Carthage/Carthage">Carthage</a> is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.</p>
 
-You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+<p>You can install Carthage with <a href="http://brew.sh/">Homebrew</a> using the following command:</p>
 
-```bash
-$ brew update
+<pre><code class="bash language-bash">$ brew update
 $ brew install carthage
-```
+</code></pre>
 
-To integrate SwifterSwift into your Xcode project using Carthage, specify it in your `Cartfile`:
+<p>To integrate SwifterSwift into your Xcode project using Carthage, specify it in your <code>Cartfile</code>:</p>
 
-```ogdl
-github "SwifterSwift/SwifterSwift" ~> 1.5
-```
+<pre><code class="ogdl language-ogdl">github "SwifterSwift/SwifterSwift" ~&gt; 3.0
+</code></pre>
 
-Run `carthage update` to build the framework and drag the built `SwifterSwift.framework` into your Xcode project.
+<p>Run <code>carthage update</code> to build the framework and drag the built <code>SwifterSwift.framework</code> into your Xcode project.</p>
+
+</details>
 
 
-### Swift Package Manager
+<details>
+<summary>Swift Package Manager</summary>
+</br>
 
-You can use [The Swift Package Manager](https://swift.org/package-manager) to install `SwifterSwift` by adding the proper description to your `Package.swift` file:
+<p>You can use <a href="https://swift.org/package-manager">The Swift Package Manager</a> to install <code>SwifterSwift</code> by adding the proper description to your <code>Package.swift</code> file:</p>
 
-```swift
-import PackageDescription
+<pre><code class="swift language-swift">import PackageDescription
 
 let package = Package(
     name: "YOUR_PROJECT_NAME",
     targets: [],
     dependencies: [
-        .Package(url: "https://github.com/SwifterSwift/SwifterSwift.git", majorVersion: 1),
+        .Package(url: "https://github.com/SwifterSwift/SwifterSwift.git", majorVersion: 3),
     ]
 )
-```
+</code></pre>
 
-Note that the [Swift Package Manager](https://swift.org/package-manager) is still in early design and development, for more information checkout its [GitHub Page](https://github.com/apple/swift-package-manager)
+<p>Note that the <a href="https://swift.org/package-manager">Swift Package Manager</a> is still in early design and development, for more information checkout its <a href="https://github.com/apple/swift-package-manager">GitHub Page</a></p>
 
+</details>
 
-### Manually
 
-Add the [extensions](Source/Extensions) folder to your Xcode project to use all extensions, or a specific extension.
+<details>
+<summary>Manually</summary>
+</br>
 
+<p>Add the <a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions">extensions</a> folder to your Xcode project to use all extensions, or a specific extension.</p>
 
----
+</details>
 
-# Read the Full Documentation
-Full documentation with code examples is available in the [Docs repo](https://github.com/SwifterSwift/SwifterSwiftDocs)
 
----
 
-# List of Extensions
+## List of All Extensions
 
-- [`Array extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/ArrayExtensions.md)
-- [`Bool extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/BoolExtensions.md)
-- [`Character extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/CharacterExtensions.md)
-- [`Collection extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/CollectionExtensions.md)
-- [`Data extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DataExtensions.md)
-- [`Date extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DateExtensions.md)
-- [`Dictionary extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DictionaryExtensions.md)
-- [`Double extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DoubleExtensions.md)
-- [`Float extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/FloatExtensions.md)
-- [`Int extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/IntExtensions.md)
-- [`Locale extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/LocaleExtensions.md)
-- [`Optional extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/OptionalExtensions.md)
-- [`String extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/StringExtensions.md)
-- [`URL extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/URLExtensions.md)
-- [`SwifterSwift`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/SwifterSwift.md)
+<details>
+<summary>Foundation Extensions</summary>
+</br>
 
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/ArrayExtensions.swift"><code>Array extensions</code></a></li>
 
-# List of UIKit Extensions
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/BoolExtensions.swift"><code>Bool extensions</code></a></li>
 
-- [`UIAlertController extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIAlertControllerExtensions.md)
-- [`UIBarButtonItem extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIBarButtonItemExtensions.md)
-- [`UIButton extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIButtonExtensions.md)
-- [`UICollectionView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UICollectionViewExtensions.md)
-- [`UIColor extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIColorExtensions.md)
-- [`UIImage extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIImageExtensions.md)
-- [`UIImageView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIImageViewExtensions.md)
-- [`UILabel extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UILabelExtensions.md)
-- [`UINavigationBar extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UINavigationBarExtensions.md)
-- [`UINavigationController extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UINavigationControllerExtensions.md)
-- [`UINavigationItem extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UINavigationItemExtensions.md)
-- [`UISearchBar extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UISearchBarExtensions.md)
-- [`UISegmentedControl extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UISegmentedControlExtensions.md)
-- [`UISlider extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UISliderExtensions.md)
-- [`UIStoryboard extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIStoryboardExtensions.md)
-- [`UISwitch extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UISwitchExtensions.md)
-- [`UITabBar extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UITabBarExtensions.md)
-- [`UITableView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UITableViewExtensions.md)
-- [`UITextField extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UITextFieldExtensions.md)
-- [`UITextView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UITextViewExtensions.md)
-- [`UIView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIViewExtensions.md)
-- [`UIViewController extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIViewControllerExtensions.md)
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/CharacterExtensions.swift"><code>Character extensions</code></a></li>
 
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/CollectionExtensions.swift"><code>Collection extensions</code></a></li>
 
-# List of Cocoa Extensions
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/DataExtensions.swift"><code>Data extensions</code></a></li>
 
-- [`CGColor extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CGColorExtensions.md)
-- [`CGFloat extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CGFloatExtensions.md)
-- [`CGPoint extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CGPointExtensions.md)
-- [`CGSize extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CGSizeExtensions.md)
-- [`CLLocation extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/CLLocationExtensions.md)
-- [`NSAttributedString extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/Docs/Cocoa/UIKit/NSAttributedStringExtensions.md)
-- [`NSColor extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/NSColorExtensions.md)
-- [`NSView extensions`](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/Cocoa/NSViewExtensions.md)
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/DateExtensions.swift"><code>Date extensions</code></a></li>
 
----
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/DictionaryExtensions.swift"><code>Dictionary extensions</code></a></li>
 
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/DoubleExtensions.swift"><code>Double extensions</code></a></li>
 
-# How cool is this?
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/FloatExtensions.swift"><code>Float extensions</code></a></li>
 
-`SwifterSwift` is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/IntExtensions.swift"><code>Int extensions</code></a></li>
 
-Here are some examples:
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/LocaleExtensions.swift"><code>Locale extensions</code></a></li>
 
-### Array Extensions:
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/OptionalExtensions.swift"><code>Optional extensions</code></a></li>
 
-```swift
-// Remove duplicates from an array
-[1, 2, 3, 1, 3].removeDuplicates() -> [1, 2, 3]
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/StringExtensions.swift"><code>String extensions</code></a></li>
 
-// Return all indexes of specified item
-["h", "e", "l", "l", "o"].indexes(of: "l") -> [2, 3]
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/URLExtensions.swift"><code>URL extensions</code></a></li>
+</ul>
 
-// Shuffle an array
-["h", "e", "l", "l", "o"].shuffled -> ["e", "l", "o", "l", "h"]
+</details>
 
-// Return random item from an array
-[1, 2, 3, 4, 5].randomItem -> 3
 
-// and many others!
-```
-[Check All Array Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/ArrayExtensions.md)
+<details>
+<summary>UIKit Extensions</summary>
+</br>
 
----
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIAlertControllerExtensions.swift"><code>UIAlertController extensions</code></a></li>
 
-### Date Extensions:
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIBarButtonItemExtensions.swift"><code>UIBarButtonItem extensions</code></a></li>
 
-```swift
-// Get and set components from date with ease
-date.hour = 14
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIButtonExtensions.swift"><code>UIButton extensions</code></a></li>
 
-// Check if date is in today
-Date().isInToday -> true
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UICollectionViewExtensions.swift"><code>UICollectionView extensions</code></a></li>
 
-// Add 1 month to current date
-Date().add(.month, value: 1)
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIColorExtensions.swift"><code>UIColor extensions</code></a></li>
 
-// Return date at the beginning of current day
-Date().beginning(of: .day)
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIImageExtensions.swift"><code>UIImage extensions</code></a></li>
 
-// Return date at the end of current month
-Date().end(of: .month)
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIImageViewExtensions.swift"><code>UIImageView extensions</code></a></li>
 
-// Check if date is in current calendar unit
-Date().isInCurrent(.month) -> true
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UILabelExtensions.swift"><code>UILabel extensions</code></a></li>
 
-// Return iso8601 string for date
-Date().iso8601String -> "2016-08-23T21:26:15.287Z"
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UINavigationBarExtensions.swift"><code>UINavigationBar extensions</code></a></li>
 
-// Create date from iso8601 string
-let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UINavigationControllerExtensions.swift"><code>UINavigationController extensions</code></a></li>
 
-// Create date from DateComponents
-let date = Date(year: 2016, month: 8, day: 15) // other components set to current
-let date = Date(hour: 9, minute: 18, second: 1) // other components set to current
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UINavigationItemExtensions.swift"><code>UINavigationItem extensions</code></a></li>
 
-// Represent date as a string with ease
-Date().dateString(ofStyle: .medium) -> "Aug 26, 2016"
-Date().timeString(ofStyle: .short) -> "12:55 AM"
-Date().dateTimeString() -> "Aug 26, 2016, 12:55:24 AM"
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UISearchBarExtensions.swift"><code>UISearchBar extensions</code></a></li>
 
-// Get day name or month name from a date
-Date().dayName(ofStyle: .full) -> "Sunday"
-Date().monthName(ofStyle: .threeLetters) -> "Dec"
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UISegmentedControlExtensions.swift"><code>UISegmentedControl extensions</code></a></li>
 
-// and many others!
-```
-[Check All Date Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DateExtensions.md)
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UISliderExtensions.swift"><code>UISlider extensions</code></a></li>
 
----
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIStoryboardExtensions.swift"><code>UIStoryboard extensions</code></a></li>
 
-### String Extensions:
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UISwitchExtensions.swift"><code>UISwitch extensions</code></a></li>
 
-```swift
-// Return count of substring in string
-"hello world".count(of "o", caseSensitive: false) -> 2
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UITabBarExtensions.swift"><code>UITabBar extensions</code></a></li>
 
-// Return an array of strings separated by given string
-"hello world".split(by: " ") -> ["hello", "world"]
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UITableViewExtensions.swift"><code>UITableView extensions</code></a></li>
 
-// Return string with no spaces or new lines in beginning and end
-"\n Hello   ".trimmed -> "Hello"
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UITextFieldExtensions.swift"><code>UITextField extensions</code></a></li>
 
-// Return most common character in string
-"swifterSwift is making swift more swifty".mostCommonCharacter -> "i"
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UITextViewExtensions.swift"><code>UITextView extensions</code></a></li>
 
-// Returns CamelCase of string
-"Some variable nAme".camelCased -> "someVariableName"
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIViewExtensions.swift"><code>UIView extensions</code></a></li>
 
-// Check if string is in valid email format
-"someone@somewebsite.com".isEmail -> true
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIViewControllerExtensions.swift"><code>UIViewController extensions</code></a></li>
+</ul>
 
-// Check if string contains at least one letter and one number
-"123abc".isAlphaNumeric -> true
+</details>
 
-// Reverse string
-"123abc".reverse() -> "cba321"
 
-// Return latinized string
-"Hèllö Wórld!".latinize() -> "Hello World!"
+<details>
+<summary>Cocoa Extensions</summary>
+</br>
 
-// Create random string of length
-String.random(ofLength: 10) -> "AhEju28kNl"
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/CGColorExtensions.swift"><code>CGColor extensions</code></a></li>
 
-// Check if string contains one or more instance of substring
-"Hello World!".contain("o", caseSensitive: false) -> true
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/CGFloatExtensions.swift"><code>CGFloat extensions</code></a></li>
 
-// Check if string contains one or more emojis
-"string👨‍with😍emojis✊🏿".containEmoji -> true
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/CGPointExtensions.swift"><code>CGPoint extensions</code></a></li>
 
-// Subscript strings easily
-"Hello"[2] -> "l"
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/CGSizeExtensions.swift"><code>CGSize extensions</code></a></li>
 
-// Slice strings
-let s = "Hello world"
-s.slicing(from: 6, length: 5) -> "world"
-s.slicing(from: 6, to: 11) -> "world"
-s.slicing(at: 6) -> "world"
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/CLLocationExtensions.swift"><code>CLLocation extensions</code></a></li>
 
-// Convert string to numbers
-"12.12".double -> 12.12
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/NSAttributedStringExtensions.swift"><code>NSAttributedString extensions</code></a></li>
 
-// Encode and decode URLs
-"it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
-"it's%20easy%20to%20encode%20strings".urlDecoded -> "it's easy to encode strings"
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/NSColorExtensions.swift"><code>NSColor extensions</code></a></li>
 
-// Encode and decode base64
-"Hello World!".base64Encoded -> "SGVsbG8gV29ybGQh"
-"SGVsbG8gV29ybGQh".base64Decoded = "Hello World!"
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Cocoa/NSViewExtensions.swift"><code>NSView extensions</code></a></li>
+</ul>
 
-// Truncate strings with a trailing
-"This is a very long sentence".truncated(toLength: 14, trailing: = "...") -> "This is a very..."
+</details>
 
-// Repeat a string n times
-"s" * 5 -> "sssss"
 
-// NSString has never been easier
-let boldString = "this is string".bold.colored(with: .red)
+<details>
+<summary>Misc. Extensions</summary>
+</br>
 
-// and many others!
-```
-[Check All String Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/StringExtensions.md)
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/SwifterSwift.swift"><code>SwifterSwift</code></a></li>
+</ul>
 
----
+</details>
 
-### Dictionary Extensions:
 
-```swift
-let dict = ["id": 1, "Product-Name": "SwifterSwift"]
 
-// Check if key exists in dictionary.
-dict.has(key: "id") -> true
+## How cool is this?
 
-// Lowercase all keys in dictionary.
-dict.lowercaseAllKeys() -> ["id": 1, "product-name": "SwifterSwift"]
+SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
 
-// Create JSON Data and string from a dictionary
-let json = dict.jsonString(prettify: true)
+Check [Examples.md](https://github.com/SwifterSwift/SwifterSwift/tree/master/Examples/Examples.md) for some cool examples!
 
-// and many others!
-```
-[Check All Dictionary Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/DictionaryExtensions.md)
 
----
+## Documentation
 
+A complete documentation for all extensions with examples is available at [swifterswift.com/docs](http://swifterswift.com/docs)
 
-### Number Types Extensions:
 
-```swift
-// Return square root of a number
-√ 9 -> 3
 
-// Return square power of a number
-5 ** 2 -> 25
-
-// Return a number plus or minus another number
-5 ± 2 -> (3, 7)
-
-// Return random number in range
-Int.randomBetween(min: 1, max: 10) -> 6
-
-// Return roman numeral for a number
-134.romanNumeral -> "CXXXIV"
-
-// and many others!
-```
-
-[Check All Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/tree/master/Docs)
-
----
-
-## UIKit Extensions
-
-SwifterSwift has many great extensions for UIKit also:
-
-### UIColor Extensions:
-
-```swift
-// Create new UIColor for RGB values
-let color = UIColor(red: 121, green: 220, blue: 164)
-
-// Create new UIColor for a hex string (including strings starting with #, 0x or in short css hex format)
-let color = UIColor(hexString: "#00F")
-
-// Create new UIColor for a hexadecimal value
-let color = UIColor(hex: 0x45C91B)
-
-// Blend two colors with ease
-UIColor.blend(UIColor.red, intensity1: 0.5, with: UIColor.green, intensity2: 0.3)
-
-// Return hexadecimal value string
-UIColor.red.hexString -> "#FF0000"
-
-// Return short hexadecimal value string
-UIColor(hex: #00ffff) -> "#0FF"
-
-// Use Google Material design colors with ease
-let indigo = UIColor.material.indigo
-
-// Use CSS colors with ease:
-let beige = UIColor.css.beige
-
-// Return brand colors from more than 30 social brands
-let facebookColor = UIColor.social.facebook
-
-// and many others!
-```
-[Check UIColor Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIColorExtensions.md)
-
----
-
-
-### UIView Extensions
-
-```swift
-
-// Set borderColor, borderWidth, cornerRadius, shadowColor, and many other properties from code or storyboard
-view.cornerRadius = 30
-
-// Set some or all corners radiuses of view.
-view.roundCorners([.bottomLeft, .topRight], radius: 30)
-
-
-// Add shadow to view
-view.addShadow(ofColor .black, radius: 3, opacity: 0.5)
-
-```
-<p align="left">
-  <img src="https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/Screenshots/view_storyboard.png" title="UIButton properties from storyboard" width='250px'>
-</p>
-
-```swift
-// Animate view with completion
-view.fadeIn(duration: 1, completion:((Bool) -> Void)?)
-view.fadeOut(duration: 1, completion:((Bool) -> Void)?)
-view.rotate(byAngle 90, ofType type: .degrees, animated: true, duration: 1, completion: { print("done") })
-view.rotate(toAngle -3, ofType type: .radians, animated: false, duration: 1, completion: nil)
-view.scale(byOffset: 4, animated: true, duration:1)
-view.shake(direction: .horizontal, duration: 1, animationType: .easeOut)
-
-// save screenshot of a view
-let image = view.screenShot
-
-// and many others!
-```
-[Check UIView Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIViewExtensions.md)
-
----
-
-
-### UIAlertController Extensions
-
-```swift
-// Create a new alert controller from string or Error
-let alert = UIAlertController(title: "Couldn't sign in", message: "Invalid username or password!")
-let alert = UIAlertController(title: "Error", error: Error)
-
-// show alert with ease
-alert.show()
-
-// and many others!
-```
-[Check UIAlertController Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIAlertControllerExtensions.md)
-
----
-
-### UIButton Extensions
-
-```swift
-
-// Set title, title color and image for all states at once!
-button.setTitleForAllStates("Login")
-button.setTitleColorForAllStates(UIColor.blue)
-button.setImageForAllStates(UIImage(named: "login"))
-
-// or set each of them from code or storyboard
-button.titleForHighlighted = "Login"
-
-// and many others!
-```
-<p align="left">
-  <img src="https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/Screenshots/button_storyboard.png" title="UIButton properties from storyboard" width='250px'>
-</p>
-
-[Check UIButton Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIButtonExtensions.md)
-
----
-
-
-### UIImage Extensions
-
-```swift
-// Crop images
-let croppedImage = image.cropped(to CGRect)
-
-// Create UIImage from color
-let image = UIImage(color: UIColor, size: CGSize)
-
-// scale to fit width or height
-let scaledImage = image.scaled(toHeight: CGFloat)
-let scaledImage = image.scaled(toWidth: CGFloat)
-
-// Compress images
-let compressedImage = image.compressd(quality: 0.3)
-
-// get image size
-image.kilobytesSize -> 114
-
-// and many others!
-```
-[Check UIImage Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIImageExtensions.md)
-
----
-
-
-### UIImageView Extensions
-
-```swift
-// Download an image from URL in background
-imageView.download(from url, contentMode: .scaleAspectFit, placeHolder: UIImage?)
-
-// Blur image view
-imageView.blur(withStyle: .light)
-
-// and many others!
-```
-[Check UIImageView Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UIImageViewExtensions.md)
-
----
-
-### UINavigationBar Extensions
-
-```swift
-// Change navigation bar font and color
-navbar.setTitleFont(UIFont, with color: UIColor.black)
-
-// and many others!
-```
-[Check UINavigationBar Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UINavigationBarExtensions.md)
-
----
-
-
-### UINavigationController Extensions
-
-```swift
-// Pop ViewController with completion handler.
-navController.popViewController(completion: (()->Void)?)
-
-// Push ViewController with completion handler.
-navController.pushViewController(UIViewController, completion: (()->Void)?)
-
-// and many others!
-```
-[Check UINavigationController Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/UIKit/UINavigationControllerExtensions.md)
-
----
-
-
-### UITableView Extensions
-
-```swift
-// Return index path for last row in section.
-tableView.indexPathForLastRow(in section: 2)
-
-// Scroll to bottom or top of TableView.
-tableView.scrollToBottom(animated: true)
-tableView.scrollToTop(animated: true)
-
-// and many others!
-```
-
-[Check All UIKit Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/tree/master/Docs/UIKit)
-
----
-
-
-## Cocoa Extensions
-
-SwifterSwift has many great extensions for Cocoa too:
-
-
-### CGPoint Extensions
-
-```swift
-// Get distance from another CGPoint.
-point1.distance(from: point2) -> 12.45
-
-// Multiply a CGPoint with a scalar
-result = 5 * point
-
-// and many others!
-```
-[Check All Cocoa Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/tree/master/Docs/Cocoa)
-
----
-
-## Misc Extensions
-
-```swift
-// Check if app is running in debugging mode
-SwifterSwift.isInDebuggingMode
-
-// Check if app is running on simulator
-SwifterSwift.isRunningOnSimulator
-
-// Detect screenshots
-SwifterSwift.didTakeScreenShot {
-	print("User did take a screenshot!")
-}
-
-// and many others!
-```
-[Check SwifterSwift Extensions!](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/Docs/SwifterSwift.md)
-
----
-
-# Get involved:
+## Get involved:
 
 Your feedback is always appreciated and welcomed.
-Please refer to contributing guidelines before participating.
+Please refer to [contributing guidelines](https://github.com/SwifterSwift/SwifterSwift/tree/master/CONTRIBUTING.md) before participating.
 
-- [Contributing guidelines for extensions](https://github.com/SwifterSwift/SwifterSwift/blob/master/CONTRIBUTING.md)
-- [Contributing guidelines for documentations](https://github.com/SwifterSwift/SwifterSwiftDocs/blob/master/CONTRIBUTING.md)
 
----
 
-# Thanks:
+## Slack Channel: [![Slack](http://slack.swifterswift.com/badge.svg)](http://slack.swifterswift.com/)
+
+It is always nice to talk with other people using SwifterSwift and exchange experiences, [Join Channel](http://slack.swifterswift.com/)
+
+
+
+## Thanks:
 
 Special thanks to:
 
-* [Paweł Urbanek](https://github.com/pawurb) for adding tvOS, watchOS and macOS initial support and helping with extensions.
-
-* [Steven Deutsch](https://github.com/SD10) for his latest contributions to extensions, docs and tests.
-
-* [Mert Akengin](https://github.com/PvtMert) and [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing [project website](http://swiftierswift.com) and logo.
-
-* [Abdul Rahman Dabbour](https://github.com/thedabbour) for helping document the project.
+- [Steven Deutsch](https://github.com/SD10) and [Luciano Almeida](https://github.com/LucianoPAlmeida) for their latest contributions to extensions, docs and tests.
+- [Paweł Urbanek](https://github.com/pawurb) for adding tvOS, watchOS and macOS initial support and helping with extensions.
+- [Mert Akengin](https://github.com/PvtMert) and [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing [project website](http://swiftierswift.com) and logo.
+- [Abdul Rahman Dabbour](https://github.com/thedabbour) for helping document the project.

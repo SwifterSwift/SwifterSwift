@@ -39,3 +39,7 @@ Pods/
 
 # Carthage
 Carthage/Build
+
+# Jazzy docs
+############
+docs/

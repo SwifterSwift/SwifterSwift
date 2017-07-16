@@ -1,9 +1,9 @@
-osx_image: xcode8.2
+osx_image: xcode8.3
 language: objective-c
 before_install:
     - brew update
     - brew outdated xctool || brew upgrade xctool
     - gem install xcpretty
-script: sh build.sh /tmp/SwifterSwift
+script: sh Tests/build.sh /tmp/SwifterSwift
 after_success:
     - bash <(curl -s https://codecov.io/bash) -D /tmp/SwifterSwift

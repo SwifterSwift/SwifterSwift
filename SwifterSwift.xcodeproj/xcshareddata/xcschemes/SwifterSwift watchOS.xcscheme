@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6E49334D1E2508C000210167"
+               BlueprintIdentifier = "07DFA3D51F13818700D0C644"
                BuildableName = "SwifterSwift.framework"
                BlueprintName = "SwifterSwift watchOS"
                ReferencedContainer = "container:SwifterSwift.xcodeproj">
@@ -26,8 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
       <AdditionalOptions>
@@ -46,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E49334D1E2508C000210167"
+            BlueprintIdentifier = "07DFA3D51F13818700D0C644"
             BuildableName = "SwifterSwift.framework"
             BlueprintName = "SwifterSwift watchOS"
             ReferencedContainer = "container:SwifterSwift.xcodeproj">
@@ -64,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E49334D1E2508C000210167"
+            BlueprintIdentifier = "07DFA3D51F13818700D0C644"
             BuildableName = "SwifterSwift.framework"
             BlueprintName = "SwifterSwift watchOS"
             ReferencedContainer = "container:SwifterSwift.xcodeproj">
