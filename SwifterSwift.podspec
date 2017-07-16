@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.license = { type: 'MIT', file: 'LICENSE' }
   s.authors = { "Omar Albeik" => 'omaralbeik@gmail.com' }
   s.social_media_url = "http://twitter.com/omaralbeik"
-  s.screenshot  = 'https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/logo.png'
+  s.screenshot  = 'https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/Assets/logo.png'
 
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
@@ -23,21 +23,21 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = {
     'SWIFT_VERSION' => '3.0',
   }
-  s.documentation_url = 'https://swifterswift.com/docs'
+  s.documentation_url = 'http://swifterswift.com/docs'
 
   # Foundation Extensions
   s.subspec 'Foundation' do |sp|
-    sp.source_files  = "Sources/Foundation/*.swift"
+    sp.source_files  = "Sources/Extensions/Foundation/*.swift"
   end
 
   # UIKit Extensions
   s.subspec 'UIKit' do |sp|
-    sp.source_files  = "Sources/UIKit/*.swift"
+    sp.source_files  = "Sources/Extensions/UIKit/*.swift"
   end
 
   # Cocoa Extensions
   s.subspec 'Cocoa' do |sp|
-    sp.source_files  = "Sources/Cocoa/*.swift"
+    sp.source_files  = "Sources/Extensions/Cocoa/*.swift"
   end
 
 end
