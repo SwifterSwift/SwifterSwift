@@ -12,7 +12,7 @@ import XCTest
 class DictionaryExtensionsTests: XCTestCase {
 	
 	var testDict: [String : Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
-	
+    
 	func testHasKey() {
 		XCTAssert(testDict.has(key: "testKey"))
 		XCTAssertFalse(testDict.has(key: "anotherKey"))
@@ -58,6 +58,14 @@ class DictionaryExtensionsTests: XCTestCase {
 		dict.lowercaseAllKeys()
 		XCTAssertEqual(dict, ["testkey": "value"])
 	}
+    
+    func testCountFiltered() {
+        let dict: [String: String] = ["key1" : "value", "key2" : "value", "key3" : "value3"]
+        let count = dict.count { (tuple) -> Bool in
+            return tuple.0 == "key1" || tuple.1 == "value"
+        }
+        XCTAssertEqual(count, 2)
+    }
     
     //MARK: Test Operators
     

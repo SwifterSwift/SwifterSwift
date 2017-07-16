@@ -19,7 +19,12 @@
 SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.
 
 
+<<<<<<< HEAD
 ### [Whats New in v3?](https://github.com/SwifterSwift/SwifterSwift/wiki/whats-new#v3)
+=======
+## [Whats New in v1.6.4?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v164)
+v1.6.4 brings new extensions, improved tests and minor bug fixes
+>>>>>>> origin/master
 
 
 

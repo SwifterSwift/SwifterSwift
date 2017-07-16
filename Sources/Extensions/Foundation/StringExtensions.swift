@@ -351,6 +351,19 @@ public extension String {
 	public mutating func camelize() {
 		self = camelCased
 	}
+
+    /// SwifterSwift: Check if string contains only unique characters.
+    public func hasUniqueCharacters() -> Bool {
+        guard self.characters.count > 0 else { return false }
+        var uniqueChars = Set<String>()
+        for char in self.characters {
+            if uniqueChars.contains(String(char)) {
+                return false
+            }
+            uniqueChars.insert(String(char))
+        }
+        return true
+    }
 	
 	/// SwifterSwift: Check if string contains one or more instance of substring.
 	///
