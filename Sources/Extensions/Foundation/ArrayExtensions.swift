@@ -286,7 +286,7 @@ public extension Array {
     ///
     /// - Parameters:
     ///   - size: The size of the slices to be returned.
-    public func split(size: Int) -> [ArraySlice<Element>]? {
+    public func slices(ofSize size: Int) -> [ArraySlice<Element>]? {
         //Inspired by: https://lodash.com/docs/4.17.4#chunk
         guard size > 0, !isEmpty else { return nil }
         var value : Int = 0
