@@ -333,4 +333,31 @@ class ArrayExtensionsTests: XCTestCase {
         
     }
     
+    func testSplitSize() {
+        
+        // A slice with value zero
+        var array : [String] = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
+        var slices = array.split(size: 0)
+        XCTAssertNil(slices)
+        
+        // A slice that divide the total evenly
+        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
+        slices = array.split(size: 2)
+        XCTAssertNotNil(slices)
+        XCTAssertEqual(slices?.count, 3)
+        
+        // A slice that does not divide the total evenly
+        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq", "bird"]
+        slices = array.split(size: 2)
+        XCTAssertNotNil(slices)
+        XCTAssertEqual(slices?.count, 4)
+        
+        // A slice greater than the array count
+        array = [ "james", "irving", "jordan", "jonshon" ]
+        slices = array.split(size: 6)
+        XCTAssertNotNil(slices)
+        XCTAssertEqual(slices?.count, 1)
+
+    }
+    
 }

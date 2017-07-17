@@ -280,6 +280,23 @@ public extension Array {
             value += slice
         }
     }
+    
+    
+    /// SwifterSwift: Returns an array of slices of lenght "size" from the array.  If array can't be split evenly, the final slice will be the remaining elements.
+    ///
+    /// - Parameters:
+    ///   - size: The size of the slices to be returned.
+    public func split(size: Int) -> [ArraySlice<Element>]? {
+        //Inspired by: https://lodash.com/docs/4.17.4#chunk
+        guard size > 0, !isEmpty else { return nil }
+        var value : Int = 0
+        var slices : [ArraySlice<Element>] = []
+        while value < count {
+            slices.append(self[Swift.max(value,startIndex)..<Swift.min(value + size, endIndex)])
+            value += size
+        }
+        return slices
+    }
 }
 
 
