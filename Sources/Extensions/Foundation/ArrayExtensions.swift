@@ -282,20 +282,33 @@ public extension Array {
     }
     
     
-    /// SwifterSwift: Returns an array of slices of lenght "size" from the array.  If array can't be split evenly, the final slice will be the remaining elements.
+    /// SwifterSwift: Returns an array of slices of length "size" from the array.  If array can't be split evenly, the final slice will be the remaining elements.
     ///
     /// - Parameters:
     ///   - size: The size of the slices to be returned.
-    public func slices(ofSize size: Int) -> [ArraySlice<Element>]? {
+    public func group(by size: Int) -> [[Element]]? {
         //Inspired by: https://lodash.com/docs/4.17.4#chunk
         guard size > 0, !isEmpty else { return nil }
         var value : Int = 0
-        var slices : [ArraySlice<Element>] = []
+        var slices : [[Element]] = []
         while value < count {
-            slices.append(self[Swift.max(value,startIndex)..<Swift.min(value + size, endIndex)])
+            slices.append(Array(self[Swift.max(value,startIndex)..<Swift.min(value + size, endIndex)]))
             value += size
         }
         return slices
+    }
+    
+    /// SwifterSwift: Group the elements of the array in a dictionary.
+    ///
+    /// - Parameter getKey: Clousure to define the key for each element.
+    /// - Returns: A dictionary with values grouped with keys.
+    public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
+        var group : [K: [Element]] = [:]
+        for value in self {
+            let key = try keyForValue(value)
+            group[key] = (group[key] ?? []) + [value]
+        }
+        return group
     }
 }
 
@@ -404,18 +417,5 @@ public extension Array where Element: Equatable {
 		}
 		return nil
 	}
-    
-    /// SwifterSwift: Group the elements of the array in a dictionary.
-    ///
-    /// - Parameter getKey: Clousure to define the key for each element.
-    /// - Returns: A dictionary with values grouped with keys.
-    public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
-        var group : [K: [Element]] = [:]
-        for value in self {
-            let key = try keyForValue(value)
-            group[key] = (group[key] ?? []) + [value]
-        }
-        return group
-    }
 
 }

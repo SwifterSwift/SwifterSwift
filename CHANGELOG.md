@@ -11,7 +11,8 @@ All notable changes to this project will be documented in this file.
 N/A
 
 ### Enhancements
-N/A
+- New **Array** extensions
+  - added `group(by size: Int)` to split in an array of slices of a size. [#199](https://github.com/SwifterSwift/SwifterSwift/pull/199) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 ### Bugfixes
 N/A
@@ -34,7 +35,6 @@ N/A
 - New **Array** extensions
     - added `groupByKey` to group the elements of the array by key in a dictionary. [#181](https://github.com/SwifterSwift/SwifterSwift/pull/181) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
     - added `forEach(slice:body:)` to iterate by specified slice size and call a closure. [#194](https://github.com/SwifterSwift/SwifterSwift/pull/194/files) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-    - added `slices(ofSize:)` to split in an array of slices of a size. [#199](https://github.com/SwifterSwift/SwifterSwift/pull/199) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - New **Dictionary** extensions
     - add `count(where:)` to count dictionary elements where the condition returns true. [#193](https://github.com/SwifterSwift/SwifterSwift/pull/193) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
@@ -252,27 +252,27 @@ With over 100 new extensions, improved Cocoa support, new tests and many minor b
 - NSColorExtensions
 - URLExtensions
 - StringExtensions
- - **length**: Number of characters in string.
- - **isValidSchemedUrl**: Check if string is a valid schemed URL.
+- **length**: Number of characters in string.
+- **isValidSchemedUrl**: Check if string is a valid schemed URL.
 - UIImageExtensions:
- - **original**: UIImage with .alwaysOriginal rendering mode.
- - **template**: UIImage with .alwaysTemplate rendering mode.
+- **original**: UIImage with .alwaysOriginal rendering mode.
+- **template**: UIImage with .alwaysTemplate rendering mode.
 - UISearchBarExtensions:
- - **clear**: Clear text.
+- **clear**: Clear text.
 - UITextFieldExtensions:
- - **clear**: Clear text.
+- **clear**: Clear text.
 
 ## Improved extensions
 - StringExtensions:
- - **trimmed**
- - **copyToPasteboard**
- - **truncated**
+- **trimmed**
+- **copyToPasteboard**
+- **truncated**
 - SwifterSwift
- - **isInTestFlight**
+- **isInTestFlight**
 - UIColorExtensions:
- - **shortHexString**
- - **complementary**
- - **Improved initializers**
+- **shortHexString**
+- **complementary**
+- **Improved initializers**
 
 ## New Tests
 - StringExtensionsTests

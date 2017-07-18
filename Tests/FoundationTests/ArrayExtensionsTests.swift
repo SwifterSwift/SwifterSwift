@@ -333,28 +333,28 @@ class ArrayExtensionsTests: XCTestCase {
         
     }
     
-    func testSlicesOfSize() {
+    func testGroupBySize() {
         
         // A slice with value zero
         var array : [String] = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
-        var slices = array.slices(ofSize: 0)
+        var slices = array.group(by: 0)
         XCTAssertNil(slices)
         
         // A slice that divide the total evenly
         array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
-        slices = array.slices(ofSize: 2)
+        slices = array.group(by: 2)
         XCTAssertNotNil(slices)
         XCTAssertEqual(slices?.count, 3)
         
         // A slice that does not divide the total evenly
         array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq", "bird"]
-        slices = array.slices(ofSize: 2)
+        slices = array.group(by: 2)
         XCTAssertNotNil(slices)
         XCTAssertEqual(slices?.count, 4)
         
         // A slice greater than the array count
         array = [ "james", "irving", "jordan", "jonshon" ]
-        slices = array.slices(ofSize: 6)
+        slices = array.group(by: 6)
         XCTAssertNotNil(slices)
         XCTAssertEqual(slices?.count, 1)
 
