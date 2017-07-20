@@ -52,7 +52,8 @@ public extension String {
 		let source = lowercased()
 		if source.characters.contains(" ") {
 			let first = source.substring(to: source.index(after: source.startIndex))
-			let camel = source.capitalized.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
+			let connected = source.capitalized.replacingOccurrences(of: " ", with: "")
+			let camel = connected.replacingOccurrences(of: "\n", with: "")
 			let rest = String(camel.characters.dropFirst())
 			return first + rest
 		}
@@ -131,7 +132,10 @@ public extension String {
 	///		"abc".isAlphaNumeric -> false
 	///
 	public var isAlphaNumeric: Bool {
-		return components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").characters.count == 0 && hasLetters && hasNumbers
+		let hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
+		let hasNumbers = rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
+		let comps = components(separatedBy: .alphanumerics)
+		return comps.joined(separator: "").characters.count == 0 && hasLetters && hasNumbers
 	}
 	
 	/// SwifterSwift: Check if string is valid email format.
@@ -303,22 +307,37 @@ public extension String {
 		return formatter.date(from: selfLowercased)
 	}
 	
-	/// SwifterSwift: Double value from string (if applicable).
+	/// Float value from string (if applicable).
 	///
-	///		"20".double -> 20.0
-	///
-	public var double: Double? {
+	/// - Parameter locale: Locale (default is Locale.current)
+	/// - Returns: Optional Float value from given string.
+	public func float(locale: Locale = .current) -> Float? {
 		let formatter = NumberFormatter()
+		formatter.locale = locale
+		formatter.allowsFloats = true
+		return formatter.number(from: self) as? Float
+	}
+	
+	/// Double value from string (if applicable).
+	///
+	/// - Parameter locale: Locale (default is Locale.current)
+	/// - Returns: Optional Double value from given string.
+	public func double(locale: Locale = .current) -> Double? {
+		let formatter = NumberFormatter()
+		formatter.locale = locale
+		formatter.allowsFloats = true
 		return formatter.number(from: self) as? Double
 	}
 	
-	/// SwifterSwift: Float value from string (if applicable).
+	/// CGFloat value from string (if applicable).
 	///
-	///		"21".float -> 21.0
-	///
-	public var float: Float? {
+	/// - Parameter locale: Locale (default is Locale.current)
+	/// - Returns: Optional CGFloat value from given string.
+	public func cgFloat(locale: Locale = .current) -> CGFloat? {
 		let formatter = NumberFormatter()
-		return formatter.number(from: self) as? Float
+		formatter.locale = locale
+		formatter.allowsFloats = true
+		return formatter.number(from: self) as? CGFloat
 	}
 	
 	/// SwifterSwift: Integer value from string (if applicable).
@@ -435,12 +454,12 @@ public extension String {
 	///		"SomeText".copyToPasteboard() // copies "SomeText" to pasteboard
 	///
 	public func copyToPasteboard() {
-		#if os(iOS)
-			UIPasteboard.general.string = self
-		#elseif os(macOS)
-			NSPasteboard.general().clearContents()
-			NSPasteboard.general().setString(self, forType: NSPasteboardTypeString)
-		#endif
+	#if os(iOS)
+	UIPasteboard.general.string = self
+	#elseif os(macOS)
+	NSPasteboard.general().clearContents()
+	NSPasteboard.general().setString(self, forType: NSPasteboardTypeString)
+	#endif
 	}
 	#endif
 	
@@ -453,20 +472,20 @@ public extension String {
 	public mutating func camelize() {
 		self = camelCased
 	}
-
-    /// SwifterSwift: Check if string contains only unique characters.
+	
+	/// SwifterSwift: Check if string contains only unique characters.
 	///
-    public func hasUniqueCharacters() -> Bool {
-        guard self.characters.count > 0 else { return false }
-        var uniqueChars = Set<String>()
-        for char in self.characters {
-            if uniqueChars.contains(String(char)) {
-                return false
-            }
-            uniqueChars.insert(String(char))
-        }
-        return true
-    }
+	public func hasUniqueCharacters() -> Bool {
+		guard self.characters.count > 0 else { return false }
+		var uniqueChars = Set<String>()
+		for char in self.characters {
+			if uniqueChars.contains(String(char)) {
+				return false
+			}
+			uniqueChars.insert(String(char))
+		}
+		return true
+	}
 	
 	/// SwifterSwift: Check if string contains one or more instance of substring.
 	///
@@ -839,11 +858,11 @@ public extension String {
 	/// SwifterSwift: Bold string.
 	///
 	public var bold: NSAttributedString {
-		#if os(macOS)
-			return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: NSFont.boldSystemFont(ofSize: NSFont.systemFontSize())])
-		#else
-			return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
-		#endif
+	#if os(macOS)
+	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: NSFont.boldSystemFont(ofSize: NSFont.systemFontSize())])
+	#else
+	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+	#endif
 	}
 	#endif
 	
@@ -873,7 +892,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: NSColor) -> NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+	return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
 	}
 	#else
 	/// SwifterSwift: Add color to string.
@@ -881,7 +900,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: UIColor) -> NSAttributedString {
-	return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
 	}
 	#endif
 	
@@ -987,6 +1006,26 @@ public extension String {
 			return nil
 		}
 		return String(last)
+	}
+	
+	@available(*, deprecated: 3.1.0, message: "Use double() instead", renamed: "double(locale:)")
+	/// SwifterSwift: Double value from string (if applicable).
+	///
+	///		"20".double -> 20.0
+	///
+	public var double: Double? {
+		let formatter = NumberFormatter()
+		return formatter.number(from: self) as? Double
+	}
+	
+	@available(*, deprecated: 3.1.0, message: "Use float() instead", renamed: "float(locale:)")
+	/// SwifterSwift: Float value from string (if applicable).
+	///
+	///		"21".float -> 21.0
+	///
+	public var float: Float? {
+		let formatter = NumberFormatter()
+		return formatter.number(from: self) as? Float
 	}
 	
 	@available(*, deprecated: 3.1.0, message: "Use Float32(string) instead")

@@ -299,23 +299,33 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testDouble() {
-		XCTAssertNotNil("8".double)
-		XCTAssertEqual("8".double!, 8)
+		XCTAssertNotNil("8".double())
+		XCTAssertEqual("8".double()!, 8)
 		
-		XCTAssertNotNil("8.23".double)
-		XCTAssertEqual("8.23".double!, 8.23)
+		XCTAssertNotNil("8.23".double(locale: Locale(identifier: "en_US_POSIX")))
+		XCTAssertEqual("8.23".double(locale: Locale(identifier: "en_US_POSIX"))!, 8.23)
 		
-		XCTAssertNil("8s".double)
+		XCTAssertNil("8s".double())
 	}
 	
 	func testFloat() {
-		XCTAssertNotNil("8".float)
-		XCTAssertEqual("8".float!, 8)
+		XCTAssertNotNil("8".float())
+		XCTAssertEqual("8".float()!, 8)
 		
-		XCTAssertNotNil("8.23".float)
-		XCTAssertEqual("8.23".float!, Float(8.23))
+		XCTAssertNotNil("8.23".float(locale: Locale(identifier: "en_US_POSIX")))
+		XCTAssertEqual("8.23".float(locale: Locale(identifier: "en_US_POSIX"))!, Float(8.23))
 		
-		XCTAssertNil("8s".float)
+		XCTAssertNil("8s".float())
+	}
+	
+	func testCgFloat() {
+		XCTAssertNotNil("8".cgFloat())
+		XCTAssertEqual("8".cgFloat()!, 8)
+		
+		XCTAssertNotNil("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX")))
+		XCTAssertEqual("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX"))!, CGFloat(8.23))
+		
+		XCTAssertNil("8s".cgFloat())
 	}
 	
 	func testInt() {
