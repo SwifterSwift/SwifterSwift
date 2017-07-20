@@ -516,20 +516,20 @@
 		07897F4A1F138A3300A3A4E1 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
-				07897F4B1F138A3300A3A4E1 /* ArrayExtensions.swift */,
 				07897F4C1F138A3300A3A4E1 /* BoolExtensions.swift */,
 				07897F4D1F138A3300A3A4E1 /* CharacterExtensions.swift */,
+				07897F561F138A3300A3A4E1 /* OptionalExtensions.swift */,
+				07897F581F138A3300A3A4E1 /* URLExtensions.swift */,
+				07897F551F138A3300A3A4E1 /* LocaleExtensions.swift */,
+				07897F4B1F138A3300A3A4E1 /* ArrayExtensions.swift */,
+				07897F511F138A3300A3A4E1 /* DictionaryExtensions.swift */,
+				07897F571F138A3300A3A4E1 /* StringExtensions.swift */,
 				07897F4E1F138A3300A3A4E1 /* CollectionExtensions.swift */,
 				07897F4F1F138A3300A3A4E1 /* DataExtensions.swift */,
 				07897F501F138A3300A3A4E1 /* DateExtensions.swift */,
-				07897F511F138A3300A3A4E1 /* DictionaryExtensions.swift */,
 				07897F521F138A3300A3A4E1 /* DoubleExtensions.swift */,
 				07897F531F138A3300A3A4E1 /* FloatExtensions.swift */,
 				07897F541F138A3300A3A4E1 /* IntExtensions.swift */,
-				07897F551F138A3300A3A4E1 /* LocaleExtensions.swift */,
-				07897F561F138A3300A3A4E1 /* OptionalExtensions.swift */,
-				07897F571F138A3300A3A4E1 /* StringExtensions.swift */,
-				07897F581F138A3300A3A4E1 /* URLExtensions.swift */,
 			);
 			path = Foundation;
 			sourceTree = "<group>";

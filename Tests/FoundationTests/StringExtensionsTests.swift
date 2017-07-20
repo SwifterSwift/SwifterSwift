@@ -66,9 +66,9 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testFirstCharacter() {
-		XCTAssertNil("".firstCharacter)
-		XCTAssertNotNil("Hello".firstCharacter)
-		XCTAssertEqual("Hello".firstCharacter!, "H")
+		XCTAssertNil("".firstCharacterAsString)
+		XCTAssertNotNil("Hello".firstCharacterAsString)
+		XCTAssertEqual("Hello".firstCharacterAsString!, "H")
 	}
 	
 	func testFirstIndex() {
@@ -150,9 +150,9 @@ class StringExtensionsTests: XCTestCase {
     }
 	
 	func testLastCharacter() {
-		XCTAssertNotNil("Hello".lastCharacter)
-		XCTAssertEqual("Hello".lastCharacter!, "o")
-		XCTAssertNil("".lastCharacter)
+		XCTAssertNotNil("Hello".lastCharacterAsString)
+		XCTAssertEqual("Hello".lastCharacterAsString!, "o")
+		XCTAssertNil("".lastCharacterAsString)
 	}
 	
 	func testLatinize() {
@@ -189,10 +189,6 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertNotEqual(str1, str2)
 		
 		XCTAssertEqual(String.random(ofLength: 0), "")
-	}
-	
-	func testReplace() {
-		XCTAssertEqual("Hello Test".replacing("e", with: "a"), "Hallo Tast")
 	}
 	
 	func testReverse() {
@@ -322,59 +318,11 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertNil("8s".float)
 	}
 	
-	func testFloat32() {
-		XCTAssertNotNil("8".float32)
-		XCTAssertEqual("8".float32!, 8)
-		
-		XCTAssertNotNil("8.23".float32)
-		XCTAssertEqual("8.23".float32!, Float32(8.23))
-		
-		XCTAssertNil("8s".float32)
-	}
-	
-	func testFloat64() {
-		XCTAssertNotNil("8".float64)
-		XCTAssertEqual("8".float64!, 8)
-		
-		XCTAssertNotNil("8.23".float64)
-		XCTAssertEqual("8.23".float64!, Float64(8.23))
-		
-		XCTAssertNil("8s".float64)
-	}
-	
 	func testInt() {
 		XCTAssertNotNil("8".int)
 		XCTAssertEqual("8".int!, 8)
 		
 		XCTAssertNil("8s".int)
-	}
-	
-	func testInt16() {
-		XCTAssertNotNil("8".int16)
-		XCTAssertEqual("8".int16!, 8)
-		
-		XCTAssertNil("8s".int16)
-	}
-	
-	func testInt32() {
-		XCTAssertNotNil("8".int32)
-		XCTAssertEqual("8".int32!, 8)
-		
-		XCTAssertNil("8s".int32)
-	}
-	
-	func testInt64() {
-		XCTAssertNotNil("8".int64)
-		XCTAssertEqual("8".int64!, 8)
-		
-		XCTAssertNil("8s".int64)
-	}
-	
-	func testInt8() {
-		XCTAssertNotNil("8".int8)
-		XCTAssertEqual("8".int8!, 8)
-		
-		XCTAssertNil("8s".int8)
 	}
 	
 	func testUrl() {
@@ -456,16 +404,16 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testSubscript() {
 		let str = "Hello world!"
-		XCTAssertEqual(str[1], "e")
-		XCTAssertNil(str[18])
+		XCTAssertEqual(str[safe: 1], "e")
+		XCTAssertNil(str[safe: 18])
 		
-		XCTAssertEqual(str[1..<5], "ello")
-		XCTAssertNil(str[10..<18])
-		XCTAssertNil(""[1..<2])
+		XCTAssertEqual(str[safe: 1..<5], "ello")
+		XCTAssertNil(str[safe: 10..<18])
+		XCTAssertNil(""[safe: 1..<2])
 		
-		XCTAssertEqual(str[0...4], "Hello")
-		XCTAssertNil(str[10...18])
-		XCTAssertNil(""[1...2])
+		XCTAssertEqual(str[safe: 0...4], "Hello")
+		XCTAssertNil(str[safe: 10...18])
+		XCTAssertNil(""[safe: 1...2])
 	}
 	
 	func testCopyToPasteboard() {
