@@ -68,7 +68,7 @@ class StringExtensionsTests: XCTestCase {
 	func testFirstCharacter() {
 		XCTAssertNil("".firstCharacterAsString)
 		XCTAssertNotNil("Hello".firstCharacterAsString)
-		XCTAssertEqual("Hello".firstCharacterAsString!, "H")
+		XCTAssertEqual("Hello".firstCharacterAsString, "H")
 	}
 	
 	func testFirstIndex() {
@@ -112,27 +112,27 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testIsValidSchemedUrl() {
-		XCTAssertFalse("hello world!".isValidSchemedUrl)
+		XCTAssertFalse("Hello world!".isValidSchemedUrl)
 		XCTAssert("https://google.com".isValidSchemedUrl)
 		XCTAssert("ftp://google.com".isValidSchemedUrl)
 		XCTAssertFalse("google.com".isValidSchemedUrl)
 	}
 	
 	func testIsValidHttpsUrl() {
-		XCTAssertFalse("hello world!".isValidHttpsUrl)
+		XCTAssertFalse("Hello world!".isValidHttpsUrl)
 		XCTAssert("https://google.com".isValidHttpsUrl)
 		XCTAssertFalse("http://google.com".isValidHttpsUrl)
 		XCTAssertFalse("google.com".isValidHttpsUrl)
 	}
 	
 	func testIsValidHttpUrl() {
-		XCTAssertFalse("hello world!".isValidHttpUrl)
+		XCTAssertFalse("Hello world!".isValidHttpUrl)
 		XCTAssert("http://google.com".isValidHttpUrl)
 		XCTAssertFalse("google.com".isValidHttpUrl)
 	}
 	
     func testIsValidFileURL() {
-        XCTAssertFalse("hello world!".isValidFileUrl)
+        XCTAssertFalse("Hello world!".isValidFileUrl)
         XCTAssert("file://var/folder/file.txt".isValidFileUrl)
         XCTAssertFalse("google.com".isValidFileUrl)
     }
@@ -151,7 +151,7 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testLastCharacter() {
 		XCTAssertNotNil("Hello".lastCharacterAsString)
-		XCTAssertEqual("Hello".lastCharacterAsString!, "o")
+		XCTAssertEqual("Hello".lastCharacterAsString, "o")
 		XCTAssertNil("".lastCharacterAsString)
 	}
 	
@@ -202,14 +202,14 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testSlice() {
-		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345")
+		XCTAssertEqual("12345678".slicing(from: 2, length: 3), "345")
 		XCTAssertNil("12345678".slicing(at: 50))
-		XCTAssertEqual("12345678".slicing(from: 2, length: 0)!, "")
+		XCTAssertEqual("12345678".slicing(from: 2, length: 0), "")
 		XCTAssertNil("12345678".slicing(from: 12, length: 0))
 		XCTAssertEqual("12345678".slicing(from: 2, length: 100), "345678")
 		XCTAssertEqual("12345678".slicing(from: 2, to: 5), "345")
 		XCTAssertNil("12345678".slicing(from: 2, to: 1))
-		XCTAssertEqual("12345678".slicing(at: 2)!, "345678")
+		XCTAssertEqual("12345678".slicing(at: 2), "345678")
 		
 		var str = "12345678"
 		str.slice(from: 2, length: 3)
@@ -254,7 +254,7 @@ class StringExtensionsTests: XCTestCase {
 		let dateString = "2012-12-08 17:00:00.0"
 		let date = dateString.date(withFormat: "yyyy-dd-MM HH:mm:ss.S")
 		XCTAssertNotNil(date)
-		XCTAssertNil(dateString.date(withFormat: "hello world!"))
+		XCTAssertNil(dateString.date(withFormat: "Hello world!"))
 	}
 	
 	func testOperators() {
@@ -282,55 +282,55 @@ class StringExtensionsTests: XCTestCase {
 	func testDate() {
 		let dateFromStr = "2015-06-01".date
 		XCTAssertNotNil(dateFromStr)
-		XCTAssertEqual(dateFromStr!.year, 2015)
-		XCTAssertEqual(dateFromStr!.month, 6)
-		XCTAssertEqual(dateFromStr!.day, 1)
+		XCTAssertEqual(dateFromStr?.year, 2015)
+		XCTAssertEqual(dateFromStr?.month, 6)
+		XCTAssertEqual(dateFromStr?.day, 1)
 	}
 	
 	func testDateTime() {
 		let dateFromStr = "2015-06-01 14:23:09".dateTime
 		XCTAssertNotNil(dateFromStr)
-		XCTAssertEqual(dateFromStr!.year, 2015)
-		XCTAssertEqual(dateFromStr!.month, 6)
-		XCTAssertEqual(dateFromStr!.day, 1)
-		XCTAssertEqual(dateFromStr!.hour, 14)
-		XCTAssertEqual(dateFromStr!.minute, 23)
-		XCTAssertEqual(dateFromStr!.second, 9)
+		XCTAssertEqual(dateFromStr?.year, 2015)
+		XCTAssertEqual(dateFromStr?.month, 6)
+		XCTAssertEqual(dateFromStr?.day, 1)
+		XCTAssertEqual(dateFromStr?.hour, 14)
+		XCTAssertEqual(dateFromStr?.minute, 23)
+		XCTAssertEqual(dateFromStr?.second, 9)
 	}
 	
 	func testDouble() {
 		XCTAssertNotNil("8".double())
-		XCTAssertEqual("8".double()!, 8)
+		XCTAssertEqual("8".double(), 8)
 		
 		XCTAssertNotNil("8.23".double(locale: Locale(identifier: "en_US_POSIX")))
-		XCTAssertEqual("8.23".double(locale: Locale(identifier: "en_US_POSIX"))!, 8.23)
+		XCTAssertEqual("8.23".double(locale: Locale(identifier: "en_US_POSIX")), 8.23)
 		
 		XCTAssertNil("8s".double())
 	}
 	
 	func testFloat() {
 		XCTAssertNotNil("8".float())
-		XCTAssertEqual("8".float()!, 8)
+		XCTAssertEqual("8".float(), 8)
 		
 		XCTAssertNotNil("8.23".float(locale: Locale(identifier: "en_US_POSIX")))
-		XCTAssertEqual("8.23".float(locale: Locale(identifier: "en_US_POSIX"))!, Float(8.23))
+		XCTAssertEqual("8.23".float(locale: Locale(identifier: "en_US_POSIX")), Float(8.23))
 		
 		XCTAssertNil("8s".float())
 	}
 	
 	func testCgFloat() {
 		XCTAssertNotNil("8".cgFloat())
-		XCTAssertEqual("8".cgFloat()!, 8)
+		XCTAssertEqual("8".cgFloat(), 8)
 		
 		XCTAssertNotNil("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX")))
-		XCTAssertEqual("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX"))!, CGFloat(8.23))
+		XCTAssertEqual("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX")), CGFloat(8.23))
 		
 		XCTAssertNil("8s".cgFloat())
 	}
 	
 	func testInt() {
 		XCTAssertNotNil("8".int)
-		XCTAssertEqual("8".int!, 8)
+		XCTAssertEqual("8".int, 8)
 		
 		XCTAssertNil("8s".int)
 	}
@@ -339,7 +339,7 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertNil("hello world".url)
 		
 		let google = "https://www.google.com"
-		XCTAssertEqual(google.url, URL(string: google)!)
+		XCTAssertEqual(google.url, URL(string: google))
 	}
 	
 	func testTrim() {
@@ -427,7 +427,7 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testCopyToPasteboard() {
-		let str = "Hello World!"
+		let str = "Hello world!"
 		#if os(iOS)
 			str.copyToPasteboard()
 			let strFromPasteboard = UIPasteboard.general.string
@@ -455,7 +455,7 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testInitFromBase64() {
 		XCTAssertNotNil(String(base64: "SGVsbG8gV29ybGQh"))
-		XCTAssertEqual(String(base64: "SGVsbG8gV29ybGQh")!, "Hello World!")
+		XCTAssertEqual(String(base64: "SGVsbG8gV29ybGQh"), "Hello World!")
 		XCTAssertNil(String(base64: "hello"))
 	}
 	

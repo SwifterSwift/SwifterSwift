@@ -260,7 +260,7 @@ public extension UIView {
 	///   - radius: shadow radius (default is 3).
 	///   - offset: shadow offset (default is .zero).
 	///   - opacity: shadow opacity (default is 0.5).
-	public func addShadow(ofColor color: UIColor = UIColor(hex: 0x137992),
+	public func addShadow(ofColor color: UIColor = UIColor(hex: 0x137992)!,
 						  radius: CGFloat = 3,
 						  offset: CGSize = .zero,
 						  opacity: Float = 0.5) {
