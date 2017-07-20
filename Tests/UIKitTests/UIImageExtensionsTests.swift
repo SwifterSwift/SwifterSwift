@@ -86,6 +86,12 @@ class UIImageExtensionsTests: XCTestCase {
 		filledImage = emptyImage.filled(withColor: .red)
 		XCTAssertEqual(emptyImage, filledImage)
 	}
+    
+    func testInitWithSize() {
+        let image = UIImage(color: .red)
+        XCTAssertNotNil(image)
+        XCTAssertEqual(image.size.width, 1)
+    }
 	
 }
 #endif

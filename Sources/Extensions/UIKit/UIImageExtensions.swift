@@ -137,26 +137,26 @@ public extension UIImage {
 // MARK: - Initializers
 public extension UIImage {
 	
-	/// SwifterSwift: Create UIImage from color and size.
-	///
-	/// - Parameters:
-	///   - color: image fill color.
-	///   - size: image size.
-	public convenience init(color: UIColor, size: CGSize) {
-		UIGraphicsBeginImageContextWithOptions(size, false, 1)
-		color.setFill()
-		UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
-		guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
-			self.init()
-			return
-		}
-		UIGraphicsEndImageContext()
-		guard let aCgImage = image.cgImage else {
-			self.init()
-			return
-		}
-		self.init(cgImage: aCgImage)
-	}
+    /// SwifterSwift: Create UIImage from color and size.
+    ///
+    /// - Parameters:
+    ///   - color: image fill color.
+    ///   - size: image size. default: 1x1
+    public convenience init(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        UIGraphicsBeginImageContextWithOptions(size, false, 1)
+        color.setFill()
+        UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
+            self.init()
+            return
+        }
+        UIGraphicsEndImageContext()
+        guard let aCgImage = image.cgImage else {
+            self.init()
+            return
+        }
+        self.init(cgImage: aCgImage)
+    }
 	
 }
 #endif
