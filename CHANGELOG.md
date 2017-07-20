@@ -13,7 +13,8 @@ N/A
 ### Enhancements
 - New **Array** extensions
   - added `group(by size: Int)` to split in an array of slices of a size. [#199](https://github.com/SwifterSwift/SwifterSwift/pull/199) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-
+- New **UITextFieldExtensions** extensions
+  - added `addPaddingLeftIcon(_ image: UIImage, padding: CGFloat)` to add padding to the left of the textfield rect. [#203](https://github.com/SwifterSwift/SwifterSwift/pull/203) by [@xingfuqiu](https://github.com/xingfuqiu)
 ### Bugfixes
 N/A
 
