@@ -88,12 +88,12 @@ public extension UITextField {
     leftViewMode = .always
     }
     
-    /// Add padding to the left of the textfield rect.
+    /// SwifterSwift: Add padding to the left of the textfield rect.
     ///
     /// - Parameters:
     ///   - image: left image
-    ///   - padding: image.size + padding, default: 3
-    public func addPaddingLeftIcon(_ image: UIImage, padding: CGFloat = 3) {
+    ///   - padding: image.size + padding
+    public func addPaddingLeftIcon(_ image: UIImage, padding: CGFloat) {
         let imageView = UIImageView(image: image)
         imageView.contentMode = .center
         self.leftView = imageView
