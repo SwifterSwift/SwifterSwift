@@ -88,8 +88,9 @@ class UIImageExtensionsTests: XCTestCase {
 	}
     
     func testInitWithSize() {
-        let image = UIImage(color: .red, size: CGSize(width: 10, height: 10))
+        let image = UIImage(color: .red)
         XCTAssertNotNil(image)
+        XCTAssertEqual(image.size.width, 1)
     }
 	
 }
