@@ -21,46 +21,46 @@ N/A
 
 ### API Breaking
 - **String**
-  - `firstCharacter` has been renamed to `firstCharacterAsString`. by [@omaralbeik](https://github.com/omaralbeik)
-  - `lastCharacter` has been renamed to `lastCharacterAsString`. by [@omaralbeik](https://github.com/omaralbeik)
-  - `firstCharacter` has been renamed to `firstCharacterAsString`. by [@omaralbeik](https://github.com/omaralbeik)
-  - `float` has been renamed to `float(locale: Locale = .current)`. by [@omaralbeik](https://github.com/omaralbeik)
-  - `double` has been renamed to `double(locale: Locale = .current)`. by [@omaralbeik](https://github.com/omaralbeik)
-  - `subscript(i: Int)` has been renamed to `subscript(safe i: Int)`. by [@omaralbeik](https://github.com/omaralbeik)
-  - `subscript(range: CountableRange<Int>)` has been renamed to `subscript(safe range: CountableRange<Int>)`. by [@omaralbeik](https://github.com/omaralbeik)
-  - `subscript(range: ClosedRange<Int>)` has been renamed to `subscript(safe range: ClosedRange<Int>)`. by [@omaralbeik](https://github.com/omaralbeik)
-  - `replacing(_ substring: String, with newString: String)` is deprecated, use Apple's `replacingOccurrences(of: substring, with: newString)` instead. by [@omaralbeik](https://github.com/omaralbeik)
-  - `int8` is deprecated, use `Int8(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
-  - `int16` is deprecated, use `Int16(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
-  - `int32` is deprecated, use `Int32(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
-  - `int64` is deprecated, use `Int64(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
-  - `float32` is deprecated, use `Float32(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
-  - `float64` is deprecated, use `Float64(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
+  - `firstCharacter` has been renamed to `firstCharacterAsString`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `lastCharacter` has been renamed to `lastCharacterAsString`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `firstCharacter` has been renamed to `firstCharacterAsString`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `float` has been renamed to `float(locale: Locale = .current)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `double` has been renamed to `double(locale: Locale = .current)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `subscript(i: Int)` has been renamed to `subscript(safe i: Int)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `subscript(range: CountableRange<Int>)` has been renamed to `subscript(safe range: CountableRange<Int>)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `subscript(range: ClosedRange<Int>)` has been renamed to `subscript(safe range: ClosedRange<Int>)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `replacing(_ substring: String, with newString: String)` is deprecated, use Apple's `replacingOccurrences(of: substring, with: newString)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `int8` is deprecated, use `Int8(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `int16` is deprecated, use `Int16(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `int32` is deprecated, use `Int32(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `int64` is deprecated, use `Int64(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `float32` is deprecated, use `Float32(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `float64` is deprecated, use `Float64(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 
 - **UIColor**
-  - `init(hex: Int, transparency: CGFloat = 1)` is now a failable initializer `init?`. by [@omaralbeik](https://github.com/omaralbeik)
-  - `init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1)` is now a failable initializer `init?`. by [@omaralbeik](https://github.com/omaralbeik)
-  - `redComponent` is deprecated, use the new `rgbComponenets.red` instead. by [@omaralbeik](https://github.com/omaralbeik)
-  - `greenComponent` is deprecated, use the new `rgbComponenets.green` instead. by [@omaralbeik](https://github.com/omaralbeik)
-  - `blueComponent` is deprecated, use the new `rgbComponenets.blue` instead. by [@omaralbeik](https://github.com/omaralbeik)
+  - `init(hex: Int, transparency: CGFloat = 1)` is now a failable initializer `init?`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1)` is now a failable initializer `init?`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `redComponent` is deprecated, use the new `rgbComponenets.red` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `greenComponent` is deprecated, use the new `rgbComponenets.green` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `blueComponent` is deprecated, use the new `rgbComponenets.blue` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 
 ### Enhancements
 - New **String** extensions
-  - added `cgFloat(locale: Locale = .current)` to get CGFloat value from string. by [@omaralbeik](https://github.com/omaralbeik)
-  - added `words` to return an array of all words in a string. by [@omaralbeik](https://github.com/omaralbeik)
-  - added `wordCount` to get count of words in a string. by [@omaralbeik](https://github.com/omaralbeik)
+  - added `cgFloat(locale: Locale = .current)` to get CGFloat value from string. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - added `words` to return an array of all words in a string. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - added `wordCount` to get count of words in a string. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 - New **Int** extensions
-  - added `countableRange` to get CountableRange 0..<Int. by [@omaralbeik](https://github.com/omaralbeik)
-  - added `uInt` to get UInt from Int. by [@omaralbeik](https://github.com/omaralbeik)
+  - added `countableRange` to get CountableRange 0..<Int. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - added `uInt` to get UInt from Int. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 - New **Array** extensions
-  - added `group(size:)` to split in an array of slices of a size. [#199](https://github.com/SwifterSwift/SwifterSwift/pull/199) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `group(size:)` to split in an array of slices of a size. [#199](https://github.com/SwifterSwift/SwifterSwift/pull/199). [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
   - added `rotated(by:)` to return a new rotated array by the given places. [#207](https://github.com/SwifterSwift/SwifterSwift/pull/207) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
   - added `rotate(by:)` to rotate the array by the given places. [#207](https://github.com/SwifterSwift/SwifterSwift/pull/207) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - New **UITextField** extensions
   - added `addPaddingLeftIcon(_ image: UIImage, padding: CGFloat)` to add padding to the left of the textfield rect. [#203](https://github.com/SwifterSwift/SwifterSwift/pull/203) by [@xingfuqiu](https://github.com/xingfuqiu)
 - New **UIColor** extensions
-  - added `rgbComponenets` to get RGB components for a UIColor. by [@omaralbeik](https://github.com/omaralbeik)
-- Added usage examples in documentation for Foundation extensions. by [@omaralbeik](https://github.com/omaralbeik)
+  - added `rgbComponenets` to get RGB components for a UIColor. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+- Added usage examples in documentation for Foundation extensions. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 
 ### Bugfixes
 - Fixed XCTAssertNotNil cannot handle optionals. [#188](https://github.com/SwifterSwift/SwifterSwift/issues/188). by [@omaralbeik](https://github.com/omaralbeik)
