@@ -12,8 +12,11 @@ N/A
 
 ### Enhancements
 - New **Array** extensions
-  - added `group(by size: Int)` to split in an array of slices of a size. [#199](https://github.com/SwifterSwift/SwifterSwift/pull/199) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-
+  - added `group(size:)` to split in an array of slices of a size. [#199](https://github.com/SwifterSwift/SwifterSwift/pull/199) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `rotated(by:)` to return a new rotated array by the given places. [#207](https://github.com/SwifterSwift/SwifterSwift/pull/207) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `rotate(by:)` to rotate the array by the given places. [#207](https://github.com/SwifterSwift/SwifterSwift/pull/207) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+- New **UITextFieldExtensions** extensions
+  - added `addPaddingLeftIcon` to add padding to the left of the textfield rect. [#203](https://github.com/SwifterSwift/SwifterSwift/pull/203) by [@xingfuqiu](https://github.com/xingfuqiu)
 ### Bugfixes
 N/A
 
