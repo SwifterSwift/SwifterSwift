@@ -6,15 +6,8 @@ coverage:
   status:
     project: true
     patch: true
-    changes: false
+    changes: true
 
-ignore:
-  - Sources/Extensions/*/Deprecated/*.*
-  - Pods/.*
-  - Applications/Xcode.app/.*
-  - Carthage/.*
-  - .*Tests.m
-  - .*Tests.swift
-  - JSONRPComTests/.*
-  - Pods/.*
-  - Build/.*
+  ignore:
+    - "Sources/Extensions/*/Deprecated/*"
+    - "Tests/**/*"
