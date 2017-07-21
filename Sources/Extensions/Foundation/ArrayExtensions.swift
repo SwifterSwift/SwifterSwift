@@ -310,6 +310,37 @@ public extension Array {
         }
         return group
     }
+    
+    /// SwifterSwift: Returns a new rotated array by the given places.
+    ///
+    /// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
+    /// - Returns: The new rotated array
+    public func rotated(by places: Int) -> [Element] {
+        //Inspired by: https://ruby-doc.org/core-2.2.0/Array.html#method-i-rotate
+        guard places != 0 && places < count else {
+            return self
+        }
+        var array : [Element] = self
+        if places > 0 {
+            let range = (array.count - places)..<array.endIndex
+            let slice = array[range]
+            array.removeSubrange(range)
+            array.insert(contentsOf: slice, at: 0)
+        } else {
+            let range = array.startIndex..<(places * -1)
+            let slice = array[range]
+            array.removeSubrange(range)
+            array.append(contentsOf: slice)
+        }
+        return array
+    }
+    
+    /// SwifterSwift: Rotate the array by the given places.
+    ///
+    /// - Parameter places: Number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
+    public mutating func rotate(by places: Int) {
+        self = rotated(by: places)
+    }
 }
 
 
