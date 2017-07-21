@@ -13,7 +13,7 @@ import UIKit
 // MARK: - Properties
 public extension UIColor {
 	
-	/// SwifterSwift: RGB omponenets for a UIColor
+	/// SwifterSwift: RGB components for a UIColor
 	///
 	///		UIColor.red.rgbComponenets.red -> 255
 	///		UIColor.green.rgbComponenets.green -> 255

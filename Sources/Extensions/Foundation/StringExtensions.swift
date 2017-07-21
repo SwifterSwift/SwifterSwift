@@ -397,6 +397,29 @@ public extension String {
 		return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
 	}
 	
+	/// SwifterSwift: an array of all words in a string
+	///
+	///		"Swift is amazing".words -> ["Swift", "is", "amazing"]
+	///
+	public var words: [String] {
+		// https://stackoverflow.com/questions/42822838
+		let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
+		let comps = components(separatedBy: chararacterSet)
+		return comps.filter { !$0.isEmpty }
+	}
+	
+	/// SwifterSwift: Count of words in a string.
+	///
+	///		"Swift is amazing".wordsCount -> 3
+	///
+	public var wordCount: Int {
+		// https://stackoverflow.com/questions/42822838
+		let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
+		let comps = components(separatedBy: chararacterSet)
+		let words = comps.filter { !$0.isEmpty }
+		return words.count
+	}
+	
 }
 
 

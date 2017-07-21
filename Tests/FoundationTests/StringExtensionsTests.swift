@@ -554,4 +554,13 @@ class StringExtensionsTests: XCTestCase {
 			XCTAssertEqual(attrs[NSForegroundColorAttributeName] as! UIColor, UIColor.orange)
 		#endif
 	}
+	
+	func testWords() {
+		XCTAssertEqual("Swift is amazing".words, ["Swift", "is", "amazing"])
+	}
+	
+	func testWordsCount() {
+		XCTAssertEqual("Swift is amazing".wordCount, 3)
+	}
+
 }

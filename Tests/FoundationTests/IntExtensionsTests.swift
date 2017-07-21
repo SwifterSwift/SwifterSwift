@@ -15,6 +15,10 @@ class IntExtensionsTests: XCTestCase {
 		XCTAssertEqual((-9).abs, 9)
 	}
 	
+	func testCountableRange() {
+		XCTAssertEqual(10.countableRange, 0..<10)
+	}
+	
 	func testIsPositive() {
 		XCTAssert(1.isPositive)
 		XCTAssertFalse(0.isPositive)

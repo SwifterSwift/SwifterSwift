@@ -1,5 +1,5 @@
 # CHANGELOG
-SwifterSwift adheres to [Semantic Versioning](http://semver.org/) for all versions after v1.6.4. 
+SwifterSwift adheres to [Semantic Versioning](http://semver.org/) for all versions after v1.6.4.
 
 All notable changes to this project will be documented in this file.
 
@@ -11,11 +11,61 @@ All notable changes to this project will be documented in this file.
 N/A
 
 ### Enhancements
-- New **Array** extensions
-  - added `group(by size: Int)` to split in an array of slices of a size. [#199](https://github.com/SwifterSwift/SwifterSwift/pull/199) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+N/A
 
 ### Bugfixes
 N/A
+
+
+# v3.1.0
+
+### API Breaking
+- **String**
+  - `firstCharacter` has been renamed to `firstCharacterAsString`. by [@omaralbeik](https://github.com/omaralbeik)
+  - `lastCharacter` has been renamed to `lastCharacterAsString`. by [@omaralbeik](https://github.com/omaralbeik)
+  - `firstCharacter` has been renamed to `firstCharacterAsString`. by [@omaralbeik](https://github.com/omaralbeik)
+  - `float` has been renamed to `float(locale: Locale = .current)`. by [@omaralbeik](https://github.com/omaralbeik)
+  - `double` has been renamed to `double(locale: Locale = .current)`. by [@omaralbeik](https://github.com/omaralbeik)
+  - `subscript(i: Int)` has been renamed to `subscript(safe i: Int)`. by [@omaralbeik](https://github.com/omaralbeik)
+  - `subscript(range: CountableRange<Int>)` has been renamed to `subscript(safe range: CountableRange<Int>)`. by [@omaralbeik](https://github.com/omaralbeik)
+  - `subscript(range: ClosedRange<Int>)` has been renamed to `subscript(safe range: ClosedRange<Int>)`. by [@omaralbeik](https://github.com/omaralbeik)
+  - `replacing(_ substring: String, with newString: String)` is deprecated, use Apple's `replacingOccurrences(of: substring, with: newString)` instead. by [@omaralbeik](https://github.com/omaralbeik)
+  - `int8` is deprecated, use `Int8(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
+  - `int16` is deprecated, use `Int16(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
+  - `int32` is deprecated, use `Int32(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
+  - `int64` is deprecated, use `Int64(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
+  - `float32` is deprecated, use `Float32(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
+  - `float64` is deprecated, use `Float64(string)` instead. by [@omaralbeik](https://github.com/omaralbeik)
+
+- **UIColor**
+  - `init(hex: Int, transparency: CGFloat = 1)` is now a failable initializer `init?`. by [@omaralbeik](https://github.com/omaralbeik)
+  - `init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1)` is now a failable initializer `init?`. by [@omaralbeik](https://github.com/omaralbeik)
+  - `redComponent` is deprecated, use the new `rgbComponenets.red` instead. by [@omaralbeik](https://github.com/omaralbeik)
+  - `greenComponent` is deprecated, use the new `rgbComponenets.green` instead. by [@omaralbeik](https://github.com/omaralbeik)
+  - `blueComponent` is deprecated, use the new `rgbComponenets.blue` instead. by [@omaralbeik](https://github.com/omaralbeik)
+
+### Enhancements
+- New **String** extensions
+  - added `cgFloat(locale: Locale = .current)` to get CGFloat value from string. by [@omaralbeik](https://github.com/omaralbeik)
+  - added `words` to return an array of all words in a string. by [@omaralbeik](https://github.com/omaralbeik)
+  - added `wordCount` to get count of words in a string. by [@omaralbeik](https://github.com/omaralbeik)
+- New **Int** extensions
+  - added `countableRange` to get CountableRange 0..<Int. by [@omaralbeik](https://github.com/omaralbeik)
+  - added `uInt` to get UInt from Int. by [@omaralbeik](https://github.com/omaralbeik)
+- New **Array** extensions
+  - added `group(size:)` to split in an array of slices of a size. [#199](https://github.com/SwifterSwift/SwifterSwift/pull/199) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `rotated(by:)` to return a new rotated array by the given places. [#207](https://github.com/SwifterSwift/SwifterSwift/pull/207) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `rotate(by:)` to rotate the array by the given places. [#207](https://github.com/SwifterSwift/SwifterSwift/pull/207) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+- New **UITextField** extensions
+  - added `addPaddingLeftIcon(_ image: UIImage, padding: CGFloat)` to add padding to the left of the textfield rect. [#203](https://github.com/SwifterSwift/SwifterSwift/pull/203) by [@xingfuqiu](https://github.com/xingfuqiu)
+- New **UIColor** extensions
+  - added `rgbComponenets` to get RGB components for a UIColor. by [@omaralbeik](https://github.com/omaralbeik)
+- Added usage examples in documentation for Foundation extensions. by [@omaralbeik](https://github.com/omaralbeik)
+
+### Bugfixes
+- Fixed XCTAssertNotNil cannot handle optionals. [#188](https://github.com/SwifterSwift/SwifterSwift/issues/188). by [@omaralbeik](https://github.com/omaralbeik)
+- Fixed Tests are failing at non-english machine / Bug in String.double [#187](https://github.com/SwifterSwift/SwifterSwift/issues/187). by [@omaralbeik](https://github.com/omaralbeik)
+
 
 # v3.0.0
 
@@ -78,14 +128,14 @@ N/A
 - New **Dictionary** extensions
     - new `removeAll` extension to remove the values for all keys in a array.
     - new + operator to merge to dictionaries in a new one and += to merge one dictionary into another.
-    - new - operator to get a new dictionary with the values for all keys in a array removed and -= to remove the values for all keys in a array. 
+    - new - operator to get a new dictionary with the values for all keys in a array removed and -= to remove the values for all keys in a array.
 - New **String** extensions
     - new `matches` extension to check if string matches a regex pattern.
 - New **Locale** extensions
     - new posix property extension to convenience create the "en_US_POSIX" locale.
 - New **CLLocation** extensions
     - new `midLocation` to find the half-way point along a great circle path between relative to another point.
-    - new `bearing` to calculate the bearing relative another location. 
+    - new `bearing` to calculate the bearing relative another location.
 ### Improvements
 - Fixes on wrong access  levels for some extensions
 - Improve NSAttributedStringExtensions extensions
@@ -168,7 +218,7 @@ Areas affected are:
 
 ### Improvements
 - Improve UIImageView extensions
-    - fixes infinite recursive call in `blurred()` method 
+    - fixes infinite recursive call in `blurred()` method
     - removes superfluous error from `download(url:)` method completion block
 
 - Replace deprecated `M_PI` with `.pi`
@@ -179,7 +229,7 @@ Areas affected are:
     - properties with O(n) or higher complexity have been changed to methods
     - reduced shuffle method complexity by using Fisher-Yates algorithm and is now completely random
     - `removeDuplicates` renamed to `duplicatesRemoved`
-    - remove generic constraint on `firstIndex(of:)` and `lastIndex(of:)` 
+    - remove generic constraint on `firstIndex(of:)` and `lastIndex(of:)`
 
 - Improve String extensions
 - Improve Date extensions
