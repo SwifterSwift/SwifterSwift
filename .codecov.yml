@@ -1,0 +1,24 @@
+coverage:
+  precision: 2
+  round: down
+  range: 70...100
+
+  status:
+    project: true
+    patch: true
+    changes: false
+
+comment:
+  layout: "header, diff"
+  behavior: defaultc
+
+ignore:
+  - "Sources/Extensions/*/Deprecated/*.*"
+  - Pods/.*
+  - Applications/Xcode.app/.*
+  - Carthage/.*
+  - .*Tests.m
+  - .*Tests.swift
+  - JSONRPComTests/.*
+  - Pods/.*
+  - Build/.*

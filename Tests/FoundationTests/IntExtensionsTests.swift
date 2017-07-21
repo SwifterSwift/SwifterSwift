@@ -110,6 +110,10 @@ class IntExtensionsTests: XCTestCase {
 		XCTAssertEqual(3660.timeString, "1h 1m")
 	}
 	
+	func testUInt() {
+		XCTAssertEqual(Int(10).uInt, UInt(10))
+	}
+	
 	func testKFormatted() {
 		XCTAssertEqual(10.kFormatted, "0k")
 		XCTAssertEqual((-10).kFormatted, "0k")
