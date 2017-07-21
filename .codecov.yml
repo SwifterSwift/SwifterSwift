@@ -8,12 +8,8 @@ coverage:
     patch: true
     changes: false
 
-comment:
-  layout: "header, diff"
-  behavior: defaultc
-
 ignore:
-  - "Sources/Extensions/*/Deprecated/*.*"
+  - Sources/Extensions/*/Deprecated/*.*
   - Pods/.*
   - Applications/Xcode.app/.*
   - Carthage/.*
