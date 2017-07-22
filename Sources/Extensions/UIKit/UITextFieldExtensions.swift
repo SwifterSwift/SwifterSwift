@@ -100,6 +100,19 @@ public extension UITextField {
         self.leftView?.frame.size = CGSize(width: image.size.width + padding, height: image.size.height)
         self.leftViewMode = UITextFieldViewMode.always
     }
+    
+    /// SwifterSwift: Add the limit length
+    ///
+    /// - Parameter length: length limit
+    public func limit(_ length: Int) {
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UITextFieldTextDidChange, object: nil, queue: OperationQueue.main) { (notification) in
+            
+            if ((self.text!.characters.count > length) && self.markedTextRange == nil) {
+                
+                self.text = (self.text! as NSString).substring(to: length)
+            }
+        }
+    }
 
 }
 #endif

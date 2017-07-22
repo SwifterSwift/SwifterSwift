@@ -109,5 +109,14 @@ class UITextFieldExtensionsTests: XCTestCase {
         textfield.addPaddingLeftIcon(image, padding: 5)
         XCTAssertEqual(textfield.leftView?.frame.width, image.size.width + 5)
     }
+    
+    func testlimit() {
+        let textfield = UITextField()
+        textfield.frame = CGRect(x: 0, y: 0, width: 200, height: 30)
+        textfield.text = "xxxxxxxxxxxxxxxxxxx"
+        textfield.limit(16)
+        NotificationCenter.default.post(name: NSNotification.Name.UITextFieldTextDidChange, object: nil)
+        XCTAssertEqual(textfield.text?.length, 16)
+    }
 }
 #endif
