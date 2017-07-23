@@ -10,6 +10,10 @@
 		077AD1BA1F13873600D3214D /* SwifterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DFA3AE1F1380F100D0C644 /* SwifterSwift.framework */; };
 		077AD1C91F13875100D3214D /* SwifterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DFA3BC1F13816200D0C644 /* SwifterSwift.framework */; };
 		077AD1D81F13876000D3214D /* SwifterSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07DFA3C91F13817200D0C644 /* SwifterSwift.framework */; };
+		078473951F24F3E1001F8575 /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078473941F24F3E1001F8575 /* FloatingPointExtensions.swift */; };
+		078473961F24F3E1001F8575 /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078473941F24F3E1001F8575 /* FloatingPointExtensions.swift */; };
+		078473971F24F3E1001F8575 /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078473941F24F3E1001F8575 /* FloatingPointExtensions.swift */; };
+		078473981F24F3E1001F8575 /* FloatingPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078473941F24F3E1001F8575 /* FloatingPointExtensions.swift */; };
 		07897F701F138A3300A3A4E1 /* CGColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F421F138A3300A3A4E1 /* CGColorExtensions.swift */; };
 		07897F711F138A3300A3A4E1 /* CGColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F421F138A3300A3A4E1 /* CGColorExtensions.swift */; };
 		07897F721F138A3300A3A4E1 /* CGColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07897F421F138A3300A3A4E1 /* CGColorExtensions.swift */; };
@@ -318,6 +322,7 @@
 		077AD1C41F13875100D3214D /* SwifterSwift macOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift macOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		077AD1D31F13876000D3214D /* SwifterSwift tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwifterSwift tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		077AD1DF1F1387D600D3214D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
+		078473941F24F3E1001F8575 /* FloatingPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatingPointExtensions.swift; sourceTree = "<group>"; };
 		07897F421F138A3300A3A4E1 /* CGColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGColorExtensions.swift; sourceTree = "<group>"; };
 		07897F431F138A3300A3A4E1 /* CGFloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGFloatExtensions.swift; sourceTree = "<group>"; };
 		07897F441F138A3300A3A4E1 /* CGPointExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
@@ -534,6 +539,7 @@
 				07897F4E1F138A3300A3A4E1 /* CollectionExtensions.swift */,
 				07897F4F1F138A3300A3A4E1 /* DataExtensions.swift */,
 				07897F501F138A3300A3A4E1 /* DateExtensions.swift */,
+				078473941F24F3E1001F8575 /* FloatingPointExtensions.swift */,
 				07897F521F138A3300A3A4E1 /* DoubleExtensions.swift */,
 				07897F531F138A3300A3A4E1 /* FloatExtensions.swift */,
 				07897F541F138A3300A3A4E1 /* IntExtensions.swift */,
@@ -1154,6 +1160,7 @@
 				07897FD01F138A3300A3A4E1 /* UIButtonExtensions.swift in Sources */,
 				07897FDC1F138A3300A3A4E1 /* UIImageExtensions.swift in Sources */,
 				078980081F138A3300A3A4E1 /* UITabBarExtensions.swift in Sources */,
+				078473951F24F3E1001F8575 /* FloatingPointExtensions.swift in Sources */,
 				078980001F138A3300A3A4E1 /* UIStoryboardExtensions.swift in Sources */,
 				078980141F138A3300A3A4E1 /* UITextViewExtensions.swift in Sources */,
 				07897FE01F138A3300A3A4E1 /* UIImageViewExtensions.swift in Sources */,
@@ -1186,6 +1193,7 @@
 				07897F8D1F138A3300A3A4E1 /* NSViewExtensions.swift in Sources */,
 				07897FB11F138A3300A3A4E1 /* FloatExtensions.swift in Sources */,
 				07897FBD1F138A3300A3A4E1 /* OptionalExtensions.swift in Sources */,
+				078473961F24F3E1001F8575 /* FloatingPointExtensions.swift in Sources */,
 				07897F711F138A3300A3A4E1 /* CGColorExtensions.swift in Sources */,
 				07897F951F138A3300A3A4E1 /* BoolExtensions.swift in Sources */,
 				078980E21F138B7900A3A4E1 /* SwifterSwift.swift in Sources */,
@@ -1237,6 +1245,7 @@
 				07897FA21F138A3300A3A4E1 /* DataExtensions.swift in Sources */,
 				07897FD21F138A3300A3A4E1 /* UIButtonExtensions.swift in Sources */,
 				07897FDE1F138A3300A3A4E1 /* UIImageExtensions.swift in Sources */,
+				078473971F24F3E1001F8575 /* FloatingPointExtensions.swift in Sources */,
 				0789800A1F138A3300A3A4E1 /* UITabBarExtensions.swift in Sources */,
 				078980021F138A3300A3A4E1 /* UIStoryboardExtensions.swift in Sources */,
 				078980161F138A3300A3A4E1 /* UITextViewExtensions.swift in Sources */,
@@ -1255,6 +1264,7 @@
 			files = (
 				07897FDB1F138A3300A3A4E1 /* UIColorExtensions.swift in Sources */,
 				07897F831F138A3300A3A4E1 /* CLLocationExtensions.swift in Sources */,
+				078473981F24F3E1001F8575 /* FloatingPointExtensions.swift in Sources */,
 				07897FE71F138A3300A3A4E1 /* UILabelExtensions.swift in Sources */,
 				07897FEF1F138A3300A3A4E1 /* UINavigationControllerExtensions.swift in Sources */,
 				07897F9F1F138A3300A3A4E1 /* CollectionExtensions.swift in Sources */,
