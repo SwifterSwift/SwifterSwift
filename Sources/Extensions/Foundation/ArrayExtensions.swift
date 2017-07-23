@@ -113,9 +113,7 @@ public extension Array {
 		guard index != otherIndex,
               startIndex..<endIndex ~= index,
               startIndex..<endIndex ~= otherIndex else { return }
-		var i1 = self[index]
-		var i2 = self[otherIndex]
-		Swift.swap(&i1, &i2)
+		Swift.swap(&self[index], &self[otherIndex])
 	}
 	
 	/// SwifterSwift: Swap values at index positions.
@@ -128,9 +126,7 @@ public extension Array {
 	///   - index: index of first element.
 	///   - otherIndex: index of other element.
 	public mutating func swap(from index: Int, to otherIndex: Int)  {
-		var i1 = self[index]
-		var i2 = self[otherIndex]
-		Swift.swap(&i1, &i2)
+		Swift.swap(&self[index], &self[otherIndex])
 	}
     
     /// SwifterSwift: Get first index where condition is met.
@@ -432,9 +428,7 @@ public extension Array where Element: Equatable {
 		guard count > 1 else { return }
 		for index in startIndex..<endIndex - 1 {
 			let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
-			var i1 = self[index]
-			var i2 = self[randomIndex]
-			if index != randomIndex { Swift.swap(&i1, &i2) }
+			if index != randomIndex { Swift.swap(&self[index], &self[randomIndex]) }
 		}
 	}
 
