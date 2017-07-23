@@ -113,7 +113,6 @@ public extension Array {
 		guard index != otherIndex,
               startIndex..<endIndex ~= index,
               startIndex..<endIndex ~= otherIndex else { return }
-        
 		Swift.swap(&self[index], &self[otherIndex])
 	}
 	

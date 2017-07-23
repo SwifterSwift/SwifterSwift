@@ -37,9 +37,9 @@ public extension NSColor {
 	///   - transparency: optional transparency value (default is 1).
 	public convenience init?(hexString: String, transparency: CGFloat = 1) {
 		var string = ""
-		if hexString.lowercased().starts(with: "0x") {
+		if hexString.lowercased().hasPrefix("0x") {
 			string =  hexString.replacingOccurrences(of: "0x", with: "")
-		} else if hexString.starts(with: "#") {
+		} else if hexString.hasPrefix("#") {
 			string = hexString.replacingOccurrences(of: "#", with: "")
 		} else {
 			string = hexString
