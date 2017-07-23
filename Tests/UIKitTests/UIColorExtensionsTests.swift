@@ -54,7 +54,50 @@ class UIColorExtensionsTests: XCTestCase {
 		XCTAssertEqual(color.alpha, 1.0)
 	}
 	
-	func testHexString() {
+    // MARK: - Test properties
+    func testHsbaComponenets() {
+        var color = UIColor(hex: 0xFF0000, transparency: 1.0)
+        XCTAssertEqual(color.hsbaComponents.hue, 1)
+        XCTAssertEqual(color.hsbaComponents.saturation, 1)
+        XCTAssertEqual(color.hsbaComponents.brightness, 1)
+
+        color = UIColor(hex: 0x00FF00, transparency: 1.0)
+        XCTAssertEqual(CGFloat(round(1000 * color.hsbaComponents.hue) / 1000), CGFloat(round(1000 * (120/360)) / 1000))
+        XCTAssertEqual(color.hsbaComponents.saturation, 1)
+        XCTAssertEqual(color.hsbaComponents.brightness, 1)
+
+        color = UIColor(hex: 0x0000FF, transparency: 1.0)
+        XCTAssertEqual(CGFloat(round(1000 * color.hsbaComponents.hue) / 1000), CGFloat(round(1000 * (240/360)) / 1000))
+        XCTAssertEqual(color.hsbaComponents.saturation, 1)
+        XCTAssertEqual(color.hsbaComponents.brightness, 1)
+
+        color = UIColor(hex: 0x000000, transparency: 1.0)
+        XCTAssertEqual(color.hsbaComponents.hue, 0)
+        XCTAssertEqual(color.hsbaComponents.saturation, 0)
+        XCTAssertEqual(color.hsbaComponents.brightness, 0)
+
+        color = UIColor(hex: 0xFFFFFF, transparency: 1.0)
+        XCTAssertEqual(color.hsbaComponents.hue, 0)
+        XCTAssertEqual(color.hsbaComponents.saturation, 0)
+        XCTAssertEqual(color.hsbaComponents.brightness, 1)
+
+        color = UIColor(hex: 0x123456, transparency: 1.0)
+        XCTAssertEqual(CGFloat(round(1000 * color.hsbaComponents.hue) / 1000), CGFloat(round(1000 * (210/360)) / 1000))
+        XCTAssertEqual((color.hsbaComponents.saturation * 100).rounded(), 79)
+        XCTAssertEqual((color.hsbaComponents.brightness * 100).rounded(), 34)
+
+        color = UIColor(hex: 0xFCA864, transparency: 1.0)
+        XCTAssertEqual(CGFloat(round(1000 * color.hsbaComponents.hue) / 1000), CGFloat(round(1000 * (27/360)) / 1000))
+        XCTAssertEqual((color.hsbaComponents.saturation * 100).rounded(), 60)
+        XCTAssertEqual((color.hsbaComponents.brightness * 100).rounded(), 99)
+
+        color = UIColor(hex: 0x1F2D3C, transparency: 1.0)
+        XCTAssertEqual(CGFloat(round(1000 * color.hsbaComponents.hue) / 1000), CGFloat(round(1000 * (211/360)) / 1000))
+        XCTAssertEqual((color.hsbaComponents.saturation * 100).rounded(), 48)
+        XCTAssertEqual((color.hsbaComponents.brightness * 100).rounded(), 24)
+    }
+
+    func testHexString() {
 		var color = UIColor.red
 		XCTAssertEqual(color.hexString, "#FF0000")
 		
