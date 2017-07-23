@@ -41,6 +41,23 @@ public extension UIColor {
 		return a
 	}
 	
+    /// SwifterSwift: CoreImage.CIColor (read-only).
+    public var coreImageColor: CoreImage.CIColor? {
+        return CoreImage.CIColor(color: self)  // The resulting Core Image color, or nil
+    }
+    
+    /// SwifterSwift: Hue, Saturation, Brightness, and Alpha (read-only).
+    public var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat)?
+    {
+        var (hue, saturation, brightness, alpha) = (CGFloat(0.0), CGFloat(0.0), CGFloat(0.0), CGFloat(0.0))
+        if self.getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha) {
+            return (hue, saturation, brightness, alpha)
+        }
+        else {
+            return nil
+        }
+    }
+    
 	/// SwifterSwift: Hexadecimal value string (read-only).
 	public var hexString: String {
 		var red:	CGFloat = 0
