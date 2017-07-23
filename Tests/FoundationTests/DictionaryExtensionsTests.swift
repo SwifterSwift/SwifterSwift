@@ -28,10 +28,10 @@ class DictionaryExtensionsTests: XCTestCase {
     
 	func testJsonString() {
 		XCTAssertNotNil(testDict.jsonString())
-		XCTAssert(testDict.jsonString()!.contains("\"testArrayKey\":[1,2,3,4,5]"))
-		XCTAssert(testDict.jsonString()!.contains("\"testKey\":\"testValue\""))
+		XCTAssertEqual(testDict.jsonString()?.contains("\"testArrayKey\":[1,2,3,4,5]"), true)
+		XCTAssertEqual(testDict.jsonString()?.contains("\"testKey\":\"testValue\""), true)
 		
-		XCTAssert(testDict.jsonString(prettify: true)!.contains("[\n    1,\n    2,\n    3,\n    4,\n    5\n  ]"))
+		XCTAssertEqual(testDict.jsonString(prettify: true)?.contains("[\n    1,\n    2,\n    3,\n    4,\n    5\n  ]"), true)
 		
 		XCTAssertNil(["key": NSObject()].jsonString())
 		XCTAssertNil([1:2].jsonString())

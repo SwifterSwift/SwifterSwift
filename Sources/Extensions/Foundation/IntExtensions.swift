@@ -29,6 +29,11 @@ public extension Int {
 		return formatter.string(from: self as NSNumber)!
 	}
 	
+	/// SwifterSwift: CountableRange 0..<Int.
+	public var countableRange: CountableRange<Int> {
+		return 0..<self
+	}
+	
 	/// SwifterSwift: Radian value of degree input.
 	public var degreesToRadians: Double {
 		return Double.pi * Double(self) / 180.0
@@ -68,6 +73,11 @@ public extension Int {
 	/// SwifterSwift: Check if integer is negative.
 	public var isNegative: Bool {
 		return self < 0
+	}
+	
+	/// SwifterSwift: UInt.
+	public var uInt: UInt {
+		return UInt(self)
 	}
 	
 	/// SwifterSwift: Double.

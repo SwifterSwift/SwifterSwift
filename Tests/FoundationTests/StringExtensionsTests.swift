@@ -66,9 +66,9 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testFirstCharacter() {
-		XCTAssertNil("".firstCharacter)
-		XCTAssertNotNil("Hello".firstCharacter)
-		XCTAssertEqual("Hello".firstCharacter!, "H")
+		XCTAssertNil("".firstCharacterAsString)
+		XCTAssertNotNil("Hello".firstCharacterAsString)
+		XCTAssertEqual("Hello".firstCharacterAsString, "H")
 	}
 	
 	func testFirstIndex() {
@@ -112,27 +112,27 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testIsValidSchemedUrl() {
-		XCTAssertFalse("hello world!".isValidSchemedUrl)
+		XCTAssertFalse("Hello world!".isValidSchemedUrl)
 		XCTAssert("https://google.com".isValidSchemedUrl)
 		XCTAssert("ftp://google.com".isValidSchemedUrl)
 		XCTAssertFalse("google.com".isValidSchemedUrl)
 	}
 	
 	func testIsValidHttpsUrl() {
-		XCTAssertFalse("hello world!".isValidHttpsUrl)
+		XCTAssertFalse("Hello world!".isValidHttpsUrl)
 		XCTAssert("https://google.com".isValidHttpsUrl)
 		XCTAssertFalse("http://google.com".isValidHttpsUrl)
 		XCTAssertFalse("google.com".isValidHttpsUrl)
 	}
 	
 	func testIsValidHttpUrl() {
-		XCTAssertFalse("hello world!".isValidHttpUrl)
+		XCTAssertFalse("Hello world!".isValidHttpUrl)
 		XCTAssert("http://google.com".isValidHttpUrl)
 		XCTAssertFalse("google.com".isValidHttpUrl)
 	}
 	
     func testIsValidFileURL() {
-        XCTAssertFalse("hello world!".isValidFileUrl)
+        XCTAssertFalse("Hello world!".isValidFileUrl)
         XCTAssert("file://var/folder/file.txt".isValidFileUrl)
         XCTAssertFalse("google.com".isValidFileUrl)
     }
@@ -150,9 +150,9 @@ class StringExtensionsTests: XCTestCase {
     }
 	
 	func testLastCharacter() {
-		XCTAssertNotNil("Hello".lastCharacter)
-		XCTAssertEqual("Hello".lastCharacter!, "o")
-		XCTAssertNil("".lastCharacter)
+		XCTAssertNotNil("Hello".lastCharacterAsString)
+		XCTAssertEqual("Hello".lastCharacterAsString, "o")
+		XCTAssertNil("".lastCharacterAsString)
 	}
 	
 	func testLatinize() {
@@ -191,10 +191,6 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertEqual(String.random(ofLength: 0), "")
 	}
 	
-	func testReplace() {
-		XCTAssertEqual("Hello Test".replacing("e", with: "a"), "Hallo Tast")
-	}
-	
 	func testReverse() {
 		var str = "Hello"
 		str.reverse()
@@ -206,14 +202,14 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testSlice() {
-		XCTAssertEqual("12345678".slicing(from: 2, length: 3)!, "345")
+		XCTAssertEqual("12345678".slicing(from: 2, length: 3), "345")
 		XCTAssertNil("12345678".slicing(at: 50))
-		XCTAssertEqual("12345678".slicing(from: 2, length: 0)!, "")
+		XCTAssertEqual("12345678".slicing(from: 2, length: 0), "")
 		XCTAssertNil("12345678".slicing(from: 12, length: 0))
 		XCTAssertEqual("12345678".slicing(from: 2, length: 100), "345678")
 		XCTAssertEqual("12345678".slicing(from: 2, to: 5), "345")
 		XCTAssertNil("12345678".slicing(from: 2, to: 1))
-		XCTAssertEqual("12345678".slicing(at: 2)!, "345678")
+		XCTAssertEqual("12345678".slicing(at: 2), "345678")
 		
 		var str = "12345678"
 		str.slice(from: 2, length: 3)
@@ -258,7 +254,7 @@ class StringExtensionsTests: XCTestCase {
 		let dateString = "2012-12-08 17:00:00.0"
 		let date = dateString.date(withFormat: "yyyy-dd-MM HH:mm:ss.S")
 		XCTAssertNotNil(date)
-		XCTAssertNil(dateString.date(withFormat: "hello world!"))
+		XCTAssertNil(dateString.date(withFormat: "Hello world!"))
 	}
 	
 	func testOperators() {
@@ -286,102 +282,64 @@ class StringExtensionsTests: XCTestCase {
 	func testDate() {
 		let dateFromStr = "2015-06-01".date
 		XCTAssertNotNil(dateFromStr)
-		XCTAssertEqual(dateFromStr!.year, 2015)
-		XCTAssertEqual(dateFromStr!.month, 6)
-		XCTAssertEqual(dateFromStr!.day, 1)
+		XCTAssertEqual(dateFromStr?.year, 2015)
+		XCTAssertEqual(dateFromStr?.month, 6)
+		XCTAssertEqual(dateFromStr?.day, 1)
 	}
 	
 	func testDateTime() {
 		let dateFromStr = "2015-06-01 14:23:09".dateTime
 		XCTAssertNotNil(dateFromStr)
-		XCTAssertEqual(dateFromStr!.year, 2015)
-		XCTAssertEqual(dateFromStr!.month, 6)
-		XCTAssertEqual(dateFromStr!.day, 1)
-		XCTAssertEqual(dateFromStr!.hour, 14)
-		XCTAssertEqual(dateFromStr!.minute, 23)
-		XCTAssertEqual(dateFromStr!.second, 9)
+		XCTAssertEqual(dateFromStr?.year, 2015)
+		XCTAssertEqual(dateFromStr?.month, 6)
+		XCTAssertEqual(dateFromStr?.day, 1)
+		XCTAssertEqual(dateFromStr?.hour, 14)
+		XCTAssertEqual(dateFromStr?.minute, 23)
+		XCTAssertEqual(dateFromStr?.second, 9)
 	}
 	
 	func testDouble() {
-		XCTAssertNotNil("8".double)
-		XCTAssertEqual("8".double!, 8)
+		XCTAssertNotNil("8".double())
+		XCTAssertEqual("8".double(), 8)
 		
-		XCTAssertNotNil("8.23".double)
-		XCTAssertEqual("8.23".double!, 8.23)
+		XCTAssertNotNil("8.23".double(locale: Locale(identifier: "en_US_POSIX")))
+		XCTAssertEqual("8.23".double(locale: Locale(identifier: "en_US_POSIX")), 8.23)
 		
-		XCTAssertNil("8s".double)
+		XCTAssertNil("8s".double())
 	}
 	
 	func testFloat() {
-		XCTAssertNotNil("8".float)
-		XCTAssertEqual("8".float!, 8)
+		XCTAssertNotNil("8".float())
+		XCTAssertEqual("8".float(), 8)
 		
-		XCTAssertNotNil("8.23".float)
-		XCTAssertEqual("8.23".float!, Float(8.23))
+		XCTAssertNotNil("8.23".float(locale: Locale(identifier: "en_US_POSIX")))
+		XCTAssertEqual("8.23".float(locale: Locale(identifier: "en_US_POSIX")), Float(8.23))
 		
-		XCTAssertNil("8s".float)
+		XCTAssertNil("8s".float())
 	}
 	
-	func testFloat32() {
-		XCTAssertNotNil("8".float32)
-		XCTAssertEqual("8".float32!, 8)
+	func testCgFloat() {
+		XCTAssertNotNil("8".cgFloat())
+		XCTAssertEqual("8".cgFloat(), 8)
 		
-		XCTAssertNotNil("8.23".float32)
-		XCTAssertEqual("8.23".float32!, Float32(8.23))
+		XCTAssertNotNil("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX")))
+		XCTAssertEqual("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX")), CGFloat(8.23))
 		
-		XCTAssertNil("8s".float32)
-	}
-	
-	func testFloat64() {
-		XCTAssertNotNil("8".float64)
-		XCTAssertEqual("8".float64!, 8)
-		
-		XCTAssertNotNil("8.23".float64)
-		XCTAssertEqual("8.23".float64!, Float64(8.23))
-		
-		XCTAssertNil("8s".float64)
+		XCTAssertNil("8s".cgFloat())
 	}
 	
 	func testInt() {
 		XCTAssertNotNil("8".int)
-		XCTAssertEqual("8".int!, 8)
+		XCTAssertEqual("8".int, 8)
 		
 		XCTAssertNil("8s".int)
-	}
-	
-	func testInt16() {
-		XCTAssertNotNil("8".int16)
-		XCTAssertEqual("8".int16!, 8)
-		
-		XCTAssertNil("8s".int16)
-	}
-	
-	func testInt32() {
-		XCTAssertNotNil("8".int32)
-		XCTAssertEqual("8".int32!, 8)
-		
-		XCTAssertNil("8s".int32)
-	}
-	
-	func testInt64() {
-		XCTAssertNotNil("8".int64)
-		XCTAssertEqual("8".int64!, 8)
-		
-		XCTAssertNil("8s".int64)
-	}
-	
-	func testInt8() {
-		XCTAssertNotNil("8".int8)
-		XCTAssertEqual("8".int8!, 8)
-		
-		XCTAssertNil("8s".int8)
 	}
 	
 	func testUrl() {
 		XCTAssertNil("hello world".url)
 		
 		let google = "https://www.google.com"
-		XCTAssertEqual(google.url, URL(string: google)!)
+		XCTAssertEqual(google.url, URL(string: google))
 	}
 	
 	func testTrim() {
@@ -456,20 +414,20 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testSubscript() {
 		let str = "Hello world!"
-		XCTAssertEqual(str[1], "e")
-		XCTAssertNil(str[18])
+		XCTAssertEqual(str[safe: 1], "e")
+		XCTAssertNil(str[safe: 18])
 		
-		XCTAssertEqual(str[1..<5], "ello")
-		XCTAssertNil(str[10..<18])
-		XCTAssertNil(""[1..<2])
+		XCTAssertEqual(str[safe: 1..<5], "ello")
+		XCTAssertNil(str[safe: 10..<18])
+		XCTAssertNil(""[safe: 1..<2])
 		
-		XCTAssertEqual(str[0...4], "Hello")
-		XCTAssertNil(str[10...18])
-		XCTAssertNil(""[1...2])
+		XCTAssertEqual(str[safe: 0...4], "Hello")
+		XCTAssertNil(str[safe: 10...18])
+		XCTAssertNil(""[safe: 1...2])
 	}
 	
 	func testCopyToPasteboard() {
-		let str = "Hello World!"
+		let str = "Hello world!"
 		#if os(iOS)
 			str.copyToPasteboard()
 			let strFromPasteboard = UIPasteboard.general.string
@@ -497,7 +455,7 @@ class StringExtensionsTests: XCTestCase {
 	
 	func testInitFromBase64() {
 		XCTAssertNotNil(String(base64: "SGVsbG8gV29ybGQh"))
-		XCTAssertEqual(String(base64: "SGVsbG8gV29ybGQh")!, "Hello World!")
+		XCTAssertEqual(String(base64: "SGVsbG8gV29ybGQh"), "Hello World!")
 		XCTAssertNil(String(base64: "hello"))
 	}
 	
@@ -596,4 +554,13 @@ class StringExtensionsTests: XCTestCase {
 			XCTAssertEqual(attrs[NSForegroundColorAttributeName] as! UIColor, UIColor.orange)
 		#endif
 	}
+	
+	func testWords() {
+		XCTAssertEqual("Swift is amazing".words, ["Swift", "is", "amazing"])
+	}
+	
+	func testWordsCount() {
+		XCTAssertEqual("Swift is amazing".wordCount, 3)
+	}
+
 }
