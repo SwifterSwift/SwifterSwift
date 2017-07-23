@@ -57,6 +57,23 @@ public extension UIColor {
         return (hue:hue, saturation:sat, brightness:bri, alpha:alpha)
     }
 
+    /// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
+    public var uInt: UInt {
+        var colorAsUInt32: UInt32 = 0
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+
+        colorAsUInt32 += UInt32(r * 255.0) << 16
+        colorAsUInt32 += UInt32(g * 255.0) << 8
+        colorAsUInt32 += UInt32(b * 255.0)
+
+        return UInt(colorAsUInt32)
+    }
+
     /// SwifterSwift: Hexadecimal value string (read-only).
 	public var hexString: String {
 		var red:	CGFloat = 0

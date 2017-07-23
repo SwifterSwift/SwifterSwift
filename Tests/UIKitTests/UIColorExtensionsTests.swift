@@ -97,6 +97,36 @@ class UIColorExtensionsTests: XCTestCase {
         XCTAssertEqual((color.hsbaComponents.brightness * 100).rounded(), 24)
     }
 
+    func testUInt() {
+        var color = UIColor(hex: 0xFF0000, transparency: 1.0)
+        XCTAssertEqual(color.uInt, 0xFF0000)
+
+        color = UIColor(hex: 0x00FF00, transparency: 1.0)
+        XCTAssertEqual(color.uInt, 0x00FF00)
+
+        color = UIColor(hex: 0x0000FF, transparency: 1.0)
+        XCTAssertEqual(color.uInt, 0x0000FF)
+
+        color = UIColor(hex: 0x000000, transparency: 1.0)
+        XCTAssertEqual(color.uInt, 0x000000)
+
+        color = UIColor(hex: 0xFFFFFF, transparency: 1.0)
+        XCTAssertEqual(color.uInt, 0xFFFFFF)
+
+        color = UIColor(hex: 0x123456, transparency: 1.0)
+        XCTAssertEqual(color.uInt, 0x123456)
+
+        color = UIColor(hex: 0xFCA864, transparency: 1.0)
+        XCTAssertEqual(color.uInt, 0xFCA864)
+
+        color = UIColor(hex: 0xFCA864, transparency: 1.0)
+        XCTAssertEqual(color.uInt, 0xFCA864)
+
+        color = UIColor(hex: 0x1F2D3C, transparency: 1.0)
+        XCTAssertEqual(color.uInt, 0x1F2D3C)
+
+    }
+
     func testHexString() {
 		var color = UIColor.red
 		XCTAssertEqual(color.hexString, "#FF0000")
