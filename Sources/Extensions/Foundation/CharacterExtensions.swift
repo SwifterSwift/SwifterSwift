@@ -13,6 +13,9 @@ import Foundation
 public extension Character {
 	
 	/// SwifterSwift: Check if character is emoji.
+	///
+	///		Character("😀").isEmoji -> true
+	///
 	public var isEmoji: Bool {
 		// http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
 		let scalarValue = String(self).unicodeScalars.first!.value
@@ -29,46 +32,79 @@ public extension Character {
 	}
 	
 	/// SwifterSwift: Check if character is number.
+	///
+	///		Character("1").isNumber -> true
+	///		Character("a").isNumber -> false
+	///
 	public var isNumber: Bool {
 		return Int(String(self)) != nil
 	}
 	
     /// SwifterSwift: Check if character is a letter.
+	///
+	///		Character("4").isLetter -> false
+	///		Character("a").isLetter -> true
+	///
     public var isLetter: Bool {
-        return String(self).hasLetters
+        return String(self).rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
     }
     
 	/// SwifterSwift: Check if character is uppercased.
+	///
+	///		Character("a").isUppercased -> false
+	///		Character("A").isUppercased -> true
+	///
 	public var isUppercased: Bool {
 		return String(self) == String(self).uppercased()
 	}
 	
 	/// SwifterSwift: Check if character is lowercased.
+	///
+	///		Character("a").isLowercased -> true
+	///		Character("A").isLowercased -> false
+	///
 	public var isLowercased: Bool {
 		return String(self) == String(self).lowercased()
 	}
 	
     /// SwifterSwift: Check if character is white space.
+	///
+	///		Character(" ").isWhiteSpace -> true
+	///		Character("A").isWhiteSpace -> false
+	///
     public var isWhiteSpace: Bool {
         return String(self) == " "
     }
     
 	/// SwifterSwift: Integer from character (if applicable).
+	///
+	///		Character("1").int -> 1
+	///		Character("A").int -> nil
+	///
 	public var int: Int? {
 		return Int(String(self))
 	}
 	
 	/// SwifterSwift: String from character.
+	///
+	///		Character("a").string -> "a"
+	///
 	public var string: String {
 		return String(self)
 	}
 	
     /// SwifterSwift: Return the character lowercased.
+	///
+	///		Character("A").lowercased -> Character("a")
+	///
     public var lowercased: Character {
         return String(self).lowercased().characters.first!
     }
     
     /// SwifterSwift: Return the character uppercased.
+	///
+	///		Character("a").uppercased -> Character("A")
+	///
     public var uppercased: Character {
         return String(self).uppercased().characters.first!
     }
@@ -80,6 +116,8 @@ public extension Character {
 public extension Character {
 	
 	/// SwifterSwift: Repeat character multiple times.
+	///
+	///		Character("-") * 10 -> "----------"
 	///
 	/// - Parameters:
 	///   - lhs: character to repeat.
@@ -93,6 +131,8 @@ public extension Character {
 	}
 	
 	/// SwifterSwift: Repeat character multiple times.
+	///
+	///		10 * Character("-") -> "----------"
 	///
 	/// - Parameters:
 	///   - lhs: number of times to repeat character.

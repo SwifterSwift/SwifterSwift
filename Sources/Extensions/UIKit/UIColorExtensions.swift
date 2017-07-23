@@ -13,25 +13,19 @@ import UIKit
 // MARK: - Properties
 public extension UIColor {
 	
-	/// SwifterSwift: Red component of UIColor (read-only).
-	public var redComponent: Int {
-		var red: CGFloat = 0.0
-		getRed(&red, green: nil, blue: nil, alpha: nil)
-		return Int(red * 255)
-	}
-	
-	/// SwifterSwift: Green component of UIColor (read-only).
-	public var greenComponent: Int {
-		var green: CGFloat = 0.0
-		getRed(nil, green: &green, blue: nil, alpha: nil)
-		return Int(green * 255)
-	}
-	
-	/// SwifterSwift: blue component of UIColor (read-only).
-	public var blueComponent: Int {
-		var blue: CGFloat = 0.0
-		getRed(nil, green: nil, blue: &blue, alpha: nil)
-		return Int(blue * 255)
+	/// SwifterSwift: RGB components for a UIColor
+	///
+	///		UIColor.red.rgbComponenets.red -> 255
+	///		UIColor.green.rgbComponenets.green -> 255
+	///		UIColor.blue.rgbComponenets.blue -> 255
+	///
+	public var rgbComponenets: (red: Int, green: Int, blue: Int) {
+		var red:	CGFloat = 0
+		var green:	CGFloat = 0
+		var blue:	CGFloat = 0
+		getRed(&red, green: &green, blue: &blue, alpha: nil)
+		
+		return (red: Int(red * 255.0), green: Int(green * 255.0), blue: Int(blue * 255.0))
 	}
 	
 	/// SwifterSwift: Alpha of UIColor (read-only).
@@ -78,7 +72,7 @@ public extension UIColor {
 		let r = Int(arc4random_uniform(255))
 		let g = Int(arc4random_uniform(255))
 		let b = Int(arc4random_uniform(255))
-		return UIColor(red: r, green: g, blue: b)
+		return UIColor(red: r, green: g, blue: b)!
 		
 	}
 	
@@ -121,17 +115,15 @@ public extension UIColor {
 	/// - Parameters:
 	///   - hex: hex Int (example: 0xDECEB5).
 	///   - transparency: optional transparency value (default is 1).
-	public convenience init(hex: Int, transparency: CGFloat = 1) {
-		var trans: CGFloat {
-			if transparency > 1 {
-				return 1
-			} else if transparency < 0 {
-				return 0
-			} else {
-				return transparency
-			}
-		}
-		self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff, transparency: trans)
+	public convenience init?(hex: Int, transparency: CGFloat = 1) {
+		var trans = transparency
+		if trans < 0 { trans = 0 }
+		if trans > 1 { trans = 1 }
+		
+		let red = (hex >> 16) & 0xff
+		let green = (hex >> 8) & 0xff
+		let blue = hex & 0xff
+		self.init(red: red, green: green, blue: blue, transparency: trans)
 	}
 	
 	/// SwifterSwift: Create UIColor from hexadecimal string with optional transparency (if applicable).
@@ -162,6 +154,7 @@ public extension UIColor {
 		self.init(hex: Int(hexValue), transparency: transparency)
 	}
 	
+	
 	/// SwifterSwift: Create UIColor from RGB values with optional transparency.
 	///
 	/// - Parameters:
@@ -169,19 +162,19 @@ public extension UIColor {
 	///   - green: green component.
 	///   - blue: blue component.
 	///   - transparency: optional transparency value (default is 1).
-	public convenience init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
-		assert(red >= 0 && red <= 255, "Invalid red component")
-		assert(green >= 0 && green <= 255, "Invalid green component")
-		assert(blue >= 0 && blue <= 255, "Invalid blue component")
-		var trans: CGFloat {
-			if transparency > 1 {
-				return 1
-			} else if transparency < 0 {
-				return 0
-			} else {
-				return transparency
-			}
+	public convenience init?(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
+		guard red >= 0 && red <= 255 else {
+			return nil
 		}
+		guard green >= 0 && green <= 255 else {
+			return nil
+		}
+		guard blue >= 0 && blue <= 255 else {
+			return nil
+		}
+		var trans = transparency
+		if trans < 0 { trans = 0 }
+		if trans > 1 { trans = 1 }
 		self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: trans)
 	}
 	
@@ -1614,4 +1607,5 @@ public extension UIColor {
 	}
 	
 }
+	
 #endif

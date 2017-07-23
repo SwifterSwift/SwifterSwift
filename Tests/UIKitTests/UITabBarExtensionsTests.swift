@@ -24,7 +24,10 @@ class UITabBarExtensionsTests: XCTestCase {
 		tabBar.setColors()
 		XCTAssertNotEqual(tabBar.barTintColor, .red)
 		
-		let item1 = UITabBarItem(title: "First", image: nil, selectedImage: nil)
+		let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+		let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+		
+		let item1 = UITabBarItem(title: "First", image: image, selectedImage: image)
 		let item2 = UITabBarItem(title: "Second", image: nil, selectedImage: nil)
 		tabBar.items = [item1, item2]
 		tabBar.selectedItem = item1

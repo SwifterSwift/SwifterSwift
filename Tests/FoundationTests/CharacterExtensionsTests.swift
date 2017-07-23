@@ -56,7 +56,7 @@ class CharacterExtensionsTests: XCTestCase {
     
 	func testInt() {
 		XCTAssertNotNil(Character("1").int)
-		XCTAssertEqual(Character("1").int!, 1)
+		XCTAssertEqual(Character("1").int, 1)
 		XCTAssertNil(Character("s").int)
 	}
 	

@@ -86,16 +86,16 @@ class DateExtensionsTests: XCTestCase {
 		let date = Date(timeIntervalSince1970: 0)
 		XCTAssertEqual(date.weekOfYear, 1)
 		
-		let dateAfter10Days = Calendar.current.date(byAdding: .day, value: 7, to: date)!
-		XCTAssertEqual(dateAfter10Days.weekOfYear, 2)
+		let dateAfter10Days = Calendar.current.date(byAdding: .day, value: 7, to: date)
+		XCTAssertEqual(dateAfter10Days?.weekOfYear, 2)
 	}
 	
 	func testWeekOfMonth() {
 		let date = Date(timeIntervalSince1970: 0)
 		XCTAssertEqual(date.weekOfMonth, 1)
 		
-		let dateAfter7Days = Calendar.current.date(byAdding: .day, value: 7, to: date)!
-		XCTAssertEqual(dateAfter7Days.weekOfMonth, 2)
+		let dateAfter7Days = Calendar.current.date(byAdding: .day, value: 7, to: date)
+		XCTAssertEqual(dateAfter7Days?.weekOfMonth, 2)
 	}
 	
 	func testWeekday() {
@@ -419,62 +419,62 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertNil(date.changing(.second, value: -10))
 		XCTAssertNil(date.changing(.second, value: 70))
 		XCTAssertNotNil(date.changing(.second, value: 20))
-		XCTAssertEqual(date.changing(.second, value: 20)!.second, 20)
+		XCTAssertEqual(date.changing(.second, value: 20)?.second, 20)
 		
 		XCTAssertNil(date.changing(.minute, value: -10))
 		XCTAssertNil(date.changing(.minute, value: 70))
 		XCTAssertNotNil(date.changing(.minute, value: 20))
-		XCTAssertEqual(date.changing(.minute, value: 20)!.minute, 20)
+		XCTAssertEqual(date.changing(.minute, value: 20)?.minute, 20)
 		
 		XCTAssertNil(date.changing(.hour, value: -2))
 		XCTAssertNil(date.changing(.hour, value: 25))
 		XCTAssertNotNil(date.changing(.hour, value: 6))
-		XCTAssertEqual(date.changing(.hour, value: 6)!.hour, 6)
+		XCTAssertEqual(date.changing(.hour, value: 6)?.hour, 6)
 		
 		XCTAssertNil(date.changing(.day, value: -2))
 		XCTAssertNil(date.changing(.day, value: 35))
 		XCTAssertNotNil(date.changing(.day, value: 6))
-		XCTAssertEqual(date.changing(.day, value: 6)!.day, 6)
+		XCTAssertEqual(date.changing(.day, value: 6)?.day, 6)
 		
 		XCTAssertNil(date.changing(.month, value: -2))
 		XCTAssertNil(date.changing(.month, value: 13))
 		XCTAssertNotNil(date.changing(.month, value: 6))
-		XCTAssertEqual(date.changing(.month, value: 6)!.month, 6)
+		XCTAssertEqual(date.changing(.month, value: 6)?.month, 6)
 		
 		XCTAssertNotNil(date.changing(.year, value: 2015))
-		XCTAssertEqual(date.changing(.year, value: 2015)!.year, 2015)
+		XCTAssertEqual(date.changing(.year, value: 2015)?.year, 2015)
 	}
 	
 	func testBeginning() {
 		let date = Date()
 		
 		XCTAssertNotNil(date.beginning(of: .second))
-		XCTAssertEqual(date.beginning(of: .second)!.nanosecond, 0)
+		XCTAssertEqual(date.beginning(of: .second)?.nanosecond, 0)
 		
 		XCTAssertNotNil(date.beginning(of: .minute))
-		XCTAssertEqual(date.beginning(of: .minute)!.second, 0)
+		XCTAssertEqual(date.beginning(of: .minute)?.second, 0)
 		
 		XCTAssertNotNil(date.beginning(of: .hour))
-		XCTAssertEqual(date.beginning(of: .hour)!.minute, 0)
+		XCTAssertEqual(date.beginning(of: .hour)?.minute, 0)
 		
 		XCTAssertNotNil(date.beginning(of: .day))
-		XCTAssertEqual(date.beginning(of: .day)!.hour, 0)
-		XCTAssert(date.beginning(of: .day)!.isInToday)
+		XCTAssertEqual(date.beginning(of: .day)?.hour, 0)
+		XCTAssertEqual(date.beginning(of: .day)?.isInToday, true)
 		
 		let beginningOfWeek = Calendar.current.date(from: Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))
 		XCTAssertNotNil(date.beginning(of: .weekOfMonth))
 		XCTAssertNotNil(beginningOfWeek)
-		XCTAssertEqual(date.beginning(of: .weekOfMonth)!.day, beginningOfWeek!.day)
+		XCTAssertEqual(date.beginning(of: .weekOfMonth)?.day, beginningOfWeek?.day)
 		
 		let beginningOfMonth = Date(year: 2016, month: 8, day: 1, hour: 5)
 		XCTAssertNotNil(date.beginning(of: .month))
 		XCTAssertNotNil(beginningOfMonth)
-		XCTAssertEqual(date.beginning(of: .month)!.day, beginningOfMonth!.day)
+		XCTAssertEqual(date.beginning(of: .month)?.day, beginningOfMonth?.day)
 		
 		let beginningOfYear = Date(year: 2016, month: 1, day: 1, hour: 5)
 		XCTAssertNotNil(date.beginning(of: .year))
 		XCTAssertNotNil(beginningOfYear)
-		XCTAssertEqual(date.beginning(of: .year)!.day, beginningOfYear!.day)
+		XCTAssertEqual(date.beginning(of: .year)?.day, beginningOfYear?.day)
 		
 		XCTAssertNil(date.beginning(of: .quarter))
 	}
@@ -482,29 +482,29 @@ class DateExtensionsTests: XCTestCase {
 	func testEnd() {
 		let date = Date(timeIntervalSince1970: 512) // January 1, 1970 at 2:08:32 AM GMT+2
 		
-		XCTAssertEqual(date.end(of: .second)!.second , 32)
-		XCTAssertEqual(date.end(of: .hour)!.minute, 59)
-		XCTAssertEqual(date.end(of: .minute)!.second, 59)
+		XCTAssertEqual(date.end(of: .second)?.second , 32)
+		XCTAssertEqual(date.end(of: .hour)?.minute, 59)
+		XCTAssertEqual(date.end(of: .minute)?.second, 59)
 		
-		XCTAssertEqual(date.end(of: .day)!.hour, 23)
-		XCTAssertEqual(date.end(of: .day)!.minute, 59)
-		XCTAssertEqual(date.end(of: .day)!.second, 59)
+		XCTAssertEqual(date.end(of: .day)?.hour, 23)
+		XCTAssertEqual(date.end(of: .day)?.minute, 59)
+		XCTAssertEqual(date.end(of: .day)?.second, 59)
 		
 		var endOfWeek = date.beginning(of: .weekOfYear)
-		endOfWeek!.add(.day, value: 7)
-		endOfWeek!.add(.second, value: -1)
+		endOfWeek?.add(.day, value: 7)
+		endOfWeek?.add(.second, value: -1)
 		XCTAssertEqual(date.end(of: .weekOfYear), endOfWeek)
 		
-		XCTAssertEqual(date.end(of: .month)!.day, 31)
-		XCTAssertEqual(date.end(of: .month)!.hour, 23)
-		XCTAssertEqual(date.end(of: .month)!.minute, 59)
-		XCTAssertEqual(date.end(of: .month)!.second, 59)
+		XCTAssertEqual(date.end(of: .month)?.day, 31)
+		XCTAssertEqual(date.end(of: .month)?.hour, 23)
+		XCTAssertEqual(date.end(of: .month)?.minute, 59)
+		XCTAssertEqual(date.end(of: .month)?.second, 59)
 		
-		XCTAssertEqual(date.end(of: .year)!.month, 12)
-		XCTAssertEqual(date.end(of: .year)!.day, 31)
-		XCTAssertEqual(date.end(of: .year)!.hour, 23)
-		XCTAssertEqual(date.end(of: .year)!.minute, 59)
-		XCTAssertEqual(date.end(of: .year)!.second, 59)
+		XCTAssertEqual(date.end(of: .year)?.month, 12)
+		XCTAssertEqual(date.end(of: .year)?.day, 31)
+		XCTAssertEqual(date.end(of: .year)?.hour, 23)
+		XCTAssertEqual(date.end(of: .year)?.minute, 59)
+		XCTAssertEqual(date.end(of: .year)?.second, 59)
 		
 		XCTAssertNil(date.end(of: .quarter))
 	}
@@ -613,7 +613,7 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertNotNil(date)
 		let date1 = Date(timeIntervalSince1970: date!.timeIntervalSince1970)
 		
-		XCTAssertEqual(date!.timeIntervalSince1970, date1.timeIntervalSince1970)
+		XCTAssertEqual(date?.timeIntervalSince1970, date1.timeIntervalSince1970)
 		
 		
 		let date2 = Date(calendar: nil, timeZone: Date().timeZone, era: Date().era, year: nil, month: nil, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
