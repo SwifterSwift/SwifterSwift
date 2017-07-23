@@ -131,7 +131,7 @@ public extension UIImage {
 		return newImage
 	}
 	
-    /// SwifterSwift: UIImage filled with color
+    /// SwifterSwift: UIImage tinted with color
     ///
     /// - Parameters:
     ///   - color: color to tint image with.
