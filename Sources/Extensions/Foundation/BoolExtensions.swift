@@ -1,6 +1,6 @@
 //
 //  BoolExtensions.swift
-//  SSTests
+//  SwifterSwift
 //
 //  Created by Omar Albeik on 07/12/2016.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
@@ -13,16 +13,28 @@ import Foundation
 public extension Bool {
 	
 	/// SwifterSwift: Return 1 if true, or 0 if false.
+	///
+	///		false.int -> 0
+	///		true.int -> 1
+	///
 	public var int: Int {
 		return self ? 1 : 0
 	}
 	
 	/// SwifterSwift: Return "true" if true, or "false" if false.
+	///
+	///		false.string -> "false"
+	///		true.string -> "true"
+	///
 	public var string: String {
 		return description
 	}
 	
 	/// SwifterSwift: Return inversed value of bool.
+	///
+	///		false.toggled -> true
+	///		true.toggled -> false
+	///
 	public var toggled: Bool {
 		return !self
 	}
@@ -33,6 +45,10 @@ public extension Bool {
 public extension Bool {
 	
 	/// SwifterSwift: Toggle value for bool.
+	///
+	///		var bool = false
+	///		bool.toggle()
+	///		print(bool) -> true
 	///
 	/// - Returns: inversed value of bool.
 	@discardableResult public mutating func toggle() -> Bool {

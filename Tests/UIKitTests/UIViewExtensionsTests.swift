@@ -15,8 +15,7 @@ class UIViewExtensionsTests: XCTestCase {
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
 		let view = UIView(frame: frame)
 		view.borderColor = nil
-		XCTAssertNil(view.layer.borderColor)
-		
+		XCTAssertNil(view.borderColor)
 		view.borderColor = UIColor.red
 		XCTAssertNotNil(view.layer.borderColor)
 		XCTAssertEqual(view.borderColor!, UIColor.red)
@@ -50,6 +49,21 @@ class UIViewExtensionsTests: XCTestCase {
 		XCTAssertEqual(view.frame.size.height, 150)
 	}
 	
+	func testRoundCorners() {
+		let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+		let view = UIView(frame: frame)
+		view.roundCorners([.allCorners], radius: 5.0)
+		
+		let maskPath = UIBezierPath(roundedRect: view.bounds,
+		                            byRoundingCorners: [.allCorners],
+		                            cornerRadii: CGSize(width: 5.0, height: 5.0))
+		let shape = CAShapeLayer()
+		shape.path = maskPath.cgPath
+		XCTAssertEqual(view.layer.mask?.bounds, shape.bounds)
+		XCTAssertEqual(view.layer.mask?.cornerRadius, shape.cornerRadius)
+
+	}
+	
 	func testShadowColor() {
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
 		let view = UIView(frame: frame)
@@ -57,7 +71,7 @@ class UIViewExtensionsTests: XCTestCase {
 		XCTAssertNil(view.shadowColor)
 		view.shadowColor = UIColor.orange
 		XCTAssertNotNil(view.layer.shadowColor!)
-		XCTAssertEqual(view.layer.shadowColor!.uiColor, UIColor.orange)
+		XCTAssertEqual(view.shadowColor, UIColor.orange)
 	}
 	
 	func testScreenshot() {
@@ -97,6 +111,16 @@ class UIViewExtensionsTests: XCTestCase {
 		XCTAssertEqual(view.shadowRadius, 0)
 		view.shadowRadius = 0.5
 		XCTAssertEqual(view.layer.shadowRadius, 0.5)
+	}
+	
+	func testAddShadow() {
+		let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+		let view = UIView(frame: frame)
+		view.addShadow(ofColor: .red, radius: 5.0, offset: .zero, opacity: 0.5)
+		XCTAssertEqual(view.shadowColor, UIColor.red)
+		XCTAssertEqual(view.shadowRadius, 5.0)
+		XCTAssertEqual(view.shadowOffset, CGSize.zero)
+		XCTAssertEqual(view.shadowOpacity, 0.5)
 	}
 	
 	func testSize() {
@@ -170,6 +194,64 @@ class UIViewExtensionsTests: XCTestCase {
 		XCTAssertNotNil(view.gestureRecognizers)
 		view.removeGestureRecognizers()
 		XCTAssertEqual(view.gestureRecognizers!.count, 0)
+	}
+	
+	func testAnchor() {
+		let view = UIView()
+		let subview = UIView()
+		view.addSubview(subview)
+		subview.anchor(top: nil, left: nil, bottom: nil, right: nil)
+		XCTAssert(subview.constraints.isEmpty)
+		
+		subview.anchor(top: view.topAnchor)
+		XCTAssertNotNil(subview.topAnchor)
+		
+		subview.anchor(left: view.leftAnchor)
+		XCTAssertNotNil(subview.leftAnchor)
+		
+		subview.anchor(bottom: view.bottomAnchor)
+		XCTAssertNotNil(subview.bottomAnchor)
+		
+		subview.anchor(right: view.rightAnchor)
+		XCTAssertNotNil(subview.rightAnchor)
+		
+		subview.anchor(widthConstant: 10.0, heightConstant: 10.0)
+		XCTAssertNotNil(subview.widthAnchor)
+		XCTAssertNotNil(subview.heightAnchor)
+	}
+	
+	func testAnchorCenterXToSuperview() {
+		let superview = UIView()
+		let view = UIView()
+		superview.addSubview(view)
+		view.anchorCenterXToSuperview()
+		let subview = UIView()
+		view.addSubview(subview)
+		view.anchorCenterXToSuperview(constant: 10.0)
+		XCTAssertNotNil(subview.centerXAnchor)
+	}
+	
+	func testAnchorCenterYToSuperview() {
+		let superview = UIView()
+		let view = UIView()
+		superview.addSubview(view)
+		view.anchorCenterXToSuperview()
+		let subview = UIView()
+		view.addSubview(subview)
+		view.anchorCenterYToSuperview(constant: 10.0)
+		XCTAssertNotNil(subview.centerYAnchor)
+	}
+	
+	func testAnchorCenterToSuperview() {
+		let superview = UIView()
+		let view = UIView()
+		superview.addSubview(view)
+		view.anchorCenterSuperview()
+		let subview = UIView()
+		view.addSubview(subview)
+		view.anchorCenterSuperview()
+		XCTAssertNotNil(subview.centerXAnchor)
+		XCTAssertNotNil(subview.centerYAnchor)
 	}
 	
 	

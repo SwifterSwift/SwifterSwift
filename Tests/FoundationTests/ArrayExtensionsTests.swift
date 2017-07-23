@@ -23,7 +23,7 @@ class ArrayExtensionsTests: XCTestCase {
 	
 	func testFirstIndex() {
 		XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2))
-		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2)!, 2)
+		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2), 2)
 		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 7))
 	}
 	
@@ -33,7 +33,7 @@ class ArrayExtensionsTests: XCTestCase {
 	
 	func testLastIndex() {
 		XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2))
-		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2)!, 6)
+		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2), 6)
 		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 7))
 	}
 	
@@ -92,12 +92,20 @@ class ArrayExtensionsTests: XCTestCase {
 		var arr = [0, 1, 2, 0, 3, 4, 5, 0, 0]
 		arr.removeAll(0)
 		XCTAssertEqual(arr, [1, 2, 3, 4, 5])
+		arr = []
+		arr.removeAll(0)
+		XCTAssertEqual(arr, [])
 	}
     
     func testRemoveAllItems() {
         var arr = [0, 1, 2, 2, 0, 3, 4, 5, 0, 0]
         arr.removeAll([0,2])
         XCTAssertEqual(arr, [1, 3, 4, 5])
+		arr.removeAll([])
+		XCTAssertEqual(arr, [1, 3, 4, 5])
+		arr = []
+		arr.removeAll([])
+		XCTAssertEqual(arr, [])
     }
     
 	
@@ -176,6 +184,9 @@ class ArrayExtensionsTests: XCTestCase {
         let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         let indices = array.indices { $0 % 2 == 0 }
         XCTAssertEqual(indices!, [0, 2, 4, 6, 8])
+		let emptyArray: [Int] = []
+		let emptyIndices = emptyArray.indices { $0 % 2 == 0 }
+		XCTAssertNil(emptyIndices)
     }
     
     func testAllMatch() {

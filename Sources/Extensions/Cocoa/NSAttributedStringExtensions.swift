@@ -1,6 +1,6 @@
 //
 //  NSAttributedStringExtensions.swift
-//  SSTests
+//  SwifterSwift
 //
 //  Created by Omar Albeik on 26/11/2016.
 //  Copyright © 2016 Omar Albeik. All rights reserved.

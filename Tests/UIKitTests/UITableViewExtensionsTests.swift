@@ -19,6 +19,7 @@ class UITableViewExtensionsTests: XCTestCase {
 		super.setUp()
 		// Put setup code here. This method is called before the invocation of each test method in the class.
 		tableView.dataSource = self
+		emptyTableView.dataSource = self
 		tableView.reloadData()
 	}
 	
@@ -39,7 +40,7 @@ class UITableViewExtensionsTests: XCTestCase {
 	func testIndexPathForLastRowInSection() {
 		XCTAssertNil(tableView.indexPathForLastRow(inSection: -1))
 		XCTAssertEqual(tableView.indexPathForLastRow(inSection: 0), IndexPath(row: 4, section: 0))
-		XCTAssertEqual(emptyTableView.indexPathForLastRow(inSection: 0), IndexPath(row: 0, section: 0))
+		XCTAssertEqual(UITableView().indexPathForLastRow(inSection: 0), IndexPath(row: 0, section: 0))
 	}
 	
 	func testReloadData() {
@@ -138,11 +139,15 @@ class UITableViewExtensionsTests: XCTestCase {
 extension UITableViewExtensionsTests: UITableViewDataSource {
 	
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 2
+		return tableView == self.emptyTableView ? 0 : 2
 	}
 	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return section == 0 ? 5 : 8
+		if tableView == self.emptyTableView {
+			return 0
+		} else {
+			return section == 0 ? 5 : 8
+		}
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -15,6 +15,10 @@ class IntExtensionsTests: XCTestCase {
 		XCTAssertEqual((-9).abs, 9)
 	}
 	
+	func testCountableRange() {
+		XCTAssertEqual(10.countableRange, 0..<10)
+	}
+	
 	func testIsPositive() {
 		XCTAssert(1.isPositive)
 		XCTAssertFalse(0.isPositive)
@@ -104,6 +108,10 @@ class IntExtensionsTests: XCTestCase {
 		XCTAssertEqual(120.timeString, "2 min")
 		XCTAssertEqual(3600.timeString, "1h")
 		XCTAssertEqual(3660.timeString, "1h 1m")
+	}
+	
+	func testUInt() {
+		XCTAssertEqual(Int(10).uInt, UInt(10))
 	}
 	
 	func testKFormatted() {

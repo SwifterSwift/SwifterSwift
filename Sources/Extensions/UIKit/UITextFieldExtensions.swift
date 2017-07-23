@@ -9,8 +9,59 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
+// MARK: - Enums
+public extension UITextField {
+	
+	/// SwifterSwift: UITextField text type.
+	///
+	/// - emailAddress: UITextField is used to enter email addresses.
+	/// - password: UITextField is used to enter passwords.
+	/// - generic: UITextField is used to enter generic text.
+	public enum TextType {
+		case emailAddress
+		case password
+		case generic
+	}
+	
+}
+	
+	
 // MARK: - Properties
 public extension UITextField {
+	
+	/// SwifterSwift: Set textField for common text types.
+	public var textType: TextType {
+		get {
+			if keyboardType == .emailAddress {
+				return .emailAddress
+			} else if isSecureTextEntry {
+				return .password
+			}
+			return .generic
+		}
+		set {
+			switch newValue {
+			case .emailAddress:
+				keyboardType = .emailAddress
+				autocorrectionType = .no
+				autocapitalizationType = .none
+				isSecureTextEntry = false
+				placeholder = "Email Address"
+				
+			case .password:
+				keyboardType = .asciiCapable
+				autocorrectionType = .no
+				autocapitalizationType = .none
+				isSecureTextEntry = true
+				placeholder = "Password"
+				
+			case .generic:
+				isSecureTextEntry = false
+				
+			}
+		}
+	}
+	
 	
 	/// SwifterSwift: Check if text field is empty.
 	public var isEmpty: Bool {
@@ -20,6 +71,19 @@ public extension UITextField {
 	/// SwifterSwift: Return text with no spaces or new lines in beginning and end.
 	public var trimmedText: String? {
 		return text?.trimmingCharacters(in: .whitespacesAndNewlines)
+	}
+	
+	/// SwifterSwift: Check if textFields text is a valid email format.
+	///
+	///		textField.text = "john@doe.com"
+	///		textField.hasValidEmail -> true
+	///
+	///		textField.text = "swifterswift"
+	///		textField.hasValidEmail -> false
+	///
+	public var hasValidEmail: Bool {
+		// http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
+		return text!.matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
 	}
 	
 	@IBInspectable
@@ -102,4 +166,5 @@ public extension UITextField {
     }
 
 }
+	
 #endif
