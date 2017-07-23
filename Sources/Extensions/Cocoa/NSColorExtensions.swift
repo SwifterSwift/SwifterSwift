@@ -1488,7 +1488,7 @@ public extension NSColor {
 
 // MARK: - Flat UI colors
 
-public extension UIColor {
+public extension NSColor {
 
     /// SwifterSwift: Flat UI colors
     public struct flatUI {
