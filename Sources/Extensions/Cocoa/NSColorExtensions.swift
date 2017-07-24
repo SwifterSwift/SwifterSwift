@@ -1030,6 +1030,8 @@ public extension NSColor {
 }
 
 
+//MARK: - CSS colors
+
 public extension NSColor {
 	
 	/// SwifterSwift: CSS colors.
@@ -1483,4 +1485,75 @@ public extension NSColor {
 	}
 	
 }
+
+// MARK: - Flat UI colors
+
+public extension NSColor {
+	
+	/// SwifterSwift: Flat UI colors
+	public struct flatUI {
+		// http://flatuicolors.com.
+		
+		/// SwifterSwift: hex #1ABC9C
+		public static let turquoise             = NSColor(hex: 0x1abc9c)
+		
+		/// SwifterSwift: hex #16A085
+		public static let greenSea              = NSColor(hex: 0x16a085)
+		
+		/// SwifterSwift: hex #2ECC71
+		public static let emerald               = NSColor(hex: 0x2ecc71)
+		
+		/// SwifterSwift: hex #27AE60
+		public static let nephritis             = NSColor(hex: 0x27ae60)
+		
+		/// SwifterSwift: hex #3498DB
+		public static let peterRiver            = NSColor(hex: 0x3498db)
+		
+		/// SwifterSwift: hex #2980B9
+		public static let belizeHole            = NSColor(hex: 0x2980b9)
+		
+		/// SwifterSwift: hex #9B59B6
+		public static let amethyst              = NSColor(hex: 0x9b59b6)
+		
+		/// SwifterSwift: hex #8E44AD
+		public static let wisteria              = NSColor(hex: 0x8e44ad)
+		
+		/// SwifterSwift: hex #34495E
+		public static let wetAsphalt            = NSColor(hex: 0x34495e)
+		
+		/// SwifterSwift: hex #2C3E50
+		public static let midnightBlue          = NSColor(hex: 0x2c3e50)
+		
+		/// SwifterSwift: hex #F1C40F
+		public static let sunFlower             = NSColor(hex: 0xf1c40f)
+		
+		/// SwifterSwift: hex #F39C12
+		public static let flatOrange            = NSColor(hex: 0xf39c12)
+		
+		/// SwifterSwift: hex #E67E22
+		public static let carrot                = NSColor(hex: 0xe67e22)
+		
+		/// SwifterSwift: hex #D35400
+		public static let pumkin                = NSColor(hex: 0xd35400)
+		
+		/// SwifterSwift: hex #E74C3C
+		public static let alizarin              = NSColor(hex: 0xe74c3c)
+		
+		/// SwifterSwift: hex #C0392B
+		public static let pomegranate           = NSColor(hex: 0xc0392b)
+		
+		/// SwifterSwift: hex #ECF0F1
+		public static let clouds                = NSColor(hex: 0xecf0f1)
+		
+		/// SwifterSwift: hex #BDC3C7
+		public static let silver                = NSColor(hex: 0xbdc3c7)
+		
+		/// SwifterSwift: hex #7F8C8D
+		public static let asbestos              = NSColor(hex: 0x7f8c8d)
+		
+		/// SwifterSwift: hex #95A5A6
+		public static let concerte              = NSColor(hex: 0x95a5a6)
+	}
+}
+
 #endif

@@ -87,5 +87,13 @@ class UIImageExtensionsTests: XCTestCase {
 		XCTAssertEqual(emptyImage, filledImage)
 	}
 	
+    
+    func testTinted() {
+        let baseImage = UIImage(color: .white, size: CGSize(width: 20, height: 20))
+        let tintedImage = baseImage.tint(.black, blendMode: .overlay)
+        let testImage = UIImage(color: .black, size: CGSize(width: 20, height: 20))
+        XCTAssertEqual(testImage.bytesSize, tintedImage.bytesSize)
+    }
+    
 }
 #endif

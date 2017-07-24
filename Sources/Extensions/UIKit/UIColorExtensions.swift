@@ -35,6 +35,39 @@ public extension UIColor {
 		return a
 	}
 	
+	/// SwifterSwift: CoreImage.CIColor (read-only).
+	public var coreImageColor: CoreImage.CIColor? {
+		return CoreImage.CIColor(color: self)  // The resulting Core Image color, or nil
+	}
+	
+	/// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
+	public var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
+		var hue:    CGFloat = 0.0
+		var sat:    CGFloat = 0.0
+		var bri:    CGFloat = 0.0
+		var alpha:  CGFloat = 0.0
+		self.getHue(&hue, saturation: &sat, brightness: &bri, alpha: &alpha)
+		
+		return (hue:hue, saturation:sat, brightness:bri, alpha:alpha)
+	}
+	
+	/// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
+	public var uInt: UInt {
+		var colorAsUInt32: UInt32 = 0
+		var r: CGFloat = 0
+		var g: CGFloat = 0
+		var b: CGFloat = 0
+		var a: CGFloat = 0
+		
+		self.getRed(&r, green: &g, blue: &b, alpha: &a)
+		
+		colorAsUInt32 += UInt32(r * 255.0) << 16
+		colorAsUInt32 += UInt32(g * 255.0) << 8
+		colorAsUInt32 += UInt32(b * 255.0)
+		
+		return UInt(colorAsUInt32)
+	}
+	
 	/// SwifterSwift: Hexadecimal value string (read-only).
 	public var hexString: String {
 		var red:	CGFloat = 0
@@ -52,7 +85,7 @@ public extension UIColor {
 		let string = hexString.replacingOccurrences(of: "#", with: "")
 		let chrs = Array(string.characters)
 		guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5] else {
-				return nil
+			return nil
 		}
 		return  "#" + "\(chrs[0])\(chrs[2])\(chrs[4])"
 	}
@@ -1154,6 +1187,7 @@ public extension UIColor {
 }
 
 
+// MARK: - CSS colors
 public extension UIColor {
 	
 	/// SwifterSwift: CSS colors.
@@ -1607,5 +1641,74 @@ public extension UIColor {
 	}
 	
 }
+
+// MARK: - Flat UI colors
+
+public extension UIColor {
 	
+	/// SwifterSwift: Flat UI colors
+	public struct flatUI {
+		// http://flatuicolors.com.
+		
+		/// SwifterSwift: hex #1ABC9C
+		public static let turquoise             = UIColor(hex: 0x1abc9c)
+		
+		/// SwifterSwift: hex #16A085
+		public static let greenSea              = UIColor(hex: 0x16a085)
+		
+		/// SwifterSwift: hex #2ECC71
+		public static let emerald               = UIColor(hex: 0x2ecc71)
+		
+		/// SwifterSwift: hex #27AE60
+		public static let nephritis             = UIColor(hex: 0x27ae60)
+		
+		/// SwifterSwift: hex #3498DB
+		public static let peterRiver            = UIColor(hex: 0x3498db)
+		
+		/// SwifterSwift: hex #2980B9
+		public static let belizeHole            = UIColor(hex: 0x2980b9)
+		
+		/// SwifterSwift: hex #9B59B6
+		public static let amethyst              = UIColor(hex: 0x9b59b6)
+		
+		/// SwifterSwift: hex #8E44AD
+		public static let wisteria              = UIColor(hex: 0x8e44ad)
+		
+		/// SwifterSwift: hex #34495E
+		public static let wetAsphalt            = UIColor(hex: 0x34495e)
+		
+		/// SwifterSwift: hex #2C3E50
+		public static let midnightBlue          = UIColor(hex: 0x2c3e50)
+		
+		/// SwifterSwift: hex #F1C40F
+		public static let sunFlower             = UIColor(hex: 0xf1c40f)
+		
+		/// SwifterSwift: hex #F39C12
+		public static let flatOrange            = UIColor(hex: 0xf39c12)
+		
+		/// SwifterSwift: hex #E67E22
+		public static let carrot                = UIColor(hex: 0xe67e22)
+		
+		/// SwifterSwift: hex #D35400
+		public static let pumkin                = UIColor(hex: 0xd35400)
+		
+		/// SwifterSwift: hex #E74C3C
+		public static let alizarin              = UIColor(hex: 0xe74c3c)
+		
+		/// SwifterSwift: hex #C0392B
+		public static let pomegranate           = UIColor(hex: 0xc0392b)
+		
+		/// SwifterSwift: hex #ECF0F1
+		public static let clouds                = UIColor(hex: 0xecf0f1)
+		
+		/// SwifterSwift: hex #BDC3C7
+		public static let silver                = UIColor(hex: 0xbdc3c7)
+		
+		/// SwifterSwift: hex #7F8C8D
+		public static let asbestos              = UIColor(hex: 0x7f8c8d)
+		
+		/// SwifterSwift: hex #95A5A6
+		public static let concerte              = UIColor(hex: 0x95a5a6)
+	}
+}
 #endif
