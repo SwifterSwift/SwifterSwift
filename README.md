@@ -36,7 +36,7 @@ platform :ios, '8.0'
 use_frameworks!
 
 target '<Your Target Name>' do
-    pod 'SwifterSwift' :git => 'https://github.com/SwifterSwift/SwifterSwift.git', :branch => 'swift-4'
+    pod 'SwifterSwift', :git => 'https://github.com/SwifterSwift/SwifterSwift.git', :branch => 'swift-4'
 end
 ```
 
