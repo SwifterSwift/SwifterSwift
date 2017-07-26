@@ -145,8 +145,8 @@ public extension Array {
     
     /// SwifterSwift: Get last index where condition is met.
 	///
-	///		[1, 7, 1, 2, 4, 1, 8].lastIndex { $0 % 2 == 0 } -> 6
-	///		// It also works for other types!
+	///     [1, 7, 1, 2, 4, 1, 8].lastIndex { $0 % 2 == 0 } -> 6
+	///     // It also works for other types!
 	///
 	/// - Parameter condition: condition to evaluate each element against.
     /// - Returns: last index where the specified condition evaluates to true. (optional)
@@ -159,8 +159,8 @@ public extension Array {
     
     /// SwifterSwift: Get all indices where condition is met.
 	///
-	///		[1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
-	///		// It also works for other types!
+	///     [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
+	///     // It also works for other types!
 	///
 	/// - Parameter condition: condition to evaluate each element against.
     /// - Returns: all indices where the specified condition evaluates to true. (optional)
@@ -338,8 +338,12 @@ public extension Array {
     }
     
     /// SwifterSwift: Calls given closure with an array of size of the parameter slice where condition is true.
-	///
-	/// - Parameters:
+    ///
+    ///     [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> //print: [0, 2], [4, 7]
+    ///     [0, 2, 4, 7, 6].forEach(slice: 2) { print($0) } -> //print: [0, 2], [4, 7], [6]
+    ///     // It also works for all other types!
+    ///
+    /// - Parameters:
     ///   - slice: size of array in each interation.
     ///   - body: a closure that takes an array of slice size as a parameter.
     public func forEach(slice: Int,  body: ([Element]) throws -> Void) rethrows {
@@ -354,8 +358,12 @@ public extension Array {
     
     
     /// SwifterSwift: Returns an array of slices of length "size" from the array.  If array can't be split evenly, the final slice will be the remaining elements.
-	///
-	/// - Parameters:
+    ///
+    ///     [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
+    ///     [0, 2, 4, 7, 6].group(by: 2) -> [[0, 2], [4, 7], [6]]
+    ///     // It also works for all other types!
+    ///
+    /// - Parameters:
     ///   - size: The size of the slices to be returned.
     public func group(by size: Int) -> [[Element]]? {
         //Inspired by: https://lodash.com/docs/4.17.4#chunk
@@ -370,8 +378,11 @@ public extension Array {
     }
     
     /// SwifterSwift: Group the elements of the array in a dictionary.
-	///
-	/// - Parameter getKey: Clousure to define the key for each element.
+    ///
+    ///     [0, 2, 5, 4, 7].groupByKey { $0%2 ? "evens" : "odds" } -> [ "evens" : [0, 2, 4], "odds" : [5, 7] ]
+    ///     // It also works for all other types!
+    ///
+    /// - Parameter getKey: Clousure to define the key for each element.
     /// - Returns: A dictionary with values grouped with keys.
     public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
         var group : [K: [Element]] = [:]
@@ -383,6 +394,11 @@ public extension Array {
     }
     
     /// SwifterSwift: Returns a new rotated array by the given places.
+    ///
+    ///     [1, 2, 3, 4].rotated(by: 1) -> [4,1,2,3]
+    ///     [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
+    ///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
+    ///     // It also works for all other types!
     ///
     /// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
     /// - Returns: The new rotated array
@@ -407,6 +423,11 @@ public extension Array {
     }
     
     /// SwifterSwift: Rotate the array by the given places.
+    ///
+    ///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
+    ///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
+    ///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
+    ///     // It also works for all other types!
     ///
     /// - Parameter places: Number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
     public mutating func rotate(by places: Int) {
