@@ -124,6 +124,32 @@ class UIColorExtensionsTests: XCTestCase {
 
     }
 
+    func testCoreImageColor() {
+        var color = UIColor(hex: 0xFF0000, transparency: 1.0)
+        var coreImageTestColor = CIColor(red: 1.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        XCTAssertEqual([color!.coreImageColor!.red, color!.coreImageColor!.green, color!.coreImageColor!.blue, color!.coreImageColor!.alpha], [coreImageTestColor.red, coreImageTestColor.green, coreImageTestColor.blue, coreImageTestColor.alpha])
+
+        color = UIColor(hex: 0x00FF00, transparency: 1.0)
+        coreImageTestColor = CIColor(red: 0.0, green: 1.0, blue: 0.0, alpha: 1.0)
+        XCTAssertEqual([color!.coreImageColor!.red, color!.coreImageColor!.green, color!.coreImageColor!.blue, color!.coreImageColor!.alpha], [coreImageTestColor.red, coreImageTestColor.green, coreImageTestColor.blue, coreImageTestColor.alpha])
+
+        color = UIColor(hex: 0x0000FF, transparency: 1.0)
+        coreImageTestColor = CIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 1.0)
+        XCTAssertEqual([color!.coreImageColor!.red, color!.coreImageColor!.green, color!.coreImageColor!.blue, color!.coreImageColor!.alpha], [coreImageTestColor.red, coreImageTestColor.green, coreImageTestColor.blue, coreImageTestColor.alpha])
+        
+        color = UIColor(hex: 0x000000, transparency: 1.0)
+        coreImageTestColor = CIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 1.0)
+        XCTAssertEqual([color!.coreImageColor!.red, color!.coreImageColor!.green, color!.coreImageColor!.blue, color!.coreImageColor!.alpha], [coreImageTestColor.red, coreImageTestColor.green, coreImageTestColor.blue, coreImageTestColor.alpha])
+        
+        color = UIColor(hex: 0xFFFFFF, transparency: 1.0)
+        coreImageTestColor = CIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        XCTAssertEqual([color!.coreImageColor!.red, color!.coreImageColor!.green, color!.coreImageColor!.blue, color!.coreImageColor!.alpha], [coreImageTestColor.red, coreImageTestColor.green, coreImageTestColor.blue, coreImageTestColor.alpha])
+        
+        color = UIColor(hex: 0x0000FF, transparency: 0.5)
+        coreImageTestColor = CIColor(red: 0.0, green: 0.0, blue: 1.0, alpha: 0.5)
+        XCTAssertEqual([color!.coreImageColor!.red, color!.coreImageColor!.green, color!.coreImageColor!.blue, color!.coreImageColor!.alpha], [coreImageTestColor.red, coreImageTestColor.green, coreImageTestColor.blue, coreImageTestColor.alpha])
+    }
+    
     func testHexString() {
 		var color = UIColor.red
 		XCTAssertEqual(color.hexString, "#FF0000")
