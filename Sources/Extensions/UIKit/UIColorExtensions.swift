@@ -35,11 +35,13 @@ public extension UIColor {
 		return a
 	}
 	
-	/// SwifterSwift: CoreImage.CIColor (read-only).
-	public var coreImageColor: CoreImage.CIColor? {
-		return CoreImage.CIColor(color: self)  // The resulting Core Image color, or nil
-	}
-	
+    #if os(iOS) || os(tvOS)
+        /// SwifterSwift: CoreImage.CIColor (read-only). Only available on iOS and tvOS
+        public var coreImageColor: CoreImage.CIColor? {
+            return CoreImage.CIColor(color: self)  // The resulting Core Image color, or nil
+        }
+    #endif
+
 	/// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
 	public var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
 		var hue:    CGFloat = 0.0
