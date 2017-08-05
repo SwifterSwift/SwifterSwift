@@ -190,8 +190,10 @@ public extension String {
 	}
 	
 	/// SwifterSwift: Check if string is a valid file URL.
-	///
-	public var isValidFileUrl: Bool {
+    ///
+    ///		"file://Documents/file.txt".isValidFileUrl -> true
+    ///	
+    public var isValidFileUrl: Bool {
 		return URL(string: self)?.isFileURL ?? false
 	}
 	

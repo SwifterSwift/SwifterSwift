@@ -261,7 +261,10 @@ public extension Array {
     }
 	
 	/// SwifterSwift: Reduces an array while returning each interim combination.
-	///
+	///     
+    ///     [1, 2, 3].accumulate(initial: 0, next: +) -> [1, 3, 6]
+    ///     // It also works for other types!
+    ///
 	/// - Parameters:
     ///   - initial: initial value.
     ///   - next: closure that combines the accumulating value and next element of the array.
@@ -276,6 +279,9 @@ public extension Array {
     
     /// SwifterSwift: Filtered and map in a single operation.
 	///
+    ///     [1,2,3,4,5].filtered({ $0 % 2 == 0 }, map: { $0.string }) -> ["2", "4"]
+    ///     // It also works for other types!
+    ///
 	/// - Parameters:
     ///   - isIncluded: condition of inclusion to evaluate each element against.
     ///   - transform: transform element function to evaluate every element.

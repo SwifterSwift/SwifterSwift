@@ -11,8 +11,11 @@ All notable changes to this project will be documented in this file.
 N/A
 
 ### Enhancements
-N/A
-
+- New **NSAttributedString** extensions
+  - added `NSAttributedString + NSAttributedString` operator to return a new appended NSAttributedString.
+  - added `NSAttributedString += String` operator to append a string to a NSAttributedString.
+  - added `NSAttributedString + String` operator to return a new appended NSAttributedString. [#218](https://github.com/SwifterSwift/SwifterSwift/pull/218) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  
 ### Bugfixes
 N/A
 

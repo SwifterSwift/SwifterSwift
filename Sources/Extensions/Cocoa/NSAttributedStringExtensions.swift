@@ -89,4 +89,35 @@ public extension NSAttributedString {
 		ns.append(rhs)
 		lhs = ns
 	}
+    
+    /// SwifterSwift: Add a NSAttributedString to another NSAttributedString and return a new NSAttributedString instance.
+    ///
+    /// - Parameters:
+    ///   - lhs: NSAttributedString to add.
+    ///   - rhs: NSAttributedString to add.
+    /// - Returns: New instance with added NSAttributedString.
+    public static func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
+        let ns = NSMutableAttributedString(attributedString: lhs)
+        ns.append(rhs)
+        return NSAttributedString(attributedString: ns)
+    }
+    
+    /// SwifterSwift: Add a NSAttributedString to another NSAttributedString.
+    ///
+    /// - Parameters:
+    ///   - lhs: NSAttributedString to add to.
+    ///   - rhs: String to add.
+    public static func += (lhs: inout NSAttributedString, rhs: String) {
+        lhs += NSAttributedString(string: rhs)
+    }
+    
+    /// SwifterSwift: Add a NSAttributedString to another NSAttributedString and return a new NSAttributedString instance.
+    ///
+    /// - Parameters:
+    ///   - lhs: NSAttributedString to add.
+    ///   - rhs: String to add.
+    /// - Returns: New instance with added NSAttributedString.
+    public static func + (lhs: NSAttributedString, rhs: String) -> NSAttributedString {
+        return lhs + NSAttributedString(string: rhs)
+    }
 }

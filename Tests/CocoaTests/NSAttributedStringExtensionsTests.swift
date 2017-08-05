@@ -86,7 +86,7 @@ class NSAttributedStringExtensionsTests: XCTestCase {
 
 	#if !os(macOS) && !os(tvOS)
 	// MARK: - Operators
-	func testAppending() {
+	func testPlusEqual() {
 		var string = NSAttributedString(string: "Test").italicized.underlined.struckthrough
 		string += NSAttributedString(string: " Appending").bolded
 
@@ -117,5 +117,103 @@ class NSAttributedStringExtensionsTests: XCTestCase {
 
 		XCTAssertEqual(filteredAttributes.count, 1)
 	}
+    
+    func testPlusAttributedString() {
+        let a : NSAttributedString = NSAttributedString(string: "Test").italicized.underlined.struckthrough
+        let b : NSAttributedString = NSAttributedString(string: " Appending").bolded
+        let result = a + b
+        
+        XCTAssertEqual(result.string, "Test Appending")
+        
+        var attributes = result.attributes(at: 0, effectiveRange: nil)
+        var filteredAttributes = attributes.filter { (key, value) -> Bool in
+            var valid = false
+            if key == NSFontAttributeName, let value = value as? UIFont, value == .italicSystemFont(ofSize: UIFont.systemFontSize) {
+                valid = true
+            }
+            if key == NSUnderlineStyleAttributeName, let value = value as? NSUnderlineStyle.RawValue, value == NSUnderlineStyle.styleSingle.rawValue {
+                valid = true
+            }
+            if key == NSStrikethroughStyleAttributeName, let value = value as? NSUnderlineStyle.RawValue, value == NSUnderlineStyle.styleSingle.rawValue {
+                valid = true
+            }
+            
+            return valid
+        }
+        
+        XCTAssertEqual(filteredAttributes.count, 3)
+        
+        attributes = result.attributes(at: 5, effectiveRange: nil)
+        filteredAttributes = attributes.filter { (key, value) -> Bool in
+            return (key == NSFontAttributeName && (value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize))
+        }
+        
+        XCTAssertEqual(filteredAttributes.count, 1)
+    }
+    
+    func testPlusEqualString() {
+        var string = NSAttributedString(string: "Test").italicized.underlined.struckthrough
+        string += " Appending"
+        
+        XCTAssertEqual(string.string, "Test Appending")
+        
+        var attributes = string.attributes(at: 0, effectiveRange: nil)
+        var filteredAttributes = attributes.filter { (key, value) -> Bool in
+            var valid = false
+            if key == NSFontAttributeName, let value = value as? UIFont, value == .italicSystemFont(ofSize: UIFont.systemFontSize) {
+                valid = true
+            }
+            if key == NSUnderlineStyleAttributeName, let value = value as? NSUnderlineStyle.RawValue, value == NSUnderlineStyle.styleSingle.rawValue {
+                valid = true
+            }
+            if key == NSStrikethroughStyleAttributeName, let value = value as? NSUnderlineStyle.RawValue, value == NSUnderlineStyle.styleSingle.rawValue {
+                valid = true
+            }
+            
+            return valid
+        }
+        
+        XCTAssertEqual(filteredAttributes.count, 3)
+        
+        attributes = string.attributes(at: 5, effectiveRange: nil)
+        filteredAttributes = attributes.filter { (key, value) -> Bool in
+            return (key == NSFontAttributeName && (value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize))
+        }
+        
+        XCTAssertEqual(filteredAttributes.count, 0)
+    }
+    
+    func testPlusString() {
+        let a : NSAttributedString = NSAttributedString(string: "Test").italicized.underlined.struckthrough
+        let b : String = " Appending"
+        let result = a + b
+        
+        XCTAssertEqual(result.string, "Test Appending")
+        
+        var attributes = result.attributes(at: 0, effectiveRange: nil)
+        var filteredAttributes = attributes.filter { (key, value) -> Bool in
+            var valid = false
+            if key == NSFontAttributeName, let value = value as? UIFont, value == .italicSystemFont(ofSize: UIFont.systemFontSize) {
+                valid = true
+            }
+            if key == NSUnderlineStyleAttributeName, let value = value as? NSUnderlineStyle.RawValue, value == NSUnderlineStyle.styleSingle.rawValue {
+                valid = true
+            }
+            if key == NSStrikethroughStyleAttributeName, let value = value as? NSUnderlineStyle.RawValue, value == NSUnderlineStyle.styleSingle.rawValue {
+                valid = true
+            }
+            
+            return valid
+        }
+        
+        XCTAssertEqual(filteredAttributes.count, 3)
+        
+        attributes = result.attributes(at: 5, effectiveRange: nil)
+        filteredAttributes = attributes.filter { (key, value) -> Bool in
+            return (key == NSFontAttributeName && (value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize))
+        }
+        
+        XCTAssertEqual(filteredAttributes.count, 0)
+    }
 	#endif
 }
