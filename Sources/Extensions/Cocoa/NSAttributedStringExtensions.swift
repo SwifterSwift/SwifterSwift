@@ -95,6 +95,7 @@ public extension NSAttributedString {
     /// - Parameters:
     ///   - lhs: NSAttributedString to add.
     ///   - rhs: NSAttributedString to add.
+    /// - Returns: New instance with added NSAttributedString.
     public static func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
         let ns = NSMutableAttributedString(attributedString: lhs)
         ns.append(rhs)
@@ -115,6 +116,7 @@ public extension NSAttributedString {
     /// - Parameters:
     ///   - lhs: NSAttributedString to add.
     ///   - rhs: String to add.
+    /// - Returns: New instance with added NSAttributedString.
     public static func + (lhs: NSAttributedString, rhs: String) -> NSAttributedString {
         return lhs + NSAttributedString(string: rhs)
     }

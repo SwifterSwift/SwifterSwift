@@ -86,7 +86,7 @@ class NSAttributedStringExtensionsTests: XCTestCase {
 
 	#if !os(macOS) && !os(tvOS)
 	// MARK: - Operators
-	func testAppending() {
+	func testPlusEqual() {
 		var string = NSAttributedString(string: "Test").italicized.underlined.struckthrough
 		string += NSAttributedString(string: " Appending").bolded
 
@@ -151,7 +151,7 @@ class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual(filteredAttributes.count, 1)
     }
     
-    func testAppendingString() {
+    func testPlusEqualString() {
         var string = NSAttributedString(string: "Test").italicized.underlined.struckthrough
         string += " Appending"
         
