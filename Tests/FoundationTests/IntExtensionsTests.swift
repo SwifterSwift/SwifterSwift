@@ -89,8 +89,8 @@ class IntExtensionsTests: XCTestCase {
 		XCTAssert(5.isPrime)
 		XCTAssert(997.isPrime)
 		XCTAssertFalse(1.isPrime)
-		XCTAssertFalse(2.isPrime)
 		XCTAssertFalse(9.isPrime)
+		XCTAssertFalse(55.isPrime)
 		XCTAssertFalse(108.isPrime)
 	}
 	

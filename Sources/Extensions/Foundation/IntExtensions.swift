@@ -180,9 +180,9 @@ public extension Int {
 		// the square root of that number. If you go up from N by one,
 		// other multiplier will go 1 down to get similar result
 		// (integer-wise operation) such way increases speed of operation
-		let base: Int = Int(sqrt(Double(self)) + 1)
+		let base = Int(sqrt(Double(self)) + 1)
 		for i in Swift.stride(from: 3, to: base, by: 2) {
-			if base % i == 0 {
+			if self % i == 0 {
 				return false
 			}
 			continue
