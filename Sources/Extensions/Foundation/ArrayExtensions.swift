@@ -18,8 +18,9 @@ public extension Array where Element: Integer {
 	///
 	/// - Returns: sum of the array's elements.
 	public func sum() -> Element {
-		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
-		return reduce(0, +)
+        var total: Element = 0
+        forEach { total += $0 }
+        return total
 	}
 	
 }
@@ -34,8 +35,10 @@ public extension Array where Element: FloatingPoint {
 	///
 	/// - Returns: average of the array's elements.
 	public func average() -> Element {
-		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
-		return isEmpty ? 0 : reduce(0, +) / Element(count)
+        guard isEmpty == false else { return 0 }
+        var total: Element = 0
+        forEach { total += $0 }
+        return total / Element(count)
 	}
 	
 	/// SwifterSwift: Sum of all elements in array.
@@ -44,8 +47,9 @@ public extension Array where Element: FloatingPoint {
 	///
 	/// - Returns: sum of the array's elements.
 	public func sum() -> Element {
-		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
-		return reduce(0, +)
+        var total: Element = 0
+        forEach { total += $0 }
+        return total
 	}
 	
 }
