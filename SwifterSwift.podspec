@@ -1,5 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "SwifterSwift"
+  s.module_name = "SwifterSwift"
   s.version = "3.1.0"
   s.summary = "A handy collection of more than 500 native Swift 3 extensions to boost your productivity."
   s.description = <<-DESC
@@ -19,7 +20,8 @@ Pod::Spec.new do |s|
 
   s.requires_arc = true
   s.source = { git: "https://github.com/SwifterSwift/SwifterSwift.git", tag: "#{s.version}" }
-  s.source_files = "Sources/**/*.swift"
+  s.source_files = "Sources/**/*.{swift,h}"
+  s.public_header_files = 'Sources/SwifterSwift.h'
   s.pod_target_xcconfig = {
     'SWIFT_VERSION' => '3.0',
   }
