@@ -206,7 +206,31 @@ public extension Int {
 		let delta = UInt32(range.upperBound - range.lowerBound + 1)
 		return range.lowerBound + Int(arc4random_uniform(delta))
 	}
-	
+
+	/// SwifterSwift: check if given integer prime or not.
+	/// Warning: Using big numbers can be computationally expensive!
+	/// - Returns: true or false depending on prime-ness
+	public func isPrime() -> Bool {
+		guard self > 1 || self % 2 == 0 else {
+			return false
+		}
+		// To improve speed on latter loop :)
+		if self == 2 {
+			return true
+		}
+		// Explanation: It is enough to check numbers until
+		// the square root of that number. If you go up from N by one,
+		// other multiplier will go 1 down to get similar result
+		// (integer-wise operation) such way increases speed of operation
+		let base = Int(sqrt(Double(self)) + 1)
+		for i in Swift.stride(from: 3, to: base, by: 2) {
+			if self % i == 0 {
+				return false
+			}
+		}
+		return true
+	}
+
 }
 
 

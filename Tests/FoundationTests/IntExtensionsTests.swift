@@ -82,6 +82,17 @@ class IntExtensionsTests: XCTestCase {
 	func testRadiansToDegrees() {
 		XCTAssertEqual(Int(3.radiansToDegrees), 171)
 	}
+
+	func testIsPrime() {
+		XCTAssert(2.isPrime())
+		XCTAssert(3.isPrime())
+		XCTAssert(5.isPrime())
+		XCTAssert(997.isPrime())
+		XCTAssertFalse(1.isPrime())
+		XCTAssertFalse(9.isPrime())
+		XCTAssertFalse(55.isPrime())
+		XCTAssertFalse(108.isPrime())
+	}
 	
 	func testRandomBetween() {
 		XCTAssertGreaterThan(Int.random(between: 1, and: 5), 0)
