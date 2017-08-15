@@ -6,11 +6,7 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-#if os(macOS)
-	import Cocoa
-#else
-	import UIKit
-#endif
+import Foundation
 
 
 // MARK: - Properties
