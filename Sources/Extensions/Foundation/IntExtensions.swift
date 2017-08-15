@@ -227,7 +227,6 @@ public extension Int {
 			if self % i == 0 {
 				return false
 			}
-			continue
 		}
 		return true
 	}
