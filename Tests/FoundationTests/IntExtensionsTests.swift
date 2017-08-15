@@ -84,14 +84,14 @@ class IntExtensionsTests: XCTestCase {
 	}
 
 	func testIsPrime() {
-		XCTAssert(2.isPrime)
-		XCTAssert(3.isPrime)
-		XCTAssert(5.isPrime)
-		XCTAssert(997.isPrime)
-		XCTAssertFalse(1.isPrime)
-		XCTAssertFalse(9.isPrime)
-		XCTAssertFalse(55.isPrime)
-		XCTAssertFalse(108.isPrime)
+		XCTAssert(2.isPrime())
+		XCTAssert(3.isPrime())
+		XCTAssert(5.isPrime())
+		XCTAssert(997.isPrime())
+		XCTAssertFalse(1.isPrime())
+		XCTAssertFalse(9.isPrime())
+		XCTAssertFalse(55.isPrime())
+		XCTAssertFalse(108.isPrime())
 	}
 	
 	func testRandomBetween() {
