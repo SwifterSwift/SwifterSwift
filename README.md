@@ -170,11 +170,15 @@ let package = Package(
 
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/DictionaryExtensions.swift"><code>Dictionary extensions</code></a></li>
 
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/SignedNumberExtensions.swift"><code>SignedNumber extensions</code></a></li>
+
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/FloatingPointExtensions.swift"><code>FloatingPoint extensions</code></a></li>
+
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/DoubleExtensions.swift"><code>Double extensions</code></a></li>
 
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/FloatExtensions.swift"><code>Float extensions</code></a></li>
 
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/FloatingPointExtensions.swift"><code>FloatingPoint extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/SignedIntegerExtensions.swift"><code>SignedInteger extensions</code></a></li>
 
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/Foundation/IntExtensions.swift"><code>Int extensions</code></a></li>
 
