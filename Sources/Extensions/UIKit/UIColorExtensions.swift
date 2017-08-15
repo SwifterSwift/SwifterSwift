@@ -70,18 +70,12 @@ public extension UIColor {
 		return UInt(colorAsUInt32)
 	}
 	
-	/// SwifterSwift: Hexadecimal value string (read-only).
+	/// SwifterSwift: -Deprecated- Hexadecimal value string (read-only).
+	@available(*, deprecated, message: "Variable format no longer supported, use 'hexString(withAlpha:)' instead")
 	public var hexString: String {
-		var red:	CGFloat = 0
-		var green:	CGFloat = 0
-		var blue:	CGFloat = 0
-		var alpha:	CGFloat = 0
-		
-		getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-		let rgb: Int = (Int)(red*255)<<16 | (Int)(green*255)<<8 | (Int)(blue*255)<<0
-		return NSString(format:"#%06x", rgb).uppercased as String
+		return hexString(withAlpha: false)
 	}
-	
+
 	/// SwifterSwift: Short hexadecimal value string (read-only, if applicable).
 	public var shortHexString: String? {
 		let string = hexString.replacingOccurrences(of: "#", with: "")
@@ -138,7 +132,21 @@ public extension UIColor {
 		color2.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
 		return UIColor(red: l1*r1 + l2*r2, green: l1*g1 + l2*g2, blue: l1*b1 + l2*b2, alpha: l1*a1 + l2*a2)
 	}
-	
+
+	public func hexString(withAlpha: Bool = false) -> String {
+		var red:	CGFloat = 0
+		var green:	CGFloat = 0
+		var blue:	CGFloat = 0
+		var alpha:	CGFloat = 0
+
+		getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+		let rgb: Int = (withAlpha ? ((Int)(alpha*255) << 24) : 0)
+			| ((Int)(red*255)   << 16)
+			| ((Int)(green*255) << 8)
+			| ((Int)(blue*255)  << 0)
+		return String(format: (withAlpha ? "#%08x" : "#%06x"), rgb).uppercased()
+	}
+
 }
 
 
