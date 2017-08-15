@@ -133,6 +133,10 @@ public extension UIColor {
 		return UIColor(red: l1*r1 + l2*r2, green: l1*g1 + l2*g2, blue: l1*b1 + l2*b2, alpha: l1*a1 + l2*a2)
 	}
 
+	/// SwifterSwift: return hexString of color
+	///
+	/// - Parameter: withAlpha: Boolean value to include alpha or not in output
+	/// - Returns: A hex-string representation of the color
 	public func hexString(withAlpha: Bool = false) -> String {
 		var red:	CGFloat = 0
 		var green:	CGFloat = 0
