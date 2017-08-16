@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name = "SwifterSwift"
   s.module_name = "SwifterSwift"
-  s.version = "3.1.0"
+  s.version = "3.1.1"
   s.summary = "A handy collection of more than 500 native Swift 3 extensions to boost your productivity."
   s.description = <<-DESC
   SwifterSwift is a collection of over 500 native Swift 3 extensions, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.

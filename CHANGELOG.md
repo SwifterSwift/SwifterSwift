@@ -5,7 +5,19 @@ All notable changes to this project will be documented in this file.
 
 # Versions
 
-# Next Release
+> # Next Release
+>
+> ### API Breaking
+> N/A
+>
+> ### Enhancements
+> N/A
+>
+> ### Bugfixes
+> N/A
+
+
+# v3.1.1
 
 ### API Breaking
 N/A
@@ -15,9 +27,38 @@ N/A
   - added `NSAttributedString + NSAttributedString` operator to return a new appended NSAttributedString.
   - added `NSAttributedString += String` operator to append a string to a NSAttributedString.
   - added `NSAttributedString + String` operator to return a new appended NSAttributedString. [#218](https://github.com/SwifterSwift/SwifterSwift/pull/218) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-  
+- New **UIColor** extensions
+  - added `flatUI` struct with all Flat UI colors. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+  - added `coreImageColor` property to return CoreImage.CIColor. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+  - added `hsbaComponents` property to get components of hue, saturation, and brightness, and alpha. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+  - added `uInt` property to get components of hue, saturation, and brightness, and alpha as UInt. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+- New **NSColor** extensions
+  - added `flatUI` struct with all Flat UI colors. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+- New **UIImage** extensions
+  - added `tint()` to get UIImage tinted with color. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+- New **SignedNumber** extensions. [#224](https://github.com/SwifterSwift/SwifterSwift/pull/224) by [@omaralbeik](https://github.com/omaralbeik)
+  - moved `abs` from `FloatingPointExtensions` and `IntExtensions`
+  - moved `isPositive` from `FloatingPointExtensions` and `IntExtensions`
+  - moved `isNegative` from `FloatingPointExtensions` and `IntExtensions`
+  - moved `string` from `FloatingPointExtensions` and `IntExtensions`
+  - moved `asLocaleCurrency` from `FloatingPointExtensions` and `IntExtensions`
+- New **SignedInteger** extensions. [#224](https://github.com/SwifterSwift/SwifterSwift/pull/224) by [@omaralbeik](https://github.com/omaralbeik)
+  - moved `isEven` from `IntExtensions`
+  - moved `isOdd` from `IntExtensions`
+  - moved `digits` from `IntExtensions`
+  - moved `digitsCount` from `IntExtensions`
+  - moved `timeString` from `IntExtensions`
+  - moved `gcd(of n)` from `IntExtensions`
+  - moved `lcm(of n)` from `IntExtensions`
+- Added `SwifterSwift` module_name to podspecs file to help solving conflicts with other 3rd party libraries. [#226](https://github.com/SwifterSwift/SwifterSwift/pull/226) by [@omaralbeik](https://github.com/omaralbeik)
+- Moved missing examples from the old docs. [#216](https://github.com/SwifterSwift/SwifterSwift/pull/216) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+- New `Int` extensions
+  - added `isPrime()` to check if integer is prime number. [#221](https://github.com/SwifterSwift/SwifterSwift/pull/221) by [@pvtmert](https://github.com/pvtmert)
+- Improve sum & average extensions by not relying on reduce. [#225](https://github.com/SwifterSwift/SwifterSwift/pull/225) by [@SD10](https://github.com/SD10)
+- New SVG logo in README! by [@omaralbeik](https://github.com/omaralbeik)
+
 ### Bugfixes
-N/A
+- Fixed UISlider test by using XCTExpectation ([#209](https://github.com/SwifterSwift/SwifterSwift/issues/209)). [#229](https://github.com/SwifterSwift/SwifterSwift/issues/229). by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 
 # v3.1.0
@@ -67,6 +108,7 @@ N/A
   - added `rgbComponenets` to get RGB components for a UIColor. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 - Added usage examples in documentation for Foundation extensions. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 - Moved many duplicated extensions from `DoubleExtensions` and `FloatExtensions` into the new `FloatingPointExtensions`, this makes the code easier to maintain and brings support for other FloatingPoint types like CGFloat, Double32, ... [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+
 ### Bugfixes
 - Fixed XCTAssertNotNil cannot handle optionals. [#188](https://github.com/SwifterSwift/SwifterSwift/issues/188). by [@omaralbeik](https://github.com/omaralbeik)
 - Fixed Tests are failing at non-english machine / Bug in String.double [#187](https://github.com/SwifterSwift/SwifterSwift/issues/187). by [@omaralbeik](https://github.com/omaralbeik)
