@@ -29,15 +29,13 @@ class UISliderExtensionsTests: XCTestCase {
         let slider = UISlider()
         slider.minimumValue = 0
         slider.maximumValue = 100
-        var completionCalled = false
         
+        let exp = expectation(description: "calledCompletion")
         slider.setValue(99) {
-            completionCalled = true
-            XCTAssert(completionCalled)
+            exp.fulfill()
+            XCTAssertEqual(slider.value, 99)
         }
-        XCTAssertFalse(completionCalled)
-        XCTAssertEqual(slider.value, 99)
-        
+        waitForExpectations(timeout: 1, handler: nil)
     }
     
     func testCompletionCalled() {
