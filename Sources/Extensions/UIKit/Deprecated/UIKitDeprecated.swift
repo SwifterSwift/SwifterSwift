@@ -36,13 +36,13 @@ extension UIColor {
 		return Int(blue * CGFloat(255.0))
 	}
 
-	@available(*, deprecated: 3.1.0, message: "Use 'hexString(withAlpha:)' instead", renamed: "hexString(withAlpha:)")
+	@available(*, deprecated: 3.2.0, message: "Use 'hexString(withAlpha:)' instead", renamed: "hexString(withAlpha:)")
 	/// SwifterSwift: Hexadecimal value string (read-only).
 	public var hexString: String {
 		return hexString(withAlpha: false)
 	}
 
-	@available(*, deprecated: 3.1.0, message: "Use shortHexString(withAlpha:) instead", renamed: "shortHexString(withAlpha:)")
+	@available(*, deprecated: 3.2.0, message: "Use shortHexString(withAlpha:) instead", renamed: "shortHexString(withAlpha:)")
 	/// SwifterSwift: Short hexadecimal value string (read-only, if applicable).
 	public var shortHexString: String? {
 		return shortHexString(withAlpha: false)
