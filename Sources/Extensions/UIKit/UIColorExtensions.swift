@@ -70,19 +70,9 @@ public extension UIColor {
 		return UInt(colorAsUInt32)
 	}
 	
-	/// SwifterSwift: Short hexadecimal value string (read-only, if applicable).
-	public var shortHexString: String? {
-		let string = hexString.replacingOccurrences(of: "#", with: "")
-		let chrs = Array(string.characters)
-		guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5] else {
-			return nil
-		}
-		return  "#" + "\(chrs[0])\(chrs[2])\(chrs[4])"
-	}
-	
 	/// SwifterSwift: Short hexadecimal value string, or full hexadecimal string if not possible (read-only).
 	public var shortHexOrHexString: String {
-		return shortHexString ?? hexString
+		return shortHexString() ?? hexString()
 	}
 	
 	/// SwifterSwift: Get color complementary (read-only, if applicable).
@@ -145,6 +135,14 @@ public extension UIColor {
 		return String(format: (withAlpha ? "#%08x" : "#%06x"), rgb).uppercased()
 	}
 
+	public func shortHexString(withAlpha: Bool = false) -> String? {
+		let string = hexString(withAlpha: true).replacingOccurrences(of: "#", with: "")
+		let chrs = Array(string.characters)
+		guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5], chrs[6] == chrs[7] else {
+			return nil
+		}
+		return "#" + (withAlpha ? "\(chrs[0])" : "") + "\(chrs[2])\(chrs[4])\(chrs[6])"
+	}
 }
 
 
