@@ -175,16 +175,22 @@ class UIColorExtensionsTests: XCTestCase {
 	
 	func testShortHexString() {
 		var color: UIColor? = UIColor.red
-		XCTAssertEqual(color?.shortHexString, "#F00")
+		XCTAssertEqual(color?.shortHexString(), "#F00")
 		
 		color = UIColor.blue
-		XCTAssertEqual(color?.shortHexString, "#00F")
+		XCTAssertEqual(color?.shortHexString(), "#00F")
 		
 		color = UIColor(hexString: "#0F120F")
-		XCTAssertNil(color?.shortHexString)
+		XCTAssertNil(color?.shortHexString())
 		
 		color = UIColor(hexString: "#8FFFF")
-		XCTAssertNil(color?.shortHexString)
+		XCTAssertNil(color?.shortHexString())
+
+		color = UIColor.red
+		XCTAssertEqual(color?.shortHexString(withAlpha: true), "#FF00")
+
+		color = UIColor.blue
+		XCTAssertEqual(color?.shortHexString(withAlpha: true), "#F00F")
 	}
 	
 	func testShortHexOrHexString() {
