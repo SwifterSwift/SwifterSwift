@@ -70,12 +70,6 @@ public extension UIColor {
 		return UInt(colorAsUInt32)
 	}
 	
-	/// SwifterSwift: -Deprecated- Hexadecimal value string (read-only).
-	@available(*, deprecated, message: "Variable format no longer supported, use 'hexString(withAlpha:)' instead")
-	public var hexString: String {
-		return hexString(withAlpha: false)
-	}
-
 	/// SwifterSwift: Short hexadecimal value string (read-only, if applicable).
 	public var shortHexString: String? {
 		let string = hexString.replacingOccurrences(of: "#", with: "")

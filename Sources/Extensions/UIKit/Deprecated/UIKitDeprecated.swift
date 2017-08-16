@@ -35,6 +35,12 @@ extension UIColor {
 		getRed(nil, green: nil, blue: &blue, alpha: nil)
 		return Int(blue * CGFloat(255.0))
 	}
-	
+
+	@available(*, deprecated: 3.2.0, message: "Use 'hexString(withAlpha:)' instead", renamed: "hexString(withAlpha:)")
+	/// SwifterSwift: Hexadecimal value string (read-only).
+	public var hexString: String {
+		return hexString(withAlpha: false)
+	}
+
 }
 #endif
