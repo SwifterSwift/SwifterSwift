@@ -170,13 +170,13 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testLines() {
-		XCTAssertEqual("Hello\ntest".lines, ["Hello", "test"])
+		XCTAssertEqual("Hello\ntest".lines(), ["Hello", "test"])
 	}
 	
 	func testMostCommonCharacter() {
-		let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character".mostCommonCharacter
+		let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character".mostCommonCharacter()
 		XCTAssertEqual(mostCommonCharacter, "e")
-		XCTAssertEqual("".mostCommonCharacter, "")
+		XCTAssertEqual("".mostCommonCharacter(), "")
 	}
 	
 	func testRandom() {
@@ -198,7 +198,7 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testReversed() {
-		XCTAssertEqual("Hello".reversed, "olleH")
+		XCTAssertEqual("Hello".reversed(), "olleH")
 	}
 	
 	func testSlice() {
@@ -377,7 +377,7 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testUnicodeArray() {
-		XCTAssertEqual("Hello".unicodeArray, [72, 101, 108, 108, 111])
+		XCTAssertEqual("Hello".unicodeArray(), [72, 101, 108, 108, 111])
 	}
 	
 	func testUrlDecode() {
@@ -556,11 +556,11 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testWords() {
-		XCTAssertEqual("Swift is amazing".words, ["Swift", "is", "amazing"])
+		XCTAssertEqual("Swift is amazing".words(), ["Swift", "is", "amazing"])
 	}
 	
 	func testWordsCount() {
-		XCTAssertEqual("Swift is amazing".wordCount, 3)
+		XCTAssertEqual("Swift is amazing".wordCount(), 3)
 	}
 
 }

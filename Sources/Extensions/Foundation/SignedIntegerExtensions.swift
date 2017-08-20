@@ -22,17 +22,6 @@ public extension SignedInteger {
 		return (self % 2) != 0
 	}
 	
-	/// SwifterSwift: Array of digits of integer value.
-	public var digits: [Self] {
-		var digits: [Self] = []
-		for char in String(self).characters {
-			if let int = IntMax(String(char)) {
-				digits.append(Self(int))
-			}
-		}
-		return digits
-	}
-	
 	/// SwifterSwift: Number of digits of integer value.
 	public var digitsCount: Int {
 		return String(self).characters.count
@@ -80,6 +69,21 @@ public extension SignedInteger {
 		return (self * n).abs / gcd(of: n)
 	}
 	
+    /// SwifterSwift: Array of digits of integer value.
+    ///
+    ///		180.digits() -> [1, 8, 0]
+    ///
+    /// - Returns: Digits of integer value.
+    public func digits() -> [Self] {
+        var digits: [Self] = []
+        for char in String(self).characters {
+            if let int = IntMax(String(char)) {
+                digits.append(Self(int))
+            }
+        }
+        return digits
+    }
+
 }
 
 

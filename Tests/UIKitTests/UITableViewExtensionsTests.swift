@@ -17,8 +17,8 @@ class UITableViewExtensionsTests: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
-		tableView.dataSource = self
+
+        tableView.dataSource = self
 		emptyTableView.dataSource = self
 		tableView.reloadData()
 	}
@@ -33,8 +33,8 @@ class UITableViewExtensionsTests: XCTestCase {
 	}
 	
 	func testNumberOfRows() {
-		XCTAssertEqual(tableView.numberOfRows, 13)
-		XCTAssertEqual(emptyTableView.numberOfRows, 0)
+		XCTAssertEqual(tableView.numberOfRows(), 13)
+		XCTAssertEqual(emptyTableView.numberOfRows(), 0)
 	}
 	
 	func testIndexPathForLastRowInSection() {
