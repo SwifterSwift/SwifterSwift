@@ -177,18 +177,6 @@ public extension UIView {
 			height = newValue.height
 		}
 	}
-
-    /// SwifterSwift: Get view's parent view controller
-	public func parentViewController() -> UIViewController? {
-		weak var parentResponder: UIResponder? = self
-		while parentResponder != nil {
-			parentResponder = parentResponder!.next
-			if let viewController = parentResponder as? UIViewController {
-				return viewController
-			}
-		}
-		return nil
-	}
 	
 	/// SwifterSwift: Width of view.
 	public var width: CGFloat {
@@ -226,6 +214,21 @@ public extension UIView {
 // MARK: - Methods
 public extension UIView {
 	
+    /// SwifterSwift: Get view's parent view controller
+    ///
+    /// - Returns: The view's controller (if applicable).
+    public func parentViewController() -> UIViewController? {
+        weak var parentResponder: UIResponder? = self
+        while parentResponder != nil {
+            parentResponder = parentResponder!.next
+            if let viewController = parentResponder as? UIViewController {
+                return viewController
+            }
+        }
+        return nil
+    }
+
+    
     /// SwifterSwift: First responder.
     ///
     /// - Returns: Return the view or one its subviews if that some is the firstResponder (if applicable).
