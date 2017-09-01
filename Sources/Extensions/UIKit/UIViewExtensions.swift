@@ -525,6 +525,42 @@ public extension UIView {
 		anchorCenterXToSuperview()
 		anchorCenterYToSuperview()
 	}
+    
+    /// SwifterSwift: Blur the background of the view
+    ///
+    /// - Parameter effectStyle: The UIBlurEffectStyle to apply to the background
+    @available(iOS 9, *) public func blurBackground(using effectStyle: UIBlurEffectStyle) {
+        
+        backgroundColor = .clear
+        removeBlurs()
+        
+        let blurEffect = UIBlurEffect(style: effectStyle)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = bounds
+        
+        addSubview(blurredEffectView)
+        sendSubview(toBack: blurredEffectView)
+        blurredEffectView.fillToSuperview()
+        
+        let vibrancyEffect = UIVibrancyEffect(blurEffect: blurEffect)
+        let vibrancyEffectView = UIVisualEffectView(effect: vibrancyEffect)
+        vibrancyEffectView.frame = bounds
+        
+        blurredEffectView.contentView.addSubview(vibrancyEffectView)
+        vibrancyEffectView.fillToSuperview()
+    }
+    
+    // SwifterSwift: Remove previous blurs from the view
+    @available(iOS 9, *) public func removeBlurs() {
+        
+        for view in subviews {
+            
+            if view is UIVisualEffectView {
+                
+                view.removeFromSuperview()
+            }
+        }
+    }
 	
 }
 #endif

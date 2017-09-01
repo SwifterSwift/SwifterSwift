@@ -254,6 +254,32 @@ class UIViewExtensionsTests: XCTestCase {
 		XCTAssertNotNil(subview.centerYAnchor)
 	}
 	
+    func testBlur() {
+        
+        let blurExpectation = expectation(description: "Should be blurred")
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        view.blurBackground(using: .extraLight)
+        
+        for view in view.subviews {
+            
+            if view is UIVisualEffectView {
+                
+                blurExpectation.fulfill()
+            }
+        }
+        
+        view.removeBlurs()
+        for view in view.subviews {
+            
+            if view is UIVisualEffectView {
+                
+                XCTFail("Failed to remove blur from view")
+            }
+        }
+        
+        waitForExpectations(timeout: 5.0, handler: nil)
+    }
 	
 }
 #endif
