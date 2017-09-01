@@ -107,6 +107,17 @@ class UITextFieldExtensionsTests: XCTestCase {
 		textField.rightViewTintColor = .yellow
 		XCTAssertNil(textField.rightViewTintColor)
 	}
+    
+    func testNextField() {
+        
+        let frame = CGRect(x: 0, y: 0, width: 100, height: 30)
+        let textField = UITextField(frame: frame)
+        let nextField = UITextField(frame: frame)
+        
+        textField.nextField = nextField
+        XCTAssertNotNil(textField.nextField)
+        XCTAssertEqual(textField.nextField, nextField)
+    }
 	
 	
 	func testClear() {
