@@ -8,6 +8,8 @@
 
 #if os(iOS) || os(tvOS)
 import UIKit
+    
+fileprivate var kAssociationKeyNextField: UInt8 = 0
 
 // MARK: - Enums
 public extension UITextField {
@@ -123,6 +125,21 @@ public extension UITextField {
 			iconView.tintColor = newValue
 		}
 	}
+    
+    /// SwifterSwift: Next text field to become first responder
+    /// textField.nextField?.becomeFirstResponder()
+    /// https://stackoverflow.com/a/27030181
+    @IBOutlet public var nextField: UITextField? {
+        
+        get {
+            
+            return objc_getAssociatedObject(self, &kAssociationKeyNextField) as? UITextField
+        }
+        set(newField) {
+            
+            objc_setAssociatedObject(self, &kAssociationKeyNextField, newField, .OBJC_ASSOCIATION_RETAIN)
+        }
+    }
 
 }
 
