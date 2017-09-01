@@ -127,7 +127,10 @@ public extension UITextField {
 	}
     
     /// SwifterSwift: Next text field to become first responder
-    /// textField.nextField?.becomeFirstResponder()
+    ///
+    ///     textField.nextField = someOtherTextField
+    ///     textField.nextField?.becomeFirstResponder() -> 'someOtherTextField` is now first responder
+    ///
     /// https://stackoverflow.com/a/27030181
     @IBOutlet public var nextField: UITextField? {
         
