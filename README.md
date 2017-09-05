@@ -21,6 +21,13 @@ SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with han
 
 ### [Whats New in v3.1.1?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v311)
 
+---
+
+## Looking for Xcode9/Swift4 Support?
+We're working on **v4** in the [`swift-4 branch`](https://github.com/SwifterSwift/SwifterSwift/tree/swift-4), to bring support for Swift 4 and Xcode 9.
+> Please note that that v4 in still in development and will be released as soon as Xcode 9 is available.
+
+---
 
 
 ## Requirements:
