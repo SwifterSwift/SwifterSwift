@@ -142,7 +142,7 @@ public extension UITextField {
 		guard let holder = placeholder, !holder.isEmpty else {
 			return
 		}
-		self.attributedPlaceholder = NSAttributedString(string: holder, attributes: [NSAttributedStringKey.foregroundColor: color])
+		self.attributedPlaceholder = NSAttributedString(string: holder, attributes: [.foregroundColor: color])
 	}
   
     /// SwifterSwift: Add padding to the left of the textfield rect.

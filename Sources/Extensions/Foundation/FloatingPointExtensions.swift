@@ -12,17 +12,19 @@ import Foundation
 // MARK: - Properties
 public extension FloatingPoint {
 	
-	/// SwifterSwift: Absolute of number.
+	/// SwifterSwift: Absolute value of integer number.
 	public var abs: Self {
 		return Swift.abs(self)
 	}
 	
-	/// SwifterSwift: String with number and current locale currency.
-	public var asLocaleCurrency: String {
-		let formatter = NumberFormatter()
-		formatter.numberStyle = .currency
-		formatter.locale = Locale.current
-		return formatter.string(from: self as! NSNumber)!
+	/// SwifterSwift: Check if integer is positive.
+	public var isPositive: Bool {
+		return self > 0
+	}
+	
+	/// SwifterSwift: Check if integer is negative.
+	public var isNegative: Bool {
+		return self < 0
 	}
 	
 	/// SwifterSwift: Ceil of number.
@@ -38,21 +40,6 @@ public extension FloatingPoint {
 	/// SwifterSwift: Floor of number.
 	public var floor: Self {
 		return Foundation.floor(self)
-	}
-	
-	/// SwifterSwift: Check if number is positive.
-	public var isPositive: Bool {
-		return self > 0
-	}
-	
-	/// SwifterSwift: Check if number is negative.
-	public var isNegative: Bool {
-		return self < 0
-	}
-	
-	/// SwifterSwift: String.
-	public var string: String {
-		return String(describing: self as! NSNumber)
 	}
 	
 	/// SwifterSwift: Degree value of radian input.

@@ -20,8 +20,8 @@ public extension UINavigationBar {
 	///   - color: title text color (default is .black).
 	public func setTitleFont(_ font: UIFont, color: UIColor = UIColor.black) {
 		var attrs = [NSAttributedStringKey: Any]()
-		attrs[NSAttributedStringKey.font] = font
-		attrs[NSAttributedStringKey.foregroundColor] = color
+		attrs[.font] = font
+		attrs[.foregroundColor] = color
 		titleTextAttributes = attrs
 	}
 	
@@ -47,7 +47,7 @@ public extension UINavigationBar {
 		barTintColor = background
 		setBackgroundImage(UIImage(), for: UIBarMetrics.default)
 		tintColor = text
-		titleTextAttributes = [NSAttributedStringKey.foregroundColor: text]
+		titleTextAttributes = [.foregroundColor: text]
 	}
 }
 #endif

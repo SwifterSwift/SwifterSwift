@@ -19,25 +19,25 @@ public extension NSAttributedString {
 	#if os(iOS)
 	/// SwifterSwift: Bolded string.
 	public var bolded: NSAttributedString {
-		return applying(attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+		return applying(attributes: [.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
 	/// SwifterSwift: Underlined string.
 	public var underlined: NSAttributedString {
-		return applying(attributes: [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle])
+		return applying(attributes: [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
 	}
 	
 	#if os(iOS)
 	/// SwifterSwift: Italicized string.
 	public var italicized: NSAttributedString {
-		return applying(attributes: [NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+		return applying(attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
 	/// SwifterSwift: Struckthrough string.
 	public var struckthrough: NSAttributedString {
-		return applying(attributes: [NSAttributedStringKey.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue)])
+		return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
 	}
 }
 
@@ -63,7 +63,7 @@ public extension NSAttributedString {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString colored with given color.
 	public func colored(with color: NSColor) -> NSAttributedString {
-		return applying(attributes: [NSAttributedStringKey.foregroundColor: color])
+		return applying(attributes: [.foregroundColor: color])
 	}
 	#else
 	/// SwifterSwift: Add color to NSAttributedString.
@@ -71,7 +71,7 @@ public extension NSAttributedString {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString colored with given color.
 	public func colored(with color: UIColor) -> NSAttributedString {
-		return applying(attributes: [NSAttributedStringKey.foregroundColor: color])
+		return applying(attributes: [.foregroundColor: color])
 	}
 	#endif
 }
@@ -89,4 +89,35 @@ public extension NSAttributedString {
 		ns.append(rhs)
 		lhs = ns
 	}
+    
+    /// SwifterSwift: Add a NSAttributedString to another NSAttributedString and return a new NSAttributedString instance.
+    ///
+    /// - Parameters:
+    ///   - lhs: NSAttributedString to add.
+    ///   - rhs: NSAttributedString to add.
+    /// - Returns: New instance with added NSAttributedString.
+    public static func + (lhs: NSAttributedString, rhs: NSAttributedString) -> NSAttributedString {
+        let ns = NSMutableAttributedString(attributedString: lhs)
+        ns.append(rhs)
+        return NSAttributedString(attributedString: ns)
+    }
+    
+    /// SwifterSwift: Add a NSAttributedString to another NSAttributedString.
+    ///
+    /// - Parameters:
+    ///   - lhs: NSAttributedString to add to.
+    ///   - rhs: String to add.
+    public static func += (lhs: inout NSAttributedString, rhs: String) {
+        lhs += NSAttributedString(string: rhs)
+    }
+    
+    /// SwifterSwift: Add a NSAttributedString to another NSAttributedString and return a new NSAttributedString instance.
+    ///
+    /// - Parameters:
+    ///   - lhs: NSAttributedString to add.
+    ///   - rhs: String to add.
+    /// - Returns: New instance with added NSAttributedString.
+    public static func + (lhs: NSAttributedString, rhs: String) -> NSAttributedString {
+        return lhs + NSAttributedString(string: rhs)
+    }
 }
