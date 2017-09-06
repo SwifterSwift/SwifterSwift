@@ -242,7 +242,28 @@ class DateExtensionsTests: XCTestCase {
         let date = Date()
         XCTAssertEqual(date.isInWeekday, !Calendar.current.isDateInWeekend(date))
     }
-	
+
+    func testIsInThisWeek() {
+        let date = Date()
+        XCTAssert(date.isInThisWeek)
+        let dateOneYearFromNow = date.adding(.year, value: 1)
+        XCTAssertFalse(dateOneYearFromNow.isInThisWeek)
+    }
+
+    func testIsInThisMonth() {
+        let date = Date()
+        XCTAssert(date.isInThisMonth)
+        let dateOneYearFromNow = date.adding(.year, value: 1)
+        XCTAssertFalse(dateOneYearFromNow.isInThisMonth)
+    }
+
+    func testIsInThisYear() {
+        let date = Date()
+        XCTAssert(date.isInThisYear)
+        let dateOneYearFromNow = date.adding(.year, value: 1)
+        XCTAssertFalse(dateOneYearFromNow.isInThisYear)
+    }
+
 	func testIso8601String() {
 		let date = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
 		XCTAssertEqual(date.iso8601String, "1970-01-01T00:08:32.000Z")
