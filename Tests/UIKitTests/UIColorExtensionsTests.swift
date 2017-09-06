@@ -152,33 +152,45 @@ class UIColorExtensionsTests: XCTestCase {
     
     func testHexString() {
 		var color = UIColor.red
-		XCTAssertEqual(color.hexString, "#FF0000")
-		
+		XCTAssertEqual(color.hexString(), "#FF0000")
+
 		color = UIColor.blue
-		XCTAssertEqual(color.hexString, "#0000FF")
+		XCTAssertEqual(color.hexString(), "#0000FF")
 		
 		color = UIColor(hex: 0xABCDEF)!
-		XCTAssertEqual(color.hexString, "#ABCDEF")
+		XCTAssertEqual(color.hexString(), "#ABCDEF")
 		
 		color = UIColor(hex: 0xABC)!
-		XCTAssertEqual(color.hexString, "#000ABC")
+		XCTAssertEqual(color.hexString(), "#000ABC")
 		
 		color = UIColor.black
-		XCTAssertEqual(color.hexString, "#000000")
+		XCTAssertEqual(color.hexString(), "#000000")
+
+		color = UIColor.clear
+		XCTAssertEqual(color.hexString(withAlpha: true), "#00000000")
+
+		color = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+		XCTAssertEqual(color.hexString(withAlpha: true), "#7F7F7F7F")
 	}
 	
 	func testShortHexString() {
 		var color: UIColor? = UIColor.red
-		XCTAssertEqual(color?.shortHexString, "#F00")
+		XCTAssertEqual(color?.shortHexString(), "#F00")
 		
 		color = UIColor.blue
-		XCTAssertEqual(color?.shortHexString, "#00F")
+		XCTAssertEqual(color?.shortHexString(), "#00F")
 		
 		color = UIColor(hexString: "#0F120F")
-		XCTAssertNil(color?.shortHexString)
+		XCTAssertNil(color?.shortHexString())
 		
 		color = UIColor(hexString: "#8FFFF")
-		XCTAssertNil(color?.shortHexString)
+		XCTAssertNil(color?.shortHexString())
+
+		color = UIColor.red
+		XCTAssertEqual(color?.shortHexString(withAlpha: true), "#FF00")
+
+		color = UIColor.blue
+		XCTAssertEqual(color?.shortHexString(withAlpha: true), "#F00F")
 	}
 	
 	func testShortHexOrHexString() {
