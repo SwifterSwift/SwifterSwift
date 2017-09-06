@@ -252,16 +252,16 @@ class DateExtensionsTests: XCTestCase {
 
     func testIsInThisMonth() {
         let date = Date()
-        XCTAssert(date.testIsInThisMonth)
+        XCTAssert(date.isInThisMonth)
         let dateOneYearFromNow = date.adding(.year, value: 1)
-        XCTAssertFalse(dateOneYearFromNow.testIsInThisMonth)
+        XCTAssertFalse(dateOneYearFromNow.isInThisMonth)
     }
 
     func testIsInThisYear() {
         let date = Date()
-        XCTAssert(date.testIsInThisYear)
+        XCTAssert(date.isInThisYear)
         let dateOneYearFromNow = date.adding(.year, value: 1)
-        XCTAssertFalse(dateOneYearFromNow.testIsInThisYear)
+        XCTAssertFalse(dateOneYearFromNow.isInThisYear)
     }
 
 	func testIso8601String() {

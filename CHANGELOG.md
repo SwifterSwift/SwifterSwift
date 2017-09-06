@@ -38,6 +38,9 @@ All notable changes to this project will be documented in this file.
   - added `minutesSince(_ date: Date)` method to get number of minutes between two date.
   - added `hoursSince(_ date: Date)` method to get number of hours between two date.
   - added `daysSince(_ date: Date)` method to get number of days between two date.
+  - added `isInThisYear` property to check if date is in the current year.
+  - added `isInThisMonth` property to check if date is in the current month.
+  - added `isInThisWeek` property to check if date is in the current week.
 
 - New **URLRequest** extensions
   - added `init?(urlString: String)` fallible initializer create a URLRequest from URL string.
