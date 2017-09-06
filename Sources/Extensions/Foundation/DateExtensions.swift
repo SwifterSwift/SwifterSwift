@@ -277,6 +277,24 @@ public extension Date {
     public var isInWeekday: Bool {
         return !Calendar.current.isDateInWeekend(self)
     }
+
+    /// SwifterSwift: Check if date is within the current week.
+    ///
+    public var isInThisWeek: Bool {
+        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
+    }
+
+    /// SwifterSwift: Check if date is within the current month.
+    ///
+    public var isInThisMonth: Bool {
+        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .month)
+    }
+
+    /// SwifterSwift: Check if date is within the current year.
+    ///
+    public var isInThisYear: Bool {
+        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
+    }
 	
 	/// SwifterSwift: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
 	///
