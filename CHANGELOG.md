@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file.
 
 # v3.2.0
 
+### API Breaking
 - **SwifterSwift**
   - `userDefaults` is deprecated, use Apple's `UserDefaults.standard` instead.
   - `object(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.object(forKey: _)` instead.
