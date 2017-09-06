@@ -660,6 +660,38 @@ public extension Date {
 		return dateFormatter.string(from: self)
 	}
 	
+	/// SwifterSwift: get number of seconds between two date
+	///
+	/// - Parameter date: date to compate self to.
+	/// - Returns: number of seconds between self and given date.
+	public func secondsSince(_ date: Date) -> Double {
+		return self.timeIntervalSince(date)
+	}
+	
+	/// SwifterSwift: get number of minutes between two date
+	///
+	/// - Parameter date: date to compate self to.
+	/// - Returns: number of minutes between self and given date.
+	public func minutesSince(_ date: Date) -> Double {
+		return self.timeIntervalSince(date)/60
+	}
+	
+	/// SwifterSwift: get number of hours between two date
+	///
+	/// - Parameter date: date to compate self to.
+	/// - Returns: number of hours between self and given date.
+	public func hoursSince(_ date: Date) -> Double {
+		return self.timeIntervalSince(date)/3600
+	}
+	
+	/// SwifterSwift: get number of days between two date
+	///
+	/// - Parameter date: date to compate self to.
+	/// - Returns: number of days between self and given date.
+	public func daysSince(_ date: Date) -> Double {
+		return self.timeIntervalSince(date)/(3600*24)
+	}
+	
 }
 
 
