@@ -608,6 +608,35 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date.monthName(ofStyle: .oneLetter), "F")
 	}
 	
+	func testSecondsSince() {
+		let date1 = Date(timeIntervalSince1970: 100)
+		let date2 = Date(timeIntervalSince1970: 180)
+		XCTAssertEqual(date2.secondsSince(date1), 80)
+		XCTAssertEqual(date1.secondsSince(date2), -80)
+	}
+	
+	func testMinutesSince() {
+		let date1 = Date(timeIntervalSince1970: 120)
+		let date2 = Date(timeIntervalSince1970: 180)
+		XCTAssertEqual(date2.minutesSince(date1), 1)
+		XCTAssertEqual(date1.minutesSince(date2), -1)
+	}
+	
+	func testHoursSince() {
+		let date1 = Date(timeIntervalSince1970: 3600)
+		let date2 = Date(timeIntervalSince1970: 7200)
+		XCTAssertEqual(date2.hoursSince(date1), 1)
+		XCTAssertEqual(date1.hoursSince(date2), -1)
+	}
+	
+	func testDaysSince() {
+		let date1 = Date(timeIntervalSince1970: 0)
+		let date2 = Date(timeIntervalSince1970: 86400)
+		XCTAssertEqual(date2.daysSince(date1), 1)
+		XCTAssertEqual(date1.daysSince(date2), -1)
+	}
+	
+	
 	func testNewDateFromComponenets() {
 		let date = Date(calendar: Date().calendar, timeZone: Date().timeZone, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
 		XCTAssertNotNil(date)

@@ -16,6 +16,41 @@ All notable changes to this project will be documented in this file.
 > ### Bugfixes
 > N/A
 
+# v3.2.0
+
+### API Breaking
+- **SwifterSwift**
+  - `userDefaults` is deprecated, use Apple's `UserDefaults.standard` instead.
+  - `object(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.object(forKey: _)` instead.
+  - `string(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.string(forKey: _)` instead.
+  - `integer(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.integer(forKey: _)` instead.
+  - `double(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.double(forKey: _)` instead.
+  - `data(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.data(forKey: _)` instead.
+  - `bool(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.bool(forKey: _)` instead.
+  - `array(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.array(forKey: _)` instead.
+  - `dictionary(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.dictionary(forKey: _)` instead.
+  - `float(forKey: String)` is deprecated, use SwifterSwift's `UserDefaults.standard.float(forKey: _) ` instead.
+  - `set(_ value: Any?, forKey: String)` is deprecated, use Apple's `UserDefaults.standard.setValue(_, forKey: _)` instead.
+
+### Enhancements
+- New **Date** extensions
+  - added `secondsSince(_ date: Date)` method to get number of seconds between two date.
+  - added `minutesSince(_ date: Date)` method to get number of minutes between two date.
+  - added `hoursSince(_ date: Date)` method to get number of hours between two date.
+  - added `daysSince(_ date: Date)` method to get number of days between two date.
+
+- New **URLRequest** extensions
+  - added `init?(urlString: String)` fallible initializer create a URLRequest from URL string.
+
+- New **UIWebView** extensions
+  - added `loadURL(_ url: URL)` method to load a URL.
+  - added `loadURLString(_ urlString: String)` method to load a URL string.
+
+- New **UserDefaults** extensions
+  - added `subscript(key: String)` method to get values from UserDefaults using the [] operator.
+  - added `float(forKey key: String)` method to get a Float value from UserDefaults.
+  - added `date(forKey key: String)` method to get a Date value from UserDefaults.
+
 
 # v3.1.1
 
