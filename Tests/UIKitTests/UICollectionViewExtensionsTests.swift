@@ -36,8 +36,8 @@ class UICollectionViewExtensionsTests: XCTestCase {
 	}
 	
 	func testNumberOfRows() {
-		XCTAssertEqual(collectionView.numberOfItems, 5)
-		XCTAssertEqual(emptyCollectionView.numberOfItems, 0)
+		XCTAssertEqual(collectionView.numberOfItems(), 5)
+		XCTAssertEqual(emptyCollectionView.numberOfItems(), 0)
 	}
 	
 	func testIndexPathForLastRowInSection() {

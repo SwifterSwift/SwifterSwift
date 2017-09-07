@@ -31,6 +31,19 @@ All notable changes to this project will be documented in this file.
   - `dictionary(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.dictionary(forKey: _)` instead.
   - `float(forKey: String)` is deprecated, use SwifterSwift's `UserDefaults.standard.float(forKey: _) ` instead.
   - `set(_ value: Any?, forKey: String)` is deprecated, use Apple's `UserDefaults.standard.setValue(_, forKey: _)` instead.
+- **Int**
+  - Property `romanNumeral` is now a method.
+- **String**
+  - Property `lines` is now a method.
+  - Property `mostCommonCharacter` is now a method.
+  - Property `reversed` is now a method.
+  - Property `unicodeArray` is now a method.
+  - Property `words` is now a method.
+  - Property `wordCount` is now a method.
+- **UICollectionView**
+  - Property `numberOfItems` is now a method.
+- **UITableView**
+  - Property `numberOfRows` is now a method.
 
 ### Enhancements
 - New **Date** extensions

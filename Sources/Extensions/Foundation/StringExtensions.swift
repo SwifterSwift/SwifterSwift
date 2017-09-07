@@ -236,39 +236,6 @@ public extension String {
 		return characters.count
 	}
 	
-	/// SwifterSwift: Array of strings separated by new lines.
-	///
-	///		"Hello\ntest".lines -> ["Hello", "test"]
-	///
-	public var lines: [String] {
-		var result = [String]()
-		enumerateLines { line, _ in
-			result.append(line)
-		}
-		return result
-	}
-	
-	/// SwifterSwift: The most common character in string.
-	///
-	///		"This is a test, since e is appearing everywhere e should be the common character".mostCommonCharacter -> "e"
-	///
-	public var mostCommonCharacter: String {
-		let mostCommon = withoutSpacesAndNewLines.characters.reduce([Character: Int]()) {
-			var counts = $0
-			counts[$1] = ($0[$1] ?? 0) + 1
-			return counts
-			}.max { $0.1 < $1.1 }?.0
-		return mostCommon?.string ?? ""
-	}
-	
-	/// SwifterSwift: Reversed string.
-	///
-	///		"foo".reversed -> "oof"
-	///
-	public var reversed: String {
-		return String(characters.reversed())
-	}
-	
 	/// SwifterSwift: Bool value from string (if applicable).
 	///
 	///		"1".bool -> true
@@ -309,39 +276,6 @@ public extension String {
 		return formatter.date(from: selfLowercased)
 	}
 	
-	/// Float value from string (if applicable).
-	///
-	/// - Parameter locale: Locale (default is Locale.current)
-	/// - Returns: Optional Float value from given string.
-	public func float(locale: Locale = .current) -> Float? {
-		let formatter = NumberFormatter()
-		formatter.locale = locale
-		formatter.allowsFloats = true
-		return formatter.number(from: self) as? Float
-	}
-	
-	/// Double value from string (if applicable).
-	///
-	/// - Parameter locale: Locale (default is Locale.current)
-	/// - Returns: Optional Double value from given string.
-	public func double(locale: Locale = .current) -> Double? {
-		let formatter = NumberFormatter()
-		formatter.locale = locale
-		formatter.allowsFloats = true
-		return formatter.number(from: self) as? Double
-	}
-	
-	/// CGFloat value from string (if applicable).
-	///
-	/// - Parameter locale: Locale (default is Locale.current)
-	/// - Returns: Optional CGFloat value from given string.
-	public func cgFloat(locale: Locale = .current) -> CGFloat? {
-		let formatter = NumberFormatter()
-		formatter.locale = locale
-		formatter.allowsFloats = true
-		return formatter.number(from: self) as? CGFloat
-	}
-	
 	/// SwifterSwift: Integer value from string (if applicable).
 	///
 	///		"101".int -> 101
@@ -365,14 +299,6 @@ public extension String {
 	///
 	public var trimmed: String {
 		return trimmingCharacters(in: .whitespacesAndNewlines)
-	}
-	
-	/// SwifterSwift: Array with unicodes for all characters in a string.
-	///
-	///		"SwifterSwift".unicodeArray -> [83, 119, 105, 102, 116, 101, 114, 83, 119, 105, 102, 116]
-	///
-	public var unicodeArray: [Int] {
-		return unicodeScalars.map({$0.hashValue})
 	}
 	
 	/// SwifterSwift: Readable string from a URL string.
@@ -399,35 +325,112 @@ public extension String {
 		return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
 	}
 	
-	/// SwifterSwift: an array of all words in a string
-	///
-	///		"Swift is amazing".words -> ["Swift", "is", "amazing"]
-	///
-	public var words: [String] {
-		// https://stackoverflow.com/questions/42822838
-		let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
-		let comps = components(separatedBy: chararacterSet)
-		return comps.filter { !$0.isEmpty }
-	}
-	
-	/// SwifterSwift: Count of words in a string.
-	///
-	///		"Swift is amazing".wordsCount -> 3
-	///
-	public var wordCount: Int {
-		// https://stackoverflow.com/questions/42822838
-		let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
-		let comps = components(separatedBy: chararacterSet)
-		let words = comps.filter { !$0.isEmpty }
-		return words.count
-	}
-	
 }
 
 
 // MARK: - Methods
 public extension String {
 	
+    /// Float value from string (if applicable).
+    ///
+    /// - Parameter locale: Locale (default is Locale.current)
+    /// - Returns: Optional Float value from given string.
+    public func float(locale: Locale = .current) -> Float? {
+        let formatter = NumberFormatter()
+        formatter.locale = locale
+        formatter.allowsFloats = true
+        return formatter.number(from: self) as? Float
+    }
+    
+    /// Double value from string (if applicable).
+    ///
+    /// - Parameter locale: Locale (default is Locale.current)
+    /// - Returns: Optional Double value from given string.
+    public func double(locale: Locale = .current) -> Double? {
+        let formatter = NumberFormatter()
+        formatter.locale = locale
+        formatter.allowsFloats = true
+        return formatter.number(from: self) as? Double
+    }
+    
+    /// CGFloat value from string (if applicable).
+    ///
+    /// - Parameter locale: Locale (default is Locale.current)
+    /// - Returns: Optional CGFloat value from given string.
+    public func cgFloat(locale: Locale = .current) -> CGFloat? {
+        let formatter = NumberFormatter()
+        formatter.locale = locale
+        formatter.allowsFloats = true
+        return formatter.number(from: self) as? CGFloat
+    }
+    
+    /// SwifterSwift: Array of strings separated by new lines.
+    ///
+    ///		"Hello\ntest".lines() -> ["Hello", "test"]
+    ///
+    /// - Returns: Strings separated by new lines.
+    public func lines() -> [String] {
+        var result = [String]()
+        enumerateLines { line, _ in
+            result.append(line)
+        }
+        return result
+    }
+    
+    /// SwifterSwift: The most common character in string.
+    ///
+    ///		"This is a test, since e is appearing everywhere e should be the common character".mostCommonCharacter() -> "e"
+    ///
+    /// - Returns: The most common character.
+    public func mostCommonCharacter() -> String {
+        let mostCommon = withoutSpacesAndNewLines.characters.reduce([Character: Int]()) {
+            var counts = $0
+            counts[$1] = ($0[$1] ?? 0) + 1
+            return counts
+            }.max { $0.1 < $1.1 }?.0
+        return mostCommon?.string ?? ""
+    }
+    
+    /// SwifterSwift: Reversed string.
+    ///
+    ///		"foo".reversed() -> "oof"
+    ///
+    /// - Returns: The reversed string.
+    public func reversed() -> String {
+        return String(characters.reversed())
+    }
+    
+    /// SwifterSwift: Array with unicodes for all characters in a string.
+    ///
+    ///		"SwifterSwift".unicodeArray -> [83, 119, 105, 102, 116, 101, 114, 83, 119, 105, 102, 116]
+    ///
+    /// - Returns: The unicodes for all characters in a string.
+    public func unicodeArray() -> [Int] {
+        return unicodeScalars.map({ $0.hashValue })
+    }
+    
+    /// SwifterSwift: an array of all words in a string
+    ///
+    ///		"Swift is amazing".words() -> ["Swift", "is", "amazing"]
+    ///
+    /// - Returns: The words contained in a string.
+    public func words() -> [String] {
+        // https://stackoverflow.com/questions/42822838
+        let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
+        let comps = components(separatedBy: chararacterSet)
+        return comps.filter { !$0.isEmpty }
+    }
+    
+    /// SwifterSwift: Count of words in a string.
+    ///
+    ///		"Swift is amazing".wordsCount() -> 3
+    ///
+    /// - Returns: The count of words contained in a string.
+    public func wordCount() -> Int {
+        // https://stackoverflow.com/questions/42822838
+        return words().count
+    }
+    
 	/// SwifterSwift: Safely subscript string with index.
 	///
 	///		"Hello World!"[3] -> "l"

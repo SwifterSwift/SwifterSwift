@@ -109,8 +109,8 @@ class IntExtensionsTests: XCTestCase {
 	}
 	
 	func testRomanNumeral() {
-		XCTAssertEqual(10.romanNumeral, "X")
-		XCTAssertNil((-1).romanNumeral)
+		XCTAssertEqual(10.romanNumeral(), "X")
+		XCTAssertNil((-1).romanNumeral())
 	}
 	
 	func testTimeString() {

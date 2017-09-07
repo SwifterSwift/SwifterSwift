@@ -21,18 +21,21 @@ public extension SignedInteger {
 	public var isOdd: Bool {
 		return (self % 2) != 0
 	}
-	
-	/// SwifterSwift: Array of digits of integer value.
-	public var digits: [Self] {
-		var digits: [Self] = []
-		for char in String(self).characters {
-			if let int = IntMax(String(char)) {
-				digits.append(Self(int))
-			}
-		}
-		return digits
-	}
-	
+    
+    /// SwifterSwift: Array of digits of integer value.
+    ///
+    ///		180.digits -> [1, 8, 0]
+    ///
+    public var digits: [Self] {
+        var digits: [Self] = []
+        for char in String(self).characters {
+            if let int = IntMax(String(char)) {
+                digits.append(Self(int))
+            }
+        }
+        return digits
+    }
+    
 	/// SwifterSwift: Number of digits of integer value.
 	public var digitsCount: Int {
 		return String(self).characters.count
@@ -79,7 +82,7 @@ public extension SignedInteger {
 	public func lcm(of n: Self) -> Self {
 		return (self * n).abs / gcd(of: n)
 	}
-	
+
 }
 
 

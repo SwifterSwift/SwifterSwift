@@ -59,31 +59,6 @@ public extension Int {
 		return CGFloat(self)
 	}
 	
-	/// SwifterSwift: Roman numeral string from integer (if applicable).
-	public var romanNumeral: String? {
-		// https://gist.github.com/kumo/a8e1cb1f4b7cff1548c7
-		guard self > 0 else { // there is no roman numerals for 0 or negative numbers
-			return nil
-		}
-		let romanValues = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
-		let arabicValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
-		
-		var romanValue = ""
-		var startingValue = self
-		
-		for (index, romanChar) in romanValues.enumerated() {
-			let arabicValue = arabicValues[index]
-			let div = startingValue / arabicValue
-			if (div > 0) {
-				for _ in 0..<div {
-					romanValue += romanChar
-				}
-				startingValue -= arabicValue * div
-			}
-		}
-		return romanValue
-	}
-	
 	/// SwifterSwift: String formatted for values over ±1000 (example: 1k, -2k, 100k, 1kk, -5kk..)
 	public var kFormatted: String {
 		var sign: String {
@@ -149,6 +124,34 @@ public extension Int {
 		return true
 	}
 
+    /// SwifterSwift: Roman numeral string from integer (if applicable).
+    ///
+    ///		10.romanNumeral() -> "X"
+    ///
+    /// - Returns: The roman numeral string.
+    public func romanNumeral() -> String? {
+        // https://gist.github.com/kumo/a8e1cb1f4b7cff1548c7
+        guard self > 0 else { // there is no roman numerals for 0 or negative numbers
+            return nil
+        }
+        let romanValues = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+        let arabicValues = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1]
+        
+        var romanValue = ""
+        var startingValue = self
+        
+        for (index, romanChar) in romanValues.enumerated() {
+            let arabicValue = arabicValues[index]
+            let div = startingValue / arabicValue
+            if (div > 0) {
+                for _ in 0..<div {
+                    romanValue += romanChar
+                }
+                startingValue -= arabicValue * div
+            }
+        }
+        return romanValue
+    }
 }
 
 
