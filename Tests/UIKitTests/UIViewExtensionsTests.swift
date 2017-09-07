@@ -136,12 +136,12 @@ class UIViewExtensionsTests: XCTestCase {
 	
 	func testParentViewController() {
 		let vc = UIViewController()
-		XCTAssertNotNil(vc.view.parentViewController())
-		XCTAssertEqual(vc.view.parentViewController(), vc)
+		XCTAssertNotNil(vc.view.parentViewController)
+		XCTAssertEqual(vc.view.parentViewController, vc)
 		
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
 		let view = UIView(frame: frame)
-		XCTAssertNil(view.parentViewController())
+		XCTAssertNil(view.parentViewController)
 	}
 	
 	func testX() {

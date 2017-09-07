@@ -50,7 +50,7 @@ class IntExtensionsTests: XCTestCase {
 	}
 	
 	func testDigits() {
-		XCTAssertEqual(180.digits(), [1, 8, 0])
+		XCTAssertEqual(180.digits, [1, 8, 0])
 	}
 	
 	func testDigitsCount() {

@@ -208,16 +208,8 @@ public extension UIView {
 		}
 	}
 	
-}
-
-
-// MARK: - Methods
-public extension UIView {
-	
     /// SwifterSwift: Get view's parent view controller
-    ///
-    /// - Returns: The view's controller (if applicable).
-    public func parentViewController() -> UIViewController? {
+    public var parentViewController: UIViewController? {
         weak var parentResponder: UIResponder? = self
         while parentResponder != nil {
             parentResponder = parentResponder!.next
@@ -227,12 +219,9 @@ public extension UIView {
         }
         return nil
     }
-
     
     /// SwifterSwift: First responder.
-    ///
-    /// - Returns: Return the view or one its subviews if that some is the firstResponder (if applicable).
-    public func firstResponder() -> UIView? {
+    public var firstResponder: UIView? {
         guard !isFirstResponder else {
             return self
         }
@@ -243,6 +232,11 @@ public extension UIView {
         }
         return nil
     }
+}
+
+
+// MARK: - Methods
+public extension UIView {
     
 	/// SwifterSwift: Set some or all corners radiuses of view.
 	///

@@ -18,6 +18,14 @@ public extension UISearchBar {
 		return text?.trimmingCharacters(in: .whitespacesAndNewlines)
 	}
 	
+    /// SwifterSwift: Text field inside search bar (if applicable).
+    public var textField : UITextField? {
+        let subViews = subviews.flatMap { $0.subviews }
+        guard let textField = (subViews.first { $0 is UITextField }) as? UITextField else {
+            return nil
+        }
+        return textField
+    }
 }
 
 
@@ -28,16 +36,5 @@ public extension UISearchBar {
 	public func clear() {
 		text = ""
 	}
-    
-    /// SwifterSwift: Text field inside search bar (if applicable).
-    ///
-    /// - Returns: The instance for embedded textField.
-    public func textField() -> UITextField? {
-        let subViews = subviews.flatMap { $0.subviews }
-        guard let textField = (subViews.filter { $0 is UITextField }).first as? UITextField else {
-            return nil
-        }
-        return textField
-    }
 }
 #endif
