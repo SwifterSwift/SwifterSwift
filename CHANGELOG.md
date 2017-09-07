@@ -63,6 +63,7 @@ All notable changes to this project will be documented in this file.
   - added `subscript(key: String)` method to get values from UserDefaults using the [] operator.
   - added `float(forKey key: String)` method to get a Float value from UserDefaults.
   - added `date(forKey key: String)` method to get a Date value from UserDefaults.
+- Improved file structre, as in [#236](https://github.com/SwifterSwift/SwifterSwift/issues/236)
 - Improved README
   - Removed unnecessary description in Installation section
   - Updated **List of All Extensions** section to match the new file structure.
