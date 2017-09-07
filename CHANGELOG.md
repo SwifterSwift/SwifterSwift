@@ -54,18 +54,22 @@ All notable changes to this project will be documented in this file.
   - added `isInThisYear` property to check if date is in the current year.
   - added `isInThisMonth` property to check if date is in the current month.
   - added `isInThisWeek` property to check if date is in the current week.
-
 - New **URLRequest** extensions
   - added `init?(urlString: String)` fallible initializer create a URLRequest from URL string.
-
 - New **UIWebView** extensions
   - added `loadURL(_ url: URL)` method to load a URL.
   - added `loadURLString(_ urlString: String)` method to load a URL string.
-
 - New **UserDefaults** extensions
   - added `subscript(key: String)` method to get values from UserDefaults using the [] operator.
   - added `float(forKey key: String)` method to get a Float value from UserDefaults.
   - added `date(forKey key: String)` method to get a Date value from UserDefaults.
+- Improved file structre, as in [#236](https://github.com/SwifterSwift/SwifterSwift/issues/236)
+- Improved README
+  - Removed unnecessary description in Installation section
+  - Updated **List of All Extensions** section to match the new file structure.
+
+### Bugfixes
+N/A
 
 
 # v3.1.1
