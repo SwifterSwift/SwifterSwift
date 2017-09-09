@@ -1,9 +1,13 @@
 osx_image: xcode8.3
 language: objective-c
 before_install:
+    - bundle install
     - brew update
     - brew outdated xctool || brew upgrade xctool
     - gem install xcpretty
+    - gem install xcpretty-json-formatter
+before_script:
+    - bundle exec danger
 script: sh Tests/build.sh /tmp/SwifterSwift
 after_success:
     - bash <(curl -s https://codecov.io/bash) -D /tmp/SwifterSwift
