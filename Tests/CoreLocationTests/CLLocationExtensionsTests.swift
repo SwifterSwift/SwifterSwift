@@ -17,11 +17,11 @@ class CLLocationExtensionsTests: XCTestCase {
 		let b = CLLocation(latitude: -15.692030, longitude: -47.594397)
 		let mid = CLLocation.midLocation(start: a, end: b)
 		
-		XCTAssertEqualWithAccuracy(mid.coordinate.latitude, -15.7575223324019, accuracy: 0.0000000000001)
-		XCTAssertEqualWithAccuracy(mid.coordinate.longitude, -47.7680620274339, accuracy: 0.0000000000001)
+		XCTAssertEqual(mid.coordinate.latitude, -15.7575223324019, accuracy: 0.0000000000001)
+		XCTAssertEqual(mid.coordinate.longitude, -47.7680620274339, accuracy: 0.0000000000001)
 		
-		XCTAssertEqualWithAccuracy(a.midLocation(to: b).coordinate.latitude, -15.7575223324019, accuracy: 0.0000000000001)
-		XCTAssertEqualWithAccuracy(a.midLocation(to: b).coordinate.longitude, -47.7680620274339, accuracy: 0.0000000000001)
+		XCTAssertEqual(a.midLocation(to: b).coordinate.latitude, -15.7575223324019, accuracy: 0.0000000000001)
+		XCTAssertEqual(a.midLocation(to: b).coordinate.longitude, -47.7680620274339, accuracy: 0.0000000000001)
 		
 	}
 	
@@ -30,6 +30,6 @@ class CLLocationExtensionsTests: XCTestCase {
 		let b = CLLocation(latitude: 38.5352759115441, longitude: -89.8448181152343)
 		let bearing = a.bearing(to: b)
 		
-		XCTAssertEqualWithAccuracy(bearing, 105.619, accuracy: 0.001)
+		XCTAssertEqual(bearing, 105.619, accuracy: 0.001)
 	}
 }

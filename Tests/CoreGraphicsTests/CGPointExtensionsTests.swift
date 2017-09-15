@@ -16,12 +16,12 @@ class CGPointExtensionsTests: XCTestCase {
 	
 	func testDistanceFromPoint() {
 		let distance = point1.distance(from: point2)
-		XCTAssertEqualWithAccuracy(distance, 28.28, accuracy: 0.01)
+		XCTAssertEqual(distance, 28.28, accuracy: 0.01)
 	}
 	
 	func testStaticDistance() {
 		let distance = CGPoint.distance(from: point2, to: point1)
-		XCTAssertEqualWithAccuracy(distance, 28.28, accuracy: 0.01)
+		XCTAssertEqual(distance, 28.28, accuracy: 0.01)
 	}
 	
 	func testAdd() {

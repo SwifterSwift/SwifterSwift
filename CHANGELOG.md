@@ -19,6 +19,8 @@ All notable changes to this project will be documented in this file.
 # v3.2.0
 
 ### API Breaking
+- **Swift 3.2**
+  - Code has been updated to Swift 3.2, please use [`v3.1.1`](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.1.1) if you are still using Swift 3 or Xcode 8
 - **SwifterSwift**
   - `userDefaults` is deprecated, use Apple's `UserDefaults.standard` instead.
   - `object(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.object(forKey: _)` instead.
