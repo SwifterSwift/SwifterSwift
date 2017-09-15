@@ -5,7 +5,6 @@
 //  Created by Omar Albeik on 8/5/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
-
 #if os(macOS)
 	import Cocoa
 #else
@@ -188,10 +187,10 @@ public extension String {
 	}
 	
 	/// SwifterSwift: Check if string is a valid file URL.
-    ///
-    ///		"file://Documents/file.txt".isValidFileUrl -> true
-    ///	
-    public var isValidFileUrl: Bool {
+	///
+	///		"file://Documents/file.txt".isValidFileUrl -> true
+	///
+	public var isValidFileUrl: Bool {
 		return URL(string: self)?.isFileURL ?? false
 	}
 	
@@ -234,39 +233,6 @@ public extension String {
 		return characters.count
 	}
 	
-	/// SwifterSwift: Array of strings separated by new lines.
-	///
-	///		"Hello\ntest".lines -> ["Hello", "test"]
-	///
-	public var lines: [String] {
-		var result = [String]()
-		enumerateLines { line, _ in
-			result.append(line)
-		}
-		return result
-	}
-	
-	/// SwifterSwift: The most common character in string.
-	///
-	///		"This is a test, since e is appearing everywhere e should be the common character".mostCommonCharacter -> "e"
-	///
-	public var mostCommonCharacter: String {
-		let mostCommon = withoutSpacesAndNewLines.characters.reduce([Character: Int]()) {
-			var counts = $0
-			counts[$1] = ($0[$1] ?? 0) + 1
-			return counts
-			}.max { $0.1 < $1.1 }?.0
-		return mostCommon?.string ?? ""
-	}
-	
-	/// SwifterSwift: Reversed string.
-	///
-	///		"foo".reversed -> "oof"
-	///
-	public var reversed: String {
-		return String(characters.reversed())
-	}
-	
 	/// SwifterSwift: Bool value from string (if applicable).
 	///
 	///		"1".bool -> true
@@ -307,6 +273,61 @@ public extension String {
 		return formatter.date(from: selfLowercased)
 	}
 	
+	/// SwifterSwift: Integer value from string (if applicable).
+	///
+	///		"101".int -> 101
+	///
+	public var int: Int? {
+		return Int(self)
+	}
+	
+	/// SwifterSwift: URL from string (if applicable).
+	///
+	///		"https://google.com".url -> URL(string: "https://google.com")
+	///		"not url".url -> nil
+	///
+	public var url: URL? {
+		return URL(string: self)
+	}
+	
+	/// SwifterSwift: String with no spaces or new lines in beginning and end.
+	///
+	///		"   hello  \n".trimmed -> "hello"
+	///
+	public var trimmed: String {
+		return trimmingCharacters(in: .whitespacesAndNewlines)
+	}
+	
+	/// SwifterSwift: Readable string from a URL string.
+	///
+	///		"it's%20easy%20to%20decode%20strings".urlDecoded -> "it's easy to decode strings"
+	///
+	public var urlDecoded: String {
+		return removingPercentEncoding ?? self
+	}
+	
+	/// SwifterSwift: URL escaped string.
+	///
+	///		"it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
+	///
+	public var urlEncoded: String {
+		return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+	}
+	
+	/// SwifterSwift: String without spaces and new lines.
+	///
+	///		"   \n Swifter   \n  Swift  ".withoutSpacesAndNewLines -> "SwifterSwift"
+	///
+	public var withoutSpacesAndNewLines: String {
+		return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
+	}
+	
+}
+
+
+// MARK: - Methods
+public extension String {
+	
 	/// Float value from string (if applicable).
 	///
 	/// - Parameter locale: Locale (default is Locale.current)
@@ -340,68 +361,57 @@ public extension String {
 		return formatter.number(from: self) as? CGFloat
 	}
 	
-	/// SwifterSwift: Integer value from string (if applicable).
+	/// SwifterSwift: Array of strings separated by new lines.
 	///
-	///		"101".int -> 101
+	///		"Hello\ntest".lines() -> ["Hello", "test"]
 	///
-	public var int: Int? {
-		return Int(self)
+	/// - Returns: Strings separated by new lines.
+	public func lines() -> [String] {
+		var result = [String]()
+		enumerateLines { line, _ in
+			result.append(line)
+		}
+		return result
 	}
 	
-	/// SwifterSwift: URL from string (if applicable).
+	/// SwifterSwift: The most common character in string.
 	///
-	///		"https://google.com".url -> URL(string: "https://google.com")
-	///		"not url".url -> nil
+	///		"This is a test, since e is appearing everywhere e should be the common character".mostCommonCharacter() -> "e"
 	///
-	public var url: URL? {
-		return URL(string: self)
+	/// - Returns: The most common character.
+	public func mostCommonCharacter() -> String {
+		let mostCommon = withoutSpacesAndNewLines.characters.reduce([Character: Int]()) {
+			var counts = $0
+			counts[$1] = ($0[$1] ?? 0) + 1
+			return counts
+			}.max { $0.1 < $1.1 }?.0
+		return mostCommon?.string ?? ""
 	}
 	
-	/// SwifterSwift: String with no spaces or new lines in beginning and end.
+	/// SwifterSwift: Reversed string.
 	///
-	///		"   hello  \n".trimmed -> "hello"
+	///		"foo".reversed() -> "oof"
 	///
-	public var trimmed: String {
-		return trimmingCharacters(in: .whitespacesAndNewlines)
+	/// - Returns: The reversed string.
+	public func reversed() -> String {
+		return String(characters.reversed())
 	}
 	
 	/// SwifterSwift: Array with unicodes for all characters in a string.
 	///
 	///		"SwifterSwift".unicodeArray -> [83, 119, 105, 102, 116, 101, 114, 83, 119, 105, 102, 116]
 	///
-	public var unicodeArray: [Int] {
-		return unicodeScalars.map({$0.hashValue})
-	}
-	
-	/// SwifterSwift: Readable string from a URL string.
-	///
-	///		"it's%20easy%20to%20decode%20strings".urlDecoded -> "it's easy to decode strings"
-	///
-	public var urlDecoded: String {
-		return removingPercentEncoding ?? self
-	}
-	
-	/// SwifterSwift: URL escaped string.
-	///
-	///		"it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
-	///
-	public var urlEncoded: String {
-		return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-	}
-	
-	/// SwifterSwift: String without spaces and new lines.
-	///
-	///		"   \n Swifter   \n  Swift  ".withoutSpacesAndNewLines -> "SwifterSwift"
-	///
-	public var withoutSpacesAndNewLines: String {
-		return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
+	/// - Returns: The unicodes for all characters in a string.
+	public func unicodeArray() -> [Int] {
+		return unicodeScalars.map({ $0.hashValue })
 	}
 	
 	/// SwifterSwift: an array of all words in a string
 	///
-	///		"Swift is amazing".words -> ["Swift", "is", "amazing"]
+	///		"Swift is amazing".words() -> ["Swift", "is", "amazing"]
 	///
-	public var words: [String] {
+	/// - Returns: The words contained in a string.
+	public func words() -> [String] {
 		// https://stackoverflow.com/questions/42822838
 		let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
 		let comps = components(separatedBy: chararacterSet)
@@ -410,21 +420,13 @@ public extension String {
 	
 	/// SwifterSwift: Count of words in a string.
 	///
-	///		"Swift is amazing".wordsCount -> 3
+	///		"Swift is amazing".wordsCount() -> 3
 	///
-	public var wordCount: Int {
+	/// - Returns: The count of words contained in a string.
+	public func wordCount() -> Int {
 		// https://stackoverflow.com/questions/42822838
-		let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
-		let comps = components(separatedBy: chararacterSet)
-		let words = comps.filter { !$0.isEmpty }
-		return words.count
+		return words().count
 	}
-	
-}
-
-
-// MARK: - Methods
-public extension String {
 	
 	/// SwifterSwift: Safely subscript string with index.
 	///
@@ -477,12 +479,12 @@ public extension String {
 	///		"SomeText".copyToPasteboard() // copies "SomeText" to pasteboard
 	///
 	public func copyToPasteboard() {
-	#if os(iOS)
-	UIPasteboard.general.string = self
-	#elseif os(macOS)
-		NSPasteboard.general.clearContents()
-		NSPasteboard.general.setString(self, forType: .string)
-	#endif
+		#if os(iOS)
+			UIPasteboard.general.string = self
+		#elseif os(macOS)
+			NSPasteboard.general.clearContents()
+			NSPasteboard.general.setString(self, forType: .string)
+		#endif
 	}
 	#endif
 	
@@ -876,6 +878,7 @@ public extension String {
 }
 
 
+
 // MARK: - NSAttributedString extensions
 public extension String {
 	
@@ -883,11 +886,11 @@ public extension String {
 	/// SwifterSwift: Bold string.
 	///
 	public var bold: NSAttributedString {
-	#if os(macOS)
-		return NSMutableAttributedString(string: self, attributes: [.font: NSFont.boldSystemFont(ofSize: NSFont.systemFontSize)])
-	#else
-		return NSMutableAttributedString(string: self, attributes: [.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
-	#endif
+		#if os(macOS)
+			return NSMutableAttributedString(string: self, attributes: [.font: NSFont.boldSystemFont(ofSize: NSFont.systemFontSize)])
+		#else
+			return NSMutableAttributedString(string: self, attributes: [.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+		#endif
 	}
 	#endif
 	
@@ -917,7 +920,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: NSColor) -> NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [.foregroundColor: color])
+	return NSMutableAttributedString(string: self, attributes: [.foregroundColor: color])
 	}
 	#else
 	/// SwifterSwift: Add color to string.

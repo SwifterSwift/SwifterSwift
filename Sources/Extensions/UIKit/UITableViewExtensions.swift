@@ -23,8 +23,15 @@ public extension UITableView {
 		return numberOfSections > 0 ? numberOfSections - 1 : 0
 	}
 	
+}
+
+// MARK: - Methods
+public extension UITableView {
+	
 	/// SwifterSwift: Number of all rows in all sections of tableView.
-	public var numberOfRows: Int {
+	///
+	/// - Returns: The count of all rows in the tableView.
+	public func numberOfRows() -> Int {
 		var section = 0
 		var rowCount = 0
 		while section < numberOfSections {
@@ -33,11 +40,6 @@ public extension UITableView {
 		}
 		return rowCount
 	}
-	
-}
-    
-// MARK: - Methods
-public extension UITableView {
 
 	/// SwifterSwift: IndexPath for last row in section.
 	///

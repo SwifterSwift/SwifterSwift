@@ -53,7 +53,6 @@ public extension Date {
 	}
 	
 	/// SwifterSwift: Quarter.
-	///
 	public var quarter: Int {
 		return Calendar.current.component(.quarter, from: self)
 	}
@@ -74,41 +73,41 @@ public extension Date {
 		return Calendar.current.component(.weekOfMonth, from: self)
 	}
 	
-    /// SwifterSwift: Year.
+	/// SwifterSwift: Year.
 	///
 	///		Date().year -> 2017
 	///
 	///		var someDate = Date()
 	///		someDate.year = 2000 // sets someDate's year to 2000
 	///
-    public var year: Int {
-        get {
-            return Calendar.current.component(.year, from: self)
-        }
-        set {
-            if let date = Calendar.current.date(bySetting: .year, value: newValue, of: self) {
-                self = date
-            }
-        }
-    }
-    
-    /// SwifterSwift: Month.
+	public var year: Int {
+		get {
+			return Calendar.current.component(.year, from: self)
+		}
+		set {
+			if let date = Calendar.current.date(bySetting: .year, value: newValue, of: self) {
+				self = date
+			}
+		}
+	}
+	
+	/// SwifterSwift: Month.
 	///
 	/// 	Date().month -> 1
 	///
 	/// 	var someDate = Date()
 	/// 	someDate.year = 10 // sets someDate's month to 10.
 	///
-    public var month: Int {
-        get {
-            return Calendar.current.component(.month, from: self)
-        }
-        set {
-            if let date = Calendar.current.date(bySetting: .month, value: newValue, of: self) {
-                self = date
-            }
-        }
-    }
+	public var month: Int {
+		get {
+			return Calendar.current.component(.month, from: self)
+		}
+		set {
+			if let date = Calendar.current.date(bySetting: .month, value: newValue, of: self) {
+				self = date
+			}
+		}
+	}
 	
 	/// SwifterSwift: Day.
 	///
@@ -127,21 +126,21 @@ public extension Date {
 			}
 		}
 	}
-    
-    /// SwifterSwift: Weekday.
+	
+	/// SwifterSwift: Weekday.
 	///
 	/// 	Date().weekOfMonth -> 5 // fifth day in the current week.
 	///
-    public var weekday: Int {
-        get {
-            return Calendar.current.component(.weekday, from: self)
-        }
-        set {
-            if let date = Calendar.current.date(bySetting: .weekday, value: newValue, of: self) {
-                self = date
-            }
-        }
-    }
+	public var weekday: Int {
+		get {
+			return Calendar.current.component(.weekday, from: self)
+		}
+		set {
+			if let date = Calendar.current.date(bySetting: .weekday, value: newValue, of: self) {
+				self = date
+			}
+		}
+	}
 	
 	/// SwifterSwift: Hour.
 	///
@@ -213,7 +212,6 @@ public extension Date {
 	}
 	
 	/// SwifterSwift: Milliseconds.
-	///
 	public var millisecond: Int {
 		get {
 			return Calendar.current.component(.nanosecond, from: self) / 1000000
@@ -267,16 +265,29 @@ public extension Date {
 	}
 	
 	/// SwifterSwift: Check if date is within a weekend period.
-	///
 	public var isInWeekend: Bool {
 		return Calendar.current.isDateInWeekend(self)
 	}
-    
-    /// SwifterSwift: Check if date is within a weekday period.
-	///
-    public var isInWeekday: Bool {
-        return !Calendar.current.isDateInWeekend(self)
-    }
+	
+	/// SwifterSwift: Check if date is within a weekday period.
+	public var isInWeekday: Bool {
+		return !Calendar.current.isDateInWeekend(self)
+	}
+	
+	/// SwifterSwift: Check if date is within the current week.
+	public var isInThisWeek: Bool {
+		return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
+	}
+	
+	/// SwifterSwift: Check if date is within the current month.
+	public var isInThisMonth: Bool {
+		return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .month)
+	}
+	
+	/// SwifterSwift: Check if date is within the current year.
+	public var isInThisYear: Bool {
+		return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
+	}
 	
 	/// SwifterSwift: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
 	///
@@ -658,6 +669,38 @@ public extension Date {
 		}
 		dateFormatter.setLocalizedDateFormatFromTemplate(format)
 		return dateFormatter.string(from: self)
+	}
+	
+	/// SwifterSwift: get number of seconds between two date
+	///
+	/// - Parameter date: date to compate self to.
+	/// - Returns: number of seconds between self and given date.
+	public func secondsSince(_ date: Date) -> Double {
+		return self.timeIntervalSince(date)
+	}
+	
+	/// SwifterSwift: get number of minutes between two date
+	///
+	/// - Parameter date: date to compate self to.
+	/// - Returns: number of minutes between self and given date.
+	public func minutesSince(_ date: Date) -> Double {
+		return self.timeIntervalSince(date)/60
+	}
+	
+	/// SwifterSwift: get number of hours between two date
+	///
+	/// - Parameter date: date to compate self to.
+	/// - Returns: number of hours between self and given date.
+	public func hoursSince(_ date: Date) -> Double {
+		return self.timeIntervalSince(date)/3600
+	}
+	
+	/// SwifterSwift: get number of days between two date
+	///
+	/// - Parameter date: date to compate self to.
+	/// - Returns: number of days between self and given date.
+	public func daysSince(_ date: Date) -> Double {
+		return self.timeIntervalSince(date)/(3600*24)
 	}
 	
 }

@@ -33,8 +33,8 @@ class UITableViewExtensionsTests: XCTestCase {
 	}
 	
 	func testNumberOfRows() {
-		XCTAssertEqual(tableView.numberOfRows, 13)
-		XCTAssertEqual(emptyTableView.numberOfRows, 0)
+		XCTAssertEqual(tableView.numberOfRows(), 13)
+		XCTAssertEqual(emptyTableView.numberOfRows(), 0)
 	}
 	
 	func testIndexPathForLastRowInSection() {

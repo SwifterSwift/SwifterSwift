@@ -23,8 +23,16 @@ public extension UICollectionView {
 		return numberOfSections > 0 ? numberOfSections - 1 : 0
 	}
 	
+}
+
+
+// MARK: - Methods
+public extension UICollectionView {
+	
 	/// SwifterSwift: Number of all items in all sections of collectionView.
-	public var numberOfItems: Int {
+	///
+	/// - Returns: The count of all rows in the collectionView.
+	public func numberOfItems() -> Int {
 		var section = 0
 		var itemsCount = 0
 		while section < self.numberOfSections {
@@ -33,12 +41,6 @@ public extension UICollectionView {
 		}
 		return itemsCount
 	}
-	
-}
-
-
-// MARK: - Methods
-public extension UICollectionView {
     
 	/// SwifterSwift: IndexPath for last item in section.
 	///
