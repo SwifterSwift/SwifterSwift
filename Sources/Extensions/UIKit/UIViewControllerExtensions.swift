@@ -19,11 +19,6 @@ public extension UIViewController {
 		return self.isViewLoaded && view.window != nil
 	}
 	
-	/// SwifterSwift: NavigationBar in a ViewController.
-	public var navigationBar: UINavigationBar? {
-		return navigationController?.navigationBar
-	}
-	
 }
 
 // MARK: - Methods
