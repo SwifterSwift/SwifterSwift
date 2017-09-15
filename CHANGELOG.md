@@ -46,6 +46,9 @@ All notable changes to this project will be documented in this file.
   - Property `numberOfItems` is now a method.
 - **UITableView**
   - Property `numberOfRows` is now a method.
+- **UIViewController**
+  - Removed `navigationBar` that was causing app to crash, thanks to [drewpitchford](https://github.com/drewpitchford) for reporting in [#243](https://github.com/SwifterSwift/SwifterSwift/issues/243).
+
 
 ### Enhancements
 - New **Date** extensions
