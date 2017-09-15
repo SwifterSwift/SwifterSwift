@@ -664,7 +664,6 @@
 		0743F38E1F611B87008386F7 /* AppKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				0743F38F1F611B87008386F7 /* NSAttributedStringExtensionsTests.swift */,
 				0743F3901F611B87008386F7 /* NSViewExtensionsTests.swift */,
 			);
 			name = AppKitTests;
@@ -697,6 +696,7 @@
 				0743F3981F611B87008386F7 /* DataExtensionsTests.swift */,
 				0743F3991F611B87008386F7 /* DateExtensionsTests.swift */,
 				0743F39A1F611B87008386F7 /* LocaleExtensionsTests.swift */,
+				0743F38F1F611B87008386F7 /* NSAttributedStringExtensionsTests.swift */,
 				0743F39B1F611B87008386F7 /* URLExtensionsTests.swift */,
 				0743F39C1F611B87008386F7 /* URLRequestExtensionsTests.swift */,
 				0743F39D1F611B87008386F7 /* UserDefaultsExtensionsTests.swift */,
