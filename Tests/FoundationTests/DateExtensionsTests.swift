@@ -688,24 +688,24 @@ class DateExtensionsTests: XCTestCase {
         let startDate = Date(timeIntervalSince1970: 511)
         let endDate = Date(timeIntervalSince1970: 513)
         XCTAssertTrue(date.isBetween(startDate, endDate))
-        
+    
         date = Date(timeIntervalSince1970: 511)
-        XCTAssertTrue(date.isBetween(startDate, endDate))
+        XCTAssertTrue(date.isBetween(startDate, endDate, includeBounds: true))
         
         date = Date(timeIntervalSince1970: 513)
-        XCTAssertTrue(date.isBetween(startDate, endDate))
+        XCTAssertTrue(date.isBetween(startDate, endDate, includeBounds: true))
+        
+        date = Date(timeIntervalSince1970: 511)
+        XCTAssertFalse(date.isBetween(startDate, endDate))
+        
+        date = Date(timeIntervalSince1970: 513)
+        XCTAssertFalse(date.isBetween(startDate, endDate))
         
         date = Date(timeIntervalSince1970: 230)
         XCTAssertFalse(date.isBetween(startDate, endDate))
         
         date = Date(timeIntervalSince1970: 550)
         XCTAssertFalse(date.isBetween(startDate, endDate))
-        
-        date = Date(timeIntervalSince1970: 511)
-        XCTAssertFalse(date.isBetween(startDate, endDate, includeBounds: false))
-        
-        date = Date(timeIntervalSince1970: 513)
-        XCTAssertFalse(date.isBetween(startDate, endDate, includeBounds: false))
     }
     
 }
