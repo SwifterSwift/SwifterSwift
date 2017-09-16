@@ -5,12 +5,26 @@
 //  Created by Omar Albeik on 7/23/17.
 //
 //
-
 import Foundation
 
 
 // MARK: - Properties
 public extension FloatingPoint {
+	
+	/// SwifterSwift: Absolute value of integer number.
+	public var abs: Self {
+		return Swift.abs(self)
+	}
+	
+	/// SwifterSwift: Check if integer is positive.
+	public var isPositive: Bool {
+		return self > 0
+	}
+	
+	/// SwifterSwift: Check if integer is negative.
+	public var isNegative: Bool {
+		return self < 0
+	}
 	
 	/// SwifterSwift: Ceil of number.
 	public var ceil: Self {

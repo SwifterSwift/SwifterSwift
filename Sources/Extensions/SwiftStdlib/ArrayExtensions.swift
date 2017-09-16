@@ -5,12 +5,11 @@
 //  Created by Omar Albeik on 8/5/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
-
 import Foundation
 
 
 // MARK: - Methods (Integer)
-public extension Array where Element: Integer {
+public extension Array where Element: Numeric {
 	
 	/// SwifterSwift: Sum of all elements in array.
 	///
@@ -18,9 +17,9 @@ public extension Array where Element: Integer {
 	///
 	/// - Returns: sum of the array's elements.
 	public func sum() -> Element {
-        var total: Element = 0
-        forEach { total += $0 }
-        return total
+		var total: Element = 0
+		forEach { total += $0 }
+		return total
 	}
 	
 }
@@ -35,22 +34,12 @@ public extension Array where Element: FloatingPoint {
 	///
 	/// - Returns: average of the array's elements.
 	public func average() -> Element {
-        guard isEmpty == false else { return 0 }
-        var total: Element = 0
-        forEach { total += $0 }
-        return total / Element(count)
+		guard isEmpty == false else { return 0 }
+		var total: Element = 0
+		forEach { total += $0 }
+		return total / Element(count)
 	}
 	
-	/// SwifterSwift: Sum of all elements in array.
-	///
-	///		[1.2, 2.3, 4.5, 3.4, 4.5].sum -> 15.9
-	///
-	/// - Returns: sum of the array's elements.
-	public func sum() -> Element {
-        var total: Element = 0
-        forEach { total += $0 }
-        return total
-	}
 	
 }
 
@@ -112,7 +101,7 @@ public extension Array {
 		guard index != otherIndex,
 			startIndex..<endIndex ~= index,
 			startIndex..<endIndex ~= otherIndex else { return }
-		Swift.swap(&self[index], &self[otherIndex])
+		self.swapAt(index, otherIndex)
 	}
 	
 	/// SwifterSwift: Swap values at index positions.
@@ -124,7 +113,7 @@ public extension Array {
 	///   - index: index of first element.
 	///   - otherIndex: index of other element.
 	public mutating func swap(from index: Int, to otherIndex: Int)  {
-		Swift.swap(&self[index], &self[otherIndex])
+		self.swapAt(index, otherIndex)
 	}
 	
 	/// SwifterSwift: Get first index where condition is met.
@@ -364,12 +353,12 @@ public extension Array {
 		return slices
 	}
 	
-	/// SwifterSwift: Group the elements of the array in a dictionary.
+	/// SwifterSwift: Group the elements of the array in a dictionary.
 	///
 	///     [0, 2, 5, 4, 7].groupByKey { $0%2 ? "evens" : "odds" } -> [ "evens" : [0, 2, 4], "odds" : [5, 7] ]
 	///
-	/// - Parameter getKey: Clousure to define the key for each element.
-	/// - Returns: A dictionary with values grouped with keys.
+	/// - Parameter getKey: Clousure to define the key for each element.
+	/// - Returns: A dictionary with values grouped with keys.
 	public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
 		var group : [K: [Element]] = [:]
 		for value in self {
@@ -379,14 +368,14 @@ public extension Array {
 		return group
 	}
 	
-	/// SwifterSwift: Returns a new rotated array by the given places.
+	/// SwifterSwift: Returns a new rotated array by the given places.
 	///
 	///     [1, 2, 3, 4].rotated(by: 1) -> [4,1,2,3]
 	///     [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
 	///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
 	///
-	/// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
-	/// - Returns: The new rotated array
+	/// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
+	/// - Returns: The new rotated array
 	public func rotated(by places: Int) -> [Element] {
 		//Inspired by: https://ruby-doc.org/core-2.2.0/Array.html#method-i-rotate
 		guard places != 0 && places < count else {
@@ -407,13 +396,13 @@ public extension Array {
 		return array
 	}
 	
-	/// SwifterSwift: Rotate the array by the given places.
+	/// SwifterSwift: Rotate the array by the given places.
 	///
 	///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
 	///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
 	///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
 	///
-	/// - Parameter places: Number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
+	/// - Parameter places: Number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
 	public mutating func rotate(by places: Int) {
 		self = rotated(by: places)
 	}
@@ -432,7 +421,7 @@ public extension Array where Element: Equatable {
 		guard count > 1 else { return }
 		for index in startIndex..<endIndex - 1 {
 			let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
-			if index != randomIndex { Swift.swap(&self[index], &self[randomIndex]) }
+			if index != randomIndex { self.swapAt(index, randomIndex) }
 		}
 	}
 	

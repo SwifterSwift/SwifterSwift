@@ -1,4 +1,4 @@
-osx_image: xcode8.3
+osx_image: xcode9
 language: objective-c
 before_install:
     - brew update

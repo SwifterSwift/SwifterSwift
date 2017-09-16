@@ -1,3 +1,4 @@
+
 //
 //  SignedIntegerExtensions.swift
 //  SwifterSwift
@@ -5,12 +6,26 @@
 //  Created by Omar Albeik on 8/15/17.
 //
 //
-
 import Foundation
 
 
 // MARK: - Properties
 public extension SignedInteger {
+	
+	/// SwifterSwift: Absolute value of integer number.
+	public var abs: Self {
+		return Swift.abs(self)
+	}
+	
+	/// SwifterSwift: Check if integer is positive.
+	public var isPositive: Bool {
+		return self > 0
+	}
+	
+	/// SwifterSwift: Check if integer is negative.
+	public var isNegative: Bool {
+		return self < 0
+	}
 	
 	/// SwifterSwift: Check if integer is even.
 	public var isEven: Bool {
@@ -21,24 +36,16 @@ public extension SignedInteger {
 	public var isOdd: Bool {
 		return (self % 2) != 0
 	}
-    
-    /// SwifterSwift: Array of digits of integer value.
-    ///
-    ///		180.digits -> [1, 8, 0]
-    ///
-    public var digits: [Self] {
-        var digits: [Self] = []
-        for char in String(self).characters {
-            if let int = IntMax(String(char)) {
-                digits.append(Self(int))
-            }
-        }
-        return digits
-    }
-    
+	
+	/// SwifterSwift: Array of digits of integer value.
+	public var digits: [Self] {
+		let intsArray = description.flatMap({Int(String($0))})
+		return intsArray.map({Self($0)})
+	}
+	
 	/// SwifterSwift: Number of digits of integer value.
 	public var digitsCount: Int {
-		return String(self).characters.count
+		return description.flatMap({Int(String($0))}).count
 	}
 	
 	/// SwifterSwift: String of format (XXh XXm) from seconds Int.
@@ -60,7 +67,7 @@ public extension SignedInteger {
 		}
 		return "\(hours)h \(mins)m"
 	}
-
+	
 }
 
 
@@ -82,7 +89,5 @@ public extension SignedInteger {
 	public func lcm(of n: Self) -> Self {
 		return (self * n).abs / gcd(of: n)
 	}
-
+	
 }
-
-

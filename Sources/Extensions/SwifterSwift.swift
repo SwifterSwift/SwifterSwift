@@ -316,8 +316,8 @@ public extension SwifterSwift {
 	/// - Parameter object: Any object to find its class name.
 	/// - Returns: Class name for given object.
 	public static func typeName(for object: Any) -> String {
-		let type = type(of: object.self)
-		return String.init(describing: type)
+		let objectType = type(of: object.self)
+		return String.init(describing: objectType)
 	}
 	
 }

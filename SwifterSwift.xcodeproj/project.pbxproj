@@ -113,10 +113,10 @@
 		0743F3231F611B63008386F7 /* SignedIntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F2991F611B62008386F7 /* SignedIntegerExtensions.swift */; };
 		0743F3241F611B63008386F7 /* SignedIntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F2991F611B62008386F7 /* SignedIntegerExtensions.swift */; };
 		0743F3251F611B63008386F7 /* SignedIntegerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F2991F611B62008386F7 /* SignedIntegerExtensions.swift */; };
-		0743F3261F611B63008386F7 /* SignedNumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F29A1F611B62008386F7 /* SignedNumberExtensions.swift */; };
-		0743F3271F611B63008386F7 /* SignedNumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F29A1F611B62008386F7 /* SignedNumberExtensions.swift */; };
-		0743F3281F611B63008386F7 /* SignedNumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F29A1F611B62008386F7 /* SignedNumberExtensions.swift */; };
-		0743F3291F611B63008386F7 /* SignedNumberExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F29A1F611B62008386F7 /* SignedNumberExtensions.swift */; };
+		0743F3261F611B63008386F7 /* SignedNumericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F29A1F611B62008386F7 /* SignedNumericExtensions.swift */; };
+		0743F3271F611B63008386F7 /* SignedNumericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F29A1F611B62008386F7 /* SignedNumericExtensions.swift */; };
+		0743F3281F611B63008386F7 /* SignedNumericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F29A1F611B62008386F7 /* SignedNumericExtensions.swift */; };
+		0743F3291F611B63008386F7 /* SignedNumericExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F29A1F611B62008386F7 /* SignedNumericExtensions.swift */; };
 		0743F32A1F611B63008386F7 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F29B1F611B62008386F7 /* StringExtensions.swift */; };
 		0743F32B1F611B63008386F7 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F29B1F611B62008386F7 /* StringExtensions.swift */; };
 		0743F32C1F611B63008386F7 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0743F29B1F611B62008386F7 /* StringExtensions.swift */; };
@@ -399,7 +399,7 @@
 		0743F2971F611B62008386F7 /* IntExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtensions.swift; sourceTree = "<group>"; };
 		0743F2981F611B62008386F7 /* OptionalExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionalExtensions.swift; sourceTree = "<group>"; };
 		0743F2991F611B62008386F7 /* SignedIntegerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignedIntegerExtensions.swift; sourceTree = "<group>"; };
-		0743F29A1F611B62008386F7 /* SignedNumberExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignedNumberExtensions.swift; sourceTree = "<group>"; };
+		0743F29A1F611B62008386F7 /* SignedNumericExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignedNumericExtensions.swift; sourceTree = "<group>"; };
 		0743F29B1F611B62008386F7 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		0743F29E1F611B62008386F7 /* UIKitDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIKitDeprecated.swift; sourceTree = "<group>"; };
 		0743F29F1F611B62008386F7 /* UIAlertControllerExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtensions.swift; sourceTree = "<group>"; };
@@ -616,7 +616,7 @@
 				0743F2971F611B62008386F7 /* IntExtensions.swift */,
 				0743F2981F611B62008386F7 /* OptionalExtensions.swift */,
 				0743F2991F611B62008386F7 /* SignedIntegerExtensions.swift */,
-				0743F29A1F611B62008386F7 /* SignedNumberExtensions.swift */,
+				0743F29A1F611B62008386F7 /* SignedNumericExtensions.swift */,
 				0743F29B1F611B62008386F7 /* StringExtensions.swift */,
 			);
 			path = SwiftStdlib;
@@ -664,7 +664,6 @@
 		0743F38E1F611B87008386F7 /* AppKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				0743F38F1F611B87008386F7 /* NSAttributedStringExtensionsTests.swift */,
 				0743F3901F611B87008386F7 /* NSViewExtensionsTests.swift */,
 			);
 			name = AppKitTests;
@@ -697,6 +696,7 @@
 				0743F3981F611B87008386F7 /* DataExtensionsTests.swift */,
 				0743F3991F611B87008386F7 /* DateExtensionsTests.swift */,
 				0743F39A1F611B87008386F7 /* LocaleExtensionsTests.swift */,
+				0743F38F1F611B87008386F7 /* NSAttributedStringExtensionsTests.swift */,
 				0743F39B1F611B87008386F7 /* URLExtensionsTests.swift */,
 				0743F39C1F611B87008386F7 /* URLRequestExtensionsTests.swift */,
 				0743F39D1F611B87008386F7 /* UserDefaultsExtensionsTests.swift */,
@@ -1002,7 +1002,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				TargetAttributes = {
 					077AD1B41F13873600D3214D = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -1319,7 +1319,7 @@
 				0743F3461F611B63008386F7 /* UIImageExtensions.swift in Sources */,
 				0743F3861F611B63008386F7 /* UIViewExtensions.swift in Sources */,
 				0743F3621F611B63008386F7 /* UISegmentedControlExtensions.swift in Sources */,
-				0743F3261F611B63008386F7 /* SignedNumberExtensions.swift in Sources */,
+				0743F3261F611B63008386F7 /* SignedNumericExtensions.swift in Sources */,
 				0743F37E1F611B63008386F7 /* UITextViewExtensions.swift in Sources */,
 				0743F3161F611B63008386F7 /* FloatingPointExtensions.swift in Sources */,
 				0743F30E1F611B63008386F7 /* DoubleExtensions.swift in Sources */,
@@ -1361,7 +1361,7 @@
 				0743F3131F611B63008386F7 /* FloatExtensions.swift in Sources */,
 				0743F31F1F611B63008386F7 /* OptionalExtensions.swift in Sources */,
 				0743F2FF1F611B63008386F7 /* BoolExtensions.swift in Sources */,
-				0743F3271F611B63008386F7 /* SignedNumberExtensions.swift in Sources */,
+				0743F3271F611B63008386F7 /* SignedNumericExtensions.swift in Sources */,
 				0743F3171F611B63008386F7 /* FloatingPointExtensions.swift in Sources */,
 				0743F30F1F611B63008386F7 /* DoubleExtensions.swift in Sources */,
 				0743F3231F611B63008386F7 /* SignedIntegerExtensions.swift in Sources */,
@@ -1415,7 +1415,7 @@
 				0743F3481F611B63008386F7 /* UIImageExtensions.swift in Sources */,
 				0743F3881F611B63008386F7 /* UIViewExtensions.swift in Sources */,
 				0743F3641F611B63008386F7 /* UISegmentedControlExtensions.swift in Sources */,
-				0743F3281F611B63008386F7 /* SignedNumberExtensions.swift in Sources */,
+				0743F3281F611B63008386F7 /* SignedNumericExtensions.swift in Sources */,
 				0743F3801F611B63008386F7 /* UITextViewExtensions.swift in Sources */,
 				0743F3181F611B63008386F7 /* FloatingPointExtensions.swift in Sources */,
 				0743F3101F611B63008386F7 /* DoubleExtensions.swift in Sources */,
@@ -1474,7 +1474,7 @@
 				0743F3491F611B63008386F7 /* UIImageExtensions.swift in Sources */,
 				0743F3891F611B63008386F7 /* UIViewExtensions.swift in Sources */,
 				0743F3651F611B63008386F7 /* UISegmentedControlExtensions.swift in Sources */,
-				0743F3291F611B63008386F7 /* SignedNumberExtensions.swift in Sources */,
+				0743F3291F611B63008386F7 /* SignedNumericExtensions.swift in Sources */,
 				0743F3811F611B63008386F7 /* UITextViewExtensions.swift in Sources */,
 				0743F3191F611B63008386F7 /* FloatingPointExtensions.swift in Sources */,
 				0743F3111F611B63008386F7 /* DoubleExtensions.swift in Sources */,
@@ -1831,16 +1831,66 @@
 		079412C91F137D5C006AA1F8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		079412CA1F137D5C006AA1F8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1867,7 +1917,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1933,7 +1983,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

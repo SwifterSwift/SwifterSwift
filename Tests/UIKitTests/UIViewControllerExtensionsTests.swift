@@ -23,13 +23,6 @@ class UIViewControllerExtensionsTests: XCTestCase {
     
     let notificationIdentifier = Notification.Name("MockNotification")
     
-    func testNavigationBar() {
-        let viewController = UIViewController()
-        XCTAssertNil(viewController.navigationBar)
-        let navigationController = UINavigationController(rootViewController: viewController)
-        XCTAssertEqual(navigationController.navigationBar, viewController.navigationBar)
-    }
-    
     func testAddNotificationObserver() {
         let viewController = MockNotificationViewController()
         let selector = #selector(MockNotificationViewController.testSelector)

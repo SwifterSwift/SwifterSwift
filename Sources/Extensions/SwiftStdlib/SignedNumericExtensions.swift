@@ -5,26 +5,9 @@
 //  Created by Omar Albeik on 8/15/17.
 //
 //
-
 import Foundation
 
-
-public extension SignedNumber {
-	
-	/// SwifterSwift: Absolute value of integer.
-	public var abs: Self {
-		return Swift.abs(self)
-	}
-	
-	/// SwifterSwift: Check if integer is positive.
-	public var isPositive: Bool {
-		return self > 0
-	}
-	
-	/// SwifterSwift: Check if integer is negative.
-	public var isNegative: Bool {
-		return self < 0
-	}
+public extension SignedNumeric {
 	
 	/// SwifterSwift: String.
 	public var string: String {
@@ -39,4 +22,3 @@ public extension SignedNumber {
 		return formatter.string(from: self as! NSNumber)!
 	}
 }
-
