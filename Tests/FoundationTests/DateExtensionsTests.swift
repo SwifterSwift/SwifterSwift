@@ -683,4 +683,29 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date, dateFromUnixTimestamp)
 	}
 	
+    func testIfDateIsBetween() {
+        var date = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
+        let startDate = Date(timeIntervalSince1970: 511)
+        let endDate = Date(timeIntervalSince1970: 513)
+        XCTAssertTrue(date.isBetween(startDate, endDate))
+    
+        date = Date(timeIntervalSince1970: 511)
+        XCTAssertTrue(date.isBetween(startDate, endDate, includeBounds: true))
+        
+        date = Date(timeIntervalSince1970: 513)
+        XCTAssertTrue(date.isBetween(startDate, endDate, includeBounds: true))
+        
+        date = Date(timeIntervalSince1970: 511)
+        XCTAssertFalse(date.isBetween(startDate, endDate))
+        
+        date = Date(timeIntervalSince1970: 513)
+        XCTAssertFalse(date.isBetween(startDate, endDate))
+        
+        date = Date(timeIntervalSince1970: 230)
+        XCTAssertFalse(date.isBetween(startDate, endDate))
+        
+        date = Date(timeIntervalSince1970: 550)
+        XCTAssertFalse(date.isBetween(startDate, endDate))
+    }
+    
 }
