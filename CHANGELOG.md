@@ -11,22 +11,11 @@ All notable changes to this project will be documented in this file.
 > N/A
 >
 > ### Enhancements
-> N/A
+> - New **Date** extensions
+>    - added `isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool` method to check if a date is between two other dates.
 >
 > ### Bugfixes
 > N/A
-
-# v3.2.1
-
-### API Breaking
-N/A
-
-### Enhancements
-- New **Date** extensions
-  - added `isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool` method to check if a date is between two other dates.
-
-### Bugfixes
-N/A
 
 # v3.2.0
 
