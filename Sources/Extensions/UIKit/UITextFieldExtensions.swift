@@ -83,7 +83,7 @@ public extension UITextField {
 	///
 	public var hasValidEmail: Bool {
 		// http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
-		return text?.range(of: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+		return text!.range(of: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
 		                   options: String.CompareOptions.regularExpression,
 		                   range: nil, locale: nil) != nil
 	}
@@ -142,7 +142,7 @@ public extension UITextField {
 		guard let holder = placeholder, !holder.isEmpty else {
 			return
 		}
-		self.attributedPlaceholder = NSAttributedString(string: holder, attributes: [NSForegroundColorAttributeName: color])
+		self.attributedPlaceholder = NSAttributedString(string: holder, attributes: [.foregroundColor: color])
 	}
   
     /// SwifterSwift: Add padding to the left of the textfield rect.

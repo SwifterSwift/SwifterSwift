@@ -53,7 +53,6 @@ public extension Date {
 	}
 	
 	/// SwifterSwift: Quarter.
-	///
 	public var quarter: Int {
 		return Calendar.current.component(.quarter, from: self)
 	}
@@ -74,41 +73,41 @@ public extension Date {
 		return Calendar.current.component(.weekOfMonth, from: self)
 	}
 	
-    /// SwifterSwift: Year.
+	/// SwifterSwift: Year.
 	///
 	///		Date().year -> 2017
 	///
 	///		var someDate = Date()
 	///		someDate.year = 2000 // sets someDate's year to 2000
 	///
-    public var year: Int {
-        get {
-            return Calendar.current.component(.year, from: self)
-        }
-        set {
-            if let date = Calendar.current.date(bySetting: .year, value: newValue, of: self) {
-                self = date
-            }
-        }
-    }
-    
-    /// SwifterSwift: Month.
+	public var year: Int {
+		get {
+			return Calendar.current.component(.year, from: self)
+		}
+		set {
+			if let date = Calendar.current.date(bySetting: .year, value: newValue, of: self) {
+				self = date
+			}
+		}
+	}
+	
+	/// SwifterSwift: Month.
 	///
 	/// 	Date().month -> 1
 	///
 	/// 	var someDate = Date()
 	/// 	someDate.year = 10 // sets someDate's month to 10.
 	///
-    public var month: Int {
-        get {
-            return Calendar.current.component(.month, from: self)
-        }
-        set {
-            if let date = Calendar.current.date(bySetting: .month, value: newValue, of: self) {
-                self = date
-            }
-        }
-    }
+	public var month: Int {
+		get {
+			return Calendar.current.component(.month, from: self)
+		}
+		set {
+			if let date = Calendar.current.date(bySetting: .month, value: newValue, of: self) {
+				self = date
+			}
+		}
+	}
 	
 	/// SwifterSwift: Day.
 	///
@@ -127,21 +126,21 @@ public extension Date {
 			}
 		}
 	}
-    
-    /// SwifterSwift: Weekday.
+	
+	/// SwifterSwift: Weekday.
 	///
 	/// 	Date().weekOfMonth -> 5 // fifth day in the current week.
 	///
-    public var weekday: Int {
-        get {
-            return Calendar.current.component(.weekday, from: self)
-        }
-        set {
-            if let date = Calendar.current.date(bySetting: .weekday, value: newValue, of: self) {
-                self = date
-            }
-        }
-    }
+	public var weekday: Int {
+		get {
+			return Calendar.current.component(.weekday, from: self)
+		}
+		set {
+			if let date = Calendar.current.date(bySetting: .weekday, value: newValue, of: self) {
+				self = date
+			}
+		}
+	}
 	
 	/// SwifterSwift: Hour.
 	///
@@ -213,7 +212,6 @@ public extension Date {
 	}
 	
 	/// SwifterSwift: Milliseconds.
-	///
 	public var millisecond: Int {
 		get {
 			return Calendar.current.component(.nanosecond, from: self) / 1000000
@@ -267,34 +265,29 @@ public extension Date {
 	}
 	
 	/// SwifterSwift: Check if date is within a weekend period.
-	///
 	public var isInWeekend: Bool {
 		return Calendar.current.isDateInWeekend(self)
 	}
-    
-    /// SwifterSwift: Check if date is within a weekday period.
-	///
-    public var isInWeekday: Bool {
-        return !Calendar.current.isDateInWeekend(self)
-    }
-
-    /// SwifterSwift: Check if date is within the current week.
-    ///
-    public var isInThisWeek: Bool {
-        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
-    }
-
-    /// SwifterSwift: Check if date is within the current month.
-    ///
-    public var isInThisMonth: Bool {
-        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .month)
-    }
-
-    /// SwifterSwift: Check if date is within the current year.
-    ///
-    public var isInThisYear: Bool {
-        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
-    }
+	
+	/// SwifterSwift: Check if date is within a weekday period.
+	public var isInWeekday: Bool {
+		return !Calendar.current.isDateInWeekend(self)
+	}
+	
+	/// SwifterSwift: Check if date is within the current week.
+	public var isInThisWeek: Bool {
+		return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
+	}
+	
+	/// SwifterSwift: Check if date is within the current month.
+	public var isInThisMonth: Bool {
+		return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .month)
+	}
+	
+	/// SwifterSwift: Check if date is within the current year.
+	public var isInThisYear: Bool {
+		return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
+	}
 	
 	/// SwifterSwift: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
 	///
@@ -709,21 +702,7 @@ public extension Date {
 	public func daysSince(_ date: Date) -> Double {
 		return self.timeIntervalSince(date)/(3600*24)
 	}
-    
-    /// SwifterSwift: check if a date is between two other dates
-    ///
-    /// - Parameter startDate: start date to compare self to.
-    /// - Parameter endDate: endDate date to compare self to.
-    /// - Parameter includeBounds: true if the start and end date should be included (default is false)
-    /// - Returns: true if the date is between the two given dates.
-    public func isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool {
-        if includeBounds {
-            return startDate.compare(self).rawValue * self.compare(endDate).rawValue >= 0
-        } else {
-            return startDate.compare(self).rawValue * self.compare(endDate).rawValue > 0
-        }
-    }
-    
+	
 }
 
 

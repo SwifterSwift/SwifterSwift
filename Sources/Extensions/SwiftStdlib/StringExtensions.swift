@@ -5,7 +5,6 @@
 //  Created by Omar Albeik on 8/5/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
-
 #if os(macOS)
 	import Cocoa
 #else
@@ -50,15 +49,13 @@ public extension String {
 	///
 	public var camelCased: String {
 		let source = lowercased()
+		let first = source[..<source.index(after: source.startIndex)]
 		if source.characters.contains(" ") {
-			let first = source.substring(to: source.index(after: source.startIndex))
 			let connected = source.capitalized.replacingOccurrences(of: " ", with: "")
 			let camel = connected.replacingOccurrences(of: "\n", with: "")
 			let rest = String(camel.characters.dropFirst())
 			return first + rest
 		}
-		
-		let first = source.lowercased().substring(to: source.index(after: source.startIndex))
 		let rest = String(source.characters.dropFirst())
 		return first + rest
 	}
@@ -190,10 +187,10 @@ public extension String {
 	}
 	
 	/// SwifterSwift: Check if string is a valid file URL.
-    ///
-    ///		"file://Documents/file.txt".isValidFileUrl -> true
-    ///	
-    public var isValidFileUrl: Bool {
+	///
+	///		"file://Documents/file.txt".isValidFileUrl -> true
+	///
+	public var isValidFileUrl: Bool {
 		return URL(string: self)?.isFileURL ?? false
 	}
 	
@@ -331,106 +328,106 @@ public extension String {
 // MARK: - Methods
 public extension String {
 	
-    /// Float value from string (if applicable).
-    ///
-    /// - Parameter locale: Locale (default is Locale.current)
-    /// - Returns: Optional Float value from given string.
-    public func float(locale: Locale = .current) -> Float? {
-        let formatter = NumberFormatter()
-        formatter.locale = locale
-        formatter.allowsFloats = true
-        return formatter.number(from: self) as? Float
-    }
-    
-    /// Double value from string (if applicable).
-    ///
-    /// - Parameter locale: Locale (default is Locale.current)
-    /// - Returns: Optional Double value from given string.
-    public func double(locale: Locale = .current) -> Double? {
-        let formatter = NumberFormatter()
-        formatter.locale = locale
-        formatter.allowsFloats = true
-        return formatter.number(from: self) as? Double
-    }
-    
-    /// CGFloat value from string (if applicable).
-    ///
-    /// - Parameter locale: Locale (default is Locale.current)
-    /// - Returns: Optional CGFloat value from given string.
-    public func cgFloat(locale: Locale = .current) -> CGFloat? {
-        let formatter = NumberFormatter()
-        formatter.locale = locale
-        formatter.allowsFloats = true
-        return formatter.number(from: self) as? CGFloat
-    }
-    
-    /// SwifterSwift: Array of strings separated by new lines.
-    ///
-    ///		"Hello\ntest".lines() -> ["Hello", "test"]
-    ///
-    /// - Returns: Strings separated by new lines.
-    public func lines() -> [String] {
-        var result = [String]()
-        enumerateLines { line, _ in
-            result.append(line)
-        }
-        return result
-    }
-    
-    /// SwifterSwift: The most common character in string.
-    ///
-    ///		"This is a test, since e is appearing everywhere e should be the common character".mostCommonCharacter() -> "e"
-    ///
-    /// - Returns: The most common character.
-    public func mostCommonCharacter() -> String {
-        let mostCommon = withoutSpacesAndNewLines.characters.reduce([Character: Int]()) {
-            var counts = $0
-            counts[$1] = ($0[$1] ?? 0) + 1
-            return counts
-            }.max { $0.1 < $1.1 }?.0
-        return mostCommon?.string ?? ""
-    }
-    
-    /// SwifterSwift: Reversed string.
-    ///
-    ///		"foo".reversed() -> "oof"
-    ///
-    /// - Returns: The reversed string.
-    public func reversed() -> String {
-        return String(characters.reversed())
-    }
-    
-    /// SwifterSwift: Array with unicodes for all characters in a string.
-    ///
-    ///		"SwifterSwift".unicodeArray -> [83, 119, 105, 102, 116, 101, 114, 83, 119, 105, 102, 116]
-    ///
-    /// - Returns: The unicodes for all characters in a string.
-    public func unicodeArray() -> [Int] {
-        return unicodeScalars.map({ $0.hashValue })
-    }
-    
-    /// SwifterSwift: an array of all words in a string
-    ///
-    ///		"Swift is amazing".words() -> ["Swift", "is", "amazing"]
-    ///
-    /// - Returns: The words contained in a string.
-    public func words() -> [String] {
-        // https://stackoverflow.com/questions/42822838
-        let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
-        let comps = components(separatedBy: chararacterSet)
-        return comps.filter { !$0.isEmpty }
-    }
-    
-    /// SwifterSwift: Count of words in a string.
-    ///
-    ///		"Swift is amazing".wordsCount() -> 3
-    ///
-    /// - Returns: The count of words contained in a string.
-    public func wordCount() -> Int {
-        // https://stackoverflow.com/questions/42822838
-        return words().count
-    }
-    
+	/// Float value from string (if applicable).
+	///
+	/// - Parameter locale: Locale (default is Locale.current)
+	/// - Returns: Optional Float value from given string.
+	public func float(locale: Locale = .current) -> Float? {
+		let formatter = NumberFormatter()
+		formatter.locale = locale
+		formatter.allowsFloats = true
+		return formatter.number(from: self) as? Float
+	}
+	
+	/// Double value from string (if applicable).
+	///
+	/// - Parameter locale: Locale (default is Locale.current)
+	/// - Returns: Optional Double value from given string.
+	public func double(locale: Locale = .current) -> Double? {
+		let formatter = NumberFormatter()
+		formatter.locale = locale
+		formatter.allowsFloats = true
+		return formatter.number(from: self) as? Double
+	}
+	
+	/// CGFloat value from string (if applicable).
+	///
+	/// - Parameter locale: Locale (default is Locale.current)
+	/// - Returns: Optional CGFloat value from given string.
+	public func cgFloat(locale: Locale = .current) -> CGFloat? {
+		let formatter = NumberFormatter()
+		formatter.locale = locale
+		formatter.allowsFloats = true
+		return formatter.number(from: self) as? CGFloat
+	}
+	
+	/// SwifterSwift: Array of strings separated by new lines.
+	///
+	///		"Hello\ntest".lines() -> ["Hello", "test"]
+	///
+	/// - Returns: Strings separated by new lines.
+	public func lines() -> [String] {
+		var result = [String]()
+		enumerateLines { line, _ in
+			result.append(line)
+		}
+		return result
+	}
+	
+	/// SwifterSwift: The most common character in string.
+	///
+	///		"This is a test, since e is appearing everywhere e should be the common character".mostCommonCharacter() -> "e"
+	///
+	/// - Returns: The most common character.
+	public func mostCommonCharacter() -> String {
+		let mostCommon = withoutSpacesAndNewLines.characters.reduce([Character: Int]()) {
+			var counts = $0
+			counts[$1] = ($0[$1] ?? 0) + 1
+			return counts
+			}.max { $0.1 < $1.1 }?.0
+		return mostCommon?.string ?? ""
+	}
+	
+	/// SwifterSwift: Reversed string.
+	///
+	///		"foo".reversed() -> "oof"
+	///
+	/// - Returns: The reversed string.
+	public func reversed() -> String {
+		return String(characters.reversed())
+	}
+	
+	/// SwifterSwift: Array with unicodes for all characters in a string.
+	///
+	///		"SwifterSwift".unicodeArray -> [83, 119, 105, 102, 116, 101, 114, 83, 119, 105, 102, 116]
+	///
+	/// - Returns: The unicodes for all characters in a string.
+	public func unicodeArray() -> [Int] {
+		return unicodeScalars.map({ $0.hashValue })
+	}
+	
+	/// SwifterSwift: an array of all words in a string
+	///
+	///		"Swift is amazing".words() -> ["Swift", "is", "amazing"]
+	///
+	/// - Returns: The words contained in a string.
+	public func words() -> [String] {
+		// https://stackoverflow.com/questions/42822838
+		let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
+		let comps = components(separatedBy: chararacterSet)
+		return comps.filter { !$0.isEmpty }
+	}
+	
+	/// SwifterSwift: Count of words in a string.
+	///
+	///		"Swift is amazing".wordsCount() -> 3
+	///
+	/// - Returns: The count of words contained in a string.
+	public func wordCount() -> Int {
+		// https://stackoverflow.com/questions/42822838
+		return words().count
+	}
+	
 	/// SwifterSwift: Safely subscript string with index.
 	///
 	///		"Hello World!"[3] -> "l"
@@ -457,7 +454,7 @@ public extension String {
 		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound, limitedBy: endIndex) else {
 			return nil
 		}
-		return self[lowerIndex..<upperIndex]
+		return String(self[lowerIndex..<upperIndex])
 	}
 	
 	/// SwifterSwift: Safely subscript string within a closed range.
@@ -473,7 +470,7 @@ public extension String {
 		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound + 1, limitedBy: endIndex) else {
 			return nil
 		}
-		return self[lowerIndex..<upperIndex]
+		return String(self[lowerIndex..<upperIndex])
 	}
 	
 	#if os(iOS) || os(macOS)
@@ -482,12 +479,12 @@ public extension String {
 	///		"SomeText".copyToPasteboard() // copies "SomeText" to pasteboard
 	///
 	public func copyToPasteboard() {
-	#if os(iOS)
-	UIPasteboard.general.string = self
-	#elseif os(macOS)
-	NSPasteboard.general().clearContents()
-	NSPasteboard.general().setString(self, forType: NSPasteboardTypeString)
-	#endif
+		#if os(iOS)
+			UIPasteboard.general.string = self
+		#elseif os(macOS)
+			NSPasteboard.general.clearContents()
+			NSPasteboard.general.setString(self, forType: .string)
+		#endif
 	}
 	#endif
 	
@@ -593,11 +590,13 @@ public extension String {
 	public static func random(ofLength length: Int) -> String {
 		guard length > 0 else { return "" }
 		let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-		return (0..<length).reduce("") {
+		var randomString = ""
+		for _ in 1...length {
 			let randomIndex = arc4random_uniform(UInt32(base.characters.count))
-			let randomCharacter = "\(base[base.index(base.startIndex, offsetBy: IndexDistance(randomIndex))])"
-			return $0.0 + randomCharacter
+			let randomCharacter = base.charactersArray[Int(randomIndex)]
+			randomString.append(randomCharacter)
 		}
+		return randomString
 	}
 	
 	/// SwifterSwift: Reverse string.
@@ -755,12 +754,12 @@ public extension String {
 	/// - Parameters:
 	///   - toLength: maximum number of characters before cutting.
 	///   - trailing: string to add at the end of truncated string (default is "...").
-	public mutating func truncate(toLength: Int, trailing: String? = "...") {
-		guard toLength > 0 else {
+	public mutating func truncate(toLength length: Int, trailing: String? = "...") {
+		guard length > 0 else {
 			return
 		}
-		if characters.count > toLength {
-			self = substring(to: index(startIndex, offsetBy: toLength)) + (trailing ?? "")
+		if characters.count > length {
+			self = self[startIndex..<index(startIndex, offsetBy: length)] + (trailing ?? "")
 		}
 	}
 	
@@ -773,9 +772,9 @@ public extension String {
 	///   - toLength: maximum number of characters before cutting.
 	///   - trailing: string to add at the end of truncated string.
 	/// - Returns: truncated string (this is an extr...).
-	public func truncated(toLength: Int, trailing: String? = "...") -> String {
-		guard 1..<characters.count ~= toLength else { return self }
-		return substring(to: index(startIndex, offsetBy: toLength)) + (trailing ?? "")
+	public func truncated(toLength length: Int, trailing: String? = "...") -> String {
+		guard 1..<characters.count ~= length else { return self }
+		return self[startIndex..<index(startIndex, offsetBy: length)] + (trailing ?? "")
 	}
 	
 	/// SwifterSwift: Convert URL string to readable string.
@@ -879,6 +878,7 @@ public extension String {
 }
 
 
+
 // MARK: - NSAttributedString extensions
 public extension String {
 	
@@ -886,31 +886,31 @@ public extension String {
 	/// SwifterSwift: Bold string.
 	///
 	public var bold: NSAttributedString {
-	#if os(macOS)
-	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: NSFont.boldSystemFont(ofSize: NSFont.systemFontSize())])
-	#else
-	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
-	#endif
+		#if os(macOS)
+			return NSMutableAttributedString(string: self, attributes: [.font: NSFont.boldSystemFont(ofSize: NSFont.systemFontSize)])
+		#else
+			return NSMutableAttributedString(string: self, attributes: [.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+		#endif
 	}
 	#endif
 	
 	/// SwifterSwift: Underlined string
 	///
 	public var underline: NSAttributedString {
-		return NSAttributedString(string: self, attributes: [NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue])
+		return NSAttributedString(string: self, attributes: [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
 	}
 	
 	/// SwifterSwift: Strikethrough string.
 	///
 	public var strikethrough: NSAttributedString {
-		return NSAttributedString(string: self, attributes: [NSStrikethroughStyleAttributeName: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
+		return NSAttributedString(string: self, attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
 	}
 	
 	#if os(iOS)
 	/// SwifterSwift: Italic string.
 	///
 	public var italic: NSAttributedString {
-	return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+		return NSMutableAttributedString(string: self, attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 	}
 	#endif
 	
@@ -920,7 +920,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: NSColor) -> NSAttributedString {
-	return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+	return NSMutableAttributedString(string: self, attributes: [.foregroundColor: color])
 	}
 	#else
 	/// SwifterSwift: Add color to string.
@@ -928,7 +928,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: UIColor) -> NSAttributedString {
-		return NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName: color])
+		return NSMutableAttributedString(string: self, attributes: [.foregroundColor: color])
 	}
 	#endif
 	

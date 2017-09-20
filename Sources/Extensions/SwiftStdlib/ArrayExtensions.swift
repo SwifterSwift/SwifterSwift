@@ -5,6 +5,7 @@
 //  Created by Omar Albeik on 8/5/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
+
 import Foundation
 
 
@@ -17,9 +18,9 @@ public extension Array where Element: Numeric {
 	///
 	/// - Returns: sum of the array's elements.
 	public func sum() -> Element {
-		var total: Element = 0
-		forEach { total += $0 }
-		return total
+        var total: Element = 0
+        forEach { total += $0 }
+        return total
 	}
 	
 }
@@ -34,12 +35,12 @@ public extension Array where Element: FloatingPoint {
 	///
 	/// - Returns: average of the array's elements.
 	public func average() -> Element {
-		guard isEmpty == false else { return 0 }
-		var total: Element = 0
-		forEach { total += $0 }
-		return total / Element(count)
+        guard isEmpty == false else { return 0 }
+        var total: Element = 0
+        forEach { total += $0 }
+        return total / Element(count)
 	}
-	
+
 	
 }
 
@@ -353,12 +354,12 @@ public extension Array {
 		return slices
 	}
 	
-	/// SwifterSwift: Group the elements of the array in a dictionary.
+	/// SwifterSwift: Group the elements of the array in a dictionary.
 	///
 	///     [0, 2, 5, 4, 7].groupByKey { $0%2 ? "evens" : "odds" } -> [ "evens" : [0, 2, 4], "odds" : [5, 7] ]
 	///
-	/// - Parameter getKey: Clousure to define the key for each element.
-	/// - Returns: A dictionary with values grouped with keys.
+	/// - Parameter getKey: Clousure to define the key for each element.
+	/// - Returns: A dictionary with values grouped with keys.
 	public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
 		var group : [K: [Element]] = [:]
 		for value in self {
@@ -368,14 +369,14 @@ public extension Array {
 		return group
 	}
 	
-	/// SwifterSwift: Returns a new rotated array by the given places.
+	/// SwifterSwift: Returns a new rotated array by the given places.
 	///
 	///     [1, 2, 3, 4].rotated(by: 1) -> [4,1,2,3]
 	///     [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
 	///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
 	///
-	/// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
-	/// - Returns: The new rotated array
+	/// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
+	/// - Returns: The new rotated array
 	public func rotated(by places: Int) -> [Element] {
 		//Inspired by: https://ruby-doc.org/core-2.2.0/Array.html#method-i-rotate
 		guard places != 0 && places < count else {
@@ -396,13 +397,13 @@ public extension Array {
 		return array
 	}
 	
-	/// SwifterSwift: Rotate the array by the given places.
+	/// SwifterSwift: Rotate the array by the given places.
 	///
 	///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
 	///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
 	///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
 	///
-	/// - Parameter places: Number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
+	/// - Parameter places: Number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
 	public mutating func rotate(by places: Int) {
 		self = rotated(by: places)
 	}

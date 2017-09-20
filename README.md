@@ -3,38 +3,34 @@
 </p>
 
 [![Build Status](https://api.travis-ci.org/SwifterSwift/SwifterSwift.svg?branch=master)](https://travis-ci.org/SwifterSwift/SwifterSwift)
+[![Platforms](https://img.shields.io/cocoapods/p/SwifterSwift.svg?style=flat)](https://github.com/SwifterSwift/swifterSwift)
 [![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![codecov](https://codecov.io/gh/SwifterSwift/SwifterSwift/branch/master/graph/badge.svg)](https://codecov.io/gh/SwifterSwift/SwifterSwift)
 [![docs](http://swifterswift.com/docs/badge.svg)](http://swifterswift.com/docs)
 [![CocoaPods](https://img.shields.io/cocoapods/dt/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![CocoaPods](https://img.shields.io/cocoapods/dm/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
-[![Platform](https://img.shields.io/cocoapods/p/SwifterSwift.svg?style=flat)](https://github.com/SwifterSwift/swifterSwift)
-[![Swift](https://img.shields.io/badge/Swift-3.2-orange.svg)](https://swift.org)
-[![Xcode](https://img.shields.io/badge/Xcode-8.3-blue.svg)](https://developer.apple.com/xcode)
+[![Swift](https://img.shields.io/badge/Swift-4.0-orange.svg)](https://swift.org)
+[![Xcode](https://img.shields.io/badge/Xcode-9.0-blue.svg)](https://developer.apple.com/xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Slack Channel](http://slack.swifterswift.com/badge.svg)](http://slack.swifterswift.com/)
 
-SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types like SwiftStdlib, Foundation, UIKit, AppKit and many other classes. –over 500 in 1– for iOS, macOS, tvOS and watchOS.
 
----
-
-### ⚠️ To use with **Swift 3 / Xcode 8.x** please ensure you are using [**`v3.1.1`**](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.1.1).
-
-### ⚠️ To use with **Swift 3.2 / Xcode 9.x** please ensure you are using [**`v3.2`**](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.2.0).
-
-### ⚠️ To use with **Swift 4 / Xcode 9.x** please ensure you are using the [**`swift-4`**](https://github.com/SwifterSwift/SwifterSwift/tree/swift-4) branch.
-
----
+SwifterSwift is a collection of **over 500 native Swift extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.
 
 
-### [Whats New in v3.2.0?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v320)
-
+### [Whats New in v4.0.0?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v400)
 
 ## Requirements:
 - **iOS** 8.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+
-- Xcode 8.0+
-- Swift 3.0+
+- Xcode 9.0+
+- Swift 4.0+
+
+
+
+## Looking for Swift 3
+- To use with **Swift 3 / Xcode 8.x** please ensure you are using [**`v3.1.1`**](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.1.1).
+- To use with **Swift 3.2 / Xcode 9.x** please ensure you are using [**`v3.2.0`**](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.2.0).
 
 
 
@@ -70,7 +66,7 @@ SwifterSwift is a collection of **over 500 native Swift 3 extensions**, with han
 </br>
 <p>To integrate SwifterSwift into your Xcode project using <a href="https://github.com/Carthage/Carthage">Carthage</a>, specify it in your <code>Cartfile</code>:</p>
 
-<pre><code class="ogdl language-ogdl">github "SwifterSwift/SwifterSwift" ~&gt; 3.0
+<pre><code class="ogdl language-ogdl">github "SwifterSwift/SwifterSwift" ~&gt; 4.0
 </code></pre>
 </details>
 
@@ -86,7 +82,7 @@ let package = Package(
     name: "YOUR_PROJECT_NAME",
     targets: [],
     dependencies: [
-        .Package(url: "https://github.com/SwifterSwift/SwifterSwift.git", majorVersion: 3),
+        .Package(url: "https://github.com/SwifterSwift/SwifterSwift.git", majorVersion: 4),
     ]
 )
 </code></pre>
@@ -120,7 +116,7 @@ let package = Package(
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/SwiftStdlib/IntExtensions.swift"><code>Int extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/SwiftStdlib/OptionalExtensions.swift"><code>Optional extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/SwiftStdlib/SignedIntegerExtensions.swift"><code>SignedInteger extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/SwiftStdlib/SignedNumberExtensions.swift"><code>SignedNumber extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/SwiftStdlib/SignedNumericExtensions.swift"><code>SignedNumeric extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/SwiftStdlib/StringExtensions.swift"><code>String extensions</code></a></li>
 </ul>
 </details>
@@ -213,7 +209,7 @@ let package = Package(
 
 ## How cool is this?
 
-SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift 3.
+SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift.
 
 Check [Examples.md](https://github.com/SwifterSwift/SwifterSwift/tree/master/Examples/Examples.md) for some cool examples!
 

@@ -121,12 +121,12 @@ class UITextFieldExtensionsTests: XCTestCase {
 		let textField = UITextField()
 		textField.attributedPlaceholder = NSAttributedString(string: "Attributed Placeholder")
 		textField.setPlaceHolderTextColor(.blue)
-		let color = textField.attributedPlaceholder?.attribute(NSForegroundColorAttributeName, at: 0, effectiveRange: nil) as? UIColor
+		let color = textField.attributedPlaceholder?.attribute(.foregroundColor, at: 0, effectiveRange: nil) as? UIColor
 		XCTAssertEqual(color, .blue)
 		
 		textField.placeholder = nil
 		textField.setPlaceHolderTextColor(.yellow)
-		let emptyColor = textField.attributedPlaceholder?.attribute(NSForegroundColorAttributeName, at: 0, effectiveRange: nil) as? UIColor
+		let emptyColor = textField.attributedPlaceholder?.attribute(.foregroundColor, at: 0, effectiveRange: nil) as? UIColor
 		XCTAssertNil(emptyColor)
 	}
   

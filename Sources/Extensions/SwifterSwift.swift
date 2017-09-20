@@ -5,7 +5,6 @@
 //  Created by Omar Albeik on 8/8/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
-
 #if os(macOS)
 	import Cocoa
 #elseif os(watchOS)
@@ -36,7 +35,7 @@ public struct SwifterSwift {
 	#if os(iOS)
 	/// SwifterSwift: StatusBar height
 	public static var statusBarHeight: CGFloat {
-		return UIApplication.shared.statusBarFrame.height
+	return UIApplication.shared.statusBarFrame.height
 	}
 	#endif
 	
@@ -69,7 +68,7 @@ public struct SwifterSwift {
 	#if os(iOS)
 	/// SwifterSwift: Current battery level.
 	public static var batteryLevel: Float {
-		return UIDevice.current.batteryLevel
+	return UIDevice.current.batteryLevel
 	}
 	#endif
 	
@@ -114,7 +113,7 @@ public struct SwifterSwift {
 	#if os(iOS)
 	/// SwifterSwift: Current orientation of device.
 	public static var deviceOrientation: UIDeviceOrientation {
-		return currentDevice.orientation
+	return currentDevice.orientation
 	}
 	#endif
 	
@@ -150,33 +149,33 @@ public struct SwifterSwift {
 	#if os(iOS)
 	/// SwifterSwift: Check if multitasking is supported in current device.
 	public static var isMultitaskingSupported: Bool {
-		return UIDevice.current.isMultitaskingSupported
+	return UIDevice.current.isMultitaskingSupported
 	}
 	#endif
 	
 	#if os(iOS)
 	/// SwifterSwift: Current status bar network activity indicator state.
 	public static var isNetworkActivityIndicatorVisible: Bool {
-		get {
-			return UIApplication.shared.isNetworkActivityIndicatorVisible
-		}
-		set {
-			UIApplication.shared.isNetworkActivityIndicatorVisible = newValue
-		}
+	get {
+	return UIApplication.shared.isNetworkActivityIndicatorVisible
+	}
+	set {
+	UIApplication.shared.isNetworkActivityIndicatorVisible = newValue
+	}
 	}
 	#endif
 	
 	#if os(iOS)
 	/// SwifterSwift: Check if device is iPad.
 	public static var isPad: Bool {
-		return UIDevice.current.userInterfaceIdiom == .pad
+	return UIDevice.current.userInterfaceIdiom == .pad
 	}
 	#endif
 	
 	#if os(iOS)
 	/// SwifterSwift: Check if device is iPhone.
 	public static var isPhone: Bool {
-		return UIDevice.current.userInterfaceIdiom == .phone
+	return UIDevice.current.userInterfaceIdiom == .phone
 	}
 	#endif
 	
@@ -200,12 +199,12 @@ public struct SwifterSwift {
 	#if os(iOS)
 	/// SwifterSwift: Status bar visibility state.
 	public static var isStatusBarHidden: Bool {
-		get {
-			return UIApplication.shared.isStatusBarHidden
-		}
-		set {
-			UIApplication.shared.isStatusBarHidden = newValue
-		}
+	get {
+	return UIApplication.shared.isStatusBarHidden
+	}
+	set {
+	UIApplication.shared.isStatusBarHidden = newValue
+	}
 	}
 	#endif
 	
@@ -238,14 +237,14 @@ public struct SwifterSwift {
 	#if os(iOS)
 	/// SwifterSwift: Current status bar style (if applicable).
 	public static var statusBarStyle: UIStatusBarStyle? {
-		get {
-			return UIApplication.shared.statusBarStyle
-		}
-		set {
-			if let style = newValue {
-				UIApplication.shared.statusBarStyle = style
-			}
-		}
+	get {
+	return UIApplication.shared.statusBarStyle
+	}
+	set {
+	if let style = newValue {
+	UIApplication.shared.statusBarStyle = style
+	}
+	}
 	}
 	#endif
 	

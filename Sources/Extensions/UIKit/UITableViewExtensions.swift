@@ -24,23 +24,23 @@ public extension UITableView {
 	}
 	
 }
-    
+
 // MARK: - Methods
 public extension UITableView {
+	
+	/// SwifterSwift: Number of all rows in all sections of tableView.
+	///
+	/// - Returns: The count of all rows in the tableView.
+	public func numberOfRows() -> Int {
+		var section = 0
+		var rowCount = 0
+		while section < numberOfSections {
+			rowCount += numberOfRows(inSection: section)
+			section += 1
+		}
+		return rowCount
+	}
 
-    /// SwifterSwift: Number of all rows in all sections of tableView.
-    ///
-    /// - Returns: The count of all rows in the tableView.
-    public func numberOfRows() -> Int {
-        var section = 0
-        var rowCount = 0
-        while section < numberOfSections {
-            rowCount += numberOfRows(inSection: section)
-            section += 1
-        }
-        return rowCount
-    }
-    
 	/// SwifterSwift: IndexPath for last row in section.
 	///
 	/// - Parameter section: section to get last row in.
