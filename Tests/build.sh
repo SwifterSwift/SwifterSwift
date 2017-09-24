@@ -8,7 +8,7 @@ set -o pipefail &&
 rm -rf $DERIVED_DATA &&
 time xcodebuild clean test \
     -project SwifterSwift.xcodeproj \
-    -scheme 'SwifterSwift macOS' \
+    -scheme 'SwifterSwift-macOS' \
     -sdk macosx10.13 \
     -derivedDataPath $DERIVED_DATA \
     | tee build.log \
@@ -17,7 +17,7 @@ cat build.log &&
 rm -rf $DERIVED_DATA &&
 time xcodebuild clean test \
     -project SwifterSwift.xcodeproj \
-    -scheme 'SwifterSwift tvOS' \
+    -scheme 'SwifterSwift-tvOS' \
     -sdk appletvsimulator11.0 \
     -derivedDataPath $DERIVED_DATA \
     -destination 'platform=tvOS Simulator,name=Apple TV 1080p' \
@@ -27,7 +27,7 @@ cat build.log &&
 rm -rf $DERIVED_DATA &&
 time xcodebuild clean test \
     -project SwifterSwift.xcodeproj \
-    -scheme 'SwifterSwift iOS' \
+    -scheme 'SwifterSwift-iOS' \
     -sdk iphonesimulator11.0 \
     -derivedDataPath $DERIVED_DATA \
     -destination 'platform=iOS Simulator,name=iPhone 7,OS=11.0' \
