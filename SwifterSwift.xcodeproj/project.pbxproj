@@ -344,6 +344,13 @@
 		07DFA3E51F13844C00D0C644 /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DFA3E31F13844C00D0C644 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07DFA3E61F13844C00D0C644 /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DFA3E31F13844C00D0C644 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		07DFA3E71F13844C00D0C644 /* SwifterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 07DFA3E31F13844C00D0C644 /* SwifterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4222B1EA1F77C4B7007760F8 /* UIFontExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222B1E91F77C4B7007760F8 /* UIFontExtensionsTest.swift */; };
+		4222B1EB1F77C4D8007760F8 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425ADF221F7783CC000E0462 /* UIFontExtensions.swift */; };
+		4222B1EC1F77C4E1007760F8 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425ADF221F7783CC000E0462 /* UIFontExtensions.swift */; };
+		4222B1ED1F77C4E8007760F8 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425ADF221F7783CC000E0462 /* UIFontExtensions.swift */; };
+		4222B1EE1F77C4F9007760F8 /* UIFontExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222B1E91F77C4B7007760F8 /* UIFontExtensionsTest.swift */; };
+		4222B1EF1F77C501007760F8 /* UIFontExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4222B1E91F77C4B7007760F8 /* UIFontExtensionsTest.swift */; };
+		425ADF231F7783CC000E0462 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425ADF221F7783CC000E0462 /* UIFontExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -485,6 +492,8 @@
 		07DFA3D61F13818700D0C644 /* SwifterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwifterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07DFA3DF1F13825700D0C644 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
 		07DFA3E31F13844C00D0C644 /* SwifterSwift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SwifterSwift.h; path = Sources/SwifterSwift.h; sourceTree = "<group>"; };
+		4222B1E91F77C4B7007760F8 /* UIFontExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionsTest.swift; sourceTree = "<group>"; };
+		425ADF221F7783CC000E0462 /* UIFontExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -631,6 +640,7 @@
 				0743F2A11F611B62008386F7 /* UIButtonExtensions.swift */,
 				0743F2A21F611B62008386F7 /* UICollectionViewExtensions.swift */,
 				0743F2A31F611B62008386F7 /* UIColorExtensions.swift */,
+				425ADF221F7783CC000E0462 /* UIFontExtensions.swift */,
 				0743F2A41F611B62008386F7 /* UIImageExtensions.swift */,
 				0743F2A51F611B62008386F7 /* UIImageViewExtensions.swift */,
 				0743F2A61F611B62008386F7 /* UILabelExtensions.swift */,
@@ -731,6 +741,7 @@
 				0743F3AC1F611B87008386F7 /* UIButtonExtensionsTests.swift */,
 				0743F3AD1F611B87008386F7 /* UICollectionViewExtensionsTests.swift */,
 				0743F3AE1F611B87008386F7 /* UIColorExtensionsTests.swift */,
+				4222B1E91F77C4B7007760F8 /* UIFontExtensionsTest.swift */,
 				0743F3AF1F611B87008386F7 /* UIImageExtensionsTests.swift */,
 				0743F3B01F611B87008386F7 /* UIImageViewExtensionsTests.swift */,
 				0743F3B11F611B87008386F7 /* UILabelExtensionsTests.swift */,
@@ -1127,6 +1138,7 @@
 				0743F3CA1F611B87008386F7 /* CGPointExtensionsTests.swift in Sources */,
 				0743F3E51F611B87008386F7 /* ArrayExtensionsTests.swift in Sources */,
 				0743F41E1F611B87008386F7 /* UINavigationControllerExtensionsTests.swift in Sources */,
+				4222B1EA1F77C4B7007760F8 /* UIFontExtensionsTest.swift in Sources */,
 				0743F4061F611B87008386F7 /* UIBarButtonExtensionsTests.swift in Sources */,
 				0743F4211F611B87008386F7 /* UINavigationItemExtensionsTests.swift in Sources */,
 				0743F3D91F611B87008386F7 /* LocaleExtensionsTests.swift in Sources */,
@@ -1177,6 +1189,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4222B1EE1F77C4F9007760F8 /* UIFontExtensionsTest.swift in Sources */,
 				0743F3CB1F611B87008386F7 /* CGPointExtensionsTests.swift in Sources */,
 				0743F3E61F611B87008386F7 /* ArrayExtensionsTests.swift in Sources */,
 				0743F41F1F611B87008386F7 /* UINavigationControllerExtensionsTests.swift in Sources */,
@@ -1230,6 +1243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4222B1EF1F77C501007760F8 /* UIFontExtensionsTest.swift in Sources */,
 				0743F3CC1F611B87008386F7 /* CGPointExtensionsTests.swift in Sources */,
 				0743F3E71F611B87008386F7 /* ArrayExtensionsTests.swift in Sources */,
 				0743F4201F611B87008386F7 /* UINavigationControllerExtensionsTests.swift in Sources */,
@@ -1288,6 +1302,7 @@
 				0743F3061F611B63008386F7 /* CollectionExtensions.swift in Sources */,
 				0743F3021F611B63008386F7 /* CharacterExtensions.swift in Sources */,
 				0743F2EE1F611B63008386F7 /* URLRequestExtensions.swift in Sources */,
+				425ADF231F7783CC000E0462 /* UIFontExtensions.swift in Sources */,
 				0743F2DA1F611B63008386F7 /* DateExtensions.swift in Sources */,
 				0743F2D21F611B63008386F7 /* SwifterSwiftDeprecated.swift in Sources */,
 				0743F3661F611B63008386F7 /* UISliderExtensions.swift in Sources */,
@@ -1342,6 +1357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4222B1ED1F77C4E8007760F8 /* UIFontExtensions.swift in Sources */,
 				0743F2B71F611B63008386F7 /* NSColorExtensions.swift in Sources */,
 				0743F3071F611B63008386F7 /* CollectionExtensions.swift in Sources */,
 				0743F3031F611B63008386F7 /* CharacterExtensions.swift in Sources */,
@@ -1379,6 +1395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4222B1EC1F77C4E1007760F8 /* UIFontExtensions.swift in Sources */,
 				0743F34C1F611B63008386F7 /* UIImageViewExtensions.swift in Sources */,
 				0743F36C1F611B63008386F7 /* UIStoryboardExtensions.swift in Sources */,
 				0743F3081F611B63008386F7 /* CollectionExtensions.swift in Sources */,
@@ -1438,6 +1455,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4222B1EB1F77C4D8007760F8 /* UIFontExtensions.swift in Sources */,
 				0743F34D1F611B63008386F7 /* UIImageViewExtensions.swift in Sources */,
 				0743F36D1F611B63008386F7 /* UIStoryboardExtensions.swift in Sources */,
 				0743F3091F611B63008386F7 /* CollectionExtensions.swift in Sources */,

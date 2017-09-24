@@ -13,7 +13,8 @@ All notable changes to this project will be documented in this file.
 > ### Enhancements
 > - New **Date** extensions
 >    - added `isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool` method to check if a date is between two other dates.
->
+> - New **UIFont** extensions
+>    - added `asMonospacedDigitFont() -> UIFont` method to get the current font as monospaced digit font. [Monospaced Font explanation](https://en.wikipedia.org/wiki/Monospaced_font)
 > ### Bugfixes
 > N/A
 

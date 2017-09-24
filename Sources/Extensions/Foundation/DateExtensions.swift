@@ -712,9 +712,10 @@ public extension Date {
     
     /// SwifterSwift: check if a date is between two other dates
     ///
-    /// - Parameter startDate: start date to compare self to.
-    /// - Parameter endDate: endDate date to compare self to.
-    /// - Parameter includeBounds: true if the start and end date should be included (default is false)
+    /// - Parameters:
+    ///   - startDate: start date to compare self to.
+    ///   - endDate: endDate date to compare self to.
+    ///   - includeBounds: true if the start and end date should be included (default is false)
     /// - Returns: true if the date is between the two given dates.
     public func isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool {
         if includeBounds {

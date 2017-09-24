@@ -37,11 +37,11 @@ public extension UIImageView {
 					completionHandler?(nil)
 					return
 			}
-			DispatchQueue.main.async() { () -> Void in
+			DispatchQueue.main.async {
 				self.image = image
 				completionHandler?(image)
 			}
-			}.resume()
+        }.resume()
 	}
 	
 	/// SwifterSwift: Make image view blurry
