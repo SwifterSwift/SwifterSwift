@@ -2,9 +2,18 @@ language: objective-c
 osx_image: xcode9
 
 env:
-  - ACTION=test  PLATFORM=Mac     DESTINATION='platform=OS X'
-  - ACTION=test  PLATFORM=iOS     DESTINATION='platform=iOS Simulator,name=iPhone 6S'
-  - ACTION=test  PLATFORM=tvOS    DESTINATION='platform=tvOS Simulator,name=Apple TV 1080p'
+  global:
+  - PROJECT = SwifterSwift.xcodeproj
+
+  - IOS_SCHEME = SwifterSwift-iOS
+  - TVOS_SCHEME = SwifterSwift-tvOS
+  - WATCHOS_SCHEME = SwifterSwift-watchOS
+  - MACOS_SCHEME = SwifterSwift-macOS
+
+  - IOS_DESTINATION = 'platform=iOS Simulator,name=iPhone 6S'
+  - TVOS_DESTINATION = 'platform=tvOS Simulator,name=Apple TV 1080p'
+  - WATCHOS_DESTINATION = 'name=Apple Watch - 42mm'
+  - MACOS_DESTINATION = 'platform=OS X'
 
 before_install:
   - brew update
@@ -12,7 +21,11 @@ before_install:
   - gem install xcpretty
 
 script:
-  - set -o pipefail && xcodebuild -scheme SwifterSwift -destination "$DESTINATION" $ACTION | xcpretty
+  - set -o pipefail
+  - xcodebuild clean build test -project '$PROJECT' -scheme '$IOS_SCHEME' -destination '$IOS_DESTINATION' | xcpretty
+  - xcodebuild clean build test -project '$PROJECT' -scheme '$TVOS_SCHEME' -destination '$TVOS_DESTINATION' | xcpretty
+  - xcodebuild clean build -project '$PROJECT' -scheme '$WATCHOS_SCHEME' -destination '$WATCHOS_DESTINATION' | xcpretty
+  - xcodebuild clean build test -project '$PROJECT' -scheme '$MACOS_SCHEME' -destination '$MACOS_DESTINATION' | xcpretty
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
