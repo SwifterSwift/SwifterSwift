@@ -1,9 +1,21 @@
-osx_image: xcode9
 language: objective-c
+osx_image: xcode9
+
+env:
+  - ACTION=test  PLATFORM=Mac     DESTINATION='platform=OS X'
+  - ACTION=test  PLATFORM=iOS     DESTINATION='platform=iOS Simulator,name=iPhone 6S'
+  - ACTION=test  PLATFORM=tvOS    DESTINATION='platform=tvOS Simulator,name=Apple TV 1080p'
+
 before_install:
-    - brew update
-    - brew outdated xctool || brew upgrade xctool
-    - gem install xcpretty
-script: sh Tests/build.sh /tmp/SwifterSwift
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
+  - gem install xcpretty
+
+script:
+  - set -o pipefail
+  - xcodebuild clean build test -scheme SwifterSwift-iOS -destination "$DESTINATION" $ACTION | xcpretty
+  - xcodebuild clean build test -scheme SwifterSwift-tvOS -destination "$DESTINATION" $ACTION | xcpretty
+  - xcodebuild clean build test -scheme SwifterSwift-macOS -destination "$DESTINATION" $ACTION | xcpretty
+
 after_success:
-    - bash <(curl -s https://codecov.io/bash) -D /tmp/SwifterSwift
+  - bash <(curl -s https://codecov.io/bash)
