@@ -12,10 +12,7 @@ before_install:
   - gem install xcpretty
 
 script:
-  - set -o pipefail
-  - xcodebuild clean build test -scheme SwifterSwift-iOS -destination "$DESTINATION" $ACTION | xcpretty
-  - xcodebuild clean build test -scheme SwifterSwift-tvOS -destination "$DESTINATION" $ACTION | xcpretty
-  - xcodebuild clean build test -scheme SwifterSwift-macOS -destination "$DESTINATION" $ACTION | xcpretty
+  - set -o pipefail && xcodebuild -scheme SwifterSwift -destination "$DESTINATION" $ACTION | xcpretty
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
