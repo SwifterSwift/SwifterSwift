@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0726D7771F7C199E0028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
+		0726D77A1F7C24830028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
+		0726D77B1F7C24840028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
+		0726D77C1F7C24840028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
 		074EAF1B1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */; };
 		074EAF1C1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */; };
 		074EAF1D1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */; };
@@ -174,7 +178,6 @@
 		07B7F2231F5EB44600E6F910 /* CGSizeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1601F5EB41600E6F910 /* CGSizeExtensions.swift */; };
 		07B7F2241F5EB44600E6F910 /* CLLocationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1611F5EB41600E6F910 /* CLLocationExtensions.swift */; };
 		07B7F2251F5EB44600E6F910 /* NSAttributedStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1621F5EB41600E6F910 /* NSAttributedStringExtensions.swift */; };
-		07B7F2261F5EB44600E6F910 /* NSColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1631F5EB41600E6F910 /* NSColorExtensions.swift */; };
 		07B7F2271F5EB44600E6F910 /* NSViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1641F5EB41600E6F910 /* NSViewExtensions.swift */; };
 		07B7F2281F5EB45100E6F910 /* CGColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F15D1F5EB41600E6F910 /* CGColorExtensions.swift */; };
 		07B7F2291F5EB45100E6F910 /* CGFloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F15E1F5EB41600E6F910 /* CGFloatExtensions.swift */; };
@@ -335,6 +338,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 		074EAF1E1F7BA74600C74636 /* UIFontExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionsTest.swift; sourceTree = "<group>"; };
 		077BA0891F6BE81F00D9C4AC /* URLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
@@ -504,6 +508,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0726D7751F7C19880028CAB5 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		077BA0871F6BE73000D9C4AC /* SwiftStdlib */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +589,7 @@
 		07898B941F27904200558C97 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0726D7751F7C19880028CAB5 /* Shared */,
 				077BA0871F6BE73000D9C4AC /* SwiftStdlib */,
 				07B7F1651F5EB41600E6F910 /* Foundation */,
 				07B7F1791F5EB41600E6F910 /* UIKit */,
@@ -1124,6 +1137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B7F2191F5EB43C00E6F910 /* SignedNumericExtensions.swift in Sources */,
+				0726D7771F7C199E0028CAB5 /* ColorExtensions.swift in Sources */,
 				07B7F2181F5EB43C00E6F910 /* SignedIntegerExtensions.swift in Sources */,
 				07B7F1A71F5EB42000E6F910 /* UIViewExtensions.swift in Sources */,
 				07B7F1991F5EB42000E6F910 /* UILabelExtensions.swift in Sources */,
@@ -1180,6 +1194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B7F2071F5EB43C00E6F910 /* SignedNumericExtensions.swift in Sources */,
+				0726D77A1F7C24830028CAB5 /* ColorExtensions.swift in Sources */,
 				07B7F2061F5EB43C00E6F910 /* SignedIntegerExtensions.swift in Sources */,
 				07B7F1BD1F5EB42000E6F910 /* UIViewExtensions.swift in Sources */,
 				07B7F1AF1F5EB42000E6F910 /* UILabelExtensions.swift in Sources */,
@@ -1236,6 +1251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B7F1F51F5EB43B00E6F910 /* SignedNumericExtensions.swift in Sources */,
+				0726D77B1F7C24840028CAB5 /* ColorExtensions.swift in Sources */,
 				07B7F1F41F5EB43B00E6F910 /* SignedIntegerExtensions.swift in Sources */,
 				07B7F1D31F5EB42200E6F910 /* UIViewExtensions.swift in Sources */,
 				07B7F1C51F5EB42200E6F910 /* UILabelExtensions.swift in Sources */,
@@ -1312,7 +1328,7 @@
 				077BA0921F6BE83600D9C4AC /* UserDefaultsExtensions.swift in Sources */,
 				07B7F1DF1F5EB43B00E6F910 /* IntExtensions.swift in Sources */,
 				07B7F2201F5EB44600E6F910 /* CGColorExtensions.swift in Sources */,
-				07B7F2261F5EB44600E6F910 /* NSColorExtensions.swift in Sources */,
+				0726D77C1F7C24840028CAB5 /* ColorExtensions.swift in Sources */,
 				07B7F1D51F5EB43B00E6F910 /* ArrayExtensions.swift in Sources */,
 				07B7F21C1F5EB43E00E6F910 /* SwifterSwift.swift in Sources */,
 				07B7F1D91F5EB43B00E6F910 /* DataExtensions.swift in Sources */,
