@@ -76,8 +76,8 @@ public extension Dictionary {
 			return nil
 		}
 		let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
-		let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options)
-		return jsonData?.string(encoding: .utf8)
+		guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else { return nil }
+		return String(data: jsonData, encoding: .utf8)
 	}
     
     /// SwifterSwift: Count dictionary entries that where function returns true.

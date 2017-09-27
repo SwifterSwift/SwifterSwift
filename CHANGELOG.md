@@ -41,7 +41,7 @@ All notable changes to this project will be documented in this file.
 - New **Date** extensions
   - added `isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool` method to check if a date is between two other dates. [#248](https://github.com/SwifterSwift/SwifterSwift/pull/248) by [BennX](https://github.com/BennX).
 - New **UIFont** extensions
-  - added `asMonospacedDigitFont() -> UIFont` method to get the current font as monospaced digit font. [#250](https://github.com/SwifterSwift/SwifterSwift/pull/250) by [BennX](https://github.com/BennX), [Monospaced Font explanation](https://en.wikipedia.org/wiki/Monospaced_font)
+  - added `monospaced -> UIFont` method to get the current font as monospaced font. [#250](https://github.com/SwifterSwift/SwifterSwift/pull/250) by [BennX](https://github.com/BennX), [Monospaced Font explanation](https://en.wikipedia.org/wiki/Monospaced_font)
 - **UITableView**
   - `dequeueReusableCell` now returns an optional
   - `dequeueReusableHeaderFooterView` now returns an optional

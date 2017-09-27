@@ -15,7 +15,8 @@ public extension NSView {
 	/// SwifterSwift: Border color of view; also inspectable from Storyboard.
 	@IBInspectable public var borderColor: NSColor? {
 		get {
-			return layer?.borderColor?.nsColor
+			guard let color = layer?.borderColor else { return nil }
+			return NSColor(cgColor: color)
 		}
 		set {
 			wantsLayer = true
@@ -59,7 +60,8 @@ public extension NSView {
 	/// SwifterSwift: Shadow color of view; also inspectable from Storyboard.
 	@IBInspectable public var shadowColor: NSColor? {
 		get {
-			return layer?.shadowColor?.nsColor
+			guard let color = layer?.shadowColor else { return nil }
+			return NSColor(cgColor: color)
 		}
 		set {
 			wantsLayer = true
