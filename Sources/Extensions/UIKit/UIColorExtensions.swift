@@ -70,9 +70,31 @@ public extension UIColor {
 		return UInt(colorAsUInt32)
 	}
 	
+	/// SwifterSwift: Hexadecimal value string (read-only).
+	public var hexString: String {
+		var red:	CGFloat = 0
+		var green:	CGFloat = 0
+		var blue:	CGFloat = 0
+		var alpha:	CGFloat = 0
+		
+		getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+		let rgb: Int = (Int)(red*255)<<16 | (Int)(green*255)<<8 | (Int)(blue*255)<<0
+		return NSString(format:"#%06x", rgb).uppercased as String
+	}
+	
+	/// SwifterSwift: Short hexadecimal value string (read-only, if applicable).
+	public var shortHexString: String? {
+		let string = hexString.replacingOccurrences(of: "#", with: "")
+		let chrs = Array(string.characters)
+		guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5] else {
+			return nil
+		}
+		return  "#" + "\(chrs[0])\(chrs[2])\(chrs[4])"
+	}
+	
 	/// SwifterSwift: Short hexadecimal value string, or full hexadecimal string if not possible (read-only).
 	public var shortHexOrHexString: String {
-		return shortHexString() ?? hexString()
+		return shortHexString ?? hexString
 	}
 	
 	/// SwifterSwift: Get color complementary (read-only, if applicable).
@@ -116,33 +138,7 @@ public extension UIColor {
 		color2.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
 		return UIColor(red: l1*r1 + l2*r2, green: l1*g1 + l2*g2, blue: l1*b1 + l2*b2, alpha: l1*a1 + l2*a2)
 	}
-
-	/// SwifterSwift: return hexString of color (ARGB)
-	///
-	/// - Parameter: withAlpha: Boolean value to include alpha or not in output
-	/// - Returns: A hex-string representation of the color (ARGB)
-	public func hexString(withAlpha: Bool = false) -> String {
-		var red:	CGFloat = 0
-		var green:	CGFloat = 0
-		var blue:	CGFloat = 0
-		var alpha:	CGFloat = 0
-
-		getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-		let rgb: Int = (withAlpha ? ((Int)(alpha*255) << 24) : 0)
-			| ((Int)(red*255)   << 16)
-			| ((Int)(green*255) << 8)
-			| ((Int)(blue*255)  << 0)
-		return String(format: (withAlpha ? "#%08x" : "#%06x"), rgb).uppercased()
-	}
-
-	public func shortHexString(withAlpha: Bool = false) -> String? {
-		let string = hexString(withAlpha: true).replacingOccurrences(of: "#", with: "")
-		let chrs = Array(string.characters)
-		guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5], chrs[6] == chrs[7] else {
-			return nil
-		}
-		return "#" + (withAlpha ? "\(chrs[0])" : "") + "\(chrs[2])\(chrs[4])\(chrs[6])"
-	}
+	
 }
 
 

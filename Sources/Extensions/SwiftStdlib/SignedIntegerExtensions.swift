@@ -1,4 +1,3 @@
-
 //
 //  SignedIntegerExtensions.swift
 //  SwifterSwift
@@ -6,6 +5,7 @@
 //  Created by Omar Albeik on 8/15/17.
 //
 //
+
 import Foundation
 
 
@@ -67,7 +67,7 @@ public extension SignedInteger {
 		}
 		return "\(hours)h \(mins)m"
 	}
-	
+
 }
 
 
@@ -91,3 +91,5 @@ public extension SignedInteger {
 	}
 	
 }
+
+

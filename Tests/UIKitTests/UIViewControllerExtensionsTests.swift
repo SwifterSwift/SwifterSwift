@@ -16,7 +16,7 @@ class UIViewControllerExtensionsTests: XCTestCase {
     class MockNotificationViewController: UIViewController {
         var notificationFired = false
         
-        func testSelector() {
+		@objc func testSelector() {
             notificationFired = true
         }
     }

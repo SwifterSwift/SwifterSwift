@@ -28,20 +28,19 @@ public extension UICollectionView {
 
 // MARK: - Methods
 public extension UICollectionView {
-    
-    
-    /// SwifterSwift: Number of all items in all sections of collectionView.
-    ///
-    /// - Returns: The count of all rows in the collectionView.
-    public func numberOfItems() -> Int {
-        var section = 0
-        var itemsCount = 0
-        while section < self.numberOfSections {
-            itemsCount += numberOfItems(inSection: section)
-            section += 1
-        }
-        return itemsCount
-    }
+	
+	/// SwifterSwift: Number of all items in all sections of collectionView.
+	///
+	/// - Returns: The count of all rows in the collectionView.
+	public func numberOfItems() -> Int {
+		var section = 0
+		var itemsCount = 0
+		while section < self.numberOfSections {
+			itemsCount += numberOfItems(inSection: section)
+			section += 1
+		}
+		return itemsCount
+	}
     
 	/// SwifterSwift: IndexPath for last item in section.
 	///

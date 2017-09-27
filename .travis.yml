@@ -1,9 +1,30 @@
-osx_image: xcode9
 language: objective-c
+osx_image: xcode9
+
+env:
+  global:
+    - PROJECT='SwifterSwift.xcodeproj'
+    - IOS_SCHEME='SwifterSwift-iOS'
+    - TVOS_SCHEME='SwifterSwift-tvOS'
+    - WATCHOS_SCHEME='SwifterSwift-watchOS'
+    - MACOS_SCHEME='SwifterSwift-macOS'
+    - IOS_DESTINATION='platform=iOS Simulator,name=iPhone 6S'
+    - TVOS_DESTINATION='platform=tvOS Simulator,name=Apple TV 1080p'
+    - WATCHOS_DESTINATION='name=Apple Watch - 42mm'
+    - MACOS_DESTINATION='platform=OS X'
+
+
 before_install:
-    - brew update
-    - brew outdated xctool || brew upgrade xctool
-    - gem install xcpretty
-script: sh Tests/build.sh /tmp/SwifterSwift
+  - brew update
+  - brew outdated xctool || brew upgrade xctool
+  - gem install xcpretty
+
+script:
+  - set -o pipefail
+  - xcodebuild clean build test -project "$PROJECT" -scheme "$IOS_SCHEME" -destination "$IOS_DESTINATION" | xcpretty
+  - xcodebuild clean build test -project "$PROJECT" -scheme "$TVOS_SCHEME" -destination "$TVOS_DESTINATION" | xcpretty
+  - xcodebuild clean build -project "$PROJECT" -scheme "$WATCHOS_SCHEME" -destination "$WATCHOS_DESTINATION" | xcpretty
+  - xcodebuild clean build -project "$PROJECT" -scheme "$MACOS_SCHEME" -destination "$MACOS_DESTINATION" | xcpretty
+
 after_success:
-    - bash <(curl -s https://codecov.io/bash) -D /tmp/SwifterSwift
+  - bash <(curl -s https://codecov.io/bash)

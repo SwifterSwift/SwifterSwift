@@ -11,11 +11,6 @@ import XCTest
 
 class DataExtensionsTests: XCTestCase {
 	
-	func testAttributedString() {
-		let attrString = "Hello".colored(with: .orange)
-		XCTAssertNotEqual(Data().attributedString, attrString)
-	}
-	
 	func testString() {
 		let dataFromString = "hello".data(using: .utf8)
 		XCTAssertNotNil(dataFromString)

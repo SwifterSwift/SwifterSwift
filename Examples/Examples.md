@@ -14,7 +14,7 @@ Here are some examples:
 ["h", "e", "l", "l", "o"].indexes(of: "l") -> [2, 3]
 
 // Shuffle an array
-["h", "e", "l", "l", "o"].shuffled -> ["e", "l", "o", "l", "h"]
+["h", "e", "l", "l", "o"].shuffled() -> ["e", "l", "o", "l", "h"]
 
 // Return random item from an array
 [1, 2, 3, 4, 5].randomItem -> 3
@@ -53,8 +53,8 @@ Date().iso8601String -> "2016-08-23T21:26:15.287Z"
 let date = Date(iso8601String: "2016-08-23T21:26:15.287Z")
 
 // Create date from DateComponents
-let date = Date(year: 2016, month: 8, day: 15) // other components set to current
-let date = Date(hour: 9, minute: 18, second: 1) // other components set to current
+let date = Date(year: 2016, month: 8, day: 15) // other components are set to current by default.
+let date = Date(hour: 9, minute: 18, second: 1) // other components are set to current by default.
 
 // Represent date as a string with ease
 Date().dateString(ofStyle: .medium) -> "Aug 26, 2016"
@@ -191,10 +191,6 @@ Int.randomBetween(min: 1, max: 10) -> 6
 
 ---
 
-## UIKit Extensions
-
-SwifterSwift has many great extensions for UIKit also:
-
 ### UIColor Extensions:
 
 ```swift
@@ -212,9 +208,6 @@ UIColor.blend(UIColor.red, intensity1: 0.5, with: UIColor.green, intensity2: 0.3
 
 // Return hexadecimal value string
 UIColor.red.hexString -> "#FF0000"
-
-// Return short hexadecimal value string
-UIColor(hex: #00ffff) -> "#0FF"
 
 // Use Google Material design colors with ease
 let indigo = UIColor.material.indigo
@@ -345,7 +338,7 @@ imageView.blur(withStyle: .light)
 
 ```swift
 // Change navigation bar font and color
-navbar.setTitleFont(UIFont, with color: UIColor.black)
+navbar.setTitleFont(UIFont.systemFont(ofSize: 10), with color: UIColor.black)
 
 // and many others!
 ```
@@ -383,14 +376,7 @@ tableView.scrollToTop(animated: true)
 // and many others!
 ```
 
-
 ---
-
-
-## Cocoa Extensions
-
-SwifterSwift has many great extensions for Cocoa too:
-
 
 ### CGPoint Extensions
 

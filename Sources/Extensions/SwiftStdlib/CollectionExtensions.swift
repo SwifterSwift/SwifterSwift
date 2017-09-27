@@ -38,6 +38,10 @@ public extension Collection {
 		}
 	}
 	
+}
+
+public extension Collection {
+
 	/// SwifterSwift: Safe protects the array from out of bounds by use of optional.
 	///
 	///		let arr = [1, 2, 3, 4, 5]
@@ -54,7 +58,7 @@ public extension Collection {
 public extension Collection where Index == Int, IndexDistance == Int {
 	
 	/// SwifterSwift: Random item from array.
-	public var randomItem: Generator.Element {
+	public var randomItem: Iterator.Element {
 		let index = Int(arc4random_uniform(UInt32(count)))
 		return self[index]
 	}

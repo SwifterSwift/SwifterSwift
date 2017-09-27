@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "07DFA3BB1F13816200D0C644"
+               BlueprintIdentifier = "07898B841F278DD200558C97"
                BuildableName = "SwifterSwift.framework"
-               BlueprintName = "SwifterSwift macOS"
+               BlueprintName = "SwifterSwift-macOS"
                ReferencedContainer = "container:SwifterSwift.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,9 +34,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "077AD1C31F13875100D3214D"
-               BuildableName = "SwifterSwift macOSTests.xctest"
-               BlueprintName = "SwifterSwift macOSTests"
+               BlueprintIdentifier = "07C50CE61F5EAF6300F46E5A"
+               BuildableName = "SwifterSwift-macOSTests.xctest"
+               BlueprintName = "SwifterSwift-macOSTests"
                ReferencedContainer = "container:SwifterSwift.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -44,9 +44,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "07DFA3BB1F13816200D0C644"
+            BlueprintIdentifier = "07898B841F278DD200558C97"
             BuildableName = "SwifterSwift.framework"
-            BlueprintName = "SwifterSwift macOS"
+            BlueprintName = "SwifterSwift-macOS"
             ReferencedContainer = "container:SwifterSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,9 +67,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "07DFA3BB1F13816200D0C644"
+            BlueprintIdentifier = "07898B841F278DD200558C97"
             BuildableName = "SwifterSwift.framework"
-            BlueprintName = "SwifterSwift macOS"
+            BlueprintName = "SwifterSwift-macOS"
             ReferencedContainer = "container:SwifterSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -85,9 +85,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "07DFA3BB1F13816200D0C644"
+            BlueprintIdentifier = "07898B841F278DD200558C97"
             BuildableName = "SwifterSwift.framework"
-            BlueprintName = "SwifterSwift macOS"
+            BlueprintName = "SwifterSwift-macOS"
             ReferencedContainer = "container:SwifterSwift.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
