@@ -88,6 +88,19 @@ public extension UIView {
 		}
 	}
 	
+	/// SwifterSwift: First responder.
+	public var firstResponder: UIView? {
+		guard !isFirstResponder else {
+			return self
+		}
+		for subView in subviews {
+			if subView.isFirstResponder {
+				return subView
+			}
+		}
+		return nil
+	}
+	
 	// SwifterSwift: Height of view.
 	public var height: CGFloat {
 		get {
@@ -178,6 +191,18 @@ public extension UIView {
 		}
 	}
 	
+	/// SwifterSwift: Get view's parent view controller
+	public var parentViewController: UIViewController? {
+		weak var parentResponder: UIResponder? = self
+		while parentResponder != nil {
+			parentResponder = parentResponder!.next
+			if let viewController = parentResponder as? UIViewController {
+				return viewController
+			}
+		}
+		return nil
+	}
+	
 	/// SwifterSwift: Width of view.
 	public var width: CGFloat {
 		get {
@@ -208,36 +233,12 @@ public extension UIView {
 		}
 	}
 	
-    /// SwifterSwift: Get view's parent view controller
-    public var parentViewController: UIViewController? {
-        weak var parentResponder: UIResponder? = self
-        while parentResponder != nil {
-            parentResponder = parentResponder!.next
-            if let viewController = parentResponder as? UIViewController {
-                return viewController
-            }
-        }
-        return nil
-    }
-    
-    /// SwifterSwift: First responder.
-    public var firstResponder: UIView? {
-        guard !isFirstResponder else {
-            return self
-        }
-        for subView in subviews {
-            if subView.isFirstResponder {
-                return subView
-            }
-        }
-        return nil
-    }
 }
 
 
 // MARK: - Methods
 public extension UIView {
-    
+	
 	/// SwifterSwift: Set some or all corners radiuses of view.
 	///
 	/// - Parameters:

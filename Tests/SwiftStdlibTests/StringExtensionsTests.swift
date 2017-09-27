@@ -174,8 +174,8 @@ class StringExtensionsTests: XCTestCase {
 	}
 	
 	func testMostCommonCharacter() {
-		let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character".mostCommonCharacter()
-		XCTAssertEqual(mostCommonCharacter, "e")
+		let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character".mostCommonCharacter
+		XCTAssertEqual(mostCommonCharacter(), "e")
 		XCTAssertEqual("".mostCommonCharacter(), "")
 	}
 	
@@ -435,7 +435,7 @@ class StringExtensionsTests: XCTestCase {
 			
 		#elseif os(macOS)
 			str.copyToPasteboard()
-			let strFromPasteboard = NSPasteboard.general().string(forType: NSPasteboardTypeString)
+			let strFromPasteboard = NSPasteboard.general.string(forType: .string)
 			XCTAssertEqual(strFromPasteboard, str)
 		#endif
 	}
@@ -510,12 +510,12 @@ class StringExtensionsTests: XCTestCase {
 	func testBold() {
 		let boldString = "hello".bold
 		let attrs = boldString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, boldString.length))
-		XCTAssertNotNil(attrs[NSFontAttributeName])
+		XCTAssertNotNil(attrs[NSAttributedStringKey.font])
 		
 		#if os(macOS)
-			XCTAssertEqual(attrs[NSFontAttributeName] as! NSFont, NSFont.boldSystemFont(ofSize: NSFont.systemFontSize()))
+			XCTAssertEqual(attrs[.font] as! NSFont, NSFont.boldSystemFont(ofSize: NSFont.systemFontSize))
 		#elseif os(iOS)
-			XCTAssertEqual(attrs[NSFontAttributeName] as! UIFont, UIFont.boldSystemFont(ofSize: UIFont.systemFontSize))
+			XCTAssertEqual(attrs[NSAttributedStringKey.font] as! UIFont, UIFont.boldSystemFont(ofSize: UIFont.systemFontSize))
 		#endif
 	}
 	#endif
@@ -523,35 +523,35 @@ class StringExtensionsTests: XCTestCase {
 	func testUnderline() {
 		let underlinedString = "hello".underline
 		let attrs = underlinedString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, underlinedString.length))
-		XCTAssertNotNil(attrs[NSUnderlineStyleAttributeName])
-		XCTAssertEqual(attrs[NSUnderlineStyleAttributeName] as! Int, NSUnderlineStyle.styleSingle.rawValue)
+		XCTAssertNotNil(attrs[NSAttributedStringKey.underlineStyle])
+		XCTAssertEqual(attrs[NSAttributedStringKey.underlineStyle] as! Int, NSUnderlineStyle.styleSingle.rawValue)
 	}
 	
 	func testStrikethrough() {
 		let strikedthroughString = "hello".strikethrough
 		let attrs = strikedthroughString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, strikedthroughString.length))
-		XCTAssertNotNil(attrs[NSStrikethroughStyleAttributeName])
-		XCTAssertEqual(attrs[NSStrikethroughStyleAttributeName] as! NSNumber, NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int))
+		XCTAssertNotNil(attrs[NSAttributedStringKey.strikethroughStyle])
+		XCTAssertEqual(attrs[NSAttributedStringKey.strikethroughStyle] as! NSNumber, NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int))
 	}
 	
 	#if os(iOS)
 	func testItalic() {
 		let italicString = "hello".italic
 		let attrs = italicString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, italicString.length))
-		XCTAssertNotNil(attrs[NSFontAttributeName])
-		XCTAssertEqual(attrs[NSFontAttributeName] as! UIFont, UIFont.italicSystemFont(ofSize: UIFont.systemFontSize))
+		XCTAssertNotNil(attrs[NSAttributedStringKey.font])
+		XCTAssertEqual(attrs[NSAttributedStringKey.font] as! UIFont, UIFont.italicSystemFont(ofSize: UIFont.systemFontSize))
 	}
 	#endif
 	
 	func testColored() {
 		let coloredString = "hello".colored(with: .orange)
 		let attrs = coloredString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, coloredString.length))
-		XCTAssertNotNil(attrs[NSForegroundColorAttributeName])
+		XCTAssertNotNil(attrs[NSAttributedStringKey.foregroundColor])
 		
 		#if os(macOS)
-			XCTAssertEqual(attrs[NSForegroundColorAttributeName] as! NSColor, NSColor.orange)
+			XCTAssertEqual(attrs[.foregroundColor] as! NSColor, NSColor.orange)
 		#else
-			XCTAssertEqual(attrs[NSForegroundColorAttributeName] as! UIColor, UIColor.orange)
+			XCTAssertEqual(attrs[NSAttributedStringKey.foregroundColor] as! UIColor, UIColor.orange)
 		#endif
 	}
 	
