@@ -254,6 +254,51 @@ class UIViewExtensionsTests: XCTestCase {
 		XCTAssertNotNil(subview.centerYAnchor)
 	}
 	
+    func testBlur() {
+        
+        let blurExpectation = expectation(description: "Should be blurred")
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        view.blurBackground(using: .extraLight)
+        
+        for view in view.subviews {
+            
+            if view is UIVisualEffectView {
+                
+                blurExpectation.fulfill()
+            }
+        }
+        
+        waitForExpectations(timeout: 5.0, handler: nil)
+    }
+    
+    func testRemoveBlur() {
+        
+        let onlyOneBlurExpectation = expectation(description: "There should only be on blur on view")
+        
+        // implicitly test removeBlur() by adding multiple. It should remove the previous blur each time
+        // leaving only 1 blur on the view at any given time
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 200, height: 100))
+        view.blurBackground(using: .dark)
+        view.blurBackground(using: .extraLight)
+        view.blurBackground(using: .light)
+        
+        var blurCounter = 0
+        for view in view.subviews {
+            
+            if view is UIVisualEffectView {
+                
+                blurCounter += 1
+            }
+        }
+        
+        if blurCounter == 1 {
+            
+            onlyOneBlurExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5.0, handler: nil)
+    }
 	
 }
 #endif
