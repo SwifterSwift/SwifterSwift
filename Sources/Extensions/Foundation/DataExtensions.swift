@@ -12,7 +12,6 @@
 	import UIKit
 #endif
 
-
 // MARK: - Properties
 public extension Data {
 	
@@ -35,4 +34,3 @@ public extension Data {
 	}
 	
 }
-

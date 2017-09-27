@@ -20,6 +20,7 @@ public extension SignedNumeric {
 		let formatter = NumberFormatter()
 		formatter.numberStyle = .currency
 		formatter.locale = Locale.current
-		return formatter.string(from: self as! NSNumber)!
+		guard let number = self as? NSNumber else { return "" }
+		return formatter.string(from: number) ?? ""
 	}
 }

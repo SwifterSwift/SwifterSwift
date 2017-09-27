@@ -53,7 +53,6 @@ class UITextFieldExtensionsTests: XCTestCase {
 		XCTAssertEqual(tf3.textType, .generic)
 		XCTAssertFalse(tf3.isSecureTextEntry)
 
-		
 	}
 	
 	func testHasValidEmail() {
@@ -107,7 +106,6 @@ class UITextFieldExtensionsTests: XCTestCase {
 		textField.rightViewTintColor = .yellow
 		XCTAssertNil(textField.rightViewTintColor)
 	}
-	
 	
 	func testClear() {
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 30)

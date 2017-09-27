@@ -55,7 +55,7 @@ class StringExtensionsTests: XCTestCase {
 	func testCount() {
 		XCTAssertEqual("Hello This Tests".count(of: "T"), 2)
 		XCTAssertEqual("Hello This Tests".count(of: "t"), 1)
-		XCTAssertEqual("Hello This Tests".count(of: "T", caseSensitive: false) , 3)
+		XCTAssertEqual("Hello This Tests".count(of: "T", caseSensitive: false), 3)
 		XCTAssertEqual("Hello This Tests".count(of: "t", caseSensitive: false), 3)
 		
 	}
@@ -513,9 +513,17 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertNotNil(attrs[NSAttributedStringKey.font])
 		
 		#if os(macOS)
-			XCTAssertEqual(attrs[.font] as! NSFont, NSFont.boldSystemFont(ofSize: NSFont.systemFontSize))
+			guard let font = attrs[.font] as? NSFont else {
+				XCTFail()
+				return
+			}
+			XCTAssertEqual(font, NSFont.boldSystemFont(ofSize: NSFont.systemFontSize))
 		#elseif os(iOS)
-			XCTAssertEqual(attrs[NSAttributedStringKey.font] as! UIFont, UIFont.boldSystemFont(ofSize: UIFont.systemFontSize))
+			guard let font = attrs[NSAttributedStringKey.font] as? UIFont else {
+				XCTFail()
+				return
+			}
+			XCTAssertEqual(font, UIFont.boldSystemFont(ofSize: UIFont.systemFontSize))
 		#endif
 	}
 	#endif
@@ -524,14 +532,22 @@ class StringExtensionsTests: XCTestCase {
 		let underlinedString = "hello".underline
 		let attrs = underlinedString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, underlinedString.length))
 		XCTAssertNotNil(attrs[NSAttributedStringKey.underlineStyle])
-		XCTAssertEqual(attrs[NSAttributedStringKey.underlineStyle] as! Int, NSUnderlineStyle.styleSingle.rawValue)
+		guard let style = attrs[NSAttributedStringKey.underlineStyle] as? Int else {
+			XCTFail()
+			return
+		}
+		XCTAssertEqual(style, NSUnderlineStyle.styleSingle.rawValue)
 	}
 	
 	func testStrikethrough() {
 		let strikedthroughString = "hello".strikethrough
 		let attrs = strikedthroughString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, strikedthroughString.length))
 		XCTAssertNotNil(attrs[NSAttributedStringKey.strikethroughStyle])
-		XCTAssertEqual(attrs[NSAttributedStringKey.strikethroughStyle] as! NSNumber, NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int))
+		guard let style = attrs[NSAttributedStringKey.strikethroughStyle] as? NSNumber else {
+			XCTFail()
+			return
+		}
+		XCTAssertEqual(style, NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int))
 	}
 	
 	#if os(iOS)
@@ -539,7 +555,11 @@ class StringExtensionsTests: XCTestCase {
 		let italicString = "hello".italic
 		let attrs = italicString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, italicString.length))
 		XCTAssertNotNil(attrs[NSAttributedStringKey.font])
-		XCTAssertEqual(attrs[NSAttributedStringKey.font] as! UIFont, UIFont.italicSystemFont(ofSize: UIFont.systemFontSize))
+		guard let font = attrs[NSAttributedStringKey.font] as? UIFont else {
+			XCTFail()
+			return
+		}
+		XCTAssertEqual(font, UIFont.italicSystemFont(ofSize: UIFont.systemFontSize))
 	}
 	#endif
 	
@@ -549,9 +569,17 @@ class StringExtensionsTests: XCTestCase {
 		XCTAssertNotNil(attrs[NSAttributedStringKey.foregroundColor])
 		
 		#if os(macOS)
-			XCTAssertEqual(attrs[.foregroundColor] as! NSColor, NSColor.orange)
+			guard let color = attrs[.foregroundColor] as? NSColor else {
+				XCTFail()
+				return
+			}
+			XCTAssertEqual(color, NSColor.orange)
 		#else
-			XCTAssertEqual(attrs[NSAttributedStringKey.foregroundColor] as! UIColor, UIColor.orange)
+			guard let color = attrs[NSAttributedStringKey.foregroundColor] as? UIColor else {
+				XCTFail()
+				return
+			}
+			XCTAssertEqual(color, UIColor.orange)
 		#endif
 	}
 	

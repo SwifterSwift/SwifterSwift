@@ -76,7 +76,6 @@ class ArrayExtensionsTests: XCTestCase {
 		newArray.safeSwap(from: 1, to: 1)
 		XCTAssertEqual(newArray, array)
 		
-		
 		newArray = array
 		newArray.safeSwap(from: 1, to: 12)
 		XCTAssertEqual(newArray, array)
@@ -99,7 +98,7 @@ class ArrayExtensionsTests: XCTestCase {
     
     func testRemoveAllItems() {
         var arr = [0, 1, 2, 2, 0, 3, 4, 5, 0, 0]
-        arr.removeAll([0,2])
+        arr.removeAll([0, 2])
         XCTAssertEqual(arr, [1, 3, 4, 5])
 		arr.removeAll([])
 		XCTAssertEqual(arr, [1, 3, 4, 5])
@@ -107,8 +106,7 @@ class ArrayExtensionsTests: XCTestCase {
 		arr.removeAll([])
 		XCTAssertEqual(arr, [])
     }
-    
-	
+
     func testShuffle() {
 		var arr = ["a"]
 		arr.shuffle()
@@ -228,7 +226,7 @@ class ArrayExtensionsTests: XCTestCase {
     func testForEachWhere() {
         let input = [1, 2, 2, 2, 1, 4, 1]
         var output: [Int] = []
-        input.forEach(where: {$0 % 2 == 0}) { output.append($0 * 2) }
+		input.forEach(where: {$0 % 2 == 0}, body: { output.append($0 * 2) })
         XCTAssertEqual(output, [4, 4, 4, 8])
     }
     
@@ -239,8 +237,8 @@ class ArrayExtensionsTests: XCTestCase {
     }
     
     func testFilteredMap() {
-        let input = [1,2,3,4,5]
-        let result = input.filtered({ $0 % 2 == 0 }) { $0.string }
+        let input = [1, 2, 3, 4, 5]
+		let result = input.filtered({ $0 % 2 == 0 }, map: { $0.string })
         XCTAssertEqual(result.count, 2)
         XCTAssertEqual(["2", "4"], result)
     }
@@ -278,11 +276,10 @@ class ArrayExtensionsTests: XCTestCase {
       
         XCTAssertEqual([].skip(while: { $0 % 2 == 0}), [])
     }
-	
-    
+
     func testGroupBy() {
-        let array : [String] = [ "james", "irving", "jordan", "jonshon", "iverson"]
-        let grouped = array.groupByKey { (element) -> String in
+        let array: [String] = ["james", "irving", "jordan", "jonshon", "iverson"]
+        let grouped = array.groupByKey { element -> String in
             return String(element.characters.first ?? Character(""))
         }
         XCTAssertEqual(grouped["j"] ?? [], [ "james", "jordan", "jonshon" ])
@@ -290,11 +287,11 @@ class ArrayExtensionsTests: XCTestCase {
     }
     
     func testForEachSlice() {
-        var iterations : Int = 0
+        var iterations: Int = 0
         
         // A slice with value zero
-        var array : [String] = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
-        array.forEach(slice: 0) { (sliceArray) in
+        var array: [String] = ["james", "irving", "jordan", "jonshon", "iverson", "shaq"]
+        array.forEach(slice: 0) { _ in
             iterations += 1
         }
         XCTAssertEqual(iterations, 0)
@@ -347,7 +344,7 @@ class ArrayExtensionsTests: XCTestCase {
     func testGroupBySize() {
         
         // A slice with value zero
-        var array : [String] = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
+        var array: [String] = ["james", "irving", "jordan", "jonshon", "iverson", "shaq"]
         var slices = array.group(by: 0)
         XCTAssertNil(slices)
         
@@ -372,23 +369,23 @@ class ArrayExtensionsTests: XCTestCase {
     }
     
     func testRotated() {
-        let array : [Int] = [1,2,3,4]
-        XCTAssertEqual(array.rotated(by: 0), [1,2,3,4])
-        XCTAssertEqual(array.rotated(by: 4), [1,2,3,4])
-        XCTAssertEqual(array.rotated(by: 1), [4,1,2,3])
-        XCTAssertEqual(array.rotated(by: 3), [2,3,4,1])
-        XCTAssertEqual(array.rotated(by: -1), [2,3,4,1])
-        XCTAssertEqual(array.rotated(by: -3), [4,1,2,3])
+        let array: [Int] = [1, 2, 3, 4]
+        XCTAssertEqual(array.rotated(by: 0), [1, 2, 3, 4])
+        XCTAssertEqual(array.rotated(by: 4), [1, 2, 3, 4])
+        XCTAssertEqual(array.rotated(by: 1), [4, 1, 2, 3])
+        XCTAssertEqual(array.rotated(by: 3), [2, 3, 4, 1])
+        XCTAssertEqual(array.rotated(by: -1), [2, 3, 4, 1])
+        XCTAssertEqual(array.rotated(by: -3), [4, 1, 2, 3])
     }
     
     func testRotate() {
-        var array : [Int] = [1,2,3,4]
+        var array: [Int] = [1, 2, 3, 4]
         array.rotate(by: 0)
-        XCTAssertEqual(array, [1,2,3,4])
+        XCTAssertEqual(array, [1, 2, 3, 4])
         array.rotate(by: 2)
-        XCTAssertEqual(array, [3,4,1,2])
+        XCTAssertEqual(array, [3, 4, 1, 2])
         array.rotate(by: -1)
-        XCTAssertEqual(array, [4,1,2,3])
+        XCTAssertEqual(array, [4, 1, 2, 3])
         
     }
     

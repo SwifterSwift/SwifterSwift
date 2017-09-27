@@ -11,12 +11,51 @@ All notable changes to this project will be documented in this file.
 > N/A
 >
 > ### Enhancements
-> - New **Date** extensions
->    - added `isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool` method to check if a date is between two other dates.
-> - New **UIFont** extensions
->    - added `asMonospacedDigitFont() -> UIFont` method to get the current font as monospaced digit font. [Monospaced Font explanation](https://en.wikipedia.org/wiki/Monospaced_font)
+> N/A
+>
 > ### Bugfixes
 > N/A
+
+
+# v4.0.0
+
+### API Breaking
+- **Swift4 / Xcode9 🎉**
+  - This version brings support for Swift4 and Xcode9. [Looking for Swift3 / 3.2 ?](https://github.com/SwifterSwift/SwifterSwift#looking-for-swift-3)
+- **UIColor**
+  - `social` has been renamed to `Social` to match Apple Swift guidelines
+  - `material` has been renamed to `Material` to match Apple Swift guidelines
+  - `flatUI` has been renamed to `FlatUI` to match Apple Swift guidelines
+  - `css` has been renamed to `CSS` to match Apple Swift guidelines
+- **NSColor**
+  - `social` has been renamed to `Social` to match Apple Swift guidelines
+  - `material` has been renamed to `Material` to match Apple Swift guidelines
+  - `flatUI` has been renamed to `FlatUI` to match Apple Swift guidelines
+  - `css` has been renamed to `CSS` to match Apple Swift guidelines
+
+### Enhancements
+- **SwiftLint**
+  - Added [SwiftLint](https://github.com/realm/SwiftLint) to enforce Swift style and conventions.
+- **Danger**
+  - Added Danger to continuous integration. [#252](https://github.com/SwifterSwift/SwifterSwift/pull/252) by [SD10](https://github.com/SD10).
+- New **Date** extensions
+  - added `isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool` method to check if a date is between two other dates. [#248](https://github.com/SwifterSwift/SwifterSwift/pull/248) by [BennX](https://github.com/BennX).
+- New **UIFont** extensions
+  - added `asMonospacedDigitFont() -> UIFont` method to get the current font as monospaced digit font. [#250](https://github.com/SwifterSwift/SwifterSwift/pull/250) by [BennX](https://github.com/BennX), [Monospaced Font explanation](https://en.wikipedia.org/wiki/Monospaced_font)
+
+- **UITableView**
+  - `dequeueReusableCell` now returns an optional
+  - `dequeueReusableHeaderFooterView` now returns an optional
+- **UICollectionView**
+  - `dequeueReusableCell` now returns an optional
+  - `dequeueReusableSupplementaryView` now returns an optional
+- **UIAlertController**
+  - Added `preferredStyle: UIAlertControllerStyle = .alert` to `init from error`.
+
+### Bugfixes
+- **SwifterSwift**
+  - `didTakeScreenShot` now returns the notification, make sure to remove listener when you don't need it anymore.
+
 
 # v3.2.0
 

@@ -794,6 +794,7 @@
 				07898B591F278D7600558C97 /* Frameworks */,
 				07898B5A1F278D7600558C97 /* Headers */,
 				07898B5B1F278D7600558C97 /* Resources */,
+				074EAF161F7B859500C74636 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -812,6 +813,7 @@
 				07898B671F278D9700558C97 /* Frameworks */,
 				07898B681F278D9700558C97 /* Headers */,
 				07898B691F278D9700558C97 /* Resources */,
+				074EAF171F7B859A00C74636 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -830,6 +832,7 @@
 				07898B741F278DBC00558C97 /* Frameworks */,
 				07898B751F278DBC00558C97 /* Headers */,
 				07898B761F278DBC00558C97 /* Resources */,
+				074EAF181F7B85C600C74636 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -848,6 +851,7 @@
 				07898B811F278DD200558C97 /* Frameworks */,
 				07898B821F278DD200558C97 /* Headers */,
 				07898B831F278DD200558C97 /* Resources */,
+				074EAF191F7B85CB00C74636 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -883,6 +887,7 @@
 				07C50CD41F5EAF4B00F46E5A /* Sources */,
 				07C50CD51F5EAF4B00F46E5A /* Frameworks */,
 				07C50CD61F5EAF4B00F46E5A /* Resources */,
+				074EAF151F7B845A00C74636 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1035,6 +1040,74 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		074EAF151F7B845A00C74636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		074EAF161F7B859500C74636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		074EAF171F7B859A00C74636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		074EAF181F7B85C600C74636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		074EAF191F7B85CB00C74636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		07898B581F278D7600558C97 /* Sources */ = {
@@ -2280,7 +2353,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = C3VKVFB3SA;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2347,7 +2420,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = C3VKVFB3SA;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

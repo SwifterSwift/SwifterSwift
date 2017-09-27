@@ -13,10 +13,8 @@ import Foundation
 	import UIKit
 #endif
 
-
 // MARK: - Properties
 public extension Int {
-	
 	
 	/// SwifterSwift: CountableRange 0..<Int.
 	public var countableRange: CountableRange<Int> {
@@ -71,7 +69,6 @@ public extension Int {
 	
 }
 
-
 // MARK: - Methods
 public extension Int {
 	
@@ -110,10 +107,8 @@ public extension Int {
 		// other multiplier will go 1 down to get similar result
 		// (integer-wise operation) such way increases speed of operation
 		let base = Int(sqrt(Double(self)) + 1)
-		for i in Swift.stride(from: 3, to: base, by: 2) {
-			if self % i == 0 {
-				return false
-			}
+		for i in Swift.stride(from: 3, to: base, by: 2) where self % i == 0 {
+			return false
 		}
 		return true
 	}
@@ -137,7 +132,7 @@ public extension Int {
 		for (index, romanChar) in romanValues.enumerated() {
 			let arabicValue = arabicValues[index]
 			let div = startingValue / arabicValue
-			if (div > 0) {
+			if div > 0 {
 				for _ in 0..<div {
 					romanValue += romanChar
 				}
@@ -148,7 +143,6 @@ public extension Int {
 	}
 
 }
-
 
 // MARK: - Initializers
 public extension Int {
@@ -170,7 +164,6 @@ public extension Int {
 	}
 	
 }
-
 
 // MARK: - Operators
 

@@ -11,7 +11,6 @@
 import XCTest
 @testable import SwifterSwift
 
-
 class NSViewExtensionsTests: XCTestCase {
 	
 	func testBorderColor() {

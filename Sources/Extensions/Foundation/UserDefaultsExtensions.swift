@@ -7,7 +7,6 @@
 //
 import Foundation
 
-
 // MARK: - Methods
 public extension UserDefaults {
 	

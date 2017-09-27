@@ -67,9 +67,9 @@ class UIAlertControllerExtensionsTests: XCTestCase {
 		XCTAssertEqual(defaultAction?.style, .default)
 	}
 	
+	enum TestError: Error { case error }
+	
 	func testErrorInit() {
-		
-		enum TestError: Error { case error }
 		let error = TestError.error
 		
 		let alertController = UIAlertController(title: "Title", error: error, defaultActionButtonTitle: "Ok", tintColor: .red)

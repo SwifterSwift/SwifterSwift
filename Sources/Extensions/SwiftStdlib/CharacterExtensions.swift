@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 // MARK: - Properties
 public extension Character {
 	
@@ -20,7 +19,7 @@ public extension Character {
 		// http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
 		let scalarValue = String(self).unicodeScalars.first!.value
 		switch scalarValue {
-		case 0x3030, 0x00AE, 0x00A9,// Special Characters
+		case 0x3030, 0x00AE, 0x00A9, // Special Characters
 		0x1D000...0x1F77F, // Emoticons
 		0x2100...0x27BF, // Misc symbols and Dingbats
 		0xFE00...0xFE0F, // Variation Selectors
@@ -110,7 +109,6 @@ public extension Character {
     }
     
 }
-
 
 // MARK: - Operators
 public extension Character {

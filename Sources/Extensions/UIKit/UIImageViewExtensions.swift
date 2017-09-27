@@ -9,7 +9,6 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
-
 // MARK: - Methods
 public extension UIImageView {
 	
@@ -27,7 +26,7 @@ public extension UIImageView {
 		
 		image = placeholder
 		self.contentMode = contentMode
-		URLSession.shared.dataTask(with: url) { (data, response, error) in
+		URLSession.shared.dataTask(with: url) { (data, response, _) in
 			guard
 				let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
 				let mimeType = response?.mimeType, mimeType.hasPrefix("image"),

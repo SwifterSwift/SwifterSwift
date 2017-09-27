@@ -12,7 +12,6 @@
 	import UIKit
 #endif
 
-
 // MARK: - Properties
 public extension NSAttributedString {
 	

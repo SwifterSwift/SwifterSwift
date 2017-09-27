@@ -9,7 +9,6 @@
 #if os(iOS)
 import UIKit
 
-
 // MARK: - Methods
 public extension UISwitch {
 	

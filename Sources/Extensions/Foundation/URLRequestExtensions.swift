@@ -7,7 +7,6 @@
 //
 import Foundation
 
-
 // MARK: - Initializers
 public extension URLRequest {
 	

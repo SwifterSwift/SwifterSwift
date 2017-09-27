@@ -14,12 +14,12 @@ class UserDefaultsExtensionsTests: XCTestCase {
 		let key = "testKey"
 		UserDefaults.standard.set(true, forKey: key)
 		XCTAssertNotNil(UserDefaults.standard[key])
-		XCTAssert(UserDefaults.standard[key] as! Bool)
+		XCTAssert(UserDefaults.standard[key] as? Bool ?? false)
 		
 		UserDefaults.standard.removeObject(forKey: key)
 		UserDefaults.standard[key] = false
 		XCTAssertNotNil(UserDefaults.standard[key])
-		XCTAssertFalse(UserDefaults.standard[key] as! Bool)
+		XCTAssertFalse(UserDefaults.standard[key] as? Bool ?? false)
 	}
 	
 	func testFloat() {

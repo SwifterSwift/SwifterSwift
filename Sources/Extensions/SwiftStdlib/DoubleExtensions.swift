@@ -13,7 +13,6 @@ import Foundation
 	import UIKit
 #endif
 
-
 // MARK: - Properties
 public extension Double {
 	
@@ -33,7 +32,6 @@ public extension Double {
 	}
 	
 }
-
 
 // MARK: - Operators
 

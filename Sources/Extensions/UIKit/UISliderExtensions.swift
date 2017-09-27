@@ -9,7 +9,6 @@
 #if os(iOS)
 import UIKit
 
-
 // MARK: - Methods
 public extension UISlider {
 	
@@ -24,7 +23,7 @@ public extension UISlider {
 		if animated {
 			UIView.animate(withDuration: duration, animations: {
 				self.setValue(value, animated: true)
-			}, completion: { finished in
+			}, completion: { _ in
 				completion?()
 			})
 		} else {

@@ -8,7 +8,6 @@
 
 import CoreLocation
 
-
 // MARK: - Methods
 public extension CLLocation {
 	
@@ -70,4 +69,3 @@ public extension CLLocation {
 	}
 	
 }
-

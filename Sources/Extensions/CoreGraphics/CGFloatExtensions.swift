@@ -12,7 +12,6 @@
 	import UIKit
 #endif
 
-
 // MARK: - Properties
 public extension CGFloat {
 	
@@ -67,7 +66,6 @@ public extension CGFloat {
 	}
 	
 }
-
 
 // MARK: - Methods
 public extension CGFloat {

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 // MARK: - Properties
 public extension SignedInteger {
 	
@@ -70,7 +69,6 @@ public extension SignedInteger {
 
 }
 
-
 // MARK: - Methods
 public extension SignedInteger {
 	
@@ -91,5 +89,3 @@ public extension SignedInteger {
 	}
 	
 }
-
-

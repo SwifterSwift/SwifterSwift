@@ -9,7 +9,6 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
-
 // MARK: - Methods
 public extension UITextView {
 	
@@ -23,6 +22,7 @@ public extension UITextView {
 	public func scrollToBottom() {
 		let range = NSMakeRange((text as NSString).length - 1, 1)
 		scrollRangeToVisible(range)
+		
 	}
 	
 	/// SwifterSwift: Scroll to the top of text view

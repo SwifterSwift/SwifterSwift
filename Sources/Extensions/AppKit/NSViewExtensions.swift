@@ -12,9 +12,8 @@ import Cocoa
 // MARK: - Properties
 public extension NSView {
 	
-	@IBInspectable
 	/// SwifterSwift: Border color of view; also inspectable from Storyboard.
-	public var borderColor: NSColor? {
+	@IBInspectable public var borderColor: NSColor? {
 		get {
 			return layer?.borderColor?.nsColor
 		}
@@ -24,9 +23,8 @@ public extension NSView {
 		}
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Border width of view; also inspectable from Storyboard.
-	public var borderWidth: CGFloat {
+	@IBInspectable public var borderWidth: CGFloat {
 		get {
 			return layer?.borderWidth ?? 0
 		}
@@ -36,9 +34,8 @@ public extension NSView {
 		}
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Corner radius of view; also inspectable from Storyboard.
-	public var cornerRadius: CGFloat {
+	@IBInspectable public var cornerRadius: CGFloat {
 		get {
 			return layer?.cornerRadius ?? 0
 		}
@@ -59,9 +56,8 @@ public extension NSView {
 		}
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Shadow color of view; also inspectable from Storyboard.
-	public var shadowColor: NSColor? {
+	@IBInspectable public var shadowColor: NSColor? {
 		get {
 			return layer?.shadowColor?.nsColor
 		}
@@ -71,9 +67,8 @@ public extension NSView {
 		}
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Shadow offset of view; also inspectable from Storyboard.
-	public var shadowOffset: CGSize {
+	@IBInspectable public var shadowOffset: CGSize {
 		get {
 			return layer?.shadowOffset ?? CGSize.zero
 		}
@@ -83,9 +78,8 @@ public extension NSView {
 		}
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Shadow opacity of view; also inspectable from Storyboard.
-	public var shadowOpacity: Float {
+	@IBInspectable public var shadowOpacity: Float {
 		get {
 			return layer?.shadowOpacity ?? 0
 		}
@@ -95,9 +89,8 @@ public extension NSView {
 		}
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Shadow radius of view; also inspectable from Storyboard.
-	public var shadowRadius: CGFloat {
+	@IBInspectable public var shadowRadius: CGFloat {
 		get {
 			return layer?.shadowRadius ?? 0
 		}
@@ -129,7 +122,6 @@ public extension NSView {
 	}
 	
 }
-
 
 // MARK: - Methods
 extension NSView {

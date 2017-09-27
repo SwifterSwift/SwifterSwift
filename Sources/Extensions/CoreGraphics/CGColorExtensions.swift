@@ -12,7 +12,6 @@
 	import UIKit
 #endif
 
-
 public extension CGColor {
 	
 	#if !os(macOS)
