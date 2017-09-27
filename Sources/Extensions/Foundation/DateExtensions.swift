@@ -702,7 +702,21 @@ public extension Date {
 	public func daysSince(_ date: Date) -> Double {
 		return self.timeIntervalSince(date)/(3600*24)
 	}
-	
+    
+  /// SwifterSwift: check if a date is between two other dates
+  ///
+  /// - Parameters:
+  ///   - startDate: start date to compare self to.
+  ///   - endDate: endDate date to compare self to.
+  ///   - includeBounds: true if the start and end date should be included (default is false)
+  /// - Returns: true if the date is between the two given dates.
+  public func isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool {
+      if includeBounds {
+          return startDate.compare(self).rawValue * self.compare(endDate).rawValue >= 0
+      } else {
+          return startDate.compare(self).rawValue * self.compare(endDate).rawValue > 0
+      }
+  }
 }
 
 
