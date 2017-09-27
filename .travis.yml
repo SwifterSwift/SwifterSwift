@@ -15,9 +15,9 @@ env:
 
 
 before_install:
+  - bundle install
   - brew update
   - brew outdated xctool || brew upgrade xctool
-  - gem install xcpretty
 
 before_script:
   - bundle exec danger
