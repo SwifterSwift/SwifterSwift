@@ -254,6 +254,5 @@ class UIViewExtensionsTests: XCTestCase {
 		XCTAssertNotNil(subview.centerYAnchor)
 	}
 	
-	
 }
 #endif

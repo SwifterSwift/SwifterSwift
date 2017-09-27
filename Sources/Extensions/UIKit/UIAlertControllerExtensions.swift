@@ -10,7 +10,6 @@
 import UIKit
 import AudioToolbox
 
-
 // MARK: - Methods
 public extension UIAlertController {
 	
@@ -61,7 +60,6 @@ public extension UIAlertController {
 	
 }
 
-
 // MARK: - Initializers
 public extension UIAlertController {
 	
@@ -88,8 +86,8 @@ public extension UIAlertController {
 	///   - error: error to set alert controller's message to it's localizedDescription.
 	///   - defaultActionButtonTitle: default action button title (default is "OK")
 	///   - tintColor: alert controller's tint color (default is nil)
-	public convenience init(title: String = "Error", error: Error, defaultActionButtonTitle: String = "OK", tintColor: UIColor? = nil) {
-		self.init(title: title, message: error.localizedDescription, preferredStyle: .alert)
+	public convenience init(title: String = "Error", error: Error, defaultActionButtonTitle: String = "OK", preferredStyle: UIAlertControllerStyle = .alert, tintColor: UIColor? = nil) {
+		self.init(title: title, message: error.localizedDescription, preferredStyle: preferredStyle)
 		let defaultAction = UIAlertAction(title: defaultActionButtonTitle, style: .default, handler: nil)
 		addAction(defaultAction)
 		if let color = tintColor {

@@ -24,8 +24,7 @@ public extension UITextField {
 	}
 	
 }
-	
-	
+
 // MARK: - Properties
 public extension UITextField {
 	
@@ -62,7 +61,6 @@ public extension UITextField {
 		}
 	}
 	
-	
 	/// SwifterSwift: Check if text field is empty.
 	public var isEmpty: Bool {
 		return text?.isEmpty == true
@@ -88,9 +86,8 @@ public extension UITextField {
 		                   range: nil, locale: nil) != nil
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Left view tint color.
-	public var leftViewTintColor: UIColor? {
+	@IBInspectable public var leftViewTintColor: UIColor? {
 		get {
 			guard let iconView = leftView as? UIImageView else {
 				return nil
@@ -105,10 +102,9 @@ public extension UITextField {
 			iconView.tintColor = newValue
 		}
 	}
-
-	@IBInspectable
+	
 	/// SwifterSwift: Right view tint color.
-	public var rightViewTintColor: UIColor? {
+	@IBInspectable public var rightViewTintColor: UIColor? {
 		get {
 			guard let iconView = rightView as? UIImageView else {
 				return nil

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 // MARK: - Properties
 public extension FloatingPoint {
 	
@@ -49,7 +48,6 @@ public extension FloatingPoint {
 	
 }
 
-
 // MARK: - Methods
 public extension FloatingPoint {
 	
@@ -77,7 +75,6 @@ public extension FloatingPoint {
 	
 }
 
-
 // MARK: - Initializers
 public extension FloatingPoint {
 	
@@ -102,7 +99,6 @@ public extension FloatingPoint {
 	}
 	
 }
-
 
 // MARK: - Operators
 infix operator ±

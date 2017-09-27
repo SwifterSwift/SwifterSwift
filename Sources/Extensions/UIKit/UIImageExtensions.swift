@@ -9,7 +9,6 @@
 #if os(iOS) || os(tvOS) || os(watchOS)
 import UIKit
 
-
 // MARK: - Properties
 public extension UIImage {
 	
@@ -34,7 +33,6 @@ public extension UIImage {
 	}
 	
 }
-
 
 // MARK: - Methods
 public extension UIImage {
@@ -116,7 +114,7 @@ public extension UIImage {
 		}
 		
 		context.translateBy(x: 0, y: size.height)
-		context.scaleBy(x: 1.0, y: -1.0);
+		context.scaleBy(x: 1.0, y: -1.0)
 		context.setBlendMode(CGBlendMode.normal)
 		
 		let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
@@ -150,7 +148,6 @@ public extension UIImage {
 		return tintedImage!
 	}
 }
-
 
 // MARK: - Initializers
 public extension UIImage {

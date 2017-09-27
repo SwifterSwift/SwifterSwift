@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public extension Optional {
 	
 	/// SwifterSwift: Get self of default value (if self is nil).

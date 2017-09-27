@@ -37,6 +37,5 @@ class UITabBarExtensionsTests: XCTestCase {
 		
 	}
 	
-	
 }
 #endif

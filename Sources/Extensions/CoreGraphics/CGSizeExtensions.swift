@@ -12,7 +12,6 @@
 	import UIKit
 #endif
 
-
 // MARK: - Methods
 public extension CGSize {
 	

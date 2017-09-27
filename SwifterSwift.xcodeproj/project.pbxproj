@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		074EAF1B1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */; };
+		074EAF1C1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */; };
+		074EAF1D1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */; };
+		074EAF1F1F7BA74700C74636 /* UIFontExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EAF1E1F7BA74600C74636 /* UIFontExtensionsTest.swift */; };
+		074EAF201F7BA74700C74636 /* UIFontExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EAF1E1F7BA74600C74636 /* UIFontExtensionsTest.swift */; };
 		077BA08A1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077BA0891F6BE81F00D9C4AC /* URLRequestExtensions.swift */; };
 		077BA08B1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077BA0891F6BE81F00D9C4AC /* URLRequestExtensions.swift */; };
 		077BA08C1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077BA0891F6BE81F00D9C4AC /* URLRequestExtensions.swift */; };
@@ -330,6 +335,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
+		074EAF1E1F7BA74600C74636 /* UIFontExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionsTest.swift; sourceTree = "<group>"; };
 		077BA0891F6BE81F00D9C4AC /* URLRequestExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensions.swift; sourceTree = "<group>"; };
 		077BA08E1F6BE83600D9C4AC /* UserDefaultsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsExtensions.swift; sourceTree = "<group>"; };
 		077BA0941F6BE98500D9C4AC /* URLRequestExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestExtensionsTests.swift; sourceTree = "<group>"; };
@@ -612,6 +619,7 @@
 				07B7F17E1F5EB41600E6F910 /* UIButtonExtensions.swift */,
 				07B7F17F1F5EB41600E6F910 /* UICollectionViewExtensions.swift */,
 				07B7F1801F5EB41600E6F910 /* UIColorExtensions.swift */,
+				074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */,
 				07B7F1811F5EB41600E6F910 /* UIImageExtensions.swift */,
 				07B7F1821F5EB41600E6F910 /* UIImageViewExtensions.swift */,
 				07B7F1831F5EB41600E6F910 /* UILabelExtensions.swift */,
@@ -682,6 +690,7 @@
 				07C50D101F5EB03200F46E5A /* UIButtonExtensionsTests.swift */,
 				07C50D111F5EB03200F46E5A /* UICollectionViewExtensionsTests.swift */,
 				07C50D121F5EB03200F46E5A /* UIColorExtensionsTests.swift */,
+				074EAF1E1F7BA74600C74636 /* UIFontExtensionsTest.swift */,
 				07C50D131F5EB03200F46E5A /* UIImageExtensionsTests.swift */,
 				07C50D141F5EB03200F46E5A /* UIImageViewExtensionsTests.swift */,
 				07C50D151F5EB03200F46E5A /* UILabelExtensionsTests.swift */,
@@ -794,6 +803,7 @@
 				07898B591F278D7600558C97 /* Frameworks */,
 				07898B5A1F278D7600558C97 /* Headers */,
 				07898B5B1F278D7600558C97 /* Resources */,
+				074EAF161F7B859500C74636 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -812,6 +822,7 @@
 				07898B671F278D9700558C97 /* Frameworks */,
 				07898B681F278D9700558C97 /* Headers */,
 				07898B691F278D9700558C97 /* Resources */,
+				074EAF171F7B859A00C74636 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -830,6 +841,7 @@
 				07898B741F278DBC00558C97 /* Frameworks */,
 				07898B751F278DBC00558C97 /* Headers */,
 				07898B761F278DBC00558C97 /* Resources */,
+				074EAF181F7B85C600C74636 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -848,6 +860,7 @@
 				07898B811F278DD200558C97 /* Frameworks */,
 				07898B821F278DD200558C97 /* Headers */,
 				07898B831F278DD200558C97 /* Resources */,
+				074EAF191F7B85CB00C74636 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -883,6 +896,7 @@
 				07C50CD41F5EAF4B00F46E5A /* Sources */,
 				07C50CD51F5EAF4B00F46E5A /* Frameworks */,
 				07C50CD61F5EAF4B00F46E5A /* Resources */,
+				074EAF151F7B845A00C74636 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1036,6 +1050,74 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		074EAF151F7B845A00C74636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		074EAF161F7B859500C74636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		074EAF171F7B859A00C74636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		074EAF181F7B85C600C74636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		074EAF191F7B85CB00C74636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		07898B581F278D7600558C97 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1078,6 +1160,7 @@
 				07B7F2131F5EB43C00E6F910 /* FloatExtensions.swift in Sources */,
 				07B7F2121F5EB43C00E6F910 /* DoubleExtensions.swift in Sources */,
 				07B7F2171F5EB43C00E6F910 /* OptionalExtensions.swift in Sources */,
+				074EAF1B1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */,
 				07B7F1921F5EB42000E6F910 /* UIAlertControllerExtensions.swift in Sources */,
 				07B7F22E1F5EB45100E6F910 /* CGColorExtensions.swift in Sources */,
 				07B7F21F1F5EB43F00E6F910 /* SwifterSwift.swift in Sources */,
@@ -1133,6 +1216,7 @@
 				07B7F2011F5EB43C00E6F910 /* FloatExtensions.swift in Sources */,
 				07B7F2001F5EB43C00E6F910 /* DoubleExtensions.swift in Sources */,
 				07B7F2051F5EB43C00E6F910 /* OptionalExtensions.swift in Sources */,
+				074EAF1C1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */,
 				07B7F1A81F5EB42000E6F910 /* UIAlertControllerExtensions.swift in Sources */,
 				07B7F2341F5EB45200E6F910 /* CGColorExtensions.swift in Sources */,
 				07B7F21E1F5EB43F00E6F910 /* SwifterSwift.swift in Sources */,
@@ -1188,6 +1272,7 @@
 				07B7F1EF1F5EB43B00E6F910 /* FloatExtensions.swift in Sources */,
 				07B7F1EE1F5EB43B00E6F910 /* DoubleExtensions.swift in Sources */,
 				07B7F1F31F5EB43B00E6F910 /* OptionalExtensions.swift in Sources */,
+				074EAF1D1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */,
 				07B7F1BE1F5EB42200E6F910 /* UIAlertControllerExtensions.swift in Sources */,
 				07B7F2281F5EB45100E6F910 /* CGColorExtensions.swift in Sources */,
 				07B7F21D1F5EB43F00E6F910 /* SwifterSwift.swift in Sources */,
@@ -1267,6 +1352,7 @@
 				07C50D8C1F5EB06000F46E5A /* CGFloatExtensionsTests.swift in Sources */,
 				07D896091F5EC80700FC894D /* SwifterSwiftTests.swift in Sources */,
 				07C50D3E1F5EB04700F46E5A /* UITextViewExtensionsTests.swift in Sources */,
+				074EAF1F1F7BA74700C74636 /* UIFontExtensionsTest.swift in Sources */,
 				07C50D301F5EB04700F46E5A /* UIImageExtensionsTests.swift in Sources */,
 				07C50D3A1F5EB04700F46E5A /* UISwitchExtensionsTests.swift in Sources */,
 				07C50D341F5EB04700F46E5A /* UINavigationControllerExtensionsTests.swift in Sources */,
@@ -1318,6 +1404,7 @@
 				07C50D871F5EB06000F46E5A /* CGFloatExtensionsTests.swift in Sources */,
 				07D8960A1F5EC80700FC894D /* SwifterSwiftTests.swift in Sources */,
 				07C50D541F5EB04700F46E5A /* UITextViewExtensionsTests.swift in Sources */,
+				074EAF201F7BA74700C74636 /* UIFontExtensionsTest.swift in Sources */,
 				07C50D461F5EB04700F46E5A /* UIImageExtensionsTests.swift in Sources */,
 				07C50D501F5EB04700F46E5A /* UISwitchExtensionsTests.swift in Sources */,
 				07C50D4A1F5EB04700F46E5A /* UINavigationControllerExtensionsTests.swift in Sources */,
@@ -2280,7 +2367,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = C3VKVFB3SA;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2347,7 +2434,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = C3VKVFB3SA;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

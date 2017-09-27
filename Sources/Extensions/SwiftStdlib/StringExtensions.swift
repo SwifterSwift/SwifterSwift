@@ -11,7 +11,6 @@
 	import UIKit
 #endif
 
-
 // MARK: - Properties
 public extension String {
 	
@@ -324,7 +323,6 @@ public extension String {
 	
 }
 
-
 // MARK: - Methods
 public extension String {
 	
@@ -448,7 +446,7 @@ public extension String {
 	///
 	/// - Parameter range: Half-open range.
 	public subscript(safe range: CountableRange<Int>) -> String? {
-		guard let lowerIndex = index(startIndex, offsetBy: max(0,range.lowerBound), limitedBy: endIndex) else {
+		guard let lowerIndex = index(startIndex, offsetBy: max(0, range.lowerBound), limitedBy: endIndex) else {
 			return nil
 		}
 		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound, limitedBy: endIndex) else {
@@ -464,7 +462,7 @@ public extension String {
 	///
 	/// - Parameter range: Closed range.
 	public subscript(safe range: ClosedRange<Int>) -> String? {
-		guard let lowerIndex = index(startIndex, offsetBy: max(0,range.lowerBound), limitedBy: endIndex) else {
+		guard let lowerIndex = index(startIndex, offsetBy: max(0, range.lowerBound), limitedBy: endIndex) else {
 			return nil
 		}
 		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound + 1, limitedBy: endIndex) else {
@@ -703,7 +701,7 @@ public extension String {
 	/// - Parameter separator: separator to split string by.
 	/// - Returns: array of strings separated by given string.
 	public func splitted(by separator: Character) -> [String] {
-		return characters.split{$0 == separator}.map(String.init)
+		return characters.split { $0 == separator }.map(String.init)
 	}
 	
 	/// SwifterSwift: Check if string starts with substring.
@@ -813,7 +811,6 @@ public extension String {
 	
 }
 
-
 // MARK: - Operators
 public extension String {
 	
@@ -849,7 +846,6 @@ public extension String {
 	
 }
 
-
 // MARK: - Initializers
 public extension String {
 	
@@ -876,8 +872,6 @@ public extension String {
 	}
 	
 }
-
-
 
 // MARK: - NSAttributedString extensions
 public extension String {
@@ -934,8 +928,7 @@ public extension String {
 	
 }
 
-
-//MARK: - NSString extensions
+// MARK: - NSString extensions
 public extension String {
 	
 	/// SwifterSwift: NSString from a string.

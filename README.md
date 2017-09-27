@@ -242,3 +242,4 @@ Special thanks to:
 - [Paweł Urbanek](https://github.com/pawurb) for adding tvOS, watchOS and macOS initial support and helping with extensions.
 - [Mert Akengin](https://github.com/PvtMert) and [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing [project website](http://swiftierswift.com) and logo.
 - [Abdul Rahman Dabbour](https://github.com/thedabbour) for helping document the project.
+- Many thanks to all other [contributors](https://github.com/SwifterSwift/SwifterSwift/graphs/contributors) of this project.

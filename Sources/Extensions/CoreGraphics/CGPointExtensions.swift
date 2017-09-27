@@ -12,7 +12,6 @@
 	import UIKit
 #endif
 
-
 // MARK: - Methods
 public extension CGPoint {
     
@@ -46,7 +45,6 @@ public extension CGPoint {
 	}
 	
 }
-
 
 // MARK: - Operators
 public extension CGPoint {
@@ -152,4 +150,3 @@ public extension CGPoint {
 	}
 	
 }
-

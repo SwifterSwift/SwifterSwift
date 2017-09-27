@@ -9,7 +9,6 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
-
 // MARK: - Properties
 public extension UITableView {
 	
@@ -76,7 +75,6 @@ public extension UITableView {
 		tableHeaderView = nil
 	}
 	
-	
 	/// SwifterSwift: Scroll to bottom of TableView.
 	///
 	/// - Parameter animated: set true to animate scroll (default is true).
@@ -106,8 +104,8 @@ public extension UITableView {
 	///   - name: UITableViewCell type.
 	///   - indexPath: location of cell in tableView.
 	/// - Returns: UITableViewCell object with associated class name.
-	public func dequeueReusableCell<T: UITableViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
-        return dequeueReusableCell(withIdentifier: String(describing: name), for: indexPath) as! T
+	public func dequeueReusableCell<T: UITableViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T? {
+		return dequeueReusableCell(withIdentifier: String(describing: name), for: indexPath) as? T
     }
     
     /// SwiferSwift: Dequeue reusable UITableViewHeaderFooterView using class name

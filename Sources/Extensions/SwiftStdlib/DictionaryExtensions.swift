@@ -76,16 +76,16 @@ public extension Dictionary {
 			return nil
 		}
 		let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
-		let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options)
-		return jsonData?.string(encoding: .utf8)
+		guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else { return nil }
+		return String(data: jsonData, encoding: .utf8)
 	}
     
     /// SwifterSwift: Count dictionary entries that where function returns true.
 	///
 	/// - Parameter where: condition to evaluate each tuple entry against.
     /// - Returns: Count of entries that matches the where clousure.
-    public func count(where condition: @escaping ((key: Key, value: Value)) throws -> Bool ) rethrows -> Int {
-        var count : Int = 0
+    public func count(where condition: @escaping ((key: Key, value: Value)) throws -> Bool) rethrows -> Int {
+        var count: Int = 0
         try self.forEach {
             if try condition($0) {
                 count += 1
@@ -112,9 +112,9 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: dictionary
     /// - Returns: An dictionary with keys and values from both.
-    public static func +(lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
+    public static func + (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
         var result = lhs
-        rhs.forEach{ result[$0] = $1 }
+        rhs.forEach { result[$0] = $1 }
         return result
     }
     
@@ -131,11 +131,10 @@ public extension Dictionary {
 	/// - Parameters:
     ///   - lhs: dictionary
     ///   - rhs: dictionary
-    public static func +=(lhs: inout [Key: Value], rhs: [Key: Value]) {
-        rhs.forEach({ lhs[$0] = $1})
+    public static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
+        rhs.forEach { lhs[$0] = $1}
     }
-    
-    
+	
     /// SwifterSwift: Remove contained in the array from the dictionary
 	///
 	///		let dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
@@ -148,7 +147,7 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
     /// - Returns: a new dictionary with keys removed.
-    public static func -(lhs: [Key: Value], keys: [Key]) -> [Key: Value]{
+    public static func - (lhs: [Key: Value], keys: [Key]) -> [Key: Value] {
         var result = lhs
         result.removeAll(keys: keys)
         return result
@@ -165,12 +164,11 @@ public extension Dictionary {
 	/// - Parameters:
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
-    public static func -=(lhs: inout [Key: Value], keys: [Key]) {
+    public static func -= (lhs: inout [Key: Value], keys: [Key]) {
         lhs.removeAll(keys: keys)
     }
 
 }
-
 
 // MARK: - Methods (ExpressibleByStringLiteral)
 public extension Dictionary where Key: ExpressibleByStringLiteral {
@@ -191,4 +189,3 @@ public extension Dictionary where Key: ExpressibleByStringLiteral {
 	}
 	
 }
-

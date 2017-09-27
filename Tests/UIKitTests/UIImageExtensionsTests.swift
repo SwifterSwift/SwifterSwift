@@ -86,7 +86,6 @@ class UIImageExtensionsTests: XCTestCase {
 		filledImage = emptyImage.filled(withColor: .red)
 		XCTAssertEqual(emptyImage, filledImage)
 	}
-	
     
     func testTinted() {
         let baseImage = UIImage(color: .white, size: CGSize(width: 20, height: 20))

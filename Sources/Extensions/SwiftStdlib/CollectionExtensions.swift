@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 // MARK: - Methods
 public extension Collection {
 	
@@ -29,7 +28,7 @@ public extension Collection {
 	///		}
 	///
 	/// - Parameter each: closure to run for each element.
-	public func forEachInParallel(_ each: (Self.Iterator.Element) -> ()) {
+	public func forEachInParallel(_ each: (Self.Iterator.Element) -> Void) {
 		let indices = indicesArray()
 		
 		DispatchQueue.concurrentPerform(iterations: indices.count) { (index) in
@@ -49,7 +48,7 @@ public extension Collection {
 	///		arr[safe: 10] -> nil
 	///
 	/// - Parameter index: index of element to access element.
-	public subscript (safe index: Index) -> Iterator.Element? {
+	public subscript(safe index: Index) -> Iterator.Element? {
 		return indices.contains(index) ? self[index] : nil
 	}
 	
@@ -77,4 +76,3 @@ public extension Collection where Iterator.Element == Int, Index == Int {
 	}
 	
 }
-

@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 // MARK: - Methods (Integer)
 public extension Array where Element: Numeric {
 	
@@ -25,7 +24,6 @@ public extension Array where Element: Numeric {
 	
 }
 
-
 // MARK: - Methods (FloatingPoint)
 public extension Array where Element: FloatingPoint {
 	
@@ -35,13 +33,12 @@ public extension Array where Element: FloatingPoint {
 	///
 	/// - Returns: average of the array's elements.
 	public func average() -> Element {
-        guard isEmpty == false else { return 0 }
+        guard !isEmpty else { return 0 }
         var total: Element = 0
         forEach { total += $0 }
         return total / Element(count)
 	}
 
-	
 }
 
 // MARK: - Methods
@@ -98,11 +95,11 @@ public extension Array {
 	/// - Parameters:
 	///   - index: index of first element.
 	///   - otherIndex: index of other element.
-	public mutating func safeSwap(from index: Int, to otherIndex: Int)  {
+	public mutating func safeSwap(from index: Int, to otherIndex: Int) {
 		guard index != otherIndex,
 			startIndex..<endIndex ~= index,
 			startIndex..<endIndex ~= otherIndex else { return }
-		self.swapAt(index, otherIndex)
+		swapAt(index, otherIndex)
 	}
 	
 	/// SwifterSwift: Swap values at index positions.
@@ -113,8 +110,8 @@ public extension Array {
 	/// - Parameters:
 	///   - index: index of first element.
 	///   - otherIndex: index of other element.
-	public mutating func swap(from index: Int, to otherIndex: Int)  {
-		self.swapAt(index, otherIndex)
+	public mutating func swap(from index: Int, to otherIndex: Int) {
+		swapAt(index, otherIndex)
 	}
 	
 	/// SwifterSwift: Get first index where condition is met.
@@ -227,7 +224,7 @@ public extension Array {
 	
 	/// SwifterSwift: Calls given closure with each element where condition is true.
 	///
-	///		[0, 2, 4, 7].forEach( where: {$0 % 2 == 0}, body: { print($0)}) -> //print: 0, 2, 4
+	///		[0, 2, 4, 7].forEach(where: {$0 % 2 == 0}, body: { print($0)}) -> //print: 0, 2, 4
 	///
 	/// - Parameters:
 	///   - condition: condition to evaluate each element against.
@@ -270,7 +267,6 @@ public extension Array {
 			return nil
 		})
 	}
-	
 	
 	/// SwifterSwift: Keep elements of Array while condition is true.
 	///
@@ -324,16 +320,15 @@ public extension Array {
 	/// - Parameters:
 	///   - slice: size of array in each interation.
 	///   - body: a closure that takes an array of slice size as a parameter.
-	public func forEach(slice: Int,  body: ([Element]) throws -> Void) rethrows {
+	public func forEach(slice: Int, body: ([Element]) throws -> Void) rethrows {
 		guard slice > 0, !isEmpty else { return }
 		
-		var value : Int = 0
+		var value: Int = 0
 		while value < count {
-			try body(Array(self[Swift.max(value,startIndex)..<Swift.min(value + slice, endIndex)]))
+			try body(Array(self[Swift.max(value, startIndex)..<Swift.min(value + slice, endIndex)]))
 			value += slice
 		}
 	}
-	
 	
 	/// SwifterSwift: Returns an array of slices of length "size" from the array.  If array can't be split evenly, the final slice will be the remaining elements.
 	///
@@ -345,10 +340,10 @@ public extension Array {
 	public func group(by size: Int) -> [[Element]]? {
 		//Inspired by: https://lodash.com/docs/4.17.4#chunk
 		guard size > 0, !isEmpty else { return nil }
-		var value : Int = 0
-		var slices : [[Element]] = []
+		var value: Int = 0
+		var slices: [[Element]] = []
 		while value < count {
-			slices.append(Array(self[Swift.max(value,startIndex)..<Swift.min(value + size, endIndex)]))
+			slices.append(Array(self[Swift.max(value, startIndex)..<Swift.min(value + size, endIndex)]))
 			value += size
 		}
 		return slices
@@ -361,7 +356,7 @@ public extension Array {
 	/// - Parameter getKey: Clousure to define the key for each element.
 	/// - Returns: A dictionary with values grouped with keys.
 	public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
-		var group : [K: [Element]] = [:]
+		var group = [K: [Element]]()
 		for value in self {
 			let key = try keyForValue(value)
 			group[key] = (group[key] ?? []) + [value]
@@ -382,7 +377,7 @@ public extension Array {
 		guard places != 0 && places < count else {
 			return self
 		}
-		var array : [Element] = self
+		var array: [Element] = self
 		if places > 0 {
 			let range = (array.count - places)..<array.endIndex
 			let slice = array[range]
@@ -409,7 +404,6 @@ public extension Array {
 	}
 }
 
-
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
 	
@@ -422,7 +416,7 @@ public extension Array where Element: Equatable {
 		guard count > 1 else { return }
 		for index in startIndex..<endIndex - 1 {
 			let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
-			if index != randomIndex { self.swapAt(index, randomIndex) }
+			if index != randomIndex { swapAt(index, randomIndex) }
 		}
 	}
 	
@@ -446,9 +440,7 @@ public extension Array where Element: Equatable {
 	/// - Parameter elements: array of elements to check.
 	/// - Returns: true if array contains all given items.
 	public func contains(_ elements: [Element]) -> Bool {
-		guard !elements.isEmpty else { // elements array is empty
-			return true
-		}
+		guard !elements.isEmpty else { return true }
 		var found = true
 		for element in elements {
 			if !contains(element) {
@@ -468,10 +460,8 @@ public extension Array where Element: Equatable {
 	/// - Returns: an array with all indexes of the given item.
 	public func indexes(of item: Element) -> [Int] {
 		var indexes: [Int] = []
-		for index in startIndex..<endIndex {
-			if self[index] == item {
-				indexes.append(index)
-			}
+		for index in startIndex..<endIndex where self[index] == item {
+			indexes.append(index)
 		}
 		return indexes
 	}
@@ -504,7 +494,7 @@ public extension Array where Element: Equatable {
 	///
 	public mutating func removeDuplicates() {
 		// Thanks to https://github.com/sairamkotha for improving the method
-		self = reduce([]){ $0.contains($1) ? $0 : $0 + [$1] }
+		self = reduce([]) { $0.contains($1) ? $0 : $0 + [$1] }
 	}
 	
 	/// SwifterSwift: Return array with all duplicate elements removed.
@@ -515,7 +505,7 @@ public extension Array where Element: Equatable {
 	/// - Returns: an array of unique elements.
 	public func duplicatesRemoved() -> [Element] {
 		// Thanks to https://github.com/sairamkotha for improving the property
-		return reduce([]){ ($0 as [Element]).contains($1) ? $0 : $0 + [$1] }
+		return reduce([]) { ($0 as [Element]).contains($1) ? $0 : $0 + [$1] }
 	}
 	
 	/// SwifterSwift: First index of a given item in an array.
@@ -527,8 +517,8 @@ public extension Array where Element: Equatable {
 	/// - Parameter item: item to check.
 	/// - Returns: first index of item in array (if exists).
 	public func firstIndex(of item: Element) -> Int? {
-		for (index, value) in lazy.enumerated() {
-			if value == item { return index }
+		for (index, value) in lazy.enumerated() where value == item {
+			return index
 		}
 		return nil
 	}
@@ -542,8 +532,8 @@ public extension Array where Element: Equatable {
 	/// - Parameter item: item to check.
 	/// - Returns: last index of item in array (if exists).
 	public func lastIndex(of item: Element) -> Int? {
-		for (index, value) in lazy.enumerated().reversed() {
-			if value == item { return index }
+		for (index, value) in lazy.enumerated().reversed() where value == item {
+			return index
 		}
 		return nil
 	}

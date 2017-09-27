@@ -9,7 +9,6 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
-
 // MARK: - enums
 
 /// SwifterSwift: Shake directions of a view.
@@ -43,13 +42,11 @@ public enum ShakeAnimationType {
 	case easeInOut
 }
 
-
 // MARK: - Properties
 public extension UIView {
 	
-	@IBInspectable
 	/// SwifterSwift: Border color of view; also inspectable from Storyboard.
-	public var borderColor: UIColor? {
+	@IBInspectable public var borderColor: UIColor? {
 		get {
 			guard let color = layer.borderColor else {
 				return nil
@@ -65,9 +62,8 @@ public extension UIView {
 		}
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Border width of view; also inspectable from Storyboard.
-	public var borderWidth: CGFloat {
+	@IBInspectable public var borderWidth: CGFloat {
 		get {
 			return layer.borderWidth
 		}
@@ -76,9 +72,8 @@ public extension UIView {
 		}
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Corner radius of view; also inspectable from Storyboard.
-	public var cornerRadius: CGFloat {
+	@IBInspectable public var cornerRadius: CGFloat {
 		get {
 			return layer.cornerRadius
 		}
@@ -93,10 +88,8 @@ public extension UIView {
 		guard !isFirstResponder else {
 			return self
 		}
-		for subView in subviews {
-			if subView.isFirstResponder {
-				return subView
-			}
+		for subView in subviews where subView.isFirstResponder {
+			return subView
 		}
 		return nil
 	}
@@ -122,7 +115,7 @@ public extension UIView {
 	
 	/// SwifterSwift: Take screenshot of view (if applicable).
 	public var screenshot: UIImage? {
-		UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0.0);
+		UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
 		defer {
 			UIGraphicsEndImageContext()
 		}
@@ -133,9 +126,8 @@ public extension UIView {
 		return UIGraphicsGetImageFromCurrentImageContext()
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Shadow color of view; also inspectable from Storyboard.
-	public var shadowColor: UIColor? {
+	@IBInspectable public var shadowColor: UIColor? {
 		get {
 			guard let color = layer.shadowColor else {
 				return nil
@@ -147,9 +139,8 @@ public extension UIView {
 		}
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Shadow offset of view; also inspectable from Storyboard.
-	public var shadowOffset: CGSize {
+	@IBInspectable public var shadowOffset: CGSize {
 		get {
 			return layer.shadowOffset
 		}
@@ -158,9 +149,8 @@ public extension UIView {
 		}
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Shadow opacity of view; also inspectable from Storyboard.
-	public var shadowOpacity: Float {
+	@IBInspectable public var shadowOpacity: Float {
 		get {
 			return layer.shadowOpacity
 		}
@@ -169,9 +159,8 @@ public extension UIView {
 		}
 	}
 	
-	@IBInspectable
 	/// SwifterSwift: Shadow radius of view; also inspectable from Storyboard.
-	public var shadowRadius: CGFloat {
+	@IBInspectable public var shadowRadius: CGFloat {
 		get {
 			return layer.shadowRadius
 		}
@@ -235,7 +224,6 @@ public extension UIView {
 	
 }
 
-
 // MARK: - Methods
 public extension UIView {
 	
@@ -260,10 +248,7 @@ public extension UIView {
 	///   - radius: shadow radius (default is 3).
 	///   - offset: shadow offset (default is .zero).
 	///   - opacity: shadow opacity (default is 0.5).
-	public func addShadow(ofColor color: UIColor = UIColor(hex: 0x137992)!,
-						  radius: CGFloat = 3,
-						  offset: CGSize = .zero,
-						  opacity: Float = 0.5) {
+	public func addShadow(ofColor color: UIColor = UIColor(hex: 0x137992)!, radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
 		layer.shadowColor = color.cgColor
 		layer.shadowOffset = offset
 		layer.shadowRadius = radius
@@ -312,7 +297,7 @@ public extension UIView {
 	///   - name: nib name.
 	///   - bundle: bundle of nib (default is nil).
 	/// - Returns: optional UIView (if applicable).
-	public class func loadFromNib(named name: String, bundle : Bundle? = nil) -> UIView? {
+	public class func loadFromNib(named name: String, bundle: Bundle? = nil) -> UIView? {
 		return UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
 	}
 	
@@ -334,7 +319,7 @@ public extension UIView {
 	///   - animated: set true to animate rotation (default is true).
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil).
-	public func rotate(byAngle angle : CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+	public func rotate(byAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
 		let angleWithType = (type == .degrees) ? CGFloat.pi * angle / 180.0 : angle
 		let aDuration = animated ? duration : 0
 		UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
@@ -350,7 +335,7 @@ public extension UIView {
 	///   - animated: set true to animate rotation (default is false).
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil).
-	public func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+	public func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
 		let angleWithType = (type == .degrees) ? CGFloat.pi * angle / 180.0 : angle
 		let aDuration = animated ? duration : 0
 		UIView.animate(withDuration: aDuration, animations: {
@@ -365,7 +350,7 @@ public extension UIView {
 	///   - animated: set true to animate scaling (default is false).
 	///   - duration: animation duration in seconds (default is 1 second).
 	///   - completion: optional completion handler to run with animation finishes (default is nil).
-	public func scale(by offset: CGPoint, animated: Bool = false, duration: TimeInterval = 1, completion:((Bool) -> Void)? = nil) {
+	public func scale(by offset: CGPoint, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
 		if animated {
 			UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
 				self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)

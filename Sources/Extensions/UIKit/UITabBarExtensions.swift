@@ -9,7 +9,6 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
-
 // MARK: - Methods
 public extension UITabBar {
 	
@@ -51,9 +50,9 @@ public extension UITabBar {
 					continue
 				}
 				barItem.image = image.filled(withColor: itemColor).withRenderingMode(.alwaysOriginal)
-				barItem.setTitleTextAttributes([.foregroundColor : itemColor], for: .normal)
+				barItem.setTitleTextAttributes([.foregroundColor: itemColor], for: .normal)
 				if let selected = selectedItem {
-					barItem.setTitleTextAttributes([.foregroundColor : selected], for: .selected)
+					barItem.setTitleTextAttributes([.foregroundColor: selected], for: .selected)
 				}
 			}
 		}

@@ -1,0 +1,11 @@
+disabled_rules:
+- identifier_name
+- trailing_whitespace
+- line_length
+- type_body_length
+- file_length
+- cyclomatic_complexity
+- function_body_length
+- large_tuple
+- legacy_constructor
+- shorthand_operator

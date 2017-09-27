@@ -25,5 +25,4 @@ class CollectionExtensionsTests: XCTestCase {
 		XCTAssertNil(collection[safe: 10])
 	}
 	
-	
 }

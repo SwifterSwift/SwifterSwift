@@ -9,7 +9,6 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
-
 // MARK: - Properties
 public extension UISearchBar {
 	
@@ -28,7 +27,6 @@ public extension UISearchBar {
 	}
 	
 }
-
 
 // MARK: - Methods
 public extension UISearchBar {

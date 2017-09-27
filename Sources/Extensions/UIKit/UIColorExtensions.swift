@@ -9,7 +9,6 @@
 #if os(iOS) || os(tvOS) || os(watchOS)
 import UIKit
 
-
 // MARK: - Properties
 public extension UIColor {
 	
@@ -44,10 +43,10 @@ public extension UIColor {
 
 	/// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
 	public var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
-		var hue:    CGFloat = 0.0
-		var sat:    CGFloat = 0.0
-		var bri:    CGFloat = 0.0
-		var alpha:  CGFloat = 0.0
+		var hue: CGFloat = 0.0
+		var sat: CGFloat = 0.0
+		var bri: CGFloat = 0.0
+		var alpha: CGFloat = 0.0
 		self.getHue(&hue, saturation: &sat, brightness: &bri, alpha: &alpha)
 		
 		return (hue:hue, saturation:sat, brightness:bri, alpha:alpha)
@@ -113,7 +112,6 @@ public extension UIColor {
 	
 }
 
-
 // MARK: - Methods
 public extension UIColor {
 	
@@ -140,7 +138,6 @@ public extension UIColor {
 	}
 	
 }
-
 
 // MARK: - Initializers
 public extension UIColor {
@@ -189,7 +186,6 @@ public extension UIColor {
 		self.init(hex: Int(hexValue), transparency: transparency)
 	}
 	
-	
 	/// SwifterSwift: Create UIColor from RGB values with optional transparency.
 	///
 	/// - Parameters:
@@ -218,15 +214,14 @@ public extension UIColor {
 	/// - Parameter color: color of which opposite color is desired.
 	public convenience init?(complementaryFor color: UIColor) {
 		let colorSpaceRGB = CGColorSpaceCreateDeviceRGB()
-		let convertColorToRGBSpace : ((_ color : UIColor) -> UIColor?) = { (color) -> UIColor? in
+		let convertColorToRGBSpace: ((_ color: UIColor) -> UIColor?) = { color -> UIColor? in
 			if color.cgColor.colorSpace!.model == CGColorSpaceModel.monochrome {
 				let oldComponents = color.cgColor.components
-				let components : [CGFloat] = [ oldComponents![0], oldComponents![0], oldComponents![0], oldComponents![1] ]
+				let components: [CGFloat] = [ oldComponents![0], oldComponents![0], oldComponents![0], oldComponents![1]]
 				let colorRef = CGColor(colorSpace: colorSpaceRGB, components: components)
 				let colorOut = UIColor(cgColor: colorRef!)
 				return colorOut
-			}
-			else {
+			} else {
 				return color
 			}
 		}
@@ -244,12 +239,11 @@ public extension UIColor {
 	
 }
 
-
-//MARK: - Social Colors
+// MARK: - Social Colors
 public extension UIColor {
 	
 	/// SwifterSwift: Brand identity color of popular social media platform.
-	public struct social {
+	public struct Social {
 		// https://www.lockedowndesign.com/social-media-colors/
 		
 		/// SwifterSwift: red: 59, green: 89, blue: 152
@@ -333,12 +327,11 @@ public extension UIColor {
 	}
 }
 
-
-//MARK: - Material colors
+// MARK: - Material colors
 public extension UIColor {
 	
 	/// SwifterSwift: Google Material design colors palette.
-	public struct material {
+	public struct Material {
 		// https://material.google.com/style/color.html
 		
 		/// SwifterSwift: color red500
@@ -386,7 +379,6 @@ public extension UIColor {
 		/// SwifterSwift: hex #D50000
 		public static let redA700				= UIColor(hex: 0xD50000)
 		
-		
 		/// SwifterSwift: color pink500
 		public static let pink					= pink500
 		
@@ -431,7 +423,6 @@ public extension UIColor {
 		
 		/// SwifterSwift: hex #C51162
 		public static let pinkA700				= UIColor(hex: 0xC51162)
-		
 		
 		/// SwifterSwift: color purple500
 		public static let purple				= purple500
@@ -478,7 +469,6 @@ public extension UIColor {
 		/// SwifterSwift: hex #AA00FF
 		public static let purpleA700			= UIColor(hex: 0xAA00FF)
 		
-		
 		/// SwifterSwift: color deepPurple500
 		public static let deepPurple			= deepPurple500
 		
@@ -523,7 +513,6 @@ public extension UIColor {
 		
 		/// SwifterSwift: hex #6200EA
 		public static let deepPurpleA700		= UIColor(hex: 0x6200EA)
-		
 		
 		/// SwifterSwift: color indigo500
 		public static let indigo				= indigo500
@@ -570,7 +559,6 @@ public extension UIColor {
 		/// SwifterSwift: hex #304FFE
 		public static let indigoA700			= UIColor(hex: 0x304FFE)
 		
-		
 		/// SwifterSwift: color blue500
 		public static let blue					= blue500
 		
@@ -615,7 +603,6 @@ public extension UIColor {
 		
 		/// SwifterSwift: hex #2962FF
 		public static let blueA700				= UIColor(hex: 0x2962FF)
-		
 		
 		/// SwifterSwift: color lightBlue500
 		public static let lightBlue				= lightBlue500
@@ -662,7 +649,6 @@ public extension UIColor {
 		/// SwifterSwift: hex #0091EA
 		public static let lightBlueA700			= UIColor(hex: 0x0091EA)
 		
-		
 		/// SwifterSwift: color cyan500
 		public static let cyan					= cyan500
 		
@@ -707,7 +693,6 @@ public extension UIColor {
 		
 		/// SwifterSwift: hex #00B8D4
 		public static let cyanA700				= UIColor(hex: 0x00B8D4)
-		
 		
 		/// SwifterSwift: color teal500
 		public static let teal					= teal500
@@ -754,7 +739,6 @@ public extension UIColor {
 		/// SwifterSwift: hex #00BFA5
 		public static let tealA700				= UIColor(hex: 0x00BFA5)
 		
-		
 		/// SwifterSwift: color green500
 		public static let green					= green500
 		
@@ -799,7 +783,6 @@ public extension UIColor {
 		
 		/// SwifterSwift: hex #00C853
 		public static let greenA700				= UIColor(hex: 0x00C853)
-		
 		
 		/// SwifterSwift: color lightGreen500
 		public static let lightGreen			= lightGreen500
@@ -846,7 +829,6 @@ public extension UIColor {
 		/// SwifterSwift: hex #64DD17
 		public static let lightGreenA700		= UIColor(hex: 0x64DD17)
 		
-		
 		/// SwifterSwift: color lime500
 		public static let lime					= lime500
 		
@@ -891,7 +873,6 @@ public extension UIColor {
 		
 		/// SwifterSwift: hex #AEEA00
 		public static let limeA700				= UIColor(hex: 0xAEEA00)
-		
 		
 		/// SwifterSwift: color yellow500
 		public static let yellow				= yellow500
@@ -938,7 +919,6 @@ public extension UIColor {
 		/// SwifterSwift: hex #FFD600
 		public static let yellowA700			= UIColor(hex: 0xFFD600)
 		
-		
 		/// SwifterSwift: color amber500
 		public static let amber					= amber500
 		
@@ -983,7 +963,6 @@ public extension UIColor {
 		
 		/// SwifterSwift: hex #FFAB00
 		public static let amberA700				= UIColor(hex: 0xFFAB00)
-		
 		
 		/// SwifterSwift: color orange500
 		public static let orange				= orange500
@@ -1030,7 +1009,6 @@ public extension UIColor {
 		/// SwifterSwift: hex #FF6D00
 		public static let orangeA700			= UIColor(hex: 0xFF6D00)
 		
-		
 		/// SwifterSwift: color deepOrange500
 		public static let deepOrange			= deepOrange500
 		
@@ -1076,7 +1054,6 @@ public extension UIColor {
 		/// SwifterSwift: hex #DD2C00
 		public static let deepOrangeA700		= UIColor(hex: 0xDD2C00)
 		
-		
 		/// SwifterSwift: color brown500
 		public static let brown					= brown500
 		
@@ -1109,7 +1086,6 @@ public extension UIColor {
 		
 		/// SwifterSwift: hex #3E2723
 		public static let brown900				= UIColor(hex: 0x3E2723)
-		
 		
 		/// SwifterSwift: color grey500
 		public static let grey					= grey500
@@ -1144,7 +1120,6 @@ public extension UIColor {
 		/// SwifterSwift: hex #212121
 		public static let grey900				= UIColor(hex: 0x212121)
 		
-		
 		/// SwifterSwift: color blueGrey500
 		public static let blueGrey				= blueGrey500
 		
@@ -1178,7 +1153,6 @@ public extension UIColor {
 		/// SwifterSwift: hex #263238
 		public static let blueGrey900			= UIColor(hex: 0x263238)
 		
-		
 		/// SwifterSwift: hex #000000
 		public static let black					= UIColor(hex: 0x000000)
 		
@@ -1188,12 +1162,11 @@ public extension UIColor {
 	
 }
 
-
 // MARK: - CSS colors
 public extension UIColor {
 	
 	/// SwifterSwift: CSS colors.
-	public struct css {
+	public struct CSS {
 		// http://www.w3schools.com/colors/colors_names.asp
 		
 		/// SwifterSwift: hex #F0F8FF
@@ -1645,11 +1618,10 @@ public extension UIColor {
 }
 
 // MARK: - Flat UI colors
-
 public extension UIColor {
 	
 	/// SwifterSwift: Flat UI colors
-	public struct flatUI {
+	public struct FlatUI {
 		// http://flatuicolors.com.
 		
 		/// SwifterSwift: hex #1ABC9C

@@ -10,15 +10,17 @@ import UIKit
 
 // MARK: - Properties
 public extension UIFont {
-    /// SwifterSwift: Font as monospaced digit font. [Monospaced Font explanation](https://en.wikipedia.org/wiki/Monospaced_font)
+	
+	/// SwifterSwift: Font as monospaced font
     ///
-    ///     UIFont.preferredFont(forTextStyle: .body).asMonospacedDigitFont()
+    ///     UIFont.preferredFont(forTextStyle: .body).monospaced
     ///
-    public func asMonospacedDigitFont() -> UIFont {
-        let fontDescriptorFeatureSettings = [[UIFontFeatureTypeIdentifierKey: kNumberSpacingType, UIFontFeatureSelectorIdentifierKey: kMonospacedNumbersSelector]]
-        let fontDescriptorAttributes = [UIFontDescriptorFeatureSettingsAttribute: fontDescriptorFeatureSettings]
-        let newFontDescriptor = fontDescriptor.addingAttributes(fontDescriptorAttributes)
-        return UIFont(descriptor: newFontDescriptor, size: 0)
+	public var monospaced: UIFont {
+		let settings = [[UIFontDescriptor.FeatureKey.featureIdentifier: kNumberSpacingType, UIFontDescriptor.FeatureKey.typeIdentifier: kMonospacedNumbersSelector]]
+
+		let attributes = [UIFontDescriptor.AttributeName.featureSettings: settings]
+		let newDescriptor = fontDescriptor.addingAttributes(attributes)
+		return UIFont(descriptor: newDescriptor, size: 0)
     }
 }
 #endif

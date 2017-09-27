@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public extension Date {
 	
 	/// SwifterSwift: Day name format.
@@ -34,7 +33,6 @@ public extension Date {
 	}
 	
 }
-
 
 // MARK: - Properties
 public extension Date {
@@ -313,7 +311,7 @@ public extension Date {
 	/// 	date.nearestFiveMinutes // "5:45 PM"
 	///
 	public var nearestFiveMinutes: Date {
-		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
+		var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: self)
 		let min = components.minute!
 		components.minute! = min % 5 < 3 ? min - min % 5 : min + 5 - (min % 5)
 		components.second = 0
@@ -330,7 +328,7 @@ public extension Date {
 	/// 	date.nearestTenMinutes // "5:50 PM"
 	///
 	public var nearestTenMinutes: Date {
-		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
+		var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: self)
 		let min = components.minute!
 		components.minute? = min % 10 < 6 ? min - min % 10 : min + 10 - (min % 10)
 		components.second = 0
@@ -347,7 +345,7 @@ public extension Date {
 	/// 	date.nearestQuarterHour // "5:45 PM"
 	///
 	public var nearestQuarterHour: Date {
-		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
+		var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: self)
 		let min = components.minute!
 		components.minute! = min % 15 < 8 ? min - min % 15 : min + 15 - (min % 15)
 		components.second = 0
@@ -364,7 +362,7 @@ public extension Date {
 	/// 	date.nearestHalfHour // "7:00 PM"
 	///
 	public var nearestHalfHour: Date {
-		var components = Calendar.current.dateComponents([.year, .month , .day , .hour , .minute], from: self)
+		var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: self)
 		let min = components.minute!
 		components.minute! = min % 30 < 15 ? min - min % 30 : min + 30 - (min % 30)
 		components.second = 0
@@ -403,7 +401,6 @@ public extension Date {
 	}
 	
 }
-
 
 // MARK: - Methods
 public extension Date {
@@ -718,7 +715,6 @@ public extension Date {
       }
   }
 }
-
 
 // MARK: - Initializers
 public extension Date {

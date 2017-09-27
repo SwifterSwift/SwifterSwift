@@ -15,9 +15,12 @@ env:
 
 
 before_install:
+  - bundle install
   - brew update
   - brew outdated xctool || brew upgrade xctool
-  - gem install xcpretty
+
+before_script:
+  - bundle exec danger
 
 script:
   - set -o pipefail
@@ -28,3 +31,4 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+

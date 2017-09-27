@@ -9,7 +9,6 @@
 import XCTest
 import CoreLocation
 
-
 class CLLocationExtensionsTests: XCTestCase {
 	
 	func testMidLocation() {

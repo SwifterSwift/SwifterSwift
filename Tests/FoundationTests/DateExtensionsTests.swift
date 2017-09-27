@@ -502,7 +502,7 @@ class DateExtensionsTests: XCTestCase {
 	func testEnd() {
 		let date = Date(timeIntervalSince1970: 512) // January 1, 1970 at 2:08:32 AM GMT+2
 		
-		XCTAssertEqual(date.end(of: .second)?.second , 32)
+		XCTAssertEqual(date.end(of: .second)?.second, 32)
 		XCTAssertEqual(date.end(of: .hour)?.minute, 59)
 		XCTAssertEqual(date.end(of: .minute)?.second, 59)
 		
@@ -656,14 +656,12 @@ class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date1.daysSince(date2), -1)
 	}
 	
-	
 	func testNewDateFromComponenets() {
 		let date = Date(calendar: Date().calendar, timeZone: Date().timeZone, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
 		XCTAssertNotNil(date)
 		let date1 = Date(timeIntervalSince1970: date!.timeIntervalSince1970)
 		
 		XCTAssertEqual(date?.timeIntervalSince1970, date1.timeIntervalSince1970)
-		
 		
 		let date2 = Date(calendar: nil, timeZone: Date().timeZone, era: Date().era, year: nil, month: nil, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
 		XCTAssertNil(date2)
