@@ -19,6 +19,9 @@ before_install:
   - brew outdated xctool || brew upgrade xctool
   - gem install xcpretty
 
+before_script:
+  - bundle exec danger
+
 script:
   - set -o pipefail
   - xcodebuild clean build test -project "$PROJECT" -scheme "$IOS_SCHEME" -destination "$IOS_DESTINATION" | xcpretty
@@ -28,3 +31,4 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
