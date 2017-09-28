@@ -25,11 +25,12 @@ N/A
 ### Enhancements
 - **Color**
   - Refactored duplicated code from `UIColorExtensions` and `NSColorExtensions` into `ColorExtensions`. thanks to [SD10](https://github.com/SD10).
-
+  - Add `cgFloatComponents` to get RGB components for a Color represented as CGFloat numbers (between 0 and 1)
+  - `blend` now support NSColor as well.
 ### Bugfixes
 - **Color**
-  - Fixed a bug in `rgbComponenets`, `shortHexString`, and `shortHexOrHexString` where an exception was raised when color is white or black.
-
+  - Fixed a bug in `rgbComponents`, `shortHexString`, and `shortHexOrHexString` where an exception was raised when color is white or black.
+  - Corrected a typo in `rgbComponenets` -> `rgbComponents`
 
 # v4.0.0
 

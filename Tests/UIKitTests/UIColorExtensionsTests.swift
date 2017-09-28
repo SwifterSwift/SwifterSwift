@@ -12,29 +12,53 @@ import XCTest
 class UIColorExtensionsTests: XCTestCase {
 	
 	// MARK: - Test properties
-	func testRgbComponenets() {
-		XCTAssertEqual(UIColor.red.rgbComponenets.red, 255)
-		XCTAssertEqual(UIColor.red.rgbComponenets.green, 0)
-		XCTAssertEqual(UIColor.red.rgbComponenets.blue, 0)
+	func testRgbComponents() {
+		XCTAssertEqual(UIColor.red.rgbComponents.red, 255)
+		XCTAssertEqual(UIColor.red.rgbComponents.green, 0)
+		XCTAssertEqual(UIColor.red.rgbComponents.blue, 0)
 		
-		XCTAssertEqual(UIColor.green.rgbComponenets.red, 0)
-		XCTAssertEqual(UIColor.green.rgbComponenets.green, 255)
-		XCTAssertEqual(UIColor.green.rgbComponenets.blue, 0)
+		XCTAssertEqual(UIColor.green.rgbComponents.red, 0)
+		XCTAssertEqual(UIColor.green.rgbComponents.green, 255)
+		XCTAssertEqual(UIColor.green.rgbComponents.blue, 0)
 		
-		XCTAssertEqual(UIColor.blue.rgbComponenets.red, 0)
-		XCTAssertEqual(UIColor.blue.rgbComponenets.green, 0)
-		XCTAssertEqual(UIColor.blue.rgbComponenets.blue, 255)
+		XCTAssertEqual(UIColor.blue.rgbComponents.red, 0)
+		XCTAssertEqual(UIColor.blue.rgbComponents.green, 0)
+		XCTAssertEqual(UIColor.blue.rgbComponents.blue, 255)
 		
-		XCTAssertEqual(UIColor.black.rgbComponenets.red, 0)
-		XCTAssertEqual(UIColor.black.rgbComponenets.green, 0)
-		XCTAssertEqual(UIColor.black.rgbComponenets.blue, 0)
+		XCTAssertEqual(UIColor.black.rgbComponents.red, 0)
+		XCTAssertEqual(UIColor.black.rgbComponents.green, 0)
+		XCTAssertEqual(UIColor.black.rgbComponents.blue, 0)
 		
-		XCTAssertEqual(UIColor.white.rgbComponenets.red, 255)
-		XCTAssertEqual(UIColor.white.rgbComponenets.green, 255)
-		XCTAssertEqual(UIColor.white.rgbComponenets.blue, 255)
+		XCTAssertEqual(UIColor.white.rgbComponents.red, 255)
+		XCTAssertEqual(UIColor.white.rgbComponents.green, 255)
+		XCTAssertEqual(UIColor.white.rgbComponents.blue, 255)
 	
-		XCTAssertEqual(UIColor(hex: 0x12FFFF)?.rgbComponenets.red, 0x12)
+		XCTAssertEqual(UIColor(hex: 0x12FFFF)?.rgbComponents.red, 0x12)
+	}
+	
+	func testCGFloatComponents() {
+		XCTAssertEqual(UIColor.red.cgFloatComponents.red, 1)
+		XCTAssertEqual(UIColor.red.cgFloatComponents.green, 0)
+		XCTAssertEqual(UIColor.red.cgFloatComponents.blue, 0)
 		
+		XCTAssertEqual(UIColor.green.cgFloatComponents.red, 0)
+		XCTAssertEqual(UIColor.green.cgFloatComponents.green, 1)
+		XCTAssertEqual(UIColor.green.cgFloatComponents.blue, 0)
+		
+		XCTAssertEqual(UIColor.blue.cgFloatComponents.red, 0)
+		XCTAssertEqual(UIColor.blue.cgFloatComponents.green, 0)
+		XCTAssertEqual(UIColor.blue.cgFloatComponents.blue, 1)
+		
+		XCTAssertEqual(UIColor.black.cgFloatComponents.red, 0)
+		XCTAssertEqual(UIColor.black.cgFloatComponents.green, 0)
+		XCTAssertEqual(UIColor.black.cgFloatComponents.blue, 0)
+		
+		XCTAssertEqual(UIColor.white.cgFloatComponents.red, 1)
+		XCTAssertEqual(UIColor.white.cgFloatComponents.green, 1)
+		XCTAssertEqual(UIColor.white.cgFloatComponents.blue, 1)
+		
+		let color = UIColor(hex: 0x12FFFF)!
+		XCTAssertEqual(color.cgFloatComponents.red, 0.070, accuracy: 0.001)
 	}
 	
 	func testAlpha() {
@@ -52,7 +76,7 @@ class UIColorExtensionsTests: XCTestCase {
 	}
 	
     // MARK: - Test properties
-    func testHsbaComponenets() {
+    func testHsbaComponents() {
         var color = UIColor(hex: 0xFF0000, transparency: 1.0)
         XCTAssertEqual(color?.hsbaComponents.hue, 0.0)
         XCTAssertEqual(color?.hsbaComponents.saturation, 1.0)
@@ -205,36 +229,36 @@ class UIColorExtensionsTests: XCTestCase {
 		var color2 = UIColor.black
 		
 		var blendColor = UIColor.blend(color1, with: color2)
-		XCTAssertEqual(blendColor.rgbComponenets.red, 0xFF / 2)
-		XCTAssertEqual(blendColor.rgbComponenets.green, 0xFF / 2)
-		XCTAssertEqual(blendColor.rgbComponenets.blue, 0xFF / 2)
+		XCTAssertEqual(blendColor.rgbComponents.red, 0xFF / 2)
+		XCTAssertEqual(blendColor.rgbComponents.green, 0xFF / 2)
+		XCTAssertEqual(blendColor.rgbComponents.blue, 0xFF / 2)
 		
 		color1 = UIColor(hex: 0x123456, transparency: 0.5)!
 		color2 = UIColor(hex: 0x665544, transparency: 0.7)!
 		
 		blendColor = UIColor.blend(color1, with: color2)
-		XCTAssertEqual(blendColor.rgbComponenets.red, (0x12 + 0x66) / 2)
-		XCTAssertEqual(blendColor.rgbComponenets.green, (0x34 + 0x55) / 2)
-		XCTAssertEqual(blendColor.rgbComponenets.blue, (0x56 + 0x44) / 2)
+		XCTAssertEqual(blendColor.rgbComponents.red, (0x12 + 0x66) / 2)
+		XCTAssertEqual(blendColor.rgbComponents.green, (0x34 + 0x55) / 2)
+		XCTAssertEqual(blendColor.rgbComponents.blue, (0x56 + 0x44) / 2)
 		XCTAssertEqual(blendColor.alpha, (0.7 + 0.5) / 2)
 		
 		blendColor = UIColor.blend(color1, intensity1: 0.7, with: color2, intensity2: 0.3)
 		var output: Double = 0x12 * 0.7 + 0x66 * 0.3
-		XCTAssertEqual(blendColor.rgbComponenets.red, Int(output))
+		XCTAssertEqual(blendColor.rgbComponents.red, Int(output))
 		output = 0x34 * 0.7 + 0x55 * 0.3
-		XCTAssertEqual(blendColor.rgbComponenets.green, Int(output))
+		XCTAssertEqual(blendColor.rgbComponents.green, Int(output))
 		output = 0x56 * 0.7 + 0x44 * 0.3
-		XCTAssertEqual(blendColor.rgbComponenets.blue, Int(output))
+		XCTAssertEqual(blendColor.rgbComponents.blue, Int(output))
 		output = 0.5 * 0.7 + 0.7 * 0.3
 		XCTAssertEqual(blendColor.alpha, CGFloat(output))
 		
 		blendColor = UIColor.blend(color1, intensity1: 0.0, with: color2, intensity2: 0.3)
 		output = (0x12 * 0.0 + 0x66 * 0.3) / 0.3
-		XCTAssertEqual(blendColor.rgbComponenets.red, Int(output))
+		XCTAssertEqual(blendColor.rgbComponents.red, Int(output))
 		output = (0x34 * 0.0 + 0x55 * 0.3) / 0.3
-		XCTAssertEqual(blendColor.rgbComponenets.green, Int(output))
+		XCTAssertEqual(blendColor.rgbComponents.green, Int(output))
 		output = (0x56 * 0.0 + 0x44 * 0.3) / 0.3
-		XCTAssertEqual(blendColor.rgbComponenets.blue, Int(output))
+		XCTAssertEqual(blendColor.rgbComponents.blue, Int(output))
 		output = (0.5 * 0.0 + 0.7 * 0.3 / 0.3)
 		XCTAssertEqual(blendColor.alpha, CGFloat(output))
 		
@@ -245,39 +269,39 @@ class UIColorExtensionsTests: XCTestCase {
 	// MARK: - Test initializers
 	func testInit() {
 		var color = UIColor(hex: 0xFFF)
-		XCTAssertEqual(color?.rgbComponenets.red, 0)
-		XCTAssertEqual(color?.rgbComponenets.green, 0xf)
-		XCTAssertEqual(color?.rgbComponenets.blue, 0xff)
+		XCTAssertEqual(color?.rgbComponents.red, 0)
+		XCTAssertEqual(color?.rgbComponents.green, 0xf)
+		XCTAssertEqual(color?.rgbComponents.blue, 0xff)
 		XCTAssertEqual(color?.alpha, 1.0)
 		
 		color = UIColor(hex: 0xFFFFFFF)
-		XCTAssertEqual(color?.rgbComponenets.red, 0xff)
-		XCTAssertEqual(color?.rgbComponenets.green, 0xff)
-		XCTAssertEqual(color?.rgbComponenets.blue, 0xff)
+		XCTAssertEqual(color?.rgbComponents.red, 0xff)
+		XCTAssertEqual(color?.rgbComponents.green, 0xff)
+		XCTAssertEqual(color?.rgbComponents.blue, 0xff)
 		XCTAssertEqual(color?.alpha, 1.0)
 		
 		color = UIColor(hex: 0x123456, transparency: 1.0)
-		XCTAssertEqual(color?.rgbComponenets.red, 0x12)
-		XCTAssertEqual(color?.rgbComponenets.green, 0x34)
-		XCTAssertEqual(color?.rgbComponenets.blue, 0x56)
+		XCTAssertEqual(color?.rgbComponents.red, 0x12)
+		XCTAssertEqual(color?.rgbComponents.green, 0x34)
+		XCTAssertEqual(color?.rgbComponents.blue, 0x56)
 		XCTAssertEqual(color?.alpha, 1.0)
 		
 		color = UIColor(hex: 0x999, transparency: 21.0)
-		XCTAssertEqual(color?.rgbComponenets.red, 0)
-		XCTAssertEqual(color?.rgbComponenets.green, 0x09)
-		XCTAssertEqual(color?.rgbComponenets.blue, 0x99)
+		XCTAssertEqual(color?.rgbComponents.red, 0)
+		XCTAssertEqual(color?.rgbComponents.green, 0x09)
+		XCTAssertEqual(color?.rgbComponents.blue, 0x99)
 		XCTAssertEqual(color?.alpha, 1.0)
 		
 		color = UIColor(hex: 0xaabbcc, transparency: 0.0)
-		XCTAssertEqual(color?.rgbComponenets.red, 0xaa)
-		XCTAssertEqual(color?.rgbComponenets.green, 0xbb)
-		XCTAssertEqual(color?.rgbComponenets.blue, 0xcc)
+		XCTAssertEqual(color?.rgbComponents.red, 0xaa)
+		XCTAssertEqual(color?.rgbComponents.green, 0xbb)
+		XCTAssertEqual(color?.rgbComponents.blue, 0xcc)
 		XCTAssertEqual(color?.alpha, 0.0)
 		
 		color = UIColor(hex: 0x1, transparency: 0.5)
-		XCTAssertEqual(color?.rgbComponenets.red, 0)
-		XCTAssertEqual(color?.rgbComponenets.green, 0)
-		XCTAssertEqual(color?.rgbComponenets.blue, 1)
+		XCTAssertEqual(color?.rgbComponents.red, 0)
+		XCTAssertEqual(color?.rgbComponents.green, 0)
+		XCTAssertEqual(color?.rgbComponents.blue, 1)
 		XCTAssertEqual(color?.alpha, 0.5)
 		
 		let color1 = UIColor(hex: 0xFFF, transparency: -0.4)
