@@ -17,6 +17,20 @@ All notable changes to this project will be documented in this file.
 > N/A
 
 
+# v4.0.1
+
+### API Breaking
+N/A
+
+### Enhancements
+- **Color**
+  - Refactored duplicated code from `UIColorExtensions` and `NSColorExtensions` into `ColorExtensions`. thanks to [SD10](https://github.com/SD10).
+
+### Bugfixes
+- **Color**
+  - Fixed a bug in `rgbComponenets`, `shortHexString`, and `shortHexOrHexString` where an exception was raised when color is white or black.
+
+
 # v4.0.0
 
 ### API Breaking
