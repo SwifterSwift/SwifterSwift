@@ -595,6 +595,34 @@ class DateExtensionsTests: XCTestCase {
 		
 		XCTAssert(date.isInCurrent(.era))
 	}
+    
+    func testisWithin() {
+        let date = Date()
+        let oldDate = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
+        
+        XCTAssert(date.isWithin(.second, of: date))
+        XCTAssertFalse(oldDate.isWithin(.second, of: date))
+        
+        XCTAssert(date.isWithin(.minute, of: date))
+        XCTAssertFalse(oldDate.isWithin(.minute, of: date))
+        
+        XCTAssert(date.isWithin(.hour, of: date))
+        XCTAssertFalse(oldDate.isWithin(.hour, of: date))
+        
+        XCTAssert(date.isWithin(.day, of: date))
+        XCTAssertFalse(oldDate.isWithin(.day, of: date))
+        
+        XCTAssert(date.isWithin(.weekOfMonth, of: date))
+        XCTAssertFalse(oldDate.isWithin(.weekOfMonth, of: date))
+        
+        XCTAssert(date.isWithin(.month, of: date))
+        XCTAssertFalse(oldDate.isWithin(.month, of: date))
+        
+        XCTAssert(date.isWithin(.year, of: date))
+        XCTAssertFalse(oldDate.isWithin(.year, of: date))
+        
+        XCTAssert(date.isWithin(.era, of: oldDate))
+    }
 	
 	func testTimeString() {
 		let date = Date(timeIntervalSince1970: 512)

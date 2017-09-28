@@ -601,6 +601,18 @@ public extension Date {
 	public func isInCurrent(_ component: Calendar.Component) -> Bool {
 		return calendar.isDate(self, equalTo: Date(), toGranularity: component)
 	}
+    
+    /// SwifterSwift: Check if date is within given calendar component of another date.
+    ///
+    ///     Date().isWithin(.hour, of: Date()) -> true
+    ///     Date().isWithin(.year, of: Date()) -> true
+    ///
+    /// - Parameter component: calendar component to check.
+    /// - Parameter date: date to check.
+    /// - Returns: true if date is within given calendar component of another date.
+    public func isWithin(_ component: Calendar.Component, of date: Date) -> Bool {
+        return calendar.isDate(self, equalTo: date, toGranularity: component)
+    }
 	
 	/// SwifterSwift: Time string from date
 	///
