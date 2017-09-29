@@ -664,6 +664,7 @@
 				07D8960F1F5ED8AB00FC894D /* CoreLocationTests */,
 				07D8960E1F5ED89A00FC894D /* CoreGraphicsTests */,
 				07C50D241F5EB03200F46E5A /* AppKitTests */,
+				D86A98EE1F7E50C90084EDCD /* SharedTests */,
 				07C50CCD1F5EAF2700F46E5A /* Info.plist */,
 				07C50D081F5EB03200F46E5A /* Resources */,
 				07C50CF81F5EB03200F46E5A /* SwifterSwiftTests.swift */,
@@ -703,7 +704,6 @@
 				07C50D0F1F5EB03200F46E5A /* UIBarButtonExtensionsTests.swift */,
 				07C50D101F5EB03200F46E5A /* UIButtonExtensionsTests.swift */,
 				07C50D111F5EB03200F46E5A /* UICollectionViewExtensionsTests.swift */,
-				07C50D121F5EB03200F46E5A /* ColorExtensionsTests.swift */,
 				074EAF1E1F7BA74600C74636 /* UIFontExtensionsTest.swift */,
 				07C50D131F5EB03200F46E5A /* UIImageExtensionsTests.swift */,
 				07C50D141F5EB03200F46E5A /* UIImageViewExtensionsTests.swift */,
@@ -769,6 +769,14 @@
 				07C50D281F5EB03200F46E5A /* CLLocationExtensionsTests.swift */,
 			);
 			path = CoreLocationTests;
+			sourceTree = "<group>";
+		};
+		D86A98EE1F7E50C90084EDCD /* SharedTests */ = {
+			isa = PBXGroup;
+			children = (
+				07C50D121F5EB03200F46E5A /* ColorExtensionsTests.swift */,
+			);
+			path = SharedTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
