@@ -21,7 +21,6 @@ before_install:
 
 before_script:
   - bundle exec danger
-  - brew install swiftlint
 
 script:
   - set -o pipefail
