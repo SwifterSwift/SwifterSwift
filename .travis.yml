@@ -28,6 +28,8 @@ script:
   - xcodebuild clean build test -project "$PROJECT" -scheme "$TVOS_SCHEME" -destination "$TVOS_DESTINATION" | xcpretty
   - xcodebuild clean build test -project "$PROJECT" -scheme "$MACOS_SCHEME" -destination "$MACOS_DESTINATION" | xcpretty
   - xcodebuild clean build -project "$PROJECT" -scheme "$WATCHOS_SCHEME" -destination "$WATCHOS_DESTINATION" | xcpretty
+  - swiftlint lint
+  - pod lib lint
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
