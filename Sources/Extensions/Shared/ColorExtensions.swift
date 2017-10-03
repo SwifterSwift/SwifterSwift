@@ -19,7 +19,29 @@
 
 // MARK: - Properties
 public extension Color {
-	
+    
+    /// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
+    public var uInt: UInt {
+        var colorAsUInt32: UInt32 = 0
+        var r: CGFloat = 0
+        var g: CGFloat = 0
+        var b: CGFloat = 0
+        var a: CGFloat = 0
+        
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        
+        colorAsUInt32 += UInt32(r * 255.0) << 16
+        colorAsUInt32 += UInt32(g * 255.0) << 8
+        colorAsUInt32 += UInt32(b * 255.0)
+        
+        return UInt(colorAsUInt32)
+    }
+    
+    /// SwifterSwift: Get color complementary (read-only, if applicable).
+    public var complementary: Color? {
+        return Color.init(complementaryFor: self)
+    }
+    
 	/// SwifterSwift: Random color.
 	public static var random: Color {
 		let r = Int(arc4random_uniform(255))
@@ -166,7 +188,35 @@ public extension Color {
 
 // MARK: - Initializers
 public extension Color {
-	
+    
+    /// SwifterSwift: Create Color from a complementary of a Color (if applicable).
+    ///
+    /// - Parameter color: color of which opposite color is desired.
+    public convenience init?(complementaryFor color: Color) {
+        let colorSpaceRGB = CGColorSpaceCreateDeviceRGB()
+        let convertColorToRGBSpace: ((_ color: Color) -> Color?) = { color -> Color? in
+            if color.cgColor.colorSpace!.model == CGColorSpaceModel.monochrome {
+                let oldComponents = color.cgColor.components
+                let components: [CGFloat] = [ oldComponents![0], oldComponents![0], oldComponents![0], oldComponents![1]]
+                let colorRef = CGColor(colorSpace: colorSpaceRGB, components: components)
+                let colorOut = Color(cgColor: colorRef!)
+                return colorOut
+            } else {
+                return color
+            }
+        }
+        
+        let c = convertColorToRGBSpace(color)
+        guard let componentColors = c?.cgColor.components else {
+            return nil
+        }
+        
+        let r: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[0]*255), 2.0))/255
+        let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[1]*255), 2.0))/255
+        let b: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[2]*255), 2.0))/255
+        self.init(red: r, green: g, blue: b, alpha: 1.0)
+    }
+    
 	/// SwifterSwift: Create NSColor from RGB values with optional transparency.
 	///
 	/// - Parameters:
