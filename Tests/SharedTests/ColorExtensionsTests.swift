@@ -23,29 +23,28 @@ import XCTest
 class ColorExtensionsTests: XCTestCase {
     
     // MARK: - Test properties
-    func testRgbComponenets() {
-        XCTAssertEqual(Color.red.rgbComponenets.red, 255)
-        XCTAssertEqual(Color.red.rgbComponenets.green, 0)
-        XCTAssertEqual(Color.red.rgbComponenets.blue, 0)
+    func testrgbComponents() {
+        XCTAssertEqual(Color.red.rgbComponents.red, 255)
+        XCTAssertEqual(Color.red.rgbComponents.green, 0)
+        XCTAssertEqual(Color.red.rgbComponents.blue, 0)
         
-        XCTAssertEqual(Color.green.rgbComponenets.red, 0)
-        XCTAssertEqual(Color.green.rgbComponenets.green, 255)
-        XCTAssertEqual(Color.green.rgbComponenets.blue, 0)
+        XCTAssertEqual(Color.green.rgbComponents.red, 0)
+        XCTAssertEqual(Color.green.rgbComponents.green, 255)
+        XCTAssertEqual(Color.green.rgbComponents.blue, 0)
         
-        XCTAssertEqual(Color.blue.rgbComponenets.red, 0)
-        XCTAssertEqual(Color.blue.rgbComponenets.green, 0)
-        XCTAssertEqual(Color.blue.rgbComponenets.blue, 255)
+        XCTAssertEqual(Color.blue.rgbComponents.red, 0)
+        XCTAssertEqual(Color.blue.rgbComponents.green, 0)
+        XCTAssertEqual(Color.blue.rgbComponents.blue, 255)
         
-        XCTAssertEqual(Color.black.rgbComponenets.red, 0)
-        XCTAssertEqual(Color.black.rgbComponenets.green, 0)
-        XCTAssertEqual(Color.black.rgbComponenets.blue, 0)
+        XCTAssertEqual(Color.black.rgbComponents.red, 0)
+        XCTAssertEqual(Color.black.rgbComponents.green, 0)
+        XCTAssertEqual(Color.black.rgbComponents.blue, 0)
         
-        XCTAssertEqual(Color.white.rgbComponenets.red, 255)
-        XCTAssertEqual(Color.white.rgbComponenets.green, 255)
-        XCTAssertEqual(Color.white.rgbComponenets.blue, 255)
+        XCTAssertEqual(Color.white.rgbComponents.red, 255)
+        XCTAssertEqual(Color.white.rgbComponents.green, 255)
+        XCTAssertEqual(Color.white.rgbComponents.blue, 255)
         
-        XCTAssertEqual(Color(hex: 0x12FFFF)?.rgbComponenets.red, 0x12)
-        
+        XCTAssertEqual(Color(hex: 0x12FFFF)?.rgbComponents.red, 0x12)
     }
     
     func testAlpha() {
@@ -63,7 +62,7 @@ class ColorExtensionsTests: XCTestCase {
     }
     
     // MARK: - Test properties
-    func testHsbaComponenets() {
+    func testHsbaComponents() {
         var color = Color(hex: 0xFF0000, transparency: 1.0)
         XCTAssertEqual(color?.hsbaComponents.hue, 0.0)
         XCTAssertEqual(color?.hsbaComponents.saturation, 1.0)
@@ -216,36 +215,36 @@ class ColorExtensionsTests: XCTestCase {
         var color2 = Color.black
         
         var blendColor = Color.blend(color1, with: color2)
-        XCTAssertEqual(blendColor.rgbComponenets.red, 0xFF / 2)
-        XCTAssertEqual(blendColor.rgbComponenets.green, 0xFF / 2)
-        XCTAssertEqual(blendColor.rgbComponenets.blue, 0xFF / 2)
+        XCTAssertEqual(blendColor.rgbComponents.red, 0xFF / 2)
+        XCTAssertEqual(blendColor.rgbComponents.green, 0xFF / 2)
+        XCTAssertEqual(blendColor.rgbComponents.blue, 0xFF / 2)
         
         color1 = Color(hex: 0x123456, transparency: 0.5)!
         color2 = Color(hex: 0x665544, transparency: 0.7)!
         
         blendColor = Color.blend(color1, with: color2)
-        XCTAssertEqual(blendColor.rgbComponenets.red, (0x12 + 0x66) / 2)
-        XCTAssertEqual(blendColor.rgbComponenets.green, (0x34 + 0x55) / 2)
-        XCTAssertEqual(blendColor.rgbComponenets.blue, (0x56 + 0x44) / 2)
+        XCTAssertEqual(blendColor.rgbComponents.red, (0x12 + 0x66) / 2)
+        XCTAssertEqual(blendColor.rgbComponents.green, (0x34 + 0x55) / 2)
+        XCTAssertEqual(blendColor.rgbComponents.blue, (0x56 + 0x44) / 2)
         XCTAssertEqual(blendColor.alpha, (0.7 + 0.5) / 2)
         
         blendColor = Color.blend(color1, intensity1: 0.7, with: color2, intensity2: 0.3)
         var output: Double = 0x12 * 0.7 + 0x66 * 0.3
-        XCTAssertEqual(blendColor.rgbComponenets.red, Int(output))
+        XCTAssertEqual(blendColor.rgbComponents.red, Int(output))
         output = 0x34 * 0.7 + 0x55 * 0.3
-        XCTAssertEqual(blendColor.rgbComponenets.green, Int(output))
+        XCTAssertEqual(blendColor.rgbComponents.green, Int(output))
         output = 0x56 * 0.7 + 0x44 * 0.3
-        XCTAssertEqual(blendColor.rgbComponenets.blue, Int(output))
+        XCTAssertEqual(blendColor.rgbComponents.blue, Int(output))
         output = 0.5 * 0.7 + 0.7 * 0.3
         XCTAssertEqual(blendColor.alpha, CGFloat(output))
         
         blendColor = Color.blend(color1, intensity1: 0.0, with: color2, intensity2: 0.3)
         output = (0x12 * 0.0 + 0x66 * 0.3) / 0.3
-        XCTAssertEqual(blendColor.rgbComponenets.red, Int(output))
+        XCTAssertEqual(blendColor.rgbComponents.red, Int(output))
         output = (0x34 * 0.0 + 0x55 * 0.3) / 0.3
-        XCTAssertEqual(blendColor.rgbComponenets.green, Int(output))
+        XCTAssertEqual(blendColor.rgbComponents.green, Int(output))
         output = (0x56 * 0.0 + 0x44 * 0.3) / 0.3
-        XCTAssertEqual(blendColor.rgbComponenets.blue, Int(output))
+        XCTAssertEqual(blendColor.rgbComponents.blue, Int(output))
         output = (0.5 * 0.0 + 0.7 * 0.3 / 0.3)
         XCTAssertEqual(blendColor.alpha, CGFloat(output))
         
@@ -256,39 +255,39 @@ class ColorExtensionsTests: XCTestCase {
     // MARK: - Test initializers
     func testInit() {
         var color = Color(hex: 0xFFF)
-        XCTAssertEqual(color?.rgbComponenets.red, 0)
-        XCTAssertEqual(color?.rgbComponenets.green, 0xf)
-        XCTAssertEqual(color?.rgbComponenets.blue, 0xff)
+        XCTAssertEqual(color?.rgbComponents.red, 0)
+        XCTAssertEqual(color?.rgbComponents.green, 0xf)
+        XCTAssertEqual(color?.rgbComponents.blue, 0xff)
         XCTAssertEqual(color?.alpha, 1.0)
         
         color = Color(hex: 0xFFFFFFF)
-        XCTAssertEqual(color?.rgbComponenets.red, 0xff)
-        XCTAssertEqual(color?.rgbComponenets.green, 0xff)
-        XCTAssertEqual(color?.rgbComponenets.blue, 0xff)
+        XCTAssertEqual(color?.rgbComponents.red, 0xff)
+        XCTAssertEqual(color?.rgbComponents.green, 0xff)
+        XCTAssertEqual(color?.rgbComponents.blue, 0xff)
         XCTAssertEqual(color?.alpha, 1.0)
         
         color = Color(hex: 0x123456, transparency: 1.0)
-        XCTAssertEqual(color?.rgbComponenets.red, 0x12)
-        XCTAssertEqual(color?.rgbComponenets.green, 0x34)
-        XCTAssertEqual(color?.rgbComponenets.blue, 0x56)
+        XCTAssertEqual(color?.rgbComponents.red, 0x12)
+        XCTAssertEqual(color?.rgbComponents.green, 0x34)
+        XCTAssertEqual(color?.rgbComponents.blue, 0x56)
         XCTAssertEqual(color?.alpha, 1.0)
         
         color = Color(hex: 0x999, transparency: 21.0)
-        XCTAssertEqual(color?.rgbComponenets.red, 0)
-        XCTAssertEqual(color?.rgbComponenets.green, 0x09)
-        XCTAssertEqual(color?.rgbComponenets.blue, 0x99)
+        XCTAssertEqual(color?.rgbComponents.red, 0)
+        XCTAssertEqual(color?.rgbComponents.green, 0x09)
+        XCTAssertEqual(color?.rgbComponents.blue, 0x99)
         XCTAssertEqual(color?.alpha, 1.0)
         
         color = Color(hex: 0xaabbcc, transparency: 0.0)
-        XCTAssertEqual(color?.rgbComponenets.red, 0xaa)
-        XCTAssertEqual(color?.rgbComponenets.green, 0xbb)
-        XCTAssertEqual(color?.rgbComponenets.blue, 0xcc)
+        XCTAssertEqual(color?.rgbComponents.red, 0xaa)
+        XCTAssertEqual(color?.rgbComponents.green, 0xbb)
+        XCTAssertEqual(color?.rgbComponents.blue, 0xcc)
         XCTAssertEqual(color?.alpha, 0.0)
         
         color = Color(hex: 0x1, transparency: 0.5)
-        XCTAssertEqual(color?.rgbComponenets.red, 0)
-        XCTAssertEqual(color?.rgbComponenets.green, 0)
-        XCTAssertEqual(color?.rgbComponenets.blue, 1)
+        XCTAssertEqual(color?.rgbComponents.red, 0)
+        XCTAssertEqual(color?.rgbComponents.green, 0)
+        XCTAssertEqual(color?.rgbComponents.blue, 1)
         XCTAssertEqual(color?.alpha, 0.5)
         
         let color1 = Color(hex: 0xFFF, transparency: -0.4)
