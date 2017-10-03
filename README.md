@@ -217,7 +217,7 @@ Check [Examples.md](https://github.com/SwifterSwift/SwifterSwift/tree/master/Exa
 
 ## Documentation
 
-A complete documentation for all extensions with examples is available at [swifterswift.com/docs](http://swifterswift.com/docs)
+Complete documentation for all extensions with examples is available at [swifterswift.com/docs](http://swifterswift.com/docs)
 
 
 
@@ -239,7 +239,7 @@ It is always nice to talk with other people using SwifterSwift and exchange expe
 Special thanks to:
 
 - [Steven Deutsch](https://github.com/SD10) and [Luciano Almeida](https://github.com/LucianoPAlmeida) for their latest contributions to extensions, docs and tests.
-- [Paweł Urbanek](https://github.com/pawurb) for adding tvOS, watchOS and macOS initial support and helping with extensions.
-- [Mert Akengin](https://github.com/PvtMert) and [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing [project website](http://swiftierswift.com) and logo.
+- [Paweł Urbanek](https://github.com/pawurb) for adding tvOS, watchOS, and macOS initial support and helping with extensions.
+- [Mert Akengin](https://github.com/PvtMert) and [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing [project website](http://swifterswift.com) and logo.
 - [Abdul Rahman Dabbour](https://github.com/thedabbour) for helping document the project.
 - Many thanks to all other [contributors](https://github.com/SwifterSwift/SwifterSwift/graphs/contributors) of this project.

@@ -17,6 +17,8 @@ if source_changes_exist && no_changelog_entry
     warn(“The source files have been modified. Please consider adding a CHANGELOG entry if necessary.“)
 end
 
+swiftlint.lint_files
+        
 # Checks if pull request is labeled as [WIP]
 warn(“This pull request is marked as Work in Progress. DO NOT MERGE!“) if github.pr_title.include? “[WIP]”
 

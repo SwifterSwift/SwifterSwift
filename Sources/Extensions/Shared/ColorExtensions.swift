@@ -32,13 +32,13 @@ public extension Color {
 		#endif
 	}
 	
-	/// SwifterSwift: RGB components for a UIColor
+	/// SwifterSwift: RGB components for a Color (between 0 and 255).
 	///
-	///		UIColor.red.rgbComponenets.red -> 255
-	///		UIColor.green.rgbComponenets.green -> 255
-	///		UIColor.blue.rgbComponenets.blue -> 255
+	///		UIColor.red.rgbComponents.red -> 255
+	///		NSColor.green.rgbComponents.green -> 255
+	///		UIColor.blue.rgbComponents.blue -> 255
 	///
-	public var rgbComponenets: (red: Int, green: Int, blue: Int) {
+	public var rgbComponents: (red: Int, green: Int, blue: Int) {
 		var components: [CGFloat] {
 			let c = cgColor.components!
 			if c.count == 4 {
@@ -50,6 +50,26 @@ public extension Color {
 		let g = components[1]
 		let b = components[2]
 		return (red: Int(r * 255.0), green: Int(g * 255.0), blue: Int(b * 255.0))
+	}
+	
+	/// SwifterSwift: RGB components for a Color represented as CGFloat numbers (between 0 and 1)
+	///
+	///		UIColor.red.rgbComponents.red -> 1.0
+	///		NSColor.green.rgbComponents.green -> 1.0
+	///		UIColor.blue.rgbComponents.blue -> 1.0
+	///
+	public var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) {
+		var components: [CGFloat] {
+			let c = cgColor.components!
+			if c.count == 4 {
+				return c
+			}
+			return [c[0], c[0], c[0], c[1]]
+		}
+		let r = components[0]
+		let g = components[1]
+		let b = components[2]
+		return (red: r, green: g, blue: b)
 	}
 	
 	/// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
@@ -65,9 +85,9 @@ public extension Color {
 	
 	/// SwifterSwift: Hexadecimal value string (read-only).
 	public var hexString: String {
-		let r = rgbComponenets.red
-		let g = rgbComponenets.green
-		let b = rgbComponenets.blue
+		let r = rgbComponents.red
+		let g = rgbComponents.green
+		let b = rgbComponents.blue
 		return String(format: "#%02X%02X%02X", r, g, b)
 	}
 	
@@ -84,7 +104,7 @@ public extension Color {
 		return shortHexString ?? hexString
 	}
 	
-	/// SwifterSwift: Alpha of UIColor (read-only).
+	/// SwifterSwift: Alpha of Color (read-only).
 	public var alpha: CGFloat {
 		return cgColor.alpha
 	}
@@ -95,6 +115,52 @@ public extension Color {
 		return CoreImage.CIColor(color: self)
 	}
 	#endif
+	
+}
+
+// MARK: - Methods
+public extension Color {
+	
+	/// SwifterSwift: Blend two Colors
+	///
+	/// - Parameters:
+	///   - color1: first color to blend
+	///   - intensity1: intensity of first color (default is 0.5)
+	///   - color2: second color to blend
+	///   - intensity2: intensity of second color (default is 0.5)
+	/// - Returns: Color created by blending first and seond colors.
+	public static func blend(_ color1: Color, intensity1: CGFloat = 0.5, with color2: Color, intensity2: CGFloat = 0.5) -> Color {
+		// http://stackoverflow.com/questions/27342715/blend-uicolors-in-swift
+		
+		let total = intensity1 + intensity2
+		let level1 = intensity1/total
+		let level2 = intensity2/total
+		
+		guard level1 > 0 else { return color2 }
+		guard level2 > 0 else { return color1 }
+		
+		let components1 = color1.cgFloatComponents
+		let components2 = color2.cgFloatComponents
+		
+		let r1 = components1.red
+		let r2 = components2.red
+		
+		let g1 = components1.green
+		let g2 = components2.green
+		
+		let b1 = components1.blue
+		let b2 = components2.blue
+		
+		let a1 = color1.alpha
+		let a2 = color2.alpha
+		
+		let r = level1*r1 + level2*r2
+		let g = level1*g1 + level2*g2
+		let b = level1*b1 + level2*b2
+		let a = level1*a1 + level2*a2
+		
+		return Color(red: r, green: g, blue: b, alpha: a)
+	}
 	
 }
 

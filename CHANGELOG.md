@@ -25,11 +25,12 @@ N/A
 ### Enhancements
 - **Color**
   - Refactored duplicated code from `UIColorExtensions` and `NSColorExtensions` into `ColorExtensions`. thanks to [SD10](https://github.com/SD10).
-
+  - Add `cgFloatComponents` to get RGB components for a Color represented as CGFloat numbers (between 0 and 1)
+  - `blend` now support NSColor as well.
 ### Bugfixes
 - **Color**
-  - Fixed a bug in `rgbComponenets`, `shortHexString`, and `shortHexOrHexString` where an exception was raised when color is white or black.
-
+  - Fixed a bug in `rgbComponents`, `shortHexString`, and `shortHexOrHexString` where an exception was raised when color is white or black.
+  - Corrected a typo in `rgbComponenets` -> `rgbComponents`
 
 # v4.0.0
 
@@ -78,7 +79,7 @@ N/A
 
 ### API Breaking
 - **Swift 3.2**
-  - Code has been updated to Swift 3.2, please use [`v3.1.1`](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.1.1) if you are still using Swift 3 or Xcode 8
+  - Code has been updated to Swift 3.2; please use [`v3.1.1`](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.1.1) if you are still using Swift 3 or Xcode 8
 - **SwifterSwift**
   - `userDefaults` is deprecated, use Apple's `UserDefaults.standard` instead.
   - `object(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.object(forKey: _)` instead.
@@ -110,13 +111,13 @@ N/A
 
 ### Enhancements
 - New **Date** extensions
-  - added `secondsSince(_ date: Date)` method to get number of seconds between two date.
-  - added `minutesSince(_ date: Date)` method to get number of minutes between two date.
-  - added `hoursSince(_ date: Date)` method to get number of hours between two date.
-  - added `daysSince(_ date: Date)` method to get number of days between two date.
-  - added `isInThisYear` property to check if date is in the current year.
-  - added `isInThisMonth` property to check if date is in the current month.
-  - added `isInThisWeek` property to check if date is in the current week.
+  - added `secondsSince(_ date: Date)` method to get a number of seconds between two dates.
+  - added `minutesSince(_ date: Date)` method to get a number of minutes between two date.
+  - added `hoursSince(_ date: Date)` method to get a number of hours between two dates.
+  - added `daysSince(_ date: Date)` method to get a number of days between two date.
+  - added `isInThisYear` property to check if the date is in the current year.
+  - added `isInThisMonth` property to check if the date is in the current month.
+  - added `isInThisWeek` property to check if the date is in the current week.
 - New **URLRequest** extensions
   - added `init?(urlString: String)` fallible initializer create a URLRequest from URL string.
 - New **UIWebView** extensions
@@ -271,31 +272,31 @@ N/A
 - New **Array** extensions
     - added `removeAll` passing an array of items.
     - added `swap` and `safeSwap` extensions to swap to elements in an array.
-    - new `firstIndex` and `lastIndex` that return the (first or last) index where condition is true .
-    - new `indexes` extention that return indexes where condition is true .
-    - new `all` and `none` that checks if (all or none) of array elements matches condition.
+    - new `firstIndex` and `lastIndex` that returns the (first or last) index where the condition is true.
+    - new `indexes` extension that return indexes where the condition is true.
+    - new `all` and `none` that checks if (all or none) of array elements match condition.
     - new `last` extension to find the last element that matches condition.
     - new `reject` extension to filter elements that **not** matches condition.
-    - new `count` extension to count elements that matches condition.
-    - new `forEachReversed` extension to iterate over array in reverse order.
+    - new `count` extension to count elements that match condition.
+    - new `forEachReversed` extension to iterate over an array in reverse order.
     - new `accumulate` extension to reduces an array while returning each interim combination.
-    - new `forEach` with condition to a filtered interation over the array.
-    - new `keep` extention to keep all elements that in order are until the condition is false.
+    - new `forEach` with condition to a filtered interaction over the array.
+    - new `keep` extension to keep all elements that in order are until the condition is false.
     - new `take` extension that returns all elements that in order are until the condition is false.
     - new `skip` extension that returns all elements that in order are after the condition is false.
-    - new `filtered:map` extension to perform a map and filter operation in just one iteration.
+    - new `filtered: map` extension to perform a map and filter operation in just one iteration.
 - New **Character** extensions
     - added isLetter & isWhiteSpace extensions
     - new lowercased extension to lower case the character
     - new uppercased extension to upper case the character
 - New **Date** extensions
-    - new `isInWeekday` extension to check if date is within a weekday period
+    - new `isInWeekday` extension to check if the date is within a weekday period
 - New **Dictionary** extensions
-    - new `removeAll` extension to remove the values for all keys in a array.
+    - new `removeAll` extension to remove the values for all keys in an array.
     - new + operator to merge to dictionaries in a new one and += to merge one dictionary into another.
-    - new - operator to get a new dictionary with the values for all keys in a array removed and -= to remove the values for all keys in a array.
+    - new - operator to get a new dictionary with the values for all keys in an array removed and -= to remove the values for all keys in an array.
 - New **String** extensions
-    - new `matches` extension to check if string matches a regex pattern.
+    - new `matches` extension to check if the string matches a regex pattern.
 - New **Locale** extensions
     - new posix property extension to convenience create the "en_US_POSIX" locale.
 - New **CLLocation** extensions
@@ -313,7 +314,7 @@ N/A
 
 ### Testing
 
-This release has drastically increased test coverage: currently 92% .
+This release has drastically increased test coverage: currently 92%.
 Areas affected are:
 
 **Foundation**
@@ -361,7 +362,7 @@ Areas affected are:
     - added quick getter and setter for frame’s X and Y values
 
 - New **Array** extensions
-    - added `safeSwap` method as a fail safe way to swap to elements in an array
+    - added `safeSwap` method as a fail-safe way to swap to elements in an array
 
 - New **NSView** extensions
     - `borderColor` (IBInspectable)
@@ -393,7 +394,7 @@ Areas affected are:
 - Improve Array extensions
     - properties with O(n) or higher complexity have been changed to methods
     - reduced shuffle method complexity by using Fisher-Yates algorithm and is now completely random
-    - `removeDuplicates` renamed to `duplicatesRemoved`
+    - `removeDuplicates` renamed to `duplicatesRemoved.`
     - remove generic constraint on `firstIndex(of:)` and `lastIndex(of:)`
 
 - Improve String extensions
@@ -460,7 +461,7 @@ Fixed Cocoapods.
 
 # v1.6
 This is the biggest update since v1.3!
-With over 100 new extensions, improved Cocoa support, new tests and many minor bug fixes.
+With over 100 new extensions, improved Cocoa support, new tests, and many minor bug fixes.
 
 ## New Extensions
 - CGColorExtensions
@@ -617,7 +618,7 @@ Thanks to [matt](https://github.com/ythecombinator)
 
 # v1.3.9
 
-- Extension moved to Source directory, tests moved to Tests directory for a cleaner structure
+- Extension moved to Source directory; tests moved to Tests directory for a cleaner structure
 
 ---
 
@@ -671,7 +672,7 @@ Thanks to [matt](https://github.com/ythecombinator)
 
 ### DateExtensions:
 
-Fixed a bug in DateExtensinos where year was not set correctly. Thanks to [songhailiang](https://github.com/songhailiang) you for reporting this bug.
+Fixed a bug in DateExtensinos where the year was not set correctly. Thanks to [songhailiang](https://github.com/songhailiang) you for reporting this bug.
 
 ---
 
@@ -704,22 +705,22 @@ Added [CollectionViewExtensions](https://github.com/omaralbeik/SwifterSwift/wiki
 
 ### ArrayExtensions:
 
-- removed duplicated contains method
-- use of reduce to remove duplicates (Thanks to [sairamkotha](https://github.com/sairamkotha))
+- removed duplicated contains a method
+- use of reducing to remove duplicates (Thanks to [sairamkotha](https://github.com/sairamkotha))
 
 ---
 
 # v1.3
 
 This version adds **more than 90 new extensions** making it the widest extensions library available online for Swift 3 with **more than 360 properties and methods for more than 35 type**.
-This is the biggest update since library launch! we're so excited 🤓
+This is the biggest update since library launch! We're so excited 🤓
 
 Here are some changes:
 - Updated some properties and methods names to follow [Swift API Design Guidelines](https://developer.apple.com/videos/play/wwdc2016/403/).
 - Added default values to methods parameters (where possible).
-- All units documentation has been re-written in xcode,
+- All units documentation has been re-written in Xcode,
     - Now you see "**SwifterSwift:** " at the beginning of description to know the source of the extension while writing your code.
-    - All method parameters and return types has been documented in xcode as well.
+    - All method parameters and return types have been documented in Xcode as well.
     - All extensions documentation has been re-written in [Wiki](https://github.com/omaralbeik/SwifterSwift/wiki), separating properties from methods in different tables.
 - All extensions files re-organized in separate extensions based on type (properties, methods, initializers, ..)
 - Fixed some bugs where some extensions were not public.
@@ -870,11 +871,11 @@ DoubleExtensions:
 - **asLocaleCurrency**: Return string with number and current locale currency
 
 StringExtensions:
-- Fixed a bug in toDouble, toFloat, toFloat32, toFloat64 where number is not calculated if not in english
+- Fixed a bug in toDouble, toFloat, toFloat32, toFloat64 where number is not calculated if not in English
 
 DateExtensions:
 - **adding(component, value)**: Return date by adding a component
-- **nearestHourQuarter**: Return nearest quarter to date
+- **nearestHourQuarter**: Return the nearest quarter to date
 - **nearestHalfHour**: Return nearest half hour to date
 - **changing(component, value)**: Return date by changing a component
 - Fixed a bug in nearestFiveMinutes, nearestTenMinutes where date was always rounded always to next 5, 10 mins
