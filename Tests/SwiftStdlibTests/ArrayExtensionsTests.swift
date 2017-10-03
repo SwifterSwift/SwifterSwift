@@ -36,6 +36,13 @@ class ArrayExtensionsTests: XCTestCase {
 		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2), 6)
 		XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 7))
 	}
+    
+    func testLastN() {
+        let array = [1, 2, 3, 4, 5]
+        XCTAssertEqual(array.last(n: 3), [3, 4, 5])
+        XCTAssertEqual(array.last(n: -1), [])
+        XCTAssertEqual(array.last(n: 8), [1, 2, 3, 4, 5])
+    }
 	
 	func testPop() {
 		var arr = [1, 2, 3, 4, 5]

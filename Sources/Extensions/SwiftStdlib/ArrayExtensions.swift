@@ -56,6 +56,17 @@ public extension Array {
 		guard startIndex..<endIndex ~= index else { return nil }
 		return self[index]
 	}
+    
+    /// SwifterSwift: Get the n last elements.
+    ///
+    ///        [1, 7, 1, 2, 4, 1, 6].last(n: 3) -> [4, 1, 6]
+    ///
+    /// - Parameter n: maximum number of elements.
+    /// - Returns: array slice of the n last elements, otherwise an empty array
+    public func last(n: Int) -> ArraySlice<Element> {
+        guard n > 0 && !isEmpty else { return [] }
+        return self[Swift.max(endIndex - n, 0)...]
+    }
 	
 	/// SwifterSwift: Remove last element from array and return it.
 	///
