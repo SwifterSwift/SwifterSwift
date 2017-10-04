@@ -10,6 +10,15 @@ import CoreData
 
 class NSPredicateExtensionsTests: XCTestCase {
     
+    func testNot() {
+        let predicate = NSPredicate(format: "a < 7")
+        let notPredicate = predicate.not
+        XCTAssert(notPredicate.compoundPredicateType == .not)
+        if let subpredicates = notPredicate.subpredicates as? [NSPredicate] {
+            XCTAssertEqual(subpredicates, [predicate])
+        }
+    }
+    
     func testAndPredicate() {
         let predicate1 = NSPredicate(format: "a < 7")
         let predicate2 = NSPredicate(format: "a > 3")
