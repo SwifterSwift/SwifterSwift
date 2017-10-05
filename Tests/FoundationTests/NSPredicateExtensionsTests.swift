@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import CoreData
+@testable import SwifterSwift
 
 class NSPredicateExtensionsTests: XCTestCase {
     

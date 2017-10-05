@@ -5,7 +5,6 @@
 //  Created by Max Härtwig on 04.10.17.
 //
 
-import CoreData
 import Foundation
 
 // MARK: - Methods
