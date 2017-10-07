@@ -503,17 +503,15 @@ public extension Array where Element: Equatable {
 	
 	/// SwifterSwift: Return array with all duplicate elements removed.
 	///
-	///		[1, 2, 2, 3, 4, 5, 5].duplicatesRemoved() -> [ 2, 5]
-	///		["h", "e", "l", "l", "o"]. duplicatesRemoved() -> ["l"]
-	///
+    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].duplicatesRemoved() -> [1, 2, 3, 4, 5])
+    ///     ["h", "e", "l", "l", "o"].duplicatesRemoved() -> ["h", "e", "l", "o"])
+    ///
 	/// - Returns: an array of unique elements.
+    ///
 	public func duplicatesRemoved() -> [Element] {
 		// Thanks to https://github.com/sairamkotha for improving the property
-        var noDuplicates: [Element] = []
         return reduce(into: [Element]()) {
-            if !noDuplicates.contains($1) {
-                noDuplicates.append($1)
-            } else {
+            if !$0.contains($1) {
                 $0.append($1)
             }
         }
