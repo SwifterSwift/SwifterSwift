@@ -25,6 +25,18 @@ class BoolExtensionsTests: XCTestCase {
 		XCTAssertFalse(true.toggled)
 		XCTAssert(false.toggled)
 	}
+    
+    func testRandom() {
+        var yes = 0, no = 0
+        for _ in 1...10000 {
+            if Bool.random {
+                yes += 1
+            } else {
+                no += 1
+            }
+        }
+        XCTAssert(yes >= 10 && no >= 10)
+    }
 	
 	func testToggle() {
 		var t = true

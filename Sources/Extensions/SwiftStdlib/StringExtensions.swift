@@ -371,6 +371,14 @@ public extension String {
 		}
 		return result
 	}
+    
+    /// SwifterSwift: Returns a localized string, with an optional comment for translators.
+    ///
+    ///        "Hello world".localized -> Hallo Welt
+    ///
+    public func localized(comment: String = "") -> String {
+        return NSLocalizedString(self, comment: comment)
+    }
 	
 	/// SwifterSwift: The most common character in string.
 	///

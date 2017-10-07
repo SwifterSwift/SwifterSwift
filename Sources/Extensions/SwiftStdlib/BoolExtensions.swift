@@ -37,6 +37,15 @@ public extension Bool {
 	public var toggled: Bool {
 		return !self
 	}
+    
+    /// SwifterSwift: Returns a random boolean value.
+    ///
+    ///     Bool.random -> true
+    ///     Bool.random -> false
+    ///
+    public static var random: Bool {
+        return arc4random_uniform(2) == 1
+    }
 	
 }
 
