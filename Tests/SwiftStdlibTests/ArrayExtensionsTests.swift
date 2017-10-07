@@ -145,7 +145,8 @@ class ArrayExtensionsTests: XCTestCase {
     }
     
     func testDuplicatesRemoved() {
-        XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].duplicatesRemoved(), [1, 2, 3, 4, 5])
+        XCTAssertEqual([1, 2, 2, 3, 4, 5, 5].duplicatesRemoved(), [2, 5])
+        XCTAssertEqual(["h", "e", "l", "l", "o"].duplicatesRemoved(), ["l"])
     }
 	
 	func testItemAtIndex() {
