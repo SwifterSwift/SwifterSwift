@@ -219,7 +219,7 @@ public extension Color {
 		self.init(red: red, green: green, blue: blue, transparency: trans)
 	}
 	
-	/// SwifterSwift: Create UIColor from hexadecimal string with optional transparency (if applicable).
+	/// SwifterSwift: Create Color from hexadecimal string with optional transparency (if applicable).
 	///
 	/// - Parameters:
 	///   - hexString: hexadecimal string (examples: EDE7F6, 0xEDE7F6, #EDE7F6, #0ff, 0xF0F, ..).
@@ -249,7 +249,7 @@ public extension Color {
 		self.init(hex: Int(hexValue), transparency: trans)
 	}
 	
-	/// SwifterSwift: Create UIColor from a complementary of a UIColor (if applicable).
+	/// SwifterSwift: Create Color from a complementary of a Color (if applicable).
 	///
 	/// - Parameter color: color of which opposite color is desired.
 	public convenience init?(complementaryFor color: Color) {
@@ -267,9 +267,7 @@ public extension Color {
 		}
 		
 		let c = convertColorToRGBSpace(color)
-		guard let componentColors = c?.cgColor.components else {
-			return nil
-		}
+		guard let componentColors = c?.cgColor.components else { return nil }
 		
 		let r: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[0]*255), 2.0))/255
 		let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[1]*255), 2.0))/255
