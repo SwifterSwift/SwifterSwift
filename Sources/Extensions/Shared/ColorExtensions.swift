@@ -74,13 +74,13 @@ public extension Color {
 	
 	/// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
 	public var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
-		var hue: CGFloat = 0.0
-		var sat: CGFloat = 0.0
-		var bri: CGFloat = 0.0
-		var alpha: CGFloat = 0.0
-		self.getHue(&hue, saturation: &sat, brightness: &bri, alpha: &alpha)
-		
-		return (hue:hue, saturation:sat, brightness:bri, alpha:alpha)
+		var h: CGFloat = 0.0
+		var s: CGFloat = 0.0
+		var b: CGFloat = 0.0
+		var a: CGFloat = 0.0
+				
+		self.getHue(&h, saturation: &s, brightness: &b, alpha: &a)
+		return (hue: h, saturation: s, brightness: b, alpha: a)
 	}
 	
 	/// SwifterSwift: Hexadecimal value string (read-only).
@@ -115,6 +115,23 @@ public extension Color {
 		return CoreImage.CIColor(color: self)
 	}
 	#endif
+	
+	/// SwifterSwift: Get UInt representation of a Color (read-only).
+	public var uInt: UInt {
+		let c = self.cgFloatComponents
+		
+		var colorAsUInt32: UInt32 = 0
+		colorAsUInt32 += UInt32(c.red * 255.0) << 16
+		colorAsUInt32 += UInt32(c.green * 255.0) << 8
+		colorAsUInt32 += UInt32(c.blue * 255.0)
+		
+		return UInt(colorAsUInt32)
+	}
+	
+	/// SwifterSwift: Get color complementary (read-only, if applicable).
+	public var complementary: Color? {
+		return Color.init(complementaryFor: self)
+	}
 	
 }
 
@@ -183,11 +200,7 @@ public extension Color {
 		if trans < 0 { trans = 0 }
 		if trans > 1 { trans = 1 }
 		
-		#if os(macOS)
-			self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: trans)
-		#else
-			self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: trans)
-		#endif
+		self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: trans)
 	}
 	
 	/// SwifterSwift: Create NSColor from hexadecimal value with optional transparency.
@@ -234,6 +247,34 @@ public extension Color {
 		if trans > 1 { trans = 1 }
 		
 		self.init(hex: Int(hexValue), transparency: trans)
+	}
+	
+	/// SwifterSwift: Create UIColor from a complementary of a UIColor (if applicable).
+	///
+	/// - Parameter color: color of which opposite color is desired.
+	public convenience init?(complementaryFor color: Color) {
+		let colorSpaceRGB = CGColorSpaceCreateDeviceRGB()
+		let convertColorToRGBSpace: ((_ color: Color) -> Color?) = { color -> Color? in
+			if color.cgColor.colorSpace!.model == CGColorSpaceModel.monochrome {
+				let oldComponents = color.cgColor.components
+				let components: [CGFloat] = [ oldComponents![0], oldComponents![0], oldComponents![0], oldComponents![1]]
+				let colorRef = CGColor(colorSpace: colorSpaceRGB, components: components)
+				let colorOut = Color(cgColor: colorRef!)
+				return colorOut
+			} else {
+				return color
+			}
+		}
+		
+		let c = convertColorToRGBSpace(color)
+		guard let componentColors = c?.cgColor.components else {
+			return nil
+		}
+		
+		let r: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[0]*255), 2.0))/255
+		let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[1]*255), 2.0))/255
+		let b: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[2]*255), 2.0))/255
+		self.init(red: r, green: g, blue: b, alpha: 1.0)
 	}
 	
 }
