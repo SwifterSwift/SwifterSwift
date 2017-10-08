@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class DataExtensionsTests: XCTestCase {
+final class DataExtensionsTests: XCTestCase {
 	
 	func testString() {
 		let dataFromString = "hello".data(using: .utf8)

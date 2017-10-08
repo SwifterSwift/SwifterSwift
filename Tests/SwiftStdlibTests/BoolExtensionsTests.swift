@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class BoolExtensionsTests: XCTestCase {
+final class BoolExtensionsTests: XCTestCase {
 	
 	func testInt() {
 		XCTAssertEqual(true.int, 1)

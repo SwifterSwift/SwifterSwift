@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class NSAttributedStringExtensionsTests: XCTestCase {
+final class NSAttributedStringExtensionsTests: XCTestCase {
 	
 	#if !os(macOS) && !os(tvOS)
 	func testBolded() {

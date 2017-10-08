@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class DoubleExtensionsTests: XCTestCase {
+final class DoubleExtensionsTests: XCTestCase {
 	
 	func testAbs() {
 		XCTAssertEqual(Double(-9.3).abs, Double(9.3))

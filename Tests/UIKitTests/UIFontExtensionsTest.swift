@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UIFontExtension: XCTestCase {
+final class UIFontExtension: XCTestCase {
 	
 	func testMonospacedDigitFont() {
 		let font = UIFont.preferredFont(forTextStyle: .body)

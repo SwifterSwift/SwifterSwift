@@ -10,7 +10,7 @@ import XCTest
 @testable import SwifterSwift
 
 #if os(iOS)
-class UISearchBarExtensionsTests: XCTestCase {
+final class UISearchBarExtensionsTests: XCTestCase {
 	
 	func testSearchBar() {
 		let searchBar = UISearchBar()

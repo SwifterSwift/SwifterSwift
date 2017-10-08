@@ -9,7 +9,7 @@
 import XCTest
 import CoreLocation
 
-class CLLocationExtensionsTests: XCTestCase {
+final class CLLocationExtensionsTests: XCTestCase {
 	
 	func testMidLocation() {
 		let a = CLLocation(latitude: -15.822877, longitude: -47.941839)

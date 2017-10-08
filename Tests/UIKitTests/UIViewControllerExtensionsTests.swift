@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
     
-class UIViewControllerExtensionsTests: XCTestCase {
+final class UIViewControllerExtensionsTests: XCTestCase {
     
     class MockNotificationViewController: UIViewController {
         var notificationFired = false

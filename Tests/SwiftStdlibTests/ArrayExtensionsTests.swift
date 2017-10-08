@@ -8,7 +8,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class ArrayExtensionsTests: XCTestCase {
+final class ArrayExtensionsTests: XCTestCase {
 
 	func testRandomItem() {
 		XCTAssert([1, 2, 3].contains([1, 2, 3].randomItem))

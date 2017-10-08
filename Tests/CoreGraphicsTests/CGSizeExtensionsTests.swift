@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class CGSizeExtensionsTests: XCTestCase {
+final class CGSizeExtensionsTests: XCTestCase {
 	
 	func testAspectFit() {
 		let rect = CGSize(width: 120, height: 80)

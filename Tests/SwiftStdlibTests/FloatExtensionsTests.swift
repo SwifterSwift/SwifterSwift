@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class FloatExtensionsTests: XCTestCase {
+final class FloatExtensionsTests: XCTestCase {
 	
 	func testAbs() {
 		XCTAssertEqual(Float(-9.3).abs, Float(9.3))

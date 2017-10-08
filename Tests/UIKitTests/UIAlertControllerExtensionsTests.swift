@@ -10,7 +10,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UIAlertControllerExtensionsTests: XCTestCase {
+final class UIAlertControllerExtensionsTests: XCTestCase {
 	
 	func testAddAction() {
 

@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class StringExtensionsTests: XCTestCase {
+final class StringExtensionsTests: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()
