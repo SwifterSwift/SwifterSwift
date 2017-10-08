@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class DictionaryExtensionsTests: XCTestCase {
+final class DictionaryExtensionsTests: XCTestCase {
 	
 	var testDict: [String : Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
     

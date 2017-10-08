@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
     
-class UINavigationControllerExtensionsTests: XCTestCase {
+final class UINavigationControllerExtensionsTests: XCTestCase {
 // This test is commented because we not sure if after the animation it already removed the viewcontroller from the array, it's something internal of UIKit that require a deeper looking.    
 //    func testPopViewController() {
 //        let navigationController = UINavigationController()

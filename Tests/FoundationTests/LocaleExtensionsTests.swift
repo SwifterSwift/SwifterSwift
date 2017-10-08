@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class LocaleExtensionsTests: XCTestCase {
+final class LocaleExtensionsTests: XCTestCase {
     
     func testPosix() {
         let test: Locale = .posix

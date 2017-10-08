@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class CGFloatExtensionsTests: XCTestCase {
+final class CGFloatExtensionsTests: XCTestCase {
 	
 	#if !os(macOS)
 	func testAbs() {

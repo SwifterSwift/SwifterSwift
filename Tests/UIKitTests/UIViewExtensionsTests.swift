@@ -9,7 +9,7 @@ import XCTest
 @testable import SwifterSwift
 
 #if os(iOS) || os(tvOS)
-class UIViewExtensionsTests: XCTestCase {
+final class UIViewExtensionsTests: XCTestCase {
 	
 	func testBorderColor() {
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 100)

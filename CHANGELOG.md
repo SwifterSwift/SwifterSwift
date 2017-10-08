@@ -25,12 +25,30 @@ N/A
 ### Enhancements
 - **Color**
   - Refactored duplicated code from `UIColorExtensions` and `NSColorExtensions` into `ColorExtensions`. thanks to [SD10](https://github.com/SD10).
+  - Refactored duplicated tests from `UIColorExtensionsTests` and `NSColorExtensionsTests` into `ColorExtensionsTests`. [#260](https://github.com/SwifterSwift/SwifterSwift/pull/260) by [LeLuckyVint](https://github.com/LeLuckyVint).
   - Add `cgFloatComponents` to get RGB components for a Color represented as CGFloat numbers (between 0 and 1)
   - `blend` now support NSColor as well.
+  - Corrected some typos in README. [#263](https://github.com/SwifterSwift/SwifterSwift/pull/263) by [nick3399](https://github.com/nick3399).
+- New **String** extensions
+  - Add `localized(comment:)` to returns a localized string, with an optional comment for translators. [#269](https://github.com/SwifterSwift/SwifterSwift/pull/269) by [Vyax](https://github.com/Vyax).
+- New **NSPredicate** extensions: [#273](https://github.com/SwifterSwift/SwifterSwift/pull/273) by [Vyax](https://github.com/Vyax).
+  - Add `not` to returns a new predicate formed by NOT-ing the predicate.
+  - Add `and(_ predicate: NSPredicate)` to returns a new predicate formed by AND-ing the argument to the predicate.
+  - Add `or(_ predicate: NSPredicate)` to returns a new predicate formed by OR-ing the argument to the predicate.
+- New **UILabel** extensions
+  - Add `convenience init(text: String?)` to initialize a UILabel with text. [#271](https://github.com/SwifterSwift/SwifterSwift/pull/271) by [Vyax](https://github.com/Vyax).
+- New **Bool** extensions
+  - Add `random` to returns a random boolean value. [#272](https://github.com/SwifterSwift/SwifterSwift/pull/272) by [Vyax](https://github.com/Vyax).
+- **Continuous Integration**
+  - Add macOS tests to travis-ci.
+  - Add calls to `swiftlint` and `pod lib lint` in Travis [#264](https://github.com/SwifterSwift/SwifterSwift/pull/264) by [calebkleveter](https://github.com/calebkleveter).
+- New **SignedNumeric** extensions tests
 ### Bugfixes
 - **Color**
   - Fixed a bug in `rgbComponents`, `shortHexString`, and `shortHexOrHexString` where an exception was raised when color is white or black.
   - Corrected a typo in `rgbComponenets` -> `rgbComponents`
+
+
 
 # v4.0.0
 

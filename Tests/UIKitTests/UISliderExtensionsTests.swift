@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UISliderExtensionsTests: XCTestCase {
+final class UISliderExtensionsTests: XCTestCase {
 
     func testCompletionCalledAnimated() {
         let slider = UISlider()

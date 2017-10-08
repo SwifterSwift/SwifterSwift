@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
     
-class UINavigationBarExtensionsTests: XCTestCase {
+final class UINavigationBarExtensionsTests: XCTestCase {
     
     func testSetTitleFont() {
         let navigationBar = UINavigationBar()

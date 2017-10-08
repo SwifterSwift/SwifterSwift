@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UIImageExtensionsTests: XCTestCase {
+final class UIImageExtensionsTests: XCTestCase {
 	
 	func testBytesSize() {
 		let bundle = Bundle.init(for: UIImageExtensionsTests.self)

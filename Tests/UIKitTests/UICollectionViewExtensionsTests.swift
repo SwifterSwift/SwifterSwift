@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UICollectionViewExtensionsTests: XCTestCase {
+final class UICollectionViewExtensionsTests: XCTestCase {
 	
 	let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
 	let emptyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())

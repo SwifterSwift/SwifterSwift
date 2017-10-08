@@ -20,7 +20,7 @@ import XCTest
 	import CoreImage
 #endif
 
-class ColorExtensionsTests: XCTestCase {
+final class ColorExtensionsTests: XCTestCase {
 	
 	// MARK: - Test properties
 	func testRgbComponents() {

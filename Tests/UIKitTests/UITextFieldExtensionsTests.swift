@@ -10,7 +10,7 @@ import XCTest
 @testable import SwifterSwift
 
 #if os(iOS) || os(tvOS)
-class UITextFieldExtensionsTests: XCTestCase {
+final class UITextFieldExtensionsTests: XCTestCase {
 	
 	func testIsEmpty() {
 		let textField = UITextField()
