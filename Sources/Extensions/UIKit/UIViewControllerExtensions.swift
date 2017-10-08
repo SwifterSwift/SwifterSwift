@@ -44,7 +44,7 @@ public extension UIViewController {
 		NotificationCenter.default.removeObserver(self)
 	}
     
-    /// SwiftierSwift: Hide keyboard when the anywhere in the view controller is tapped
+    /// SwifterSwift: Hide keyboard when the anywhere in the view controller is tapped
     public func hideKeyboardWhenTapped() {
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tap.cancelsTouchesInView = false
