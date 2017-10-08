@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
     
-class UIStoryboardExtensionsTests: XCTestCase {
+final class UIStoryboardExtensionsTests: XCTestCase {
     
     func testInstantiateViewController() {
         let storyboard = UIStoryboard(name: "TestStoryboard", bundle: Bundle(for: UIStoryboardExtensionsTests.self))

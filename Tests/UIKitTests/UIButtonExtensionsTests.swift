@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UIButtonExtensionsTests: XCTestCase {
+final class UIButtonExtensionsTests: XCTestCase {
 	
 	func testImageForDisabled() {
 		

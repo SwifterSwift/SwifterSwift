@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class OptionalExtensionsTests: XCTestCase {
+final class OptionalExtensionsTests: XCTestCase {
 	
 	func testUnwrappedOrDefault() {
 		var str: String? = nil

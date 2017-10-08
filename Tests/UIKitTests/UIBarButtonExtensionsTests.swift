@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UIBarButtonExtensionsTests: XCTestCase {
+final class UIBarButtonExtensionsTests: XCTestCase {
 	
 	func testSelector() {}
 	

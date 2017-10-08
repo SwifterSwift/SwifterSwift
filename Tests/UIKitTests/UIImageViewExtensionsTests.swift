@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UIImageViewExtensionsTests: XCTestCase {
+final class UIImageViewExtensionsTests: XCTestCase {
 	
 	func testDownload() {
     // Success

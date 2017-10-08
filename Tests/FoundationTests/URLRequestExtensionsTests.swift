@@ -8,7 +8,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class URLRequestExtensionsTests: XCTestCase {
+final class URLRequestExtensionsTests: XCTestCase {
 	
 	func testInitFromURLString() {
 		let urlString = "https://www.w3schools.com/"

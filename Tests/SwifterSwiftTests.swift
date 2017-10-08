@@ -8,7 +8,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class SwifterSwiftTests: XCTestCase {
+final class SwifterSwiftTests: XCTestCase {
 	
 	func testTypeName() {
 		let number = 8

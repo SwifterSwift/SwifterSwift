@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class CollectionExtensionsTests: XCTestCase {
+final class CollectionExtensionsTests: XCTestCase {
 	
 	func testForEachInParallel() {
 		let collection = [1, 2, 3, 4, 5]

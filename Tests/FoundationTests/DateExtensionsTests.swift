@@ -8,7 +8,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class DateExtensionsTests: XCTestCase {
+final class DateExtensionsTests: XCTestCase {
 	
 	override func setUp() {
 		super.setUp()

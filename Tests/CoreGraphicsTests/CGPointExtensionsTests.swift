@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class CGPointExtensionsTests: XCTestCase {
+final class CGPointExtensionsTests: XCTestCase {
 	
 	let point1 = CGPoint(x: 10, y: 10)
 	let point2 = CGPoint(x: 30, y: 30)

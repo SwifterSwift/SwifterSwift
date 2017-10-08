@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class URLExtensionsTests: XCTestCase {
+final class URLExtensionsTests: XCTestCase {
 	
 	var url = URL(string: "https://www.google.com")!
 	let params = ["q": "swifter swift"]

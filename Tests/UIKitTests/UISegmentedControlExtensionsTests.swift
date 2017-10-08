@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UISegmentedControlExtensionsTests: XCTestCase {
+final class UISegmentedControlExtensionsTests: XCTestCase {
 
     func testSegmentTitles() {
         let segmentControl = UISegmentedControl()

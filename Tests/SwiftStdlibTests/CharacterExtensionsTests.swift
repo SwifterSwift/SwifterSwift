@@ -17,7 +17,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class CharacterExtensionsTests: XCTestCase {
+final class CharacterExtensionsTests: XCTestCase {
 	
 	func testOperators() {
 		let s = Character("s")

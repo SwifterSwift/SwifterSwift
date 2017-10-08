@@ -10,7 +10,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UITableViewExtensionsTests: XCTestCase {
+final class UITableViewExtensionsTests: XCTestCase {
 	
 	let tableView = UITableView()
 	let emptyTableView = UITableView()

@@ -8,7 +8,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class NSPredicateExtensionsTests: XCTestCase {
+final class NSPredicateExtensionsTests: XCTestCase {
     
     func testNot() {
         let predicate = NSPredicate(format: "a < 7")

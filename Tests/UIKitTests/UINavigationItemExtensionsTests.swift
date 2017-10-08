@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
     
-class UINavigationItemExtensionsTests: XCTestCase {
+final class UINavigationItemExtensionsTests: XCTestCase {
     
     func testReplaceTitle() {
         let navigationItem = UINavigationItem()

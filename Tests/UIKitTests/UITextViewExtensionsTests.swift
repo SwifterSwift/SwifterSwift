@@ -10,7 +10,7 @@ import XCTest
 @testable import SwifterSwift
 
 #if os(iOS) || os(tvOS)
-class UITextViewExtensionsTests: XCTestCase {
+final class UITextViewExtensionsTests: XCTestCase {
 	
 	var textView = UITextView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 	

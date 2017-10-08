@@ -8,7 +8,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UserDefaultsExtensionsTests: XCTestCase {
+final class UserDefaultsExtensionsTests: XCTestCase {
 	
 	func testSubscript() {
 		let key = "testKey"

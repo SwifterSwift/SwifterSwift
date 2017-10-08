@@ -10,7 +10,7 @@ import XCTest
 @testable import SwifterSwift
 
 #if os(iOS) || os(tvOS)
-	class UILabelExtensionsTests: XCTestCase {
+	final class UILabelExtensionsTests: XCTestCase {
 		
         func testInitWithText() {
             let label = UILabel(text: "Hello world")
