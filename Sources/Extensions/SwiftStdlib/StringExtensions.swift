@@ -386,12 +386,11 @@ public extension String {
 	///
 	/// - Returns: The most common character.
 	public func mostCommonCharacter() -> String {
-		let mostCommon = withoutSpacesAndNewLines.characters.reduce([Character: Int]()) {
-			var counts = $0
-			counts[$1] = ($0[$1] ?? 0) + 1
-			return counts
-			}.max { $0.1 < $1.1 }?.0
-		return mostCommon?.string ?? ""
+        let mostCommon = withoutSpacesAndNewLines.characters.reduce(into: [Character: Int]()) {
+            let count = $0[$1] ?? 0
+            $0[$1] = count + 1
+        }.max { $0.1 < $1.1 }?.0
+        return mostCommon?.string ?? ""
 	}
 	
 	/// SwifterSwift: Reversed string.
