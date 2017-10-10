@@ -25,11 +25,11 @@ before_script:
 script:
   - set -o pipefail
   - xcodebuild clean build test -project "$PROJECT" -scheme "$IOS_SCHEME" -destination "$IOS_DESTINATION" | xcpretty
+  - bash <(curl -s https://codecov.io/bash) -cF ios -J 'SwifterSwift'
   - xcodebuild clean build test -project "$PROJECT" -scheme "$TVOS_SCHEME" -destination "$TVOS_DESTINATION" | xcpretty
+    - bash <(curl -s https://codecov.io/bash) -cF tvos -J 'SwifterSwift'
   - xcodebuild clean build test -project "$PROJECT" -scheme "$MACOS_SCHEME" -destination "$MACOS_DESTINATION" | xcpretty
+    - bash <(curl -s https://codecov.io/bash) -cF osx -J 'SwifterSwift'
   - xcodebuild clean build -project "$PROJECT" -scheme "$WATCHOS_SCHEME" -destination "$WATCHOS_DESTINATION" | xcpretty
   - swiftlint lint
   - pod lib lint
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
