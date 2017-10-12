@@ -13,13 +13,11 @@ public extension Array where Element: Numeric {
 	
 	/// SwifterSwift: Sum of all elements in array.
 	///
-	///		[1, 2, 3, 4, 5].sum -> 15
+	///		[1, 2, 3, 4, 5].sum() -> 15
 	///
 	/// - Returns: sum of the array's elements.
 	public func sum() -> Element {
-        var total: Element = 0
-        forEach { total += $0 }
-        return total
+        return self.reduce(0 as Element, +)
 	}
 	
 }
@@ -29,13 +27,12 @@ public extension Array where Element: FloatingPoint {
 	
 	/// SwifterSwift: Average of all elements in array.
 	///
-	///		[1.2, 2.3, 4.5, 3.4, 4.5].average = 3.18
+	///		[1.2, 2.3, 4.5, 3.4, 4.5].average() = 3.18
 	///
 	/// - Returns: average of the array's elements.
 	public func average() -> Element {
         guard !isEmpty else { return 0 }
-        var total: Element = 0
-        forEach { total += $0 }
+        let total: Element = sum()
         return total / Element(count)
 	}
 
