@@ -11,11 +11,13 @@ All notable changes to this project will be documented in this file.
 > N/A
 >
 > ### Enhancements
-> N/A
+> - **Array**
+>   - Improved performance of the `sum()` function.
+> - New **Data** extensions
+>   - Added `chunks(of:)` to split a `Data` instance into preset sized chunks.
 >
 > ### Bugfixes
 > N/A
-
 
 # v4.0.1
 

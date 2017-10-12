@@ -17,7 +17,6 @@ class SignedNumericExtensionsTests: XCTestCase {
 	
 	func testAsLocaleCurrency() {
 		let number: Double = 3.2
-		print(number.asLocaleCurrency)
 		XCTAssertEqual(number.asLocaleCurrency, "$3.20")
 	}
 	
