@@ -32,5 +32,27 @@ public extension Data {
 	public func string(encoding: String.Encoding) -> String? {
 		return String(data: self, encoding: encoding)
 	}
-	
+    
+    /// SwifterSwift: Split a Data instance into sized chunks.
+    ///
+    /// - Parameter size: Int chunk size
+    /// - Returns: An array with each individual data chunk
+    public func chunks(of size: Int) -> [Data] {
+        if size <= 0 {
+            fatalError("Chunk size cannot be 0 or lower")
+        }
+        let size = Swift.min(size, self.count)
+        var data = self
+        var chunks = [Data]()
+        while true {
+            let chunkSize = Swift.min(size, data.count)
+            let chunkData = data.subdata(in: 0..<chunkSize)
+            chunks.append(chunkData)
+            if chunkSize == data.count {
+                break
+            }
+            data = data.advanced(by: chunkSize)
+        }
+        return chunks
+    }
 }
