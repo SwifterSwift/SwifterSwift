@@ -5,11 +5,7 @@
 //  Created by Omar Albeik on 8/5/16.
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
-#if os(macOS)
-	import Cocoa
-#else
-	import UIKit
-#endif
+import Foundation
 
 // MARK: - Properties
 public extension String {
