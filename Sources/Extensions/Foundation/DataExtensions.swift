@@ -39,7 +39,7 @@ public extension Data {
     /// - Returns: An array with each individual data chunk
     public func chunks(of size: Int) -> [Data] {
         if size <= 0 {
-            fatalError("Chunk size cannot be 0 or lower")
+            return [self]
         }
         let size = Swift.min(size, self.count)
         var data = self

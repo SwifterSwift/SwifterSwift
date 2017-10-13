@@ -17,7 +17,11 @@ public extension Array where Element: Numeric {
 	///
 	/// - Returns: sum of the array's elements.
 	public func sum() -> Element {
-        return self.reduce(0 as Element, +)
+        var total: Element = 0
+        for i in 0..<count {
+            total += self[i]
+        }
+        return total
 	}
 	
 }
@@ -32,7 +36,10 @@ public extension Array where Element: FloatingPoint {
 	/// - Returns: average of the array's elements.
 	public func average() -> Element {
         guard !isEmpty else { return 0 }
-        let total: Element = sum()
+        var total: Element = 0
+        for i in 0..<count {
+            total += self[i]
+        }
         return total / Element(count)
 	}
 
