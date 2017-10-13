@@ -24,25 +24,4 @@ final class DataExtensionsTests: XCTestCase {
         XCTAssertNotNil(bytes)
         XCTAssertEqual(bytes?.count, 5)
     }
-
-    func testChunks() {
-        let string = "This is a test, where we just want to create some sort of data."
-        let data = string.data(using: .utf8)!
-
-        let chunkSize = 10
-        let size = data.count
-        let chunks = data.chunks(of: chunkSize)
-        let totalChunksSize = chunks.map { $0.count }.reduce(0, +)
-        
-        // The size of all the chunks combined should be equal to the initial data size
-        XCTAssertEqual(size, totalChunksSize)
-
-        // Each chunk cannot be larger in size then `chunkSize`
-        chunks.forEach { XCTAssertLessThanOrEqual($0.count, chunkSize) }
-
-        // Test to see if the combined data chunks again form the exact same string
-        var newData = Data()
-        chunks.forEach { newData.append($0) }
-        XCTAssertEqual(string, String(data: newData, encoding: .utf8))
-    }
 }
