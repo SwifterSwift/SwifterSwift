@@ -210,7 +210,7 @@ let package = Package(
 
 ## How cool is this?
 
-SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines of Swift.
+SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original Swift API design guidelines.
 
 Check [Examples.md](https://github.com/SwifterSwift/SwifterSwift/tree/master/Examples/Examples.md) for some cool examples!
 
@@ -218,20 +218,20 @@ Check [Examples.md](https://github.com/SwifterSwift/SwifterSwift/tree/master/Exa
 
 ## Documentation
 
-Complete documentation for all extensions with examples is available at [swifterswift.com/docs](http://swifterswift.com/docs)
+Documentation for all extensions, with examples, is available at [swifterswift.com/docs](http://swifterswift.com/docs)
 
 
 
 ## Get involved:
 
-Your feedback is always appreciated and welcomed.
+We want your feedback.
 Please refer to [contributing guidelines](https://github.com/SwifterSwift/SwifterSwift/tree/master/CONTRIBUTING.md) before participating.
 
 
 
 ## Slack Channel: [![Slack](http://slack.swifterswift.com/badge.svg)](http://slack.swifterswift.com/)
 
-It is always nice to talk with other people using SwifterSwift and exchange experiences, [Join Channel](http://slack.swifterswift.com/)
+It is always nice to talk with other people using SwifterSwift and exchange experiences, so come [join our Slack channel](http://slack.swifterswift.com/).
 
 
 
