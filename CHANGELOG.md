@@ -12,10 +12,9 @@ All notable changes to this project will be documented in this file.
 >
 > ### Enhancements
 > N/A
->
+> 
 > ### Bugfixes
 > N/A
-
 
 # v4.0.1
 

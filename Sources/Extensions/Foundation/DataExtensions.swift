@@ -32,5 +32,4 @@ public extension Data {
 	public func string(encoding: String.Encoding) -> String? {
 		return String(data: self, encoding: encoding)
 	}
-	
 }
