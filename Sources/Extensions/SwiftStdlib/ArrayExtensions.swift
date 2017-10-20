@@ -523,9 +523,9 @@ public extension Array where Element: Equatable {
 	
 	/// SwifterSwift: First index of a given item in an array.
 	///
-	///		[1, 2, 2, 3, 4, 2, 5].firstIndex(of 2) -> 1
-	///		[1.2, 2.3, 4.5, 3.4, 4.5].firstIndex(of 6.5) -> nil
-	///		["h", "e", "l", "l", "o"].firstIndex(of "l") -> 2
+	///		[1, 2, 2, 3, 4, 2, 5].firstIndex(of: 2) -> 1
+	///		[1.2, 2.3, 4.5, 3.4, 4.5].firstIndex(of: 6.5) -> nil
+	///		["h", "e", "l", "l", "o"].firstIndex(of: "l") -> 2
 	///
 	/// - Parameter item: item to check.
 	/// - Returns: first index of item in array (if exists).
@@ -538,9 +538,9 @@ public extension Array where Element: Equatable {
 	
 	/// SwifterSwift: Last index of element in array.
 	///
-	///		[1, 2, 2, 3, 4, 2, 5].lastIndex(of 2) -> 5
-	///		[1.2, 2.3, 4.5, 3.4, 4.5].lastIndex(of 6.5) -> nil
-	///		["h", "e", "l", "l", "o"].lastIndex(of "l") -> 3
+	///		[1, 2, 2, 3, 4, 2, 5].lastIndex(of: 2) -> 5
+	///		[1.2, 2.3, 4.5, 3.4, 4.5].lastIndex(of: 6.5) -> nil
+	///		["h", "e", "l", "l", "o"].lastIndex(of: "l") -> 3
 	///
 	/// - Parameter item: item to check.
 	/// - Returns: last index of item in array (if exists).
