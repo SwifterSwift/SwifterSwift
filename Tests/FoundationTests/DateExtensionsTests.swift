@@ -655,6 +655,17 @@ final class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date2.daysSince(date1), 1)
 		XCTAssertEqual(date1.daysSince(date2), -1)
 	}
+  
+  func testIsBetween() {
+    let date1 = Date(timeIntervalSince1970: 0)
+    let date2 = date1.addingTimeInterval(60)
+    let date3 = date2.addingTimeInterval(60)
+    
+    XCTAssert(date2.isBetween(date1, date3))
+    XCTAssertFalse(date1.isBetween(date2, date3))
+    XCTAssert(date1.isBetween(date1, date2, includeBounds: true))
+    XCTAssertFalse(date1.isBetween(date1, date2))
+  }
 	
 	func testNewDateFromComponenets() {
 		let date = Date(calendar: Date().calendar, timeZone: Date().timeZone, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
