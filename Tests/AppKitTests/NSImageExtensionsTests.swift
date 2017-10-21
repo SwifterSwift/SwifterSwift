@@ -12,7 +12,7 @@ import XCTest
 
 final class NSImageExtensionsTests: XCTestCase {
     
-    func testScaledToHeight() {
+    func testScaledToMaxSize() {
         let bundle = Bundle.init(for: NSImageExtensionsTests.self)
         let image = bundle.image(forResource: NSImage.Name(rawValue: "TestImage"))
         XCTAssertNotNil(image)
