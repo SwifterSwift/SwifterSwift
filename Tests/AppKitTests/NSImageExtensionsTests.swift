@@ -21,8 +21,7 @@ final class NSImageExtensionsTests: XCTestCase {
         XCTAssertNotNil(scaledImage)
         if scaledImage.size.width > scaledImage.size.height {
             XCTAssertEqual(scaledImage.size.width, 150)
-        }
-        else {
+        } else {
             XCTAssertEqual(scaledImage.size.height, 150)
         }
     }
