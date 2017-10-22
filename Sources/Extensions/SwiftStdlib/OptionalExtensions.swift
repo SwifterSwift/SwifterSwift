@@ -46,3 +46,20 @@ public extension Optional {
 	}
 	
 }
+
+// MARK: - Operators
+infix operator ??= : AssignmentPrecedence
+
+/// SwifterSwift: If `rhs` is not `nil`, assign it to `lhs`.
+///
+///     let someParameter: String? = nil
+///     let parameters = [String:Any]() //Some parameters to be attached to a GET request
+///     parameters[someKey] ??= someParameter //It won't be added to the parameters dict
+///
+/// - Parameters:
+///   - lhs: Any?
+///   - rhs: Any?
+public func ??=<T>(lhs: inout T?, rhs: T?) {
+    guard let rhs = rhs else { return }
+    lhs = rhs
+}
