@@ -59,7 +59,7 @@ infix operator ??= : AssignmentPrecedence
 /// - Parameters:
 ///   - lhs: Any?
 ///   - rhs: Any?
-public func ??=<T>(lhs: inout T?, rhs: T?) {
+public func ??= <T>(lhs: inout T?, rhs: T?) {
     guard let rhs = rhs else { return }
     lhs = rhs
 }

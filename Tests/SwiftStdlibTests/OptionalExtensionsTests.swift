@@ -42,7 +42,7 @@ final class OptionalExtensionsTests: XCTestCase {
         let key1: String = "key1"
         let key2: String = "key2"
         
-        var parameters = [String : String]()
+        var parameters = [String: String]()
         
         parameters[key1] ??= parameter1
         parameters[key2] ??= parameter2
