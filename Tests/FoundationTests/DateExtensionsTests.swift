@@ -667,6 +667,29 @@ final class DateExtensionsTests: XCTestCase {
     XCTAssertFalse(date1.isBetween(date1, date2))
   }
 	
+	func testIsWithin() {
+		let date1 = Date(timeIntervalSince1970: 60 * 60 * 24) // 1970-01-01T00:00:00.000Z
+		let date2 = date1.addingTimeInterval(60 * 60) // 1970-01-01T00:01:00.000Z, one hour later than date1
+		
+		//The regular
+		XCTAssertFalse(date1.isWithin(1, .second, of: date2))
+		XCTAssertFalse(date1.isWithin(1, .minute, of: date2))
+		XCTAssert(date1.isWithin(1, .hour, of: date2))
+		XCTAssert(date1.isWithin(1, .day, of: date2))
+		
+		//The other way around
+		XCTAssertFalse(date2.isWithin(1, .second, of: date1))
+		XCTAssertFalse(date2.isWithin(1, .minute, of: date1))
+		XCTAssert(date2.isWithin(1, .hour, of: date1))
+		XCTAssert(date2.isWithin(1, .day, of: date1))
+		
+		//With itself
+		XCTAssert(date1.isWithin(1, .second, of: date1))
+		XCTAssert(date1.isWithin(1, .minute, of: date1))
+		XCTAssert(date1.isWithin(1, .hour, of: date1))
+		XCTAssert(date1.isWithin(1, .day, of: date1))
+	}
+	
 	func testNewDateFromComponenets() {
 		let date = Date(calendar: Date().calendar, timeZone: Date().timeZone, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
 		XCTAssertNotNil(date)

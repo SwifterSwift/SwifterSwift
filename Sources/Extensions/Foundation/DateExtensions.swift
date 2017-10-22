@@ -714,6 +714,21 @@ public extension Date {
           return startDate.compare(self).rawValue * self.compare(endDate).rawValue > 0
       }
   }
+	
+	/// SwifterSwift: check if a date is a number of date components of another date
+	///
+	/// - Parameters:
+	///   - value: number of times component is used in creating range
+	///   - component: Calendar.Component to use.
+	///   - date: Date to compare self to.
+	/// - Returns: true if the date is within a number of components of another date
+	
+	public func isWithin(_ value: UInt, _ component: Calendar.Component, of date: Date) -> Bool {
+		return calendar
+			.dateComponents([component], from: self, to: date)
+			.value(for: component)
+			.map { abs($0) <= value } ?? false
+	}
 }
 
 // MARK: - Initializers
