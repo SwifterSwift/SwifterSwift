@@ -50,7 +50,7 @@ public extension Optional {
 // MARK: - Operators
 infix operator ??= : AssignmentPrecedence
 
-/// SwifterSwift: If `rhs` is not `nil`, assign it to `lhs`.
+/// SwifterSwift: Assign an optional value to a variable only if the value is not nil.
 ///
 ///     let someParameter: String? = nil
 ///     let parameters = [String:Any]() //Some parameters to be attached to a GET request
