@@ -390,7 +390,9 @@ public extension String {
             let count = $0[$1] ?? 0
             $0[$1] = count + 1
         }.max { $0.1 < $1.1 }?.0
-        return mostCommon?.string ?? ""
+        
+        guard let character = mostCommon else { return "" }
+        return String(character)
 	}
 	
 	/// SwifterSwift: Reversed string.
