@@ -83,8 +83,11 @@ public extension Date {
 			return Calendar.current.component(.year, from: self)
 		}
 		set {
-			if let date = Calendar.current.date(bySetting: .year, value: newValue, of: self) {
-				self = date
+			if let newDate = Calendar.current
+				.date(byAdding: .year,
+				      value: newValue - Calendar.current.component(.year, from: self),
+				      to: self) {
+				self = newDate
 			}
 		}
 	}

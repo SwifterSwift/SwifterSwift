@@ -63,6 +63,12 @@ final class DateExtensionsTests: XCTestCase {
 		
 		date.year = 2000
 		XCTAssertEqual(date.year, 2000)
+
+		date.year = 2017
+		XCTAssertEqual(date.year, 2017)
+
+		date.year = 1988
+		XCTAssertEqual(date.year, 1988)
 	}
 	
 	func testQuarter() {
