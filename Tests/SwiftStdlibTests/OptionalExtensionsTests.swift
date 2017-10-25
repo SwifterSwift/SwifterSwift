@@ -35,4 +35,20 @@ final class OptionalExtensionsTests: XCTestCase {
 		}
 	}
 	
+    func testOptionalAssignment() {
+        let parameter1: String? = nil
+        let parameter2: String? = "foo"
+        
+        let key1: String = "key1"
+        let key2: String = "key2"
+        
+        var parameters = [String: String]()
+        
+        parameters[key1] ??= parameter1
+        parameters[key2] ??= parameter2
+        
+        XCTAssert(parameters[key1] == nil)
+        XCTAssertFalse(parameters[key1] != parameter1)
+        XCTAssert(parameters[key2] == parameter2)
+    }
 }
