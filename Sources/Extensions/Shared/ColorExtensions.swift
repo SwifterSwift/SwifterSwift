@@ -25,11 +25,7 @@ public extension Color {
 		let r = Int(arc4random_uniform(255))
 		let g = Int(arc4random_uniform(255))
 		let b = Int(arc4random_uniform(255))
-		#if os(macOS)
-			return NSColor(red: r, green: g, blue: b)!
-		#else
-			return UIColor(red: r, green: g, blue: b)!
-		#endif
+        return Color(red: r, green: g, blue: b)!
 	}
 	
 	/// SwifterSwift: RGB components for a Color (between 0 and 255).
@@ -164,7 +160,7 @@ public extension Color {
         let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[1]*255), 2.0))/255
         let b: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[2]*255), 2.0))/255
         
-        return UIColor(red: r, green: g, blue: b, alpha: 1.0)
+        return Color(red: r, green: g, blue: b, alpha: 1.0)
 	}
 	
 }
