@@ -25,11 +25,7 @@ public extension Color {
 		let r = Int(arc4random_uniform(255))
 		let g = Int(arc4random_uniform(255))
 		let b = Int(arc4random_uniform(255))
-		#if os(macOS)
-			return NSColor(red: r, green: g, blue: b)!
-		#else
-			return UIColor(red: r, green: g, blue: b)!
-		#endif
+        return Color(red: r, green: g, blue: b)!
 	}
 	
 	/// SwifterSwift: RGB components for a Color (between 0 and 255).
@@ -85,10 +81,12 @@ public extension Color {
 	
 	/// SwifterSwift: Hexadecimal value string (read-only).
 	public var hexString: String {
-		let r = rgbComponents.red
-		let g = rgbComponents.green
-		let b = rgbComponents.blue
-		return String(format: "#%02X%02X%02X", r, g, b)
+        let components: [Int] = {
+            let c = cgColor.components!
+            let components = c.count == 4 ? c : [c[0], c[0], c[0], c[1]]
+            return components.map { Int($0 * 255.0) }
+        }()
+        return String(format: "#%02X%02X%02X", components[0], components[1], components[2])
 	}
 	
 	/// SwifterSwift: Short hexadecimal value string (read-only, if applicable).
@@ -101,7 +99,16 @@ public extension Color {
 	
 	/// SwifterSwift: Short hexadecimal value string, or full hexadecimal string if not possible (read-only).
 	public var shortHexOrHexString: String {
-		return shortHexString ?? hexString
+        let components: [Int] = {
+            let c = cgColor.components!
+            let components = c.count == 4 ? c : [c[0], c[0], c[0], c[1]]
+            return components.map { Int($0 * 255.0) }
+        }()
+        let hexString = String(format: "#%02X%02X%02X", components[0], components[1], components[2])
+        let string = hexString.replacingOccurrences(of: "#", with: "")
+        let chrs = Array(string.characters)
+        guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5] else { return hexString }
+        return "#\(chrs[0])\(chrs[2])\(chrs[4])"
 	}
 	
 	/// SwifterSwift: Alpha of Color (read-only).
@@ -118,19 +125,42 @@ public extension Color {
 	
 	/// SwifterSwift: Get UInt representation of a Color (read-only).
 	public var uInt: UInt {
-		let c = self.cgFloatComponents
+        let c: [CGFloat] = {
+            let c = cgColor.components!
+            return c.count == 4 ? c : [c[0], c[0], c[0], c[1]]
+        }()
 		
 		var colorAsUInt32: UInt32 = 0
-		colorAsUInt32 += UInt32(c.red * 255.0) << 16
-		colorAsUInt32 += UInt32(c.green * 255.0) << 8
-		colorAsUInt32 += UInt32(c.blue * 255.0)
+		colorAsUInt32 += UInt32(c[0] * 255.0) << 16
+		colorAsUInt32 += UInt32(c[1] * 255.0) << 8
+		colorAsUInt32 += UInt32(c[2] * 255.0)
 		
 		return UInt(colorAsUInt32)
 	}
 	
 	/// SwifterSwift: Get color complementary (read-only, if applicable).
 	public var complementary: Color? {
-		return Color.init(complementaryFor: self)
+        let colorSpaceRGB = CGColorSpaceCreateDeviceRGB()
+        let convertColorToRGBSpace: ((_ color: Color) -> Color?) = { color -> Color? in
+            if self.cgColor.colorSpace!.model == CGColorSpaceModel.monochrome {
+                let oldComponents = self.cgColor.components
+                let components: [CGFloat] = [ oldComponents![0], oldComponents![0], oldComponents![0], oldComponents![1]]
+                let colorRef = CGColor(colorSpace: colorSpaceRGB, components: components)
+                let colorOut = Color(cgColor: colorRef!)
+                return colorOut
+            } else {
+                return self
+            }
+        }
+        
+        let c = convertColorToRGBSpace(self)
+        guard let componentColors = c?.cgColor.components else { return nil }
+        
+        let r: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[0]*255), 2.0))/255
+        let g: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[1]*255), 2.0))/255
+        let b: CGFloat = sqrt(pow(255.0, 2.0) - pow((componentColors[2]*255), 2.0))/255
+        
+        return Color(red: r, green: g, blue: b, alpha: 1.0)
 	}
 	
 }
@@ -156,20 +186,26 @@ public extension Color {
 		guard level1 > 0 else { return color2 }
 		guard level2 > 0 else { return color1 }
 		
-		let components1 = color1.cgFloatComponents
-		let components2 = color2.cgFloatComponents
+        let components1: [CGFloat] = {
+            let c = color1.cgColor.components!
+            return c.count == 4 ? c : [c[0], c[0], c[0], c[1]]
+        }()
+        let components2: [CGFloat] = {
+            let c = color2.cgColor.components!
+            return c.count == 4 ? c : [c[0], c[0], c[0], c[1]]
+        }()
 		
-		let r1 = components1.red
-		let r2 = components2.red
+		let r1 = components1[0]
+		let r2 = components2[0]
 		
-		let g1 = components1.green
-		let g2 = components2.green
+		let g1 = components1[1]
+		let g2 = components2[1]
 		
-		let b1 = components1.blue
-		let b2 = components2.blue
+		let b1 = components1[2]
+		let b2 = components2[2]
 		
-		let a1 = color1.alpha
-		let a2 = color2.alpha
+		let a1 = color1.cgColor.alpha
+		let a2 = color2.cgColor.alpha
 		
 		let r = level1*r1 + level2*r2
 		let g = level1*g1 + level2*g2
@@ -242,11 +278,14 @@ public extension Color {
 		
 		guard let hexValue = Int(string, radix: 16) else { return nil }
 		
-		var trans = transparency
-		if trans < 0 { trans = 0 }
-		if trans > 1 { trans = 1 }
-		
-		self.init(hex: Int(hexValue), transparency: trans)
+        var trans = transparency
+        if trans < 0 { trans = 0 }
+        if trans > 1 { trans = 1 }
+        
+        let red = (hexValue >> 16) & 0xff
+        let green = (hexValue >> 8) & 0xff
+        let blue = hexValue & 0xff
+        self.init(red: red, green: green, blue: blue, transparency: trans)
 	}
 	
 	/// SwifterSwift: Create Color from a complementary of a Color (if applicable).

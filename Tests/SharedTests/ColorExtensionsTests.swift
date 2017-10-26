@@ -21,6 +21,31 @@ import XCTest
 #endif
 
 final class ColorExtensionsTests: XCTestCase {
+    
+    // MARK: - Test properties
+    func testCGFloatComponents() {
+        XCTAssertEqual(Color.red.cgFloatComponents.red, 1.0)
+        XCTAssertEqual(Color.red.cgFloatComponents.green, 0.0)
+        XCTAssertEqual(Color.red.cgFloatComponents.blue, 0.0)
+        
+        XCTAssertEqual(Color.green.cgFloatComponents.red, 0.0)
+        XCTAssertEqual(Color.green.cgFloatComponents.green, 1.0)
+        XCTAssertEqual(Color.green.cgFloatComponents.blue, 0.0)
+
+        XCTAssertEqual(Color.blue.cgFloatComponents.red, 0.0)
+        XCTAssertEqual(Color.blue.cgFloatComponents.green, 0.0)
+        XCTAssertEqual(Color.blue.cgFloatComponents.blue, 1.0)
+
+        XCTAssertEqual(Color.black.cgFloatComponents.red, 0.0)
+        XCTAssertEqual(Color.black.cgFloatComponents.green, 0.0)
+        XCTAssertEqual(Color.black.cgFloatComponents.blue, 0.0)
+
+        XCTAssertEqual(Color.white.cgFloatComponents.red, 1.0)
+        XCTAssertEqual(Color.white.cgFloatComponents.green, 1.0)
+        XCTAssertEqual(Color.white.cgFloatComponents.blue, 1.0)
+
+        XCTAssertEqual(Int(Color(hex: 0x12FFFF)!.cgFloatComponents.red * 255.0), 0x12)
+    }
 	
 	// MARK: - Test properties
 	func testRgbComponents() {

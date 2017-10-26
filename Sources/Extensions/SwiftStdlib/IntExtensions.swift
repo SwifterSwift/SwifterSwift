@@ -56,7 +56,7 @@ public extension Int {
 		var sign: String {
 			return self >= 0 ? "" : "-"
 		}
-		let abs = self.abs
+		let abs = Swift.abs(self)
 		if abs == 0 {
 			return "0k"
 		} else if abs >= 0 && abs < 1000 {
