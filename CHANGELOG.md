@@ -11,7 +11,8 @@ All notable changes to this project will be documented in this file.
 > N/A
 >
 > ### Enhancements
-> N/A
+> - New **NSImage** extensions
+>   -	Add `scaled(toMaxSize:)` to scale image to maximum size with respect to aspect ratio [#291](https://github.com/SwifterSwift/SwifterSwift/pull/291) by [buddax2](https://github.com/buddax2).
 > 
 > ### Bugfixes
 > N/A
