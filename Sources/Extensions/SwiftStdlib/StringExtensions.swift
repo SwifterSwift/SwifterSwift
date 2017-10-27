@@ -833,18 +833,17 @@ public extension String {
     /// - Returns: The string with the padding on the start.
     public func byPaddingStart(_ length: Int, with string: String = " ") -> String {
         
-        let str = self
-        guard str.count < length else { return str }
+        guard count < length else { return self }
         
-        let padLength = length - str.count
+        let padLength = length - count
         if padLength < string.count {
-            return string[string.startIndex..<string.index(string.startIndex, offsetBy: padLength)] + str
+            return string[string.startIndex..<string.index(string.startIndex, offsetBy: padLength)] + self
         } else {
             var padding = string
             while padding.count < padLength {
                 padding.append(string)
             }
-            return padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)] + str
+            return padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)] + self
         }
     }
     
@@ -862,18 +861,17 @@ public extension String {
     /// - Parameter string: Pad string. Default is " ".
     /// - Returns: The string with the padding on the end.
     public func byPaddingEnd(_ length: Int, with string: String = " ") -> String {
-        let str = self
-        guard str.count < length else { return str }
+        guard count < length else { return self }
         
-        let padLength = length - str.count
+        let padLength = length - count
         if padLength < string.count {
-            return str + string[string.startIndex..<string.index(string.startIndex, offsetBy: padLength)]
+            return self + string[string.startIndex..<string.index(string.startIndex, offsetBy: padLength)]
         } else {
             var padding = string
             while padding.count < padLength {
                 padding.append(string)
             }
-            return str + padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)]
+            return self + padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)]
         }
     }
 
