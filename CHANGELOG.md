@@ -14,7 +14,7 @@ All notable changes to this project will be documented in this file.
 ### Enhancements
  - New **String** extensions: [#300](https://github.com/SwifterSwift/SwifterSwift/pull/300) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
     - Add `padStart(lenght:with:)` and `padEnd(lenght:with:)` to pad the string to a lenght on the start or end.
-    - Add `byPaddingStart(lenght:with:)` and `byPaddingEnd(lenght:with:)` to return a padding string to a lenght on the start or end. 
+    - Add `paddingStart(lenght:with:)` and `paddingEnd(lenght:with:)` to return a padding string to a lenght on the start or end. 
 
 > ### Bugfixes
 > N/A

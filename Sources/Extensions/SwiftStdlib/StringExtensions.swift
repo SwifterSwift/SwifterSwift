@@ -820,18 +820,24 @@ public extension String {
 	
     /// SwifterSwift: Pad string to fit the length parameter size with another string in the start.
     ///
+    ///   "hue".padStart(10) -> "       hue"
+    ///   "hue".padStart(10, with: "br") -> "brbrbrbhue"
+    ///
     /// - Parameter length: The target length to pad.
     /// - Parameter string: Pad string. Default is " ".
     public mutating func padStart(_ length: Int, with string: String = " ") {
-        self = byPaddingStart(length, with: string)
+        self = paddingStart(length, with: string)
     }
     
     /// SwifterSwift: Returns a string by padding to fit the length parameter size with another string in the start.
     ///
+    ///   "hue".paddingStart(10) -> "       hue"
+    ///   "hue".paddingStart(10, with: "br") -> "brbrbrbhue"
+    ///
     /// - Parameter length: The target length to pad.
     /// - Parameter string: Pad string. Default is " ".
     /// - Returns: The string with the padding on the start.
-    public func byPaddingStart(_ length: Int, with string: String = " ") -> String {
+    public func paddingStart(_ length: Int, with string: String = " ") -> String {
         
         guard count < length else { return self }
         
@@ -849,18 +855,24 @@ public extension String {
     
     /// SwifterSwift: Pad string to fit the length parameter size with another string in the start.
     ///
+    ///   "hue".padEnd(10) -> "hue       "
+    ///   "hue".padEnd(10, with: "br") -> "huebrbrbrb"
+    ///
     /// - Parameter length: The target length to pad.
     /// - Parameter string: Pad string. Default is " ".
     public mutating func padEnd(_ length: Int, with string: String = " ") {
-        self = byPaddingEnd(length, with: string)
+        self = paddingEnd(length, with: string)
     }
     
     /// SwifterSwift: Returns a string by padding to fit the length parameter size with another string in the end.
     ///
+    ///   "hue".paddingEnd(10) -> "hue       "
+    ///   "hue".paddingEnd(10, with: "br") -> "huebrbrbrb"
+    ///
     /// - Parameter length: The target length to pad.
     /// - Parameter string: Pad string. Default is " ".
     /// - Returns: The string with the padding on the end.
-    public func byPaddingEnd(_ length: Int, with string: String = " ") -> String {
+    public func paddingEnd(_ length: Int, with string: String = " ") -> String {
         guard count < length else { return self }
         
         let padLength = length - count

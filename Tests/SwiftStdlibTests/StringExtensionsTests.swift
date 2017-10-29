@@ -591,23 +591,23 @@ final class StringExtensionsTests: XCTestCase {
 		XCTAssertEqual("Swift is amazing".wordCount(), 3)
 	}
     
-    func testByPaddingStart() {
-        XCTAssertEqual("str".byPaddingStart(10), "       str")
-        XCTAssertEqual("str".byPaddingStart(10, with: "br"), "brbrbrbstr")
-        XCTAssertEqual("str".byPaddingStart(5, with: "brazil"), "brstr")
-        XCTAssertEqual("str".byPaddingStart(6, with: "a"), "aaastr")
-        XCTAssertEqual("str".byPaddingStart(6, with: "abc"), "abcstr")
-        XCTAssertEqual("str".byPaddingStart(2), "str")
+    func testPaddingStart() {
+        XCTAssertEqual("str".paddingStart(10), "       str")
+        XCTAssertEqual("str".paddingStart(10, with: "br"), "brbrbrbstr")
+        XCTAssertEqual("str".paddingStart(5, with: "brazil"), "brstr")
+        XCTAssertEqual("str".paddingStart(6, with: "a"), "aaastr")
+        XCTAssertEqual("str".paddingStart(6, with: "abc"), "abcstr")
+        XCTAssertEqual("str".paddingStart(2), "str")
 
     }
     
-    func testByPaddingEnd() {
-        XCTAssertEqual("str".byPaddingEnd(10), "str       ")
-        XCTAssertEqual("str".byPaddingEnd(10, with: "br"), "strbrbrbrb")
-        XCTAssertEqual("str".byPaddingEnd(5, with: "brazil"), "strbr")
-        XCTAssertEqual("str".byPaddingEnd(6, with: "a"), "straaa")
-        XCTAssertEqual("str".byPaddingEnd(6, with: "abc"), "strabc")
-        XCTAssertEqual("str".byPaddingEnd(2), "str")
+    func testPaddingEnd() {
+        XCTAssertEqual("str".paddingEnd(10), "str       ")
+        XCTAssertEqual("str".paddingEnd(10, with: "br"), "strbrbrbrb")
+        XCTAssertEqual("str".paddingEnd(5, with: "brazil"), "strbr")
+        XCTAssertEqual("str".paddingEnd(6, with: "a"), "straaa")
+        XCTAssertEqual("str".paddingEnd(6, with: "abc"), "strabc")
+        XCTAssertEqual("str".paddingEnd(2), "str")
     }
 
     func testPadStart() {
