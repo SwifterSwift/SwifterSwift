@@ -10,12 +10,17 @@ All notable changes to this project will be documented in this file.
 > ### API Breaking
 > N/A
 >
-> ### Enhancements
-> - New **NSImage** extensions
->   -	Add `scaled(toMaxSize:)` to scale image to maximum size with respect to aspect ratio [#291](https://github.com/SwifterSwift/SwifterSwift/pull/291) by [buddax2](https://github.com/buddax2).
-> - **Optional**
->   - Add optional assignment operator `??=` [#296](https://github.com/SwifterSwift/SwifterSwift/pull/296) by [buddax2](https://github.com/buddax2).
->
+
+### Enhancements
+ - New **String** extensions
+    - Add `padStart(lenght:with:)` and `padEnd(lenght:with:)` to pad the string to a lenght on the start or end.
+    - Add `paddingStart(lenght:with:)` and `paddingEnd(lenght:with:)` to return a padding string to a lenght on the start or end. 
+      [#300](https://github.com/SwifterSwift/SwifterSwift/pull/300) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+ - New **NSImage** extensions
+   -    Add `scaled(toMaxSize:)` to scale image to maximum size with respect to aspect ratio [#291](https://github.com/SwifterSwift/SwifterSwift/pull/291) by [buddax2](https://github.com/buddax2).
+ - **Optional**
+   - Add optional assignment operator `??=` [#296](https://github.com/SwifterSwift/SwifterSwift/pull/296) by [buddax2](https://github.com/buddax2).
+
 > ### Bugfixes
 > N/A
 
@@ -33,10 +38,11 @@ N/A
   - Corrected some typos in README. [#263](https://github.com/SwifterSwift/SwifterSwift/pull/263) by [nick3399](https://github.com/nick3399).
 - New **String** extensions
   - Add `localized(comment:)` to returns a localized string, with an optional comment for translators. [#269](https://github.com/SwifterSwift/SwifterSwift/pull/269) by [Vyax](https://github.com/Vyax).
-- New **NSPredicate** extensions: [#273](https://github.com/SwifterSwift/SwifterSwift/pull/273) by [Vyax](https://github.com/Vyax).
+- New **NSPredicate** extensions
   - Add `not` to returns a new predicate formed by NOT-ing the predicate.
   - Add `and(_ predicate: NSPredicate)` to returns a new predicate formed by AND-ing the argument to the predicate.
   - Add `or(_ predicate: NSPredicate)` to returns a new predicate formed by OR-ing the argument to the predicate.
+    [#273](https://github.com/SwifterSwift/SwifterSwift/pull/273) by [Vyax](https://github.com/Vyax).
 - New **UILabel** extensions
   - Add `convenience init(text: String?)` to initialize a UILabel with text. [#271](https://github.com/SwifterSwift/SwifterSwift/pull/271) by [Vyax](https://github.com/Vyax).
 - New **Bool** extensions

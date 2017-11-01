@@ -590,5 +590,75 @@ final class StringExtensionsTests: XCTestCase {
 	func testWordsCount() {
 		XCTAssertEqual("Swift is amazing".wordCount(), 3)
 	}
+    
+    func testPaddingStart() {
+        XCTAssertEqual("str".paddingStart(10), "       str")
+        XCTAssertEqual("str".paddingStart(10, with: "br"), "brbrbrbstr")
+        XCTAssertEqual("str".paddingStart(5, with: "brazil"), "brstr")
+        XCTAssertEqual("str".paddingStart(6, with: "a"), "aaastr")
+        XCTAssertEqual("str".paddingStart(6, with: "abc"), "abcstr")
+        XCTAssertEqual("str".paddingStart(2), "str")
 
+    }
+    
+    func testPaddingEnd() {
+        XCTAssertEqual("str".paddingEnd(10), "str       ")
+        XCTAssertEqual("str".paddingEnd(10, with: "br"), "strbrbrbrb")
+        XCTAssertEqual("str".paddingEnd(5, with: "brazil"), "strbr")
+        XCTAssertEqual("str".paddingEnd(6, with: "a"), "straaa")
+        XCTAssertEqual("str".paddingEnd(6, with: "abc"), "strabc")
+        XCTAssertEqual("str".paddingEnd(2), "str")
+    }
+
+    func testPadStart() {
+        var str: String = "str"
+        str.padStart(10)
+        XCTAssertEqual(str, "       str")
+
+        str = "str"
+        str.padStart(10, with: "br")
+        XCTAssertEqual(str, "brbrbrbstr")
+
+        str = "str"
+        str.padStart(5, with: "brazil")
+        XCTAssertEqual(str, "brstr")
+
+        str = "str"
+        str.padStart(6, with: "a")
+        XCTAssertEqual(str, "aaastr")
+        
+        str = "str"
+        str.padStart(6, with: "abc")
+        XCTAssertEqual(str, "abcstr")
+
+        str = "str"
+        str.padStart(2)
+        XCTAssertEqual(str, "str")
+    }
+    
+    func testPadEnd() {
+        var str: String = "str"
+        str.padEnd(10)
+        XCTAssertEqual(str, "str       ")
+        
+        str = "str"
+        str.padEnd(10, with: "br")
+        XCTAssertEqual(str, "strbrbrbrb")
+        
+        str = "str"
+        str.padEnd(5, with: "brazil")
+        XCTAssertEqual(str, "strbr")
+        
+        str = "str"
+        str.padEnd(6, with: "a")
+        XCTAssertEqual(str, "straaa")
+        
+        str = "str"
+        str.padEnd(6, with: "abc")
+        XCTAssertEqual(str, "strabc")
+        
+        str = "str"
+        str.padEnd(2)
+        XCTAssertEqual(str, "str")
+    }
 }
