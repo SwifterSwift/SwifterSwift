@@ -172,7 +172,10 @@ public extension Date {
 			return Calendar.current.component(.minute, from: self)
 		}
 		set {
-			if let date = Calendar.current.date(bySetting: .minute, value: newValue, of: self) {
+			guard newValue >= 0 && newValue < 60 else { return }
+			let currentMinutes = Calendar.current.component(.minute, from: self)
+			let minutesToAdd = newValue - currentMinutes
+			if let date = Calendar.current.date(byAdding: .minute, value: minutesToAdd, to: self) {
 				self = date
 			}
 		}
