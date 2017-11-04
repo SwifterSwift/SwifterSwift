@@ -63,6 +63,12 @@ final class DateExtensionsTests: XCTestCase {
 		
 		date.year = 2000
 		XCTAssertEqual(date.year, 2000)
+		
+		date.year = 2017
+		XCTAssertEqual(date.year, 2017)
+		
+		date.year = 1988
+		XCTAssertEqual(date.year, 1988)
 	}
 	
 	func testQuarter() {
@@ -79,14 +85,20 @@ final class DateExtensionsTests: XCTestCase {
 		
 		date.month = 14
 		XCTAssertEqual(date.month, 2)
+		
+		date.month = 1
+		XCTAssertEqual(date.month, 1)
 	}
 	
 	func testWeekOfYear() {
 		let date = Date(timeIntervalSince1970: 0)
 		XCTAssertEqual(date.weekOfYear, 1)
 		
-		let dateAfter10Days = Calendar.current.date(byAdding: .day, value: 7, to: date)
-		XCTAssertEqual(dateAfter10Days?.weekOfYear, 2)
+		let dateAfter7Days = Calendar.current.date(byAdding: .day, value: 7, to: date)
+		XCTAssertEqual(dateAfter7Days?.weekOfYear, 2)
+		
+		let originalDate = Calendar.current.date(byAdding: .day, value: -7, to: dateAfter7Days!)
+		XCTAssertEqual(originalDate?.weekOfYear, 1)
 	}
 	
 	func testWeekOfMonth() {
@@ -95,6 +107,9 @@ final class DateExtensionsTests: XCTestCase {
 		
 		let dateAfter7Days = Calendar.current.date(byAdding: .day, value: 7, to: date)
 		XCTAssertEqual(dateAfter7Days?.weekOfMonth, 2)
+		
+		let originalDate = Calendar.current.date(byAdding: .day, value: -7, to: dateAfter7Days!)
+		XCTAssertEqual(originalDate?.weekOfMonth, 1)
 	}
 	
 	func testWeekday() {
@@ -110,6 +125,9 @@ final class DateExtensionsTests: XCTestCase {
 		
 		date.weekday = 7
 		XCTAssertEqual(date.weekday, 7)
+		
+		date.weekday = 5
+		XCTAssertEqual(date.weekday, 5)
 	}
 	
 	func testDay() {
@@ -124,6 +142,9 @@ final class DateExtensionsTests: XCTestCase {
 		
 		date.day = 4
 		XCTAssertEqual(date.day, 4)
+		
+		date.day = 1
+		XCTAssertEqual(date.day, 1)
 	}
 	
 	func testHour() {
@@ -138,6 +159,9 @@ final class DateExtensionsTests: XCTestCase {
 		
 		date.hour = 4
 		XCTAssertEqual(date.hour, 4)
+		
+		date.hour = 1
+		XCTAssertEqual(date.hour, 1)
 	}
 	
 	func testMinute() {
@@ -152,6 +176,9 @@ final class DateExtensionsTests: XCTestCase {
 		
 		date.minute = 4
 		XCTAssertEqual(date.minute, 4)
+		
+		date.minute = 1
+		XCTAssertEqual(date.minute, 1)
 	}
 	
 	func testSecond() {
@@ -166,6 +193,9 @@ final class DateExtensionsTests: XCTestCase {
 		
 		date.second = 12
 		XCTAssertEqual(date.second, 12)
+		
+		date.second = 1
+		XCTAssertEqual(date.second, 1)
 	}
 	
 	func testNanosecond() {
@@ -178,6 +208,10 @@ final class DateExtensionsTests: XCTestCase {
 		date.nanosecond = 10000
 		XCTAssert(date.nanosecond >= 1000)
 		XCTAssert(date.nanosecond <= 100000)
+		
+		date.nanosecond = 100
+		XCTAssert(date.nanosecond >= 10)
+		XCTAssert(date.nanosecond <= 1000)
 	}
 	
 	func testMillisecond() {
@@ -190,6 +224,10 @@ final class DateExtensionsTests: XCTestCase {
 		date.millisecond = 10
 		XCTAssert(date.millisecond >= 9)
 		XCTAssert(date.millisecond <= 11)
+		
+		date.millisecond = 3
+		XCTAssert(date.millisecond >= 2)
+		XCTAssert(date.millisecond <= 4)
 	}
 	
 	func testIsInFuture() {
@@ -655,17 +693,17 @@ final class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date2.daysSince(date1), 1)
 		XCTAssertEqual(date1.daysSince(date2), -1)
 	}
-  
-  func testIsBetween() {
-    let date1 = Date(timeIntervalSince1970: 0)
-    let date2 = date1.addingTimeInterval(60)
-    let date3 = date2.addingTimeInterval(60)
-    
-    XCTAssert(date2.isBetween(date1, date3))
-    XCTAssertFalse(date1.isBetween(date2, date3))
-    XCTAssert(date1.isBetween(date1, date2, includeBounds: true))
-    XCTAssertFalse(date1.isBetween(date1, date2))
-  }
+	
+	func testIsBetween() {
+		let date1 = Date(timeIntervalSince1970: 0)
+		let date2 = date1.addingTimeInterval(60)
+		let date3 = date2.addingTimeInterval(60)
+		
+		XCTAssert(date2.isBetween(date1, date3))
+		XCTAssertFalse(date1.isBetween(date2, date3))
+		XCTAssert(date1.isBetween(date1, date2, includeBounds: true))
+		XCTAssertFalse(date1.isBetween(date1, date2))
+	}
 	
 	func testIsWithin() {
 		let date1 = Date(timeIntervalSince1970: 60 * 60 * 24) // 1970-01-01T00:00:00.000Z
