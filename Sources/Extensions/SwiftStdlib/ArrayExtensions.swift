@@ -6,8 +6,6 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-import Foundation
-
 // MARK: - Methods (Integer)
 public extension Array where Element: Numeric {
 	

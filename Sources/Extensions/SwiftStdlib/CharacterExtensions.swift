@@ -6,8 +6,6 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-import Foundation
-
 // MARK: - Properties
 public extension Character {
 	

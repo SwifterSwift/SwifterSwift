@@ -6,8 +6,7 @@
 //
 //
 
-import Foundation
-
+// MARK: - Properties
 public extension SignedNumeric {
 	
 	/// SwifterSwift: String.

@@ -6,8 +6,6 @@
 //
 //
 
-import Foundation
-
 // MARK: - Properties
 public extension FloatingPoint {
 	
