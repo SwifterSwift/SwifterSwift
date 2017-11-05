@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Methods
 public extension URL {
 	
 	/// SwifterSwift: URL with appending query parameters.
