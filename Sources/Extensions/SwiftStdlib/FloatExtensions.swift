@@ -6,12 +6,7 @@
 //  Copyright © 2016 Omar Albeik. All rights reserved.
 //
 
-import Foundation
-#if os(macOS)
-	import Cocoa
-#else
-	import UIKit
-#endif
+import CoreGraphics
 
 // MARK: - Properties
 public extension Float {
