@@ -3,7 +3,7 @@
 //  SwifterSwift
 //
 //  Created by Omar Albeik on 07/12/2016.
-//  Copyright © 2017 SwifterSwift
+//  Copyright © 2016 SwifterSwift
 //
 
 #if os(macOS)
