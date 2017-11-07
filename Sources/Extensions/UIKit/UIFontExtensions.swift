@@ -3,6 +3,7 @@
 //  SwifterSwift 
 //
 //  Created by Benjamin Meyer on 9/16/17.
+//  Copyright © 2017 SwifterSwift
 //
 
 #if os(iOS) || os(tvOS) || os(watchOS)
