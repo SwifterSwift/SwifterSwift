@@ -3,7 +3,7 @@
 //  SwifterSwift
 //
 //  Created by Luciano Almeida on 21/04/17.
-//  Copyright © 2017 omaralbeik. All rights reserved.
+//  Copyright © 2017 SwifterSwift
 //
 
 import XCTest

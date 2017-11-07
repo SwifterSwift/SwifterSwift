@@ -3,6 +3,7 @@
 //  SwifterSwift
 //
 //  Created by Max Härtwig on 04.10.17.
+//  Copyright © 2017 SwifterSwift
 //
 
 import Foundation

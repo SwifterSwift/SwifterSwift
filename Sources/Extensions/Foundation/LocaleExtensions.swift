@@ -3,7 +3,7 @@
 //  SwifterSwift
 //
 //  Created by Basem Emara on 4/19/17.
-//  Copyright © 2017 omaralbeik. All rights reserved.
+//  Copyright © 2017 SwifterSwift
 //
 
 import Foundation

@@ -3,6 +3,7 @@
 //  SwifterSwift
 //
 //  Created by Omar Albeik on 6/12/17.
+//  Copyright © 2017 SwifterSwift
 //
 
 #import <Foundation/Foundation.h>
