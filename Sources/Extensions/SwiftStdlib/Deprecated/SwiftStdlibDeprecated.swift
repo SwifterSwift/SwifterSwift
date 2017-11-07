@@ -2,7 +2,7 @@
 //  SwiftStdlibDeprecated.swift
 //  SwifterSwift
 //
-//  Created by Luciano Almeida on 06/11/17.
+//  Copyright © 2016 SwifterSwift
 //
 
 extension String {
