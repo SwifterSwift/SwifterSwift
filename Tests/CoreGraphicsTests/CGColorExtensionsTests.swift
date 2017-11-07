@@ -3,6 +3,7 @@
 //  SwifterSwift-iOS
 //
 //  Created by Ryan Batchelder on 10/8/17.
+//  Copyright © 2017 SwifterSwift
 //
 
 import XCTest
