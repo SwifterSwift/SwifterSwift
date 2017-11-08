@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07263D5D1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */; };
+		07263D5E1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */; };
+		07263D5F1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */; };
+		07263D601FB3175F003CE515 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */; };
 		0726D7771F7C199E0028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
 		0726D77A1F7C24830028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
 		0726D77B1F7C24840028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
@@ -351,6 +355,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDeprecated.swift; sourceTree = "<group>"; };
 		0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 		074EAF1E1F7BA74600C74636 /* UIFontExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionsTest.swift; sourceTree = "<group>"; };
@@ -525,6 +530,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07263D5B1FB3174D003CE515 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
 		0726D7751F7C19880028CAB5 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -631,6 +644,7 @@
 		07B7F1651F5EB41600E6F910 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				07263D5B1FB3174D003CE515 /* Deprecated */,
 				07B7F16A1F5EB41600E6F910 /* DataExtensions.swift */,
 				07B7F16B1F5EB41600E6F910 /* DateExtensions.swift */,
 				07B7F1731F5EB41600E6F910 /* LocaleExtensions.swift */,
@@ -975,7 +989,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = SwifterSwift;
 				TargetAttributes = {
 					07898B5C1F278D7600558C97 = {
@@ -1213,6 +1227,7 @@
 				07B7F2101F5EB43C00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F2141F5EB43C00E6F910 /* FloatingPointExtensions.swift in Sources */,
 				07B7F19E1F5EB42000E6F910 /* UISegmentedControlExtensions.swift in Sources */,
+				07263D5D1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */,
 				07B7F20F1F5EB43C00E6F910 /* DataExtensions.swift in Sources */,
 				07B7F19C1F5EB42000E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				07B7F1A51F5EB42000E6F910 /* UITextViewExtensions.swift in Sources */,
@@ -1270,6 +1285,7 @@
 				07B7F1FE1F5EB43C00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F2021F5EB43C00E6F910 /* FloatingPointExtensions.swift in Sources */,
 				07B7F1B41F5EB42000E6F910 /* UISegmentedControlExtensions.swift in Sources */,
+				07263D5E1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */,
 				07B7F1FD1F5EB43C00E6F910 /* DataExtensions.swift in Sources */,
 				07B7F1B21F5EB42000E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				07B7F1BB1F5EB42000E6F910 /* UITextViewExtensions.swift in Sources */,
@@ -1327,6 +1343,7 @@
 				07B7F1EC1F5EB43B00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F1F01F5EB43B00E6F910 /* FloatingPointExtensions.swift in Sources */,
 				07B7F1CA1F5EB42200E6F910 /* UISegmentedControlExtensions.swift in Sources */,
+				07263D5F1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */,
 				07B7F1EB1F5EB43B00E6F910 /* DataExtensions.swift in Sources */,
 				07B7F1C81F5EB42200E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				07B7F1D11F5EB42200E6F910 /* UITextViewExtensions.swift in Sources */,
@@ -1364,6 +1381,7 @@
 				07B7F21C1F5EB43E00E6F910 /* SwifterSwift.swift in Sources */,
 				07B7F1D91F5EB43B00E6F910 /* DataExtensions.swift in Sources */,
 				07B7F1E41F5EB43B00E6F910 /* StringExtensions.swift in Sources */,
+				07263D601FB3175F003CE515 /* FoundationDeprecated.swift in Sources */,
 				9D4914861F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
 				07B7F2271F5EB44600E6F910 /* NSViewExtensions.swift in Sources */,
 				07B7F2211F5EB44600E6F910 /* CGFloatExtensions.swift in Sources */,
@@ -1539,8 +1557,33 @@
 		07898B561F278CF900558C97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
@@ -1548,6 +1591,29 @@
 		07898B571F278CF900558C97 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				SWIFT_VERSION = 4.0;
