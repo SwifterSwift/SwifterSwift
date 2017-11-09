@@ -16,7 +16,7 @@ class CalendarExtensionTests: XCTestCase {
     }
     
     func testNumberOfDaysInAMonth() {
-        let calendar = Calendar.current
+        let calendar = Calendar(identifier: .gregorian)
         let longMonths = [1, 3, 5, 7, 8, 10, 12]
         let shortMonths = [4, 6, 9, 11]
         let febDateComponent = DateComponents(year: 2015, month: 2)
@@ -27,9 +27,9 @@ class CalendarExtensionTests: XCTestCase {
         let shortMonthsDateComponents = shortMonths.map { DateComponents(year: 2015, month: $0) }
         let longMonthDates = longMonthsDateComponents.flatMap { calendar.date(from: $0) }
         let shortMonthDates = shortMonthsDateComponents.flatMap { calendar.date(from: $0) }
-        longMonthDates.forEach { XCTAssertTrue(calendar.numberOfDaysInMonth(for: $0) == 31) }
-        shortMonthDates.forEach { XCTAssertTrue(calendar.numberOfDaysInMonth(for: $0) == 30) }
-        XCTAssertTrue(calendar.numberOfDaysInMonth(for: febDate) == 28)
-        XCTAssertTrue(calendar.numberOfDaysInMonth(for: leapYearDate) == 29)
+        longMonthDates.forEach { XCTAssert(calendar.numberOfDaysInMonth(for: $0) == 31) }
+        shortMonthDates.forEach { XCTAssert(calendar.numberOfDaysInMonth(for: $0) == 30) }
+        XCTAssert(calendar.numberOfDaysInMonth(for: febDate) == 28)
+        XCTAssert(calendar.numberOfDaysInMonth(for: leapYearDate) == 29)
     }
 }
