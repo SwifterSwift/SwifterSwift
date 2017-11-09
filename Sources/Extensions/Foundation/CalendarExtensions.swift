@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Calendar {
+public extension Calendar {
     /// SwifterSwift: Return the number of days in the month for a specified 'Date'.
     ///
     /// let date = Date() // "Jan 12, 2017, 7:07 PM"
