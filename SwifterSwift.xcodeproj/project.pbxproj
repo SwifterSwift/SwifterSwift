@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07263D5D1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */; };
-		07263D5E1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */; };
-		07263D5F1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */; };
-		07263D601FB3175F003CE515 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */; };
+		0713066F1FB597920023A9D8 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */; };
+		071306701FB597920023A9D8 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */; };
+		071306711FB597920023A9D8 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */; };
+		071306721FB597920023A9D8 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */; };
 		0726D7771F7C199E0028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
 		0726D77A1F7C24830028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
 		0726D77B1F7C24840028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
@@ -362,6 +362,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDeprecated.swift; sourceTree = "<group>"; };
 		07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDeprecated.swift; sourceTree = "<group>"; };
 		0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
@@ -539,10 +540,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		07263D5B1FB3174D003CE515 /* Deprecated */ = {
+		071306651FB596600023A9D8 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
 				07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		0713066D1FB5977F0023A9D8 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */,
 			);
 			path = Deprecated;
 			sourceTree = "<group>";
@@ -599,6 +608,7 @@
 				07898B8D1F278E6300558C97 /* Sources */,
 				07C50CF21F5EAF7B00F46E5A /* Tests */,
 				07898B5E1F278D7600558C97 /* Products */,
+				071306651FB596600023A9D8 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -653,6 +663,7 @@
 		07B7F1651F5EB41600E6F910 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				0713066D1FB5977F0023A9D8 /* Deprecated */,
 				70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */,
 				07B7F16A1F5EB41600E6F910 /* DataExtensions.swift */,
 				07B7F16B1F5EB41600E6F910 /* DateExtensions.swift */,
@@ -1223,6 +1234,7 @@
 				07B7F19D1F5EB42000E6F910 /* UISearchBarExtensions.swift in Sources */,
 				07B7F21A1F5EB43C00E6F910 /* StringExtensions.swift in Sources */,
 				07B7F2331F5EB45100E6F910 /* NSAttributedStringExtensions.swift in Sources */,
+				0713066F1FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
 				07B7F1971F5EB42000E6F910 /* UIImageExtensions.swift in Sources */,
 				077BA08A1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				9D4914831F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
@@ -1238,7 +1250,6 @@
 				07B7F2101F5EB43C00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F2141F5EB43C00E6F910 /* FloatingPointExtensions.swift in Sources */,
 				07B7F19E1F5EB42000E6F910 /* UISegmentedControlExtensions.swift in Sources */,
-				07263D5D1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */,
 				07B7F20F1F5EB43C00E6F910 /* DataExtensions.swift in Sources */,
 				07B7F19C1F5EB42000E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				07B7F1A51F5EB42000E6F910 /* UITextViewExtensions.swift in Sources */,
@@ -1282,6 +1293,7 @@
 				07B7F1B31F5EB42000E6F910 /* UISearchBarExtensions.swift in Sources */,
 				07B7F2081F5EB43C00E6F910 /* StringExtensions.swift in Sources */,
 				07B7F2391F5EB45200E6F910 /* NSAttributedStringExtensions.swift in Sources */,
+				071306701FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
 				07B7F1AD1F5EB42000E6F910 /* UIImageExtensions.swift in Sources */,
 				077BA08B1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				9D4914841F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
@@ -1297,7 +1309,6 @@
 				07B7F1FE1F5EB43C00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F2021F5EB43C00E6F910 /* FloatingPointExtensions.swift in Sources */,
 				07B7F1B41F5EB42000E6F910 /* UISegmentedControlExtensions.swift in Sources */,
-				07263D5E1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */,
 				07B7F1FD1F5EB43C00E6F910 /* DataExtensions.swift in Sources */,
 				07B7F1B21F5EB42000E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				07B7F1BB1F5EB42000E6F910 /* UITextViewExtensions.swift in Sources */,
@@ -1341,6 +1352,7 @@
 				07B7F1C91F5EB42200E6F910 /* UISearchBarExtensions.swift in Sources */,
 				07B7F1F61F5EB43B00E6F910 /* StringExtensions.swift in Sources */,
 				07B7F22D1F5EB45100E6F910 /* NSAttributedStringExtensions.swift in Sources */,
+				071306711FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
 				07B7F1C31F5EB42200E6F910 /* UIImageExtensions.swift in Sources */,
 				077BA08C1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				9D4914851F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
@@ -1356,7 +1368,6 @@
 				07B7F1EC1F5EB43B00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F1F01F5EB43B00E6F910 /* FloatingPointExtensions.swift in Sources */,
 				07B7F1CA1F5EB42200E6F910 /* UISegmentedControlExtensions.swift in Sources */,
-				07263D5F1FB3175F003CE515 /* FoundationDeprecated.swift in Sources */,
 				07B7F1EB1F5EB43B00E6F910 /* DataExtensions.swift in Sources */,
 				07B7F1C81F5EB42200E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				07B7F1D11F5EB42200E6F910 /* UITextViewExtensions.swift in Sources */,
@@ -1395,8 +1406,8 @@
 				07B7F21C1F5EB43E00E6F910 /* SwifterSwift.swift in Sources */,
 				07B7F1D91F5EB43B00E6F910 /* DataExtensions.swift in Sources */,
 				07B7F1E41F5EB43B00E6F910 /* StringExtensions.swift in Sources */,
-				07263D601FB3175F003CE515 /* FoundationDeprecated.swift in Sources */,
 				9D4914861F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
+				071306721FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
 				07B7F2271F5EB44600E6F910 /* NSViewExtensions.swift in Sources */,
 				07B7F2211F5EB44600E6F910 /* CGFloatExtensions.swift in Sources */,
 			);

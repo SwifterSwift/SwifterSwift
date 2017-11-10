@@ -814,23 +814,26 @@ final class DateExtensionsTests: XCTestCase {
 		let date1 = Date(timeIntervalSince1970: 60 * 60 * 24) // 1970-01-01T00:00:00.000Z
 		let date2 = date1.addingTimeInterval(60 * 60) // 1970-01-01T00:01:00.000Z, one hour later than date1
 		
-		//The regular
+		// The regular
 		XCTAssertFalse(date1.isWithin(1, .second, of: date2))
 		XCTAssertFalse(date1.isWithin(1, .minute, of: date2))
 		XCTAssert(date1.isWithin(1, .hour, of: date2))
 		XCTAssert(date1.isWithin(1, .day, of: date2))
 		
-		//The other way around
+		// The other way around
 		XCTAssertFalse(date2.isWithin(1, .second, of: date1))
 		XCTAssertFalse(date2.isWithin(1, .minute, of: date1))
 		XCTAssert(date2.isWithin(1, .hour, of: date1))
 		XCTAssert(date2.isWithin(1, .day, of: date1))
 		
-		//With itself
+		// With itself
 		XCTAssert(date1.isWithin(1, .second, of: date1))
 		XCTAssert(date1.isWithin(1, .minute, of: date1))
 		XCTAssert(date1.isWithin(1, .hour, of: date1))
 		XCTAssert(date1.isWithin(1, .day, of: date1))
+		
+		// Invalid
+		XCTAssertFalse(Date().isWithin(1, .calendar, of: Date()))
 	}
 	
 	func testNewDateFromComponenets() {
