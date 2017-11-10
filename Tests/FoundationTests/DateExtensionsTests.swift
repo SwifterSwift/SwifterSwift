@@ -275,7 +275,7 @@ final class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date.isInWeekend, Calendar.current.isDateInWeekend(date))
 	}
 	
-	func testisWorkday() {
+	func testIsWorkday() {
 		let date = Date()
 		XCTAssertEqual(date.isWorkday, !Calendar.current.isDateInWeekend(date))
 	}
