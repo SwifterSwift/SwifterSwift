@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0713066F1FB597920023A9D8 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */; };
+		071306701FB597920023A9D8 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */; };
+		071306711FB597920023A9D8 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */; };
+		071306721FB597920023A9D8 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */; };
 		0726D7771F7C199E0028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
 		0726D77A1F7C24830028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
 		0726D77B1F7C24840028CAB5 /* ColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */; };
@@ -317,6 +321,13 @@
 		182698AE1F8AB46F0052F21E /* CGColorExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185BDE601F8AAEFD00140E19 /* CGColorExtensionsTests.swift */; };
 		278CA08D1F9A9232004918BD /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278CA08C1F9A9232004918BD /* NSImageExtensions.swift */; };
 		278CA0911F9A9679004918BD /* NSImageExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278CA0901F9A9679004918BD /* NSImageExtensionsTests.swift */; };
+		70269A2B1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */; };
+		70269A2C1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */; };
+		70269A2D1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */; };
+		70269A2E1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */; };
+		70269A301FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
+		70269A311FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
+		70269A321FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
 		9D4914831F85138E00F3868F /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */; };
 		9D4914841F85138E00F3868F /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */; };
 		9D4914851F85138E00F3868F /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */; };
@@ -355,6 +366,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDeprecated.swift; sourceTree = "<group>"; };
+		07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDeprecated.swift; sourceTree = "<group>"; };
 		0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 		074EAF1E1F7BA74600C74636 /* UIFontExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionsTest.swift; sourceTree = "<group>"; };
@@ -469,6 +482,8 @@
 		185BDE601F8AAEFD00140E19 /* CGColorExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColorExtensionsTests.swift; sourceTree = "<group>"; };
 		278CA08C1F9A9232004918BD /* NSImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
 		278CA0901F9A9679004918BD /* NSImageExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtensionsTests.swift; sourceTree = "<group>"; };
+		70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
+		70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensionTest.swift; sourceTree = "<group>"; };
 		9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensions.swift; sourceTree = "<group>"; };
 		9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensionsTests.swift; sourceTree = "<group>"; };
 		B23678EB1FB116AD0027C931 /* SwiftStdlibDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStdlibDeprecated.swift; sourceTree = "<group>"; };
@@ -530,6 +545,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		071306651FB596600023A9D8 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		0713066D1FB5977F0023A9D8 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */,
+			);
+			path = Deprecated;
+			sourceTree = "<group>";
+		};
 		0726D7751F7C19880028CAB5 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +614,7 @@
 				07898B8D1F278E6300558C97 /* Sources */,
 				07C50CF21F5EAF7B00F46E5A /* Tests */,
 				07898B5E1F278D7600558C97 /* Products */,
+				071306651FB596600023A9D8 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -637,6 +669,8 @@
 		07B7F1651F5EB41600E6F910 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				0713066D1FB5977F0023A9D8 /* Deprecated */,
+				70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */,
 				07B7F16A1F5EB41600E6F910 /* DataExtensions.swift */,
 				07B7F16B1F5EB41600E6F910 /* DateExtensions.swift */,
 				07B7F1731F5EB41600E6F910 /* LocaleExtensions.swift */,
@@ -698,6 +732,7 @@
 		07C50CF91F5EB03200F46E5A /* FoundationTests */ = {
 			isa = PBXGroup;
 			children = (
+				70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */,
 				07C50CFE1F5EB03200F46E5A /* DataExtensionsTests.swift */,
 				07C50CFF1F5EB03200F46E5A /* DateExtensionsTests.swift */,
 				07C50D041F5EB03200F46E5A /* LocaleExtensionsTests.swift */,
@@ -1213,6 +1248,7 @@
 				07B7F19D1F5EB42000E6F910 /* UISearchBarExtensions.swift in Sources */,
 				07B7F21A1F5EB43C00E6F910 /* StringExtensions.swift in Sources */,
 				07B7F2331F5EB45100E6F910 /* NSAttributedStringExtensions.swift in Sources */,
+				0713066F1FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
 				07B7F1971F5EB42000E6F910 /* UIImageExtensions.swift in Sources */,
 				077BA08A1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				9D4914831F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
@@ -1223,6 +1259,7 @@
 				07B7F1921F5EB42000E6F910 /* UIAlertControllerExtensions.swift in Sources */,
 				07B7F22E1F5EB45100E6F910 /* CGColorExtensions.swift in Sources */,
 				07B7F21F1F5EB43F00E6F910 /* SwifterSwift.swift in Sources */,
+				70269A2B1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */,
 				07B7F2161F5EB43C00E6F910 /* LocaleExtensions.swift in Sources */,
 				07B7F2101F5EB43C00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F2141F5EB43C00E6F910 /* FloatingPointExtensions.swift in Sources */,
@@ -1271,6 +1308,7 @@
 				07B7F1B31F5EB42000E6F910 /* UISearchBarExtensions.swift in Sources */,
 				07B7F2081F5EB43C00E6F910 /* StringExtensions.swift in Sources */,
 				07B7F2391F5EB45200E6F910 /* NSAttributedStringExtensions.swift in Sources */,
+				071306701FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
 				07B7F1AD1F5EB42000E6F910 /* UIImageExtensions.swift in Sources */,
 				077BA08B1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				9D4914841F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
@@ -1281,6 +1319,7 @@
 				07B7F1A81F5EB42000E6F910 /* UIAlertControllerExtensions.swift in Sources */,
 				07B7F2341F5EB45200E6F910 /* CGColorExtensions.swift in Sources */,
 				07B7F21E1F5EB43F00E6F910 /* SwifterSwift.swift in Sources */,
+				70269A2C1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */,
 				07B7F2041F5EB43C00E6F910 /* LocaleExtensions.swift in Sources */,
 				07B7F1FE1F5EB43C00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F2021F5EB43C00E6F910 /* FloatingPointExtensions.swift in Sources */,
@@ -1329,6 +1368,7 @@
 				07B7F1C91F5EB42200E6F910 /* UISearchBarExtensions.swift in Sources */,
 				07B7F1F61F5EB43B00E6F910 /* StringExtensions.swift in Sources */,
 				07B7F22D1F5EB45100E6F910 /* NSAttributedStringExtensions.swift in Sources */,
+				071306711FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
 				07B7F1C31F5EB42200E6F910 /* UIImageExtensions.swift in Sources */,
 				077BA08C1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				9D4914851F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
@@ -1339,6 +1379,7 @@
 				07B7F1BE1F5EB42200E6F910 /* UIAlertControllerExtensions.swift in Sources */,
 				07B7F2281F5EB45100E6F910 /* CGColorExtensions.swift in Sources */,
 				07B7F21D1F5EB43F00E6F910 /* SwifterSwift.swift in Sources */,
+				70269A2E1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */,
 				07B7F1F21F5EB43B00E6F910 /* LocaleExtensions.swift in Sources */,
 				07B7F1EC1F5EB43B00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F1F01F5EB43B00E6F910 /* FloatingPointExtensions.swift in Sources */,
@@ -1357,6 +1398,7 @@
 				07B7F1DA1F5EB43B00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F1D81F5EB43B00E6F910 /* CollectionExtensions.swift in Sources */,
 				07B7F1DD1F5EB43B00E6F910 /* FloatExtensions.swift in Sources */,
+				70269A2D1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */,
 				07B7F1D61F5EB43B00E6F910 /* BoolExtensions.swift in Sources */,
 				07B7F1DE1F5EB43B00E6F910 /* FloatingPointExtensions.swift in Sources */,
 				07B7F1DB1F5EB43B00E6F910 /* DictionaryExtensions.swift in Sources */,
@@ -1382,6 +1424,7 @@
 				07B7F1D91F5EB43B00E6F910 /* DataExtensions.swift in Sources */,
 				07B7F1E41F5EB43B00E6F910 /* StringExtensions.swift in Sources */,
 				9D4914861F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
+				071306721FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
 				07B7F2271F5EB44600E6F910 /* NSViewExtensions.swift in Sources */,
 				07B7F2211F5EB44600E6F910 /* CGFloatExtensions.swift in Sources */,
 			);
@@ -1426,6 +1469,7 @@
 				07C50D5A1F5EB05000F46E5A /* CollectionExtensionsTests.swift in Sources */,
 				07C50D351F5EB04700F46E5A /* UINavigationItemExtensionsTests.swift in Sources */,
 				07C50D2D1F5EB04600F46E5A /* UIButtonExtensionsTests.swift in Sources */,
+				70269A301FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */,
 				182698AC1F8AB46E0052F21E /* CGColorExtensionsTests.swift in Sources */,
 				07C50D8F1F5EB06000F46E5A /* CLLocationExtensionsTests.swift in Sources */,
 				07C50D8D1F5EB06000F46E5A /* CGPointExtensionsTests.swift in Sources */,
@@ -1481,6 +1525,7 @@
 				07C50D681F5EB05100F46E5A /* CollectionExtensionsTests.swift in Sources */,
 				07C50D4B1F5EB04700F46E5A /* UINavigationItemExtensionsTests.swift in Sources */,
 				07C50D431F5EB04700F46E5A /* UIButtonExtensionsTests.swift in Sources */,
+				70269A321FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */,
 				182698AD1F8AB46F0052F21E /* CGColorExtensionsTests.swift in Sources */,
 				07C50D8A1F5EB06000F46E5A /* CLLocationExtensionsTests.swift in Sources */,
 				07C50D881F5EB06000F46E5A /* CGPointExtensionsTests.swift in Sources */,
@@ -1514,6 +1559,7 @@
 				07C50D791F5EB05100F46E5A /* DictionaryExtensionsTests.swift in Sources */,
 				07C50D7B1F5EB05100F46E5A /* FloatExtensionsTests.swift in Sources */,
 				07C50D7F1F5EB05100F46E5A /* StringExtensionsTests.swift in Sources */,
+				70269A311FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */,
 				07C50D7A1F5EB05100F46E5A /* DoubleExtensionsTests.swift in Sources */,
 				278CA0911F9A9679004918BD /* NSImageExtensionsTests.swift in Sources */,
 				182698AE1F8AB46F0052F21E /* CGColorExtensionsTests.swift in Sources */,
