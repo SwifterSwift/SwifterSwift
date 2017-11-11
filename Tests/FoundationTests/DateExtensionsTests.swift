@@ -57,37 +57,18 @@ final class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date.era, 1)
 	}
 	
-	func testYear() {
-		var date = Date(timeIntervalSince1970: 0)
-		XCTAssertEqual(date.year, 1970)
-		
-		date.year = 2000
-		XCTAssertEqual(date.year, 2000)
-		
-		date.year = 2017
-		XCTAssertEqual(date.year, 2017)
-		
-		date.year = 1988
-		XCTAssertEqual(date.year, 1988)
-	}
-	
 	func testQuarter() {
-		let date = Date(timeIntervalSince1970: 0)
-		XCTAssertEqual(date.quarter, 0)
-	}
-	
-	func testMonth() {
-		var date = Date(timeIntervalSince1970: 0)
-		XCTAssertEqual(date.month, 1)
-		
-		date.month = 2
-		XCTAssertEqual(date.month, 2)
-		
-		date.month = 14
-		XCTAssertEqual(date.month, 2)
-		
-		date.month = 1
-		XCTAssertEqual(date.month, 1)
+		let date1 = Date(timeIntervalSince1970: 0)
+		XCTAssertEqual(date1.quarter, 1)
+
+		let date2 = Calendar.current.date(byAdding: .month, value: 4, to: date1)
+		XCTAssertEqual(date2?.quarter, 2)
+
+		let date3 = Calendar.current.date(byAdding: .month, value: 8, to: date1)
+		XCTAssertEqual(date3?.quarter, 3)
+
+		let date4 = Calendar.current.date(byAdding: .month, value: 11, to: date1)
+		XCTAssertEqual(date4?.quarter, 4)
 	}
 	
 	func testWeekOfYear() {
@@ -112,106 +93,203 @@ final class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(originalDate?.weekOfMonth, 1)
 	}
 	
-	func testWeekday() {
-		var date = Date(timeIntervalSince1970: 0)
-		date.weekday = 1
-		XCTAssertEqual(date.weekday, 1)
+	func testYear() {
+		var date = Date(timeIntervalSince1970: 100000.123450040)
+		XCTAssertEqual(date.year, 1970)
 		
-		date.weekday = -1
-		XCTAssertEqual(date.weekday, 1)
+		var isLowerComponentsValid: Bool {
+			guard date.month == 1 else { return false }
+			guard date.day == 2 else { return false }
+			guard date.hour == 3 else { return false }
+			guard date.minute == 46 else { return false }
+			guard date.second == 40 else { return false }
+			guard date.nanosecond == 123450040 else { return false }
+			return true
+		}
 		
-		date.weekday = 10
-		XCTAssertEqual(date.weekday, 1)
+		date.year = 2000
+		XCTAssertEqual(date.year, 2000)
+		XCTAssert(isLowerComponentsValid)
 		
-		date.weekday = 7
-		XCTAssertEqual(date.weekday, 7)
+		date.year = 2017
+		XCTAssertEqual(date.year, 2017)
+		XCTAssert(isLowerComponentsValid)
 		
-		date.weekday = 5
-		XCTAssertEqual(date.weekday, 5)
+		date.year = 1988
+		XCTAssertEqual(date.year, 1988)
+		XCTAssert(isLowerComponentsValid)
+		
+		date.year = -100
+		XCTAssertEqual(date.year, 1988)
+		XCTAssert(isLowerComponentsValid)
+		
+		date.year = 0
+		XCTAssertEqual(date.year, 1988)
+		XCTAssert(isLowerComponentsValid)
+	}
+	
+	func testMonth() {
+		var date = Date(timeIntervalSince1970: 100000.123450040)
+		XCTAssertEqual(date.month, 1)
+		
+		var isLowerComponentsValid: Bool {
+			guard date.day == 2 else { return false }
+			guard date.hour == 3 else { return false }
+			guard date.minute == 46 else { return false }
+			guard date.second == 40 else { return false }
+			guard date.nanosecond == 123450040 else { return false }
+			return true
+		}
+		
+		date.month = 2
+		XCTAssert(isLowerComponentsValid)
+
+		date.month = 14
+		XCTAssertEqual(date.month, 2)
+		XCTAssert(isLowerComponentsValid)
+		
+		date.month = 1
+		XCTAssertEqual(date.month, 1)
+		XCTAssert(isLowerComponentsValid)
+		
+		date.month = 0
+		XCTAssertEqual(date.month, 1)
+		XCTAssert(isLowerComponentsValid)
+		
+		date.month = -3
+		XCTAssertEqual(date.month, 1)
+		XCTAssert(isLowerComponentsValid)
 	}
 	
 	func testDay() {
-		var date = Date(timeIntervalSince1970: 0)
-		XCTAssertEqual(date.day, 1)
+		var date = Date(timeIntervalSince1970: 100000.123450040)
+		XCTAssertEqual(date.day, 2)
 		
-		date.day = -3
-		XCTAssertEqual(date.day, 1)
-		
-		date.day = 45
-		XCTAssertEqual(date.day, 1)
+		var isLowerComponentsValid: Bool {
+			guard date.hour == 3 else { return false }
+			guard date.minute == 46 else { return false }
+			guard date.second == 40 else { return false }
+			guard date.nanosecond == 123450040 else { return false }
+			return true
+		}
 		
 		date.day = 4
 		XCTAssertEqual(date.day, 4)
-		
+		XCTAssert(isLowerComponentsValid)
+
 		date.day = 1
 		XCTAssertEqual(date.day, 1)
+		XCTAssert(isLowerComponentsValid)
+
+		date.day = 0
+		XCTAssertEqual(date.day, 1)
+		XCTAssert(isLowerComponentsValid)
+
+		date.day = -3
+		XCTAssertEqual(date.day, 1)
+		XCTAssert(isLowerComponentsValid)
+
+		date.day = 45
+		XCTAssertEqual(date.day, 1)
+		XCTAssert(isLowerComponentsValid)
+	}
+	
+	func testWeekday() {
+		let date = Date(timeIntervalSince1970: 100000)
+		XCTAssertEqual(date.weekday, 6)
 	}
 	
 	func testHour() {
-		var date = Date(timeIntervalSince1970: 0)
-		XCTAssertEqual(date.hour, 0)
+		var date = Date(timeIntervalSince1970: 100000.123450040)
+		XCTAssertEqual(date.hour, 3)
+		
+		var isLowerComponentsValid: Bool {
+			guard date.minute == 46 else { return false }
+			guard date.second == 40 else { return false }
+			guard date.nanosecond == 123450040 else { return false }
+			return true
+		}
 		
 		date.hour = -3
-		XCTAssertEqual(date.hour, 0)
+		XCTAssertEqual(date.hour, 3)
+		XCTAssert(isLowerComponentsValid)
 		
 		date.hour = 25
-		XCTAssertEqual(date.hour, 0)
-		
+		XCTAssertEqual(date.hour, 3)
+		XCTAssert(isLowerComponentsValid)
+
 		date.hour = 4
 		XCTAssertEqual(date.hour, 4)
-		
+		XCTAssert(isLowerComponentsValid)
+
 		date.hour = 1
 		XCTAssertEqual(date.hour, 1)
+		XCTAssert(isLowerComponentsValid)
 	}
 	
 	func testMinute() {
-		var date = Date(timeIntervalSince1970: 0)
-		XCTAssertEqual(date.minute, 0)
+		var date = Date(timeIntervalSince1970: 100000.123450040)
+		XCTAssertEqual(date.minute, 46)
+		
+		var isLowerComponentsValid: Bool {
+			guard date.second == 40 else { return false }
+			guard date.nanosecond == 123450040 else { return false }
+			return true
+		}
 		
 		date.minute = -3
-		XCTAssertEqual(date.minute, 0)
-		
+		XCTAssertEqual(date.minute, 46)
+		XCTAssert(isLowerComponentsValid)
+
 		date.minute = 71
-		XCTAssertEqual(date.minute, 0)
-		
+		XCTAssertEqual(date.minute, 46)
+		XCTAssert(isLowerComponentsValid)
+
 		date.minute = 4
 		XCTAssertEqual(date.minute, 4)
-		
+		XCTAssert(isLowerComponentsValid)
+
 		date.minute = 1
 		XCTAssertEqual(date.minute, 1)
+		XCTAssert(isLowerComponentsValid)
 	}
 	
 	func testSecond() {
-		var date = Date(timeIntervalSince1970: 0)
-		XCTAssertEqual(date.second, 0)
+		var date = Date(timeIntervalSince1970: 100000.123450040)
+		XCTAssertEqual(date.second, 40)
+		
+		var isLowerComponentsValid: Bool {
+			guard date.nanosecond == 123450040 else { return false }
+			return true
+		}
 		
 		date.second = -3
-		XCTAssertEqual(date.second, 0)
-		
+		XCTAssertEqual(date.second, 40)
+		XCTAssert(isLowerComponentsValid)
+
 		date.second = 71
-		XCTAssertEqual(date.second, 0)
-		
+		XCTAssertEqual(date.second, 40)
+		XCTAssert(isLowerComponentsValid)
+
 		date.second = 12
 		XCTAssertEqual(date.second, 12)
-		
+		XCTAssert(isLowerComponentsValid)
+
 		date.second = 1
 		XCTAssertEqual(date.second, 1)
+		XCTAssert(isLowerComponentsValid)
 	}
 	
 	func testNanosecond() {
-		var date = Date(timeIntervalSince1970: 0)
-		XCTAssertEqual(date.nanosecond, 0)
+		var date = Date(timeIntervalSince1970: 100000.123450040)
+		XCTAssertEqual(date.nanosecond, 123450040)
 		
 		date.nanosecond = -3
-		XCTAssertEqual(date.nanosecond, 0)
+		XCTAssertEqual(date.nanosecond, 123450040)
 		
 		date.nanosecond = 10000
 		XCTAssert(date.nanosecond >= 1000)
 		XCTAssert(date.nanosecond <= 100000)
-		
-		date.nanosecond = 100
-		XCTAssert(date.nanosecond >= 10)
-		XCTAssert(date.nanosecond <= 1000)
 	}
 	
 	func testMillisecond() {
@@ -280,25 +358,25 @@ final class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date.isInWeekday, !Calendar.current.isDateInWeekend(date))
 	}
 	
-	func testIsInThisWeek() {
+	func testIsInCurrentWeek() {
 		let date = Date()
-		XCTAssert(date.isInThisWeek)
+		XCTAssert(date.isInCurrentWeek)
 		let dateOneYearFromNow = date.adding(.year, value: 1)
-		XCTAssertFalse(dateOneYearFromNow.isInThisWeek)
+		XCTAssertFalse(dateOneYearFromNow.isInCurrentWeek)
 	}
 	
-	func testIsInThisMonth() {
+	func testIsInCurrentMonth() {
 		let date = Date()
-		XCTAssert(date.isInThisMonth)
+		XCTAssert(date.isInCurrentMonth)
 		let dateOneYearFromNow = date.adding(.year, value: 1)
-		XCTAssertFalse(dateOneYearFromNow.isInThisMonth)
+		XCTAssertFalse(dateOneYearFromNow.isInCurrentMonth)
 	}
 	
-	func testIsInThisYear() {
+	func testIsInCurrentYear() {
 		let date = Date()
-		XCTAssert(date.isInThisYear)
+		XCTAssert(date.isInCurrentYear)
 		let dateOneYearFromNow = date.adding(.year, value: 1)
-		XCTAssertFalse(dateOneYearFromNow.isInThisYear)
+		XCTAssertFalse(dateOneYearFromNow.isInCurrentYear)
 	}
 	
 	func testIso8601String() {
@@ -311,11 +389,11 @@ final class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date.nearestFiveMinutes, date)
 		
 		let date2 = date.adding(.minute, value: 4) // adding 4 minutes
-		XCTAssertNotEqual(date2.nearestFiveMinutes, date)
-		XCTAssertEqual(date2.nearestFiveMinutes, date.adding(.minute, value: 5))
+		XCTAssertNotEqual(date2.nearestFiveMinutes, date2)
+		XCTAssertEqual(date2.nearestFiveMinutes, date2.adding(.minute, value: 1))
 		
 		let date3 = date.adding(.minute, value: 7) // adding 7 minutes
-		XCTAssertEqual(date3.nearestFiveMinutes, date.adding(.minute, value: 5))
+		XCTAssertEqual(date3.nearestFiveMinutes, date3.adding(.minute, value: -2))
 		
 		let date4 = date.adding(.hour, value: 1).adding(.minute, value: 2) // adding 1 hour and 2 minutes
 		XCTAssertEqual(date4.nearestFiveMinutes, date.adding(.hour, value: 1))
@@ -389,40 +467,45 @@ final class DateExtensionsTests: XCTestCase {
 	func testAdding() {
 		let date = Date(timeIntervalSince1970: 3610) // Jan 1, 1970, 3:00:10 AM
 		
+		XCTAssertEqual(date.adding(.second, value: 0), date)
 		let date1 = date.adding(.second, value: 10)
 		XCTAssertEqual(date1.second, date.second + 10)
 		XCTAssertEqual(date1.adding(.second, value: -10), date)
 		
+		XCTAssertEqual(date.adding(.minute, value: 0), date)
 		let date2 = date.adding(.minute, value: 10)
 		XCTAssertEqual(date2.minute, date.minute + 10)
 		XCTAssertEqual(date2.adding(.minute, value: -10), date)
 		
+		XCTAssertEqual(date.adding(.hour, value: 0), date)
 		let date3 = date.adding(.hour, value: 2)
 		XCTAssertEqual(date3.hour, date.hour + 2)
 		XCTAssertEqual(date3.adding(.hour, value: -2), date)
 		
+		XCTAssertEqual(date.adding(.day, value: 0), date)
 		let date4 = date.adding(.day, value: 2)
 		XCTAssertEqual(date4.day, date.day + 2)
 		XCTAssertEqual(date4.adding(.day, value: -2), date)
 		
+		XCTAssertEqual(date.adding(.weekOfYear, value: 0), date)
 		let date5 = date.adding(.weekOfYear, value: 1)
 		XCTAssertEqual(date5.day, date.day + 7)
 		XCTAssertEqual(date5.adding(.weekOfYear, value: -1), date)
 		
+		XCTAssertEqual(date.adding(.weekOfMonth, value: 0), date)
 		let date6 = date.adding(.weekOfMonth, value: 1)
 		XCTAssertEqual(date6.day, date.day + 7)
 		XCTAssertEqual(date6.adding(.weekOfMonth, value: -1), date)
 		
+		XCTAssertEqual(date.adding(.month, value: 0), date)
 		let date7 = date.adding(.month, value: 2)
 		XCTAssertEqual(date7.month, date.month + 2)
 		XCTAssertEqual(date7.adding(.month, value: -2), date)
 		
+		XCTAssertEqual(date.adding(.year, value: 0), date)
 		let date8 = date.adding(.year, value: 4)
 		XCTAssertEqual(date8.year, date.year + 4)
 		XCTAssertEqual(date8.adding(.year, value: -4), date)
-		
-		XCTAssertEqual(date.adding(.calendar, value: 10), date)
-		
 	}
 	
 	func testAdd() {
@@ -431,12 +514,16 @@ final class DateExtensionsTests: XCTestCase {
 		date.second = 10
 		date.add(.second, value: -1)
 		XCTAssertEqual(date.second, 9)
+		date.add(.second, value: 0)
+		XCTAssertEqual(date.second, 9)
 		
 		date.add(.second, value: 1)
 		XCTAssertEqual(date.second, 10)
 		
 		date.minute = 10
 		date.add(.minute, value: -1)
+		XCTAssertEqual(date.minute, 9)
+		date.add(.minute, value: 0)
 		XCTAssertEqual(date.minute, 9)
 		
 		date.add(.minute, value: 1)
@@ -445,12 +532,16 @@ final class DateExtensionsTests: XCTestCase {
 		date.hour = 10
 		date.add(.hour, value: -1)
 		XCTAssertEqual(date.hour, 9)
+		date.add(.hour, value: 0)
+		XCTAssertEqual(date.hour, 9)
 		
 		date.add(.hour, value: 1)
 		XCTAssertEqual(date.hour, 10)
 		
 		date.day = 10
 		date.add(.day, value: -1)
+		XCTAssertEqual(date.day, 9)
+		date.add(.day, value: 0)
 		XCTAssertEqual(date.day, 9)
 		
 		date.add(.day, value: 1)
@@ -459,12 +550,16 @@ final class DateExtensionsTests: XCTestCase {
 		date.month = 10
 		date.add(.month, value: -1)
 		XCTAssertEqual(date.month, 9)
+		date.add(.month, value: 0)
+		XCTAssertEqual(date.month, 9)
 		
 		date.add(.month, value: 1)
 		XCTAssertEqual(date.month, 10)
 		
 		date = Date()
 		date.add(.year, value: -1)
+		XCTAssertEqual(date.year, 2016)
+		date.add(.year, value: 0)
 		XCTAssertEqual(date.year, 2016)
 		
 		date.add(.year, value: 1)
@@ -474,6 +569,10 @@ final class DateExtensionsTests: XCTestCase {
 	func testChanging() {
 		let date = Date(timeIntervalSince1970: 0)
 		
+		XCTAssertNil(date.changing(.nanosecond, value: -10))
+		XCTAssertNotNil(date.changing(.nanosecond, value: 123450040))
+		XCTAssertEqual(date.changing(.nanosecond, value: 123450040)?.nanosecond, 123450040)
+
 		XCTAssertNil(date.changing(.second, value: -10))
 		XCTAssertNil(date.changing(.second, value: 70))
 		XCTAssertNotNil(date.changing(.second, value: 20))
@@ -499,8 +598,14 @@ final class DateExtensionsTests: XCTestCase {
 		XCTAssertNotNil(date.changing(.month, value: 6))
 		XCTAssertEqual(date.changing(.month, value: 6)?.month, 6)
 		
+		XCTAssertNil(date.changing(.year, value: -2))
+		XCTAssertNil(date.changing(.year, value: 0))
 		XCTAssertNotNil(date.changing(.year, value: 2015))
 		XCTAssertEqual(date.changing(.year, value: 2015)?.year, 2015)
+		
+		let date1 = Date()
+		let date2 = date1.changing(.weekOfYear, value: 10)
+		XCTAssertEqual(date2, Calendar.current.date(bySetting: .weekOfYear, value: 10, of: date1))
 	}
 	
 	func testBeginning() {
@@ -709,23 +814,26 @@ final class DateExtensionsTests: XCTestCase {
 		let date1 = Date(timeIntervalSince1970: 60 * 60 * 24) // 1970-01-01T00:00:00.000Z
 		let date2 = date1.addingTimeInterval(60 * 60) // 1970-01-01T00:01:00.000Z, one hour later than date1
 		
-		//The regular
+		// The regular
 		XCTAssertFalse(date1.isWithin(1, .second, of: date2))
 		XCTAssertFalse(date1.isWithin(1, .minute, of: date2))
 		XCTAssert(date1.isWithin(1, .hour, of: date2))
 		XCTAssert(date1.isWithin(1, .day, of: date2))
 		
-		//The other way around
+		// The other way around
 		XCTAssertFalse(date2.isWithin(1, .second, of: date1))
 		XCTAssertFalse(date2.isWithin(1, .minute, of: date1))
 		XCTAssert(date2.isWithin(1, .hour, of: date1))
 		XCTAssert(date2.isWithin(1, .day, of: date1))
 		
-		//With itself
+		// With itself
 		XCTAssert(date1.isWithin(1, .second, of: date1))
 		XCTAssert(date1.isWithin(1, .minute, of: date1))
 		XCTAssert(date1.isWithin(1, .hour, of: date1))
 		XCTAssert(date1.isWithin(1, .day, of: date1))
+		
+		// Invalid
+		XCTAssertFalse(Date().isWithin(1, .calendar, of: Date()))
 	}
 	
 	func testNewDateFromComponenets() {
