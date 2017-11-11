@@ -313,7 +313,7 @@ public extension Date {
 	}
 	
 	/// SwifterSwift: Check if date is within a weekday period.
-	public var isInWeekday: Bool {
+	public var isWorkday: Bool {
 		return !Calendar.current.isDateInWeekend(self)
 	}
 	
