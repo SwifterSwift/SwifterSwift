@@ -95,7 +95,7 @@ public extension Character {
 	///		Character("A").lowercased -> Character("a")
 	///
     public var lowercased: Character {
-        return String(self).lowercased().characters.first!
+        return String(self).lowercased().first!
     }
     
     /// SwifterSwift: Return the character uppercased.
@@ -103,7 +103,7 @@ public extension Character {
 	///		Character("a").uppercased -> Character("A")
 	///
     public var uppercased: Character {
-        return String(self).uppercased().characters.first!
+        return String(self).uppercased().first!
     }
     
 }

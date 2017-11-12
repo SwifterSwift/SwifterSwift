@@ -70,11 +70,7 @@ final class StringExtensionsTests: XCTestCase {
 		XCTAssertNotNil("Hello".firstCharacterAsString)
 		XCTAssertEqual("Hello".firstCharacterAsString, "H")
 	}
-	
-	func testFirstIndex() {
-		XCTAssertEqual("Hello Test".firstIndex(of: "e"), 1)
-	}
-	
+
 	func testHasLetters() {
 		XCTAssert("hsj 1 wq3".hasLetters)
 		XCTAssertFalse("123".hasLetters)
@@ -165,10 +161,6 @@ final class StringExtensionsTests: XCTestCase {
 		XCTAssertEqual("Hëllô Teśt".latinized, "Hello Test")
 	}
 	
-	func testLength() {
-		XCTAssertEqual("Hello world!".length, 12)
-	}
-	
 	func testLines() {
 		XCTAssertEqual("Hello\ntest".lines(), ["Hello", "test"])
 	}
@@ -176,15 +168,15 @@ final class StringExtensionsTests: XCTestCase {
 	func testMostCommonCharacter() {
 		let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character".mostCommonCharacter
 		XCTAssertEqual(mostCommonCharacter(), "e")
-		XCTAssertEqual("".mostCommonCharacter(), "")
+		XCTAssertNil("".mostCommonCharacter())
 	}
 	
 	func testRandom() {
 		let str1 = String.random(ofLength: 10)
-		XCTAssertEqual(str1.length, 10)
+		XCTAssertEqual(str1.count, 10)
 		
 		let str2 = String.random(ofLength: 10)
-		XCTAssertEqual(str2.length, 10)
+		XCTAssertEqual(str2.count, 10)
 		
 		XCTAssertNotEqual(str1, str2)
 		
@@ -197,19 +189,11 @@ final class StringExtensionsTests: XCTestCase {
 		XCTAssertEqual(str, "olleH")
 	}
 	
-	func testReversed() {
-		XCTAssertEqual("Hello".reversed(), "olleH")
-	}
-	
 	func testSlice() {
 		XCTAssertEqual("12345678".slicing(from: 2, length: 3), "345")
-		XCTAssertNil("12345678".slicing(at: 50))
 		XCTAssertEqual("12345678".slicing(from: 2, length: 0), "")
 		XCTAssertNil("12345678".slicing(from: 12, length: 0))
 		XCTAssertEqual("12345678".slicing(from: 2, length: 100), "345678")
-		XCTAssertEqual("12345678".slicing(from: 2, to: 5), "345")
-		XCTAssertNil("12345678".slicing(from: 2, to: 1))
-		XCTAssertEqual("12345678".slicing(at: 2), "345678")
 		
 		var str = "12345678"
 		str.slice(from: 2, length: 3)
@@ -239,10 +223,6 @@ final class StringExtensionsTests: XCTestCase {
 		str = "12345678"
 		str.slice(at: 2)
 		XCTAssertEqual(str, "345678")
-	}
-	
-	func testSplit() {
-		XCTAssertEqual("Hello Tests".splitted(by: " "), ["Hello", "Tests"])
 	}
 	
 	func testStart() {
@@ -442,10 +422,10 @@ final class StringExtensionsTests: XCTestCase {
 	
 	func testInitRandomOfLength() {
 		let str1 = String(randomOfLength: 10)
-		XCTAssertEqual(str1.length, 10)
+		XCTAssertEqual(str1.count, 10)
 		
 		let str2 = String(randomOfLength: 10)
-		XCTAssertEqual(str2.length, 10)
+		XCTAssertEqual(str2.count, 10)
 		
 		XCTAssertNotEqual(str1, str2)
 		

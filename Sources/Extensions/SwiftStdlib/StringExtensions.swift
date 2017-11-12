@@ -39,7 +39,7 @@ public extension String {
 	/// SwifterSwift: Array of characters of a string.
 	///
 	public var charactersArray: [Character] {
-		return Array(characters)
+		return Array(self)
 	}
 	
 	/// SwifterSwift: CamelCase of string.
@@ -49,13 +49,13 @@ public extension String {
 	public var camelCased: String {
 		let source = lowercased()
 		let first = source[..<source.index(after: source.startIndex)]
-		if source.characters.contains(" ") {
+		if source.contains(" ") {
 			let connected = source.capitalized.replacingOccurrences(of: " ", with: "")
 			let camel = connected.replacingOccurrences(of: "\n", with: "")
-			let rest = String(camel.characters.dropFirst())
+			let rest = String(camel.dropFirst())
 			return first + rest
 		}
-		let rest = String(source.characters.dropFirst())
+		let rest = String(source.dropFirst())
 		return first + rest
 	}
 	
@@ -86,7 +86,7 @@ public extension String {
 	///		"".firstCharacterAsString -> nil
 	///
 	public var firstCharacterAsString: String? {
-		guard let first = characters.first else {
+		guard let first = self.first else {
 			return nil
 		}
 		return String(first)
@@ -131,7 +131,7 @@ public extension String {
 		let hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
 		let hasNumbers = rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
 		let comps = components(separatedBy: .alphanumerics)
-		return comps.joined(separator: "").characters.count == 0 && hasLetters && hasNumbers
+		return comps.joined(separator: "").count == 0 && hasLetters && hasNumbers
 	}
 	
 	/// SwifterSwift: Check if string is valid email format.
@@ -210,7 +210,7 @@ public extension String {
 	///		"".lastCharacterAsString -> nil
 	///
 	public var lastCharacterAsString: String? {
-		guard let last = characters.last else {
+		guard let last = self.last else {
 			return nil
 		}
 		return String(last)
@@ -222,14 +222,6 @@ public extension String {
 	///
 	public var latinized: String {
 		return folding(options: .diacriticInsensitive, locale: Locale.current)
-	}
-	
-	/// SwifterSwift: Number of characters in string.
-	///
-	///		"Hello world!".length -> 12
-	///
-	public var length: Int {
-		return characters.count
 	}
 	
 	/// SwifterSwift: Bool value from string (if applicable).
@@ -385,23 +377,13 @@ public extension String {
 	///		"This is a test, since e is appearing everywhere e should be the common character".mostCommonCharacter() -> "e"
 	///
 	/// - Returns: The most common character.
-	public func mostCommonCharacter() -> String {
-        let mostCommon = withoutSpacesAndNewLines.characters.reduce(into: [Character: Int]()) {
+	public func mostCommonCharacter() -> Character? {
+        let mostCommon = withoutSpacesAndNewLines.reduce(into: [Character: Int]()) {
             let count = $0[$1] ?? 0
             $0[$1] = count + 1
         }.max { $0.1 < $1.1 }?.0
         
-        guard let character = mostCommon else { return "" }
-        return String(character)
-	}
-	
-	/// SwifterSwift: Reversed string.
-	///
-	///		"foo".reversed() -> "oof"
-	///
-	/// - Returns: The reversed string.
-	public func reversed() -> String {
-		return String(characters.reversed())
+        return mostCommon
 	}
 	
 	/// SwifterSwift: Array with unicodes for all characters in a string.
@@ -441,11 +423,11 @@ public extension String {
 	///		"Hello World!"[20] -> nil
 	///
 	/// - Parameter i: index.
-	public subscript(safe i: Int) -> String? {
-		guard i >= 0 && i < characters.count else {
+	public subscript(safe i: Int) -> Character? {
+		guard i >= 0 && i < count else {
 			return nil
 		}
-		return String(self[index(startIndex, offsetBy: i)])
+		return self[index(startIndex, offsetBy: i)]
 	}
 	
 	/// SwifterSwift: Safely subscript string within a half-open range.
@@ -508,9 +490,9 @@ public extension String {
 	/// SwifterSwift: Check if string contains only unique characters.
 	///
 	public func hasUniqueCharacters() -> Bool {
-		guard self.characters.count > 0 else { return false }
+		guard count > 0 else { return false }
 		var uniqueChars = Set<String>()
-		for char in self.characters {
+		for char in self {
 			if uniqueChars.contains(String(char)) {
 				return false
 			}
@@ -567,17 +549,6 @@ public extension String {
 		return hasSuffix(suffix)
 	}
 	
-	/// SwifterSwift: First index of substring in string.
-	///
-	///		"Hello World!".firstIndex(of: "l") -> 2
-	///		"Hello World!".firstIndex(of: "s") -> nil
-	///
-	/// - Parameter string: substring to search for.
-	/// - Returns: first index of substring in string (if applicable).
-	public func firstIndex(of string: String) -> Int? {
-		return Array(characters).map({String($0)}).index(of: string)
-	}
-	
 	/// SwifterSwift: Latinize string.
 	///
 	///		var str = "Hèllö Wórld!"
@@ -599,7 +570,7 @@ public extension String {
 		let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 		var randomString = ""
 		for _ in 1...length {
-			let randomIndex = arc4random_uniform(UInt32(base.characters.count))
+			let randomIndex = arc4random_uniform(UInt32(base.count))
 			let randomCharacter = base.charactersArray[Int(randomIndex)]
 			randomString.append(randomCharacter)
 		}
@@ -608,30 +579,31 @@ public extension String {
 	
 	/// SwifterSwift: Reverse string.
 	public mutating func reverse() {
-		self = String(characters.reversed())
+        let chars: [Character] = reversed()
+		self = String(chars)
 	}
-	
-	/// SwifterSwift: Sliced string from a start index with length.
-	///
-	///		"Hello World".slicing(from: 6, length: 5) -> "World"
-	///
-	/// - Parameters:
-	///   - i: string index the slicing should start from.
-	///   - length: amount of characters to be sliced after given index.
-	/// - Returns: sliced substring of length number of characters (if applicable) (example: "Hello World".slicing(from: 6, length: 5) -> "World")
-	public func slicing(from i: Int, length: Int) -> String? {
-		guard length >= 0, i >= 0, i < characters.count  else {
-			return nil
-		}
-		guard i.advanced(by: length) <= characters.count else {
-			return slicing(at: i)
-		}
-		guard length > 0 else {
-			return ""
-		}
-		return self[safe: i..<i.advanced(by: length)]
-	}
-	
+    
+    /// SwifterSwift: Sliced string from a start index with length.
+    ///
+    ///        "Hello World".slicing(from: 6, length: 5) -> "World"
+    ///
+    /// - Parameters:
+    ///   - i: string index the slicing should start from.
+    ///   - length: amount of characters to be sliced after given index.
+    /// - Returns: sliced substring of length number of characters (if applicable) (example: "Hello World".slicing(from: 6, length: 5) -> "World")
+    public func slicing(from i: Int, length: Int) -> String? {
+        guard length >= 0, i >= 0, i < count  else {
+            return nil
+        }
+        guard i.advanced(by: length) <= count else {
+            return self[safe: i..<count]
+        }
+        guard length > 0 else {
+            return ""
+        }
+        return self[safe: i..<i.advanced(by: length)]
+    }
+    
 	/// SwifterSwift: Slice given string from a start index with length (if applicable).
 	///
 	///		var str = "Hello World"
@@ -642,24 +614,10 @@ public extension String {
 	///   - i: string index the slicing should start from.
 	///   - length: amount of characters to be sliced after given index.
 	public mutating func slice(from i: Int, length: Int) {
-		if let str = slicing(from: i, length: length) {
-			self = str
+        
+        if let str = self.slicing(from: i, length: length) {
+			self = String(str)
 		}
-	}
-	
-	/// SwifterSwift: Sliced string from a start index to an end index.
-	///
-	///		"Hello World".slicing(from: 6, to: 11) -> "World"
-	///
-	/// - Parameters:
-	///   - start: string index the slicing should start from.
-	///   - end: string index the slicing should end at.
-	/// - Returns: sliced substring starting from start index, and ends at end index (if applicable) (example: "Hello World".slicing(from: 6, to: 11) -> "World")
-	public func slicing(from start: Int, to end: Int) -> String? {
-		guard end >= start else {
-			return nil
-		}
-		return self[safe: start..<end]
 	}
 	
 	/// SwifterSwift: Slice given string from a start index to an end index (if applicable).
@@ -672,22 +630,11 @@ public extension String {
 	///   - start: string index the slicing should start from.
 	///   - end: string index the slicing should end at.
 	public mutating func slice(from start: Int, to end: Int) {
-		if let str = slicing(from: start, to: end) {
+        guard end >= start else { return }
+        
+		if let str = self[safe: start..<end] {
 			self = str
 		}
-	}
-	
-	/// SwifterSwift: Sliced string from a start index.
-	///
-	///		"Hello World".slicing(at: 6) -> "World"
-	///
-	/// - Parameter i: string index the slicing should start from.
-	/// - Returns: sliced substring starting from start index (if applicable) (example: "Hello world".slicing(at: 6) -> "world")
-	public func slicing(at i: Int) -> String? {
-		guard i < characters.count else {
-			return nil
-		}
-		return self[safe: i..<characters.count]
 	}
 	
 	/// SwifterSwift: Slice given string from a start index (if applicable).
@@ -698,19 +645,11 @@ public extension String {
 	///
 	/// - Parameter i: string index the slicing should start from.
 	public mutating func slice(at i: Int) {
-		if let str = slicing(at: i) {
+        guard i < count else { return }
+        
+        if let str = self[safe: i..<count] {
 			self = str
 		}
-	}
-	
-	/// SwifterSwift: Array of strings separated by given string.
-	///
-	///		"hello World".splited(by: " ") -> ["hello", "World"]
-	///
-	/// - Parameter separator: separator to split string by.
-	/// - Returns: array of strings separated by given string.
-	public func splitted(by separator: Character) -> [String] {
-		return characters.split { $0 == separator }.map(String.init)
 	}
 	
 	/// SwifterSwift: Check if string starts with substring.
@@ -765,7 +704,7 @@ public extension String {
 		guard length > 0 else {
 			return
 		}
-		if characters.count > length {
+		if count > length {
 			self = self[startIndex..<index(startIndex, offsetBy: length)] + (trailing ?? "")
 		}
 	}
@@ -780,7 +719,7 @@ public extension String {
 	///   - trailing: string to add at the end of truncated string.
 	/// - Returns: truncated string (this is an extr...).
 	public func truncated(toLength length: Int, trailing: String? = "...") -> String {
-		guard 1..<characters.count ~= length else { return self }
+		guard 1..<count ~= length else { return self }
 		return self[startIndex..<index(startIndex, offsetBy: length)] + (trailing ?? "")
 	}
 	

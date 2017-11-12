@@ -93,7 +93,7 @@ public extension Color {
 	/// SwifterSwift: Short hexadecimal value string (read-only, if applicable).
 	public var shortHexString: String? {
 		let string = hexString.replacingOccurrences(of: "#", with: "")
-		let chrs = Array(string.characters)
+		let chrs = Array(string)
 		guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5] else { return nil }
 		return "#\(chrs[0])\(chrs[2])\(chrs[4])"
 	}
@@ -107,7 +107,7 @@ public extension Color {
         }()
         let hexString = String(format: "#%02X%02X%02X", components[0], components[1], components[2])
         let string = hexString.replacingOccurrences(of: "#", with: "")
-        let chrs = Array(string.characters)
+        let chrs = Array(string)
         guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5] else { return hexString }
         return "#\(chrs[0])\(chrs[2])\(chrs[4])"
 	}
@@ -271,9 +271,9 @@ public extension Color {
 			string = hexString
 		}
 		
-		if string.characters.count == 3 { // convert hex to 6 digit format if in short format
+		if string.count == 3 { // convert hex to 6 digit format if in short format
 			var str = ""
-			string.characters.forEach { str.append(String(repeating: String($0), count: 2)) }
+			string.forEach { str.append(String(repeating: String($0), count: 2)) }
 			string = str
 		}
 		
