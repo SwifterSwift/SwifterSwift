@@ -10,11 +10,18 @@ All notable changes to this project will be documented in this file.
 ### API Breaking
  - **String** 
     - `length` is deprecated, use native `count` instead.
+
     - `slicing(i:)` is deprecated, use `string[safe: i]` instead.
+
     - `slicing(from: to:)` is deprecated, use `string[safe: start..<end]`
+
     - `firstIndex(of:)` is deprecated, use the natives `index(of: Character)` or `range(of: StringProtocol)` instead.
+
     - `splitted(by:)` is deprecated,  use the native `split(separator: )` instead.
+
     - `reversed() -> String` is deprecated, use the Swift 4 new `reversed() -> ReversedCollection<String>` 
+
+      [#305](https://github.com/SwifterSwift/SwifterSwift/pull/305) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 ### Enhancements
  - New **String** extensions
