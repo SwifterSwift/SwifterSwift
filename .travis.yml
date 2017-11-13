@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9
+osx_image: xcode9.1
 
 env:
   global:
@@ -9,7 +9,7 @@ env:
     - WATCHOS_SCHEME='SwifterSwift-watchOS'
     - MACOS_SCHEME='SwifterSwift-macOS'
     - IOS_DESTINATION='platform=iOS Simulator,name=iPhone 6S'
-    - TVOS_DESTINATION='platform=tvOS Simulator,name=Apple TV 1080p'
+    - TVOS_DESTINATION='platform=tvOS Simulator,name=Apple TV 4K (at 1080p)'
     - WATCHOS_DESTINATION='name=Apple Watch - 42mm'
     - MACOS_DESTINATION='platform=OS X'
 
