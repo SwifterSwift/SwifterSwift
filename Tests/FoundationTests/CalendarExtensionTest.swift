@@ -11,7 +11,7 @@ import XCTest
 
 class CalendarExtensionTests: XCTestCase {
     
-    func testNumberOfDaysInAMonth() {
+    func testNumberOfDaysInMonth() {
         let calendar = Calendar(identifier: .gregorian)
         let longMonths = [1, 3, 5, 7, 8, 10, 12]
         let shortMonths = [4, 6, 9, 11]
@@ -28,5 +28,34 @@ class CalendarExtensionTests: XCTestCase {
         XCTAssert(calendar.numberOfDaysInMonth(for: febDate) == 28)
         XCTAssert(calendar.numberOfDaysInMonth(for: leapYearDate) == 29)
     }
-	
+    
+    func testNumberOfMonthsInYear() {
+        let gregorian = Calendar(identifier: .gregorian)
+        let hebrew = Calendar(identifier: .hebrew)
+        let ethiopic = Calendar(identifier: .ethiopicAmeteMihret)
+        let today = Date()
+        
+        XCTAssert(gregorian.numberOfMonthsInYear(for: today) == 12)
+        XCTAssert(hebrew.numberOfMonthsInYear(for: today) == 13)
+        XCTAssert(ethiopic.numberOfMonthsInYear(for: today) == 13)
+    }
+    
+    func testNumberOfDaysInYear() {
+        let gregorian = Calendar(identifier: .gregorian)
+        let gregorianLeapYearComps = DateComponents(year:2016, month: 2)
+        let gregorianLeapYear = gregorian.date(from: gregorianLeapYearComps)!
+        let gregorianNonLeapYearComps = DateComponents(year:2015, month: 2)
+        let gregorianNonLeapYear = gregorian.date(from: gregorianNonLeapYearComps)!
+        
+        XCTAssert(gregorian.numberOfDaysInYear(for: gregorianLeapYear) == 366)
+        XCTAssert(gregorian.numberOfDaysInYear(for: gregorianNonLeapYear) == 365)
+        
+        let chinese = Calendar(identifier: .chinese)
+        let chineseLeapYearComps = DateComponents(year: 2000, month: 2)
+        let chineseLeapYear = chinese.date(from: chineseLeapYearComps)!
+        let chineseNonLeapYearComps = DateComponents(year: 1999, month: 2)
+        let chineseNonLeapYear = chinese.date(from: chineseNonLeapYearComps)!
+        XCTAssert(chinese.numberOfDaysInYear(for: chineseLeapYear) == 384)
+        XCTAssert(chinese.numberOfDaysInYear(for: chineseNonLeapYear) == 354)
+    }
 }
