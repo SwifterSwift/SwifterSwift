@@ -32,6 +32,10 @@ All notable changes to this project will be documented in this file.
    -    Add `scaled(toMaxSize:)` to scale image to maximum size with respect to aspect ratio [#291](https://github.com/SwifterSwift/SwifterSwift/pull/291) by [buddax2](https://github.com/buddax2).
  - **Optional**
    - Add optional assignment operator `??=` [#296](https://github.com/SwifterSwift/SwifterSwift/pull/296) by [buddax2](https://github.com/buddax2).
+ - **Calendar**
+   - Add `numberOfDaysInMonth` [#311](https://github.com/SwifterSwift/SwifterSwift/pull/311) by [chaithanyaprathyush](https://github.com/chaithanyaprathyush).
+   - Add `numberOfMonthsInYear` [#315](https://github.com/SwifterSwift/SwifterSwift/pull/315) by [kaphacius](https://github.com/kaphacius).
+   - Add `numberOfDaysInYear` [#315](https://github.com/SwifterSwift/SwifterSwift/pull/315) by [kaphacius](https://github.com/kaphacius).
 
 > ### Bugfixes
 > N/A
