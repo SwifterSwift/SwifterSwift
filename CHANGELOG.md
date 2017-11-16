@@ -7,34 +7,69 @@ All notable changes to this project will be documented in this file.
 
 > # Next Release
 >
-### API Breaking
- - **String** 
-    - `length` is deprecated, use native `count` instead.
-
-    - `slicing(i:)` is deprecated, use `string[safe: i]` instead.
-
-    - `slicing(from: to:)` is deprecated, use `string[safe: start..<end]`
-
-    - `firstIndex(of:)` is deprecated, use the natives `index(of: Character)` or `range(of: StringProtocol)` instead.
-
-    - `splitted(by:)` is deprecated,  use the native `split(separator: )` instead.
-
-    - `reversed() -> String` is deprecated, use the Swift 4 new `reversed() -> ReversedCollection<String>` 
-
-      [#305](https://github.com/SwifterSwift/SwifterSwift/pull/305) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-
-### Enhancements
- - New **String** extensions
-    - Add `padStart(lenght:with:)` and `padEnd(lenght:with:)` to pad the string to a lenght on the start or end.
-    - Add `paddingStart(lenght:with:)` and `paddingEnd(lenght:with:)` to return a padding string to a lenght on the start or end. 
-      [#300](https://github.com/SwifterSwift/SwifterSwift/pull/300) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
- - New **NSImage** extensions
-   -    Add `scaled(toMaxSize:)` to scale image to maximum size with respect to aspect ratio [#291](https://github.com/SwifterSwift/SwifterSwift/pull/291) by [buddax2](https://github.com/buddax2).
- - **Optional**
-   - Add optional assignment operator `??=` [#296](https://github.com/SwifterSwift/SwifterSwift/pull/296) by [buddax2](https://github.com/buddax2).
-
+> ### API Breaking
+> N/A
+>
+> ### Enhancements
+> N/A
+>
 > ### Bugfixes
 > N/A
+
+
+# 4.1.0
+
+### API Breaking
+- **String**
+  - `length` is deprecated, use native `count` instead.
+  - `slicing(i:)` is deprecated, use `string[safe: i]` instead.
+  - `slicing(from: to:)` is deprecated, use `string[safe: start..<end]`.
+  - `firstIndex(of:)` is deprecated, use the natives `index(of: Character)` or `range(of: StringProtocol)` instead.
+  - `splitted(by:)` is deprecated,  use the native `split(separator: )` instead.
+  - `reversed() -> String` is deprecated, use the Swift 4 new `reversed() -> ReversedCollection<String>`. [#305](https://github.com/SwifterSwift/SwifterSwift/pull/305) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **Date**
+  - `weekday` is now a _get-only_ property.
+  - `isInThisWeek` has been renamed to `isInCurrentWeek`.
+  - `isInThisMonth` has been renamed to `isInCurrentMonth`.
+  - `isInThisYear` has been renamed to `isInCurrentYear`.
+  - `isInWeekday` has been renamed to `isWorkday`. [#313](https://github.com/SwifterSwift/SwifterSwift/pull/313) by [kaphacius](https://github.com/kaphacius).
+
+### Enhancements
+- New **String** extensions
+  - added `padStart(length: with:)` and `padEnd(length: with:)` to pad the string to a length on the start or end.
+  - added `paddingStart(length: with:)` and `paddingEnd(length: with:)` to return a padding string to a length on the start or end. [#300](https://github.com/SwifterSwift/SwifterSwift/pull/300) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+- New **NSImage** extensions
+  - added `scaled(toMaxSize:)` to scale image to maximum size with respect to aspect ratio [#291](https://github.com/SwifterSwift/SwifterSwift/pull/291) by [buddax2](https://github.com/buddax2).
+- New **Date** extensions
+  - added `isWithin(_ value: , _ component: , of date:)` method to check if date is within a number of date components of another date. [295](https://github.com/SwifterSwift/SwifterSwift/pull/295) by [kaphacius](https://github.com/kaphacius).
+- New **Optional** extensions
+  - added optional assignment operator `??=` [#296](https://github.com/SwifterSwift/SwifterSwift/pull/296) by [buddax2](https://github.com/buddax2).
+- New **Calendar** extensions
+  - added `numberOfDaysInMonth` to get number of days in the month for a specified date. [#311](https://github.com/SwifterSwift/SwifterSwift/pull/311) by [chaithanyaprathyush](https://github.com/chaithanyaprathyush).
+- New **Color** tests
+  - added tests for `cgFloatComponents`. [#297](https://github.com/SwifterSwift/SwifterSwift/pull/297) by [stupergenius](https://github.com/stupergenius).
+- New **CGColor** tests
+  - added tests for `uiColor` and `nsColor`. [#281](https://github.com/SwifterSwift/SwifterSwift/pull/281) by [c1phr](https://github.com/c1phr)
+- New **Date** tests
+  - added new tests for `isBetween` method. [#289](https://github.com/SwifterSwift/SwifterSwift/pull/289) by [kaphacius](https://github.com/kaphacius).
+- Updated Travis image to Xcode 9.1. [#314](https://github.com/SwifterSwift/SwifterSwift/pull/314) by [kaphacius](https://github.com/kaphacius)
+- Removed cross references from extensions. [#297](https://github.com/SwifterSwift/SwifterSwift/pull/297) by [stupergenius](https://github.com/stupergenius).
+- Updated copyright headers to _Copyright © 2017 SwifterSwift_ everywhere. [#308](https://github.com/SwifterSwift/SwifterSwift/pull/308) by [camdeardorff](https://github.com/camdeardorff).
+
+### Bugfixes
+- **Date**
+  - complete rewrite for most extensions. [#309](https://github.com/SwifterSwift/SwifterSwift/pull/309) by [omaralbeik](https:github.com/omaralbeik)
+  - fixed a bug in `year` where setting year was resetting all smaller components to zero.
+  - fixed a bug in `month` where setting month was resetting all smaller components to zero.
+  - fixed a bug in `day` where setting day was resetting all smaller components to zero.
+  - fixed a bug in `hour` where setting hour was resetting all smaller components to zero.
+  - fixed a bug in `minute` where setting minute was resetting all smaller components to zero.
+  - fixed a bug in `second` where setting second was resetting all smaller components to zero.
+  - added validation to setters for properties above.
+  - fixed the above bugs in `changing` method as well.
+  - fixed a bug where `quarter` was returning 1 always.
+  - Added more tests to edge cases.
+
 
 # v4.0.1
 
