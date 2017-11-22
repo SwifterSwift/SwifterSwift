@@ -62,7 +62,7 @@ extension NSImage {
 		guard let data = tiffRepresentation else { return }
 		guard let imageRep = NSBitmapImageRep(data: data) else { return }
 		
-		guard let imageData = imageRep.representation(using: type, properties: [.compressionFactor : compressionFactor]) else { return }
+		guard let imageData = imageRep.representation(using: type, properties: [.compressionFactor: compressionFactor]) else { return }
 		try? imageData.write(to: url)
 	}
 }
