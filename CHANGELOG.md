@@ -17,6 +17,20 @@ All notable changes to this project will be documented in this file.
 > N/A
 
 
+# Next Release
+
+### API Breaking
+N/A
+
+### Enhancements
+- New **NSImage** extensions:
+  - added `write(to url: URL, fileType type: _, compressionFactor: _)` to write NSImage to url. [#320](https://github.com/SwifterSwift/SwifterSwift/pulls/320) by [omaralbeik](https://github.com/omaralbeik).
+
+### Bugfixes
+N/A
+
+
+
 # 4.1.0
 
 ### API Breaking
