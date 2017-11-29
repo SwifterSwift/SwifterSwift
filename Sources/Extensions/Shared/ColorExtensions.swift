@@ -220,11 +220,11 @@ public extension Color {
     /// SwifterSwift: Lighten a color
     ///
     ///     let color = Color(red: r, green: g, blue: b, alpha: a)
-    ///     let lighterColor: Color = color.lighter(by: 20)
+    ///     let lighterColor: Color = color.lighten(by: 0.2)
     ///
     /// - Parameter percentage: Percentage by which to lighten the color
     /// - Returns: A lightened color
-    public func lighter(by percentage: CGFloat = 20.0) -> Color {
+    public func lighten(by percentage: CGFloat = 0.2) -> Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
         return self.adjust(by: abs(percentage) )
     }
@@ -232,11 +232,11 @@ public extension Color {
     /// SwifterSwift: Darken a color
     ///
     ///     let color = Color(red: r, green: g, blue: b, alpha: a)
-    ///     let darkerColor: Color = color.darker(by: 20)
+    ///     let darkerColor: Color = color.darken(by: 0.2)
     ///
     /// - Parameter percentage: Percentage by which to darken the color
     /// - Returns: A darkened color
-    public func darker(by percentage: CGFloat = 20.0) -> Color {
+    public func darken(by percentage: CGFloat = 0.2) -> Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
         return self.adjust(by: -1 * abs(percentage) )
     }
@@ -244,8 +244,8 @@ public extension Color {
     /// SwifterSwift: Adjust the hue of a color
     ///
     ///     let color = Color(red: r, green: g, blue: b, alpha: a)
-    ///     let lighterColor: Color = color.adjust(by: 20)
-    ///     let darkerColor: Color = color.adjust(by: -20)
+    ///     let lighterColor: Color = color.adjust(by: 0.2)
+    ///     let darkerColor: Color = color.adjust(by: -0.2)
     ///
     /// - Parameter percentage: Percentage to adjust the hue of the color
     /// - Returns: A new Color that has been adjusted in hue by the given percentage
@@ -253,9 +253,9 @@ public extension Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0;
         if(self.getRed(&r, green: &g, blue: &b, alpha: &a)) {
-            return Color(red: max(min(r + percentage/100, 1.0), 0),
-                           green: max(min(g + percentage/100, 1.0), 0),
-                           blue: max(min(b + percentage/100, 1.0), 0),
+            return Color(red: max(min(r + percentage, 1.0), 0),
+                           green: max(min(g + percentage, 1.0), 0),
+                           blue: max(min(b + percentage, 1.0), 0),
                            alpha: a)
         } else {
             return self
