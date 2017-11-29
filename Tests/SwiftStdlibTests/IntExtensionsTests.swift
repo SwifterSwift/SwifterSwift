@@ -97,6 +97,28 @@ final class IntExtensionsTests: XCTestCase {
 		XCTAssertLessThan(Int(randomInRange: 1...5), 6)
 	}
 	
+	func testIsPrime() {
+		// Prime number
+		XCTAssertTrue(2.isPrime())
+		XCTAssertTrue(3.isPrime())
+		XCTAssertTrue(7.isPrime())
+		XCTAssertTrue(19.isPrime())
+		XCTAssertTrue(577.isPrime())
+		XCTAssertTrue(1999.isPrime())
+
+		// Composite number
+		XCTAssertFalse(4.isPrime())
+		XCTAssertFalse(21.isPrime())
+		XCTAssertFalse(81.isPrime())
+		XCTAssertFalse(121.isPrime())
+		XCTAssertFalse(9409.isPrime())
+
+		// Others
+		XCTAssertFalse((-1).isPrime())
+		XCTAssertFalse(0.isPrime())
+		XCTAssertFalse(1.isPrime())
+	}
+	
 	func testRomanNumeral() {
 		XCTAssertEqual(10.romanNumeral(), "X")
 		XCTAssertNil((-1).romanNumeral())
