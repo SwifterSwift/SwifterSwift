@@ -271,6 +271,34 @@ final class ColorExtensionsTests: XCTestCase {
 		blendColor = Color.blend(color1, intensity1: 1.0, with: color2, intensity2: 0.0)
 		XCTAssertEqual(blendColor, color1)
 	}
+    
+    func testLighter() {
+        let color = Color.blue
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0
+        color.getRed(&r, green: &g, blue: &b, alpha: nil)
+        
+        let lighterColor = color.lighter(by: 30)
+        var lightR: CGFloat = 0, lightG: CGFloat = 0, lightB: CGFloat = 0
+        lighterColor.getRed(&lightR, green: &lightG, blue: &lightB, alpha: nil)
+        
+        XCTAssertEqual(lightR, min(r + 0.3, 1.0))
+        XCTAssertEqual(lightG, min(g + 0.3, 1.0))
+        XCTAssertEqual(lightB, min(b + 0.3, 1.0))
+    }
+    
+    func testDarker() {
+        let color = Color.blue
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0
+        color.getRed(&r, green: &g, blue: &b, alpha: nil)
+        
+        let darkerColor = color.darker(by: 30)
+        var darkR: CGFloat = 0, darkG: CGFloat = 0, darkB: CGFloat = 0
+        darkerColor.getRed(&darkR, green: &darkG, blue: &darkB, alpha: nil)
+        
+        XCTAssertEqual(darkR, max(r - 0.3, 0))
+        XCTAssertEqual(darkG, max(g - 0.3, 0))
+        XCTAssertEqual(darkB, max(b - 0.3, 0))
+    }
 	
 	// MARK: - Test initializers
 	func testInit() {

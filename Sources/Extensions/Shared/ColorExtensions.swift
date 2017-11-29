@@ -214,8 +214,53 @@ public extension Color {
 		let a = level1*a1 + level2*a2
 		
 		return Color(red: r, green: g, blue: b, alpha: a)
+        
 	}
-	
+    
+    /// SwifterSwift: Lighten a color
+    ///
+    ///     let color = Color(red: r, green: g, blue: b, alpha: a)
+    ///     let lighterColor: Color = color.lighter(by: 20)
+    ///
+    /// - Parameter percentage: Percentage by which to lighten the color
+    /// - Returns: A lightened color
+    public func lighter(by percentage: CGFloat = 20.0) -> Color {
+        // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
+        return self.adjust(by: abs(percentage) )
+    }
+    
+    /// SwifterSwift: Darken a color
+    ///
+    ///     let color = Color(red: r, green: g, blue: b, alpha: a)
+    ///     let darkerColor: Color = color.darker(by: 20)
+    ///
+    /// - Parameter percentage: Percentage by which to darken the color
+    /// - Returns: A darkened color
+    public func darker(by percentage: CGFloat = 20.0) -> Color {
+        // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
+        return self.adjust(by: -1 * abs(percentage) )
+    }
+    
+    /// SwifterSwift: Adjust the hue of a color
+    ///
+    ///     let color = Color(red: r, green: g, blue: b, alpha: a)
+    ///     let lighterColor: Color = color.adjust(by: 20)
+    ///     let darkerColor: Color = color.adjust(by: -20)
+    ///
+    /// - Parameter percentage: Percentage to adjust the hue of the color
+    /// - Returns: A new Color that has been adjusted in hue by the given percentage
+    public func adjust(by percentage: CGFloat) -> Color {
+        // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0;
+        if(self.getRed(&r, green: &g, blue: &b, alpha: &a)) {
+            return Color(red: max(min(r + percentage/100, 1.0), 0),
+                           green: max(min(g + percentage/100, 1.0), 0),
+                           blue: max(min(b + percentage/100, 1.0), 0),
+                           alpha: a)
+        } else {
+            return self
+        }
+    }
 }
 
 // MARK: - Initializers
