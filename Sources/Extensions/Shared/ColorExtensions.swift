@@ -251,7 +251,7 @@ public extension Color {
     /// - Returns: A new Color that has been adjusted in hue by the given percentage
     public func adjust(by percentage: CGFloat) -> Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
-        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0;
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
         return Color(red: max(min(r + percentage, 1.0), 0),
                        green: max(min(g + percentage, 1.0), 0),
