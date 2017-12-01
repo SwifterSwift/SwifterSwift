@@ -250,24 +250,6 @@ public extension Color {
                      blue: max(b - percentage, 0),
                      alpha: a)
     }
-    
-    /// SwifterSwift: Adjust the hue of a color
-    ///
-    ///     let color = Color(red: r, green: g, blue: b, alpha: a)
-    ///     let lighterColor: Color = color.adjust(by: 0.2)
-    ///     let darkerColor: Color = color.adjust(by: -0.2)
-    ///
-    /// - Parameter percentage: Percentage to adjust the hue of the color
-    /// - Returns: A new Color that has been adjusted in hue by the given percentage
-    public func adjust(by percentage: CGFloat) -> Color {
-        // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
-        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
-        self.getRed(&r, green: &g, blue: &b, alpha: &a)
-        return Color(red: max(min(r + percentage, 1.0), 0),
-                       green: max(min(g + percentage, 1.0), 0),
-                       blue: max(min(b + percentage, 1.0), 0),
-                       alpha: a)
-    }
 }
 
 // MARK: - Initializers
