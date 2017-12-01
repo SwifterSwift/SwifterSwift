@@ -226,7 +226,12 @@ public extension Color {
     /// - Returns: A lightened color
     public func lighten(by percentage: CGFloat = 0.2) -> Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
-        return self.adjust(by: abs(percentage) )
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        return Color(red: min(r + percentage, 1.0),
+                     green: min(g + percentage, 1.0),
+                     blue: min(b + percentage, 1.0),
+                     alpha: a)
     }
     
     /// SwifterSwift: Darken a color
@@ -238,7 +243,12 @@ public extension Color {
     /// - Returns: A darkened color
     public func darken(by percentage: CGFloat = 0.2) -> Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
-        return self.adjust(by: -1 * abs(percentage) )
+        var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
+        self.getRed(&r, green: &g, blue: &b, alpha: &a)
+        return Color(red: max(r - percentage, 0),
+                     green: max(g - percentage, 0),
+                     blue: max(b - percentage, 0),
+                     alpha: a)
     }
     
     /// SwifterSwift: Adjust the hue of a color
