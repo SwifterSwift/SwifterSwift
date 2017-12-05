@@ -676,6 +676,20 @@ public extension Date {
 	public func isInCurrent(_ component: Calendar.Component) -> Bool {
 		return Calendar.current.isDate(self, equalTo: Date(), toGranularity: component)
 	}
+    
+    /// SwifterSwift: Date string from date.
+    ///
+    ///      Date().dateString(withFormat: "dd/MM/yyyy") -> "1/12/17"
+    ///     Date().dateString(withFormat: "HH:mm") -> "23:50"
+    ///     Date().dateString(withFormat: "dd/MM/yyyy HH:mm") -> "1/12/17 23:50"
+    ///
+    /// - Parameter format: Date format (default is "dd/MM/yyyy").
+    /// - Returns: date string.
+    public func dateString(withFormat format: String = "dd/MM/yyyy") -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: self)
+    }
 	
 	/// SwifterSwift: Date string from date.
 	///
