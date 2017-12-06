@@ -11,7 +11,7 @@ import XCTest
 
 final class DictionaryExtensionsTests: XCTestCase {
 	
-	var testDict: [String : Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
+	var testDict: [String: Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
     
 	func testHasKey() {
 		XCTAssert(testDict.has(key: "testKey"))
@@ -19,7 +19,7 @@ final class DictionaryExtensionsTests: XCTestCase {
 	}
 	
     func testRemoveAll() {
-        var dict: [String : String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
+        var dict: [String: String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
 		dict.removeAll(keys: ["key1", "key2"])
         XCTAssertTrue(dict.keys.contains("key3"))
         XCTAssertFalse(dict.keys.contains("key1"))
