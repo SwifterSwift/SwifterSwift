@@ -17,7 +17,7 @@ final class UIFontExtension: XCTestCase {
 		let monoFont = font.monospaced
 	
 		let attributes = monoFont.fontDescriptor.fontAttributes
-		guard let settings = attributes[UIFontDescriptor.AttributeName.featureSettings] as? [[UIFontDescriptor.AttributeName :Int]] else {
+		guard let settings = attributes[UIFontDescriptor.AttributeName.featureSettings] as? [[UIFontDescriptor.AttributeName: Int]] else {
 			XCTFail("Unable to get settings from font")
 			return
 		}

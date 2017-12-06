@@ -145,7 +145,7 @@ public extension UIButton {
 	///
 	/// - Parameter image: UIImage.
 	public func setImageForAllStates(_ image: UIImage) {
-		states.forEach { self.setImage(image, for:  $0) }
+		states.forEach { self.setImage(image, for: $0) }
 	}
 	
 	/// SwifterSwift: Set title color for all states.
