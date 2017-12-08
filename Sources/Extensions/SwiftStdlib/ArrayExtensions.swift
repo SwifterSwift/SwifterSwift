@@ -404,34 +404,34 @@ public extension Array {
 	public mutating func rotate(by places: Int) {
 		self = rotated(by: places)
 	}
+    
+    /// SwifterSwift: Shuffle array. (Using Fisher-Yates Algorithm)
+    ///
+    ///        [1, 2, 3, 4, 5].shuffle() // shuffles array
+    ///
+    public mutating func shuffle() {
+        //http://stackoverflow.com/questions/37843647/shuffle-array-swift-3
+        guard count > 1 else { return }
+        for index in startIndex..<endIndex - 1 {
+            let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
+            if index != randomIndex { swapAt(index, randomIndex) }
+        }
+    }
+    
+    /// SwifterSwift: Shuffled version of array. (Using Fisher-Yates Algorithm)
+    ///
+    ///        [1, 2, 3, 4, 5].shuffled // return a shuffled version from given array e.g. [2, 4, 1, 3, 5].
+    ///
+    /// - Returns: the array with its elements shuffled.
+    public func shuffled() -> [Element] {
+        var array = self
+        array.shuffle()
+        return array
+    }
 }
 
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
-	
-	/// SwifterSwift: Shuffle array. (Using Fisher-Yates Algorithm)
-	///
-	///		[1, 2, 3, 4, 5].shuffle() // shuffles array
-	///
-	public mutating func shuffle() {
-		//http://stackoverflow.com/questions/37843647/shuffle-array-swift-3
-		guard count > 1 else { return }
-		for index in startIndex..<endIndex - 1 {
-			let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
-			if index != randomIndex { swapAt(index, randomIndex) }
-		}
-	}
-	
-	/// SwifterSwift: Shuffled version of array. (Using Fisher-Yates Algorithm)
-	///
-	///		[1, 2, 3, 4, 5].shuffled // return a shuffled version from given array e.g. [2, 4, 1, 3, 5].
-	///
-	/// - Returns: the array with its elements shuffled.
-	public func shuffled() -> [Element] {
-		var array = self
-		array.shuffle()
-		return array
-	}
 	
 	/// SwifterSwift: Check if array contains an array of elements.
 	///
