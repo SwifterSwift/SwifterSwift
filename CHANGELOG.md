@@ -23,6 +23,8 @@ All notable changes to this project will be documented in this file.
 N/A
 
 ### Enhancements
+- New **String** extensions:
+  - added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
 - New **UIDatePicker** extensions:
   - added `textColor` to get and set the text color of a UIDatePicker. [#328](https://github.com/SwifterSwift/SwifterSwift/issues/328) by [omaralbeik](https://github.com/omaralbeik).
 - New **NSImage** extensions:

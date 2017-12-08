@@ -272,6 +272,23 @@ public extension String {
 		return Int(self)
 	}
 	
+	/// SwifterSwift: Lorem ipsum string of given length.
+	///
+	/// - Parameter length: number of characters to limit lorem ipsum to (default is 445 - full lorem ipsum).
+	/// - Returns: Lorem ipsum dolor sit amet... string.
+	public static func loremIpsum(ofLength length: Int = 445) -> String {
+		guard length > 0 else { return "" }
+		
+		// https://www.lipsum.com/
+		let loremIpsum = """
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		"""
+		if loremIpsum.count > length {
+			return String(loremIpsum[loremIpsum.startIndex..<loremIpsum.index(loremIpsum.startIndex, offsetBy: length)])
+		}
+		return loremIpsum
+	}
+	
 	/// SwifterSwift: URL from string (if applicable).
 	///
 	///		"https://google.com".url -> URL(string: "https://google.com")
