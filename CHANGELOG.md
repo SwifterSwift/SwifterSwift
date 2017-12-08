@@ -23,6 +23,8 @@ All notable changes to this project will be documented in this file.
 N/A
 
 ### Enhancements
+- Enhanced **Array** extensions:
+  - `shuffle` and `shuffled` are no more constrained to Equatable. [#327](https://github.com/SwifterSwift/SwifterSwift/pull/327) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - New **String** extensions:
   - added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
 - New **UIDatePicker** extensions:
