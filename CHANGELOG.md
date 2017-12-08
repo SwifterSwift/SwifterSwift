@@ -62,6 +62,7 @@ N/A
   - added `numberOfDaysInMonth` to get number of days in the month for a specified date. [#311](https://github.com/SwifterSwift/SwifterSwift/pull/311) by [chaithanyaprathyush](https://github.com/chaithanyaprathyush).
 - New **Color** tests
   - added tests for `cgFloatComponents`. [#297](https://github.com/SwifterSwift/SwifterSwift/pull/297) by [stupergenius](https://github.com/stupergenius).
+  - added `lighten(by percentage:)` and `darken(by percentage:)` methods to change the hue of a color. [#325](https://github.com/SwifterSwift/SwifterSwift/pull/325) by [oettingerj](https://github.com/oettingerj).
 - New **CGColor** tests
   - added tests for `uiColor` and `nsColor`. [#281](https://github.com/SwifterSwift/SwifterSwift/pull/281) by [c1phr](https://github.com/c1phr)
 - New **Date** tests
