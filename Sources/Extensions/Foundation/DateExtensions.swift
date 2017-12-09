@@ -833,6 +833,31 @@ public extension Date {
 		let componentValue = components.value(for: component)!
 		return abs(componentValue) <= value
 	}
+    
+    /// SwifterSwift: Random date between two dates.
+    ///
+    ///     Date.random()
+    ///     Date.random(since: Date())
+    ///     Date.random(to: Date())
+    ///
+    /// - Parameters:
+    ///   - startDate: minimum date (default is Date.distantPast)
+    ///   - endDate: maximum date (default is Date.distantFuture)
+    /// - Returns: random date between two dates.
+    public static func random(since startDate: Date = Date.distantPast,
+                              to endDate: Date = Date.distantFuture) -> Date {
+        guard startDate != endDate else {
+            return startDate
+        }
+        
+        let diff = llabs(Int64(endDate.timeIntervalSinceReferenceDate - startDate.timeIntervalSinceReferenceDate))
+        var randomValue: Int64 = 0
+        arc4random_buf(&randomValue, MemoryLayout<Int64>.size)
+        randomValue = llabs(randomValue%diff)
+        
+        let startReferenceDate = endDate > startDate ? startDate : endDate
+        return startReferenceDate.addingTimeInterval(TimeInterval(randomValue))
+    }
 }
 
 // MARK: - Initializers
