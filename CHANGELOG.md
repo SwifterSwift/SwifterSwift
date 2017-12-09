@@ -25,7 +25,9 @@ N/A
 ### Enhancements
 - New **NSImage** extensions:
   - added `write(to url: URL, fileType type: _, compressionFactor: _)` to write NSImage to url. [#320](https://github.com/SwifterSwift/SwifterSwift/pulls/320) by [omaralbeik](https://github.com/omaralbeik).
-
+- New **Date** extensions
+  - added `random(since startDate: Date = Date.distantPast, to endDate: Date = Date.distantFuture) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
+  
 ### Bugfixes
 N/A
 
