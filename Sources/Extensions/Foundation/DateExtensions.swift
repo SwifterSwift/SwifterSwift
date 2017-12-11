@@ -837,25 +837,26 @@ public extension Date {
     /// SwifterSwift: Random date between two dates.
     ///
     ///     Date.random()
-    ///     Date.random(since: Date())
-    ///     Date.random(to: Date())
+    ///     Date.random(from: Date())
+    ///     Date.random(upTo: Date())
+    ///     Date.random(from: Date(), upTo: Date())
     ///
     /// - Parameters:
-    ///   - startDate: minimum date (default is Date.distantPast)
-    ///   - endDate: maximum date (default is Date.distantFuture)
+    ///   - fromDate: minimum date (default is Date.distantPast)
+    ///   - toDate: maximum date (default is Date.distantFuture)
     /// - Returns: random date between two dates.
-    public static func random(since startDate: Date = Date.distantPast,
-                              to endDate: Date = Date.distantFuture) -> Date {
-        guard startDate != endDate else {
-            return startDate
+    public static func random(from fromDate: Date = Date.distantPast,
+                              upTo toDate: Date = Date.distantFuture) -> Date {
+        guard fromDate != toDate else {
+            return fromDate
         }
         
-        let diff = llabs(Int64(endDate.timeIntervalSinceReferenceDate - startDate.timeIntervalSinceReferenceDate))
+        let diff = llabs(Int64(toDate.timeIntervalSinceReferenceDate - fromDate.timeIntervalSinceReferenceDate))
         var randomValue: Int64 = 0
         arc4random_buf(&randomValue, MemoryLayout<Int64>.size)
         randomValue = llabs(randomValue%diff)
         
-        let startReferenceDate = endDate > startDate ? startDate : endDate
+        let startReferenceDate = toDate > fromDate ? fromDate : toDate
         return startReferenceDate.addingTimeInterval(TimeInterval(randomValue))
     }
 }
