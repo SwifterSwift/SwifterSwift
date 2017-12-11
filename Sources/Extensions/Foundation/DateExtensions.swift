@@ -146,7 +146,7 @@ public extension Date {
 	
 	/// SwifterSwift: Weekday.
 	///
-	/// 	Date().weekOfMonth -> 5 // fifth day in the current week.
+	/// 	Date().weekday -> 5 // fifth day in the current week.
 	///
 	public var weekday: Int {
 		return Calendar.current.component(.weekday, from: self)
