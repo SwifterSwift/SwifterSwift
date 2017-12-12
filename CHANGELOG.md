@@ -25,7 +25,9 @@ N/A
 ### Enhancements
 - New **NSImage** extensions:
   - added `write(to url: URL, fileType type: _, compressionFactor: _)` to write NSImage to url. [#320](https://github.com/SwifterSwift/SwifterSwift/pulls/320) by [omaralbeik](https://github.com/omaralbeik).
-
+- New **Date** extensions
+  - added `string(withFormat format: String)` method to get a string from a date with the given format
+  
 ### Bugfixes
 N/A
 
