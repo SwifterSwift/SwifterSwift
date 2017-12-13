@@ -23,17 +23,24 @@ All notable changes to this project will be documented in this file.
 N/A
 
 ### Enhancements
+- Enhanced **Array** extensions:
+  - `shuffle` and `shuffled` are no more constrained to Equatable. [#327](https://github.com/SwifterSwift/SwifterSwift/pull/327) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- New **String** extensions:
+  - added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
+- New **UIDatePicker** extensions:
+  - added `textColor` to get and set the text color of a UIDatePicker. [#328](https://github.com/SwifterSwift/SwifterSwift/issues/328) by [omaralbeik](https://github.com/omaralbeik).
 - New **NSImage** extensions:
   - added `write(to url: URL, fileType type: _, compressionFactor: _)` to write NSImage to url. [#320](https://github.com/SwifterSwift/SwifterSwift/pulls/320) by [omaralbeik](https://github.com/omaralbeik).
 - New **Date** extensions
-  - added `random(since startDate: Date = Date.distantPast, to endDate: Date = Date.distantFuture) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
+  - added `random(from: Date, upTo: Date) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
+  - added `string(withFormat format: String)` method to get a string from a date with the given format
   
 ### Bugfixes
 N/A
 
 
 
-# 4.1.0
+# v4.1.0
 
 ### API Breaking
 - **String**
