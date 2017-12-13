@@ -688,6 +688,20 @@ final class DateExtensionsTests: XCTestCase {
 		
 		formatter.dateStyle = .full
 		XCTAssertEqual(date.dateString(ofStyle: .full), formatter.string(from: date))
+        
+		formatter.dateStyle = .none
+
+		formatter.dateFormat = "dd/MM/yyyy"
+		XCTAssertEqual(date.string(withFormat: "dd/MM/yyyy"), formatter.string(from: date))
+
+		formatter.dateFormat = "HH:mm"
+		XCTAssertEqual(date.string(withFormat: "HH:mm"), formatter.string(from: date))
+
+		formatter.dateFormat = "dd/MM/yyyy HH:mm"
+		XCTAssertEqual(date.string(withFormat: "dd/MM/yyyy HH:mm"), formatter.string(from: date))
+
+		formatter.dateFormat = "iiiii"
+		XCTAssertEqual(date.string(withFormat: "iiiii"), formatter.string(from: date))
 	}
 	
 	func testDateTimeString() {

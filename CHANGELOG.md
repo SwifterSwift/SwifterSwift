@@ -31,7 +31,9 @@ N/A
   - added `textColor` to get and set the text color of a UIDatePicker. [#328](https://github.com/SwifterSwift/SwifterSwift/issues/328) by [omaralbeik](https://github.com/omaralbeik).
 - New **NSImage** extensions:
   - added `write(to url: URL, fileType type: _, compressionFactor: _)` to write NSImage to url. [#320](https://github.com/SwifterSwift/SwifterSwift/pulls/320) by [omaralbeik](https://github.com/omaralbeik).
-
+- New **Date** extensions
+  - added `string(withFormat format: String)` method to get a string from a date with the given format
+  
 ### Bugfixes
 N/A
 
