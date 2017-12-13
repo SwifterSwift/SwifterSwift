@@ -685,7 +685,7 @@ public extension Date {
 	///
 	/// - Parameter format: Date format (default is "dd/MM/yyyy").
 	/// - Returns: date string.
-	public func string(withFormat format: String = "dd/MM/yyyy HH:mm") -> String 
+	public func string(withFormat format: String = "dd/MM/yyyy HH:mm") -> String {
 		let dateFormatter = DateFormatter()
 		dateFormatter.dateFormat = format
 		return dateFormatter.string(from: self)
