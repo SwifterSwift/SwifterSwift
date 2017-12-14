@@ -32,6 +32,7 @@ N/A
 - New **NSImage** extensions:
   - added `write(to url: URL, fileType type: _, compressionFactor: _)` to write NSImage to url. [#320](https://github.com/SwifterSwift/SwifterSwift/pulls/320) by [omaralbeik](https://github.com/omaralbeik).
 - New **Date** extensions
+  - added `random(from: Date, upTo: Date) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
   - added `string(withFormat format: String)` method to get a string from a date with the given format
   
 ### Bugfixes
