@@ -119,7 +119,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 	}
 	#endif
     
-    #if !os(macOS)
+    #if !os(macOS) && !os(tvOS)
     func testAttributes() {
         let attrString = NSAttributedString(string: "Test String").bolded.struckthrough.underlined.colored(with: UIColor.blue)
         let attributes = attrString.attributes
