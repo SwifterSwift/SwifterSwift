@@ -15,7 +15,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 	func testBolded() {
 		let string = NSAttributedString(string: "Bolded")
 		let out = string.bolded
-		let attributes = out.attributes(at: 0, effectiveRange: nil)
+		let attributes = out.attributes
 
 		let filterClosure: (NSAttributedStringKey, Any) -> Bool = {key, value in
 			return (key == NSAttributedStringKey.font && ((value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize)))
@@ -30,7 +30,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 	func testUnderlined() {
 		let string = NSAttributedString(string: "Underlined")
 		let out = string.underlined
-		let attributes = out.attributes(at: 0, effectiveRange: nil)
+		let attributes = out.attributes
 		let filteredAttributes = attributes.filter { (key, value) -> Bool in
 			return (key == NSAttributedStringKey.underlineStyle && (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.styleSingle.rawValue)
 		}
@@ -43,7 +43,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 	func testItalicized() {
 		let string = NSAttributedString(string: "Italicized")
 		let out = string.italicized
-		let attributes = out.attributes(at: 0, effectiveRange: nil)
+		let attributes = out.attributes
 		let filteredAttributes = attributes.filter { (key, value) -> Bool in
 			return (key == NSAttributedStringKey.font && (value as? UIFont) == .italicSystemFont(ofSize: UIFont.systemFontSize))
 		}
@@ -56,7 +56,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 	func testStruckthrough() {
 		let string = NSAttributedString(string: "Struck through")
 		let out = string.struckthrough
-		let attributes = out.attributes(at: 0, effectiveRange: nil)
+		let attributes = out.attributes
 		let filteredAttributes = attributes.filter { (key, value) -> Bool in
 			return (key == NSAttributedStringKey.strikethroughStyle && (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.styleSingle.rawValue)
 		}
@@ -70,7 +70,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 	func testColored() {
 		let string = NSAttributedString(string: "Colored")
 		var out = string.colored(with: .red)
-		var attributes = out.attributes(at: 0, effectiveRange: nil)
+		var attributes = out.attributes
 		let filteredAttributes = attributes.filter { (key, value) -> Bool in
 			return (key == NSAttributedStringKey.foregroundColor && (value as? UIColor) == .red)
 		}
@@ -78,7 +78,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 		XCTAssertEqual(filteredAttributes.count, 1)
 
 		out = out.colored(with: .blue)
-		attributes = out.attributes(at: 0, effectiveRange: nil)
+		attributes = out.attributes
 		XCTAssertEqual(attributes[NSAttributedStringKey.foregroundColor] as? UIColor, UIColor.blue)
 		XCTAssertNotEqual(attributes[NSAttributedStringKey.foregroundColor] as? UIColor, .red)
 	}

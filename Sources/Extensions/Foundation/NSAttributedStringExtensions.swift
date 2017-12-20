@@ -38,6 +38,11 @@ public extension NSAttributedString {
 	public var struckthrough: NSAttributedString {
 		return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
 	}
+    
+    /// SwifterSwift: Dictionary of the attributes applied across the whole string
+    public var attributes: [NSAttributedStringKey: Any] {
+        return attributes(at: 0, effectiveRange: nil)
+    }
 }
 
 // MARK: - Methods
