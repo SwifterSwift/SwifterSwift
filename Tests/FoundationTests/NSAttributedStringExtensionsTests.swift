@@ -127,7 +127,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual(attributes.count, 4)
 
         let filteredAttributes = attributes.filter { (key, value) -> Bool in
-            switch(key) {
+            switch key {
             case NSAttributedStringKey.underlineStyle:
                 return (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.styleSingle.rawValue
             case NSAttributedStringKey.strikethroughStyle:
