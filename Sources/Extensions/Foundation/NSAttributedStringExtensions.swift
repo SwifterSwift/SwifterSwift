@@ -101,7 +101,7 @@ public extension NSAttributedString {
     /// - Returns: An NSAttributedString with attributes applied on the target string
     public func applying<T: StringProtocol>(attributes: [NSAttributedStringKey: Any], toOccurrencesOf target: T) -> NSAttributedString {
         let pattern = "\\Q\(target)\\E"
-        
+
         return applying(attributes: attributes, toRangesMatching: pattern)
     }
 

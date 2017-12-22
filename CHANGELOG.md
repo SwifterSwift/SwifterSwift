@@ -27,6 +27,9 @@ N/A
   - `shuffle` and `shuffled` are no more constrained to Equatable. [#327](https://github.com/SwifterSwift/SwifterSwift/pull/327) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - New **String** extensions:
   - added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
+- New **NSAttributedString** extensions:
+  - added `applying(attributes: , toRangesMatching: )`  function to return an attributed string with attributes applied to substrings matching the passed regex pattern by [nathanbacon](https://github.com/nathanbacon).
+  - added `applying(attributes: , toOccurrencesOf: )`  function to return an attributed string with attributes applied to substrings matching the passed string by [nathanbacon](https://github.com/nathanbacon).
 - New **UIDatePicker** extensions:
   - added `textColor` to get and set the text color of a UIDatePicker. [#328](https://github.com/SwifterSwift/SwifterSwift/issues/328) by [omaralbeik](https://github.com/omaralbeik).
 - New **NSImage** extensions:
