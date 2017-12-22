@@ -23,6 +23,8 @@ All notable changes to this project will be documented in this file.
 N/A
 
 ### Enhancements
+- New **NSAttributedString**
+  - added `attributes' property to get the attributes that apply to a simple NSAttributedString [#333](https://github.com/SwifterSwift/SwifterSwift/issues/333) by [nathanbacon](https://github.com/nathanbacon).
 - Enhanced **Array** extensions:
   - `shuffle` and `shuffled` are no more constrained to Equatable. [#327](https://github.com/SwifterSwift/SwifterSwift/pull/327) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - New **String** extensions:

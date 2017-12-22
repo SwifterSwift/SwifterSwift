@@ -118,4 +118,31 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 		XCTAssertEqual(filteredAttributes.count, 1)
 	}
 	#endif
+    
+    #if !os(macOS) && !os(tvOS)
+    func testAttributes() {
+        let attrString = NSAttributedString(string: "Test String").bolded.struckthrough.underlined.colored(with: UIColor.blue)
+        let attributes = attrString.attributes
+
+        XCTAssertEqual(attributes.count, 4)
+
+        let filteredAttributes = attributes.filter { (key, value) -> Bool in
+            switch key {
+            case NSAttributedStringKey.underlineStyle:
+                return (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.styleSingle.rawValue
+            case NSAttributedStringKey.strikethroughStyle:
+                return (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.styleSingle.rawValue
+            case NSAttributedStringKey.font:
+                return (value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize)
+            case NSAttributedStringKey.foregroundColor:
+                return (value as? UIColor) == .blue
+            default:
+                return false
+            }
+        }
+
+        XCTAssertEqual(filteredAttributes.count, 4)
+        
+    }
+    #endif
 }
