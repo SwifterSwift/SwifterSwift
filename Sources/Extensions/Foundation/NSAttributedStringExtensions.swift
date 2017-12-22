@@ -73,6 +73,23 @@ public extension NSAttributedString {
 		return applying(attributes: [.foregroundColor: color])
 	}
 	#endif
+    
+    public func applying(attributes: [NSAttributedStringKey: Any], toRangesMatching pattern: NSRegularExpression) -> NSAttributedString {
+        let matches = pattern.matches(in: string, options: [], range: NSRange(0..<length))
+        let result = NSMutableAttributedString(attributedString: self)
+        
+        for match in matches {
+            result.addAttributes(attributes, range: match.range)
+        }
+        
+        return result
+    }
+    
+    public func applying<T: StringProtocol>(attributes: [NSAttributedStringKey: Any], toOccurrencesOf target: T) -> NSAttributedString {
+        let pattern = NSRegularExpression(pattern: target as! String, options: [])
+        
+        
+    }
 }
 
 // MARK: - Operators
