@@ -74,13 +74,15 @@ public extension NSAttributedString {
 	}
 	#endif
     
-    /// SwifterSwift
+    /// SwifterSwift: Apply attributes to substrings matching a regular expression
     ///
     /// - Parameters:
     ///   - attributes: Dictionary of attributes
     ///   - pattern: a regular expression to target
     /// - Returns: An NSAttributedString with attributes applied to substrings matching the pattern
-    public func applying(attributes: [NSAttributedStringKey: Any], toRangesMatching pattern: NSRegularExpression) -> NSAttributedString {
+    public func applying(attributes: [NSAttributedStringKey: Any], toRangesMatching pattern: String) -> NSAttributedString {
+        guard let pattern = try? NSRegularExpression(pattern: pattern, options: []) else { return self }
+        
         let matches = pattern.matches(in: string, options: [], range: NSRange(0..<length))
         let result = NSMutableAttributedString(attributedString: self)
         
@@ -91,20 +93,18 @@ public extension NSAttributedString {
         return result
     }
 
-    /// SwifterSwift: Apply attributes to occurrences matching a given string
+    /// SwifterSwift: Apply attributes to occurrences of a given string
     ///
     /// - Parameters:
     ///   - attributes: Dictionary of attributes
     ///   - target: a subsequence string for the attributes to be applied to
     /// - Returns: An NSAttributedString with attributes applied on the target string
     public func applying<T: StringProtocol>(attributes: [NSAttributedStringKey: Any], toOccurrencesOf target: T) -> NSAttributedString {
-        
-        guard let target = target as? String, let pattern = try? NSRegularExpression(pattern: target, options: []) else {
-            return self
-        }
+        let pattern = "\\Q\(target)\\E"
         
         return applying(attributes: attributes, toRangesMatching: pattern)
     }
+
 }
 
 // MARK: - Operators
