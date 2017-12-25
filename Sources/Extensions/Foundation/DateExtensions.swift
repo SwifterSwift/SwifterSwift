@@ -952,3 +952,11 @@ public extension Date {
 	}
 	
 }
+
+extension Date: ExpressibleByIntegerLiteral {
+    public init(integerLiteral value: Int) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        self = formatter.date(from: String(value)) ?? Date()
+    }
+}
