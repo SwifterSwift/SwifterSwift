@@ -27,6 +27,8 @@ N/A
   - added `attributes' property to get the attributes that apply to a simple NSAttributedString [#333](https://github.com/SwifterSwift/SwifterSwift/issues/333) by [nathanbacon](https://github.com/nathanbacon).
 - Enhanced **Array** extensions:
   - `shuffle` and `shuffled` are no more constrained to Equatable. [#327](https://github.com/SwifterSwift/SwifterSwift/pull/327) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- New  **Array** extensions:
+  - `sort(by: KeyPath)` and `sorted(by: KeyPath)` to sort arrays based on Swift 4 keyPath. [#343](https://github.com/SwifterSwift/SwifterSwift/pull/343) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - New **String** extensions:
   - added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
 - New **UIDatePicker** extensions:
@@ -36,7 +38,7 @@ N/A
 - New **Date** extensions
   - added `random(from: Date, upTo: Date) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
   - added `string(withFormat format: String)` method to get a string from a date with the given format
-  
+
 ### Bugfixes
 N/A
 
