@@ -462,7 +462,6 @@ public extension Array {
     ///
     /// - Parameter path: Key path to sort. The key path type must be Comparable.
     /// - Parameter ascending: If order must be ascending.
-    /// - Returns: Sorted array based on keyPath.
     public mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) {
         self = sorted(by: path, ascending: ascending)
     }
@@ -471,7 +470,6 @@ public extension Array {
     ///
     /// - Parameter path: Key path to sort. The key path type must be Comparable.
     /// - Parameter ascending: If order must be ascending.
-    /// - Returns: Sorted array based on keyPath.
     public mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) {
         self = sorted(by: path, ascending: ascending)
     }
