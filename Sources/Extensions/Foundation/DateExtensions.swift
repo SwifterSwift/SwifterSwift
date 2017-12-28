@@ -958,11 +958,7 @@ public extension Date {
     public init?(integerLiteral value: Int) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
-        
-        if let date = formatter.date(from: String(value)) {
-            self = date
-        } else {
-            return nil
-        }
+        guard let date = formatter.date(from: String(value)) else { return nil }
+        self = date
     }
 }
