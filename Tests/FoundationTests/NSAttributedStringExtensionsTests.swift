@@ -87,7 +87,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     
     #if !os(macOS) && !os(tvOS)
     func testApplyingToRegex() {
-        let email = "steve.job@apple.com"
+        let email = "steve.jobs@apple.com"
         let testString = NSAttributedString(string: "Your email is \(email)!").bolded
         let attributes: [NSAttributedStringKey: Any] = [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue, .foregroundColor: UIColor.blue]
         let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
