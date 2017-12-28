@@ -904,22 +904,22 @@ final class DateExtensionsTests: XCTestCase {
 
         var sinceDate = Date(timeIntervalSinceReferenceDate: 0)
         var toDate = Date(timeIntervalSinceReferenceDate: 10000)
-        randomDate = Date.random(from:sinceDate, upTo: toDate)
+        randomDate = Date.random(from: sinceDate, upTo: toDate)
         XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
         
         sinceDate = Date(timeIntervalSince1970: -10000)
         toDate = Date(timeIntervalSince1970: -10)
-        randomDate = Date.random(from:sinceDate, upTo: toDate)
+        randomDate = Date.random(from: sinceDate, upTo: toDate)
         XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
         
         sinceDate = Date(timeIntervalSinceReferenceDate: -1000)
         toDate = Date(timeIntervalSinceReferenceDate: 10000)
-        randomDate = Date.random(from:sinceDate, upTo: toDate)
+        randomDate = Date.random(from: sinceDate, upTo: toDate)
         XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
         
         sinceDate = Date(timeIntervalSinceReferenceDate: 0)
         toDate = sinceDate
-        randomDate = Date.random(from:sinceDate, upTo: toDate)
+        randomDate = Date.random(from: sinceDate, upTo: toDate)
         XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
     }
 }
