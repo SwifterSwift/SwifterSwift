@@ -950,17 +950,19 @@ public extension Date {
 	public init(unixTimestamp: Double) {
 		self.init(timeIntervalSince1970: unixTimestamp)
 	}
-	
-}
-
-extension Date: ExpressibleByIntegerLiteral {
+    
     /// SwifterSwift: Create date object from Int literal
     ///
-    ///     let date = Date(inegerLiteral: 2017_12_25) // "2017-12-25 00:00:00 +0000"
+    ///     let date = Date(integerLiteral: 2017_12_25) // "2017-12-25 00:00:00 +0000"
     /// - Parameter value: Int value, e.g. 20171225, or 2017_12_25 etc.
-    public init(integerLiteral value: Int) {
+    public init?(integerLiteral value: Int) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
-        self = formatter.date(from: String(value)) ?? Date()
+        
+        if let date = formatter.date(from: String(value)) {
+            self = date
+        } else {
+            return nil
+        }
     }
 }
