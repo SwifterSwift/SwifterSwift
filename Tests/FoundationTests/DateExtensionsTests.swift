@@ -877,6 +877,15 @@ final class DateExtensionsTests: XCTestCase {
     func testNewDateFromIntegerLiteral() {
         let date = Date(integerLiteral: 2017_12_25)
         XCTAssertEqual(String(describing: date), "2017-12-25 00:00:00 +0000")
+        
+        let date1 = Date(integerLiteral: 222)
+        let currentDate = Date()
+        
+        let calendar = Calendar.current
+        
+        XCTAssertEqual(calendar.component(.day, from: date1), calendar.component(.day, from: currentDate))
+        XCTAssertEqual(calendar.component(.month, from: date1), calendar.component(.month, from: currentDate))
+        XCTAssertEqual(calendar.component(.year, from: date1), calendar.component(.year, from: currentDate))
     }
 	
     func testRandom() {
