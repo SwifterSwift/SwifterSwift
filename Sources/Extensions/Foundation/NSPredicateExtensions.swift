@@ -65,7 +65,7 @@ public extension NSPredicate {
     ///   - lhs: NSPredicate.
     ///   - rhs: NSPredicate.
     /// - Returns: NSCompoundPredicate
-    static public func ^ (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
+    static public func | (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
         return lhs.or(rhs)
     }
     

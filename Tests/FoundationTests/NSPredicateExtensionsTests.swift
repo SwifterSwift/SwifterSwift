@@ -62,7 +62,7 @@ final class NSPredicateExtensionsTests: XCTestCase {
     func testOperatorOrPredicate() {
         let predicate1 = NSPredicate(format: "a < 7")
         let predicate2 = NSPredicate(format: "a > 3")
-        let orPredicate = predicate1 ^ predicate2
+        let orPredicate = predicate1 | predicate2
         XCTAssert(orPredicate.compoundPredicateType == .or)
         if let subpredicates = orPredicate.subpredicates as? [NSPredicate] {
             XCTAssertEqual(subpredicates, [predicate1, predicate2])
