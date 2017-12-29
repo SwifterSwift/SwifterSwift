@@ -873,6 +873,18 @@ final class DateExtensionsTests: XCTestCase {
 		let dateFromUnixTimestamp = Date(unixTimestamp: 512)
 		XCTAssertEqual(date, dateFromUnixTimestamp)
 	}
+    
+    func testNewDateFromIntegerLiteral() {
+        let date = Date(integerLiteral: 2017_12_25)
+        
+        XCTAssertNotNil(date)
+        
+        if let date = date {
+            XCTAssertEqual(String(describing: date), "2017-12-25 00:00:00 +0000")
+        }
+        
+        XCTAssertNil(Date(integerLiteral: 222))
+    }
 	
     func testRandom() {
         var randomDate = Date.random()

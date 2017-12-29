@@ -950,5 +950,15 @@ public extension Date {
 	public init(unixTimestamp: Double) {
 		self.init(timeIntervalSince1970: unixTimestamp)
 	}
-	
+    
+    /// SwifterSwift: Create date object from Int literal
+    ///
+    ///     let date = Date(integerLiteral: 2017_12_25) // "2017-12-25 00:00:00 +0000"
+    /// - Parameter value: Int value, e.g. 20171225, or 2017_12_25 etc.
+    public init?(integerLiteral value: Int) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyyMMdd"
+        guard let date = formatter.date(from: String(value)) else { return nil }
+        self = date
+    }
 }
