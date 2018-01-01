@@ -653,4 +653,20 @@ final class StringExtensionsTests: XCTestCase {
         str.padEnd(2)
         XCTAssertEqual(str, "str")
     }
+    
+    func testIntSpellOut() {
+        let num = 92
+        XCTAssertNotNil(num.getSpellOutStringFor(localeIdentifier: "en"))
+        XCTAssertEqual(num.getSpellOutStringFor(localeIdentifier: "en"), "ninety-two")
+        
+        XCTAssertNotNil(num.getSpellOutStringFor())
+    }
+    
+    func testIntOrdinal() {
+        let num = 92
+        XCTAssertNotNil(num.getOrdinalStringFor(localeIdentifier: "en"))
+        XCTAssertEqual(num.getOrdinalStringFor(localeIdentifier: "en"), "92nd")
+        
+        XCTAssertNotNil(num.getOrdinalStringFor())
+    }
 }
