@@ -656,17 +656,17 @@ final class StringExtensionsTests: XCTestCase {
     
     func testIntSpellOut() {
         let num = 92
-        XCTAssertNotNil(num.getSpellOutStringFor(localeIdentifier: "en"))
-        XCTAssertEqual(num.getSpellOutStringFor(localeIdentifier: "en"), "ninety-two")
+        XCTAssertNotNil(num.getSpellOutString(forLocaleIdentifier: "en"))
+        XCTAssertEqual(num.getSpellOutString(forLocaleIdentifier: "en"), "ninety-two")
         
-        XCTAssertNotNil(num.getSpellOutStringFor())
+        XCTAssertNotNil(num.getSpellOutString())
     }
     
     func testIntOrdinal() {
         let num = 92
-        XCTAssertNotNil(num.getOrdinalStringFor(localeIdentifier: "en"))
-        XCTAssertEqual(num.getOrdinalStringFor(localeIdentifier: "en"), "92nd")
+        XCTAssertNotNil(num.getOrdinalString(forLocaleIdentifier: "en"))
+        XCTAssertEqual(num.getOrdinalString(forLocaleIdentifier: "en"), "92nd")
         
-        XCTAssertNotNil(num.getOrdinalStringFor())
+        XCTAssertNotNil(num.getOrdinalString())
     }
 }

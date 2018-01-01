@@ -27,7 +27,7 @@ public extension SignedNumeric {
     ///
     /// - Parameter identifier: locale identifier, e.g "en", "ru", "es". It can be not only language, but language dialect for specific region, e.g.: "fr-FR" - french in France, "fr-CH" - french in Switzerland
     /// - Returns: String representation of number spelled in specified locale language. E.g. input 92, output in "en": "ninety-two"
-    func getSpellOutStringFor(localeIdentifier identifier: String? = nil) -> String? {
+    func getSpellOutString(forLocaleIdentifier identifier: String? = nil) -> String? {
         let formatter = NumberFormatter()
         formatter.numberStyle = .spellOut
         
@@ -45,7 +45,7 @@ public extension SignedNumeric {
     ///
     /// - Parameter identifier: locale identifier, e.g "en", "ru", "es". It can be not only language, but language dialect for specific region, e.g.: "fr-FR" - french in France, "fr-CH" - french in Switzerland
     /// - Returns: String ordinal representation of number in specified locale language. E.g. input 92, output in "en": "92nd"
-    func getOrdinalStringFor(localeIdentifier identifier: String? = nil) -> String? {
+    func getOrdinalString(forLocaleIdentifier identifier: String? = nil) -> String? {
         let formatter = NumberFormatter()
         if #available(iOS 9.0, *) {
             formatter.numberStyle = .ordinal
