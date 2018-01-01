@@ -47,7 +47,7 @@ public extension SignedNumeric {
     /// - Returns: String ordinal representation of number in specified locale language. E.g. input 92, output in "en": "92nd"
     func getOrdinalString(forLocaleIdentifier identifier: String? = nil) -> String? {
         let formatter = NumberFormatter()
-        if #available(iOS 9.0, *) {
+        if #available(iOS 9.0, macOS 10.11, *) {
             formatter.numberStyle = .ordinal
         } else {
             return ""
