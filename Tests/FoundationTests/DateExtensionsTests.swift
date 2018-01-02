@@ -556,16 +556,15 @@ final class DateExtensionsTests: XCTestCase {
 		date.add(.month, value: 1)
 		XCTAssertEqual(date.month, 10)
 		
-        var date1 = Date(integerLiteral: 2018_01_01)
-        XCTAssertNotNil(date1)
-        
-		date1!.add(.year, value: -1)
-		XCTAssertEqual(date1!.year, 2017)
-		date1!.add(.year, value: 0)
-		XCTAssertEqual(date1!.year, 2017)
+        date = Date(timeIntervalSince1970: 1514764800)
+
+		date.add(.year, value: -1)
+		XCTAssertEqual(date.year, 2017)
+		date.add(.year, value: 0)
+		XCTAssertEqual(date.year, 2017)
 		
-		date1!.add(.year, value: 1)
-		XCTAssertEqual(date1!.year, 2018)
+		date.add(.year, value: 1)
+		XCTAssertEqual(date.year, 2018)
 	}
 	
 	func testChanging() {
