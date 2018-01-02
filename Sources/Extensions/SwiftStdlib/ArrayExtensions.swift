@@ -428,6 +428,51 @@ public extension Array {
         array.shuffle()
         return array
     }
+    
+    /// SwifterSwift: Return a sorted array based on an optional keypath.
+    ///
+    /// - Parameter path: Key path to sort. The key path type must be Comparable.
+    /// - Parameter ascending: If order must be ascending.
+    /// - Returns: Sorted array based on keyPath.
+    public func sorted<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
+        return sorted(by: { (lhs, rhs) -> Bool in
+            guard let lhsValue = lhs[keyPath: path], let rhsValue = rhs[keyPath: path] else { return false }
+            if ascending {
+                return lhsValue < rhsValue
+            }
+            return lhsValue > rhsValue
+        })
+    }
+    
+    /// SwifterSwift: Return a sorted array based on a keypath.
+    ///
+    /// - Parameter path: Key path to sort. The key path type must be Comparable.
+    /// - Parameter ascending: If order must be ascending.
+    /// - Returns: Sorted array based on keyPath.
+    public func sorted<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
+        return sorted(by: { (lhs, rhs) -> Bool in
+            if ascending {
+                return lhs[keyPath: path] < rhs[keyPath: path]
+            }
+            return lhs[keyPath: path] > rhs[keyPath: path]
+        })
+    }
+    
+    /// SwifterSwift: Sort the array based on an optional keypath.
+    ///
+    /// - Parameter path: Key path to sort. The key path type must be Comparable.
+    /// - Parameter ascending: If order must be ascending.
+    public mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) {
+        self = sorted(by: path, ascending: ascending)
+    }
+    
+    /// SwifterSwift: Sort the array based on a keypath.
+    ///
+    /// - Parameter path: Key path to sort. The key path type must be Comparable.
+    /// - Parameter ascending: If order must be ascending.
+    public mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) {
+        self = sorted(by: path, ascending: ascending)
+    }
 }
 
 // MARK: - Methods (Equatable)
@@ -548,5 +593,5 @@ public extension Array where Element: Equatable {
 		}
 		return nil
 	}
-	
+    
 }
