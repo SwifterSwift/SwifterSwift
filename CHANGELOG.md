@@ -31,6 +31,9 @@ N/A
   - `sort(by: KeyPath)` and `sorted(by: KeyPath)` to sort arrays based on Swift 4 keyPath. [#343](https://github.com/SwifterSwift/SwifterSwift/pull/343) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - New **String** extensions:
   - added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
+- New **NSAttributedString** extensions:
+  - added `applying(attributes: , toRangesMatching: )`  function to return an attributed string with attributes applied to substrings matching the passed regex pattern by [nathanbacon](https://github.com/nathanbacon).
+  - added `applying(attributes: , toOccurrencesOf: )`  function to return an attributed string with attributes applied to substrings matching the passed string by [nathanbacon](https://github.com/nathanbacon).
 - New **UIDatePicker** extensions:
   - added `textColor` to get and set the text color of a UIDatePicker. [#328](https://github.com/SwifterSwift/SwifterSwift/issues/328) by [omaralbeik](https://github.com/omaralbeik).
 - New **NSImage** extensions:
