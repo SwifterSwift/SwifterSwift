@@ -38,3 +38,44 @@ public extension NSPredicate {
     }
     
 }
+
+// MARK: - Operators
+public extension NSPredicate {
+    
+    /// SwifterSwift: Returns a new predicate formed by NOT-ing the predicate.
+    /// - Parameters: rhs: NSPredicate to convert.
+    /// - Returns: NSCompoundPredicate
+    static public prefix func ! (rhs: NSPredicate) -> NSCompoundPredicate {
+        return rhs.not
+    }
+    
+    /// SwifterSwift: Returns a new predicate formed by AND-ing the argument to the predicate.
+    ///
+    /// - Parameters:
+    ///   - lhs: NSPredicate.
+    ///   - rhs: NSPredicate.
+    /// - Returns: NSCompoundPredicate
+    static public func + (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
+        return lhs.and(rhs)
+    }
+    
+    /// SwifterSwift: Returns a new predicate formed by OR-ing the argument to the predicate.
+    ///
+    /// - Parameters:
+    ///   - lhs: NSPredicate.
+    ///   - rhs: NSPredicate.
+    /// - Returns: NSCompoundPredicate
+    static public func | (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
+        return lhs.or(rhs)
+    }
+    
+    /// SwifterSwift: Returns a new predicate formed by remove the argument to the predicate.
+    ///
+    /// - Parameters:
+    ///   - lhs: NSPredicate.
+    ///   - rhs: NSPredicate.
+    /// - Returns: NSCompoundPredicate
+    static public func - (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
+        return lhs + !rhs
+    }
+}
