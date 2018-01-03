@@ -8,6 +8,7 @@ This document contains information and guidelines about contributing to this pro
 - [Ways to Contribute](#ways-to-contribute)
 - [Adding new Extensions](#adding-new-extensions)
 - [Adding documentation](#adding-documentation)
+- [Adding changelog entries](#adding-changelog-entries)
 - [Reporting Issues](#reporting-issues)
 
 ---
@@ -165,6 +166,14 @@ public func changing(_ component: Calendar.Component, value: Int) -> Date? {
 
 In Xcode select a method and press `command` + `alt` + `/` to create a documentation template!
 
+
+---
+
+## Adding changelog entries
+
+The [Changelog](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md) is a file which contains a curated, chronologically ordered list of notable changes for each version of a project. Please make sure to add a changelog entry describing your contribution to it everyting there is a notable change.
+
+The [Changelog Guidelines](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG_GUIDELINES.md) contains instructions for maintaining (or adding new entries) to the Changelog.
 
 ---
 
