@@ -30,7 +30,7 @@ public extension Array where Element: FloatingPoint {
 	/// - Returns: average of the array's elements.
 	public func average() -> Element {
         guard !isEmpty else { return 0 }
-        return reduce(0, +)/Element(count)
+        return sum()/Element(count)
 	}
 
 }
