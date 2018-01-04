@@ -23,43 +23,38 @@ public extension SignedNumeric {
 		return formatter.string(from: number) ?? ""
 	}
     
-    /// SwifterSwift: Stringify number using specified locale identifier in spellout representation
+    /// SwifterSwift: Spelled out representation of a number.
     ///
-    /// - Parameter identifier: locale identifier, e.g "en", "ru", "es". It can be not only language, but language dialect for specific region, e.g.: "fr-FR" - french in France, "fr-CH" - french in Switzerland
+    ///        print((12.32).spelledOutString()) // prints "twelve point three two"
+    ///
+    /// - Parameter locale: Locale, default is .current.
     /// - Returns: String representation of number spelled in specified locale language. E.g. input 92, output in "en": "ninety-two"
-    func getSpellOutString(forLocaleIdentifier identifier: String? = nil) -> String? {
+    public func spelledOutString(locale: Locale = .current) -> String? {
         let formatter = NumberFormatter()
+        formatter.locale = locale
         formatter.numberStyle = .spellOut
         
-        if let identifier = identifier {
-            formatter.locale = Locale(identifier: identifier)
-        } else {
-            formatter.locale = Locale.current
-        }
-        
-        guard  let number = self as? NSNumber else { return "" }
+        guard let number = self as? NSNumber else { return nil }
         return formatter.string(from: number)
     }
     
-    /// SwifterSwift: Stringify number using specified locale identifier in ordinal representation
+    /// SwifterSwift: Ordinal representation of an integer.
     ///
-    /// - Parameter identifier: locale identifier, e.g "en", "ru", "es". It can be not only language, but language dialect for specific region, e.g.: "fr-FR" - french in France, "fr-CH" - french in Switzerland
+    ///        print((12).ordinalString()) // prints "12th"
+    ///
+    /// - Parameter locale: Locale, default is .current.
     /// - Returns: String ordinal representation of number in specified locale language. E.g. input 92, output in "en": "92nd"
-    func getOrdinalString(forLocaleIdentifier identifier: String? = nil) -> String? {
+    public func ordinalString(locale: Locale = .current) -> String? {
         let formatter = NumberFormatter()
+        formatter.locale = locale
+        
         if #available(iOS 9.0, macOS 10.11, *) {
             formatter.numberStyle = .ordinal
         } else {
             return ""
         }
         
-        if let identifier = identifier {
-            formatter.locale = Locale(identifier: identifier)
-        } else {
-            formatter.locale = Locale.current
-        }
-        
-        guard  let number = self as? NSNumber else { return "" }
+        guard let number = self as? NSNumber else { return nil }
         return formatter.string(from: number)
     }
 }
