@@ -859,8 +859,7 @@ public extension Date {
 	///   - fromDate: minimum date (default is Date.distantPast)
 	///   - toDate: maximum date (default is Date.distantFuture)
 	/// - Returns: random date between two dates.
-	public static func random(from fromDate: Date = Date.distantPast,
-							  upTo toDate: Date = Date.distantFuture) -> Date {
+	public static func random(from fromDate: Date = Date.distantPast, upTo toDate: Date = Date.distantFuture) -> Date {
 		guard fromDate != toDate else {
 			return fromDate
 		}
