@@ -653,4 +653,16 @@ final class StringExtensionsTests: XCTestCase {
         str.padEnd(2)
         XCTAssertEqual(str, "str")
     }
+    
+    func testIntSpellOut() {
+        let num = 12.32
+        XCTAssertNotNil(num.spelledOutString())
+        XCTAssertEqual(num.spelledOutString(), "twelve point three two")
+    }
+    
+    func testIntOrdinal() {
+        let num = 12
+        XCTAssertNotNil(num.ordinalString())
+        XCTAssertEqual(num.ordinalString(), "12th")
+    }
 }
