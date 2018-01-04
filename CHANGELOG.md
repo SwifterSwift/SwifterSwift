@@ -20,7 +20,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ---
 
-
 ## [v4.1.1](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.1.1)
 
 ### Added
@@ -49,13 +48,14 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Changed
 
 - **Array**
+  - **Breaking Change** `indexes(of:)` has been renamed to `indices(of:)`. [#355](https://github.com/SwifterSwift/SwifterSwift/pull/355) by [](https://github.com/Najdan)
   - `shuffle` and `shuffled` are no more constrained to Equatable. [#327](https://github.com/SwifterSwift/SwifterSwift/pull/327) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 
 
 ### Fixed
 
 - **Int**
-  - Fixed where the base in `isPrime()` was not correct. [#323](https://github.com/SwifterSwift/SwifterSwift/pull/323) by [Asura19](https://github.com/Asura19)
+  - Fixed where the base in `isPrime()` was not correct. [#323](https://github.com/SwifterSwift/SwifterSwift/pull/323) by [Asura19](https://github.com/Asura19).
 - **UINavigationBar**
   - Fixed a bug where makeTransparent was keeping the background color. [#344](https://github.com/SwifterSwift/SwifterSwift/issues/344) by [omaralbeik](https://github.com/omaralbeik).
 - **Continuous Integration**

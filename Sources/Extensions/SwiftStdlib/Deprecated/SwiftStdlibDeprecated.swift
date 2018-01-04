@@ -82,3 +82,23 @@ extension String {
     }
 
 }
+
+// MARK: - Methods (Equatable)
+public extension Array where Element: Equatable {
+    /// SwifterSwift: All indexes of specified item.
+    ///
+    ///        [1, 2, 2, 3, 4, 2, 5].indexes(of 2) -> [1, 2, 5]
+    ///        [1.2, 2.3, 4.5, 3.4, 4.5].indexes(of 2.3) -> [1]
+    ///        ["h", "e", "l", "l", "o"].indexes(of "l") -> [2, 3]
+    ///
+    /// - Parameter item: item to check.
+    /// - Returns: an array with all indexes of the given item.
+    @available(*, deprecated: 4.1.1, message: "Use indices(of:) instead", renamed: "indices(of:)")
+    public func indexes(of item: Element) -> [Int] {
+        var indexes: [Int] = []
+        for index in startIndex..<endIndex where self[index] == item {
+            indexes.append(index)
+        }
+        return indexes
+    }
+}
