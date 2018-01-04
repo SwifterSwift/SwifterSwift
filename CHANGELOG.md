@@ -6,21 +6,16 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > # Upcoming release
 >
 > ### Added
->
 > ### Changed
->
 > ### Deprecated
->
 > ### Removed
->
 > ### Fixed
->
 > ### Security
 
 
 ---
 
-## [v4.1.1](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.1.1)
+# [v4.1.1](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.1.1)
 
 ### Added
 - **NSPredicate**
@@ -48,7 +43,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Changed
 
 - **Array**
-  - **Breaking Change** `indexes(of:)` has been renamed to `indices(of:)`. [#355](https://github.com/SwifterSwift/SwifterSwift/pull/355) by [](https://github.com/Najdan)
+  - **Breaking Change** `indexes(of:)` has been renamed to `indices(of:)`. [#355](https://github.com/SwifterSwift/SwifterSwift/pull/355) by [Najdan](https://github.com/Najdan)
   - `shuffle` and `shuffled` are no more constrained to Equatable. [#327](https://github.com/SwifterSwift/SwifterSwift/pull/327) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 
 
