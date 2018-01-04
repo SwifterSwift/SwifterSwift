@@ -1,52 +1,67 @@
 # CHANGELOG
-SwifterSwift adheres to [Semantic Versioning](http://semver.org/) for all versions after v1.6.4.
+The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
-All notable changes to this project will be documented in this file.
+---
 
-# Versions
-
-> # Next Release
+> # Upcoming release
 >
-> ### API Breaking
-> N/A
+> ### Added
 >
-> ### Enhancements
-> N/A
+> ### Changed
 >
-> ### Bugfixes
-> N/A
+> ### Deprecated
+>
+> ### Removed
+>
+> ### Fixed
+>
+> ### Security
 
 
-# Next Release
+---
 
-### API Breaking
+## [v4.1.1](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.1.1)
+
+### Added
+- **NSPredicate**
+  - Added operator `!` to return a new predicate formed by NOT-ing a given predicate.
+  - Added operator `+` to return a new predicate formed by AND-ing two given predicates.
+  - Added operator `|` to return a new predicate formed by OR-ing a two given predicates.
+  - Added operator `-` to return a new predicate formed by removing the argument from the second predicate. [#345](https://github.com/SwifterSwift/SwifterSwift/pull/345) by [yycking](https://github.com/yycking).
+- **NSAttributedString**
+  - Added `attributes` property to get the attributes that apply to a simple NSAttributedString. [#333](https://github.com/SwifterSwift/SwifterSwift/issues/333) by [nathanbacon](https://github.com/nathanbacon).
+  - Added `applying(attributes: , toRangesMatching: )`  function to return an attributed string with attributes applied to substrings matching the passed regex pattern by [nathanbacon](https://github.com/nathanbacon).
+  - Added `applying(attributes: , toOccurrencesOf: )`  function to return an attributed string with attributes applied to substrings matching the passed string by [nathanbacon](https://github.com/nathanbacon).
 - **Array**
-  - `indexes(of:)` has been renamed to `indices(of:)`. 
+  - Added `sort(by: KeyPath)` and `sorted(by: KeyPath)` to sort arrays based on Swift 4 keyPath. [#343](https://github.com/SwifterSwift/SwifterSwift/pull/343) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **String**
+  - Added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
+- **UIDatePicker**
+  - Added `textColor` to get and set the text color of a UIDatePicker. [#328](https://github.com/SwifterSwift/SwifterSwift/issues/328) by [omaralbeik](https://github.com/omaralbeik).
+- **NSImage**
+  - Added `write(to url: URL, fileType type: _, compressionFactor: _)` to write NSImage to url. [#320](https://github.com/SwifterSwift/SwifterSwift/pulls/320) by [omaralbeik](https://github.com/omaralbeik).
+- **Date**
+  - Added `random(from: Date, upTo: Date) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
+  - Added `string(withFormat format: String)` method to get a string from a date with the given format.
+  - Added `init?(integerLiteral value: Int)` initializer to create date object from Int literal. [#342](https://github.com/SwifterSwift/SwifterSwift/pull/342) by [n0an](https://github.com/n0an).
 
-### Enhancements
-- New **NSAttributedString**
-  - added `attributes' property to get the attributes that apply to a simple NSAttributedString [#333](https://github.com/SwifterSwift/SwifterSwift/issues/333) by [nathanbacon](https://github.com/nathanbacon).
-- Enhanced **Array** extensions:
+### Changed
+
+- **Array**
+  - **Breaking Change** `indexes(of:)` has been renamed to `indices(of:)`. [#355](https://github.com/SwifterSwift/SwifterSwift/pull/355) by [](https://github.com/Najdan)
   - `shuffle` and `shuffled` are no more constrained to Equatable. [#327](https://github.com/SwifterSwift/SwifterSwift/pull/327) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
-- New  **Array** extensions:
-  - `sort(by: KeyPath)` and `sorted(by: KeyPath)` to sort arrays based on Swift 4 keyPath. [#343](https://github.com/SwifterSwift/SwifterSwift/pull/343) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
-- New **String** extensions:
-  - added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
-- New **NSAttributedString** extensions:
-  - added `applying(attributes: , toRangesMatching: )`  function to return an attributed string with attributes applied to substrings matching the passed regex pattern by [nathanbacon](https://github.com/nathanbacon).
-  - added `applying(attributes: , toOccurrencesOf: )`  function to return an attributed string with attributes applied to substrings matching the passed string by [nathanbacon](https://github.com/nathanbacon).
-- New **UIDatePicker** extensions:
-  - added `textColor` to get and set the text color of a UIDatePicker. [#328](https://github.com/SwifterSwift/SwifterSwift/issues/328) by [omaralbeik](https://github.com/omaralbeik).
-- New **NSImage** extensions:
-  - added `write(to url: URL, fileType type: _, compressionFactor: _)` to write NSImage to url. [#320](https://github.com/SwifterSwift/SwifterSwift/pulls/320) by [omaralbeik](https://github.com/omaralbeik).
-- New **Date** extensions
-  - added `random(from: Date, upTo: Date) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
-  - added `string(withFormat format: String)` method to get a string from a date with the given format
-
-### Bugfixes
-N/A
 
 
+### Fixed
+
+- **Int**
+  - Fixed where the base in `isPrime()` was not correct. [#323](https://github.com/SwifterSwift/SwifterSwift/pull/323) by [Asura19](https://github.com/Asura19).
+- **UINavigationBar**
+  - Fixed a bug where makeTransparent was keeping the background color. [#344](https://github.com/SwifterSwift/SwifterSwift/issues/344) by [omaralbeik](https://github.com/omaralbeik).
+- **Continuous Integration**
+  - Fixed swiftlint warning in `NSImageExtensions`.
+
+---
 
 # v4.1.0
 
