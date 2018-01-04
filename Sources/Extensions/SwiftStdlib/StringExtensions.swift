@@ -20,9 +20,7 @@ public extension String {
 	///
 	public var base64Decoded: String? {
 		// https://github.com/Reza-Rg/Base64-Swift-Extension/blob/master/Base64.swift
-		guard let decodedData = Data(base64Encoded: self) else {
-			return nil
-		}
+		guard let decodedData = Data(base64Encoded: self) else { return nil }
 		return String(data: decodedData, encoding: .utf8)
 	}
 	
@@ -86,9 +84,7 @@ public extension String {
 	///		"".firstCharacterAsString -> nil
 	///
 	public var firstCharacterAsString: String? {
-		guard let first = self.first else {
-			return nil
-		}
+		guard let first = self.first else { return nil }
 		return String(first)
 	}
 	
@@ -157,9 +153,7 @@ public extension String {
 	///		"google.com".isValidSchemedUrl -> false
 	///
 	public var isValidSchemedUrl: Bool {
-		guard let url = URL(string: self) else {
-			return false
-		}
+		guard let url = URL(string: self) else { return false }
 		return url.scheme != nil
 	}
 	
@@ -168,9 +162,7 @@ public extension String {
 	///		"https://google.com".isValidHttpsUrl -> true
 	///
 	public var isValidHttpsUrl: Bool {
-		guard let url = URL(string: self) else {
-			return false
-		}
+		guard let url = URL(string: self) else { return false }
 		return url.scheme == "https"
 	}
 	
@@ -179,9 +171,7 @@ public extension String {
 	///		"http://google.com".isValidHttpUrl -> true
 	///
 	public var isValidHttpUrl: Bool {
-		guard let url = URL(string: self) else {
-			return false
-		}
+		guard let url = URL(string: self) else { return false }
 		return url.scheme == "http"
 	}
 	
@@ -201,7 +191,7 @@ public extension String {
 	public var isNumeric: Bool {
 		let hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
 		let hasNumbers = rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
-		return  !hasLetters && hasNumbers
+		return !hasLetters && hasNumbers
 	}
 	
 	/// SwifterSwift: Last character of string (if applicable).
@@ -210,9 +200,7 @@ public extension String {
 	///		"".lastCharacterAsString -> nil
 	///
 	public var lastCharacterAsString: String? {
-		guard let last = self.last else {
-			return nil
-		}
+		guard let last = self.last else { return nil }
 		return String(last)
 	}
 	
@@ -380,14 +368,14 @@ public extension String {
 		}
 		return result
 	}
-    
-    /// SwifterSwift: Returns a localized string, with an optional comment for translators.
-    ///
-    ///        "Hello world".localized -> Hallo Welt
-    ///
-    public func localized(comment: String = "") -> String {
-        return NSLocalizedString(self, comment: comment)
-    }
+	
+	/// SwifterSwift: Returns a localized string, with an optional comment for translators.
+	///
+	///        "Hello world".localized -> Hallo Welt
+	///
+	public func localized(comment: String = "") -> String {
+		return NSLocalizedString(self, comment: comment)
+	}
 	
 	/// SwifterSwift: The most common character in string.
 	///
@@ -395,12 +383,12 @@ public extension String {
 	///
 	/// - Returns: The most common character.
 	public func mostCommonCharacter() -> Character? {
-        let mostCommon = withoutSpacesAndNewLines.reduce(into: [Character: Int]()) {
-            let count = $0[$1] ?? 0
-            $0[$1] = count + 1
-        }.max { $0.1 < $1.1 }?.0
-        
-        return mostCommon
+		let mostCommon = withoutSpacesAndNewLines.reduce(into: [Character: Int]()) {
+			let count = $0[$1] ?? 0
+			$0[$1] = count + 1
+			}.max { $0.1 < $1.1 }?.0
+		
+		return mostCommon
 	}
 	
 	/// SwifterSwift: Array with unicodes for all characters in a string.
@@ -441,9 +429,7 @@ public extension String {
 	///
 	/// - Parameter i: index.
 	public subscript(safe i: Int) -> Character? {
-		guard i >= 0 && i < count else {
-			return nil
-		}
+		guard i >= 0 && i < count else { return nil }
 		return self[index(startIndex, offsetBy: i)]
 	}
 	
@@ -454,12 +440,8 @@ public extension String {
 	///
 	/// - Parameter range: Half-open range.
 	public subscript(safe range: CountableRange<Int>) -> String? {
-		guard let lowerIndex = index(startIndex, offsetBy: max(0, range.lowerBound), limitedBy: endIndex) else {
-			return nil
-		}
-		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound, limitedBy: endIndex) else {
-			return nil
-		}
+		guard let lowerIndex = index(startIndex, offsetBy: max(0, range.lowerBound), limitedBy: endIndex) else { return nil }
+		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound, limitedBy: endIndex) else { return nil }
 		return String(self[lowerIndex..<upperIndex])
 	}
 	
@@ -470,12 +452,8 @@ public extension String {
 	///
 	/// - Parameter range: Closed range.
 	public subscript(safe range: ClosedRange<Int>) -> String? {
-		guard let lowerIndex = index(startIndex, offsetBy: max(0, range.lowerBound), limitedBy: endIndex) else {
-			return nil
-		}
-		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound + 1, limitedBy: endIndex) else {
-			return nil
-		}
+		guard let lowerIndex = index(startIndex, offsetBy: max(0, range.lowerBound), limitedBy: endIndex) else { return nil }
+		guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound + 1, limitedBy: endIndex) else { return nil }
 		return String(self[lowerIndex..<upperIndex])
 	}
 	
@@ -510,9 +488,7 @@ public extension String {
 		guard count > 0 else { return false }
 		var uniqueChars = Set<String>()
 		for char in self {
-			if uniqueChars.contains(String(char)) {
-				return false
-			}
+			if uniqueChars.contains(String(char)) { return false }
 			uniqueChars.insert(String(char))
 		}
 		return true
@@ -596,31 +572,27 @@ public extension String {
 	
 	/// SwifterSwift: Reverse string.
 	public mutating func reverse() {
-        let chars: [Character] = reversed()
+		let chars: [Character] = reversed()
 		self = String(chars)
 	}
-    
-    /// SwifterSwift: Sliced string from a start index with length.
-    ///
-    ///        "Hello World".slicing(from: 6, length: 5) -> "World"
-    ///
-    /// - Parameters:
-    ///   - i: string index the slicing should start from.
-    ///   - length: amount of characters to be sliced after given index.
-    /// - Returns: sliced substring of length number of characters (if applicable) (example: "Hello World".slicing(from: 6, length: 5) -> "World")
-    public func slicing(from i: Int, length: Int) -> String? {
-        guard length >= 0, i >= 0, i < count  else {
-            return nil
-        }
-        guard i.advanced(by: length) <= count else {
-            return self[safe: i..<count]
-        }
-        guard length > 0 else {
-            return ""
-        }
-        return self[safe: i..<i.advanced(by: length)]
-    }
-    
+	
+	/// SwifterSwift: Sliced string from a start index with length.
+	///
+	///        "Hello World".slicing(from: 6, length: 5) -> "World"
+	///
+	/// - Parameters:
+	///   - i: string index the slicing should start from.
+	///   - length: amount of characters to be sliced after given index.
+	/// - Returns: sliced substring of length number of characters (if applicable) (example: "Hello World".slicing(from: 6, length: 5) -> "World")
+	public func slicing(from i: Int, length: Int) -> String? {
+		guard length >= 0, i >= 0, i < count  else { return nil }
+		guard i.advanced(by: length) <= count else {
+			return self[safe: i..<count]
+		}
+		guard length > 0 else { return "" }
+		return self[safe: i..<i.advanced(by: length)]
+	}
+	
 	/// SwifterSwift: Slice given string from a start index with length (if applicable).
 	///
 	///		var str = "Hello World"
@@ -631,8 +603,7 @@ public extension String {
 	///   - i: string index the slicing should start from.
 	///   - length: amount of characters to be sliced after given index.
 	public mutating func slice(from i: Int, length: Int) {
-        
-        if let str = self.slicing(from: i, length: length) {
+		if let str = self.slicing(from: i, length: length) {
 			self = String(str)
 		}
 	}
@@ -647,8 +618,7 @@ public extension String {
 	///   - start: string index the slicing should start from.
 	///   - end: string index the slicing should end at.
 	public mutating func slice(from start: Int, to end: Int) {
-        guard end >= start else { return }
-        
+		guard end >= start else { return }
 		if let str = self[safe: start..<end] {
 			self = str
 		}
@@ -662,9 +632,8 @@ public extension String {
 	///
 	/// - Parameter i: string index the slicing should start from.
 	public mutating func slice(at i: Int) {
-        guard i < count else { return }
-        
-        if let str = self[safe: i..<count] {
+		guard i < count else { return }
+		if let str = self[safe: i..<count] {
 			self = str
 		}
 	}
@@ -718,9 +687,7 @@ public extension String {
 	///   - toLength: maximum number of characters before cutting.
 	///   - trailing: string to add at the end of truncated string (default is "...").
 	public mutating func truncate(toLength length: Int, trailing: String? = "...") {
-		guard length > 0 else {
-			return
-		}
+		guard length > 0 else { return }
 		if count > length {
 			self = self[startIndex..<index(startIndex, offsetBy: length)] + (trailing ?? "")
 		}
@@ -770,79 +737,78 @@ public extension String {
 	/// - Returns: true if string matches the pattern.
 	public func matches(pattern: String) -> Bool {
 		return range(of: pattern,
-		             options: String.CompareOptions.regularExpression,
-		             range: nil, locale: nil) != nil
+					 options: String.CompareOptions.regularExpression,
+					 range: nil, locale: nil) != nil
 	}
 	
-    /// SwifterSwift: Pad string to fit the length parameter size with another string in the start.
-    ///
-    ///   "hue".padStart(10) -> "       hue"
-    ///   "hue".padStart(10, with: "br") -> "brbrbrbhue"
-    ///
-    /// - Parameter length: The target length to pad.
-    /// - Parameter string: Pad string. Default is " ".
-    public mutating func padStart(_ length: Int, with string: String = " ") {
-        self = paddingStart(length, with: string)
-    }
-    
-    /// SwifterSwift: Returns a string by padding to fit the length parameter size with another string in the start.
-    ///
-    ///   "hue".paddingStart(10) -> "       hue"
-    ///   "hue".paddingStart(10, with: "br") -> "brbrbrbhue"
-    ///
-    /// - Parameter length: The target length to pad.
-    /// - Parameter string: Pad string. Default is " ".
-    /// - Returns: The string with the padding on the start.
-    public func paddingStart(_ length: Int, with string: String = " ") -> String {
-        
-        guard count < length else { return self }
-        
-        let padLength = length - count
-        if padLength < string.count {
-            return string[string.startIndex..<string.index(string.startIndex, offsetBy: padLength)] + self
-        } else {
-            var padding = string
-            while padding.count < padLength {
-                padding.append(string)
-            }
-            return padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)] + self
-        }
-    }
-    
-    /// SwifterSwift: Pad string to fit the length parameter size with another string in the start.
-    ///
-    ///   "hue".padEnd(10) -> "hue       "
-    ///   "hue".padEnd(10, with: "br") -> "huebrbrbrb"
-    ///
-    /// - Parameter length: The target length to pad.
-    /// - Parameter string: Pad string. Default is " ".
-    public mutating func padEnd(_ length: Int, with string: String = " ") {
-        self = paddingEnd(length, with: string)
-    }
-    
-    /// SwifterSwift: Returns a string by padding to fit the length parameter size with another string in the end.
-    ///
-    ///   "hue".paddingEnd(10) -> "hue       "
-    ///   "hue".paddingEnd(10, with: "br") -> "huebrbrbrb"
-    ///
-    /// - Parameter length: The target length to pad.
-    /// - Parameter string: Pad string. Default is " ".
-    /// - Returns: The string with the padding on the end.
-    public func paddingEnd(_ length: Int, with string: String = " ") -> String {
-        guard count < length else { return self }
-        
-        let padLength = length - count
-        if padLength < string.count {
-            return self + string[string.startIndex..<string.index(string.startIndex, offsetBy: padLength)]
-        } else {
-            var padding = string
-            while padding.count < padLength {
-                padding.append(string)
-            }
-            return self + padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)]
-        }
-    }
-
+	/// SwifterSwift: Pad string to fit the length parameter size with another string in the start.
+	///
+	///   "hue".padStart(10) -> "       hue"
+	///   "hue".padStart(10, with: "br") -> "brbrbrbhue"
+	///
+	/// - Parameter length: The target length to pad.
+	/// - Parameter string: Pad string. Default is " ".
+	public mutating func padStart(_ length: Int, with string: String = " ") {
+		self = paddingStart(length, with: string)
+	}
+	
+	/// SwifterSwift: Returns a string by padding to fit the length parameter size with another string in the start.
+	///
+	///   "hue".paddingStart(10) -> "       hue"
+	///   "hue".paddingStart(10, with: "br") -> "brbrbrbhue"
+	///
+	/// - Parameter length: The target length to pad.
+	/// - Parameter string: Pad string. Default is " ".
+	/// - Returns: The string with the padding on the start.
+	public func paddingStart(_ length: Int, with string: String = " ") -> String {
+		guard count < length else { return self }
+		
+		let padLength = length - count
+		if padLength < string.count {
+			return string[string.startIndex..<string.index(string.startIndex, offsetBy: padLength)] + self
+		} else {
+			var padding = string
+			while padding.count < padLength {
+				padding.append(string)
+			}
+			return padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)] + self
+		}
+	}
+	
+	/// SwifterSwift: Pad string to fit the length parameter size with another string in the start.
+	///
+	///   "hue".padEnd(10) -> "hue       "
+	///   "hue".padEnd(10, with: "br") -> "huebrbrbrb"
+	///
+	/// - Parameter length: The target length to pad.
+	/// - Parameter string: Pad string. Default is " ".
+	public mutating func padEnd(_ length: Int, with string: String = " ") {
+		self = paddingEnd(length, with: string)
+	}
+	
+	/// SwifterSwift: Returns a string by padding to fit the length parameter size with another string in the end.
+	///
+	///   "hue".paddingEnd(10) -> "hue       "
+	///   "hue".paddingEnd(10, with: "br") -> "huebrbrbrb"
+	///
+	/// - Parameter length: The target length to pad.
+	/// - Parameter string: Pad string. Default is " ".
+	/// - Returns: The string with the padding on the end.
+	public func paddingEnd(_ length: Int, with string: String = " ") -> String {
+		guard count < length else { return self }
+		
+		let padLength = length - count
+		if padLength < string.count {
+			return self + string[string.startIndex..<string.index(string.startIndex, offsetBy: padLength)]
+		} else {
+			var padding = string
+			while padding.count < padLength {
+				padding.append(string)
+			}
+			return self + padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)]
+		}
+	}
+	
 }
 
 // MARK: - Operators
@@ -857,9 +823,7 @@ public extension String {
 	///   - rhs: number of times to repeat character.
 	/// - Returns: new string with given string repeated n times.
 	public static func * (lhs: String, rhs: Int) -> String {
-		guard rhs > 0 else {
-			return ""
-		}
+		guard rhs > 0 else { return "" }
 		return String(repeating: lhs, count: rhs)
 	}
 	
@@ -872,9 +836,7 @@ public extension String {
 	///   - rhs: string to repeat.
 	/// - Returns: new string with given string repeated n times.
 	public static func * (lhs: Int, rhs: String) -> String {
-		guard lhs > 0 else {
-			return ""
-		}
+		guard lhs > 0 else { return "" }
 		return String(repeating: rhs, count: lhs)
 	}
 	
@@ -890,9 +852,7 @@ public extension String {
 	///
 	/// - Parameter base64: base64 string.
 	public init?(base64: String) {
-		guard let str = base64.base64Decoded else {
-			return nil
-		}
+		guard let str = base64.base64Decoded else { return nil }
 		self.init(str)
 	}
 	
@@ -912,7 +872,6 @@ public extension String {
 	
 	#if !os(tvOS) && !os(watchOS)
 	/// SwifterSwift: Bold string.
-	///
 	public var bold: NSAttributedString {
 		#if os(macOS)
 			return NSMutableAttributedString(string: self, attributes: [.font: NSFont.boldSystemFont(ofSize: NSFont.systemFontSize)])
@@ -923,20 +882,17 @@ public extension String {
 	#endif
 	
 	/// SwifterSwift: Underlined string
-	///
 	public var underline: NSAttributedString {
 		return NSAttributedString(string: self, attributes: [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
 	}
 	
 	/// SwifterSwift: Strikethrough string.
-	///
 	public var strikethrough: NSAttributedString {
 		return NSAttributedString(string: self, attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
 	}
 	
 	#if os(iOS)
 	/// SwifterSwift: Italic string.
-	///
 	public var italic: NSAttributedString {
 		return NSMutableAttributedString(string: self, attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
 	}
@@ -948,7 +904,7 @@ public extension String {
 	/// - Parameter color: text color.
 	/// - Returns: a NSAttributedString versions of string colored with given color.
 	public func colored(with color: NSColor) -> NSAttributedString {
-	return NSMutableAttributedString(string: self, attributes: [.foregroundColor: color])
+		return NSMutableAttributedString(string: self, attributes: [.foregroundColor: color])
 	}
 	#else
 	/// SwifterSwift: Add color to string.
@@ -966,37 +922,31 @@ public extension String {
 public extension String {
 	
 	/// SwifterSwift: NSString from a string.
-	///
 	public var nsString: NSString {
 		return NSString(string: self)
 	}
 	
 	/// SwifterSwift: NSString lastPathComponent.
-	///
 	public var lastPathComponent: String {
 		return (self as NSString).lastPathComponent
 	}
 	
 	/// SwifterSwift: NSString pathExtension.
-	///
 	public var pathExtension: String {
 		return (self as NSString).pathExtension
 	}
 	
 	/// SwifterSwift: NSString deletingLastPathComponent.
-	///
 	public var deletingLastPathComponent: String {
 		return (self as NSString).deletingLastPathComponent
 	}
 	
 	/// SwifterSwift: NSString deletingPathExtension.
-	///
 	public var deletingPathExtension: String {
 		return (self as NSString).deletingPathExtension
 	}
 	
 	/// SwifterSwift: NSString pathComponents.
-	///
 	public var pathComponents: [String] {
 		return (self as NSString).pathComponents
 	}

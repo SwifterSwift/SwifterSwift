@@ -20,9 +20,9 @@ public extension UIImageView {
 	///   - placeHolder: optional placeholder image
 	///   - completionHandler: optional completion handler to run when download finishs (default is nil).
 	public func download(from url: URL,
-	                     contentMode: UIViewContentMode = .scaleAspectFit,
-	                     placeholder: UIImage? = nil,
-	                     completionHandler: ((UIImage?) -> Void)? = nil) {
+						 contentMode: UIViewContentMode = .scaleAspectFit,
+						 placeholder: UIImage? = nil,
+						 completionHandler: ((UIImage?) -> Void)? = nil) {
 		
 		image = placeholder
 		self.contentMode = contentMode
@@ -40,7 +40,7 @@ public extension UIImageView {
 				self.image = image
 				completionHandler?(image)
 			}
-        }.resume()
+			}.resume()
 	}
 	
 	/// SwifterSwift: Make image view blurry

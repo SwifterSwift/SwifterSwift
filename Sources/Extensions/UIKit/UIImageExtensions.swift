@@ -42,9 +42,7 @@ public extension UIImage {
 	/// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
 	/// - Returns: optional UIImage (if applicable).
 	public func compressed(quality: CGFloat = 0.5) -> UIImage? {
-		guard let data = compressedData(quality: quality) else {
-			return nil
-		}
+		guard let data = compressedData(quality: quality) else { return nil }
 		return UIImage(data: data)
 	}
 	
@@ -61,12 +59,8 @@ public extension UIImage {
 	/// - Parameter rect: CGRect to crop UIImage to.
 	/// - Returns: cropped UIImage
 	public func cropped(to rect: CGRect) -> UIImage {
-		guard rect.size.height < size.height && rect.size.height < size.height else {
-			return self
-		}
-		guard let image: CGImage = cgImage?.cropping(to: rect) else {
-			return self
-		}
+		guard rect.size.height < size.height && rect.size.height < size.height else { return self }
+		guard let image: CGImage = cgImage?.cropping(to: rect) else { return self }
 		return UIImage(cgImage: image)
 	}
 	
@@ -109,18 +103,14 @@ public extension UIImage {
 	public func filled(withColor color: UIColor) -> UIImage {
 		UIGraphicsBeginImageContextWithOptions(size, false, scale)
 		color.setFill()
-		guard let context = UIGraphicsGetCurrentContext() else {
-			return self
-		}
+		guard let context = UIGraphicsGetCurrentContext() else { return self }
 		
 		context.translateBy(x: 0, y: size.height)
 		context.scaleBy(x: 1.0, y: -1.0)
 		context.setBlendMode(CGBlendMode.normal)
 		
 		let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-		guard let mask = self.cgImage else {
-			return self
-		}
+		guard let mask = self.cgImage else { return self }
 		context.clip(to: rect, mask: mask)
 		context.fill(rect)
 		
@@ -147,6 +137,7 @@ public extension UIImage {
 		UIGraphicsEndImageContext()
 		return tintedImage!
 	}
+	
 }
 
 // MARK: - Initializers

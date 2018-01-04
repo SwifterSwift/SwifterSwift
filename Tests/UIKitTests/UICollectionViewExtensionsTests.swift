@@ -53,6 +53,7 @@ final class UICollectionViewExtensionsTests: XCTestCase {
 			XCTAssert(completionCalled)
 		}
 	}
+	
 }
 
 extension UICollectionViewExtensionsTests: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {

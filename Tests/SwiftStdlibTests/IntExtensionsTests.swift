@@ -165,4 +165,5 @@ final class IntExtensionsTests: XCTestCase {
 		XCTAssert((±2) == (2, -2) || (±2) == (-2, 2))
 		XCTAssertEqual(√25, 5.0)
 	}
+	
 }

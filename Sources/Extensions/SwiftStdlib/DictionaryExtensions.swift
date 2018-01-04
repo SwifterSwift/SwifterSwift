@@ -21,7 +21,7 @@ public extension Dictionary {
 		return index(forKey: key) != nil
 	}
 	
-    /// SwifterSwift: Remove all keys of the dictionary.
+	/// SwifterSwift: Remove all keys of the dictionary.
 	///
 	///		var dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
 	///		dict.removeAll(keys: ["key1", "key2"])
@@ -30,10 +30,10 @@ public extension Dictionary {
 	///		dict.keys.contains("key2") -> false
 	///
 	/// - Parameter keys: keys to be removed
-    public mutating func removeAll(keys: [Key]) {
-        keys.forEach({ removeValue(forKey: $0)})
-    }
-    
+	public mutating func removeAll(keys: [Key]) {
+		keys.forEach({ removeValue(forKey: $0)})
+	}
+	
 	/// SwifterSwift: JSON Data from dictionary.
 	///
 	/// - Parameter prettify: set true to prettify data (default is false).
@@ -77,28 +77,27 @@ public extension Dictionary {
 		guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else { return nil }
 		return String(data: jsonData, encoding: .utf8)
 	}
-    
-    /// SwifterSwift: Count dictionary entries that where function returns true.
+	
+	/// SwifterSwift: Count dictionary entries that where function returns true.
 	///
 	/// - Parameter where: condition to evaluate each tuple entry against.
-    /// - Returns: Count of entries that matches the where clousure.
-    public func count(where condition: @escaping ((key: Key, value: Value)) throws -> Bool) rethrows -> Int {
-        var count: Int = 0
-        try self.forEach {
-            if try condition($0) {
-                count += 1
-            }
-        }
-        return count
-    }
-
+	/// - Returns: Count of entries that matches the where clousure.
+	public func count(where condition: @escaping ((key: Key, value: Value)) throws -> Bool) rethrows -> Int {
+		var count: Int = 0
+		try self.forEach {
+			if try condition($0) {
+				count += 1
+			}
+		}
+		return count
+	}
+	
 }
 
 // MARK: - Operators
-
 public extension Dictionary {
-    
-    /// SwifterSwift: Merge the keys/values of two dictionaries.
+	
+	/// SwifterSwift: Merge the keys/values of two dictionaries.
 	///
 	///		let dict : [String : String] = ["key1" : "value1"]
 	///		let dict2 : [String : String] = ["key2" : "value2"]
@@ -107,18 +106,18 @@ public extension Dictionary {
 	///		result["key2"] -> "value2"
 	///
 	/// - Parameters:
-    ///   - lhs: dictionary
-    ///   - rhs: dictionary
-    /// - Returns: An dictionary with keys and values from both.
-    public static func + (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
-        var result = lhs
-        rhs.forEach { result[$0] = $1 }
-        return result
-    }
-    
-    // MARK: - Operators
-    
-    /// SwifterSwift: Append the keys and values from the second dictionary into the first one.
+	///   - lhs: dictionary
+	///   - rhs: dictionary
+	/// - Returns: An dictionary with keys and values from both.
+	public static func + (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
+		var result = lhs
+		rhs.forEach { result[$0] = $1 }
+		return result
+	}
+	
+	// MARK: - Operators
+	
+	/// SwifterSwift: Append the keys and values from the second dictionary into the first one.
 	///
 	///		var dict : [String : String] = ["key1" : "value1"]
 	///		let dict2 : [String : String] = ["key2" : "value2"]
@@ -127,13 +126,13 @@ public extension Dictionary {
 	///		dict["key2"] -> "value2"
 	///
 	/// - Parameters:
-    ///   - lhs: dictionary
-    ///   - rhs: dictionary
-    public static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
-        rhs.forEach { lhs[$0] = $1}
-    }
+	///   - lhs: dictionary
+	///   - rhs: dictionary
+	public static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
+		rhs.forEach { lhs[$0] = $1}
+	}
 	
-    /// SwifterSwift: Remove contained in the array from the dictionary
+	/// SwifterSwift: Remove contained in the array from the dictionary
 	///
 	///		let dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
 	///		let result = dict-["key1", "key2"]
@@ -142,16 +141,16 @@ public extension Dictionary {
 	///		result.keys.contains("key2") -> false
 	///
 	/// - Parameters:
-    ///   - lhs: dictionary
-    ///   - rhs: array with the keys to be removed.
-    /// - Returns: a new dictionary with keys removed.
-    public static func - (lhs: [Key: Value], keys: [Key]) -> [Key: Value] {
-        var result = lhs
-        result.removeAll(keys: keys)
-        return result
-    }
-    
-    /// SwifterSwift: Remove contained in the array from the dictionary
+	///   - lhs: dictionary
+	///   - rhs: array with the keys to be removed.
+	/// - Returns: a new dictionary with keys removed.
+	public static func - (lhs: [Key: Value], keys: [Key]) -> [Key: Value] {
+		var result = lhs
+		result.removeAll(keys: keys)
+		return result
+	}
+	
+	/// SwifterSwift: Remove contained in the array from the dictionary
 	///
 	///		var dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
 	///		dict-=["key1", "key2"]
@@ -160,12 +159,12 @@ public extension Dictionary {
 	///		dict.keys.contains("key2") -> false
 	///
 	/// - Parameters:
-    ///   - lhs: dictionary
-    ///   - rhs: array with the keys to be removed.
-    public static func -= (lhs: inout [Key: Value], keys: [Key]) {
-        lhs.removeAll(keys: keys)
-    }
-
+	///   - lhs: dictionary
+	///   - rhs: array with the keys to be removed.
+	public static func -= (lhs: inout [Key: Value], keys: [Key]) {
+		lhs.removeAll(keys: keys)
+	}
+	
 }
 
 // MARK: - Methods (ExpressibleByStringLiteral)

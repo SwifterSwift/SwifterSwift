@@ -164,5 +164,6 @@ final class UIButtonExtensionsTests: XCTestCase {
 		XCTAssertEqual(button.titleForNormal, title)
 		XCTAssertEqual(button.titleForSelected, title)
 	}
+	
 }
 #endif

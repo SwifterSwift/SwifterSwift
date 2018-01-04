@@ -31,4 +31,5 @@ final class CLLocationExtensionsTests: XCTestCase {
 		
 		XCTAssertEqual(bearing, 105.619, accuracy: 0.001)
 	}
+	
 }

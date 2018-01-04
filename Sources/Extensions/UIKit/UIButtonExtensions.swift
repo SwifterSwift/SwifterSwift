@@ -136,10 +136,10 @@ public extension UIButton {
 
 // MARK: - Methods
 public extension UIButton {
-    
-    private var states: [UIControlState] {
-        return [.normal, .selected, .highlighted, .disabled]
-    }
+	
+	private var states: [UIControlState] {
+		return [.normal, .selected, .highlighted, .disabled]
+	}
 	
 	/// SwifterSwift: Set image for all states.
 	///
