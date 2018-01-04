@@ -20,7 +20,8 @@ All notable changes to this project will be documented in this file.
 # Next Release
 
 ### API Breaking
-N/A
+- **Array**
+  - `indexes(of:)` has been renamed to `indices(of:)`. 
 
 ### Enhancements
 - New **NSAttributedString**
