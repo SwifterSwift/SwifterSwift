@@ -10,7 +10,7 @@ import XCTest
 @testable import SwifterSwift
 
 final class UIDeviceExtensionsTests: XCTestCase {
-    func testCountryCode() {
-        XCTAssertNotNil(UIDevice.countryCode)
+    func testCountryISOCode() {
+        XCTAssertNotNil(UIDevice.countryISOCode)
     }
 }

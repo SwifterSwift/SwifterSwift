@@ -10,7 +10,7 @@
 import UIKit
 public extension UIDevice {
     /// Show country code of current locale for device
-    static var countryCode: String? {
+    static var countryISOCode: String? {
         return (Locale.current as NSLocale).object(forKey: NSLocale.Key.countryCode) as? String
     }
 }
