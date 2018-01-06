@@ -91,4 +91,5 @@ final class FloatExtensionsTests: XCTestCase {
 		}
 		XCTAssert(num.asLocaleCurrency.contains("\(num)"))
 	}
+	
 }

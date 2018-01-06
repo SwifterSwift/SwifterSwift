@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - Enums
 public extension Date {
 	
 	/// SwifterSwift: Day name format.
@@ -568,7 +569,6 @@ public extension Date {
 	/// - Parameter component: calendar component to get date at the beginning of.
 	/// - Returns: date at the beginning of calendar component (if applicable).
 	public func beginning(of component: Calendar.Component) -> Date? {
-		
 		if component == .day {
 			return Calendar.current.startOfDay(for: self)
 		}
@@ -676,7 +676,7 @@ public extension Date {
 	public func isInCurrent(_ component: Calendar.Component) -> Bool {
 		return Calendar.current.isDate(self, equalTo: Date(), toGranularity: component)
 	}
-
+	
 	/// SwifterSwift: Date string from date.
 	///
 	///     Date().string(withFormat: "dd/MM/yyyy") -> "1/12/17"
@@ -690,7 +690,7 @@ public extension Date {
 		dateFormatter.dateFormat = format
 		return dateFormatter.string(from: self)
 	}
-
+	
 	/// SwifterSwift: Date string from date.
 	///
 	/// 	Date().dateString(ofStyle: .short) -> "1/12/17"
@@ -847,32 +847,32 @@ public extension Date {
 		let componentValue = components.value(for: component)!
 		return abs(componentValue) <= value
 	}
-    
-    /// SwifterSwift: Random date between two dates.
-    ///
-    ///     Date.random()
-    ///     Date.random(from: Date())
-    ///     Date.random(upTo: Date())
-    ///     Date.random(from: Date(), upTo: Date())
-    ///
-    /// - Parameters:
-    ///   - fromDate: minimum date (default is Date.distantPast)
-    ///   - toDate: maximum date (default is Date.distantFuture)
-    /// - Returns: random date between two dates.
-    public static func random(from fromDate: Date = Date.distantPast,
-                              upTo toDate: Date = Date.distantFuture) -> Date {
-        guard fromDate != toDate else {
-            return fromDate
-        }
-        
-        let diff = llabs(Int64(toDate.timeIntervalSinceReferenceDate - fromDate.timeIntervalSinceReferenceDate))
-        var randomValue: Int64 = 0
-        arc4random_buf(&randomValue, MemoryLayout<Int64>.size)
-        randomValue = llabs(randomValue%diff)
-        
-        let startReferenceDate = toDate > fromDate ? fromDate : toDate
-        return startReferenceDate.addingTimeInterval(TimeInterval(randomValue))
-    }
+	
+	/// SwifterSwift: Random date between two dates.
+	///
+	///     Date.random()
+	///     Date.random(from: Date())
+	///     Date.random(upTo: Date())
+	///     Date.random(from: Date(), upTo: Date())
+	///
+	/// - Parameters:
+	///   - fromDate: minimum date (default is Date.distantPast)
+	///   - toDate: maximum date (default is Date.distantFuture)
+	/// - Returns: random date between two dates.
+	public static func random(from fromDate: Date = Date.distantPast, upTo toDate: Date = Date.distantFuture) -> Date {
+		guard fromDate != toDate else {
+			return fromDate
+		}
+		
+		let diff = llabs(Int64(toDate.timeIntervalSinceReferenceDate - fromDate.timeIntervalSinceReferenceDate))
+		var randomValue: Int64 = 0
+		arc4random_buf(&randomValue, MemoryLayout<Int64>.size)
+		randomValue = llabs(randomValue%diff)
+		
+		let startReferenceDate = toDate > fromDate ? fromDate : toDate
+		return startReferenceDate.addingTimeInterval(TimeInterval(randomValue))
+	}
+	
 }
 
 // MARK: - Initializers
@@ -950,15 +950,16 @@ public extension Date {
 	public init(unixTimestamp: Double) {
 		self.init(timeIntervalSince1970: unixTimestamp)
 	}
-    
-    /// SwifterSwift: Create date object from Int literal
-    ///
-    ///     let date = Date(integerLiteral: 2017_12_25) // "2017-12-25 00:00:00 +0000"
-    /// - Parameter value: Int value, e.g. 20171225, or 2017_12_25 etc.
-    public init?(integerLiteral value: Int) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyyMMdd"
-        guard let date = formatter.date(from: String(value)) else { return nil }
-        self = date
-    }
+	
+	/// SwifterSwift: Create date object from Int literal
+	///
+	///     let date = Date(integerLiteral: 2017_12_25) // "2017-12-25 00:00:00 +0000"
+	/// - Parameter value: Int value, e.g. 20171225, or 2017_12_25 etc.
+	public init?(integerLiteral value: Int) {
+		let formatter = DateFormatter()
+		formatter.dateFormat = "yyyyMMdd"
+		guard let date = formatter.date(from: String(value)) else { return nil }
+		self = date
+	}
+	
 }

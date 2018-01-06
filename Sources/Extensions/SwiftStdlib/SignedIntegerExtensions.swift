@@ -64,7 +64,7 @@ public extension SignedInteger {
 		}
 		return "\(hours)h \(mins)m"
 	}
-
+	
 }
 
 // MARK: - Methods

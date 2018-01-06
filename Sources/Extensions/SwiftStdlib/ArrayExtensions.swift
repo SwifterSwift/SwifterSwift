@@ -15,11 +15,11 @@ public extension Array where Element: Numeric {
 	///
 	/// - Returns: sum of the array's elements.
 	public func sum() -> Element {
-        var total: Element = 0
-        for i in 0..<count {
-            total += self[i]
-        }
-        return total
+		var total: Element = 0
+		for i in 0..<count {
+			total += self[i]
+		}
+		return total
 	}
 	
 }
@@ -33,14 +33,14 @@ public extension Array where Element: FloatingPoint {
 	///
 	/// - Returns: average of the array's elements.
 	public func average() -> Element {
-        guard !isEmpty else { return 0 }
-        var total: Element = 0
-        for i in 0..<count {
-            total += self[i]
-        }
-        return total / Element(count)
+		guard !isEmpty else { return 0 }
+		var total: Element = 0
+		for i in 0..<count {
+			total += self[i]
+		}
+		return total / Element(count)
 	}
-
+	
 }
 
 // MARK: - Methods
@@ -404,75 +404,76 @@ public extension Array {
 	public mutating func rotate(by places: Int) {
 		self = rotated(by: places)
 	}
-    
-    /// SwifterSwift: Shuffle array. (Using Fisher-Yates Algorithm)
-    ///
-    ///        [1, 2, 3, 4, 5].shuffle() // shuffles array
-    ///
-    public mutating func shuffle() {
-        //http://stackoverflow.com/questions/37843647/shuffle-array-swift-3
-        guard count > 1 else { return }
-        for index in startIndex..<endIndex - 1 {
-            let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
-            if index != randomIndex { swapAt(index, randomIndex) }
-        }
-    }
-    
-    /// SwifterSwift: Shuffled version of array. (Using Fisher-Yates Algorithm)
-    ///
-    ///        [1, 2, 3, 4, 5].shuffled // return a shuffled version from given array e.g. [2, 4, 1, 3, 5].
-    ///
-    /// - Returns: the array with its elements shuffled.
-    public func shuffled() -> [Element] {
-        var array = self
-        array.shuffle()
-        return array
-    }
-    
-    /// SwifterSwift: Return a sorted array based on an optional keypath.
-    ///
-    /// - Parameter path: Key path to sort. The key path type must be Comparable.
-    /// - Parameter ascending: If order must be ascending.
-    /// - Returns: Sorted array based on keyPath.
-    public func sorted<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
-        return sorted(by: { (lhs, rhs) -> Bool in
-            guard let lhsValue = lhs[keyPath: path], let rhsValue = rhs[keyPath: path] else { return false }
-            if ascending {
-                return lhsValue < rhsValue
-            }
-            return lhsValue > rhsValue
-        })
-    }
-    
-    /// SwifterSwift: Return a sorted array based on a keypath.
-    ///
-    /// - Parameter path: Key path to sort. The key path type must be Comparable.
-    /// - Parameter ascending: If order must be ascending.
-    /// - Returns: Sorted array based on keyPath.
-    public func sorted<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
-        return sorted(by: { (lhs, rhs) -> Bool in
-            if ascending {
-                return lhs[keyPath: path] < rhs[keyPath: path]
-            }
-            return lhs[keyPath: path] > rhs[keyPath: path]
-        })
-    }
-    
-    /// SwifterSwift: Sort the array based on an optional keypath.
-    ///
-    /// - Parameter path: Key path to sort. The key path type must be Comparable.
-    /// - Parameter ascending: If order must be ascending.
-    public mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) {
-        self = sorted(by: path, ascending: ascending)
-    }
-    
-    /// SwifterSwift: Sort the array based on a keypath.
-    ///
-    /// - Parameter path: Key path to sort. The key path type must be Comparable.
-    /// - Parameter ascending: If order must be ascending.
-    public mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) {
-        self = sorted(by: path, ascending: ascending)
-    }
+	
+	/// SwifterSwift: Shuffle array. (Using Fisher-Yates Algorithm)
+	///
+	///		[1, 2, 3, 4, 5].shuffle() // shuffles array
+	///
+	public mutating func shuffle() {
+		// http://stackoverflow.com/questions/37843647/shuffle-array-swift-3
+		guard count > 1 else { return }
+		for index in startIndex..<endIndex - 1 {
+			let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
+			if index != randomIndex { swapAt(index, randomIndex) }
+		}
+	}
+	
+	/// SwifterSwift: Shuffled version of array. (Using Fisher-Yates Algorithm)
+	///
+	///		[1, 2, 3, 4, 5].shuffled // return a shuffled version from given array e.g. [2, 4, 1, 3, 5].
+	///
+	/// - Returns: the array with its elements shuffled.
+	public func shuffled() -> [Element] {
+		var array = self
+		array.shuffle()
+		return array
+	}
+	
+	/// SwifterSwift: Return a sorted array based on an optional keypath.
+	///
+	/// - Parameter path: Key path to sort. The key path type must be Comparable.
+	/// - Parameter ascending: If order must be ascending.
+	/// - Returns: Sorted array based on keyPath.
+	public func sorted<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
+		return sorted(by: { (lhs, rhs) -> Bool in
+			guard let lhsValue = lhs[keyPath: path], let rhsValue = rhs[keyPath: path] else { return false }
+			if ascending {
+				return lhsValue < rhsValue
+			}
+			return lhsValue > rhsValue
+		})
+	}
+	
+	/// SwifterSwift: Return a sorted array based on a keypath.
+	///
+	/// - Parameter path: Key path to sort. The key path type must be Comparable.
+	/// - Parameter ascending: If order must be ascending.
+	/// - Returns: Sorted array based on keyPath.
+	public func sorted<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
+		return sorted(by: { (lhs, rhs) -> Bool in
+			if ascending {
+				return lhs[keyPath: path] < rhs[keyPath: path]
+			}
+			return lhs[keyPath: path] > rhs[keyPath: path]
+		})
+	}
+	
+	/// SwifterSwift: Sort the array based on an optional keypath.
+	///
+	/// - Parameter path: Key path to sort. The key path type must be Comparable.
+	/// - Parameter ascending: If order must be ascending.
+	public mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) {
+		self = sorted(by: path, ascending: ascending)
+	}
+	
+	/// SwifterSwift: Sort the array based on a keypath.
+	///
+	/// - Parameter path: Key path to sort. The key path type must be Comparable.
+	/// - Parameter ascending: If order must be ascending.
+	public mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) {
+		self = sorted(by: path, ascending: ascending)
+	}
+	
 }
 
 // MARK: - Methods (Equatable)
@@ -496,22 +497,22 @@ public extension Array where Element: Equatable {
 		}
 		return found
 	}
-    
-    /// SwifterSwift: All indices of specified item.
-    ///
-    ///        [1, 2, 2, 3, 4, 2, 5].indices(of 2) -> [1, 2, 5]
-    ///        [1.2, 2.3, 4.5, 3.4, 4.5].indices(of 2.3) -> [1]
-    ///        ["h", "e", "l", "l", "o"].indices(of "l") -> [2, 3]
-    ///
-    /// - Parameter item: item to check.
-    /// - Returns: an array with all indices of the given item.
-    public func indices(of item: Element) -> [Int] {
-        var indices: [Int] = []
-        for index in startIndex..<endIndex where self[index] == item {
-            indices.append(index)
-        }
-        return indices
-    }
+	
+	/// SwifterSwift: All indices of specified item.
+	///
+	///		[1, 2, 2, 3, 4, 2, 5].indices(of 2) -> [1, 2, 5]
+	///		[1.2, 2.3, 4.5, 3.4, 4.5].indices(of 2.3) -> [1]
+	///		["h", "e", "l", "l", "o"].indices(of "l") -> [2, 3]
+	///
+	/// - Parameter item: item to check.
+	/// - Returns: an array with all indices of the given item.
+	public func indices(of item: Element) -> [Int] {
+		var indices: [Int] = []
+		for index in startIndex..<endIndex where self[index] == item {
+			indices.append(index)
+		}
+		return indices
+	}
 	
 	/// SwifterSwift: Remove all instances of an item from array.
 	///
@@ -541,27 +542,27 @@ public extension Array where Element: Equatable {
 	///
 	public mutating func removeDuplicates() {
 		// Thanks to https://github.com/sairamkotha for improving the method
-        self = reduce(into: [Element]()) {
-            if !$0.contains($1) {
-                $0.append($1)
-            }
-        }
+		self = reduce(into: [Element]()) {
+			if !$0.contains($1) {
+				$0.append($1)
+			}
+		}
 	}
 	
 	/// SwifterSwift: Return array with all duplicate elements removed.
 	///
-    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].duplicatesRemoved() -> [1, 2, 3, 4, 5])
-    ///     ["h", "e", "l", "l", "o"].duplicatesRemoved() -> ["h", "e", "l", "o"])
-    ///
+	///     [1, 1, 2, 2, 3, 3, 3, 4, 5].duplicatesRemoved() -> [1, 2, 3, 4, 5])
+	///     ["h", "e", "l", "l", "o"].duplicatesRemoved() -> ["h", "e", "l", "o"])
+	///
 	/// - Returns: an array of unique elements.
-    ///
+	///
 	public func duplicatesRemoved() -> [Element] {
 		// Thanks to https://github.com/sairamkotha for improving the property
-        return reduce(into: [Element]()) {
-            if !$0.contains($1) {
-                $0.append($1)
-            }
-        }
+		return reduce(into: [Element]()) {
+			if !$0.contains($1) {
+				$0.append($1)
+			}
+		}
 	}
 	
 	/// SwifterSwift: First index of a given item in an array.
@@ -593,5 +594,5 @@ public extension Array where Element: Equatable {
 		}
 		return nil
 	}
-    
+	
 }

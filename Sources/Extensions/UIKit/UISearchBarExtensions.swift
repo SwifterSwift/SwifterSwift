@@ -35,5 +35,6 @@ public extension UISearchBar {
 	public func clear() {
 		text = ""
 	}
+	
 }
 #endif

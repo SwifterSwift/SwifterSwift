@@ -32,7 +32,7 @@ Here you can find the general guidelines for maintaining the Changelog (or addin
 ## Example:
 
 
-## [v4.1.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.1.0) - Nov 16, 2017
+# [v4.1.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.1.0)
 
 ### Added
 

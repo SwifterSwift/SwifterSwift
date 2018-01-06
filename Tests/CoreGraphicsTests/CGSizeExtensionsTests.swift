@@ -26,4 +26,5 @@ final class CGSizeExtensionsTests: XCTestCase {
 		XCTAssertEqual(newRect.width, 100)
 		XCTAssertEqual(newRect.height, 60)
 	}
+	
 }

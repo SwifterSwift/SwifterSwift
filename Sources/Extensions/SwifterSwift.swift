@@ -68,7 +68,7 @@ public struct SwifterSwift {
 	#if os(iOS)
 	/// SwifterSwift: Current battery level.
 	public static var batteryLevel: Float {
-	return UIDevice.current.batteryLevel
+		return UIDevice.current.batteryLevel
 	}
 	#endif
 	
@@ -112,7 +112,7 @@ public struct SwifterSwift {
 	#if os(iOS)
 	/// SwifterSwift: Current orientation of device.
 	public static var deviceOrientation: UIDeviceOrientation {
-	return currentDevice.orientation
+		return currentDevice.orientation
 	}
 	#endif
 	
@@ -148,33 +148,33 @@ public struct SwifterSwift {
 	#if os(iOS)
 	/// SwifterSwift: Check if multitasking is supported in current device.
 	public static var isMultitaskingSupported: Bool {
-	return UIDevice.current.isMultitaskingSupported
+		return UIDevice.current.isMultitaskingSupported
 	}
 	#endif
 	
 	#if os(iOS)
 	/// SwifterSwift: Current status bar network activity indicator state.
 	public static var isNetworkActivityIndicatorVisible: Bool {
-	get {
-	return UIApplication.shared.isNetworkActivityIndicatorVisible
-	}
-	set {
-	UIApplication.shared.isNetworkActivityIndicatorVisible = newValue
-	}
+		get {
+			return UIApplication.shared.isNetworkActivityIndicatorVisible
+		}
+		set {
+			UIApplication.shared.isNetworkActivityIndicatorVisible = newValue
+		}
 	}
 	#endif
 	
 	#if os(iOS)
 	/// SwifterSwift: Check if device is iPad.
 	public static var isPad: Bool {
-	return UIDevice.current.userInterfaceIdiom == .pad
+		return UIDevice.current.userInterfaceIdiom == .pad
 	}
 	#endif
 	
 	#if os(iOS)
 	/// SwifterSwift: Check if device is iPhone.
 	public static var isPhone: Bool {
-	return UIDevice.current.userInterfaceIdiom == .phone
+		return UIDevice.current.userInterfaceIdiom == .phone
 	}
 	#endif
 	
@@ -198,12 +198,12 @@ public struct SwifterSwift {
 	#if os(iOS)
 	/// SwifterSwift: Status bar visibility state.
 	public static var isStatusBarHidden: Bool {
-	get {
-	return UIApplication.shared.isStatusBarHidden
-	}
-	set {
-	UIApplication.shared.isStatusBarHidden = newValue
-	}
+		get {
+			return UIApplication.shared.isStatusBarHidden
+		}
+		set {
+			UIApplication.shared.isStatusBarHidden = newValue
+		}
 	}
 	#endif
 	
@@ -236,14 +236,14 @@ public struct SwifterSwift {
 	#if os(iOS)
 	/// SwifterSwift: Current status bar style (if applicable).
 	public static var statusBarStyle: UIStatusBarStyle? {
-	get {
-	return UIApplication.shared.statusBarStyle
-	}
-	set {
-	if let style = newValue {
-	UIApplication.shared.statusBarStyle = style
-	}
-	}
+		get {
+			return UIApplication.shared.statusBarStyle
+		}
+		set {
+			if let style = newValue {
+				UIApplication.shared.statusBarStyle = style
+			}
+		}
 	}
 	#endif
 	
@@ -279,7 +279,7 @@ public extension SwifterSwift {
 	///   - queue: a queue that action closure should be executed on (default is DispatchQueue.main).
 	///   - action: closure to be executed in a debounced way.
 	public static func debounce(millisecondsDelay: Int, queue: DispatchQueue = .main, action: @escaping (() -> Void)) -> () -> Void {
-		//http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
+		// http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
 		var lastFireTime = DispatchTime.now()
 		let dispatchDelay = DispatchTimeInterval.milliseconds(millisecondsDelay)
 		

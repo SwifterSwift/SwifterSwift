@@ -22,4 +22,5 @@ public extension SignedNumeric {
 		guard let number = self as? NSNumber else { return "" }
 		return formatter.string(from: number) ?? ""
 	}
+	
 }

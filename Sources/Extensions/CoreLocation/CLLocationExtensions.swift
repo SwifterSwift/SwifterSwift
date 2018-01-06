@@ -52,7 +52,7 @@ public extension CLLocation {
 	///   - destination: Location to calculate bearing.
 	/// - Returns: Calculated bearing degrees in the range 0° ... 360°
 	public func bearing(to destination: CLLocation) -> Double {
-		//http://stackoverflow.com/questions/3925942/cllocation-category-for-calculating-bearing-w-haversine-function
+		// http://stackoverflow.com/questions/3925942/cllocation-category-for-calculating-bearing-w-haversine-function
 		let lat1 = Double.pi * coordinate.latitude / 180.0
 		let long1 = Double.pi * coordinate.longitude / 180.0
 		let lat2 = Double.pi * destination.coordinate.latitude / 180.0
@@ -62,7 +62,7 @@ public extension CLLocation {
 		//Source: http://www.movable-type.co.uk/scripts/latlong.html
 		
 		let rads = atan2(sin(long2 - long1) * cos(lat2),
-		                    cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(long2 - long1))
+						 cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(long2 - long1))
 		let degrees = rads * 180 / Double.pi
 		
 		return (degrees+360).truncatingRemainder(dividingBy: 360)
