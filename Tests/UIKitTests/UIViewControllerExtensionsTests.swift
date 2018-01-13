@@ -54,5 +54,15 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         NotificationCenter.default.post(name: notificationIdentifier, object: nil)
         XCTAssertFalse(viewController.notificationFired)
     }
+    
+    func testShowAlert() {
+        let viewController = UIViewController()
+        let title = "test title"
+        let message = "test message"
+        let alertController = viewController.showAlert(title: title, message: message, buttonTitles: ["OK", "Cancel"], highlightedButtonIndex: 1, completion: nil)
+        XCTAssertEqual(alertController.preferredStyle, .alert)
+        XCTAssertEqual(alertController.title, title)
+        XCTAssertEqual(alertController.message, message)
+    }
 }
 #endif
