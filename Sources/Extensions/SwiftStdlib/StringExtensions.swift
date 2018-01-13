@@ -318,6 +318,11 @@ public extension String {
 		return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
 	}
 	
+    /// SwifterSwift: Check if the given string is blank
+    /// "test string".isBlank -> false
+    public var isBlank: Bool {
+        return self.trimmingCharacters(in: .whitespaces).isEmpty
+    }
 }
 
 // MARK: - Methods

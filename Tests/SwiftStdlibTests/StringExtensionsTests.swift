@@ -653,4 +653,12 @@ final class StringExtensionsTests: XCTestCase {
         str.padEnd(2)
         XCTAssertEqual(str, "str")
     }
+    
+    func testBlankString() {
+        var str = "test string"
+        XCTAssertEqual(str.isBlank, false)
+        
+        str = "     "
+        XCTAssertEqual(str.isBlank, true)
+    }
 }
