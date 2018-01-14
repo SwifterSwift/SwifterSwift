@@ -61,7 +61,6 @@ public extension Int {
 		}
 		return String(format: "\(sign)%ikk", abs / 100000)
 	}
-	
 }
 
 // MARK: - Methods
