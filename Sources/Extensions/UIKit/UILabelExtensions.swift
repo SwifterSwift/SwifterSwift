@@ -32,7 +32,7 @@ public extension UILabel {
     
     /// SwifterSwift: Add limit to number of character in UILabel text
     /// replace characters after limit to '...'
-    func addLimit(charracters: Int) {
+    public func addLimit(charracters: Int) {
         if let count = text?.count, count >= charracters, let startIndex = text?.startIndex,
             let index = text?.index(startIndex, offsetBy: charracters) {
             let textAfterAddingLimit = text?[...index]
@@ -43,7 +43,7 @@ public extension UILabel {
     
     /// SwifterSwift: Add limit to number of character in UILabel text
     /// without replacing characters after limit to '...'
-    func justAddLimit(charracters: Int) {
+    public func justAddLimit(charracters: Int) {
         if let count = text?.count, count >= charracters, let startIndex = text?.startIndex,
             let index = text?.index(startIndex, offsetBy: charracters) {
             let textAfterAddingLimit = text?[...index]
