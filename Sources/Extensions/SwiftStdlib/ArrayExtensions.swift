@@ -303,7 +303,7 @@ public extension Array {
 	///
 	///		[0, 2, 4, 7, 6, 8].skip( where: {$0 % 2 == 0}) -> [6, 8]
 	///
-	/// - Parameter condition: condition to eveluate each element against.
+	/// - Parameter condition: condition to evaluate each element against.
 	/// - Returns: All elements after the condition evaluates to false.
 	public func skip(while condition: (Element) throws-> Bool) rethrows -> [Element] {
 		for (index, element) in lazy.enumerated() {
