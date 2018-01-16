@@ -653,4 +653,15 @@ final class StringExtensionsTests: XCTestCase {
         str.padEnd(2)
         XCTAssertEqual(str, "str")
     }
+    
+    func testWhiteSpaces() {
+        var str = "test string"
+        XCTAssertEqual(str.isWhitespace, false)
+        
+        str = "     "
+        XCTAssertEqual(str.isWhitespace, true)
+        
+        str = "   \n \n  "
+        XCTAssertEqual(str.isWhitespace, true)
+    }
 }
