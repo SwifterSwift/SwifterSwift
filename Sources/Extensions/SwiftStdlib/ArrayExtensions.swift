@@ -373,16 +373,10 @@ public extension Array {
 	/// - Parameter condition: condition to evaluate each element against.
 	/// - Returns: Two arrays, the first containing the elements for which the specified condition evaluates to true, the second containing the rest.
 	public func stablePartition(by condition: (Element) throws -> Bool) rethrows -> ([Element], [Element]) {
-		var indexes = Set<Int>()
-		for (index, element) in self.enumerated() {
-			if try condition(element) {
-				indexes.insert(index)
-			}
-		}
 		var matching = [Element]()
 		var nonMatching = [Element]()
-		for (index, element) in self.enumerated() {
-			if indexes.contains(index) {
+		for element in self {
+			if try condition(element) {
 				matching.append(element)
 			} else {
 				nonMatching.append(element)
