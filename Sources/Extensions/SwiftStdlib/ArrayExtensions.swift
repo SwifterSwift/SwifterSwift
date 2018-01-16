@@ -365,7 +365,32 @@ public extension Array {
 		}
 		return group
 	}
-	
+
+	/// SwifterSwift: Separates an array into 2 arrays based on a predicate.
+	///
+	///     [0, 1, 2, 3, 4, 5].stablePartition { $0 % 2 == 0 } -> ( [0, 2, 4], [1, 3, 5] )
+	///
+	/// - Parameter condition: condition to evaluate each element against.
+	/// - Returns: Two arrays, the first containing the elements for which the specified condition evaluates to true, the second containing the rest.
+	public func stablePartition(by condition: (Element) throws -> Bool) rethrows -> ([Element], [Element]) {
+		var indexes = Set<Int>()
+		for (index, element) in self.enumerated() {
+			if try condition(element) {
+				indexes.insert(index)
+			}
+		}
+		var matching = [Element]()
+		var nonMatching = [Element]()
+		for (index, element) in self.enumerated() {
+			if indexes.contains(index) {
+				matching.append(element)
+			} else {
+				nonMatching.append(element)
+			}
+		}
+		return (matching, nonMatching)
+	}
+
 	/// SwifterSwift: Returns a new rotated array by the given places.
 	///
 	///     [1, 2, 3, 4].rotated(by: 1) -> [4,1,2,3]

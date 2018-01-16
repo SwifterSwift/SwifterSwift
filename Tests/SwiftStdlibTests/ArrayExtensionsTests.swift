@@ -292,6 +292,13 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(grouped["i"] ?? [], [ "irving", "iverson" ])
     }
     
+	func testStablePartition() {
+		let input = [0, 1, 2, 3, 4, 5]
+		let (even, odd) = input.stablePartition { $0 % 2 == 0 }
+		XCTAssertEqual(even, [0, 2, 4])
+		XCTAssertEqual(odd, [1, 3, 5])
+	}
+
     func testForEachSlice() {
         var iterations: Int = 0
         
