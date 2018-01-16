@@ -318,8 +318,7 @@ public extension String {
 		return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
 	}
 	
-    /// SwifterSwift: Check if the given string is blank
-    /// "test string".isBlank -> false
+    /// SwifterSwift: Check if the given string contains only white spaces
     public var isWhitespace: Bool {
         return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
