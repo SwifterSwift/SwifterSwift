@@ -368,11 +368,11 @@ public extension Array {
 
 	/// SwifterSwift: Separates an array into 2 arrays based on a predicate.
 	///
-	///     [0, 1, 2, 3, 4, 5].stablePartition { $0 % 2 == 0 } -> ( [0, 2, 4], [1, 3, 5] )
+	///     [0, 1, 2, 3, 4, 5].divided { $0 % 2 == 0 } -> ( [0, 2, 4], [1, 3, 5] )
 	///
 	/// - Parameter condition: condition to evaluate each element against.
 	/// - Returns: Two arrays, the first containing the elements for which the specified condition evaluates to true, the second containing the rest.
-	public func stablePartition(by condition: (Element) throws -> Bool) rethrows -> ([Element], [Element]) {
+	public func divided(by condition: (Element) throws -> Bool) rethrows -> ([Element], [Element]) {
 		//Inspired by: http://ruby-doc.org/core-2.5.0/Enumerable.html#method-i-partition
 		var matching = [Element]()
 		var nonMatching = [Element]()
