@@ -29,6 +29,27 @@ public extension UILabel {
 		label.sizeToFit()
 		return label.frame.height
 	}
+    
+    /// SwifterSwift: Add limit to number of character in UILabel text
+    /// replace characters after limit to '...'
+    public func addLimit(charracters: Int) {
+        if let count = text?.count, count >= charracters, let startIndex = text?.startIndex,
+            let index = text?.index(startIndex, offsetBy: charracters) {
+            let textAfterAddingLimit = text?[...index]
+            text = String.init(textAfterAddingLimit!)
+            text = text?.appending("...")
+        }
+    }
+    
+    /// SwifterSwift: Add limit to number of character in UILabel text
+    /// without replacing characters after limit to '...'
+    public func justAddLimit(charracters: Int) {
+        if let count = text?.count, count >= charracters, let startIndex = text?.startIndex,
+            let index = text?.index(startIndex, offsetBy: charracters) {
+            let textAfterAddingLimit = text?[...index]
+            text = String.init(textAfterAddingLimit!)
+        }
+    }
 	
 }
 #endif
