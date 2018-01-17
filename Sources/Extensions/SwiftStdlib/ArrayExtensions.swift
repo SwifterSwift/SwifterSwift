@@ -372,7 +372,7 @@ public extension Array {
 	///
 	/// - Parameter condition: condition to evaluate each element against.
 	/// - Returns: Two arrays, the first containing the elements for which the specified condition evaluates to true, the second containing the rest.
-	public func divided(by condition: (Element) throws -> Bool) rethrows -> ([Element], [Element]) {
+	public func divided(by condition: (Element) throws -> Bool) rethrows -> (matching: [Element], nonMatching: [Element]) {
 		//Inspired by: http://ruby-doc.org/core-2.5.0/Enumerable.html#method-i-partition
 		var matching = [Element]()
 		var nonMatching = [Element]()
