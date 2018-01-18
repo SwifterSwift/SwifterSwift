@@ -42,7 +42,7 @@ final class URLExtensionsTests: XCTestCase {
         }
         
         XCTAssertEqual(parameters.count, 2)
-        XCTAssertEqual(qValue, params["q"])
+        XCTAssertEqual(qValue, "swifter swift")
         XCTAssertEqual(steveValue, "jobs")
     }
 	
