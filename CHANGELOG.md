@@ -6,6 +6,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > # Upcoming release
 >
 > ### Added
+  - **UIButton**
+    - added `centerTextAndImage(spacing:)` to Center align title text and image on UIButton. [#365](https://github.com/SwifterSwift/SwifterSwift/pull/365) by [@imjog](https://github.com/imjog).
 > ### Changed
 > ### Deprecated
 > ### Removed
