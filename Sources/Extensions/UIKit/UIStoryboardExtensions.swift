@@ -26,6 +26,6 @@ public extension UIStoryboard {
 	public func instantiateViewController<T: UIViewController>(withClass name: T.Type) -> T? {
 		return instantiateViewController(withIdentifier: String(describing: name)) as? T
 	}
-	
+
 }
 #endif

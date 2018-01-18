@@ -33,5 +33,15 @@ final class URLExtensionsTests: XCTestCase {
 		url.appendQueryParameters(params)
 		XCTAssertEqual(url, queryUrl)
 	}
+    
+    func testQueryItemsVar() {
+        guard let parameters = queryUrl.queryParameters, let value = parameters["q"] else {
+            XCTAssert(false)
+            return
+        }
+        
+        XCTAssertEqual(parameters.count, 1)
+        XCTAssertEqual(value, params["q"])
+    }
 	
 }
