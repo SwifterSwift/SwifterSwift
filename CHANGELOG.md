@@ -6,8 +6,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > # Upcoming release
 >
 > ### Added
-  - **UIButton**
-    - added `centerTextAndImage(spacing:)` to Center align title text and image on UIButton. [#365](https://github.com/SwifterSwift/SwifterSwift/pull/365) by [@imjog](https://github.com/imjog).
+- **UIButton**
+  - added `centerTextAndImage(spacing:)` to Center align title text and image on UIButton. [#365](https://github.com/SwifterSwift/SwifterSwift/pull/365) by [@imjog](https://github.com/imjog).
+- **Array**
+  - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
 > ### Changed
 > ### Deprecated
 > ### Removed
@@ -33,6 +35,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `sort(by: KeyPath)` and `sorted(by: KeyPath)` to sort arrays based on Swift 4 keyPath. [#343](https://github.com/SwifterSwift/SwifterSwift/pull/343) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **String**
   - Added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
+  -  Added computed property `isWhitespace` to check if the given string is blank or not.[#363](https://github.com/SwifterSwift/SwifterSwift/pull/363) by [rkp1026](https://github.com/rkp1026).
 - **UIDatePicker**
   - Added `textColor` to get and set the text color of a UIDatePicker. [#328](https://github.com/SwifterSwift/SwifterSwift/issues/328) by [omaralbeik](https://github.com/omaralbeik).
 - **NSImage**
