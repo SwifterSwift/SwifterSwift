@@ -35,15 +35,16 @@ final class URLExtensionsTests: XCTestCase {
 	}
     
     func testQueryParameters() {
-        let url = URL(string: "https://www.google.com?q=swifter%20swift&steve=jobs")!
-        guard let parameters = url.queryParameters, let qValue = parameters["q"], let steveValue = parameters["steve"] else {
+        let url = URL(string: "https://www.google.com?q=swifter%20swift&steve=jobs&empty")!
+        guard let parameters = url.queryParameters else {
             XCTAssert(false)
             return
         }
         
-        XCTAssertEqual(parameters.count, 2)
-        XCTAssertEqual(qValue, "swifter swift")
-        XCTAssertEqual(steveValue, "jobs")
+        XCTAssertEqual(parameters.count, 3)
+        XCTAssertEqual(parameters["q"], "swifter swift")
+        XCTAssertEqual(parameters["steve"], "jobs")
+        XCTAssertEqual(parameters["empty"], "")
     }
 	
 }
