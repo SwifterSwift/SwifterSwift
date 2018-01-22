@@ -18,6 +18,14 @@ final class DataExtensionsTests: XCTestCase {
 		XCTAssertEqual(dataFromString?.string(encoding: .utf8), "hello")
 	}
 
+    func testHexString() {
+        let dataFromString = "0123".data(using: .utf8)
+        let hexString = dataFromString?.hexString
+        XCTAssertNotNil(hexString)
+        // hex value of an int i in [0...9] = 0x30 + i
+        XCTAssert(hexString == "30313233")
+    }
+    
     func testBinaryString() {
         let dataFromString = "1".data(using: .utf8)
         let binaryString = dataFromString?.binaryString
