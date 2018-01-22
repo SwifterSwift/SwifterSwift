@@ -16,8 +16,16 @@ public extension Data {
 		// http://stackoverflow.com/questions/38097710/swift-3-changes-for-getbytes-method
 		return [UInt8](self)
 	}
-	
+    
+    /// SwifterSwift: Return data as a hex string.
+    public var hexString: String {
+        return bytes.reduce("0x", {
+            $0 + String(format:"%02X", $1)
+        })
+    }
 }
+
+
 
 // MARK: - Methods
 public extension Data {
@@ -31,3 +39,5 @@ public extension Data {
 	}
 	
 }
+
+
