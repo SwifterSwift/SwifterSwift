@@ -17,13 +17,15 @@ public extension Data {
 		return [UInt8](self)
 	}
     
-    /// SwifterSwift: Return data.bytes as a hex string.
+    /// SwifterSwift: Return data.bytes as a binary string.
     ///
-    ///     let data = Data(bytes: [0x30, 0x31, 0x32, 0x33])
-    ///     let hexString = data.hexString -> "0123"
-    public var hexString: String {
+    ///     let data = Data(bytes: [0x31])
+    ///     let hexString = data.hexString -> "00110001"
+    public var binaryString: String {
         return bytes.reduce("", {
-            $0 + String(format:"%02X", $1)
+            let bin = String($1, radix: 2)
+            let padded = bin.paddingStart(8, with: "0")
+            return $0 + padded
         })
     }
 }
@@ -38,5 +40,4 @@ public extension Data {
 	public func string(encoding: String.Encoding) -> String? {
 		return String(data: self, encoding: encoding)
 	}
-	
 }
