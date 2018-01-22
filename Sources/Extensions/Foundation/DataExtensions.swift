@@ -17,15 +17,16 @@ public extension Data {
 		return [UInt8](self)
 	}
     
-    /// SwifterSwift: Return data as a hex string.
+    /// SwifterSwift: Return data.bytes as a hex string.
+    ///
+    ///     let data = Data(bytes: [0x30, 0x31, 0x32, 0x33])
+    ///     let hexString = data.hexString -> "0123"
     public var hexString: String {
-        return bytes.reduce("0x", {
+        return bytes.reduce("", {
             $0 + String(format:"%02X", $1)
         })
     }
 }
-
-
 
 // MARK: - Methods
 public extension Data {
@@ -39,5 +40,3 @@ public extension Data {
 	}
 	
 }
-
-
