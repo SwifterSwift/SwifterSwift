@@ -16,7 +16,28 @@ public extension Data {
 		// http://stackoverflow.com/questions/38097710/swift-3-changes-for-getbytes-method
 		return [UInt8](self)
 	}
-	
+    
+    /// SwifterSwift: Return data.bytes as a hex string.
+    ///
+    ///     let data = Data(bytes: [0x30, 0x31, 0x32, 0x33])
+    ///     let hexString = data.hexString -> "0123"
+    public var hexString: String {
+        return bytes.reduce("", {
+            $0 + String(format:"%02X", $1)
+        })
+    }
+    
+    /// SwifterSwift: Return data.bytes as a binary string.
+    ///
+    ///     let data = Data(bytes: [0x31])
+    ///     let hexString = data.hexString -> "00110001"
+    public var binaryString: String {
+        return bytes.reduce("", {
+            let bin = String($1, radix: 2)
+            let padded = bin.paddingStart(8, with: "0")
+            return $0 + padded
+        })
+    }
 }
 
 // MARK: - Methods
@@ -29,5 +50,4 @@ public extension Data {
 	public func string(encoding: String.Encoding) -> String? {
 		return String(data: self, encoding: encoding)
 	}
-	
 }
