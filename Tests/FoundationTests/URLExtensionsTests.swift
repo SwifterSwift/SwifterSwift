@@ -41,10 +41,10 @@ final class URLExtensionsTests: XCTestCase {
             return
         }
         
-        XCTAssertEqual(parameters.count, 3)
+        XCTAssertEqual(parameters.count, 2)
         XCTAssertEqual(parameters["q"], "swifter swift")
         XCTAssertEqual(parameters["steve"], "jobs")
-        XCTAssertEqual(parameters["empty"], "")
+        XCTAssertEqual(parameters["empty"], nil)
     }
 	
 }
