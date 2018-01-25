@@ -18,7 +18,7 @@ public extension URL {
         var items: [String: String] = [:]
         
         for queryItem in queryItems {
-            items[queryItem.name] = queryItem.value ?? ""
+            items[queryItem.name] = queryItem.value
         }
         
         return items
