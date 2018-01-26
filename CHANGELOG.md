@@ -6,6 +6,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > # Upcoming release
 >
 > ### Added
++- **URL**
+ +  - Added `queryParmeters` property to get the query parameters from a URL as a dictionary. [#370](https://github.com/SwifterSwift/SwifterSwift/pull/370) by [nathanbacon](https://github.com/nathanbacon).
 > ### Changed
 > ### Deprecated
 > ### Removed
@@ -40,8 +42,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `random(from: Date, upTo: Date) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
   - Added `string(withFormat format: String)` method to get a string from a date with the given format.
   - Added `init?(integerLiteral value: Int)` initializer to create date object from Int literal. [#342](https://github.com/SwifterSwift/SwifterSwift/pull/342) by [n0an](https://github.com/n0an).
-- **URL**
-  - Added `queryParmeters` property to get the query parameters from a URL as a dictionary. [#370](https://github.com/SwifterSwift/SwifterSwift/pull/370) by [nathanbacon](https://github.com/nathanbacon).
 
 ### Changed
 
