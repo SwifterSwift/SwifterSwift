@@ -11,6 +11,18 @@ import XCTest
 @testable import SwifterSwift
 
 final class UIFontExtension: XCTestCase {
+    
+    func testBold() {
+        let font = UIFont.preferredFont(forTextStyle: .body)
+        let boldFont = font.bold
+        XCTAssert(boldFont.fontDescriptor.symbolicTraits.contains(.traitBold))
+    }
+    
+    func testItalic() {
+        let font = UIFont.preferredFont(forTextStyle: .body)
+        let italicFont = font.italic
+        XCTAssert(italicFont.fontDescriptor.symbolicTraits.contains(.traitItalic))
+    }
 	
 	func testMonospacedDigitFont() {
 		let font = UIFont.preferredFont(forTextStyle: .body)
