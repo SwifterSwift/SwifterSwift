@@ -337,6 +337,13 @@
 		9D4914891F8515D100F3868F /* NSPredicateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */; };
 		9D49148A1F8515D100F3868F /* NSPredicateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */; };
 		9D49148B1F8515D100F3868F /* NSPredicateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */; };
+		9D9784DB1FCAE3D200D988E7 /* StringProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */; };
+		9D9784DC1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */; };
+		9D9784DD1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */; };
+		9D9784DE1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */; };
+		9D9784E41FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */; };
+		9D9784E51FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */; };
+		9D9784E61FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */; };
 		B23678EC1FB116AD0027C931 /* SwiftStdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23678EB1FB116AD0027C931 /* SwiftStdlibDeprecated.swift */; };
 		B23678ED1FB116AD0027C931 /* SwiftStdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23678EB1FB116AD0027C931 /* SwiftStdlibDeprecated.swift */; };
 		B23678EE1FB116AD0027C931 /* SwiftStdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23678EB1FB116AD0027C931 /* SwiftStdlibDeprecated.swift */; };
@@ -490,6 +497,8 @@
 		70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensionTest.swift; sourceTree = "<group>"; };
 		9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensions.swift; sourceTree = "<group>"; };
 		9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensionsTests.swift; sourceTree = "<group>"; };
+		9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExtensions.swift; sourceTree = "<group>"; };
+		9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExtensionsTests.swift; sourceTree = "<group>"; };
 		B23678EB1FB116AD0027C931 /* SwiftStdlibDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStdlibDeprecated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -589,6 +598,7 @@
 				07B7F1751F5EB41600E6F910 /* SignedIntegerExtensions.swift */,
 				07B7F1761F5EB41600E6F910 /* SignedNumericExtensions.swift */,
 				07B7F1771F5EB41600E6F910 /* StringExtensions.swift */,
+				9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */,
 				B23678EA1FB116680027C931 /* Deprecated */,
 			);
 			path = SwiftStdlib;
@@ -607,6 +617,7 @@
 				07C50D031F5EB03200F46E5A /* IntExtensionsTests.swift */,
 				07C50D051F5EB03200F46E5A /* OptionalExtensionsTests.swift */,
 				07C50D061F5EB03200F46E5A /* StringExtensionsTests.swift */,
+				9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */,
 				07FE50441F891C95000766AA /* SignedNumericExtensionsTests.swift */,
 			);
 			path = SwiftStdlibTests;
@@ -1226,6 +1237,7 @@
 				07B7F2181F5EB43C00E6F910 /* SignedIntegerExtensions.swift in Sources */,
 				07B7F1A71F5EB42000E6F910 /* UIViewExtensions.swift in Sources */,
 				07B7F1991F5EB42000E6F910 /* UILabelExtensions.swift in Sources */,
+				9D9784DB1FCAE3D200D988E7 /* StringProtocolExtensions.swift in Sources */,
 				07B7F20C1F5EB43C00E6F910 /* BoolExtensions.swift in Sources */,
 				07B7F22F1F5EB45100E6F910 /* CGFloatExtensions.swift in Sources */,
 				07B7F1981F5EB42000E6F910 /* UIImageViewExtensions.swift in Sources */,
@@ -1287,6 +1299,7 @@
 				07B7F2061F5EB43C00E6F910 /* SignedIntegerExtensions.swift in Sources */,
 				07B7F1BD1F5EB42000E6F910 /* UIViewExtensions.swift in Sources */,
 				07B7F1AF1F5EB42000E6F910 /* UILabelExtensions.swift in Sources */,
+				9D9784DC1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */,
 				07B7F1FA1F5EB43C00E6F910 /* BoolExtensions.swift in Sources */,
 				07B7F2351F5EB45200E6F910 /* CGFloatExtensions.swift in Sources */,
 				07B7F1AE1F5EB42000E6F910 /* UIImageViewExtensions.swift in Sources */,
@@ -1347,6 +1360,7 @@
 				07B7F1F41F5EB43B00E6F910 /* SignedIntegerExtensions.swift in Sources */,
 				07B7F1D31F5EB42200E6F910 /* UIViewExtensions.swift in Sources */,
 				07B7F1C51F5EB42200E6F910 /* UILabelExtensions.swift in Sources */,
+				9D9784DD1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */,
 				07B7F1E81F5EB43B00E6F910 /* BoolExtensions.swift in Sources */,
 				07B7F2291F5EB45100E6F910 /* CGFloatExtensions.swift in Sources */,
 				07B7F1C41F5EB42200E6F910 /* UIImageViewExtensions.swift in Sources */,
@@ -1413,6 +1427,7 @@
 				07B7F1D71F5EB43B00E6F910 /* CharacterExtensions.swift in Sources */,
 				07B7F2231F5EB44600E6F910 /* CGSizeExtensions.swift in Sources */,
 				07B7F1E11F5EB43B00E6F910 /* OptionalExtensions.swift in Sources */,
+				9D9784DE1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */,
 				07B7F2221F5EB44600E6F910 /* CGPointExtensions.swift in Sources */,
 				07B7F2251F5EB44600E6F910 /* NSAttributedStringExtensions.swift in Sources */,
 				077BA08D1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
@@ -1465,6 +1480,7 @@
 				07C50D581F5EB05000F46E5A /* BoolExtensionsTests.swift in Sources */,
 				07FE50451F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */,
 				07C50D391F5EB04700F46E5A /* UIStoryboardExtensionsTests.swift in Sources */,
+				9D9784E41FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */,
 				07C50D361F5EB04700F46E5A /* UISearchBarExtensionsTests.swift in Sources */,
 				07C50D8C1F5EB06000F46E5A /* CGFloatExtensionsTests.swift in Sources */,
 				07D896091F5EC80700FC894D /* SwifterSwiftTests.swift in Sources */,
@@ -1522,6 +1538,7 @@
 				07C50D661F5EB05100F46E5A /* BoolExtensionsTests.swift in Sources */,
 				07FE50461F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */,
 				07C50D4F1F5EB04700F46E5A /* UIStoryboardExtensionsTests.swift in Sources */,
+				9D9784E51FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */,
 				07C50D4C1F5EB04700F46E5A /* UISearchBarExtensionsTests.swift in Sources */,
 				07C50D871F5EB06000F46E5A /* CGFloatExtensionsTests.swift in Sources */,
 				07D8960A1F5EC80700FC894D /* SwifterSwiftTests.swift in Sources */,
@@ -1558,6 +1575,7 @@
 				07C50D731F5EB05100F46E5A /* ArrayExtensionsTests.swift in Sources */,
 				07D8960B1F5EC80800FC894D /* SwifterSwiftTests.swift in Sources */,
 				07C50D7E1F5EB05100F46E5A /* OptionalExtensionsTests.swift in Sources */,
+				9D9784E61FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */,
 				07C50D761F5EB05100F46E5A /* CollectionExtensionsTests.swift in Sources */,
 				07C50D841F5EB05800F46E5A /* CLLocationExtensionsTests.swift in Sources */,
 				07C50D741F5EB05100F46E5A /* BoolExtensionsTests.swift in Sources */,
