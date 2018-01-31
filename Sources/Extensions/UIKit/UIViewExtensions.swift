@@ -56,6 +56,8 @@ public extension UIView {
 				layer.borderColor = nil
 				return
 			}
+            // Fix React-Native conflict issue
+            guard String(describing: type(of: color)) != "__NSCFType" else { return }
 			layer.borderColor = color.cgColor
 		}
 	}
