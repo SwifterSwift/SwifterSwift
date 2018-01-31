@@ -9,6 +9,10 @@ import XCTest
 @testable import SwifterSwift
 
 final class UserDefaultsExtensionsTests: XCTestCase {
+    
+    private struct TestObject: Codable {
+        var id: Int
+    }
 	
 	func testSubscript() {
 		let key = "testKey"
@@ -37,5 +41,15 @@ final class UserDefaultsExtensionsTests: XCTestCase {
 		XCTAssertNotNil(UserDefaults.standard.date(forKey: key))
 		XCTAssertEqual(UserDefaults.standard.date(forKey: key)!, date)
 	}
+    
+    func testCodable() {
+        let key = "codableTestKey"
+        let id = 1
+        let codable: TestObject = TestObject(id: id)
+        UserDefaults.standard.set(codable: codable, forKey: key)
+        let retrievedCodable = UserDefaults.standard.codable(TestObject.self, with: key)
+        XCTAssertNotNil(retrievedCodable)
+        XCTAssertEqual((retrievedCodable as! TestObject).id, id)
+    }
 	
 }
