@@ -146,7 +146,7 @@ public extension UITableView {
 		register(nib, forCellReuseIdentifier: String(describing: name))
 	}
     
-    /// SwifterSwift: Register UITableViewCell with .xib file using only the class name.
+    /// SwifterSwift: Register UITableViewCell with .xib file using only its corresponding class.
     ///               Assumes that the .xib filename and cell class has the same name.
     ///
     /// - Parameters:
