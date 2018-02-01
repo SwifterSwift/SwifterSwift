@@ -44,7 +44,7 @@ public extension UserDefaults {
     ///   - type: Class that conforms to the Codable protocol.
     ///   - key: key to find the Codable object for.
     /// - Returns: Codable object for key (if exists).
-    public func codable<T: Codable>(_ type: T.Type, with key: String) -> Codable? {
+    public func object<T: Codable>(_ type: T.Type, with key: String) -> Codable? {
         if let data = UserDefaults.standard.value(forKey: key) as? Data {
             let object = try? JSONDecoder().decode(type.self, from: data)
             
@@ -57,10 +57,10 @@ public extension UserDefaults {
     /// SwifterSwift: Allows storing of Codable objects to UserDefaults
     ///
     /// - Parameters:
-    ///   - codable: Codable object to store.
+    ///   - object: Codable object to store.
     ///   - key: Object identifier
-    public func set<T: Codable>(codable: T, forKey key: String) {
-        let data = try? JSONEncoder().encode(codable)
+    public func set<T: Codable>(object: T, forKey key: String) {
+        let data = try? JSONEncoder().encode(object)
         
         set(data, forKey: key)
         synchronize()
