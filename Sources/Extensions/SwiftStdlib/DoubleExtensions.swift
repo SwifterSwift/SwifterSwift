@@ -26,6 +26,45 @@ public extension Double {
 	public var cgFloat: CGFloat {
 		return CGFloat(self)
 	}
+    
+    /// SwifterSwift: Returns the current double (treated as meters) to kilometers.
+    /// Based on Apple's [The Swift Programming Language (Swift 4.0.3) - Extensions](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html#//apple_ref/doc/uid/TP40014097-CH24-ID152)
+    public var km: Double {
+        return self / 1000.0
+    }
+    
+    /// SwifterSwift: Returns the current double (treated as meters) to centimeters.
+    /// Based on Apple's [The Swift Programming Language (Swift 4.0.3) - Extensions](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html#//apple_ref/doc/uid/TP40014097-CH24-ID152)
+    public var cm: Double {
+        return self * 100.0
+    }
+    
+    /// SwifterSwift: Returns the current double (treated as meters) to millimeters.
+    /// Based on Apple's [The Swift Programming Language (Swift 4.0.3) - Extensions](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html#//apple_ref/doc/uid/TP40014097-CH24-ID152)
+    public var mm: Double {
+        return self * 1000.0
+    }
+    
+    /// SwifterSwift: Returns the current double (treated as meters) to feet.
+    /// Based on Apple's [The Swift Programming Language (Swift 4.0.3) - Extensions](https://developer.apple.com/library/content/documentation/Swift/Conceptual/Swift_Programming_Language/Extensions.html#//apple_ref/doc/uid/TP40014097-CH24-ID152)
+    public var ft: Double {
+        return self * 3.28084
+    }
+    
+    /// SwifterSwift: Returns the current double (treated as meters) to miles.
+    public var mi: Double {
+        return self * 0.00062137
+    }
+    
+    /// SwifterSwift: Returns the current double (treated as meters) to yards.
+    public var yd: Double {
+        return self * 1093.61
+    }
+    
+    /// SwifterSwift: Returns the current double (treated as meters) to inches.
+    public var inch: Double {
+        return self * 39.3701
+    }
 	
 }
 
