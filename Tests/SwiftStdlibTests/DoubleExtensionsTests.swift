@@ -91,5 +91,17 @@ final class DoubleExtensionsTests: XCTestCase {
 		}
 		XCTAssert(num.asLocaleCurrency.contains("\(num)"))
 	}
+    
+    func testDurationString() {
+        // Default parameters
+        var durationString = 3.5.toDurationString()
+        XCTAssert(durationString == "03h 30m 00s")
+        
+        durationString = 3.5.toDurationString(withSeconds: false, separatedBy: ":")
+        XCTAssert(durationString == "03:30")
+        
+        durationString = 3.5.toDurationString(withSeconds: true, separatedBy: " ")
+        XCTAssert(durationString == "03 30 00")
+    }
 	
 }
