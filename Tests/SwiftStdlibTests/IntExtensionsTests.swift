@@ -118,7 +118,7 @@ final class IntExtensionsTests: XCTestCase {
 		XCTAssertFalse(0.isPrime())
 		XCTAssertFalse(1.isPrime())
 	}
-	
+    
 	func testRomanNumeral() {
 		XCTAssertEqual(10.romanNumeral(), "X")
 		XCTAssertNil((-1).romanNumeral())
