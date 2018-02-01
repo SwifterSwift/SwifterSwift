@@ -54,5 +54,23 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         NotificationCenter.default.post(name: notificationIdentifier, object: nil)
         XCTAssertFalse(viewController.notificationFired)
     }
+    
+    func testShowAlert() {
+        let viewController = UIViewController()
+        UIApplication.shared.keyWindow?.rootViewController = viewController
+        let title = "test title"
+        let message = "test message"
+        let actionButtons = ["OK", "Cancel"]
+        let preferredButtonIndex = 1
+        let alertController = viewController.showAlert(title: title, message: message, buttonTitles: actionButtons, highlightedButtonIndex: preferredButtonIndex, completion: nil)
+        XCTAssertEqual(alertController.preferredStyle, .alert)
+        XCTAssertEqual(alertController.title, title)
+        XCTAssertEqual(alertController.message, message)
+        //check whether the buttons are added in the same order
+        for i in 0..<alertController.actions.count {
+            XCTAssertEqual(alertController.actions[i].title, actionButtons[i])
+        }
+        XCTAssertEqual(alertController.preferredAction, alertController.actions[preferredButtonIndex])
+    }
 }
 #endif

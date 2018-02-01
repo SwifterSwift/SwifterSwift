@@ -17,6 +17,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - added `register(nibWithCellClass: at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#385](https://github.com/SwifterSwift/SwifterSwift/pull/385) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **UIFont**
   - added `bold` and `italic` to UIFont. [#382](https://github.com/SwifterSwift/SwifterSwift/pull/382) by [@vyax](https://github.com/vyax).
+- **UIImage**
+  - added `withRoundedCorners(radius:)` to round the corners of an image. The parameter radius is optional, the resulting image will be round if it is unspecified. [#380](https://github.com/SwifterSwift/SwifterSwift/pull/380) by [@vyax](https://github.com/vyax).
 - **UITableView**
   - added `register(nibWithCellClass: at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#385](https://github.com/SwifterSwift/SwifterSwift/pull/385) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **URL**
@@ -58,7 +60,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `random(from: Date, upTo: Date) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
   - Added `string(withFormat format: String)` method to get a string from a date with the given format.
   - Added `init?(integerLiteral value: Int)` initializer to create date object from Int literal. [#342](https://github.com/SwifterSwift/SwifterSwift/pull/342) by [n0an](https://github.com/n0an).
-
+- **UIViewController**
+  - Added  `showAlert(title: String?, message: String?, buttonTitles: [String]?, highlightedButtonIndex: Int?, completion: ((Int) -> ())?)`  for conveniently displaying an alert from any view controller [#364](https://github.com/SwifterSwift/SwifterSwift/pull/364) by [rkp1026](https://github.com/rkp1026)
 ### Changed
 
 - **Array**
