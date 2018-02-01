@@ -8,12 +8,22 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > ### Added
 - **Array**
   - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
+- **Double**
+  - added `km`, `cm`, `mm`, `ft`, `mi`, `yd` computed properties to be able to convert double (meter) values to its corresponding units of measurement. [#385](https://github.com/SwifterSwift/SwifterSwift/pull/385) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `toDurationString(withSeconds: separatedBy separator:)` method to be able to provide a string representation of a double (hours) into a hours, minutes, and/or seconds format. [#385](https://github.com/SwifterSwift/SwifterSwift/pull/385) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **StringProtocol**
   - added `commonSuffix(with:, options:)` to get the longest common suffix of the receiver and a given string. [#379](https://github.com/SwifterSwift/SwifterSwift/pull/379) by [@vyax](https://github.com/vyax).
+- **UICollectionView**
+  - added `register(nibWithCellClass: at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#385](https://github.com/SwifterSwift/SwifterSwift/pull/385) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **UIFont**
   - added `bold` and `italic` to UIFont. [#382](https://github.com/SwifterSwift/SwifterSwift/pull/382) by [@vyax](https://github.com/vyax).
+- **UITableView**
+  - added `register(nibWithCellClass: at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#385](https://github.com/SwifterSwift/SwifterSwift/pull/385) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **URL**
   - added `queryParmeters` property to get the query parameters from a URL as a dictionary. [#370](https://github.com/SwifterSwift/SwifterSwift/pull/370) by [nathanbacon](https://github.com/nathanbacon).
+- **UserDefaults**
+  - added `codable(type: with key:)` method to be able to retrieve Codable objects from UserDefaults. [#385](https://github.com/SwifterSwift/SwifterSwift/pull/385) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `set(codable: forKey key:)` method to be able to store Codable objects from UserDefaults. [#385](https://github.com/SwifterSwift/SwifterSwift/pull/385) by [jason-ingenuity](https://github.com/jason-ingenuity).
 > ### Changed
 > ### Deprecated
 > ### Removed
