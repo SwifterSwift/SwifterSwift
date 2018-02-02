@@ -54,14 +54,12 @@ final class UICollectionViewExtensionsTests: XCTestCase {
 		}
 	}
     
-    #if os(iOS)
     func testRegisterCellWithNibUsingClass() {
         let indexPath = IndexPath(row: 0, section: 0)
         collectionView.register(nibWithCellClass: UICollectionViewCell.self, at: UICollectionViewExtensionsTests.self)
         let cell = collectionView.dequeueReusableCell(withClass: UICollectionViewCell.self, for: indexPath)
         XCTAssertNotNil(cell)
     }
-    #endif
 	
 }
 
