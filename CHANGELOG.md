@@ -8,6 +8,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > ### Added
 - **Array**
   - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
+- **Double**
+  - added `km`, `cm`, `mm`, `ft`, `mi`, `yd` computed properties to be able to convert double (meter) values to its corresponding units of measurement. [#387](https://github.com/SwifterSwift/SwifterSwift/pull/387) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `toDurationString(withSeconds: separatedBy separator:)` method to be able to provide a string representation of a double (hours) into a hours, minutes, and/or seconds format. [#387](https://github.com/SwifterSwift/SwifterSwift/pull/387) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **StringProtocol**
   - added `commonSuffix(with:, options:)` to get the longest common suffix of the receiver and a given string. [#379](https://github.com/SwifterSwift/SwifterSwift/pull/379) by [@vyax](https://github.com/vyax).
 - **UIFont**
