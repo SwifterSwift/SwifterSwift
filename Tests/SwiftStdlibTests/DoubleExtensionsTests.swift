@@ -91,5 +91,29 @@ final class DoubleExtensionsTests: XCTestCase {
 		}
 		XCTAssert(num.asLocaleCurrency.contains("\(num)"))
 	}
+    
+    func testUnitsOfMeasurement() {
+        let meters = 1.0
+        
+        XCTAssertTrue(meters.km == 0.001)
+        XCTAssertTrue(meters.cm == 100)
+        XCTAssertTrue(meters.mm == 1000)
+        XCTAssertTrue(meters.ft == 3.28084)
+        XCTAssertTrue(meters.mi == 0.00062137)
+        XCTAssertTrue(meters.yd == 1093.61)
+        XCTAssertTrue(meters.inch == 39.3701)
+    }
+    
+    func testDurationString() {
+        // Default parameters
+        var durationString = 3.5.toDurationString()
+        XCTAssert(durationString == "03h 30m 00s")
+        
+        durationString = 3.5.toDurationString(withSeconds: false, separatedBy: ":")
+        XCTAssert(durationString == "03:30")
+        
+        durationString = 3.5.toDurationString(withSeconds: true, separatedBy: " ")
+        XCTAssert(durationString == "03 30 00")
+    }
 	
 }
