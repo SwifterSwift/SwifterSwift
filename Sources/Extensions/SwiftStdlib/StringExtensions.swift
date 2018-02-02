@@ -812,6 +812,29 @@ public extension String {
 			return self + padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)]
 		}
 	}
+    
+    /// SwifterSwift: Read a JSON file given the filename. Maybe of format `filename` or `filename.json`.
+    ///
+    /// - Parameter bundleClass: Class in which the Bundle instance will be based on.
+    /// - Returns: JSON file content serialized to a Dictionary<String, Any> instance.
+    public func readJSONFile(from bundleClass: AnyClass? = nil) -> [String: Any]? {
+        // https://stackoverflow.com/questions/24410881/reading-in-a-json-file-using-swift
+        do {
+            let filename = self.components(separatedBy: ".")[0]
+            let bundle = bundleClass != nil ? Bundle(for: bundleClass!) : Bundle.main
+            
+            if let path = bundle.path(forResource: filename, ofType: "json") {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let json = try JSONSerialization.jsonObject(with: data, options: [])
+                
+                return json as? [String: Any]
+            }
+            
+            return nil
+        } catch {
+            return nil
+        }
+    }
 	
 }
 
