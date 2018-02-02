@@ -344,7 +344,6 @@
 		9D9784E41FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */; };
 		9D9784E51FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */; };
 		9D9784E61FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */; };
-		A956F38520245F5B0039B55F /* UICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CD166720242AF900DBE263 /* UICollectionViewCell.xib */; };
 		A9CD166820242AF900DBE263 /* UICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CD166720242AF900DBE263 /* UICollectionViewCell.xib */; };
 		B23678EC1FB116AD0027C931 /* SwiftStdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23678EB1FB116AD0027C931 /* SwiftStdlibDeprecated.swift */; };
 		B23678ED1FB116AD0027C931 /* SwiftStdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23678EB1FB116AD0027C931 /* SwiftStdlibDeprecated.swift */; };
@@ -1149,7 +1148,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A956F38520245F5B0039B55F /* UICollectionViewCell.xib in Resources */,
 				07C50D921F5EB07500F46E5A /* TestImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
