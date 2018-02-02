@@ -768,9 +768,9 @@
 			children = (
 				07C50D091F5EB03200F46E5A /* TestImage.png */,
 				07C50D0A1F5EB03200F46E5A /* TestStoryboard.storyboard */,
+				A9CD166720242AF900DBE263 /* UICollectionViewCell.xib */,
 				07C50D0B1F5EB03200F46E5A /* UITableViewCell.xib */,
 				07C50D0C1F5EB03200F46E5A /* UITableViewHeaderFooterView.xib */,
-				A9CD166720242AF900DBE263 /* UICollectionViewCell.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
