@@ -123,6 +123,23 @@ public extension UICollectionView {
 	public func register<T: UICollectionReusableView>(nib: UINib?, forSupplementaryViewOfKind kind: String, withClass name: T.Type) {
 		register(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: name))
 	}
+    
+    /// SwifterSwift: Register UICollectionViewCell with .xib file using only its corresponding class.
+    ///               Assumes that the .xib filename and cell class has the same name.
+    ///
+    /// - Parameters:
+    ///   - name: UICollectionViewCell type.
+    ///   - bundleClass: Class in which the Bundle instance will be based on.
+    public func register<T: UICollectionViewCell>(nibWithCellClass name: T.Type, at bundleClass: AnyClass? = nil) {
+        let identifier = String(describing: name)
+        var bundle: Bundle? = nil
+        
+        if let bundleName = bundleClass {
+            bundle = Bundle(for: bundleName)
+        }
+        
+        register(UINib(nibName: identifier, bundle: bundle), forCellWithReuseIdentifier: identifier)
+    }
 	
 }
 #endif

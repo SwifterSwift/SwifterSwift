@@ -344,6 +344,7 @@
 		9D9784E41FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */; };
 		9D9784E51FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */; };
 		9D9784E61FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */; };
+		A9CD166820242AF900DBE263 /* UICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CD166720242AF900DBE263 /* UICollectionViewCell.xib */; };
 		B23678EC1FB116AD0027C931 /* SwiftStdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23678EB1FB116AD0027C931 /* SwiftStdlibDeprecated.swift */; };
 		B23678ED1FB116AD0027C931 /* SwiftStdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23678EB1FB116AD0027C931 /* SwiftStdlibDeprecated.swift */; };
 		B23678EE1FB116AD0027C931 /* SwiftStdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B23678EB1FB116AD0027C931 /* SwiftStdlibDeprecated.swift */; };
@@ -499,6 +500,7 @@
 		9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensionsTests.swift; sourceTree = "<group>"; };
 		9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExtensions.swift; sourceTree = "<group>"; };
 		9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExtensionsTests.swift; sourceTree = "<group>"; };
+		A9CD166720242AF900DBE263 /* UICollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UICollectionViewCell.xib; sourceTree = "<group>"; };
 		B23678EB1FB116AD0027C931 /* SwiftStdlibDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftStdlibDeprecated.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -766,6 +768,7 @@
 			children = (
 				07C50D091F5EB03200F46E5A /* TestImage.png */,
 				07C50D0A1F5EB03200F46E5A /* TestStoryboard.storyboard */,
+				A9CD166720242AF900DBE263 /* UICollectionViewCell.xib */,
 				07C50D0B1F5EB03200F46E5A /* UITableViewCell.xib */,
 				07C50D0C1F5EB03200F46E5A /* UITableViewHeaderFooterView.xib */,
 			);
@@ -1137,6 +1140,7 @@
 				07C50D981F5EB08200F46E5A /* TestStoryboard.storyboard in Resources */,
 				07C50D951F5EB07D00F46E5A /* UITableViewHeaderFooterView.xib in Resources */,
 				07C50D941F5EB07D00F46E5A /* UITableViewCell.xib in Resources */,
+				A9CD166820242AF900DBE263 /* UICollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
