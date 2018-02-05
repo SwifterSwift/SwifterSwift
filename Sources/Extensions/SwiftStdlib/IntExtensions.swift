@@ -61,7 +61,37 @@ public extension Int {
 		}
 		return String(format: "\(sign)%ikk", abs / 100000)
 	}
-	
+
+    /// SwifterSwift: Array of digits of integer value.
+    public var digits: [Int] {
+        guard self != 0 else { return [0] }
+        var digits = [Int]()
+        var number = self
+
+        while number != 0 {
+            let x = Int(bitPattern: (number % 10).magnitude)
+            digits.append(x)
+            number = number / 10
+        }
+
+        digits.reverse()
+        return digits
+    }
+
+    /// SwifterSwift: Number of digits of integer value.
+    public var digitsCount: Int {
+        var digits = [Int]()
+        var number = self
+
+        while number != 0 {
+            let x = Int(bitPattern: (number % 10).magnitude)
+            digits.append(x)
+            number = number / 10
+        }
+
+        return digits.count
+    }
+
 }
 
 // MARK: - Methods
@@ -137,7 +167,7 @@ public extension Int {
 		}
 		return romanValue
 	}
-	
+
 }
 
 // MARK: - Initializers
