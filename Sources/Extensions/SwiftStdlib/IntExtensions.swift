@@ -69,7 +69,7 @@ public extension Int {
         var number = self
 
         while number != 0 {
-            let x = Int(bitPattern: (number % 10).magnitude)
+            let x = (number % 10).abs
             digits.append(x)
             number = number / 10
         }
@@ -84,7 +84,7 @@ public extension Int {
         var number = self
 
         while number != 0 {
-            let x = Int(bitPattern: (number % 10).magnitude)
+            let x = (number % 10).abs
             digits.append(x)
             number = number / 10
         }
