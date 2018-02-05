@@ -665,25 +665,4 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(str.isWhitespace, true)
     }
     
-    func testReadJSONFile() {
-        var filename = "test.json"  // Without the extension
-        var fileDict = filename.readJSONFile(from: StringExtensionsTests.self)
-        
-        XCTAssertNotNil(fileDict)
-        
-        filename = "test"  // With extension
-        fileDict = filename.readJSONFile(from: StringExtensionsTests.self)
-        
-        if let dict = fileDict {
-            if let string = dict["title"] as? String, let id = dict["id"] as? Int {
-                XCTAssert(string == "Test")
-                XCTAssert(id == 1)
-            } else {
-                XCTFail()
-            }
-        } else {
-            XCTFail()
-        }
-    }
-    
 }
