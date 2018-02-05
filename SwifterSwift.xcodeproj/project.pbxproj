@@ -348,6 +348,9 @@
 		A94AA78A202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */; };
 		A94AA78B202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */; };
 		A94AA78C202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */; };
+		A9AEB78620283ACC0021AACF /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA78620280F9100E229A5 /* FileManagerExtensions.swift */; };
+		A9AEB78720283ACC0021AACF /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA78620280F9100E229A5 /* FileManagerExtensions.swift */; };
+		A9AEB78820283ACD0021AACF /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA78620280F9100E229A5 /* FileManagerExtensions.swift */; };
 		A9CD166820242AF900DBE263 /* UICollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9CD166720242AF900DBE263 /* UICollectionViewCell.xib */; };
 		A9FF467220245AC90084C40F /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = A9FF467020245ABA0084C40F /* test.json */; };
 		A9FF467320245AC90084C40F /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = A9FF467020245ABA0084C40F /* test.json */; };
@@ -1322,6 +1325,7 @@
 				07B7F1AF1F5EB42000E6F910 /* UILabelExtensions.swift in Sources */,
 				9D9784DC1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */,
 				07B7F1FA1F5EB43C00E6F910 /* BoolExtensions.swift in Sources */,
+				A9AEB78620283ACC0021AACF /* FileManagerExtensions.swift in Sources */,
 				07B7F2351F5EB45200E6F910 /* CGFloatExtensions.swift in Sources */,
 				07B7F1AE1F5EB42000E6F910 /* UIImageViewExtensions.swift in Sources */,
 				07B7F2381F5EB45200E6F910 /* CLLocationExtensions.swift in Sources */,
@@ -1383,6 +1387,7 @@
 				07B7F1C51F5EB42200E6F910 /* UILabelExtensions.swift in Sources */,
 				9D9784DD1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */,
 				07B7F1E81F5EB43B00E6F910 /* BoolExtensions.swift in Sources */,
+				A9AEB78720283ACC0021AACF /* FileManagerExtensions.swift in Sources */,
 				07B7F2291F5EB45100E6F910 /* CGFloatExtensions.swift in Sources */,
 				07B7F1C41F5EB42200E6F910 /* UIImageViewExtensions.swift in Sources */,
 				07B7F22C1F5EB45100E6F910 /* CLLocationExtensions.swift in Sources */,
@@ -1444,6 +1449,7 @@
 				07B7F1D61F5EB43B00E6F910 /* BoolExtensions.swift in Sources */,
 				07B7F1DE1F5EB43B00E6F910 /* FloatingPointExtensions.swift in Sources */,
 				07B7F1DB1F5EB43B00E6F910 /* DictionaryExtensions.swift in Sources */,
+				A9AEB78820283ACD0021AACF /* FileManagerExtensions.swift in Sources */,
 				07B7F1DC1F5EB43B00E6F910 /* DoubleExtensions.swift in Sources */,
 				07B7F1D71F5EB43B00E6F910 /* CharacterExtensions.swift in Sources */,
 				07B7F2231F5EB44600E6F910 /* CGSizeExtensions.swift in Sources */,
