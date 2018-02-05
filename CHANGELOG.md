@@ -8,6 +8,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > ### Added
 - **Array**
   - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
+  - added `groupToSections()` method to group strings based on first letter and use it as sections. [#391](https://github.com/SwifterSwift/SwifterSwift/pull/391) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **StringProtocol**
   - added `commonSuffix(with:, options:)` to get the longest common suffix of the receiver and a given string. [#379](https://github.com/SwifterSwift/SwifterSwift/pull/379) by [@vyax](https://github.com/vyax).
 - **UICollectionView**

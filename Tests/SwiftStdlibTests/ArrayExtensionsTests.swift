@@ -460,4 +460,17 @@ final class ArrayExtensionsTests: XCTestCase {
                                                         Person(name: "Wade", age: nil)])
     }
     
+    func testGroupedItemsBasedOnSection() {
+        let array = ["Jason", "Alice", "Jack"]
+        let expectedSectionOutput = ["A", "J"]
+        let expectedGroupedItemsOutput = [["Alice"], ["Jack", "Jason"]]
+        let (sections, groupedItems) = array.groupToSections()
+        
+        XCTAssert(sections.count == expectedSectionOutput.count)
+        XCTAssert(groupedItems.count == expectedGroupedItemsOutput.count)
+        XCTAssertEqual(sections, expectedSectionOutput)
+        XCTAssertEqual(groupedItems[0], expectedGroupedItemsOutput[0])
+        XCTAssertEqual(groupedItems[1], expectedGroupedItemsOutput[1])
+    }
+    
 }

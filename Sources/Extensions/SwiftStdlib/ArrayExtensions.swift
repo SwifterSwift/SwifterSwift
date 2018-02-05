@@ -43,6 +43,43 @@ public extension Array where Element: FloatingPoint {
 	
 }
 
+// MARK: Methods (String)
+public extension Array where Element == String {
+    
+    /// SwifterSwift: Takes an array of strings and generate two lists:
+    ///               One is derived from their first character which will serve as their section label.
+    ///               Second is the array items now grouped based on their corresponding section (first letter).
+    ///
+    ///    ["Jason", "Alice", "Jack"].groupToSections() -> (["A", "J"], [["Alice"], ["Jack", "Jason"]])
+    ///
+    /// - Returns: A tuple consists of the sections list, and its grouped items.
+    public func groupToSections() -> ([String], [[String]]) {
+        // https://stackoverflow.com/questions/42981122/swift-map-array-of-objects-alphabetically-by-namestring-into-separate-letter
+        var items = self
+        
+        items = items.sorted(by: { $0 < $1 })
+        
+        let sections = Array(Set(items.map { String($0.first!) })).sorted(by: { $0 < $1 })
+        let groupedItems = items.reduce([[String]]()) {
+            guard var last = $0.last else { return [[$1]] }
+            
+            var collection = $0
+            
+            if last.first!.first! == $1.first! {
+                last += [$1]
+                collection[collection.count - 1] = last
+            } else {
+                collection += [[$1]]
+            }
+            
+            return collection
+        }
+        
+        return (sections, groupedItems)
+    }
+    
+}
+
 // MARK: - Methods
 public extension Array {
 	
