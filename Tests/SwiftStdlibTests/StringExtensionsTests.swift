@@ -664,4 +664,5 @@ final class StringExtensionsTests: XCTestCase {
         str = "   \n \n  "
         XCTAssertEqual(str.isWhitespace, true)
     }
+    
 }

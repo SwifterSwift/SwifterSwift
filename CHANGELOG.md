@@ -8,16 +8,19 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > ### Added
 - **Array**
   - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
+- **FileManager**
+  - added `jsonFromFile(atPath path:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance with a provided path. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `jsonFromFile(withFilename filename:, at bundleClass:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance given a filename. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **StringProtocol**
   - added `commonSuffix(with:, options:)` to get the longest common suffix of the receiver and a given string. [#379](https://github.com/SwifterSwift/SwifterSwift/pull/379) by [@vyax](https://github.com/vyax).
 - **UICollectionView**
-  - added `register(nibWithCellClass: at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `register(nibWithCellClass:, at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **UIFont**
   - added `bold` and `italic` to UIFont. [#382](https://github.com/SwifterSwift/SwifterSwift/pull/382) by [@vyax](https://github.com/vyax).
 - **UIImage**
   - added `withRoundedCorners(radius:)` to round the corners of an image. The parameter radius is optional, the resulting image will be round if it is unspecified. [#380](https://github.com/SwifterSwift/SwifterSwift/pull/380) by [@vyax](https://github.com/vyax).
 - **UITableView**
-  - added `register(nibWithCellClass: at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `register(nibWithCellClass:, at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **URL**
   - added `queryParmeters` property to get the query parameters from a URL as a dictionary. [#370](https://github.com/SwifterSwift/SwifterSwift/pull/370) by [nathanbacon](https://github.com/nathanbacon).
 > ### Changed
