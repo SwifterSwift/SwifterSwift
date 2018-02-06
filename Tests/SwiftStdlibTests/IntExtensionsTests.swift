@@ -50,11 +50,18 @@ final class IntExtensionsTests: XCTestCase {
 	}
 	
 	func testDigits() {
-		XCTAssertEqual(180.digits, [1, 8, 0])
+        let x = -123
+        XCTAssertEqual(x.digits, [1, 2, 3])
+        XCTAssertEqual(123.digits, [1, 2, 3])
+        XCTAssertEqual(0.digits, [0])
 	}
 	
 	func testDigitsCount() {
+        let x = -123
+        XCTAssertEqual(x.digitsCount, 3)
 		XCTAssertEqual(180.digitsCount, 3)
+        XCTAssertEqual(0.digitsCount, 1)
+        XCTAssertEqual(1.digitsCount, 1)
 	}
 	
 	func testGcd() {
@@ -123,7 +130,7 @@ final class IntExtensionsTests: XCTestCase {
 		XCTAssertEqual(10.romanNumeral(), "X")
 		XCTAssertNil((-1).romanNumeral())
 	}
-	
+
 	func testTimeString() {
 		XCTAssertEqual((-1).timeString, "0 sec")
 		XCTAssertEqual(45.timeString, "45 sec")
