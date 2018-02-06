@@ -50,7 +50,7 @@ final class IntExtensionsTests: XCTestCase {
 	}
 	
 	func testDigits() {
-		let x = -123
+        let x = -123
         XCTAssertEqual(x.digits, [1, 2, 3])
         XCTAssertEqual(123.digits, [1, 2, 3])
         XCTAssertEqual(0.digits, [0])
