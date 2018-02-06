@@ -57,7 +57,11 @@ final class IntExtensionsTests: XCTestCase {
 	}
 	
 	func testDigitsCount() {
+        let x = -123
+        XCTAssertEqual(x.digitsCount, 3)
 		XCTAssertEqual(180.digitsCount, 3)
+        XCTAssertEqual(0.digitsCount, 1)
+        XCTAssertEqual(1.digitsCount, 1)
 	}
 	
 	func testGcd() {
