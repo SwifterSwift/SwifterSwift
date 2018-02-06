@@ -61,7 +61,30 @@ public extension Int {
 		}
 		return String(format: "\(sign)%ikk", abs / 100000)
 	}
-	
+
+    /// SwifterSwift: Array of digits of integer value.
+    public var digits: [Int] {
+        guard self != 0 else { return [0] }
+        var digits = [Int]()
+        var number = self.abs
+
+        while number != 0 {
+            let x = number % 10
+            digits.append(x)
+            number = number / 10
+        }
+
+        digits.reverse()
+        return digits
+    }
+
+    /// SwifterSwift: Number of digits of integer value.
+    public var digitsCount: Int {
+        guard self != 0 else { return 1 }
+        let number = Double(self.abs)
+        return Int(log10(number) + 1)
+    }
+
 }
 
 // MARK: - Methods
@@ -138,11 +161,11 @@ public extension Int {
 		return romanValue
 	}
     
-    /// SwifterSwift: Rounds to the closest multiple of n
-    public func roundToNearest(_ n: Int) -> Int {
-        return n == 0 ? self : Int(round(Double(self) / Double(n))) * n
-    }
-	
+  /// SwifterSwift: Rounds to the closest multiple of n
+  public func roundToNearest(_ n: Int) -> Int {
+      return n == 0 ? self : Int(round(Double(self) / Double(n))) * n
+  }
+
 }
 
 // MARK: - Initializers
