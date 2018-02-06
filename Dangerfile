@@ -7,7 +7,7 @@ source_changes_exist = !git.modified_files.grep(/Sources/).empty?
 no_changelog_entry = !git.modified_files.include?("CHANGELOG.md")
 
 # Checks for tests
-no_test_changes = !git.modified_files.grep(/Tests/).empty?
+no_test_changes = git.modified_files.grep(/Tests/).empty?
 
 if source_changes_exist && no_test_changes 
     warn(“Consider adding tests for new extensions or updating existing tests for a modified SwifterSwift extension”)
