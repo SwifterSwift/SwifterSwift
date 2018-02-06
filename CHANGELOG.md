@@ -7,24 +7,24 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 >
 > ### Added
 - **Array**
-- added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
+  - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
 - **FileManager**
-- added `jsonFromFile(atPath path:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance with a provided path. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).
-- added `jsonFromFile(withFilename filename:, at bundleClass:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance given a filename. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `jsonFromFile(atPath path:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance with a provided path. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `jsonFromFile(withFilename filename:, at bundleClass:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance given a filename. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **Int**
-- added a more performant and memory efficient `digits` property to return array of integers. [#393](https://github.com/SwifterSwift/SwifterSwift/pull/393) by [FrankKair](https://github.com/FrankKair).
+  - added a more performant and memory efficient `digits` property to return array of integers. [#393](https://github.com/SwifterSwift/SwifterSwift/pull/393) by [FrankKair](https://github.com/FrankKair).
 - **StringProtocol**
-- added `commonSuffix(with:, options:)` to get the longest common suffix of the receiver and a given string. [#379](https://github.com/SwifterSwift/SwifterSwift/pull/379) by [@vyax](https://github.com/vyax).
+  - added `commonSuffix(with:, options:)` to get the longest common suffix of the receiver and a given string. [#379](https://github.com/SwifterSwift/SwifterSwift/pull/379) by [@vyax](https://github.com/vyax).
 - **UICollectionView**
-- added `register(nibWithCellClass:, at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `register(nibWithCellClass:, at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **UIFont**
-- added `bold` and `italic` to UIFont. [#382](https://github.com/SwifterSwift/SwifterSwift/pull/382) by [@vyax](https://github.com/vyax).
+  - added `bold` and `italic` to UIFont. [#382](https://github.com/SwifterSwift/SwifterSwift/pull/382) by [@vyax](https://github.com/vyax).
 - **UIImage**
-- added `withRoundedCorners(radius:)` to round the corners of an image. The parameter radius is optional, the resulting image will be round if it is unspecified. [#380](https://github.com/SwifterSwift/SwifterSwift/pull/380) by [@vyax](https://github.com/vyax).
+  - added `withRoundedCorners(radius:)` to round the corners of an image. The parameter radius is optional, the resulting image will be round if it is unspecified. [#380](https://github.com/SwifterSwift/SwifterSwift/pull/380) by [@vyax](https://github.com/vyax).
 - **UITableView**
-- added `register(nibWithCellClass:, at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `register(nibWithCellClass:, at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **URL**
-- added `queryParmeters` property to get the query parameters from a URL as a dictionary. [#370](https://github.com/SwifterSwift/SwifterSwift/pull/370) by [nathanbacon](https://github.com/nathanbacon).
+  - added `queryParmeters` property to get the query parameters from a URL as a dictionary. [#370](https://github.com/SwifterSwift/SwifterSwift/pull/370) by [nathanbacon](https://github.com/nathanbacon).
 > ### Changed
 > ### Deprecated
 > ### Removed
@@ -38,44 +38,44 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **NSPredicate**
-- Added operator `!` to return a new predicate formed by NOT-ing a given predicate.
-- Added operator `+` to return a new predicate formed by AND-ing two given predicates.
-- Added operator `|` to return a new predicate formed by OR-ing a two given predicates.
-- Added operator `-` to return a new predicate formed by removing the argument from the second predicate. [#345](https://github.com/SwifterSwift/SwifterSwift/pull/345) by [yycking](https://github.com/yycking).
+  - Added operator `!` to return a new predicate formed by NOT-ing a given predicate.
+  - Added operator `+` to return a new predicate formed by AND-ing two given predicates.
+  - Added operator `|` to return a new predicate formed by OR-ing a two given predicates.
+  - Added operator `-` to return a new predicate formed by removing the argument from the second predicate. [#345](https://github.com/SwifterSwift/SwifterSwift/pull/345) by [yycking](https://github.com/yycking).
 - **NSAttributedString**
-- Added `attributes` property to get the attributes that apply to a simple NSAttributedString. [#333](https://github.com/SwifterSwift/SwifterSwift/issues/333) by [nathanbacon](https://github.com/nathanbacon).
-- Added `applying(attributes: , toRangesMatching: )`  function to return an attributed string with attributes applied to substrings matching the passed regex pattern by [nathanbacon](https://github.com/nathanbacon).
-- Added `applying(attributes: , toOccurrencesOf: )`  function to return an attributed string with attributes applied to substrings matching the passed string by [nathanbacon](https://github.com/nathanbacon).
+  - Added `attributes` property to get the attributes that apply to a simple NSAttributedString. [#333](https://github.com/SwifterSwift/SwifterSwift/issues/333) by [nathanbacon](https://github.com/nathanbacon).
+  - Added `applying(attributes: , toRangesMatching: )`  function to return an attributed string with attributes applied to substrings matching the passed regex pattern by [nathanbacon](https://github.com/nathanbacon).
+  - Added `applying(attributes: , toOccurrencesOf: )`  function to return an attributed string with attributes applied to substrings matching the passed string by [nathanbacon](https://github.com/nathanbacon).
 - **Array**
-- Added `sort(by: KeyPath)` and `sorted(by: KeyPath)` to sort arrays based on Swift 4 keyPath. [#343](https://github.com/SwifterSwift/SwifterSwift/pull/343) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+  - Added `sort(by: KeyPath)` and `sorted(by: KeyPath)` to sort arrays based on Swift 4 keyPath. [#343](https://github.com/SwifterSwift/SwifterSwift/pull/343) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **String**
-- Added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
--  Added computed property `isWhitespace` to check if the given string is blank or not.[#363](https://github.com/SwifterSwift/SwifterSwift/pull/363) by [rkp1026](https://github.com/rkp1026).
+  - Added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
+  -  Added computed property `isWhitespace` to check if the given string is blank or not.[#363](https://github.com/SwifterSwift/SwifterSwift/pull/363) by [rkp1026](https://github.com/rkp1026).
 - **UIDatePicker**
-- Added `textColor` to get and set the text color of a UIDatePicker. [#328](https://github.com/SwifterSwift/SwifterSwift/issues/328) by [omaralbeik](https://github.com/omaralbeik).
+  - Added `textColor` to get and set the text color of a UIDatePicker. [#328](https://github.com/SwifterSwift/SwifterSwift/issues/328) by [omaralbeik](https://github.com/omaralbeik).
 - **NSImage**
-- Added `write(to url: URL, fileType type: _, compressionFactor: _)` to write NSImage to url. [#320](https://github.com/SwifterSwift/SwifterSwift/pulls/320) by [omaralbeik](https://github.com/omaralbeik).
+  - Added `write(to url: URL, fileType type: _, compressionFactor: _)` to write NSImage to url. [#320](https://github.com/SwifterSwift/SwifterSwift/pulls/320) by [omaralbeik](https://github.com/omaralbeik).
 - **Date**
-- Added `random(from: Date, upTo: Date) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
-- Added `string(withFormat format: String)` method to get a string from a date with the given format.
-- Added `init?(integerLiteral value: Int)` initializer to create date object from Int literal. [#342](https://github.com/SwifterSwift/SwifterSwift/pull/342) by [n0an](https://github.com/n0an).
+  - Added `random(from: Date, upTo: Date) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
+  - Added `string(withFormat format: String)` method to get a string from a date with the given format.
+  - Added `init?(integerLiteral value: Int)` initializer to create date object from Int literal. [#342](https://github.com/SwifterSwift/SwifterSwift/pull/342) by [n0an](https://github.com/n0an).
 - **UIViewController**
-- Added  `showAlert(title: String?, message: String?, buttonTitles: [String]?, highlightedButtonIndex: Int?, completion: ((Int) -> ())?)`  for conveniently displaying an alert from any view controller [#364](https://github.com/SwifterSwift/SwifterSwift/pull/364) by [rkp1026](https://github.com/rkp1026)
+  - Added  `showAlert(title: String?, message: String?, buttonTitles: [String]?, highlightedButtonIndex: Int?, completion: ((Int) -> ())?)`  for conveniently displaying an alert from any view controller [#364](https://github.com/SwifterSwift/SwifterSwift/pull/364) by [rkp1026](https://github.com/rkp1026)
 ### Changed
 
 - **Array**
-- **Breaking Change** `indexes(of:)` has been renamed to `indices(of:)`. [#355](https://github.com/SwifterSwift/SwifterSwift/pull/355) by [Najdan](https://github.com/Najdan)
-- `shuffle` and `shuffled` are no more constrained to Equatable. [#327](https://github.com/SwifterSwift/SwifterSwift/pull/327) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+  - **Breaking Change** `indexes(of:)` has been renamed to `indices(of:)`. [#355](https://github.com/SwifterSwift/SwifterSwift/pull/355) by [Najdan](https://github.com/Najdan)
+  - `shuffle` and `shuffled` are no more constrained to Equatable. [#327](https://github.com/SwifterSwift/SwifterSwift/pull/327) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 
 
 ### Fixed
 
 - **Int**
-- Fixed where the base in `isPrime()` was not correct. [#323](https://github.com/SwifterSwift/SwifterSwift/pull/323) by [Asura19](https://github.com/Asura19).
+  - Fixed where the base in `isPrime()` was not correct. [#323](https://github.com/SwifterSwift/SwifterSwift/pull/323) by [Asura19](https://github.com/Asura19).
 - **UINavigationBar**
-- Fixed a bug where makeTransparent was keeping the background color. [#344](https://github.com/SwifterSwift/SwifterSwift/issues/344) by [omaralbeik](https://github.com/omaralbeik).
+  - Fixed a bug where makeTransparent was keeping the background color. [#344](https://github.com/SwifterSwift/SwifterSwift/issues/344) by [omaralbeik](https://github.com/omaralbeik).
 - **Continuous Integration**
-- Fixed swiftlint warning in `NSImageExtensions`.
+  - Fixed swiftlint warning in `NSImageExtensions`.
 
 ---
 
@@ -83,55 +83,55 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### API Breaking
 - **String**
-- `length` is deprecated, use native `count` instead.
-- `slicing(i:)` is deprecated, use `string[safe: i]` instead.
-- `slicing(from: to:)` is deprecated, use `string[safe: start..<end]`.
-- `firstIndex(of:)` is deprecated, use the natives `index(of: Character)` or `range(of: StringProtocol)` instead.
-- `splitted(by:)` is deprecated,  use the native `split(separator: )` instead.
-- `reversed() -> String` is deprecated, use the Swift 4 new `reversed() -> ReversedCollection<String>`. [#305](https://github.com/SwifterSwift/SwifterSwift/pull/305) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+  - `length` is deprecated, use native `count` instead.
+  - `slicing(i:)` is deprecated, use `string[safe: i]` instead.
+  - `slicing(from: to:)` is deprecated, use `string[safe: start..<end]`.
+  - `firstIndex(of:)` is deprecated, use the natives `index(of: Character)` or `range(of: StringProtocol)` instead.
+  - `splitted(by:)` is deprecated,  use the native `split(separator: )` instead.
+  - `reversed() -> String` is deprecated, use the Swift 4 new `reversed() -> ReversedCollection<String>`. [#305](https://github.com/SwifterSwift/SwifterSwift/pull/305) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **Date**
-- `weekday` is now a _get-only_ property.
-- `isInThisWeek` has been renamed to `isInCurrentWeek`.
-- `isInThisMonth` has been renamed to `isInCurrentMonth`.
-- `isInThisYear` has been renamed to `isInCurrentYear`.
-- `isInWeekday` has been renamed to `isWorkday`. [#313](https://github.com/SwifterSwift/SwifterSwift/pull/313) by [kaphacius](https://github.com/kaphacius).
+  - `weekday` is now a _get-only_ property.
+  - `isInThisWeek` has been renamed to `isInCurrentWeek`.
+  - `isInThisMonth` has been renamed to `isInCurrentMonth`.
+  - `isInThisYear` has been renamed to `isInCurrentYear`.
+  - `isInWeekday` has been renamed to `isWorkday`. [#313](https://github.com/SwifterSwift/SwifterSwift/pull/313) by [kaphacius](https://github.com/kaphacius).
 
 ### Enhancements
 - New **String** extensions
-- added `padStart(length: with:)` and `padEnd(length: with:)` to pad the string to a length on the start or end.
-- added `paddingStart(length: with:)` and `paddingEnd(length: with:)` to return a padding string to a length on the start or end. [#300](https://github.com/SwifterSwift/SwifterSwift/pull/300) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `padStart(length: with:)` and `padEnd(length: with:)` to pad the string to a length on the start or end.
+  - added `paddingStart(length: with:)` and `paddingEnd(length: with:)` to return a padding string to a length on the start or end. [#300](https://github.com/SwifterSwift/SwifterSwift/pull/300) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - New **NSImage** extensions
-- added `scaled(toMaxSize:)` to scale image to maximum size with respect to aspect ratio [#291](https://github.com/SwifterSwift/SwifterSwift/pull/291) by [buddax2](https://github.com/buddax2).
+  - added `scaled(toMaxSize:)` to scale image to maximum size with respect to aspect ratio [#291](https://github.com/SwifterSwift/SwifterSwift/pull/291) by [buddax2](https://github.com/buddax2).
 - New **Date** extensions
-- added `isWithin(_ value: , _ component: , of date:)` method to check if date is within a number of date components of another date. [295](https://github.com/SwifterSwift/SwifterSwift/pull/295) by [kaphacius](https://github.com/kaphacius).
+  - added `isWithin(_ value: , _ component: , of date:)` method to check if date is within a number of date components of another date. [295](https://github.com/SwifterSwift/SwifterSwift/pull/295) by [kaphacius](https://github.com/kaphacius).
 - New **Optional** extensions
-- added optional assignment operator `??=` [#296](https://github.com/SwifterSwift/SwifterSwift/pull/296) by [buddax2](https://github.com/buddax2).
+  - added optional assignment operator `??=` [#296](https://github.com/SwifterSwift/SwifterSwift/pull/296) by [buddax2](https://github.com/buddax2).
 - New **Calendar** extensions
-- added `numberOfDaysInMonth` to get number of days in the month for a specified date. [#311](https://github.com/SwifterSwift/SwifterSwift/pull/311) by [chaithanyaprathyush](https://github.com/chaithanyaprathyush).
+  - added `numberOfDaysInMonth` to get number of days in the month for a specified date. [#311](https://github.com/SwifterSwift/SwifterSwift/pull/311) by [chaithanyaprathyush](https://github.com/chaithanyaprathyush).
 - New **Color** tests
-- added tests for `cgFloatComponents`. [#297](https://github.com/SwifterSwift/SwifterSwift/pull/297) by [stupergenius](https://github.com/stupergenius).
-- added `lighten(by percentage:)` and `darken(by percentage:)` methods to change the hue of a color. [#325](https://github.com/SwifterSwift/SwifterSwift/pull/325) by [oettingerj](https://github.com/oettingerj).
+  - added tests for `cgFloatComponents`. [#297](https://github.com/SwifterSwift/SwifterSwift/pull/297) by [stupergenius](https://github.com/stupergenius).
+  - added `lighten(by percentage:)` and `darken(by percentage:)` methods to change the hue of a color. [#325](https://github.com/SwifterSwift/SwifterSwift/pull/325) by [oettingerj](https://github.com/oettingerj).
 - New **CGColor** tests
-- added tests for `uiColor` and `nsColor`. [#281](https://github.com/SwifterSwift/SwifterSwift/pull/281) by [c1phr](https://github.com/c1phr)
+  - added tests for `uiColor` and `nsColor`. [#281](https://github.com/SwifterSwift/SwifterSwift/pull/281) by [c1phr](https://github.com/c1phr)
 - New **Date** tests
-- added new tests for `isBetween` method. [#289](https://github.com/SwifterSwift/SwifterSwift/pull/289) by [kaphacius](https://github.com/kaphacius).
+  - added new tests for `isBetween` method. [#289](https://github.com/SwifterSwift/SwifterSwift/pull/289) by [kaphacius](https://github.com/kaphacius).
 - Updated Travis image to Xcode 9.1. [#314](https://github.com/SwifterSwift/SwifterSwift/pull/314) by [kaphacius](https://github.com/kaphacius)
 - Removed cross references from extensions. [#297](https://github.com/SwifterSwift/SwifterSwift/pull/297) by [stupergenius](https://github.com/stupergenius).
 - Updated copyright headers to _Copyright © 2017 SwifterSwift_ everywhere. [#308](https://github.com/SwifterSwift/SwifterSwift/pull/308) by [camdeardorff](https://github.com/camdeardorff).
 
 ### Bugfixes
 - **Date**
-- complete rewrite for most extensions. [#309](https://github.com/SwifterSwift/SwifterSwift/pull/309) by [omaralbeik](https:github.com/omaralbeik)
-- fixed a bug in `year` where setting year was resetting all smaller components to zero.
-- fixed a bug in `month` where setting month was resetting all smaller components to zero.
-- fixed a bug in `day` where setting day was resetting all smaller components to zero.
-- fixed a bug in `hour` where setting hour was resetting all smaller components to zero.
-- fixed a bug in `minute` where setting minute was resetting all smaller components to zero.
-- fixed a bug in `second` where setting second was resetting all smaller components to zero.
-- added validation to setters for properties above.
-- fixed the above bugs in `changing` method as well.
-- fixed a bug where `quarter` was returning 1 always.
-- Added more tests to edge cases.
+  - complete rewrite for most extensions. [#309](https://github.com/SwifterSwift/SwifterSwift/pull/309) by [omaralbeik](https:github.com/omaralbeik)
+  - fixed a bug in `year` where setting year was resetting all smaller components to zero.
+  - fixed a bug in `month` where setting month was resetting all smaller components to zero.
+  - fixed a bug in `day` where setting day was resetting all smaller components to zero.
+  - fixed a bug in `hour` where setting hour was resetting all smaller components to zero.
+  - fixed a bug in `minute` where setting minute was resetting all smaller components to zero.
+  - fixed a bug in `second` where setting second was resetting all smaller components to zero.
+  - added validation to setters for properties above.
+  - fixed the above bugs in `changing` method as well.
+  - fixed a bug where `quarter` was returning 1 always.
+  - Added more tests to edge cases.
 
 
 # v4.0.1
@@ -141,30 +141,30 @@ N/A
 
 ### Enhancements
 - **Color**
-- Refactored duplicated code from `UIColorExtensions` and `NSColorExtensions` into `ColorExtensions`. thanks to [SD10](https://github.com/SD10).
-- Refactored duplicated tests from `UIColorExtensionsTests` and `NSColorExtensionsTests` into `ColorExtensionsTests`. [#260](https://github.com/SwifterSwift/SwifterSwift/pull/260) by [LeLuckyVint](https://github.com/LeLuckyVint).
-- Add `cgFloatComponents` to get RGB components for a Color represented as CGFloat numbers (between 0 and 1)
-- `blend` now support NSColor as well.
-- Corrected some typos in README. [#263](https://github.com/SwifterSwift/SwifterSwift/pull/263) by [nick3399](https://github.com/nick3399).
+  - Refactored duplicated code from `UIColorExtensions` and `NSColorExtensions` into `ColorExtensions`. thanks to [SD10](https://github.com/SD10).
+  - Refactored duplicated tests from `UIColorExtensionsTests` and `NSColorExtensionsTests` into `ColorExtensionsTests`. [#260](https://github.com/SwifterSwift/SwifterSwift/pull/260) by [LeLuckyVint](https://github.com/LeLuckyVint).
+  - Add `cgFloatComponents` to get RGB components for a Color represented as CGFloat numbers (between 0 and 1)
+  - `blend` now support NSColor as well.
+  - Corrected some typos in README. [#263](https://github.com/SwifterSwift/SwifterSwift/pull/263) by [nick3399](https://github.com/nick3399).
 - New **String** extensions
-- Add `localized(comment:)` to returns a localized string, with an optional comment for translators. [#269](https://github.com/SwifterSwift/SwifterSwift/pull/269) by [Vyax](https://github.com/Vyax).
+  - Add `localized(comment:)` to returns a localized string, with an optional comment for translators. [#269](https://github.com/SwifterSwift/SwifterSwift/pull/269) by [Vyax](https://github.com/Vyax).
 - New **NSPredicate** extensions
-- Add `not` to returns a new predicate formed by NOT-ing the predicate.
-- Add `and(_ predicate: NSPredicate)` to returns a new predicate formed by AND-ing the argument to the predicate.
-- Add `or(_ predicate: NSPredicate)` to returns a new predicate formed by OR-ing the argument to the predicate.
-[#273](https://github.com/SwifterSwift/SwifterSwift/pull/273) by [Vyax](https://github.com/Vyax).
+  - Add `not` to returns a new predicate formed by NOT-ing the predicate.
+  - Add `and(_ predicate: NSPredicate)` to returns a new predicate formed by AND-ing the argument to the predicate.
+  - Add `or(_ predicate: NSPredicate)` to returns a new predicate formed by OR-ing the argument to the predicate.
+    [#273](https://github.com/SwifterSwift/SwifterSwift/pull/273) by [Vyax](https://github.com/Vyax).
 - New **UILabel** extensions
-- Add `convenience init(text: String?)` to initialize a UILabel with text. [#271](https://github.com/SwifterSwift/SwifterSwift/pull/271) by [Vyax](https://github.com/Vyax).
+  - Add `convenience init(text: String?)` to initialize a UILabel with text. [#271](https://github.com/SwifterSwift/SwifterSwift/pull/271) by [Vyax](https://github.com/Vyax).
 - New **Bool** extensions
-- Add `random` to returns a random boolean value. [#272](https://github.com/SwifterSwift/SwifterSwift/pull/272) by [Vyax](https://github.com/Vyax).
+  - Add `random` to returns a random boolean value. [#272](https://github.com/SwifterSwift/SwifterSwift/pull/272) by [Vyax](https://github.com/Vyax).
 - **Continuous Integration**
-- Add macOS tests to travis-ci.
-- Add calls to `swiftlint` and `pod lib lint` in Travis [#264](https://github.com/SwifterSwift/SwifterSwift/pull/264) by [calebkleveter](https://github.com/calebkleveter).
+  - Add macOS tests to travis-ci.
+  - Add calls to `swiftlint` and `pod lib lint` in Travis [#264](https://github.com/SwifterSwift/SwifterSwift/pull/264) by [calebkleveter](https://github.com/calebkleveter).
 - New **SignedNumeric** extensions tests
 ### Bugfixes
 - **Color**
-- Fixed a bug in `rgbComponents`, `shortHexString`, and `shortHexOrHexString` where an exception was raised when color is white or black.
-- Corrected a typo in `rgbComponenets` -> `rgbComponents`
+  - Fixed a bug in `rgbComponents`, `shortHexString`, and `shortHexOrHexString` where an exception was raised when color is white or black.
+  - Corrected a typo in `rgbComponenets` -> `rgbComponents`
 
 
 
@@ -172,101 +172,101 @@ N/A
 
 ### API Breaking
 - **Swift4 / Xcode9 🎉**
-- This version brings support for Swift4 and Xcode9. [Looking for Swift3 / 3.2 ?](https://github.com/SwifterSwift/SwifterSwift#looking-for-swift-3)
+  - This version brings support for Swift4 and Xcode9. [Looking for Swift3 / 3.2 ?](https://github.com/SwifterSwift/SwifterSwift#looking-for-swift-3)
 - **UIColor**
-- `social` has been renamed to `Social` to match Apple Swift guidelines
-- `material` has been renamed to `Material` to match Apple Swift guidelines
-- `flatUI` has been renamed to `FlatUI` to match Apple Swift guidelines
-- `css` has been renamed to `CSS` to match Apple Swift guidelines
+  - `social` has been renamed to `Social` to match Apple Swift guidelines
+  - `material` has been renamed to `Material` to match Apple Swift guidelines
+  - `flatUI` has been renamed to `FlatUI` to match Apple Swift guidelines
+  - `css` has been renamed to `CSS` to match Apple Swift guidelines
 - **NSColor**
-- `social` has been renamed to `Social` to match Apple Swift guidelines
-- `material` has been renamed to `Material` to match Apple Swift guidelines
-- `flatUI` has been renamed to `FlatUI` to match Apple Swift guidelines
-- `css` has been renamed to `CSS` to match Apple Swift guidelines
+  - `social` has been renamed to `Social` to match Apple Swift guidelines
+  - `material` has been renamed to `Material` to match Apple Swift guidelines
+  - `flatUI` has been renamed to `FlatUI` to match Apple Swift guidelines
+  - `css` has been renamed to `CSS` to match Apple Swift guidelines
 
 ### Enhancements
 - **SwiftLint**
-- Added [SwiftLint](https://github.com/realm/SwiftLint) to enforce Swift style and conventions.
+  - Added [SwiftLint](https://github.com/realm/SwiftLint) to enforce Swift style and conventions.
 - **Danger**
-- Added Danger to continuous integration. [#252](https://github.com/SwifterSwift/SwifterSwift/pull/252) by [SD10](https://github.com/SD10).
+  - Added Danger to continuous integration. [#252](https://github.com/SwifterSwift/SwifterSwift/pull/252) by [SD10](https://github.com/SD10).
 - New **Date** extensions
-- added `isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool` method to check if a date is between two other dates. [#248](https://github.com/SwifterSwift/SwifterSwift/pull/248) by [BennX](https://github.com/BennX).
+  - added `isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool` method to check if a date is between two other dates. [#248](https://github.com/SwifterSwift/SwifterSwift/pull/248) by [BennX](https://github.com/BennX).
 - New **UIFont** extensions
-- added `monospaced -> UIFont` method to get the current font as monospaced font. [#250](https://github.com/SwifterSwift/SwifterSwift/pull/250) by [BennX](https://github.com/BennX), [Monospaced Font explanation](https://en.wikipedia.org/wiki/Monospaced_font)
+  - added `monospaced -> UIFont` method to get the current font as monospaced font. [#250](https://github.com/SwifterSwift/SwifterSwift/pull/250) by [BennX](https://github.com/BennX), [Monospaced Font explanation](https://en.wikipedia.org/wiki/Monospaced_font)
 - **UITableView**
-- `dequeueReusableCell` now returns an optional
-- `dequeueReusableHeaderFooterView` now returns an optional
+  - `dequeueReusableCell` now returns an optional
+  - `dequeueReusableHeaderFooterView` now returns an optional
 - **UICollectionView**
-- `dequeueReusableCell` now returns an optional
-- `dequeueReusableSupplementaryView` now returns an optional
+  - `dequeueReusableCell` now returns an optional
+  - `dequeueReusableSupplementaryView` now returns an optional
 - **UIAlertController**
-- Added `preferredStyle: UIAlertControllerStyle = .alert` to `init from error`.
+  - Added `preferredStyle: UIAlertControllerStyle = .alert` to `init from error`.
 - **UIStoryboard**
-- `instantiateViewController` now returns an optional.
+  - `instantiateViewController` now returns an optional.
 - **Continuous Integration**
-- Travis now builds `watchOS` target.
+  - Travis now builds `watchOS` target.
 
 ### Bugfixes
 - **SwifterSwift**
-- `didTakeScreenShot` now returns the notification, make sure to remove listener when you don't need it anymore.
+  - `didTakeScreenShot` now returns the notification, make sure to remove listener when you don't need it anymore.
 
 
 # v3.2.0
 
 ### API Breaking
 - **Swift 3.2**
-- Code has been updated to Swift 3.2; please use [`v3.1.1`](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.1.1) if you are still using Swift 3 or Xcode 8
+  - Code has been updated to Swift 3.2; please use [`v3.1.1`](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.1.1) if you are still using Swift 3 or Xcode 8
 - **SwifterSwift**
-- `userDefaults` is deprecated, use Apple's `UserDefaults.standard` instead.
-- `object(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.object(forKey: _)` instead.
-- `string(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.string(forKey: _)` instead.
-- `integer(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.integer(forKey: _)` instead.
-- `double(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.double(forKey: _)` instead.
-- `data(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.data(forKey: _)` instead.
-- `bool(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.bool(forKey: _)` instead.
-- `array(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.array(forKey: _)` instead.
-- `dictionary(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.dictionary(forKey: _)` instead.
-- `float(forKey: String)` is deprecated, use SwifterSwift's `UserDefaults.standard.float(forKey: _) ` instead.
-- `set(_ value: Any?, forKey: String)` is deprecated, use Apple's `UserDefaults.standard.setValue(_, forKey: _)` instead.
+  - `userDefaults` is deprecated, use Apple's `UserDefaults.standard` instead.
+  - `object(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.object(forKey: _)` instead.
+  - `string(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.string(forKey: _)` instead.
+  - `integer(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.integer(forKey: _)` instead.
+  - `double(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.double(forKey: _)` instead.
+  - `data(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.data(forKey: _)` instead.
+  - `bool(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.bool(forKey: _)` instead.
+  - `array(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.array(forKey: _)` instead.
+  - `dictionary(forKey: String)` is deprecated, use Apple's `UserDefaults.standard.dictionary(forKey: _)` instead.
+  - `float(forKey: String)` is deprecated, use SwifterSwift's `UserDefaults.standard.float(forKey: _) ` instead.
+  - `set(_ value: Any?, forKey: String)` is deprecated, use Apple's `UserDefaults.standard.setValue(_, forKey: _)` instead.
 - **Int**
-- Property `romanNumeral` is now a method.
+  - Property `romanNumeral` is now a method.
 - **String**
-- Property `lines` is now a method.
-- Property `mostCommonCharacter` is now a method.
-- Property `reversed` is now a method.
-- Property `unicodeArray` is now a method.
-- Property `words` is now a method.
-- Property `wordCount` is now a method.
+  - Property `lines` is now a method.
+  - Property `mostCommonCharacter` is now a method.
+  - Property `reversed` is now a method.
+  - Property `unicodeArray` is now a method.
+  - Property `words` is now a method.
+  - Property `wordCount` is now a method.
 - **UICollectionView**
-- Property `numberOfItems` is now a method.
+  - Property `numberOfItems` is now a method.
 - **UITableView**
-- Property `numberOfRows` is now a method.
+  - Property `numberOfRows` is now a method.
 - **UIViewController**
-- Removed `navigationBar` that was causing app to crash, thanks to [drewpitchford](https://github.com/drewpitchford) for reporting in [#243](https://github.com/SwifterSwift/SwifterSwift/issues/243).
+  - Removed `navigationBar` that was causing app to crash, thanks to [drewpitchford](https://github.com/drewpitchford) for reporting in [#243](https://github.com/SwifterSwift/SwifterSwift/issues/243).
 
 
 ### Enhancements
 - New **Date** extensions
-- added `secondsSince(_ date: Date)` method to get a number of seconds between two dates.
-- added `minutesSince(_ date: Date)` method to get a number of minutes between two date.
-- added `hoursSince(_ date: Date)` method to get a number of hours between two dates.
-- added `daysSince(_ date: Date)` method to get a number of days between two date.
-- added `isInThisYear` property to check if the date is in the current year.
-- added `isInThisMonth` property to check if the date is in the current month.
-- added `isInThisWeek` property to check if the date is in the current week.
+  - added `secondsSince(_ date: Date)` method to get a number of seconds between two dates.
+  - added `minutesSince(_ date: Date)` method to get a number of minutes between two date.
+  - added `hoursSince(_ date: Date)` method to get a number of hours between two dates.
+  - added `daysSince(_ date: Date)` method to get a number of days between two date.
+  - added `isInThisYear` property to check if the date is in the current year.
+  - added `isInThisMonth` property to check if the date is in the current month.
+  - added `isInThisWeek` property to check if the date is in the current week.
 - New **URLRequest** extensions
-- added `init?(urlString: String)` fallible initializer create a URLRequest from URL string.
+  - added `init?(urlString: String)` fallible initializer create a URLRequest from URL string.
 - New **UIWebView** extensions
-- added `loadURL(_ url: URL)` method to load a URL.
-- added `loadURLString(_ urlString: String)` method to load a URL string.
+  - added `loadURL(_ url: URL)` method to load a URL.
+  - added `loadURLString(_ urlString: String)` method to load a URL string.
 - New **UserDefaults** extensions
-- added `subscript(key: String)` method to get values from UserDefaults using the [] operator.
-- added `float(forKey key: String)` method to get a Float value from UserDefaults.
-- added `date(forKey key: String)` method to get a Date value from UserDefaults.
+  - added `subscript(key: String)` method to get values from UserDefaults using the [] operator.
+  - added `float(forKey key: String)` method to get a Float value from UserDefaults.
+  - added `date(forKey key: String)` method to get a Date value from UserDefaults.
 - Improved file structre, as in [#236](https://github.com/SwifterSwift/SwifterSwift/issues/236)
 - Improved README
-- Removed unnecessary description in Installation section
-- Updated **List of All Extensions** section to match the new file structure.
+  - Removed unnecessary description in Installation section
+  - Updated **List of All Extensions** section to match the new file structure.
 
 ### Bugfixes
 N/A
@@ -279,36 +279,36 @@ N/A
 
 ### Enhancements
 - New **NSAttributedString** extensions
-- added `NSAttributedString + NSAttributedString` operator to return a new appended NSAttributedString.
-- added `NSAttributedString += String` operator to append a string to a NSAttributedString.
-- added `NSAttributedString + String` operator to return a new appended NSAttributedString. [#218](https://github.com/SwifterSwift/SwifterSwift/pull/218) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `NSAttributedString + NSAttributedString` operator to return a new appended NSAttributedString.
+  - added `NSAttributedString += String` operator to append a string to a NSAttributedString.
+  - added `NSAttributedString + String` operator to return a new appended NSAttributedString. [#218](https://github.com/SwifterSwift/SwifterSwift/pull/218) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - New **UIColor** extensions
-- added `flatUI` struct with all Flat UI colors. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
-- added `coreImageColor` property to return CoreImage.CIColor. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
-- added `hsbaComponents` property to get components of hue, saturation, and brightness, and alpha. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
-- added `uInt` property to get components of hue, saturation, and brightness, and alpha as UInt. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+  - added `flatUI` struct with all Flat UI colors. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+  - added `coreImageColor` property to return CoreImage.CIColor. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+  - added `hsbaComponents` property to get components of hue, saturation, and brightness, and alpha. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+  - added `uInt` property to get components of hue, saturation, and brightness, and alpha as UInt. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
 - New **NSColor** extensions
-- added `flatUI` struct with all Flat UI colors. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+  - added `flatUI` struct with all Flat UI colors. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
 - New **UIImage** extensions
-- added `tint()` to get UIImage tinted with color. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
+  - added `tint()` to get UIImage tinted with color. [#213](https://github.com/SwifterSwift/SwifterSwift/pull/213) by [@tache](https://github.com/tache)
 - New **SignedNumber** extensions. [#224](https://github.com/SwifterSwift/SwifterSwift/pull/224) by [@omaralbeik](https://github.com/omaralbeik)
-- moved `abs` from `FloatingPointExtensions` and `IntExtensions`
-- moved `isPositive` from `FloatingPointExtensions` and `IntExtensions`
-- moved `isNegative` from `FloatingPointExtensions` and `IntExtensions`
-- moved `string` from `FloatingPointExtensions` and `IntExtensions`
-- moved `asLocaleCurrency` from `FloatingPointExtensions` and `IntExtensions`
+  - moved `abs` from `FloatingPointExtensions` and `IntExtensions`
+  - moved `isPositive` from `FloatingPointExtensions` and `IntExtensions`
+  - moved `isNegative` from `FloatingPointExtensions` and `IntExtensions`
+  - moved `string` from `FloatingPointExtensions` and `IntExtensions`
+  - moved `asLocaleCurrency` from `FloatingPointExtensions` and `IntExtensions`
 - New **SignedInteger** extensions. [#224](https://github.com/SwifterSwift/SwifterSwift/pull/224) by [@omaralbeik](https://github.com/omaralbeik)
-- moved `isEven` from `IntExtensions`
-- moved `isOdd` from `IntExtensions`
-- moved `digits` from `IntExtensions`
-- moved `digitsCount` from `IntExtensions`
-- moved `timeString` from `IntExtensions`
-- moved `gcd(of n)` from `IntExtensions`
-- moved `lcm(of n)` from `IntExtensions`
+  - moved `isEven` from `IntExtensions`
+  - moved `isOdd` from `IntExtensions`
+  - moved `digits` from `IntExtensions`
+  - moved `digitsCount` from `IntExtensions`
+  - moved `timeString` from `IntExtensions`
+  - moved `gcd(of n)` from `IntExtensions`
+  - moved `lcm(of n)` from `IntExtensions`
 - Added `SwifterSwift` module_name to podspecs file to help solving conflicts with other 3rd party libraries. [#226](https://github.com/SwifterSwift/SwifterSwift/pull/226) by [@omaralbeik](https://github.com/omaralbeik)
 - Moved missing examples from the old docs. [#216](https://github.com/SwifterSwift/SwifterSwift/pull/216) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - New `Int` extensions
-- added `isPrime()` to check if integer is prime number. [#221](https://github.com/SwifterSwift/SwifterSwift/pull/221) by [@pvtmert](https://github.com/pvtmert)
+  - added `isPrime()` to check if integer is prime number. [#221](https://github.com/SwifterSwift/SwifterSwift/pull/221) by [@pvtmert](https://github.com/pvtmert)
 - Improve sum & average extensions by not relying on reduce. [#225](https://github.com/SwifterSwift/SwifterSwift/pull/225) by [@SD10](https://github.com/SD10)
 - New SVG logo in README! by [@omaralbeik](https://github.com/omaralbeik)
 
@@ -320,47 +320,47 @@ N/A
 
 ### API Breaking
 - **String**
-- `firstCharacter` has been renamed to `firstCharacterAsString`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `lastCharacter` has been renamed to `lastCharacterAsString`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `firstCharacter` has been renamed to `firstCharacterAsString`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `float` has been renamed to `float(locale: Locale = .current)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `double` has been renamed to `double(locale: Locale = .current)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `subscript(i: Int)` has been renamed to `subscript(safe i: Int)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `subscript(range: CountableRange<Int>)` has been renamed to `subscript(safe range: CountableRange<Int>)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `subscript(range: ClosedRange<Int>)` has been renamed to `subscript(safe range: ClosedRange<Int>)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `replacing(_ substring: String, with newString: String)` is deprecated, use Apple's `replacingOccurrences(of: substring, with: newString)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `int8` is deprecated, use `Int8(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `int16` is deprecated, use `Int16(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `int32` is deprecated, use `Int32(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `int64` is deprecated, use `Int64(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `float32` is deprecated, use `Float32(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `float64` is deprecated, use `Float64(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `firstCharacter` has been renamed to `firstCharacterAsString`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `lastCharacter` has been renamed to `lastCharacterAsString`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `firstCharacter` has been renamed to `firstCharacterAsString`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `float` has been renamed to `float(locale: Locale = .current)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `double` has been renamed to `double(locale: Locale = .current)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `subscript(i: Int)` has been renamed to `subscript(safe i: Int)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `subscript(range: CountableRange<Int>)` has been renamed to `subscript(safe range: CountableRange<Int>)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `subscript(range: ClosedRange<Int>)` has been renamed to `subscript(safe range: ClosedRange<Int>)`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `replacing(_ substring: String, with newString: String)` is deprecated, use Apple's `replacingOccurrences(of: substring, with: newString)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `int8` is deprecated, use `Int8(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `int16` is deprecated, use `Int16(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `int32` is deprecated, use `Int32(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `int64` is deprecated, use `Int64(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `float32` is deprecated, use `Float32(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `float64` is deprecated, use `Float64(string)` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 
 - **UIColor**
-- `init(hex: Int, transparency: CGFloat = 1)` is now a failable initializer `init?`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1)` is now a failable initializer `init?`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `redComponent` is deprecated, use the new `rgbComponenets.red` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `greenComponent` is deprecated, use the new `rgbComponenets.green` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- `blueComponent` is deprecated, use the new `rgbComponenets.blue` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `init(hex: Int, transparency: CGFloat = 1)` is now a failable initializer `init?`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `init(red: Int, green: Int, blue: Int, transparency: CGFloat = 1)` is now a failable initializer `init?`. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `redComponent` is deprecated, use the new `rgbComponenets.red` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `greenComponent` is deprecated, use the new `rgbComponenets.green` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - `blueComponent` is deprecated, use the new `rgbComponenets.blue` instead. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 
 ### Enhancements
 - New **String** extensions
-- added `cgFloat(locale: Locale = .current)` to get CGFloat value from string. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- added `words` to return an array of all words in a string. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- added `wordCount` to get count of words in a string. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - added `cgFloat(locale: Locale = .current)` to get CGFloat value from string. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - added `words` to return an array of all words in a string. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - added `wordCount` to get count of words in a string. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 - New **Int** extensions
-- added `countableRange` to get CountableRange 0..<Int. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- added `uInt` to get UInt from Int. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - added `countableRange` to get CountableRange 0..<Int. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - added `uInt` to get UInt from Int. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 - New **Array** extensions
-- added `group(size:)` to split in an array of slices of a size. [#199](https://github.com/SwifterSwift/SwifterSwift/pull/199). [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-- added `rotated(by:)` to return a new rotated array by the given places. [#207](https://github.com/SwifterSwift/SwifterSwift/pull/207) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-- added `rotate(by:)` to rotate the array by the given places. [#207](https://github.com/SwifterSwift/SwifterSwift/pull/207) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `group(size:)` to split in an array of slices of a size. [#199](https://github.com/SwifterSwift/SwifterSwift/pull/199). [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `rotated(by:)` to return a new rotated array by the given places. [#207](https://github.com/SwifterSwift/SwifterSwift/pull/207) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `rotate(by:)` to rotate the array by the given places. [#207](https://github.com/SwifterSwift/SwifterSwift/pull/207) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - New **UITextField** extensions
-- added `addPaddingLeftIcon(_ image: UIImage, padding: CGFloat)` to add padding to the left of the textfield rect. [#203](https://github.com/SwifterSwift/SwifterSwift/pull/203) by [@xingfuqiu](https://github.com/xingfuqiu)
-- added `hasValidEmail` to check if textFields text is a valid email format. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
-- added `textType` to set textField for common text types like email addresses & passwords. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - added `addPaddingLeftIcon(_ image: UIImage, padding: CGFloat)` to add padding to the left of the textfield rect. [#203](https://github.com/SwifterSwift/SwifterSwift/pull/203) by [@xingfuqiu](https://github.com/xingfuqiu)
+  - added `hasValidEmail` to check if textFields text is a valid email format. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - added `textType` to set textField for common text types like email addresses & passwords. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 - New **UIColor** extensions
-- added `rgbComponenets` to get RGB components for a UIColor. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
+  - added `rgbComponenets` to get RGB components for a UIColor. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 - Added usage examples in documentation for Foundation extensions. [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 - Moved many duplicated extensions from `DoubleExtensions` and `FloatExtensions` into the new `FloatingPointExtensions`, this makes the code easier to maintain and brings support for other FloatingPoint types like CGFloat, Double32, ... [#208](https://github.com/SwifterSwift/SwifterSwift/pull/208) by [@omaralbeik](https://github.com/omaralbeik)
 
@@ -378,27 +378,27 @@ N/A
 - Documentation should be greatly improved and up to date now that we are using [Jazzy](https://github.com/realm/jazzy) to auto-generate docs! :tada: [#198](https://github.com/SwifterSwift/SwifterSwift/pull/198) by [@omaralbeik](https://github.com/omaralbeik)
 
 - SwifterSwift now supports subspecs to offer more control over imported extensions: [#198](https://github.com/SwifterSwift/SwifterSwift/pull/198) by [@omaralbeik](https://github.com/omaralbeik)
-- SwifterSwift/Foundation
-- SwifterSwift/UIKit
-- SwifterSwift/Cocoa
+    - SwifterSwift/Foundation
+    - SwifterSwift/UIKit
+    - SwifterSwift/Cocoa
 
 - `Array` extensions now have throwing signatures. [#170](https://github.com/SwifterSwift/SwifterSwift/pull/170) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 - New **Array** extensions
-- added `groupByKey` to group the elements of the array by key in a dictionary. [#181](https://github.com/SwifterSwift/SwifterSwift/pull/181) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-- added `forEach(slice:body:)` to iterate by specified slice size and call a closure. [#194](https://github.com/SwifterSwift/SwifterSwift/pull/194/files) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+    - added `groupByKey` to group the elements of the array by key in a dictionary. [#181](https://github.com/SwifterSwift/SwifterSwift/pull/181) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+    - added `forEach(slice:body:)` to iterate by specified slice size and call a closure. [#194](https://github.com/SwifterSwift/SwifterSwift/pull/194/files) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - New **Dictionary** extensions
-- add `count(where:)` to count dictionary elements where the condition returns true. [#193](https://github.com/SwifterSwift/SwifterSwift/pull/193) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+    - add `count(where:)` to count dictionary elements where the condition returns true. [#193](https://github.com/SwifterSwift/SwifterSwift/pull/193) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 - New **String** extensions
-- added `isValidFileUrl` to check if a String is a valid file URL. [#175](https://github.com/SwifterSwift/SwifterSwift/pull/175) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-- added `hasUniqueCharacters()` method to check if string only contains unique characters. [#195](https://github.com/SwifterSwift/SwifterSwift/pull/195) by [@FrankKair](https://github.com/FrankKair)
+    - added `isValidFileUrl` to check if a String is a valid file URL. [#175](https://github.com/SwifterSwift/SwifterSwift/pull/175) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+    - added `hasUniqueCharacters()` method to check if string only contains unique characters. [#195](https://github.com/SwifterSwift/SwifterSwift/pull/195) by [@FrankKair](https://github.com/FrankKair)
 
 - New **Data** extensions
-- added `bytes` to return data as an array of bytes. [#171](https://github.com/SwifterSwift/SwifterSwift/pull/171) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+    - added `bytes` to return data as an array of bytes. [#171](https://github.com/SwifterSwift/SwifterSwift/pull/171) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 - New **UITextField** extensions
-- added `addPaddingLeft` extension to add padding to a UITextField. [#185](https://github.com/SwifterSwift/SwifterSwift/pull/185) by [@SD10](https://github.com/SD10)
+    - added `addPaddingLeft` extension to add padding to a UITextField. [#185](https://github.com/SwifterSwift/SwifterSwift/pull/185) by [@SD10](https://github.com/SD10)
 
 ### Bugfixes
 - Fixes asynchronous `iOS`/`tvOS`/`watchOS` unit tests causing crashes. [#191](https://github.com/SwifterSwift/SwifterSwift/pull/191) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
@@ -406,38 +406,38 @@ N/A
 # v1.6.4
 
 - New **Array** extensions
-- added `removeAll` passing an array of items.
-- added `swap` and `safeSwap` extensions to swap to elements in an array.
-- new `firstIndex` and `lastIndex` that returns the (first or last) index where the condition is true.
-- new `indexes` extension that return indexes where the condition is true.
-- new `all` and `none` that checks if (all or none) of array elements match condition.
-- new `last` extension to find the last element that matches condition.
-- new `reject` extension to filter elements that **not** matches condition.
-- new `count` extension to count elements that match condition.
-- new `forEachReversed` extension to iterate over an array in reverse order.
-- new `accumulate` extension to reduces an array while returning each interim combination.
-- new `forEach` with condition to a filtered interaction over the array.
-- new `keep` extension to keep all elements that in order are until the condition is false.
-- new `take` extension that returns all elements that in order are until the condition is false.
-- new `skip` extension that returns all elements that in order are after the condition is false.
-- new `filtered: map` extension to perform a map and filter operation in just one iteration.
+    - added `removeAll` passing an array of items.
+    - added `swap` and `safeSwap` extensions to swap to elements in an array.
+    - new `firstIndex` and `lastIndex` that returns the (first or last) index where the condition is true.
+    - new `indexes` extension that return indexes where the condition is true.
+    - new `all` and `none` that checks if (all or none) of array elements match condition.
+    - new `last` extension to find the last element that matches condition.
+    - new `reject` extension to filter elements that **not** matches condition.
+    - new `count` extension to count elements that match condition.
+    - new `forEachReversed` extension to iterate over an array in reverse order.
+    - new `accumulate` extension to reduces an array while returning each interim combination.
+    - new `forEach` with condition to a filtered interaction over the array.
+    - new `keep` extension to keep all elements that in order are until the condition is false.
+    - new `take` extension that returns all elements that in order are until the condition is false.
+    - new `skip` extension that returns all elements that in order are after the condition is false.
+    - new `filtered: map` extension to perform a map and filter operation in just one iteration.
 - New **Character** extensions
-- added isLetter & isWhiteSpace extensions
-- new lowercased extension to lower case the character
-- new uppercased extension to upper case the character
+    - added isLetter & isWhiteSpace extensions
+    - new lowercased extension to lower case the character
+    - new uppercased extension to upper case the character
 - New **Date** extensions
-- new `isInWeekday` extension to check if the date is within a weekday period
+    - new `isInWeekday` extension to check if the date is within a weekday period
 - New **Dictionary** extensions
-- new `removeAll` extension to remove the values for all keys in an array.
-- new + operator to merge to dictionaries in a new one and += to merge one dictionary into another.
-- new - operator to get a new dictionary with the values for all keys in an array removed and -= to remove the values for all keys in an array.
+    - new `removeAll` extension to remove the values for all keys in an array.
+    - new + operator to merge to dictionaries in a new one and += to merge one dictionary into another.
+    - new - operator to get a new dictionary with the values for all keys in an array removed and -= to remove the values for all keys in an array.
 - New **String** extensions
-- new `matches` extension to check if the string matches a regex pattern.
+    - new `matches` extension to check if the string matches a regex pattern.
 - New **Locale** extensions
-- new posix property extension to convenience create the "en_US_POSIX" locale.
+    - new posix property extension to convenience create the "en_US_POSIX" locale.
 - New **CLLocation** extensions
-- new `midLocation` to find the half-way point along a great circle path between relative to another point.
-- new `bearing` to calculate the bearing relative another location.
+    - new `midLocation` to find the half-way point along a great circle path between relative to another point.
+    - new `bearing` to calculate the bearing relative another location.
 ### Improvements
 - Fixes on wrong access  levels for some extensions
 - Improve NSAttributedStringExtensions extensions
@@ -446,7 +446,7 @@ N/A
 - Improvements on some Date extensions
 - Improvements on some methods signatures based on Swift 3 API guidelines
 - Improve code coverage.
-- Improvements on documentation headers
+- Improvements on documentation headers     
 
 ### Testing
 
@@ -455,23 +455,23 @@ Areas affected are:
 
 **Foundation**
 
-- ArrayExtensions tests
-- CharacterExtensions tests
-- DateExtensions tests
-- DictionaryExtensions tests
-- StringExtensions tests
-- LocaleExtensions tests
+    - ArrayExtensions tests
+    - CharacterExtensions tests
+    - DateExtensions tests
+    - DictionaryExtensions tests
+    - StringExtensions tests
+    - LocaleExtensions tests
 
 **UIKit**
 
-- UIColorExtensions tests
-- UIButtonExtensions tests
+    - UIColorExtensions tests
+    - UIButtonExtensions tests
 
 **Cocoa**
 
-- CGSizeExtensions tests
-- CGPointExtensions tests
-- CLLocationExtensions tests
+    - CGSizeExtensions tests
+    - CGPointExtensions tests
+    - CLLocationExtensions tests
 
 ---
 
@@ -479,59 +479,59 @@ Areas affected are:
 # v1.6.3
 
 - New **Character** extensions
-- new * operator (repeat character n amount of times)
-- added isLowercased & isUppercased extensions
+    - new * operator (repeat character n amount of times)
+    - added isLowercased & isUppercased extensions
 
 - New **UICollectionView** extensions
-- new extensions to register/dequeue cells using UICollectionViewCell class as identifier
-- new extensions to register/dequeue reusable views using UICollectionReusableView class as identifier
+    - new extensions to register/dequeue cells using UICollectionViewCell class as identifier
+    - new extensions to register/dequeue reusable views using UICollectionReusableView class as identifier
 
 - New **UITableView** extensions
-- new extensions to register/dequeue cells using UITableViewCell class as identifier
-- new extensions to register/dequeue header/footer views using UITableViewHeaderFooterView as identifier
+    - new extensions to register/dequeue cells using UITableViewCell class as identifier
+    - new extensions to register/dequeue header/footer views using UITableViewHeaderFooterView as identifier
 
 - New **UIStoryboard** extensions
-- added extension to `instantiateViewController` with class as identifier
-- added extension get `mainStoryboard`
+    - added extension to `instantiateViewController` with class as identifier
+    - added extension get `mainStoryboard`
 
 - New **UIView** extensions
-- added quick getter and setter for frame’s X and Y values
+    - added quick getter and setter for frame’s X and Y values
 
 - New **Array** extensions
-- added `safeSwap` method as a fail-safe way to swap to elements in an array
+    - added `safeSwap` method as a fail-safe way to swap to elements in an array
 
 - New **NSView** extensions
-- `borderColor` (IBInspectable)
-- `borderWidth` (IBInspectable)
-- `cornerRadius` (IBInspectable)
-- `height`
-- `shadowColor` (IBInspectable)
-- `shadowOffset` (IBInspectable)
-- `shadowOpacity` (IBInspectable)
-- `shadowRadius` (IBInspectable)
-- `size`
-- `width`
-- `addSubviews(subviews:)`
-- `removeSubviews()`
+    - `borderColor` (IBInspectable)
+    - `borderWidth` (IBInspectable)
+    - `cornerRadius` (IBInspectable)
+    - `height`
+    - `shadowColor` (IBInspectable)
+    - `shadowOffset` (IBInspectable)
+    - `shadowOpacity` (IBInspectable)
+    - `shadowRadius` (IBInspectable)
+    - `size`
+    - `width`
+    - `addSubviews(subviews:)`
+    - `removeSubviews()`
 
 - New **Optional** extensions
-- `unwrapped(or:)` unwrap an optional or provide default value
-- `run(block:)` block to run if optional unwrapped is not nil
+    - `unwrapped(or:)` unwrap an optional or provide default value
+    - `run(block:)` block to run if optional unwrapped is not nil
 
 ### Improvements
 - Improve UIImageView extensions
-- fixes infinite recursive call in `blurred()` method
-- removes superfluous error from `download(url:)` method completion block
+    - fixes infinite recursive call in `blurred()` method
+    - removes superfluous error from `download(url:)` method completion block
 
 - Replace deprecated `M_PI` with `.pi`
 
 - Fixes wrong implementation of -= `CGPoint` operator
 
 - Improve Array extensions
-- properties with O(n) or higher complexity have been changed to methods
-- reduced shuffle method complexity by using Fisher-Yates algorithm and is now completely random
-- `removeDuplicates` renamed to `duplicatesRemoved.`
-- remove generic constraint on `firstIndex(of:)` and `lastIndex(of:)`
+    - properties with O(n) or higher complexity have been changed to methods
+    - reduced shuffle method complexity by using Fisher-Yates algorithm and is now completely random
+    - `removeDuplicates` renamed to `duplicatesRemoved.`
+    - remove generic constraint on `firstIndex(of:)` and `lastIndex(of:)`
 
 - Improve String extensions
 - Improve Date extensions
@@ -544,43 +544,43 @@ Areas affected are:
 
 **Foundation**
 
-- CharacterExtensions tests
-- StringExtensions tests
-- ArrayExtensions tests
-- IntExtensions tests
-- DateExtensions tests
-- DataExtensions tests
-- DoubleExtensions tests
-- FloatExtensions tests
-- CGFloatExtensions tests
-- CGPointExtensions tests
+    - CharacterExtensions tests
+    - StringExtensions tests
+    - ArrayExtensions tests
+    - IntExtensions tests
+    - DateExtensions tests
+    - DataExtensions tests
+    - DoubleExtensions tests
+    - FloatExtensions tests
+    - CGFloatExtensions tests
+    - CGPointExtensions tests
 
 
 **UIKit**
 
-- UIColorExtensions tests
-- UIAlertControllerExtensions tests
-- UIBarButtonItemExtensions tests
-- UIButtonExtensions tests
-- UITextViewExtensions tests
-- UISegmentedControlExtensions tests
-- UINavigationControllerExtensions tests
-- UINavigationBarExtensions tests
-- UINavigationItemExtensions tests
-- UISliderExtensions tests
-- UITableViewExtensions tests
-- UICollectionViewExtensions tests
-- UIViewControllerExtensions tests
-- UIStoryboardExtensions tests
-- UITextFieldExtensions tests
-- UIViewExtensions tests
-- UIImageExtensions tests
+    - UIColorExtensions tests
+    - UIAlertControllerExtensions tests
+    - UIBarButtonItemExtensions tests
+    - UIButtonExtensions tests
+    - UITextViewExtensions tests
+    - UISegmentedControlExtensions tests
+    - UINavigationControllerExtensions tests
+    - UINavigationBarExtensions tests
+    - UINavigationItemExtensions tests
+    - UISliderExtensions tests
+    - UITableViewExtensions tests
+    - UICollectionViewExtensions tests
+    - UIViewControllerExtensions tests
+    - UIStoryboardExtensions tests
+    - UITextFieldExtensions tests
+    - UIViewExtensions tests
+    - UIImageExtensions tests
 
 
 **Cocoa**
 
-- NSColorExtensions tests
-- NSViewExtensions tests
+    - NSColorExtensions tests
+    - NSViewExtensions tests
 
 ---
 
@@ -855,9 +855,9 @@ Here are some changes:
 - Updated some properties and methods names to follow [Swift API Design Guidelines](https://developer.apple.com/videos/play/wwdc2016/403/).
 - Added default values to methods parameters (where possible).
 - All units documentation has been re-written in Xcode,
-- Now you see "**SwifterSwift:** " at the beginning of description to know the source of the extension while writing your code.
-- All method parameters and return types have been documented in Xcode as well.
-- All extensions documentation has been re-written in [Wiki](https://github.com/omaralbeik/SwifterSwift/wiki), separating properties from methods in different tables.
+    - Now you see "**SwifterSwift:** " at the beginning of description to know the source of the extension while writing your code.
+    - All method parameters and return types have been documented in Xcode as well.
+    - All extensions documentation has been re-written in [Wiki](https://github.com/omaralbeik/SwifterSwift/wiki), separating properties from methods in different tables.
 - All extensions files re-organized in separate extensions based on type (properties, methods, initializers, ..)
 - Fixed some bugs where some extensions were not public.
 - New section explaining how to add new extensions in [Contributing Guidelines](https://github.com/omaralbeik/SwifterSwift/blob/master/CONTRIBUTING.md)
@@ -870,12 +870,12 @@ Here are some changes:
 ### New Extensions:
 
 - **UIColorExtensions**:
-- **struct material**: get [Google material palette colors](https://material.google.com/style/color.html) with ease
+    - **struct material**: get [Google material palette colors](https://material.google.com/style/color.html) with ease
 
 ### Updated Extensions:
 
 - **UIColorExtensions**:
-- struct socialColors -> **struct social**
+    - struct socialColors -> **struct social**
 
 ---
 
@@ -884,82 +884,82 @@ Here are some changes:
 ### New Extensions:
 
 - **ConvenienceExtensions**:
-- **func string(forKey: String)**: Get a string from UserDefaults
-- **func integer(forKey: String)**: Get an integer from UserDefaults
-- **func double(forKey: String)**: Get a double from UserDefaults
-- **func float(forKey: String)**: Get a float from UserDefaults
-- **func data(forKey: String)**: Get a data from UserDefaults
-- **func bool(forKey: String)**: Get a bool from UserDefaults
-- **func array(forKey: String)**: Get an array from UserDefaults
-- **func dictionary(forKey: String)**: Get a dictionary from UserDefaults
+    - **func string(forKey: String)**: Get a string from UserDefaults
+    - **func integer(forKey: String)**: Get an integer from UserDefaults
+    - **func double(forKey: String)**: Get a double from UserDefaults
+    - **func float(forKey: String)**: Get a float from UserDefaults
+    - **func data(forKey: String)**: Get a data from UserDefaults
+    - **func bool(forKey: String)**: Get a bool from UserDefaults
+    - **func array(forKey: String)**: Get an array from UserDefaults
+    - **func dictionary(forKey: String)**: Get a dictionary from UserDefaults
 
 - **StringExtensions**:
-- **func toDate(withFormat format: String)**: Return Date value from string of date format (if applicable).
-- **var toURL**: Return URL from string (if applicable).
+    - **func toDate(withFormat format: String)**: Return Date value from string of date format (if applicable).
+    - **var toURL**: Return URL from string (if applicable).
 
 - **UIAlertControllerExtensions**:
-- **addAction(title, style, isEnabled, handler)**: Add an action to Alert.
-- **addTextField(text, placeholder, editingChangedTarget, editingChangedSelector)**: Add a text field to Alert.
+    - **addAction(title, style, isEnabled, handler)**: Add an action to Alert.
+    - **addTextField(text, placeholder, editingChangedTarget, editingChangedSelector)**: Add a text field to Alert.
 
 - **UINavigationBarExtensions**:
-- **func setColors(background, text)**: Set Navigation Bar background and text colors.
+    - **func setColors(background, text)**: Set Navigation Bar background and text colors.
 
 
 ### Updated Extensions:
 
 - **ConvenienceExtensions**:
-- var deviceHeight -> **var screenHeight**
-- var deviceWidth -> **var screenWidth**
+    - var deviceHeight -> **var screenHeight**
+    - var deviceWidth -> **var screenWidth**
 
 - **ArrayExtensions**:
-- func removeAll(item: Element) -> **func removeAll(_ item: Element))**
+    - func removeAll(item: Element) -> **func removeAll(_ item: Element))**
 
 - **DateExtensions**:
-- func add(component: Calendar.Component, value: Int) -> **add(_ component: Calendar.Component, value: Int)**
-- func adding(component: Calendar.Component, value: Int) -> **adding(_ component: Calendar.Component, value: Int)**
-- func changing(component: Calendar.Component, value: Int) -> **changing(_ component: Calendar.Component, value: Int)**
-- func isIn(current: Calendar.Component) -> **isInCurrent(_ component: Calendar.Component)**
+    - func add(component: Calendar.Component, value: Int) -> **add(_ component: Calendar.Component, value: Int)**
+    - func adding(component: Calendar.Component, value: Int) -> **adding(_ component: Calendar.Component, value: Int)**
+    - func changing(component: Calendar.Component, value: Int) -> **changing(_ component: Calendar.Component, value: Int)**
+    - func isIn(current: Calendar.Component) -> **isInCurrent(_ component: Calendar.Component)**
 
 - **StringExtensions**:
-- func contain(string: String, caseSensitive: Bool) -> **func contain(_ string: String, caseSensitive: Bool)**
-- func lines() -> **var lines**
-- static func random(of length: Int) -> **static func random(ofLength: Int)**
-- func replace(string: String, with: String) -> **func replace(_ substring: String, with: String)**
-- func truncate(to length: Int, trailing: String?) -> **func truncate(toLength: Int, trailing: String?)**
-- func truncated(to length: Int, trailing: String? = "...") -> **func truncated(to length: Int, trailing: String?)**
+    - func contain(string: String, caseSensitive: Bool) -> **func contain(_ string: String, caseSensitive: Bool)**
+    - func lines() -> **var lines**
+    - static func random(of length: Int) -> **static func random(ofLength: Int)**
+    - func replace(string: String, with: String) -> **func replace(_ substring: String, with: String)**
+    - func truncate(to length: Int, trailing: String?) -> **func truncate(toLength: Int, trailing: String?)**
+    - func truncated(to length: Int, trailing: String? = "...") -> **func truncated(to length: Int, trailing: String?)**
 
 - **UIButtonExtensions**:
-- func imageForAllStates(image: UIImage) -> **func setImageForAllStates(_ image: UIImage)**
-- func titleColorForAllStates(color: UIColor) -> **func setTitleColorForAllStates(_ color: UIColor)**
-- func titleForAllStates(title: String) -> **func setTitleForAllStates(_ title: String)**
+    - func imageForAllStates(image: UIImage) -> **func setImageForAllStates(_ image: UIImage)**
+    - func titleColorForAllStates(color: UIColor) -> **func setTitleColorForAllStates(_ color: UIColor)**
+    - func titleForAllStates(title: String) -> **func setTitleForAllStates(_ title: String)**
 
 
 - **UIColorExtensions**:
-- init(netHex:Int) -> **init(hex:Int, transparency: CGFloat = 1)**
+    - init(netHex:Int) -> **init(hex:Int, transparency: CGFloat = 1)**
 
 - **UIImageExtensions**:
-- func scaledToHeight(height: CGFloat, with orientation: UIImageOrientation?) -> **scaled(toHeight: CGFloat, with orientation: UIImageOrientation?)**
-- func scaledToWidth(width: CGFloat, with orientation: UIImageOrientation?) -> **scaled(toWidth: CGFloat, with orientation: UIImageOrientation?)**
+    - func scaledToHeight(height: CGFloat, with orientation: UIImageOrientation?) -> **scaled(toHeight: CGFloat, with orientation: UIImageOrientation?)**
+    - func scaledToWidth(width: CGFloat, with orientation: UIImageOrientation?) -> **scaled(toWidth: CGFloat, with orientation: UIImageOrientation?)**
 
 - **UIImageViewExtensions**:
-- func download(fromUrl: String?, contentMode: UIViewContentMode, placeHolder: UIImage?)) -> **download(from: URL?, contentMode: UIViewContentMode, placeHolder: UIImage?, completionHandler: ((UIImage?, Error?) -> Void)?)**
+    - func download(fromUrl: String?, contentMode: UIViewContentMode, placeHolder: UIImage?)) -> **download(from: URL?, contentMode: UIViewContentMode, placeHolder: UIImage?, completionHandler: ((UIImage?, Error?) -> Void)?)**
 
 - **UISliderExtensions**:
-- func setValue(value: Float, animated: Bool, duration: TimeInterval, completion: (() -> Void)? = nil) -> **func setValue(_ value: Float, animated: Bool, duration: TimeInterval, completion: (() -> Void)?)**
+    - func setValue(value: Float, animated: Bool, duration: TimeInterval, completion: (() -> Void)? = nil) -> **func setValue(_ value: Float, animated: Bool, duration: TimeInterval, completion: (() -> Void)?)**
 
 - **UITableViewExtensions**:
-- var totalRows -> **var numberOfRows**
+    - var totalRows -> **var numberOfRows**
 
 - **UITextFieldExtensions**:
-- func setPlaceHolderTextColor(color: UIColor) -> **func setPlaceHolderTextColor(_ color: UIColor)**
+    - func setPlaceHolderTextColor(color: UIColor) -> **func setPlaceHolderTextColor(_ color: UIColor)**
 
 - **UIViewExtensions**:
-- func loadFromNibNamed(nibNamed: String, bundle : Bundle?) -> **func loadFromNib(named: String, bundle : Bundle?)**
+    - func loadFromNibNamed(nibNamed: String, bundle : Bundle?) -> **func loadFromNib(named: String, bundle : Bundle?)**
 
 ### Removed Extensions:
 
 - **StringExtensions**:
-- var locale
+     - var locale
 
 ---
 
