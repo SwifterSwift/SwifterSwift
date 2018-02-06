@@ -80,16 +80,16 @@ public extension Int {
 
     /// SwifterSwift: Number of digits of integer value.
     public var digitsCount: Int {
-        var digits = [Int]()
+        guard self != 0 else { return 1 }
+        var digits = 0
         var number = self
 
         while number != 0 {
-            let x = (number % 10).abs
-            digits.append(x)
             number = number / 10
+            digits += 1
         }
 
-        return digits.count
+        return digits
     }
 
 }
