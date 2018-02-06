@@ -66,10 +66,10 @@ public extension Int {
     public var digits: [Int] {
         guard self != 0 else { return [0] }
         var digits = [Int]()
-        var number = self
+        var number = self.abs
 
         while number != 0 {
-            let x = (number % 10).abs
+            let x = number % 10
             digits.append(x)
             number = number / 10
         }
