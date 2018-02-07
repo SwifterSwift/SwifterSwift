@@ -42,7 +42,15 @@ final class UserDefaultsExtensionsTests: XCTestCase {
 		XCTAssertEqual(UserDefaults.standard.date(forKey: key)!, date)
 	}
     
-    func testCodable() {
+    func testGetCodableObject() {
+        let key = "codableTestKey"
+        let codable: TestObject = TestObject(id: 1)
+        UserDefaults.standard.set(object: codable, forKey: key)
+        let retrievedCodable = UserDefaults.standard.object(TestObject.self, with: key)
+        XCTAssertNotNil(retrievedCodable)
+    }
+    
+    func testSetCodableObject() {
         let key = "codableTestKey"
         let codable: TestObject = TestObject(id: 1)
         UserDefaults.standard.set(object: codable, forKey: key)
