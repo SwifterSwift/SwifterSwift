@@ -27,5 +27,6 @@ final class UIBarButtonExtensionsTests: XCTestCase {
 		XCTAssertEqual(target, self)
 		XCTAssertEqual(barButton.action, selector)
 	}
+	
 }
 #endif

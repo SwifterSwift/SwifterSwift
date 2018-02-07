@@ -10,8 +10,8 @@ Here are some examples:
 // Remove duplicates from an array
 [1, 2, 3, 1, 3].removeDuplicates() -> [1, 2, 3]
 
-// Return all indexes of specified item
-["h", "e", "l", "l", "o"].indexes(of: "l") -> [2, 3]
+// Return all indices of specified item
+["h", "e", "l", "l", "o"].indices(of: "l") -> [2, 3]
 
 // Shuffle an array
 ["h", "e", "l", "l", "o"].shuffled() -> ["e", "l", "o", "l", "h"]

@@ -26,5 +26,6 @@ final class UIDatePickerExtensionsTests: XCTestCase {
 		datePicker.textColor = nil
 		XCTAssertNil(datePicker.textColor)
 	}
+	
 }
 #endif

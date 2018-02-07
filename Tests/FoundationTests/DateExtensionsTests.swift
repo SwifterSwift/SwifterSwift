@@ -556,14 +556,15 @@ final class DateExtensionsTests: XCTestCase {
 		date.add(.month, value: 1)
 		XCTAssertEqual(date.month, 10)
 		
-		date = Date()
+        date = Date(timeIntervalSince1970: 1514764800)
+
 		date.add(.year, value: -1)
-		XCTAssertEqual(date.year, 2016)
+		XCTAssertEqual(date.year, 2017)
 		date.add(.year, value: 0)
-		XCTAssertEqual(date.year, 2016)
+		XCTAssertEqual(date.year, 2017)
 		
 		date.add(.year, value: 1)
-		XCTAssertEqual(date.year, 2017)
+		XCTAssertEqual(date.year, 2018)
 	}
 	
 	func testChanging() {
@@ -873,5 +874,65 @@ final class DateExtensionsTests: XCTestCase {
 		let dateFromUnixTimestamp = Date(unixTimestamp: 512)
 		XCTAssertEqual(date, dateFromUnixTimestamp)
 	}
+    
+    func testNewDateFromIntegerLiteral() {
+        let date = Date(integerLiteral: 2017_12_25)
+        
+        XCTAssertNotNil(date)
+        
+        if let date = date {
+            XCTAssertEqual(String(describing: date), "2017-12-25 00:00:00 +0000")
+        }
+        
+        XCTAssertNil(Date(integerLiteral: 222))
+    }
 	
+    func testRandom() {
+        var randomDate = Date.random()
+        XCTAssertTrue(randomDate.isBetween(Date.distantPast, Date.distantFuture, includeBounds: true))
+
+        var date = Date(timeIntervalSinceReferenceDate: 0)
+        randomDate = Date.random(from: date)
+        XCTAssertTrue(randomDate.isBetween(date, Date.distantFuture, includeBounds: true))
+        
+        date = Date(timeIntervalSince1970: 10000)
+        randomDate = Date.random(from: date)
+        XCTAssertTrue(randomDate.isBetween(date, Date.distantFuture, includeBounds: true))
+        
+        date = Date(timeIntervalSince1970: -10000)
+        randomDate = Date.random(from: date)
+        XCTAssertTrue(randomDate.isBetween(date, Date.distantFuture, includeBounds: true))
+
+        date = Date(timeIntervalSinceReferenceDate: 0)
+        randomDate = Date.random(upTo: date)
+        XCTAssertTrue(randomDate.isBetween(Date.distantPast, date, includeBounds: true))
+        
+        date = Date(timeIntervalSince1970: 10000)
+        randomDate = Date.random(upTo: date)
+        XCTAssertTrue(randomDate.isBetween(Date.distantPast, date, includeBounds: true))
+        
+        date = Date(timeIntervalSince1970: -10000)
+        randomDate = Date.random(upTo: date)
+        XCTAssertTrue(randomDate.isBetween(Date.distantPast, date, includeBounds: true))
+
+        var sinceDate = Date(timeIntervalSinceReferenceDate: 0)
+        var toDate = Date(timeIntervalSinceReferenceDate: 10000)
+        randomDate = Date.random(from: sinceDate, upTo: toDate)
+        XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
+        
+        sinceDate = Date(timeIntervalSince1970: -10000)
+        toDate = Date(timeIntervalSince1970: -10)
+        randomDate = Date.random(from: sinceDate, upTo: toDate)
+        XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
+        
+        sinceDate = Date(timeIntervalSinceReferenceDate: -1000)
+        toDate = Date(timeIntervalSinceReferenceDate: 10000)
+        randomDate = Date.random(from: sinceDate, upTo: toDate)
+        XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
+        
+        sinceDate = Date(timeIntervalSinceReferenceDate: 0)
+        toDate = sinceDate
+        randomDate = Date.random(from: sinceDate, upTo: toDate)
+        XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
+    }
 }

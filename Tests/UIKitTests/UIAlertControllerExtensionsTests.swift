@@ -87,5 +87,6 @@ final class UIAlertControllerExtensionsTests: XCTestCase {
 		XCTAssertEqual(defaultAction?.title, "Ok")
 		XCTAssertEqual(defaultAction?.style, .default)
 	}
+	
 }
 #endif

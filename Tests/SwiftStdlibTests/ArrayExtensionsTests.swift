@@ -30,6 +30,11 @@ final class ArrayExtensionsTests: XCTestCase {
 	func testIndexes() {
 		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].indexes(of: 1), [0, 1, 5, 7])
 	}
+    
+    func testIndices() {
+        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].indices(of: 1), [0, 1, 5, 7])
+        XCTAssertEqual(["a", "b", "c", "b", "4", "1", "2", "1"].indices(of: "b"), [1, 3])
+    }
 	
 	func testLastIndex() {
 		XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2))
@@ -287,6 +292,20 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(grouped["i"] ?? [], [ "irving", "iverson" ])
     }
     
+	func testDivided() {
+		let input = [0, 1, 2, 3, 4, 5]
+		let (even, odd) = input.divided { $0 % 2 == 0 }
+		XCTAssertEqual(even, [0, 2, 4])
+		XCTAssertEqual(odd, [1, 3, 5])
+
+		// Parameter names + indexes
+		let tuple = input.divided { $0 % 2 == 0 }
+		XCTAssertEqual(tuple.matching, [0, 2, 4])
+		XCTAssertEqual(tuple.0, [0, 2, 4])
+		XCTAssertEqual(tuple.nonMatching, [1, 3, 5])
+		XCTAssertEqual(tuple.1, [1, 3, 5])
+	}
+
     func testForEachSlice() {
         var iterations: Int = 0
         
@@ -388,6 +407,57 @@ final class ArrayExtensionsTests: XCTestCase {
         array.rotate(by: -1)
         XCTAssertEqual(array, [4, 1, 2, 3])
         
+    }
+
+    struct Person: Equatable {
+        var name: String
+        var age: Int?
+        
+        static func == (lhs: Person, rhs: Person) -> Bool {
+            return lhs.name == rhs.name && lhs.age == rhs.age
+        }
+    }
+    
+    func testKeyPathSorted() {
+ 
+        let array = [Person(name: "James", age: 32),
+                     Person(name: "Wade", age: 36),
+                     Person(name: "Rose", age: 29)]
+        
+        XCTAssertEqual(array.sorted(by: \Person.name), [Person(name: "James", age: 32),
+                                                        Person(name: "Rose", age: 29),
+                                                        Person(name: "Wade", age: 36)])
+        XCTAssertEqual(array.sorted(by: \Person.name, ascending: false), [Person(name: "Wade", age: 36),
+                                                                          Person(name: "Rose", age: 29),
+                                                                          Person(name: "James", age: 32)])
+        // Testing Optional keyPath
+        XCTAssertEqual(array.sorted(by: \Person.age), [Person(name: "Rose", age: 29),
+                                                       Person(name: "James", age: 32),
+                                                       Person(name: "Wade", age: 36)])
+        XCTAssertEqual(array.sorted(by: \Person.age, ascending: false), [Person(name: "Wade", age: 36),
+                                                                         Person(name: "James", age: 32),
+                                                                         Person(name: "Rose", age: 29)])
+        
+        // Testing Mutating
+        var mutableArray = [Person(name: "James", age: 32),
+                            Person(name: "Wade", age: 36),
+                            Person(name: "Rose", age: 29)]
+        
+        mutableArray.sort(by: \Person.name)
+        XCTAssertEqual(mutableArray, [Person(name: "James", age: 32),
+                                      Person(name: "Rose", age: 29),
+                                      Person(name: "Wade", age: 36)])
+        
+        // Testing Mutating Optional keyPath
+        mutableArray.sort(by: \Person.age)
+        XCTAssertEqual(mutableArray, [Person(name: "Rose", age: 29),
+                                      Person(name: "James", age: 32),
+                                      Person(name: "Wade", age: 36)])
+        
+        // Testing nil path
+        let nilArray = [Person(name: "James", age: nil), Person(name: "Wade", age: nil)]
+        XCTAssertEqual(nilArray.sorted(by: \Person.age), [Person(name: "James", age: nil),
+                                                        Person(name: "Wade", age: nil)])
     }
     
 }

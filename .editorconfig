@@ -1,0 +1,14 @@
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+# Set default charset
+[*.{js,py,swift,m,json}]
+charset = utf-8
+
+# 4 space indentation
+[*.swift]
+indent_style = space
+indent_size = 4

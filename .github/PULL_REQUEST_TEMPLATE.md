@@ -9,3 +9,4 @@
 - [ ] I have added tests for new extensions, and they passed.
 - [ ] All extensions have a **clear** comments explaining their functionality, all parameters and return type in English.
 - [ ] All extensions are declared as **public**.
+- [ ] I have added a changelog entry describing my changes.

@@ -133,6 +133,16 @@ final class UITableViewExtensionsTests: XCTestCase {
 		XCTAssertNotNil(cell)
 	}
 	#endif
+    
+    #if os(iOS)
+    func testRegisterCellWithNibUsingClass() {
+        let nilCell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
+        XCTAssertNil(nilCell)
+        tableView.register(nibWithCellClass: UITableViewCell.self, at: UITableViewExtensionsTests.self)
+        let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
+        XCTAssertNotNil(cell)
+    }
+    #endif
 
 }
 
