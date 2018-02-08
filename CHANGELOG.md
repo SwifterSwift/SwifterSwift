@@ -8,6 +8,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > ### Added
 - **Array**
   - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
+- **Int**
+  - added `roundToNearest(n:)` to round an integer to the closest multiple of a given n. [#381](https://github.com/SwifterSwift/SwifterSwift/pull/381) by [@vyax](https://github.com/vyax).
 - **FileManager**
   - added `jsonFromFile(atPath path:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance with a provided path. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).
   - added `jsonFromFile(withFilename filename:, at bundleClass:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance given a filename. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).

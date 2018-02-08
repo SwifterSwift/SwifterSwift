@@ -130,6 +130,12 @@ final class IntExtensionsTests: XCTestCase {
 		XCTAssertEqual(10.romanNumeral(), "X")
 		XCTAssertNil((-1).romanNumeral())
 	}
+    
+  func testRoundToNearestN() {
+    XCTAssert(12.roundToNearest(5) == 10)
+    XCTAssert(63.roundToNearest(25) == 75)
+    XCTAssert(42.roundToNearest(0) == 42)
+  }
 
 	func testTimeString() {
 		XCTAssertEqual((-1).timeString, "0 sec")
