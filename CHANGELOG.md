@@ -30,10 +30,14 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UserDefaults**
   - added `object(type: with key: usingDecoder decoder:)` method to be able to retrieve Codable objects from UserDefaults. [#388](https://github.com/SwifterSwift/SwifterSwift/pull/388) by [jason-ingenuity](https://github.com/jason-ingenuity).
   - added `set(codable: forKey key: usingEncoder encoder:)` method to be able to store Codable objects from UserDefaults. [#388](https://github.com/SwifterSwift/SwifterSwift/pull/388) by [jason-ingenuity](https://github.com/jason-ingenuity).
+- **StringExtensions**
+  - added `isDigits` to check if string only contains digits. [#396](https://github.com/SwifterSwift/SwifterSwift/pull/396) by [seifeet](https://github.com/seifeet).
 > ### Changed
 > ### Deprecated
 > ### Removed
 > ### Fixed
+- **StringExtensions**
+  - Fixed `isNumeric` to check if string is a valid Swift number and added isDigits to check if string only contains digits. [#396](https://github.com/SwifterSwift/SwifterSwift/pull/396) by [seifeet](https://github.com/seifeet).
 > ### Security
 
 
@@ -1054,4 +1058,3 @@ DateExtensions:
 
 UIViewExtensions:
 - **shake**: Completion handler added to shake function
-

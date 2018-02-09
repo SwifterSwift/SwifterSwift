@@ -183,16 +183,32 @@ public extension String {
 		return URL(string: self)?.isFileURL ?? false
 	}
 	
-	/// SwifterSwift: Check if string contains only numbers.
+	/// SwifterSwift: Check if string is a valid Swift number.
 	///
+    /// Note:
+    /// In North America, "." is the decimal separator,
+    /// while in many parts of Europe "," is used,
+    ///
 	///		"123".isNumeric -> true
+    ///     "1.3".isNumeric -> true (en_US)
+    ///     "1,3".isNumeric -> true (fr_FR)
 	///		"abc".isNumeric -> false
 	///
-	public var isNumeric: Bool {
-		let hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
-		let hasNumbers = rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
-		return !hasLetters && hasNumbers
-	}
+    public var isNumeric: Bool {
+        let scanner = Scanner(string: self)
+        scanner.locale = NSLocale.current
+        return scanner.scanDecimal(nil) && scanner.isAtEnd
+    }
+    
+    /// SwifterSwift: Check if string only contains digits.
+    ///
+    ///     "123".isDigits -> true
+    ///     "1.3".isDigits -> false
+    ///     "abc".isDigits -> false
+    ///
+    public var isDigits: Bool {
+        return CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: self))
+    }
 	
 	/// SwifterSwift: Last character of string (if applicable).
 	///
