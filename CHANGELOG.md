@@ -4,7 +4,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ---
 
 > # Upcoming release
->
+- **String**
+  - added `toSlug()` to return a slug version of a given string. [397#](https://github.com/SwifterSwift/SwifterSwift/pull/397) by [FrankKair](https://github.com/FrankKair)
+
 > ### Added
 - **Array**
   - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
