@@ -4,8 +4,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ---
 
 > # Upcoming release
-- **String**
-  - added `toSlug()` to return a slug version of a given string. [397#](https://github.com/SwifterSwift/SwifterSwift/pull/397) by [FrankKair](https://github.com/FrankKair)
 
 > ### Added
 - **Array**
@@ -32,6 +30,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UserDefaults**
   - added `object(type: with key: usingDecoder decoder:)` method to be able to retrieve Codable objects from UserDefaults. [#388](https://github.com/SwifterSwift/SwifterSwift/pull/388) by [jason-ingenuity](https://github.com/jason-ingenuity).
   - added `set(codable: forKey key: usingEncoder encoder:)` method to be able to store Codable objects from UserDefaults. [#388](https://github.com/SwifterSwift/SwifterSwift/pull/388) by [jason-ingenuity](https://github.com/jason-ingenuity).
+- **String**
+  - added `toSlug()` to return a slug version of a given string. [397#](https://github.com/SwifterSwift/SwifterSwift/pull/397) by [FrankKair](https://github.com/FrankKair)
 > ### Changed
 > ### Deprecated
 > ### Removed
