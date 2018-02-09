@@ -135,9 +135,22 @@ final class StringExtensionsTests: XCTestCase {
     
 	func testIsNumeric() {
 		XCTAssert("123".isNumeric)
+        XCTAssert("123.4".isNumeric)
+        XCTAssert("1.25e2".isNumeric)
+        XCTAssert("1.25e-2".isNumeric)
+        XCTAssert("000123.456".isNumeric)
 		XCTAssertFalse("123abc".isNumeric)
 		XCTAssertFalse("abc".isNumeric)
+        XCTAssertFalse("123.@.".isNumeric)
 	}
+    
+    func testIsDigits() {
+        XCTAssert("123".isDigits)
+        XCTAssert("987654321".isDigits)
+        XCTAssertFalse("123.4".isDigits)
+        XCTAssertFalse("1.25e2".isDigits)
+        XCTAssertFalse("123abc".isDigits)
+    }
 
     func testHasUniqueCharacters() {
         XCTAssert("swift".hasUniqueCharacters())
