@@ -595,6 +595,12 @@ final class StringExtensionsTests: XCTestCase {
 	func testWordsCount() {
 		XCTAssertEqual("Swift is amazing".wordCount(), 3)
 	}
+
+    func testToSlug() {
+        let str = "  A nice & hög _ Str    "
+        XCTAssertEqual(str.toSlug(), "a-nice-&-hog-str")
+        XCTAssertEqual("Swift is amazing".toSlug(), "swift-is-amazing")
+    }
     
     func testPaddingStart() {
         XCTAssertEqual("str".paddingStart(10), "       str")

@@ -441,6 +441,34 @@ public extension String {
 		// https://stackoverflow.com/questions/42822838
 		return words().count
 	}
+
+    /// SwifterSwift: Transforms the string into a slug string.
+    ///
+    ///        "Swift is amazing".toSlug() -> "swift-is-amazing"
+    ///
+    /// - Returns: The string in slug format.
+    public func toSlug() -> String {
+        let lowercased = self.lowercased()
+        let latinized = lowercased.latinized
+        let withDashes = latinized.replacingOccurrences(of: " ", with: "-")
+
+        let alphanumerics = NSCharacterSet.alphanumerics
+        var filtered = withDashes.filter {
+            guard String($0) != "-" else { return true }
+            guard String($0) != "&" else { return true }
+            return String($0).rangeOfCharacter(from: alphanumerics) != nil
+        }
+
+        while filtered.lastCharacterAsString == "-" {
+            filtered = String(filtered.dropLast())
+        }
+
+        while filtered.firstCharacterAsString == "-" {
+            filtered = String(filtered.dropFirst())
+        }
+
+        return filtered.replacingOccurrences(of: "--", with: "-")
+    }
 	
 	/// SwifterSwift: Safely subscript string with index.
 	///

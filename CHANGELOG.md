@@ -4,7 +4,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ---
 
 > # Upcoming release
->
+
 > ### Added
 - **Array**
   - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
@@ -30,13 +30,14 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UserDefaults**
   - added `object(type: with key: usingDecoder decoder:)` method to be able to retrieve Codable objects from UserDefaults. [#388](https://github.com/SwifterSwift/SwifterSwift/pull/388) by [jason-ingenuity](https://github.com/jason-ingenuity).
   - added `set(codable: forKey key: usingEncoder encoder:)` method to be able to store Codable objects from UserDefaults. [#388](https://github.com/SwifterSwift/SwifterSwift/pull/388) by [jason-ingenuity](https://github.com/jason-ingenuity).
-- **StringExtensions**
+- **String**
   - added `isDigits` to check if string only contains digits. [#396](https://github.com/SwifterSwift/SwifterSwift/pull/396) by [seifeet](https://github.com/seifeet).
+  - added `toSlug()` to return a slug version of a given string. [397#](https://github.com/SwifterSwift/SwifterSwift/pull/397) by [FrankKair](https://github.com/FrankKair)
 > ### Changed
 > ### Deprecated
 > ### Removed
 > ### Fixed
-- **StringExtensions**
+- **String**
   - Fixed `isNumeric` to check if string is a valid Swift number and added isDigits to check if string only contains digits. [#396](https://github.com/SwifterSwift/SwifterSwift/pull/396) by [seifeet](https://github.com/seifeet).
 > ### Security
 
