@@ -248,3 +248,10 @@ Special thanks to:
 - [Mert Akengin](https://github.com/PvtMert) and [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing [project website](http://swifterswift.com) and logo.
 - [Abdul Rahman Dabbour](https://github.com/thedabbour) for helping document the project.
 - Many thanks to all other [contributors](https://github.com/SwifterSwift/SwifterSwift/graphs/contributors) of this project.
+
+
+
+
+## License
+
+SwifterSwift is released under an MIT license. See [LICENSE](LICENSE) for more information.
