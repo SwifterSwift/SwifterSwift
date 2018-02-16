@@ -64,6 +64,14 @@ final class ArrayExtensionsTests: XCTestCase {
 		XCTAssertEqual(arr, [1, 2, 3, 4, 5])
 	}
 	
+    func testRandom() {
+        for _ in 0...5 {
+            let arr = [1, 2, 3, 4, 5]
+            let random = arr.random()
+            XCTAssert(arr.contains(random))
+        }
+    }
+    
     func testSwap() {
         var array: [Int] = [1, 2, 3, 4, 5]
         array.swap(from: 3, to: 0)
