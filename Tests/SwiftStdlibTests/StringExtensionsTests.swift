@@ -135,9 +135,22 @@ final class StringExtensionsTests: XCTestCase {
     
 	func testIsNumeric() {
 		XCTAssert("123".isNumeric)
+        XCTAssert("123.4".isNumeric)
+        XCTAssert("1.25e2".isNumeric)
+        XCTAssert("1.25e-2".isNumeric)
+        XCTAssert("000123.456".isNumeric)
 		XCTAssertFalse("123abc".isNumeric)
 		XCTAssertFalse("abc".isNumeric)
+        XCTAssertFalse("123.@.".isNumeric)
 	}
+    
+    func testIsDigits() {
+        XCTAssert("123".isDigits)
+        XCTAssert("987654321".isDigits)
+        XCTAssertFalse("123.4".isDigits)
+        XCTAssertFalse("1.25e2".isDigits)
+        XCTAssertFalse("123abc".isDigits)
+    }
 
     func testHasUniqueCharacters() {
         XCTAssert("swift".hasUniqueCharacters())
@@ -582,6 +595,12 @@ final class StringExtensionsTests: XCTestCase {
 	func testWordsCount() {
 		XCTAssertEqual("Swift is amazing".wordCount(), 3)
 	}
+
+    func testToSlug() {
+        let str = "  A nice & hög _ Str    "
+        XCTAssertEqual(str.toSlug(), "a-nice-&-hog-str")
+        XCTAssertEqual("Swift is amazing".toSlug(), "swift-is-amazing")
+    }
     
     func testPaddingStart() {
         XCTAssertEqual("str".paddingStart(10), "       str")
@@ -664,4 +683,5 @@ final class StringExtensionsTests: XCTestCase {
         str = "   \n \n  "
         XCTAssertEqual(str.isWhitespace, true)
     }
+    
 }

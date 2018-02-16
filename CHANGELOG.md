@@ -10,10 +10,37 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - added `centerTextAndImage(spacing:)` to Center align title text and image on UIButton. [#365](https://github.com/SwifterSwift/SwifterSwift/pull/365) by [@imjog](https://github.com/imjog).
 - **Array**
   - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
+- **Int**
+  - added `roundToNearest(n:)` to round an integer to the closest multiple of a given n. [#381](https://github.com/SwifterSwift/SwifterSwift/pull/381) by [@vyax](https://github.com/vyax).
+- **FileManager**
+  - added `jsonFromFile(atPath path:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance with a provided path. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `jsonFromFile(withFilename filename:, at bundleClass:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance given a filename. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).
+- **Int**
+  - added a more performant and memory efficient `digits` property to return array of integers. [#393](https://github.com/SwifterSwift/SwifterSwift/pull/393) by [FrankKair](https://github.com/FrankKair).
+- **StringProtocol**
+  - added `commonSuffix(with:, options:)` to get the longest common suffix of the receiver and a given string. [#379](https://github.com/SwifterSwift/SwifterSwift/pull/379) by [@vyax](https://github.com/vyax).
+- **UICollectionView**
+  - added `register(nibWithCellClass:, at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
+- **UIFont**
+  - added `bold` and `italic` to UIFont. [#382](https://github.com/SwifterSwift/SwifterSwift/pull/382) by [@vyax](https://github.com/vyax).
+- **UIImage**
+  - added `withRoundedCorners(radius:)` to round the corners of an image. The parameter radius is optional, the resulting image will be round if it is unspecified. [#380](https://github.com/SwifterSwift/SwifterSwift/pull/380) by [@vyax](https://github.com/vyax).
+- **UITableView**
+  - added `register(nibWithCellClass:, at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
+- **URL**
+  - added `queryParmeters` property to get the query parameters from a URL as a dictionary. [#370](https://github.com/SwifterSwift/SwifterSwift/pull/370) by [nathanbacon](https://github.com/nathanbacon).
+- **UserDefaults**
+  - added `object(type: with key: usingDecoder decoder:)` method to be able to retrieve Codable objects from UserDefaults. [#388](https://github.com/SwifterSwift/SwifterSwift/pull/388) by [jason-ingenuity](https://github.com/jason-ingenuity).
+  - added `set(codable: forKey key: usingEncoder encoder:)` method to be able to store Codable objects from UserDefaults. [#388](https://github.com/SwifterSwift/SwifterSwift/pull/388) by [jason-ingenuity](https://github.com/jason-ingenuity).
+- **String**
+  - added `isDigits` to check if string only contains digits. [#396](https://github.com/SwifterSwift/SwifterSwift/pull/396) by [seifeet](https://github.com/seifeet).
+  - added `toSlug()` to return a slug version of a given string. [397#](https://github.com/SwifterSwift/SwifterSwift/pull/397) by [FrankKair](https://github.com/FrankKair)
 > ### Changed
 > ### Deprecated
 > ### Removed
 > ### Fixed
+- **String**
+  - Fixed `isNumeric` to check if string is a valid Swift number and added isDigits to check if string only contains digits. [#396](https://github.com/SwifterSwift/SwifterSwift/pull/396) by [seifeet](https://github.com/seifeet).
 > ### Security
 
 
@@ -44,7 +71,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `random(from: Date, upTo: Date) -> Date` method that return radom date in in the specified range [#336](https://github.com/SwifterSwift/SwifterSwift/pull/336) by [akuzminskyi](https://github.com/akuzminskyi).
   - Added `string(withFormat format: String)` method to get a string from a date with the given format.
   - Added `init?(integerLiteral value: Int)` initializer to create date object from Int literal. [#342](https://github.com/SwifterSwift/SwifterSwift/pull/342) by [n0an](https://github.com/n0an).
-
+- **UIViewController**
+  - Added  `showAlert(title: String?, message: String?, buttonTitles: [String]?, highlightedButtonIndex: Int?, completion: ((Int) -> ())?)`  for conveniently displaying an alert from any view controller [#364](https://github.com/SwifterSwift/SwifterSwift/pull/364) by [rkp1026](https://github.com/rkp1026)
 ### Changed
 
 - **Array**
