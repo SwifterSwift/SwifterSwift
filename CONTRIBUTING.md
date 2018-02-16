@@ -70,8 +70,8 @@ public extension SomeType {
 - Files are named based on the type that the contained extensions extend. (example: all String extensions are found in "**StringExtensions.swift**" file)
 - All extensions should be tested.
 - All extensions files and test files have a one to one relation.(example: all tests for "**StringExtensions.swift**" are found in the "**StringExtensionsTests.swift**" file)
+- All extensions have a one to one relation to a test which should cover all edge cases and is named like the extension. (example: `DateExtensions` method `isBetween` is tested in file: `DateExtensionsTest` test: `testIsBetween`)
 - All test files are named based on the extensions which it tests. (example: all String extensions tests are found in "**StringExtensionsTests.swift**" file)
-- An single extension can have multiple tests.
 - extensions and tests are ordered inside files in the following order:
 
 ```swift
