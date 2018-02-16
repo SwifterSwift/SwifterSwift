@@ -164,6 +164,13 @@ final class UIButtonExtensionsTests: XCTestCase {
 		XCTAssertEqual(button.titleForNormal, title)
 		XCTAssertEqual(button.titleForSelected, title)
 	}
+    
+    func testCenterTextAndImage() {
+        let button: UIButton = UIButton()
+        button.centerTextAndImage(spacing: 20)
+        XCTAssertEqual(button.imageEdgeInsets, UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 10))
+        XCTAssertEqual(button.titleEdgeInsets, UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10))
+    }
 	
 }
 #endif
