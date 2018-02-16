@@ -89,6 +89,18 @@ public extension Array {
 		append(newElement)
 	}
 	
+    /// SwifterSwift: Get an element at a randomly selected index from the array
+    ///
+    ///     [1, 2, 3, 4, 5].random() -> 4
+    ///     [1, 2, 3, 4, 5].random() -> 1
+    ///     // etc.
+    ///
+    /// - Returns: A random element from the array
+    public func random() -> Element {
+        let randomIndex = Int(arc4random_uniform(UInt32(count - 1)))
+        return self[randomIndex]
+    }
+    
 	/// SwifterSwift: Safely Swap values at index positions.
 	///
 	///		[1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
