@@ -25,4 +25,9 @@ final class CollectionExtensionsTests: XCTestCase {
 		XCTAssertNil(collection[safe: 10])
 	}
 	
+    func testRandomItem() {
+        XCTAssertNotNil([1, 2, 3].randomItem)
+        XCTAssert([1, 2, 3].contains([1, 2, 3].randomItem!))
+        XCTAssertNil([].randomItem)
+    }
 }

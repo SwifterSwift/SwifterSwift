@@ -9,10 +9,6 @@ import XCTest
 @testable import SwifterSwift
 
 final class ArrayExtensionsTests: XCTestCase {
-
-	func testRandomItem() {
-		XCTAssert([1, 2, 3].contains([1, 2, 3].randomItem))
-	}
 	
 	func testAverage() {
 		XCTAssertEqual([1, 2, 3, 4, 5].average(), 3)
