@@ -171,6 +171,15 @@ public extension UIButton {
         titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
         contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
     }
+    
+    /// SwifterSwift: Underline the Title Text on UIButton
+    public func underlineButtonTitleText() {
+        let attributedString = NSMutableAttributedString(string: (self.titleLabel?.text!)!)
+        attributedString.addAttribute(NSAttributedStringKey.underlineStyle,
+                                      value: NSUnderlineStyle.styleSingle.rawValue,
+                                      range: NSRange(location: 0, length: (self.titleLabel?.text!.count)!))
+        self.setAttributedTitle(attributedString, for: .normal)
+    }
 	
 }
 #endif

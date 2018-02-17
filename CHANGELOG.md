@@ -8,6 +8,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > ### Added
 - **UIButton**
   - added `centerTextAndImage(spacing:)` to Center align title text and image on UIButton. [#365](https://github.com/SwifterSwift/SwifterSwift/pull/365) by [@imjog](https://github.com/imjog).
+  - added `underlineButtonTitleText()` to Underline title text on UIButton. [#402](https://github.com/SwifterSwift/SwifterSwift/pull/402) by [@imjog](https://github.com/imjog).
 - **Array**
   - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
 - **Int**
