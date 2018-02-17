@@ -84,7 +84,6 @@ public extension Int {
         let number = Double(self.abs)
         return Int(log10(number) + 1)
     }
-
 }
 
 // MARK: - Methods

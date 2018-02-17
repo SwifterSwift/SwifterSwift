@@ -161,6 +161,16 @@ public extension UIButton {
 	public func setTitleForAllStates(_ title: String) {
 		states.forEach { self.setTitle(title, for: $0) }
 	}
+    
+    /// SwifterSwift: Center align title text and image on UIButton
+    ///
+    /// - Parameter spacing: spacing between UIButton title text and UIButton Image.
+    public func centerTextAndImage(spacing: CGFloat) {
+        let insetAmount = spacing / 2
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
+    }
 	
 }
 #endif
