@@ -10,6 +10,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - added `centerTextAndImage(spacing:)` to Center align title text and image on UIButton. [#365](https://github.com/SwifterSwift/SwifterSwift/pull/365) by [@imjog](https://github.com/imjog).
 - **Array**
   - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
+  - added `stacked(orientation:, spacing:, alignment:, distribution:)` to create a stack of UIViews with parameters. [#407](https://github.com/SwifterSwift/SwifterSwift/pull/407) by [BennX](https://github.com/BennX).
 - **Int**
   - added `roundToNearest(n:)` to round an integer to the closest multiple of a given n. [#381](https://github.com/SwifterSwift/SwifterSwift/pull/381) by [@vyax](https://github.com/vyax).
 - **FileManager**
