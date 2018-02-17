@@ -65,8 +65,8 @@ public extension SomeType {
 - Avoid using custom classes and objects the goal for this library is to extend the standards types available natively in Swift, iOS, macOS, watchOS and tvOS.
 - Extensions could be:
  	- Enums
-	- Instance properties and type properties
-	- Instance methods and type methods
+	- Instance properties & type properties
+	- Instance methods & type methods
 	- Initializers
 - All extensions should be tested.
 - Files are named based on the type that the contained extensions extend. 
@@ -75,7 +75,7 @@ public extension SomeType {
    - (example: all tests for "**StringExtensions.swift**" are found in the "**StringExtensionsTests.swift**" file)
 - There should be a one to one relationship between extensions and their backing tests.
 - Tests should be named using the same API of the extension it backs.
-   - (example: `DateExtensions` method `isBetween` is named `testIsBetween´)
+   - (example: `DateExtensions` method `isBetween` is named `testIsBetween`)
 - All test files are named based on the extensions which it tests. 
    - (example: all String extensions tests are found in "**StringExtensionsTests.swift**" file)
 - Extensions and tests are ordered inside files in the following order:
