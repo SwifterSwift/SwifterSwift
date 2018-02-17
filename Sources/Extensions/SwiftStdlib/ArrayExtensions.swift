@@ -24,6 +24,32 @@ public extension Array where Element: Numeric {
 	
 }
 
+#if os(iOS) || os(tvOS)
+// MARK: - Methods (UIView)
+public extension Array where Element: UIView {
+    
+    /// SwifterSwift: Generates an UIStackView of an array of UIView.
+    ///
+    ///        let views = [UIView(), UIView()]
+    ///        let stackView = views.stacked(orientation: .vertical)
+    ///
+    /// - Parameter orientation: The axis along which the arranged views are laid out.(default: .horizontal)
+    /// - Parameter spacing: The distance in points between the adjacent edges of the stack view’s arranged views.(default: 0.0)
+    /// - Parameter alignment: The alignment of the arranged subviews perpendicular to the stack view’s axis. (default: .fill)
+    /// - Parameter distribution: The distribution of the arranged views along the stack view’s axis.(default: .fill)
+    /// - Returns: A UIStackView containing all views of the array with the passed configuration
+    @available(iOS 9.0, *)
+    public func stacked(orientation: UILayoutConstraintAxis = .horizontal, spacing: CGFloat = 0.0, alignment: UIStackViewAlignment = .fill, distribution: UIStackViewDistribution = .fill) -> UIStackView {
+        let stack = UIStackView(arrangedSubviews: self)
+        stack.axis = orientation
+        stack.spacing = spacing
+        stack.alignment = alignment
+        stack.distribution = distribution
+        return stack
+    }
+}
+#endif
+
 // MARK: - Methods (FloatingPoint)
 public extension Array where Element: FloatingPoint {
 	

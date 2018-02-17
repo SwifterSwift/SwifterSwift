@@ -460,4 +460,33 @@ final class ArrayExtensionsTests: XCTestCase {
                                                         Person(name: "Wade", age: nil)])
     }
     
+#if os(iOS) || os(tvOS)
+    func testStacked() {
+        let view1 = UIView()
+        let view2 = UIView()
+        let array = [view1, view2]
+        
+        XCTAssertEqual(array.stacked().arrangedSubviews.count, 2)
+        XCTAssertTrue(array.stacked().arrangedSubviews[0] === view1)
+        XCTAssertTrue(array.stacked().arrangedSubviews[1] === view2)
+        //defaults
+        XCTAssertEqual(array.stacked().axis, .horizontal)
+        XCTAssertEqual(array.stacked().alignment, .fill)
+        XCTAssertEqual(array.stacked().distribution, .fill)
+        XCTAssertEqual(array.stacked().spacing, 0.0)
+        
+        XCTAssertEqual(array.stacked(orientation: .vertical).axis, .vertical)
+        XCTAssertEqual(array.stacked(alignment: .center).alignment, .center)
+        XCTAssertEqual(array.stacked(distribution: .fillEqually).distribution, .fillEqually)
+        XCTAssertEqual(array.stacked(spacing: 16.0).spacing, 16.0)
+        
+        let stack = array.stacked(orientation: .vertical, spacing: 16.0,
+                                  alignment: .center, distribution: .fillEqually)
+        
+        XCTAssertEqual(stack.axis, .vertical)
+        XCTAssertEqual(stack.alignment, .center)
+        XCTAssertEqual(stack.distribution, .fillEqually)
+        XCTAssertEqual(stack.spacing, 16.0)
+    }
+#endif
 }
