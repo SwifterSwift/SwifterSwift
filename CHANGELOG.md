@@ -41,8 +41,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > ### Fixed
 - **String**
   - Fixed `isNumeric` to check if string is a valid Swift number and added isDigits to check if string only contains digits. [#396](https://github.com/SwifterSwift/SwifterSwift/pull/396) by [seifeet](https://github.com/seifeet).
+- **Collection** 
+  - Fixed `randomItem` crash with empty array. [#405](https://github.com/SwifterSwift/SwifterSwift/pull/405) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 > ### Security
-
 
 ---
 
@@ -62,7 +63,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `sort(by: KeyPath)` and `sorted(by: KeyPath)` to sort arrays based on Swift 4 keyPath. [#343](https://github.com/SwifterSwift/SwifterSwift/pull/343) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **String**
   - Added `loremIpsum(ofLength: )` static function to return a lorem ipsum string. [#318](https://github.com/SwifterSwift/SwifterSwift/issues/318) by [omaralbeik](https://github.com/omaralbeik).
-  -  Added computed property `isWhitespace` to check if the given string is blank or not.[#363](https://github.com/SwifterSwift/SwifterSwift/pull/363) by [rkp1026](https://github.com/rkp1026).
+  - Added computed property `isWhitespace` to check if the given string is blank or not.[#363](https://github.com/SwifterSwift/SwifterSwift/pull/363) by [rkp1026](https://github.com/rkp1026).
 - **UIDatePicker**
   - Added `textColor` to get and set the text color of a UIDatePicker. [#328](https://github.com/SwifterSwift/SwifterSwift/issues/328) by [omaralbeik](https://github.com/omaralbeik).
 - **NSImage**
