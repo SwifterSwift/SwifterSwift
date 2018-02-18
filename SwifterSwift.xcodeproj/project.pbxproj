@@ -323,6 +323,8 @@
 		182698AE1F8AB46F0052F21E /* CGColorExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185BDE601F8AAEFD00140E19 /* CGColorExtensionsTests.swift */; };
 		278CA08D1F9A9232004918BD /* NSImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278CA08C1F9A9232004918BD /* NSImageExtensions.swift */; };
 		278CA0911F9A9679004918BD /* NSImageExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278CA0901F9A9679004918BD /* NSImageExtensionsTests.swift */; };
+		42F53FEC2039C5AC0070DC11 /* UIStackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F53FEB2039C5AC0070DC11 /* UIStackViewExtensions.swift */; };
+		42F53FF02039C7140070DC11 /* UIStackViewExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F53FEF2039C7140070DC11 /* UIStackViewExtensionsTest.swift */; };
 		70269A2B1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */; };
 		70269A2C1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */; };
 		70269A2D1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */; };
@@ -504,6 +506,8 @@
 		185BDE601F8AAEFD00140E19 /* CGColorExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColorExtensionsTests.swift; sourceTree = "<group>"; };
 		278CA08C1F9A9232004918BD /* NSImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtensions.swift; sourceTree = "<group>"; };
 		278CA0901F9A9679004918BD /* NSImageExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSImageExtensionsTests.swift; sourceTree = "<group>"; };
+		42F53FEB2039C5AC0070DC11 /* UIStackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensions.swift; sourceTree = "<group>"; };
+		42F53FEF2039C7140070DC11 /* UIStackViewExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionsTest.swift; sourceTree = "<group>"; };
 		70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
 		70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensionTest.swift; sourceTree = "<group>"; };
 		9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensions.swift; sourceTree = "<group>"; };
@@ -740,6 +744,7 @@
 				07B7F1901F5EB41600E6F910 /* UIViewControllerExtensions.swift */,
 				07B7F1911F5EB41600E6F910 /* UIViewExtensions.swift */,
 				076AEC881FDB48580077D153 /* UIDatePickerExtensions.swift */,
+				42F53FEB2039C5AC0070DC11 /* UIStackViewExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -817,6 +822,7 @@
 				07C50D211F5EB03200F46E5A /* UITextViewExtensionsTests.swift */,
 				07C50D221F5EB03200F46E5A /* UIViewControllerExtensionsTests.swift */,
 				07C50D231F5EB03200F46E5A /* UIViewExtensionsTests.swift */,
+				42F53FEF2039C7140070DC11 /* UIStackViewExtensionsTest.swift */,
 			);
 			path = UIKitTests;
 			sourceTree = "<group>";
@@ -1265,6 +1271,7 @@
 				07B7F20C1F5EB43C00E6F910 /* BoolExtensions.swift in Sources */,
 				07B7F22F1F5EB45100E6F910 /* CGFloatExtensions.swift in Sources */,
 				07B7F1981F5EB42000E6F910 /* UIImageViewExtensions.swift in Sources */,
+				42F53FEC2039C5AC0070DC11 /* UIStackViewExtensions.swift in Sources */,
 				07B7F2321F5EB45100E6F910 /* CLLocationExtensions.swift in Sources */,
 				07B7F20E1F5EB43C00E6F910 /* CollectionExtensions.swift in Sources */,
 				07B7F2151F5EB43C00E6F910 /* IntExtensions.swift in Sources */,
@@ -1510,6 +1517,7 @@
 				9D9784E41FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */,
 				07C50D361F5EB04700F46E5A /* UISearchBarExtensionsTests.swift in Sources */,
 				07C50D8C1F5EB06000F46E5A /* CGFloatExtensionsTests.swift in Sources */,
+				42F53FF02039C7140070DC11 /* UIStackViewExtensionsTest.swift in Sources */,
 				07D896091F5EC80700FC894D /* SwifterSwiftTests.swift in Sources */,
 				07C50D3E1F5EB04700F46E5A /* UITextViewExtensionsTests.swift in Sources */,
 				074EAF1F1F7BA74700C74636 /* UIFontExtensionsTest.swift in Sources */,
