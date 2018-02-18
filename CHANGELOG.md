@@ -36,7 +36,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - added `isDigits` to check if string only contains digits. [#396](https://github.com/SwifterSwift/SwifterSwift/pull/396) by [seifeet](https://github.com/seifeet).
   - added `toSlug()` to return a slug version of a given string. [397#](https://github.com/SwifterSwift/SwifterSwift/pull/397) by [FrankKair](https://github.com/FrankKair)
 - New **UIStackView**
-  - added `init(views:, orientation:, spacing:, alignment:, distribution:)` to directly initialize a `UIStackView` with an array of `UIViews`. [#408](https://github.com/SwifterSwift/SwifterSwift/pull/408) by [BennX](https://github.com/BennX)
+  - added `init(views:, orientation:, spacing:, alignment:, distribution:)` to directly initialize a `UIStackView` with an array of `UIViews`. [#409](https://github.com/SwifterSwift/SwifterSwift/pull/409) by [BennX](https://github.com/BennX)
 > ### Changed
 > ### Deprecated
 > ### Removed
