@@ -3,6 +3,7 @@
 //  SwifterSwift
 //
 //  Created by Benjamin Meyer on 2/18/18.
+//  Copyright © 2018 SwifterSwift
 //
 
 
@@ -28,12 +29,12 @@ class UIStackViewExtensionsTest: XCTestCase {
         XCTAssertEqual(stack.distribution, .fill)
         XCTAssertEqual(stack.spacing, 0.0)
         
-        XCTAssertEqual(UIStackView(views: [view1, view2], orientation: .vertical).axis, .vertical)
+        XCTAssertEqual(UIStackView(views: [view1, view2], axis: .vertical).axis, .vertical)
         XCTAssertEqual(UIStackView(views: [view1, view2], alignment: .center).alignment, .center)
         XCTAssertEqual(UIStackView(views: [view1, view2], distribution: .fillEqually).distribution, .fillEqually)
         XCTAssertEqual(UIStackView(views: [view1, view2], spacing: 16.0).spacing, 16.0)
         
-        stack = UIStackView(views: [view1, view2], orientation: .vertical, spacing: 16.0,
+        stack = UIStackView(views: [view1, view2], axis: .vertical, spacing: 16.0,
                                   alignment: .center, distribution: .fillEqually)
         
         XCTAssertEqual(stack.axis, .vertical)
