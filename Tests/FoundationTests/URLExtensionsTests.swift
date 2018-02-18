@@ -37,4 +37,13 @@ final class URLExtensionsTests: XCTestCase {
         XCTAssertEqual(parameters["empty"], nil)
     }
 	
+#if os(iOS) || os(tvOS)
+    func testThumbnail() {
+        XCTAssertNil(url.thumbnail())
+        
+        let videoUrl = URL(string: "https://video.golem.de/files/1/1/20637/wrkw0718-sd.mp4")!
+        XCTAssertNotNil(videoUrl.thumbnail())
+        XCTAssertNotNil(videoUrl.thumbnail(fromTime: 1))
+    }
+#endif
 }
