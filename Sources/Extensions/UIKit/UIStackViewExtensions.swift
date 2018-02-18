@@ -15,16 +15,16 @@ public extension UIStackView {
     
     /// SwifterSwift: Initialize an UIStackView with an array of UIView and common parameters.
     ///
-    ///     let stackView = UIStackView(views: [UIView(), UIView()], orientation: .vertical)
+    ///     let stackView = UIStackView(views: [UIView(), UIView()], axis: .vertical)
     ///
     /// - Parameters:
     ///   - views: The UIViews to add to the stack.
-    ///   - axis: The axis along which the arranged views are laid out.(default: .horizontal)
+    ///   - axis: The axis along which the arranged views are laid out.
     ///   - spacing: The distance in points between the adjacent edges of the stack view’s arranged views.(default: 0.0)
     ///   - alignment: The alignment of the arranged subviews perpendicular to the stack view’s axis. (default: .fill)
     ///   - distribution: The distribution of the arranged views along the stack view’s axis.(default: .fill)
-    public convenience init(views: [UIView], axis: UILayoutConstraintAxis = .horizontal, spacing: CGFloat = 0.0, alignment: UIStackViewAlignment = .fill, distribution: UIStackViewDistribution = .fill) {
-        self.init(arrangedSubviews: views)
+    public convenience init(arrangedSubviews: [UIView], axis: UILayoutConstraintAxis, spacing: CGFloat = 0.0, alignment: UIStackViewAlignment = .fill, distribution: UIStackViewDistribution = .fill) {
+        self.init(arrangedSubviews: arrangedSubviews)
         self.axis = axis
         self.spacing = spacing
         self.alignment = alignment
