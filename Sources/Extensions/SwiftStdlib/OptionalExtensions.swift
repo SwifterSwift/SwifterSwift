@@ -24,6 +24,24 @@ public extension Optional {
 		return self ?? defaultValue
 	}
 	
+    /// SwifterSwift: Gets the wrapped value of an optional. If the optional is `nil`, throw a custom error.
+    ///
+    ///        let foo: String? = nil
+    ///        try print(foo.unwrapped(or: MyError.notFound)) -> error: MyError.notFound
+    ///
+    ///        let bar: String? = "bar"
+    ///        try print(bar.unwrapped(or: MyError.notFound)) -> "bar"
+    ///
+    /// - Parameter error: The error to throw if the optional is `nil`.
+    /// - Returns: The value wrapped by the optional.
+    /// - Throws: The error passed in.
+    public func unwrapped(or error: Error) throws -> Wrapped {
+        guard let wrapped = self else {
+            throw error
+        }
+        return wrapped
+    }
+    
 	/// SwifterSwift: Runs a block to Wrapped if not nil
 	///
 	///		let foo: String? = nil
