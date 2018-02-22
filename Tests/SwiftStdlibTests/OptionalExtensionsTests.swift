@@ -24,7 +24,7 @@ final class OptionalExtensionsTests: XCTestCase {
         let null: String? = nil
         try XCTAssertThrowsError(null.unwrapped(or: OptionalTestError.optionalIsNil))
         
-        let some: String? = "I exsist"
+        let some: String? = "I exist"
         try XCTAssertNoThrow(some.unwrapped(or: OptionalTestError.optionalIsNil))
     }
     
