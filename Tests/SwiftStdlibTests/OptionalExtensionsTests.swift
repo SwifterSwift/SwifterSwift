@@ -20,6 +20,14 @@ final class OptionalExtensionsTests: XCTestCase {
 		XCTAssertEqual(str.unwrapped(or: "swift"), "swifterswift")
 	}
 	
+    func testUnwrappedOrError() {
+        let null: String? = nil
+        try XCTAssertThrowsError(null.unwrapped(or: OptionalTestError.optionalIsNil))
+        
+        let some: String? = "I exist"
+        try XCTAssertNoThrow(some.unwrapped(or: OptionalTestError.optionalIsNil))
+    }
+    
 	func testRunBlock() {
 		var str: String? = nil
 		var didRun = false
@@ -51,4 +59,8 @@ final class OptionalExtensionsTests: XCTestCase {
         XCTAssertFalse(parameters[key1] != parameter1)
         XCTAssert(parameters[key2] == parameter2)
     }
+}
+
+enum OptionalTestError: Error {
+    case optionalIsNil
 }
