@@ -41,7 +41,7 @@ final class URLExtensionsTests: XCTestCase {
     func testThumbnail() {
         XCTAssertNil(url.thumbnail())
         
-        let videoUrl = URL(string: "https://video.golem.de/files/1/1/20637/wrkw0718-sd.mp4")!
+        let videoUrl = Bundle(for: URLExtensionsTests.self).url(forResource: "big_buck_bunny_720p_1mb", withExtension: "mp4")!
         XCTAssertNotNil(videoUrl.thumbnail())
         XCTAssertNotNil(videoUrl.thumbnail(fromTime: 1))
     }
