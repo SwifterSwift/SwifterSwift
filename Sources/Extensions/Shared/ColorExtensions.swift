@@ -31,9 +31,9 @@ public extension Color {
 	
 	/// SwifterSwift: RGB components for a Color (between 0 and 255).
 	///
-	///		Color.red.rgbComponents.red -> 255
-	///		Color.green.rgbComponents.green -> 255
-	///		Color.blue.rgbComponents.blue -> 255
+	///		UIColor.red.rgbComponents.red -> 255
+	///		NSColor.green.rgbComponents.green -> 255
+	///		UIColor.blue.rgbComponents.blue -> 255
 	///
 	public var rgbComponents: (red: Int, green: Int, blue: Int) {
 		var components: [CGFloat] {
@@ -51,9 +51,9 @@ public extension Color {
 	
 	/// SwifterSwift: RGB components for a Color represented as CGFloat numbers (between 0 and 1)
 	///
-	///		Color.red.rgbComponents.red -> 1.0
-	///		Color.green.rgbComponents.green -> 1.0
-	///		Color.blue.rgbComponents.blue -> 1.0
+	///		UIColor.red.rgbComponents.red -> 1.0
+	///		NSColor.green.rgbComponents.green -> 1.0
+	///		UIColor.blue.rgbComponents.blue -> 1.0
 	///
 	public var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) {
 		var components: [CGFloat] {
