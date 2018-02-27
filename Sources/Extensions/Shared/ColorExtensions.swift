@@ -255,7 +255,7 @@ public extension Color {
 // MARK: - Initializers
 public extension Color {
 	
-	/// SwifterSwift: Create NSColor from RGB values with optional transparency.
+	/// SwifterSwift: Create Color from RGB values with optional transparency.
 	///
 	/// - Parameters:
 	///   - red: red component.
@@ -274,7 +274,7 @@ public extension Color {
 		self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: trans)
 	}
 	
-	/// SwifterSwift: Create NSColor from hexadecimal value with optional transparency.
+	/// SwifterSwift: Create Color from hexadecimal value with optional transparency.
 	///
 	/// - Parameters:
 	///   - hex: hex Int (example: 0xDECEB5).
