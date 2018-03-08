@@ -54,4 +54,9 @@ Pod::Spec.new do |s|
   s.subspec 'CoreLocation' do |sp|
     sp.source_files  = 'Sources/Extensions/CoreLocation/*.swift'
   end
+
+  # MapKit Extensions
+  s.subspec 'MapKit' do |sp|
+    sp.source_files = 'Sources/Extensions/MapKit/*.swift'
+  end
 end
