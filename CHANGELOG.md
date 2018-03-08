@@ -6,6 +6,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > # Upcoming release
 >
 > ### Added
+- **MKPolyline**
+  - Added `.coordinates` property, to return an array of coordinates for the provided polyline. [#416](https://github.com/SwifterSwift/SwifterSwift/pull/416) by [@freak4pc](https://github.com/freak4pc).
+  - Added `init(coordinates:)` initializer, to initialize a `MKPolyline` with a provided array of coordinates. [#416](https://github.com/SwifterSwift/SwifterSwift/pull/416) by [@freak4pc](https://github.com/freak4pc).
 - **Optional**
   - Added `.unwrapped(or:)` method, to get the value wrapped by an optional or throw a custom error. [#413](https://github.com/SwifterSwift/SwifterSwift/pull/413) by [@calebkleveter](https://github.com/calebkleveter).
 - **UIButton**
