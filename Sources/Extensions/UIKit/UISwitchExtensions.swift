@@ -18,5 +18,6 @@ public extension UISwitch {
 	public func toggle(animated: Bool = true) {
 		setOn(!isOn, animated: animated)
 	}
+	
 }
 #endif

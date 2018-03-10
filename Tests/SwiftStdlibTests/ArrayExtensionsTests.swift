@@ -9,10 +9,6 @@ import XCTest
 @testable import SwifterSwift
 
 final class ArrayExtensionsTests: XCTestCase {
-
-	func testRandomItem() {
-		XCTAssert([1, 2, 3].contains([1, 2, 3].randomItem))
-	}
 	
 	func testAverage() {
 		XCTAssertEqual([1, 2, 3, 4, 5].average(), 3)
@@ -30,6 +26,11 @@ final class ArrayExtensionsTests: XCTestCase {
 	func testIndexes() {
 		XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].indexes(of: 1), [0, 1, 5, 7])
 	}
+    
+    func testIndices() {
+        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].indices(of: 1), [0, 1, 5, 7])
+        XCTAssertEqual(["a", "b", "c", "b", "4", "1", "2", "1"].indices(of: "b"), [1, 3])
+    }
 	
 	func testLastIndex() {
 		XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2))
@@ -287,6 +288,20 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(grouped["i"] ?? [], [ "irving", "iverson" ])
     }
     
+	func testDivided() {
+		let input = [0, 1, 2, 3, 4, 5]
+		let (even, odd) = input.divided { $0 % 2 == 0 }
+		XCTAssertEqual(even, [0, 2, 4])
+		XCTAssertEqual(odd, [1, 3, 5])
+
+		// Parameter names + indexes
+		let tuple = input.divided { $0 % 2 == 0 }
+		XCTAssertEqual(tuple.matching, [0, 2, 4])
+		XCTAssertEqual(tuple.0, [0, 2, 4])
+		XCTAssertEqual(tuple.nonMatching, [1, 3, 5])
+		XCTAssertEqual(tuple.1, [1, 3, 5])
+	}
+
     func testForEachSlice() {
         var iterations: Int = 0
         

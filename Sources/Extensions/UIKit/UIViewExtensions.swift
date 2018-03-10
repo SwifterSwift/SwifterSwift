@@ -48,9 +48,7 @@ public extension UIView {
 	/// SwifterSwift: Border color of view; also inspectable from Storyboard.
 	@IBInspectable public var borderColor: UIColor? {
 		get {
-			guard let color = layer.borderColor else {
-				return nil
-			}
+			guard let color = layer.borderColor else { return nil }
 			return UIColor(cgColor: color)
 		}
 		set {
@@ -58,6 +56,8 @@ public extension UIView {
 				layer.borderColor = nil
 				return
 			}
+            // Fix React-Native conflict issue
+            guard String(describing: type(of: color)) != "__NSCFType" else { return }
 			layer.borderColor = color.cgColor
 		}
 	}
@@ -85,9 +85,7 @@ public extension UIView {
 	
 	/// SwifterSwift: First responder.
 	public var firstResponder: UIView? {
-		guard !isFirstResponder else {
-			return self
-		}
+		guard !isFirstResponder else { return self }
 		for subView in subviews where subView.isFirstResponder {
 			return subView
 		}
@@ -119,9 +117,7 @@ public extension UIView {
 		defer {
 			UIGraphicsEndImageContext()
 		}
-		guard let context = UIGraphicsGetCurrentContext() else {
-			return nil
-		}
+		guard let context = UIGraphicsGetCurrentContext() else { return nil }
 		layer.render(in: context)
 		return UIGraphicsGetImageFromCurrentImageContext()
 	}
@@ -129,9 +125,7 @@ public extension UIView {
 	/// SwifterSwift: Shadow color of view; also inspectable from Storyboard.
 	@IBInspectable public var shadowColor: UIColor? {
 		get {
-			guard let color = layer.shadowColor else {
-				return nil
-			}
+			guard let color = layer.shadowColor else { return nil }
 			return UIColor(cgColor: color)
 		}
 		set {

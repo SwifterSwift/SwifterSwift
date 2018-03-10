@@ -50,5 +50,6 @@ public extension UINavigationBar {
 		tintColor = text
 		titleTextAttributes = [.foregroundColor: text]
 	}
+	
 }
 #endif

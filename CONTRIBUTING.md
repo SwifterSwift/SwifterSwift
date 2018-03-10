@@ -8,6 +8,7 @@ This document contains information and guidelines about contributing to this pro
 - [Ways to Contribute](#ways-to-contribute)
 - [Adding new Extensions](#adding-new-extensions)
 - [Adding documentation](#adding-documentation)
+- [Adding changelog entries](#adding-changelog-entries)
 - [Reporting Issues](#reporting-issues)
 
 ---
@@ -56,18 +57,28 @@ public extension SomeType {
 }
  ```
 
+- A pull request should only add one extension at a time.
 - All extensions should follow [Swift API Design Guidelines](https://developer.apple.com/videos/play/wwdc2016/403/)
 - Always declare extensions as **public**.
 - All extensions names should be as clear as possible.
 - All extensions should be well documented. see [Adding documentation](#adding-documentation)
 - Avoid using custom classes and objects the goal for this library is to extend the standards types available natively in Swift, iOS, macOS, watchOS and tvOS.
-- extensions could be:
- 	- enums
-	- Properties & static properties
-	- Methods & static methods
+- Extensions could be:
+ 	- Enums
+	- Instance properties & type properties
+	- Instance methods & type methods
 	- Initializers
-- Files are named based on the type that the contained extensions extend (example: all String extensions are found in "**StringExtensions.swift**" file)
-- extensions are ordered inside files in the following order:
+- All extensions should be tested.
+- Files are named based on the type that the contained extensions extend. 
+   - (example: all String extensions are found in "**StringExtensions.swift**" file)
+- All extensions files and test files have a one to one relation.
+   - (example: all tests for "**StringExtensions.swift**" are found in the "**StringExtensionsTests.swift**" file)
+- There should be a one to one relationship between extensions and their backing tests.
+- Tests should be named using the same API of the extension it backs.
+   - (example: `DateExtensions` method `isBetween` is named `testIsBetween`)
+- All test files are named based on the extensions which it tests. 
+   - (example: all String extensions tests are found in "**StringExtensionsTests.swift**" file)
+- Extensions and tests are ordered inside files in the following order:
 
 ```swift
 // MARK: - enums
@@ -85,10 +96,9 @@ public extension SomeType {}
 public extension SomeType {}
 ```
 
-- Please add each extension in its appropriate place in the file.
+
 
 ---
-
 
 ## Adding documentation
 
@@ -165,6 +175,14 @@ public func changing(_ component: Calendar.Component, value: Int) -> Date? {
 
 In Xcode select a method and press `command` + `alt` + `/` to create a documentation template!
 
+
+---
+
+## Adding changelog entries
+
+The [Changelog](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md) is a file which contains a curated, chronologically ordered list of notable changes for each version of a project. Please make sure to add a changelog entry describing your contribution to it everyting there is a notable change.
+
+The [Changelog Guidelines](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG_GUIDELINES.md) contains instructions for maintaining (or adding new entries) to the Changelog.
 
 ---
 

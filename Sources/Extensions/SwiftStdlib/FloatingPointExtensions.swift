@@ -99,6 +99,7 @@ public extension FloatingPoint {
 }
 
 // MARK: - Operators
+
 infix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///

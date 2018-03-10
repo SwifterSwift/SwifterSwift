@@ -61,7 +61,29 @@ public extension Int {
 		}
 		return String(format: "\(sign)%ikk", abs / 100000)
 	}
-	
+
+    /// SwifterSwift: Array of digits of integer value.
+    public var digits: [Int] {
+        guard self != 0 else { return [0] }
+        var digits = [Int]()
+        var number = self.abs
+
+        while number != 0 {
+            let x = number % 10
+            digits.append(x)
+            number = number / 10
+        }
+
+        digits.reverse()
+        return digits
+    }
+
+    /// SwifterSwift: Number of digits of integer value.
+    public var digitsCount: Int {
+        guard self != 0 else { return 1 }
+        let number = Double(self.abs)
+        return Int(log10(number) + 1)
+    }
 }
 
 // MARK: - Methods
@@ -85,19 +107,19 @@ public extension Int {
 		let delta = UInt32(range.upperBound - range.lowerBound + 1)
 		return range.lowerBound + Int(arc4random_uniform(delta))
 	}
-
+	
 	/// SwifterSwift: check if given integer prime or not.
 	/// Warning: Using big numbers can be computationally expensive!
 	/// - Returns: true or false depending on prime-ness
 	public func isPrime() -> Bool {
 		// To improve speed on latter loop :)
 		if self == 2 {
-		    return true
+			return true
 		}
 		
 		guard self > 1 && self % 2 != 0 else {
-                    return false
-                }
+			return false
+		}
 		// Explanation: It is enough to check numbers until
 		// the square root of that number. If you go up from N by one,
 		// other multiplier will go 1 down to get similar result
@@ -137,6 +159,11 @@ public extension Int {
 		}
 		return romanValue
 	}
+    
+  /// SwifterSwift: Rounds to the closest multiple of n
+  public func roundToNearest(_ n: Int) -> Int {
+      return n == 0 ? self : Int(round(Double(self) / Double(n))) * n
+  }
 
 }
 

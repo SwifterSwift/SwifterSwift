@@ -441,4 +441,5 @@ final class ColorExtensionsTests: XCTestCase {
 		XCTAssertEqual(g, 1)
 		XCTAssertEqual(b, 1)
 	}
+	
 }
