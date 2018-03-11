@@ -192,12 +192,19 @@ let package = Package(
 </ul>
 </details>
 
-
 <details>
 <summary>CoreLocation Extensions</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/CoreLocation/CLLocationExtensions.swift"><code>CLLocation extensions</code></a></li>
+</ul>
+</details>
+
+<details>
+<summary>MapKit Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/MapKit/MKPolylineExtensions.swift"><code>MKPolylineExtensions</code></a></li>
 </ul>
 </details>
 
