@@ -2,10 +2,19 @@
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
 ---
-
 > # Upcoming release
 >
 > ### Added
+> ### Changed
+> ### Deprecated
+> ### Removed
+> ### Fixed
+> ### Security
+
+---
+# [v4.2.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.2.0)
+
+### Added
 - **MKPolyline**
   - Added `.coordinates` property, to return an array of coordinates for the provided polyline. [#416](https://github.com/SwifterSwift/SwifterSwift/pull/416) by [@freak4pc](https://github.com/freak4pc).
   - Added `init(coordinates:)` initializer, to initialize a `MKPolyline` with a provided array of coordinates. [#416](https://github.com/SwifterSwift/SwifterSwift/pull/416) by [@freak4pc](https://github.com/freak4pc).
@@ -44,15 +53,12 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - added `toSlug()` to return a slug version of a given string. [397#](https://github.com/SwifterSwift/SwifterSwift/pull/397) by [FrankKair](https://github.com/FrankKair)
 - New **UIStackView**
   - added `init(arrangedSubviews:, axis:, spacing:, alignment:, distribution:)` to directly initialize a `UIStackView` with an array of `UIViews`. [#409](https://github.com/SwifterSwift/SwifterSwift/pull/409) by [BennX](https://github.com/BennX)
-> ### Changed
-> ### Deprecated
-> ### Removed
-> ### Fixed
+### Fixed
+
 - **String**
   - Fixed `isNumeric` to check if string is a valid Swift number and added isDigits to check if string only contains digits. [#396](https://github.com/SwifterSwift/SwifterSwift/pull/396) by [seifeet](https://github.com/seifeet).
 - **Collection** 
   - Fixed `randomItem` crash with empty array. [#405](https://github.com/SwifterSwift/SwifterSwift/pull/405) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
-> ### Security
 
 ---
 

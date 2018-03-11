@@ -337,9 +337,6 @@
 		784C752F2051BD26001C48DD /* MKPolylineExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C752E2051BD26001C48DD /* MKPolylineExtensions.swift */; };
 		784C75302051BD4A001C48DD /* MKPolylineExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C752E2051BD26001C48DD /* MKPolylineExtensions.swift */; };
 		784C75312051BD4B001C48DD /* MKPolylineExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C752E2051BD26001C48DD /* MKPolylineExtensions.swift */; };
-		784C75332051BDF0001C48DD /* MKPolylineExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C752E2051BD26001C48DD /* MKPolylineExtensions.swift */; };
-		784C75342051BDF1001C48DD /* MKPolylineExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C752E2051BD26001C48DD /* MKPolylineExtensions.swift */; };
-		784C75352051BDF1001C48DD /* MKPolylineExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C752E2051BD26001C48DD /* MKPolylineExtensions.swift */; };
 		784C75372051BE1D001C48DD /* MKPolylineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C75362051BE1D001C48DD /* MKPolylineTests.swift */; };
 		784C75382051BE1D001C48DD /* MKPolylineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C75362051BE1D001C48DD /* MKPolylineTests.swift */; };
 		784C75392051BE1D001C48DD /* MKPolylineTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C75362051BE1D001C48DD /* MKPolylineTests.swift */; };
