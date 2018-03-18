@@ -65,7 +65,7 @@ public extension UITableView {
 	
 	/// SwifterSwift: Remove TableFooterView.
 	public func removeTableFooterView() {
-		tableFooterView = nil
+		tableFooterView = UIView()
 	}
 	
 	/// SwifterSwift: Remove TableHeaderView.
