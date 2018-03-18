@@ -9,6 +9,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > ### Deprecated
 > ### Removed
 > ### Fixed
+- **UITableView**
+  - Update the assigned value for tableFooterView. [#419](https://github.com/SwifterSwift/SwifterSwift/pull/419) by [happiehappie](https://github.com/happiehappie).
 > ### Security
 
 ---
