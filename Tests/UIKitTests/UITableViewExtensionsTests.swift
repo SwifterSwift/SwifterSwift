@@ -53,10 +53,8 @@ final class UITableViewExtensionsTests: XCTestCase {
 	}
 	
 	func testRemoveTableFooterView() {
-		tableView.tableFooterView = UIView()
-		XCTAssertNotNil(tableView.tableFooterView)
 		tableView.removeTableFooterView()
-		XCTAssertNil(tableView.tableFooterView)
+		XCTAssertEqual((tableView.tableFooterView ?? UIView()).frame.height, 0)
 	}
 	
 	func testRemoveTableHeaderView() {
