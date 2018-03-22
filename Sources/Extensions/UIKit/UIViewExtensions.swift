@@ -247,14 +247,14 @@ public extension UIView {
 		layer.shadowOffset = offset
 		layer.shadowRadius = radius
 		layer.shadowOpacity = opacity
-		layer.masksToBounds = true
+		layer.masksToBounds = false
 	}
 	
 	/// SwifterSwift: Add array of subviews to view.
 	///
 	/// - Parameter subviews: array of subviews to add to self.
 	public func addSubviews(_ subviews: [UIView]) {
-		subviews.forEach({self.addSubview($0)})
+		subviews.forEach({ self.addSubview($0) })
 	}
 	
 	/// SwifterSwift: Fade in view.
@@ -297,7 +297,7 @@ public extension UIView {
 	
 	/// SwifterSwift: Remove all subviews in view.
 	public func removeSubviews() {
-		subviews.forEach({$0.removeFromSuperview()})
+		subviews.forEach({ $0.removeFromSuperview() })
 	}
 	
 	/// SwifterSwift: Remove all gesture recognizers from view.

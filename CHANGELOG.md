@@ -8,7 +8,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > ### Changed
 > ### Deprecated
 > ### Removed
-> ### Fixed
+>
+### Fixed
+- **String**
+   - Fixed UIView extension `addShadow`  was not showing the shadow on view bug. [#420](https://github.com/SwifterSwift/SwifterSwift/pull/420) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+
 > ### Security
 
 ---
