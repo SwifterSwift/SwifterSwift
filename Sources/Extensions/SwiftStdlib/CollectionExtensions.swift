@@ -35,7 +35,7 @@ public extension Collection {
 		}
 	}
 	
-    /// Group the elements of the collection in a dictionary.
+    /// SwifterSwift: Group the elements of the collection in a dictionary.
     ///
     ///     [0, 2, 5, 4, 7].groupByKey { $0%2 ? "evens" : "odds" } -> [ "evens" : [0, 2, 4], "odds" : [5, 7] ]
     ///
