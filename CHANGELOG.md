@@ -4,7 +4,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ---
 > # Upcoming release
 >
-> ### Added
+> 
+### Added
+- **Collection**
+	- Added `.group(by:)` method to group the elements based on an elements property. [#422](https://github.com/SwifterSwift/SwifterSwift/pull/422) by [@calebkleveter](https://github.com/calebkleveter)
 > ### Changed
 > ### Deprecated
 > ### Removed
