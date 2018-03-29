@@ -37,7 +37,7 @@ public extension Collection {
 	
     /// SwifterSwift: Group the elements of the collection in a dictionary.
     ///
-    ///     [0, 2, 5, 4, 7].groupByKey { $0%2 ? "evens" : "odds" } -> [ "evens" : [0, 2, 4], "odds" : [5, 7] ]
+    ///     [Pair(1, "Hello"), ...].group(by: \Pair.name) -> ["Hello": [Pair(1, "Hello"), ...], ...]
     ///
     /// - Parameter key: The `KeyPath` for the element's property to group the collection by.
     /// - Returns: A dictionary with values grouped with keys.
