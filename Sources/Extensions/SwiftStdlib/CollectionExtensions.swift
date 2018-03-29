@@ -35,6 +35,18 @@ public extension Collection {
 		}
 	}
 	
+    /// Group the elements of the collection in a dictionary.
+    ///
+    ///     [0, 2, 5, 4, 7].groupByKey { $0%2 ? "evens" : "odds" } -> [ "evens" : [0, 2, 4], "odds" : [5, 7] ]
+    ///
+    /// - Parameter key: The `KeyPath` for the element's property to group the collection by.
+    /// - Returns: A dictionary with values grouped with keys.
+    public func group<Value>(by key: KeyPath<Self.Element, Value>) -> [Value: [Self.Element]] {
+        return Dictionary(grouping: self, by: { (element) in
+            return element[keyPath: key]
+        })
+    }
+    
 	/// SwifterSwift: Safe protects the array from out of bounds by use of optional.
 	///
 	///		let arr = [1, 2, 3, 4, 5]
