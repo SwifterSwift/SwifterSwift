@@ -85,5 +85,22 @@ public extension SignedInteger {
 	public func lcm(of n: Self) -> Self {
 		return (self * n).abs / gcd(of: n)
 	}
-	
+    
+    /// SwifterSwift: Ordinal representation of an integer.
+    ///
+    ///        print((12).ordinalString()) // prints "12th"
+    ///
+    /// - Parameter locale: Locale, default is .current.
+    /// - Returns: String ordinal representation of number in specified locale language. E.g. input 92, output in "en": "92nd"
+    public func ordinalString(locale: Locale = .current) -> String? {
+        if #available(iOS 9.0, macOS 10.11, *) {
+            let formatter = NumberFormatter()
+            formatter.locale = locale
+            formatter.numberStyle = .ordinal
+            guard let number = self as? NSNumber else { return nil }
+            return formatter.string(from: number)
+        } else {
+            return ""
+        }
+    }
 }
