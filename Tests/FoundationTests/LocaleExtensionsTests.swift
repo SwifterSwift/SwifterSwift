@@ -15,4 +15,8 @@ final class LocaleExtensionsTests: XCTestCase {
         let test: Locale = .posix
         XCTAssertEqual(test.identifier, "en_US_POSIX")
     }
+    
+    func testCountryISOCode() {
+        XCTAssertNotNil(Locale.countryISOCode)
+    }
 }
