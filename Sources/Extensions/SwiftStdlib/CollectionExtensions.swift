@@ -35,6 +35,18 @@ public extension Collection {
 		}
 	}
 	
+    /// SwifterSwift: Group the elements of the collection in a dictionary.
+    ///
+    ///     [Pair(1, "Hello"), ...].group(by: \Pair.name) -> ["Hello": [Pair(1, "Hello"), ...], ...]
+    ///
+    /// - Parameter key: The `KeyPath` for the element's property to group the collection by.
+    /// - Returns: A dictionary with values grouped with keys.
+    public func group<Value>(by key: KeyPath<Self.Element, Value>) -> [Value: [Self.Element]] {
+        return Dictionary(grouping: self, by: { (element) in
+            return element[keyPath: key]
+        })
+    }
+    
 	/// SwifterSwift: Safe protects the array from out of bounds by use of optional.
 	///
 	///		let arr = [1, 2, 3, 4, 5]
