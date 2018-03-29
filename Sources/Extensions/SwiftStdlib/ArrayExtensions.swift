@@ -358,12 +358,7 @@ public extension Array {
 	/// - Parameter getKey: Clousure to define the key for each element.
 	/// - Returns: A dictionary with values grouped with keys.
 	public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
-		var group = [K: [Element]]()
-		for value in self {
-			let key = try keyForValue(value)
-			group[key] = (group[key] ?? []) + [value]
-		}
-		return group
+		return try Dictionary(grouping: self, by: keyForValue)
 	}
 
 	/// SwifterSwift: Separates an array into 2 arrays based on a predicate.
