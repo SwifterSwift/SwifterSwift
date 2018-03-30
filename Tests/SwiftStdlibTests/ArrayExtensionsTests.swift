@@ -189,16 +189,6 @@ final class ArrayExtensionsTests: XCTestCase {
 		XCTAssertNil(emptyIndices)
     }
     
-    func testAllMatch() {
-        let array = [2, 4, 6, 8, 10, 12]
-        XCTAssert(array.all { $0 % 2 == 0 })
-    }
-    
-    func testNoneMatch() {
-        let array = [3, 5, 7, 9, 11, 13]
-        XCTAssert(array.none { $0 % 2 == 0 })
-    }
-    
     func testLastWhere() {
         let array = [1, 1, 2, 1, 1, 1, 2, 1, 4, 1]
         let element = array.last { $0 % 2 == 0 }

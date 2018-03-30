@@ -31,18 +31,18 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertNil([].randomItem)
     }
     
-    func testContainsAllWithCondition() {
-        let collection = [1, 2, 2, 2, 3, 4, 3, 2, 1, 2, 2]
-        XCTAssertFalse(collection.all { return $0%2 == 0 })
+    func testAllMatch() {
+        let collection = [2, 4, 6, 8, 10, 12]
+        XCTAssert(collection.all { $0 % 2 == 0 })
     }
     
-    func testContainsAnyWithCondition() {
-        let collection = [1, 2, 2, 2, 3, 4, 3, 2, 1, 2, 2]
-        XCTAssertTrue(collection.any { return $0%2 == 0 })
+    func testAnyMatch() {
+        let collection = [3, 5, 8, 9, 11, 13]
+        XCTAssert(collection.any { $0 % 2 == 0 })
     }
     
-    func testContainsNoneWithCondition() {
-        let collection = [1, 2, 2, 2, 3, 4, 3, 2, 1, 2, 2]
-        XCTAssertFalse(collection.none { return $0%2 == 0 })
+    func testNoneMatch() {
+        let collection = [3, 5, 7, 9, 11, 13]
+        XCTAssert(collection.none { $0 % 2 == 0 })
     }
 }

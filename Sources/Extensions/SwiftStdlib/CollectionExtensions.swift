@@ -46,56 +46,37 @@ public extension Collection {
 		return indices.contains(index) ? self[index] : nil
 	}
     
-    /// SwifterSwift: Returns if all of collection elements conform to given condition.
+    /// SwifterSwift: Check if all elements in collection match a conditon.
     ///
-    ///        let arr = [1, 2, 3, 4, 5]
-    ///        arr.all { return $0%2 == 0 }
+    ///        [2, 2, 4].all(matching: {$0 % 2 == 0}) -> true
+    ///        [1,2, 2, 4].all(matching: {$0 % 2 == 0}) -> false
     ///
-    ///
-    /// - Parameter condition: condition for every element.
-    public func all(_ condition: (Element) throws -> Bool) rethrows -> Bool {
-        for item in self {
-            let result = try condition(item)
-            if !result {
-                return false
-            }
-        }
-        return true
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: true when all elements in the array match the specified condition.
+    public func all(matching condition: (Element) throws -> Bool) rethrows -> Bool {
+        return try !contains { try !condition($0) }
     }
     
-    /// SwifterSwift: Returns if any of collection elements conforms to given condition.
+    /// SwifterSwift: Check if no elements in collection match a conditon.
     ///
-    ///        let arr = [1, 2, 3, 4, 5]
-    ///        arr.all { return $0%2 == 0 }
+    ///        [2, 2, 4].none(matching: {$0 % 2 == 0}) -> false
+    ///        [1, 3, 5, 7].none(matching: {$0 % 2 == 0}) -> true
     ///
-    ///
-    /// - Parameter condition: condition for every element.
-    public func any(_ condition: (Element) throws -> Bool) rethrows -> Bool {
-        for item in self {
-            let result = try condition(item)
-            if result {
-                return true
-            }
-        }
-        return false
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: true when no elements in the array match the specified condition.
+    public func none(matching condition: (Element) throws -> Bool) rethrows -> Bool {
+        return try !contains { try condition($0) }
     }
     
-    /// SwifterSwift: Returns if none of collection elements conforms to given condition.
+    /// SwifterSwift: Check if any element in collection match a conditon.
     ///
-    ///        let arr = [1, 2, 3, 4, 5]
-    ///        arr.all { return $0%2 == 0 }
+    ///        [2, 2, 4].any(matching: {$0 % 2 == 0}) -> false
+    ///        [1, 3, 5, 7].any(matching: {$0 % 2 == 0}) -> true
     ///
-    ///
-    /// - Parameter condition: condition for every element.
-    public func none(_ condition: (Element) throws -> Bool) rethrows -> Bool {
-        
-        for item in self {
-            let result = try condition(item)
-            if result {
-                return false
-            }
-        }
-        return true
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: true when no elements in the array match the specified condition.
+    public func any(matching condition: (Element) throws -> Bool) rethrows -> Bool {
+        return try contains { try condition($0) }
     }
 }
 
