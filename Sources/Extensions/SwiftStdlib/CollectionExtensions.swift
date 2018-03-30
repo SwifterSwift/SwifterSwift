@@ -45,7 +45,58 @@ public extension Collection {
 	public subscript(safe index: Index) -> Iterator.Element? {
 		return indices.contains(index) ? self[index] : nil
 	}
-	
+    
+    /// SwifterSwift: Returns if all of collection elements conform to given condition.
+    ///
+    ///        let arr = [1, 2, 3, 4, 5]
+    ///        arr.all { return $0%2 == 0 }
+    ///
+    ///
+    /// - Parameter condition: condition for every element.
+    public func all(_ condition: (Element) throws -> Bool) rethrows -> Bool {
+        for item in self {
+            let result = try condition(item)
+            if !result {
+                return false
+            }
+        }
+        return true
+    }
+    
+    /// SwifterSwift: Returns if any of collection elements conforms to given condition.
+    ///
+    ///        let arr = [1, 2, 3, 4, 5]
+    ///        arr.all { return $0%2 == 0 }
+    ///
+    ///
+    /// - Parameter condition: condition for every element.
+    public func any(_ condition: (Element) throws -> Bool) rethrows -> Bool {
+        for item in self {
+            let result = try condition(item)
+            if result {
+                return true
+            }
+        }
+        return false
+    }
+    
+    /// SwifterSwift: Returns if none of collection elements conforms to given condition.
+    ///
+    ///        let arr = [1, 2, 3, 4, 5]
+    ///        arr.all { return $0%2 == 0 }
+    ///
+    ///
+    /// - Parameter condition: condition for every element.
+    public func none(_ condition: (Element) throws -> Bool) rethrows -> Bool {
+        
+        for item in self {
+            let result = try condition(item)
+            if result {
+                return false
+            }
+        }
+        return true
+    }
 }
 
 // MARK: - Methods (Int)
