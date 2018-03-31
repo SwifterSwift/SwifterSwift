@@ -1,19 +1,25 @@
 # CHANGELOG
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
----
 > # Upcoming release
 >
 > ### Added
+>
 > ### Changed
+>
 > ### Deprecated
+>
 > ### Removed
 >
+> ### Fixed
+>
+> ### Security 
+
+---
+ # [v4.2.1](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.2.1)
 ### Fixed
 - **String**
    - Fixed UIView extension `addShadow`  was not showing the shadow on view bug. [#420](https://github.com/SwifterSwift/SwifterSwift/pull/420) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
-
-> ### Security
 
 ---
 # [v4.2.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.2.0)
