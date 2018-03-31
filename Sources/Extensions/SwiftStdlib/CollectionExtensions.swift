@@ -49,7 +49,7 @@ public extension Collection {
 }
 
 // MARK: - Methods (Int)
-public extension Collection where Index == Int, IndexDistance == Int {
+public extension Collection where Index == Int {
 	
 	/// SwifterSwift: Random item from array.
 	public var randomItem: Element? {

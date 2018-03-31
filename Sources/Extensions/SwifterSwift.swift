@@ -188,7 +188,7 @@ public struct SwifterSwift {
 	/// SwifterSwift: Check if application is running on simulator (read-only).
 	public static var isRunningOnSimulator: Bool {
 		// http://stackoverflow.com/questions/24869481/detect-if-app-is-being-built-for-device-or-simulator-in-swift
-		#if (arch(i386) || arch(x86_64)) && (os(iOS) || os(watchOS) || os(tvOS))
+        #if targetEnvironment(simulator)
 			return true
 		#else
 			return false

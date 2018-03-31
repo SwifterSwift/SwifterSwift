@@ -9,3 +9,4 @@ disabled_rules:
 - large_tuple
 - legacy_constructor
 - shorthand_operator
+- xctfail_message

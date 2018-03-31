@@ -21,8 +21,8 @@ class CalendarExtensionTests: XCTestCase {
         let leapYearDate = calendar.date(from: leapYearDateComponent)!
         let longMonthsDateComponents = longMonths.map { DateComponents(year: 2015, month: $0) }
         let shortMonthsDateComponents = shortMonths.map { DateComponents(year: 2015, month: $0) }
-        let longMonthDates = longMonthsDateComponents.flatMap { calendar.date(from: $0) }
-        let shortMonthDates = shortMonthsDateComponents.flatMap { calendar.date(from: $0) }
+        let longMonthDates = longMonthsDateComponents.compactMap { calendar.date(from: $0) }
+        let shortMonthDates = shortMonthsDateComponents.compactMap { calendar.date(from: $0) }
         longMonthDates.forEach { XCTAssert(calendar.numberOfDaysInMonth(for: $0) == 31) }
         shortMonthDates.forEach { XCTAssert(calendar.numberOfDaysInMonth(for: $0) == 30) }
         XCTAssert(calendar.numberOfDaysInMonth(for: febDate) == 28)

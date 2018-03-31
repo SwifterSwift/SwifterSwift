@@ -351,7 +351,7 @@ public extension String {
 		let formatter = NumberFormatter()
 		formatter.locale = locale
 		formatter.allowsFloats = true
-		return formatter.number(from: self) as? Float
+		return formatter.number(from: self)?.floatValue
 	}
 	
 	/// Double value from string (if applicable).
@@ -362,7 +362,7 @@ public extension String {
 		let formatter = NumberFormatter()
 		formatter.locale = locale
 		formatter.allowsFloats = true
-		return formatter.number(from: self) as? Double
+		return formatter.number(from: self)?.doubleValue
 	}
 	
 	/// CGFloat value from string (if applicable).

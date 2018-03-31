@@ -262,7 +262,7 @@ public extension Array {
 	///   - transform: transform element function to evaluate every element.
 	/// - Returns: Return an filtered and mapped array.
 	public func filtered<T>(_ isIncluded: (Element) throws -> Bool, map transform: (Element) throws -> T) rethrows ->  [T] {
-		return try flatMap({
+		return try compactMap({
 			if try isIncluded($0) {
 				return try transform($0)
 			}
