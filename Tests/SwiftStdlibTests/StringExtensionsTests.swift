@@ -683,6 +683,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(str.isWhitespace, true)
     }
     
+    #if os(iOS)
     func testIsSpelledCorrectly() {
         let strCorrect = "Hello, World!"
         
@@ -691,14 +692,15 @@ final class StringExtensionsTests: XCTestCase {
         let strNonCorrect = "Helol, Wrold!"
         XCTAssertFalse(strNonCorrect.isSpelledCorrectly)
     }
+    #endif
     
-    func testDeletingPrefix() {
+    func testRemovingPrefix() {
         let inputStr = "Hello, World!"
-        XCTAssertEqual(inputStr.deletingPrefix("Hello, "), "World!")
+        XCTAssertEqual(inputStr.removingPrefix("Hello, "), "World!")
     }
     
-    func testDeletingSuffix() {
+    func testRemovingSuffix() {
         let inputStr = "Hello, World!"
-        XCTAssertEqual(inputStr.deletingSuffix(", World!"), "Hello")
+        XCTAssertEqual(inputStr.removingSuffix(", World!"), "Hello")
     }
 }

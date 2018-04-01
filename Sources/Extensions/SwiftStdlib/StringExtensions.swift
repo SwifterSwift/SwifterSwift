@@ -338,7 +338,7 @@ public extension String {
     public var isWhitespace: Bool {
         return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
-    
+    #if os(iOS) || os(tvOS)
     /// SwifterSwift: Check if the given string spelled correctly
     public var isSpelledCorrectly: Bool {
         let checker = UITextChecker()
@@ -347,6 +347,7 @@ public extension String {
         let misspelledRange = checker.rangeOfMisspelledWord(in: self, range: range, startingAt: 0, wrap: false, language: Locale.preferredLanguages.first ?? "en")
         return misspelledRange.location == NSNotFound
     }
+    #endif
 }
 
 // MARK: - Methods
@@ -866,24 +867,24 @@ public extension String {
 		}
 	}
     
-    /// SwifterSwift: Deletes given prefix from string.
+    /// SwifterSwift: Removes given prefix from the string.
     ///
-    ///   "Hello, World!".deletingPrefix("Hello, ") -> "World!"
+    ///   "Hello, World!".removingPrefix("Hello, ") -> "World!"
     ///
-    /// - Parameter prefix: Prefix to delete from string.
-    /// - Returns: The string after prefix deleting.
-    public func deletingPrefix(_ prefix: String) -> String {
+    /// - Parameter prefix: Prefix to remove from the string.
+    /// - Returns: The string after prefix removing.
+    public func removingPrefix(_ prefix: String) -> String {
         guard self.hasPrefix(prefix) else { return self }
         return String(self.dropFirst(prefix.count))
     }
     
-    /// SwifterSwift: Deletes given suffix from string.
+    /// SwifterSwift: Removes given suffix from the string.
     ///
-    ///   "Hello, World!".deletingSuffix(", World!") -> "Hello"
+    ///   "Hello, World!".removingSuffix(", World!") -> "Hello"
     ///
-    /// - Parameter suffix: Suffix to delete from string.
-    /// - Returns: The string after suffix deleting.
-    public func deletingSuffix(_ suffix: String) -> String {
+    /// - Parameter suffix: Suffix to remove from the string.
+    /// - Returns: The string after suffix removing.
+    public func removingSuffix(_ suffix: String) -> String {
         guard self.hasSuffix(suffix) else { return self }
         return String(self.dropLast(suffix.count))
     }
