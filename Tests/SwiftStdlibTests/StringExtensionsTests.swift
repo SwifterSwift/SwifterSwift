@@ -683,7 +683,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(str.isWhitespace, true)
     }
     
-    #if os(iOS)
+    #if os(iOS) || os(tvOS)
     func testIsSpelledCorrectly() {
         let strCorrect = "Hello, World!"
         
