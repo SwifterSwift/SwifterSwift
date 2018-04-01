@@ -865,7 +865,28 @@ public extension String {
 			return self + padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)]
 		}
 	}
-	
+    
+    /// SwifterSwift: Deletes given prefix from string.
+    ///
+    ///   "Hello, World!".deletingPrefix("Hello, ") -> "World!"
+    ///
+    /// - Parameter prefix: Prefix to delete from string.
+    /// - Returns: The string after prefix deleting.
+    public func deletingPrefix(_ prefix: String) -> String {
+        guard self.hasPrefix(prefix) else { return self }
+        return String(self.dropFirst(prefix.count))
+    }
+    
+    /// SwifterSwift: Deletes given suffix from string.
+    ///
+    ///   "Hello, World!".deletingSuffix(", World!") -> "Hello"
+    ///
+    /// - Parameter suffix: Suffix to delete from string.
+    /// - Returns: The string after suffix deleting.
+    public func deletingSuffix(_ suffix: String) -> String {
+        guard self.hasSuffix(suffix) else { return self }
+        return String(self.dropLast(suffix.count))
+    }
 }
 
 // MARK: - Operators
@@ -1023,5 +1044,4 @@ public extension String {
 	public func appendingPathExtension(_ str: String) -> String? {
 		return (self as NSString).appendingPathExtension(str)
 	}
-	
 }

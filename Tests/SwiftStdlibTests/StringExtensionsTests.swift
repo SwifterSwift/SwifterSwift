@@ -304,7 +304,6 @@ final class StringExtensionsTests: XCTestCase {
 	func testFloat() {
 		XCTAssertNotNil("8".float())
 		XCTAssertEqual("8".float(), 8)
-		
 		XCTAssertNotNil("8.23".float(locale: Locale(identifier: "en_US_POSIX")))
 		XCTAssertEqual("8.23".float(locale: Locale(identifier: "en_US_POSIX")), Float(8.23))
 		
@@ -691,5 +690,15 @@ final class StringExtensionsTests: XCTestCase {
         
         let strNonCorrect = "Helol, Wrold!"
         XCTAssertFalse(strNonCorrect.isSpelledCorrectly)
+    }
+    
+    func testDeletingPrefix() {
+        let inputStr = "Hello, World!"
+        XCTAssertEqual(inputStr.deletingPrefix("Hello, "), "World!")
+    }
+    
+    func testDeletingSuffix() {
+        let inputStr = "Hello, World!"
+        XCTAssertEqual(inputStr.deletingSuffix(", World!"), "Hello")
     }
 }
