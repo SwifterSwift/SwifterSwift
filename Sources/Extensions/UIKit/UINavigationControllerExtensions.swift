@@ -6,12 +6,13 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 
+#if !os(watchOS)
 // MARK: - Methods
 public extension UINavigationController {
-	
+
 	/// SwifterSwift: Pop ViewController with completion handler.
 	///
 	/// - Parameter completion: optional completion handler (default is nil).
@@ -22,7 +23,7 @@ public extension UINavigationController {
 		popViewController(animated: true)
 		CATransaction.commit()
 	}
-	
+
 	/// SwifterSwift: Push ViewController with completion handler.
 	///
 	/// - Parameters:
@@ -35,7 +36,7 @@ public extension UINavigationController {
 		pushViewController(viewController, animated: true)
 		CATransaction.commit()
 	}
-	
+
 	/// SwifterSwift: Make navigation controller's navigation bar transparent.
 	///
 	/// - Parameter tint: tint color (default is .white).
@@ -46,6 +47,8 @@ public extension UINavigationController {
 		navigationBar.tintColor = tint
 		navigationBar.titleTextAttributes = [.foregroundColor: tint]
 	}
-	
+
 }
+#endif
+
 #endif

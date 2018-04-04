@@ -6,13 +6,14 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
-    
+
+#if !os(watchOS)
 // MARK: - Initializers
 @available(iOS 9.0, *)
 public extension UIStackView {
-    
+
     /// SwifterSwift: Initialize an UIStackView with an array of UIView and common parameters.
     ///
     ///     let stackView = UIStackView(arrangedSubviews: [UIView(), UIView()], axis: .vertical)
@@ -30,5 +31,8 @@ public extension UIStackView {
         self.alignment = alignment
         self.distribution = distribution
     }
+
 }
+#endif
+
 #endif

@@ -9,7 +9,7 @@
 import Foundation
 
 public extension StringProtocol where Index == String.Index {
-    
+
     /// SwifterSwift: The longest common suffix.
     ///
     ///        "Hello world!".commonSuffix(with: "It's cold!") = "ld!"
@@ -22,5 +22,5 @@ public extension StringProtocol where Index == String.Index {
         let reversedSuffix = String(reversed()).commonPrefix(with: String(aString.reversed()), options: options)
         return String(reversedSuffix.reversed())
     }
-    
+
 }

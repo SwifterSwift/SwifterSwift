@@ -6,12 +6,13 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 
+#if !os(watchOS)
 // MARK: - Properties
 public extension UIButton {
-	
+
 	/// SwifterSwift: Image of disabled state for button; also inspectable from Storyboard.
 	@IBInspectable public var imageForDisabled: UIImage? {
 		get {
@@ -21,7 +22,7 @@ public extension UIButton {
 			setImage(newValue, for: .disabled)
 		}
 	}
-	
+
 	/// SwifterSwift: Image of highlighted state for button; also inspectable from Storyboard.
 	@IBInspectable public var imageForHighlighted: UIImage? {
 		get {
@@ -31,7 +32,7 @@ public extension UIButton {
 			setImage(newValue, for: .highlighted)
 		}
 	}
-	
+
 	/// SwifterSwift: Image of normal state for button; also inspectable from Storyboard.
 	@IBInspectable public var imageForNormal: UIImage? {
 		get {
@@ -41,7 +42,7 @@ public extension UIButton {
 			setImage(newValue, for: .normal)
 		}
 	}
-	
+
 	/// SwifterSwift: Image of selected state for button; also inspectable from Storyboard.
 	@IBInspectable public var imageForSelected: UIImage? {
 		get {
@@ -51,7 +52,7 @@ public extension UIButton {
 			setImage(newValue, for: .selected)
 		}
 	}
-	
+
 	/// SwifterSwift: Title color of disabled state for button; also inspectable from Storyboard.
 	@IBInspectable public var titleColorForDisabled: UIColor? {
 		get {
@@ -61,7 +62,7 @@ public extension UIButton {
 			setTitleColor(newValue, for: .disabled)
 		}
 	}
-	
+
 	/// SwifterSwift: Title color of highlighted state for button; also inspectable from Storyboard.
 	@IBInspectable public var titleColorForHighlighted: UIColor? {
 		get {
@@ -71,7 +72,7 @@ public extension UIButton {
 			setTitleColor(newValue, for: .highlighted)
 		}
 	}
-	
+
 	/// SwifterSwift: Title color of normal state for button; also inspectable from Storyboard.
 	@IBInspectable public var titleColorForNormal: UIColor? {
 		get {
@@ -81,7 +82,7 @@ public extension UIButton {
 			setTitleColor(newValue, for: .normal)
 		}
 	}
-	
+
 	/// SwifterSwift: Title color of selected state for button; also inspectable from Storyboard.
 	@IBInspectable public var titleColorForSelected: UIColor? {
 		get {
@@ -91,7 +92,7 @@ public extension UIButton {
 			setTitleColor(newValue, for: .selected)
 		}
 	}
-	
+
 	/// SwifterSwift: Title of disabled state for button; also inspectable from Storyboard.
 	@IBInspectable public var titleForDisabled: String? {
 		get {
@@ -101,7 +102,7 @@ public extension UIButton {
 			setTitle(newValue, for: .disabled)
 		}
 	}
-	
+
 	/// SwifterSwift: Title of highlighted state for button; also inspectable from Storyboard.
 	@IBInspectable public var titleForHighlighted: String? {
 		get {
@@ -111,7 +112,7 @@ public extension UIButton {
 			setTitle(newValue, for: .highlighted)
 		}
 	}
-	
+
 	/// SwifterSwift: Title of normal state for button; also inspectable from Storyboard.
 	@IBInspectable public var titleForNormal: String? {
 		get {
@@ -121,7 +122,7 @@ public extension UIButton {
 			setTitle(newValue, for: .normal)
 		}
 	}
-	
+
 	/// SwifterSwift: Title of selected state for button; also inspectable from Storyboard.
 	@IBInspectable public var titleForSelected: String? {
 		get {
@@ -131,37 +132,37 @@ public extension UIButton {
 			setTitle(newValue, for: .selected)
 		}
 	}
-	
+
 }
 
 // MARK: - Methods
 public extension UIButton {
-	
+
 	private var states: [UIControlState] {
 		return [.normal, .selected, .highlighted, .disabled]
 	}
-	
+
 	/// SwifterSwift: Set image for all states.
 	///
 	/// - Parameter image: UIImage.
 	public func setImageForAllStates(_ image: UIImage) {
 		states.forEach { self.setImage(image, for: $0) }
 	}
-	
+
 	/// SwifterSwift: Set title color for all states.
 	///
 	/// - Parameter color: UIColor.
 	public func setTitleColorForAllStates(_ color: UIColor) {
 		states.forEach { self.setTitleColor(color, for: $0) }
 	}
-	
+
 	/// SwifterSwift: Set title for all states.
 	///
 	/// - Parameter title: title string.
 	public func setTitleForAllStates(_ title: String) {
 		states.forEach { self.setTitle(title, for: $0) }
 	}
-    
+
     /// SwifterSwift: Center align title text and image on UIButton
     ///
     /// - Parameter spacing: spacing between UIButton title text and UIButton Image.
@@ -171,6 +172,8 @@ public extension UIButton {
         titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
         contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
     }
-	
+
 }
+#endif
+
 #endif

@@ -6,12 +6,13 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 
+#if !os(watchOS)
 // MARK: - Properties
 public extension UISegmentedControl {
-	
+
 	/// SwifterSwift: Segments titles.
 	public var segmentTitles: [String] {
 		get {
@@ -25,7 +26,7 @@ public extension UISegmentedControl {
 			}
 		}
 	}
-	
+
 	/// SwifterSwift: Segments images.
 	public var segmentImages: [UIImage] {
 		get {
@@ -39,6 +40,8 @@ public extension UISegmentedControl {
 			}
 		}
 	}
-	
+
 }
+#endif
+
 #endif

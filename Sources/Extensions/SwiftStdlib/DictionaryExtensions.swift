@@ -8,7 +8,7 @@
 
 // MARK: - Methods
 public extension Dictionary {
-	
+
 	/// SwifterSwift: Check if key exists in dictionary.
 	///
 	///		let dict: [String : Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
@@ -20,7 +20,7 @@ public extension Dictionary {
 	public func has(key: Key) -> Bool {
 		return index(forKey: key) != nil
 	}
-	
+
 	/// SwifterSwift: Remove all keys of the dictionary.
 	///
 	///		var dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
@@ -33,7 +33,7 @@ public extension Dictionary {
 	public mutating func removeAll(keys: [Key]) {
 		keys.forEach({ removeValue(forKey: $0)})
 	}
-	
+
 	/// SwifterSwift: JSON Data from dictionary.
 	///
 	/// - Parameter prettify: set true to prettify data (default is false).
@@ -45,7 +45,7 @@ public extension Dictionary {
 		let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
 		return try? JSONSerialization.data(withJSONObject: self, options: options)
 	}
-	
+
 	/// SwifterSwift: JSON String from dictionary.
 	///
 	///		dict.jsonString() -> "{"testKey":"testValue","testArrayKey":[1,2,3,4,5]}"
@@ -77,7 +77,7 @@ public extension Dictionary {
 		guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else { return nil }
 		return String(data: jsonData, encoding: .utf8)
 	}
-	
+
 	/// SwifterSwift: Count dictionary entries that where function returns true.
 	///
 	/// - Parameter where: condition to evaluate each tuple entry against.
@@ -91,12 +91,12 @@ public extension Dictionary {
 		}
 		return count
 	}
-	
+
 }
 
 // MARK: - Operators
 public extension Dictionary {
-	
+
 	/// SwifterSwift: Merge the keys/values of two dictionaries.
 	///
 	///		let dict : [String : String] = ["key1" : "value1"]
@@ -114,9 +114,9 @@ public extension Dictionary {
 		rhs.forEach { result[$0] = $1 }
 		return result
 	}
-	
+
 	// MARK: - Operators
-	
+
 	/// SwifterSwift: Append the keys and values from the second dictionary into the first one.
 	///
 	///		var dict : [String : String] = ["key1" : "value1"]
@@ -131,7 +131,7 @@ public extension Dictionary {
 	public static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
 		rhs.forEach { lhs[$0] = $1}
 	}
-	
+
 	/// SwifterSwift: Remove contained in the array from the dictionary
 	///
 	///		let dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
@@ -149,7 +149,7 @@ public extension Dictionary {
 		result.removeAll(keys: keys)
 		return result
 	}
-	
+
 	/// SwifterSwift: Remove contained in the array from the dictionary
 	///
 	///		var dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
@@ -164,12 +164,12 @@ public extension Dictionary {
 	public static func -= (lhs: inout [Key: Value], keys: [Key]) {
 		lhs.removeAll(keys: keys)
 	}
-	
+
 }
 
 // MARK: - Methods (ExpressibleByStringLiteral)
 public extension Dictionary where Key: ExpressibleByStringLiteral {
-	
+
 	/// SwifterSwift: Lowercase all keys in dictionary.
 	///
 	///		var dict = ["tEstKeY": "value"]
@@ -184,5 +184,5 @@ public extension Dictionary where Key: ExpressibleByStringLiteral {
 			}
 		}
 	}
-	
+
 }

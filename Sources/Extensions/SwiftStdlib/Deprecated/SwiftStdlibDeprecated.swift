@@ -6,7 +6,7 @@
 //
 
 extension String {
-	
+
 	/// SwifterSwift: Number of characters in string.
 	///
 	///		"Hello world!".length -> 12
@@ -15,7 +15,8 @@ extension String {
 	public var length: Int {
 		return count
 	}
-	
+
+	// swiftlint:disable identifier_name
 	/// SwifterSwift: Sliced string from a start index.
 	///
 	///		"Hello World".slicing(at: 6) -> "World"
@@ -29,7 +30,8 @@ extension String {
 		}
 		return self[safe: i..<count]
 	}
-	
+	// swiftlint:enable identifier_name
+
 	/// SwifterSwift: Sliced string from a start index to an end index.
 	///
 	///		"Hello World".slicing(from: 6, to: 11) -> "World"
@@ -45,7 +47,7 @@ extension String {
 		}
 		return self[safe: start..<end]
 	}
-	
+
 	/// SwifterSwift: First index of substring in string.
 	///
 	///		"Hello World!".firstIndex(of: "l") -> 2
@@ -57,9 +59,9 @@ extension String {
 	public func firstIndex(of string: String) -> Int? {
 		return map({ String($0) }).index(of: string)
 	}
-	
+
 	//
-	
+
 	/// SwifterSwift: Array of strings separated by given string.
 	///
 	///		"hello World".splited(by: " ") -> ["hello", "World"]
@@ -70,7 +72,7 @@ extension String {
 	public func splitted(by separator: Character) -> [String] {
 		return split { $0 == separator }.map(String.init)
 	}
-	
+
 }
 
 // MARK: - Methods (Equatable)
@@ -91,5 +93,40 @@ public extension Array where Element: Equatable {
 		}
 		return indexes
 	}
-	
+
+	/// SwifterSwift: Remove last element from array and return it.
+	///
+	///		[1, 2, 3, 4, 5].pop() // returns 5 and remove it from the array.
+	///		[].pop() // returns nil since the array is empty.
+	///
+	/// - Returns: last element in array (if applicable).
+	@available(*, deprecated: 4.3, message: "Use popLast() instead")
+	@discardableResult public mutating func pop() -> Element? {
+		return popLast()
+	}
+
+	/// SwifterSwift: Insert an element to the end of array.
+	///
+	///		[1, 2, 3, 4].push(5) -> [1, 2, 3, 4, 5]
+	///		["h", "e", "l", "l"].push("o") -> ["h", "e", "l", "l", "o"]
+	///
+	/// - Parameter newElement: element to insert.
+	@available(*, deprecated: 4.3, message: "Use append() instead")
+	public mutating func push(_ newElement: Element) {
+		append(newElement)
+	}
+
+	/// SwifterSwift: Swap values at index positions.
+	///
+	///		[1, 2, 3, 4, 5].swap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
+	///		["h", "e", "l", "l", "o"].swap(from: 1, to: 0) -> ["e", "h", "l", "l", "o"]
+	///
+	/// - Parameters:
+	///   - index: index of first element.
+	///   - otherIndex: index of other element.
+	@available(*, deprecated: 4.3, message: "Use swapAt() instead")
+	public mutating func swap(from index: Int, to otherIndex: Int) {
+		swapAt(index, otherIndex)
+	}
+
 }

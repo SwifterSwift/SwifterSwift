@@ -6,12 +6,13 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 
+#if !os(watchOS)
 // MARK: - Methods
 public extension UIBarButtonItem {
-	
+
 	/// SwifterSwift: Add Target to UIBarButtonItem
 	///
 	/// - Parameters:
@@ -21,6 +22,8 @@ public extension UIBarButtonItem {
 		self.target = target
 		self.action = action
 	}
-	
+
 }
+#endif
+
 #endif

@@ -22,6 +22,7 @@
 		074EAF201F7BA74700C74636 /* UIFontExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074EAF1E1F7BA74600C74636 /* UIFontExtensionsTest.swift */; };
 		076AEC891FDB48580077D153 /* UIDatePickerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076AEC881FDB48580077D153 /* UIDatePickerExtensions.swift */; };
 		076AEC8D1FDB49480077D153 /* UIDatePickerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076AEC8C1FDB49480077D153 /* UIDatePickerExtensionsTests.swift */; };
+		0770035920729B040095F09A /* MKPolylineExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784C752E2051BD26001C48DD /* MKPolylineExtensions.swift */; };
 		077BA08A1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077BA0891F6BE81F00D9C4AC /* URLRequestExtensions.swift */; };
 		077BA08B1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077BA0891F6BE81F00D9C4AC /* URLRequestExtensions.swift */; };
 		077BA08C1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077BA0891F6BE81F00D9C4AC /* URLRequestExtensions.swift */; };
@@ -1429,6 +1430,7 @@
 				9D9784DD1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */,
 				07B7F1E81F5EB43B00E6F910 /* BoolExtensions.swift in Sources */,
 				A9AEB78720283ACC0021AACF /* FileManagerExtensions.swift in Sources */,
+				0770035920729B040095F09A /* MKPolylineExtensions.swift in Sources */,
 				07B7F2291F5EB45100E6F910 /* CGFloatExtensions.swift in Sources */,
 				07B7F1C41F5EB42200E6F910 /* UIImageViewExtensions.swift in Sources */,
 				07B7F22C1F5EB45100E6F910 /* CLLocationExtensions.swift in Sources */,

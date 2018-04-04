@@ -10,7 +10,7 @@ import XCTest
 @testable import SwifterSwift
 
 class CalendarExtensionTests: XCTestCase {
-    
+
     func testNumberOfDaysInAMonth() {
         let calendar = Calendar(identifier: .gregorian)
         let longMonths = [1, 3, 5, 7, 8, 10, 12]
@@ -28,5 +28,5 @@ class CalendarExtensionTests: XCTestCase {
         XCTAssert(calendar.numberOfDaysInMonth(for: febDate) == 28)
         XCTAssert(calendar.numberOfDaysInMonth(for: leapYearDate) == 29)
     }
-	
+
 }
