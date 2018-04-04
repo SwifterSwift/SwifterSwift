@@ -6,7 +6,7 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-// MARK: - Methods (Integer)
+// MARK: - Methods (Numeric)
 public extension Array where Element: Numeric {
 
 	/// SwifterSwift: Sum of all elements in array.
@@ -46,19 +46,6 @@ public extension Array where Element: FloatingPoint {
 // MARK: - Methods
 public extension Array {
 
-	/// SwifterSwift: Element at the given index if it exists.
-	///
-	///		[1, 2, 3, 4, 5].item(at: 2) -> 3
-	///		[1.2, 2.3, 4.5, 3.4, 4.5].item(at: 3) -> 3.4
-	///		["h", "e", "l", "l", "o"].item(at: 10) -> nil
-	///
-	/// - Parameter index: index of element.
-	/// - Returns: optional element (if exists).
-	public func item(at index: Int) -> Element? {
-		guard startIndex..<endIndex ~= index else { return nil }
-		return self[index]
-	}
-
 	/// SwifterSwift: Insert an element at the beginning of array.
 	///
 	///		[2, 3, 4, 5].prepend(1) -> [1, 2, 3, 4, 5]
@@ -77,7 +64,7 @@ public extension Array {
 	/// - Parameters:
 	///   - index: index of first element.
 	///   - otherIndex: index of other element.
-	public mutating func safeSwap(from index: Int, to otherIndex: Int) {
+	public mutating func safeSwap(from index: Index, to otherIndex: Index) {
 		guard index != otherIndex,
 			startIndex..<endIndex ~= index,
 			startIndex..<endIndex ~= otherIndex else { return }
@@ -90,9 +77,9 @@ public extension Array {
 	///
 	/// - Parameter condition: condition to evaluate each element against.
 	/// - Returns: first index where the specified condition evaluates to true. (optional)
-	public func firstIndex(where condition: (Element) throws -> Bool) rethrows -> Int? {
-		for (index, value) in lazy.enumerated() {
-			if try condition(value) { return index }
+	public func firstIndex(where condition: (Element) throws -> Bool) rethrows -> Index? {
+		for (index, value) in lazy.enumerated() where try condition(value) {
+			return index
 		}
 		return nil
 	}
@@ -103,9 +90,9 @@ public extension Array {
 	///
 	/// - Parameter condition: condition to evaluate each element against.
 	/// - Returns: last index where the specified condition evaluates to true. (optional)
-	public func lastIndex(where condition: (Element) throws -> Bool) rethrows -> Int? {
-		for (index, value) in lazy.enumerated().reversed() {
-			if try condition(value) { return index }
+	public func lastIndex(where condition: (Element) throws -> Bool) rethrows -> Index? {
+		for (index, value) in lazy.enumerated().reversed() where try condition(value) {
+			return index
 		}
 		return nil
 	}
@@ -116,10 +103,10 @@ public extension Array {
 	///
 	/// - Parameter condition: condition to evaluate each element against.
 	/// - Returns: all indices where the specified condition evaluates to true. (optional)
-	public func indices(where condition: (Element) throws -> Bool) rethrows -> [Int]? {
-		var indicies: [Int] = []
-		for (index, value) in lazy.enumerated() {
-			if try condition(value) { indicies.append(index) }
+	public func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
+		var indicies: [Index] = []
+		for (index, value) in lazy.enumerated() where try condition(value) {
+			indicies.append(index)
 		}
 		return indicies.isEmpty ? nil : indicies
 	}
@@ -238,18 +225,18 @@ public extension Array {
 		})
 	}
 
+	@discardableResult
 	/// SwifterSwift: Keep elements of Array while condition is true.
 	///
 	///		[0, 2, 4, 7].keep( where: {$0 % 2 == 0}) -> [0, 2, 4]
 	///
 	/// - Parameter condition: condition to evaluate each element against.
-	public mutating func keep(while condition: (Element) throws -> Bool) rethrows {
-		for (index, element) in lazy.enumerated() {
-			if try !condition(element) {
-				self = Array(self[startIndex..<index])
-				break
-			}
+	public mutating func keep(while condition: (Element) throws -> Bool) rethrows -> [Element] {
+		for (index, element) in lazy.enumerated() where try !condition(element) {
+			self = Array(self[startIndex..<index])
+			break
 		}
+		return self
 	}
 
 	/// SwifterSwift: Take element of Array while condition is true.
@@ -259,10 +246,8 @@ public extension Array {
 	/// - Parameter condition: condition to evaluate each element against.
 	/// - Returns: All elements up until condition evaluates to false.
 	public func take(while condition: (Element) throws -> Bool) rethrows -> [Element] {
-		for (index, element) in lazy.enumerated() {
-			if try !condition(element) {
-				return Array(self[startIndex..<index])
-			}
+		for (index, element) in lazy.enumerated() where try !condition(element) {
+			return Array(self[startIndex..<index])
 		}
 		return self
 	}
@@ -274,10 +259,8 @@ public extension Array {
 	/// - Parameter condition: condition to evaluate each element against.
 	/// - Returns: All elements after the condition evaluates to false.
 	public func skip(while condition: (Element) throws-> Bool) rethrows -> [Element] {
-		for (index, element) in lazy.enumerated() {
-			if try !condition(element) {
-				return Array(self[index..<endIndex])
-			}
+		for (index, element) in lazy.enumerated() where try !condition(element) {
+			return Array(self[index..<endIndex])
 		}
 		return [Element]()
 	}
@@ -305,8 +288,8 @@ public extension Array {
 	///     [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
 	///     [0, 2, 4, 7, 6].group(by: 2) -> [[0, 2], [4, 7], [6]]
 	///
-	/// - Parameters:
-	///   - size: The size of the slices to be returned.
+	/// - Parameter size: The size of the slices to be returned.
+	/// - Returns: grouped self.
 	public func group(by size: Int) -> [[Element]]? {
 		//Inspired by: https://lodash.com/docs/4.17.4#chunk
 		guard size > 0, !isEmpty else { return nil }
@@ -364,9 +347,7 @@ public extension Array {
 	/// - Returns: The new rotated array
 	public func rotated(by places: Int) -> [Element] {
 		//Inspired by: https://ruby-doc.org/core-2.2.0/Array.html#method-i-rotate
-		guard places != 0 && places < count else {
-			return self
-		}
+		guard places != 0 && places < count else { return self }
 		var array: [Element] = self
 		if places > 0 {
 			let range = (array.count - places)..<array.endIndex
@@ -382,6 +363,7 @@ public extension Array {
 		return array
 	}
 
+	@discardableResult
 	/// SwifterSwift: Rotate the array by the given places.
 	///
 	///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
@@ -389,21 +371,27 @@ public extension Array {
 	///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
 	///
 	/// - Parameter places: Number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
-	public mutating func rotate(by places: Int) {
+	///
+	/// - Returns: self after rotating
+	public mutating func rotate(by places: Int) -> [Element] {
 		self = rotated(by: places)
+		return self
 	}
 
+	@discardableResult
 	/// SwifterSwift: Shuffle array. (Using Fisher-Yates Algorithm)
 	///
 	///		[1, 2, 3, 4, 5].shuffle() // shuffles array
 	///
-	public mutating func shuffle() {
+	/// - Returns: self after shuffling
+	public mutating func shuffle() -> [Element] {
 		// http://stackoverflow.com/questions/37843647/shuffle-array-swift-3
-		guard count > 1 else { return }
+		guard count > 1 else { return self }
 		for index in startIndex..<endIndex - 1 {
 			let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
 			if index != randomIndex { swapAt(index, randomIndex) }
 		}
+		return self
 	}
 
 	/// SwifterSwift: Shuffled version of array. (Using Fisher-Yates Algorithm)
@@ -413,8 +401,7 @@ public extension Array {
 	/// - Returns: the array with its elements shuffled.
 	public func shuffled() -> [Element] {
 		var array = self
-		array.shuffle()
-		return array
+		return array.shuffle()
 	}
 
 	/// SwifterSwift: Return a sorted array based on an optional keypath.
@@ -446,20 +433,24 @@ public extension Array {
 		})
 	}
 
+	@discardableResult
 	/// SwifterSwift: Sort the array based on an optional keypath.
 	///
 	/// - Parameter path: Key path to sort. The key path type must be Comparable.
 	/// - Parameter ascending: If order must be ascending.
-	public mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) {
+	public mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
 		self = sorted(by: path, ascending: ascending)
+		return self
 	}
 
+	@discardableResult
 	/// SwifterSwift: Sort the array based on a keypath.
 	///
 	/// - Parameter path: Key path to sort. The key path type must be Comparable.
 	/// - Parameter ascending: If order must be ascending.
-	public mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) {
+	public mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
 		self = sorted(by: path, ascending: ascending)
+		return self
 	}
 
 }
@@ -494,33 +485,39 @@ public extension Array where Element: Equatable {
 	///
 	/// - Parameter item: item to check.
 	/// - Returns: an array with all indices of the given item.
-	public func indices(of item: Element) -> [Int] {
-		var indices: [Int] = []
+	public func indices(of item: Element) -> [Index] {
+		var indices: [Index] = []
 		for index in startIndex..<endIndex where self[index] == item {
 			indices.append(index)
 		}
 		return indices
 	}
 
+	@discardableResult
 	/// SwifterSwift: Remove all instances of an item from array.
 	///
 	///		[1, 2, 2, 3, 4, 5].removeAll(2) -> [1, 3, 4, 5]
 	///		["h", "e", "l", "l", "o"].removeAll("l") -> ["h", "e", "o"]
 	///
 	/// - Parameter item: item to remove.
-	public mutating func removeAll(_ item: Element) {
+	/// - Returns: self after removing all instances of item.
+	public mutating func removeAll(_ item: Element) -> [Element] {
 		self = filter { $0 != item }
+		return self
 	}
 
+	@discardableResult
 	/// SwifterSwift: Remove all instances contained in items parameter from array.
 	///
 	///		[1, 2, 2, 3, 4, 5].removeAll([2,5]) -> [1, 3, 4]
 	///		["h", "e", "l", "l", "o"].removeAll(["l", "h"]) -> ["e", "o"]
 	///
 	/// - Parameter items: items to remove.
-	public mutating func removeAll(_ items: [Element]) {
-		guard !items.isEmpty else { return }
+	/// - Returns: self after removing all instances of all items in given array.
+	public mutating func removeAll(_ items: [Element]) -> [Element] {
+		guard !items.isEmpty else { return self }
 		self = filter { !items.contains($0) }
+		return self
 	}
 
 	/// SwifterSwift: Remove all duplicate elements from Array.
@@ -544,8 +541,8 @@ public extension Array where Element: Equatable {
 	///
 	/// - Returns: an array of unique elements.
 	///
-	public func duplicatesRemoved() -> [Element] {
-		// Thanks to https://github.com/sairamkotha for improving the property
+	public func withoutDuplicates() -> [Element] {
+		// Thanks to https://github.com/sairamkotha for improving the method
 		return reduce(into: [Element]()) {
 			if !$0.contains($1) {
 				$0.append($1)
@@ -561,7 +558,7 @@ public extension Array where Element: Equatable {
 	///
 	/// - Parameter item: item to check.
 	/// - Returns: first index of item in array (if exists).
-	public func firstIndex(of item: Element) -> Int? {
+	public func firstIndex(of item: Element) -> Index? {
 		for (index, value) in lazy.enumerated() where value == item {
 			return index
 		}
@@ -576,7 +573,7 @@ public extension Array where Element: Equatable {
 	///
 	/// - Parameter item: item to check.
 	/// - Returns: last index of item in array (if exists).
-	public func lastIndex(of item: Element) -> Int? {
+	public func lastIndex(of item: Element) -> Index? {
 		for (index, value) in lazy.enumerated().reversed() where value == item {
 			return index
 		}

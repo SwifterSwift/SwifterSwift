@@ -6,8 +6,6 @@
 //  Copyright © 2017 SwifterSwift
 //
 
-#if !os(Linux)
-
 #if canImport(UIKit)
 import UIKit
 public typealias Color = UIColor
@@ -22,6 +20,7 @@ public typealias Color = NSColor
 import CoreImage
 #endif
 
+#if !os(Linux)
 // MARK: - Properties
 public extension Color {
 

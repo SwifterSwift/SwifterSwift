@@ -75,8 +75,44 @@ extension String {
 
 }
 
+public extension Array {
+
+	/// SwifterSwift: Element at the given index if it exists.
+	///
+	///		[1, 2, 3, 4, 5].item(at: 2) -> 3
+	///		[1.2, 2.3, 4.5, 3.4, 4.5].item(at: 3) -> 3.4
+	///		["h", "e", "l", "l", "o"].item(at: 10) -> nil
+	///
+	/// - Parameter index: index of element.
+	/// - Returns: optional element (if exists).
+	@available(*, deprecated: 4.3, message: "Use subscript(safe:) instead", renamed: "subscript(safe:)")
+	public func item(at index: Int) -> Element? {
+		guard startIndex..<endIndex ~= index else { return nil }
+		return self[index]
+	}
+
+}
+
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
+
+	/// SwifterSwift: Return array with all duplicate elements removed.
+	///
+	///     [1, 1, 2, 2, 3, 3, 3, 4, 5].duplicatesRemoved() -> [1, 2, 3, 4, 5])
+	///     ["h", "e", "l", "l", "o"].duplicatesRemoved() -> ["h", "e", "l", "o"])
+	///
+	/// - Returns: an array of unique elements.
+	///
+	@available(*, deprecated: 4.3, message: "Use withoutDuplicates() instead", renamed: "withoutDuplicates")
+	public func duplicatesRemoved() -> [Element] {
+		// Thanks to https://github.com/sairamkotha for improving the method
+		return reduce(into: [Element]()) {
+			if !$0.contains($1) {
+				$0.append($1)
+			}
+		}
+	}
+
 	/// SwifterSwift: All indexes of specified item.
 	///
 	///		[1, 2, 2, 3, 4, 2, 5].indexes(of 2) -> [1, 2, 5]
