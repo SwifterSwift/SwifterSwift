@@ -23,6 +23,31 @@ This also allows us to focus on improving the project for others.
 
 ---
 
+## Reporting Issues
+A great way to contribute to the project is to send a detailed issue when you encounter an problem.
+We always appreciate a well-written, thorough bug report.
+
+Check that the project issues database doesn't already include that problem or suggestion before submitting an issue.
+If you find a match, add a quick "**+1**" or "**I have this problem too**".
+Doing this helps prioritize the most common problems and requests.
+
+---
+
+**When reporting issues, please include the following:**
+
+- What did you do?
+- What did you expect to happen?
+- What happened instead?
+- SwifterSwift version
+- Xcode version
+- macOS version running Xcode
+- Swift version
+- Platform(s) running SwifterSwift
+- Demo Project (if available)
+
+This information will help us review and fix your issue faster.
+
+
 
 ## Ways to Contribute
 
@@ -186,25 +211,6 @@ The [Changelog Guidelines](https://github.com/SwifterSwift/SwifterSwift/blob/mas
 
 ---
 
-## Reporting Issues
-A great way to contribute to the project is to send a detailed issue when you encounter an problem.
-We always appreciate a well-written, thorough bug report.
+## [No Brown M&M's](http://en.wikipedia.org/wiki/Van_Halen#Contract_riders)
 
-Check that the project issues database doesn't already include that problem or suggestion before submitting an issue.
-If you find a match, add a quick "**+1**" or "**I have this problem too**".
-Doing this helps prioritize the most common problems and requests.
-
-
-**When reporting issues, please include the following:**
-
-- What did you do?
-- What did you expect to happen?
-- What happened instead?
-- SwifterSwift version
-- Xcode version
-- macOS version running Xcode
-- Swift version
-- Platform(s) running SwifterSwift
-- Demo Project (if available)
-
-This information will help us review and fix your issue faster.
+If you made it all the way to the end, bravo dear user, we love you. You can include the 🚀 emoji in the top of your ticket to signal to us that you did in fact read this file and are trying to conform to it as best as possible: `:rocket:`.
