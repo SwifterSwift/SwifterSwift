@@ -22,12 +22,17 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added Swift 4.1 support.
 - **Linux Support**:
   - Updated all swift files to use Swift's 4.1 [`# if canImport(module)`](https://github.com/apple/swift-evolution/blob/master/proposals/0075-import-test.md) statement, which brings the project one step closer to first-class Linux support.
+- **Sequence**
+  - `all()` method moved from ArrayExtensions to SequenceExtensions. [#424](https://github.com/SwifterSwift/SwifterSwift/pull/424) by [n0an](https://github.com/n0an).
+  - `none()` method moved from ArrayExtensions to SequenceExtensions. [#424](https://github.com/SwifterSwift/SwifterSwift/pull/424) by [n0an](https://github.com/n0an).
+  - Added `any()` method to return if any element of sequence elements conforms to given condition. [#424](https://github.com/SwifterSwift/SwifterSwift/pull/424) by [n0an](https://github.com/n0an).
 - **String**
   - added computed property `isSpelledCorrectly` to check if the given string has typos or not. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
   - added `removingPrefix(_ prefix:)` method to remove given prefix from the string. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
   - added `removingSuffix(_ suffix:)` method to remove given suffix from the string. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
 - **SwiftLint**:
   - reduced the number of disabled rules in _.swiftlint.yml_, please add `disable` and `enable` statements from now on when needed in code.
+  
 ### Changed
 - **SignedNumeric**:
   - `asLocaleCurrency` now returns an optional string.
