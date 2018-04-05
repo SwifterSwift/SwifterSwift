@@ -46,6 +46,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - deprecated `swap` method in favor of Swift’s `swapAt`.
   - deprecated `item(at index: Int)` method in favor of `subscript(safe:)`.
   - `duplicatesRemoved` method has been renamed to `withoutDuplicates`.
+- **Bool**:
+  - deprecated `toggled` property, use `!self` instead.
+  - deprecated `toggle` method, use `self = !self` instead.
 
 ### Removed
 
