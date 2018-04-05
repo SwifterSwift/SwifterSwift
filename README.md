@@ -22,8 +22,7 @@ SwifterSwift is a collection of **over 500 native Swift extensions**, with handy
 ### [Whats New in v4.3.0?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v430)
 
 ## Requirements:
-- **iOS** 8.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+
-- Xcode 9.0+
+- **iOS** 8.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+ / **Ubuntu** 14.04+
 - Swift 4.0+
 
 

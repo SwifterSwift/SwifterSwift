@@ -18,6 +18,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # [v4.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.3.0)
 
 ### Added
+- **Swift 4.1 / Xcode 9.3**
+  - Added Swift 4.1 support.
 - **Linux Support**:
   - Updated all swift files to use Swift's 4.1 [`# if canImport(module)`](https://github.com/apple/swift-evolution/blob/master/proposals/0075-import-test.md) statement, which brings the project one step closer to first-class Linux support.
 - **String**
@@ -26,7 +28,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - added `removingSuffix(_ suffix:)` method to remove given suffix from the string. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
 - **SwiftLint**:
   - reduced the number of disabled rules in _.swiftlint.yml_, please add `disable` and `enable` statements from now on when needed in code.
-
 ### Changed
 - **SignedNumeric**:
   - `asLocaleCurrency` now returns an optional string.
