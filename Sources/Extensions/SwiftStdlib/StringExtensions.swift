@@ -401,6 +401,17 @@ public extension String {
 	}
 	#endif
 
+    #if os(iOS) || os(tvOS)
+    /// SwifterSwift: Check if the given string spelled correctly
+    public var isSpelledCorrectly: Bool {
+        let checker = UITextChecker()
+        let range = NSRange(location: 0, length: self.utf16.count)
+
+        let misspelledRange = checker.rangeOfMisspelledWord(in: self, range: range, startingAt: 0, wrap: false, language: Locale.preferredLanguages.first ?? "en")
+        return misspelledRange.location == NSNotFound
+    }
+    #endif
+
 }
 
 // MARK: - Methods
@@ -971,6 +982,28 @@ public extension String {
 			return self + padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)]
 		}
 	}
+
+    /// SwifterSwift: Removes given prefix from the string.
+    ///
+    ///   "Hello, World!".removingPrefix("Hello, ") -> "World!"
+    ///
+    /// - Parameter prefix: Prefix to remove from the string.
+    /// - Returns: The string after prefix removing.
+    public func removingPrefix(_ prefix: String) -> String {
+        guard hasPrefix(prefix) else { return self }
+        return String(dropFirst(prefix.count))
+    }
+
+    /// SwifterSwift: Removes given suffix from the string.
+    ///
+    ///   "Hello, World!".removingSuffix(", World!") -> "Hello"
+    ///
+    /// - Parameter suffix: Suffix to remove from the string.
+    /// - Returns: The string after suffix removing.
+    public func removingSuffix(_ suffix: String) -> String {
+        guard hasSuffix(suffix) else { return self }
+        return String(dropLast(suffix.count))
+    }
 
 }
 

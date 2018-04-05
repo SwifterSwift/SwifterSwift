@@ -541,6 +541,27 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("str".paddingEnd(2), "str")
     }
 
+    #if os(iOS) || os(tvOS)
+    func testIsSpelledCorrectly() {
+        let strCorrect = "Hello, World!"
+
+        XCTAssertTrue(strCorrect.isSpelledCorrectly)
+
+        let strNonCorrect = "Helol, Wrold!"
+        XCTAssertFalse(strNonCorrect.isSpelledCorrectly)
+    }
+    #endif
+
+    func testRemovingPrefix() {
+        let inputStr = "Hello, World!"
+        XCTAssertEqual(inputStr.removingPrefix("Hello, "), "World!")
+    }
+
+    func testRemovingSuffix() {
+        let inputStr = "Hello, World!"
+        XCTAssertEqual(inputStr.removingSuffix(", World!"), "Hello")
+    }
+
     func testInitFromBase64() {
         XCTAssertNotNil(String(base64: "SGVsbG8gV29ybGQh"))
         XCTAssertEqual(String(base64: "SGVsbG8gV29ybGQh"), "Hello World!")

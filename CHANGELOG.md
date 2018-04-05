@@ -1,19 +1,23 @@
 # CHANGELOG
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
-> # Upcoming release
->
-> ### Added
->
-> ### Changed
->
-> ### Deprecated
->
-> ### Removed
->
-> ### Fixed
->
-> ### Security 
+# Upcoming release
+
+### Added
+- **String**
+  - added computed property `isSpelledCorrectly` to check if the given string has typos or not. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
+  - added `removingPrefix(_ prefix:)` method to remove given prefix from the string. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
+  - added `removingSuffix(_ suffix:)` method to remove given suffix from the string. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security 
 
 ---
  # [v4.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.3.0)
@@ -67,7 +71,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 - **String**
   - Fixed `isNumeric` to check if string is a valid Swift number and added isDigits to check if string only contains digits. [#396](https://github.com/SwifterSwift/SwifterSwift/pull/396) by [seifeet](https://github.com/seifeet).
-- **Collection** 
+- **Collection**
   - Fixed `randomItem` crash with empty array. [#405](https://github.com/SwifterSwift/SwifterSwift/pull/405) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 
 ---
