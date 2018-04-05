@@ -50,6 +50,7 @@ public extension Bool {
 // MARK: - Methods
 public extension Bool {
 
+    @discardableResult
 	/// SwifterSwift: Toggle value for bool.
 	///
 	///		var bool = false
@@ -57,7 +58,7 @@ public extension Bool {
 	///		print(bool) -> true
 	///
 	/// - Returns: inversed value of bool.
-	@discardableResult public mutating func toggle() -> Bool {
+    public mutating func toggle() -> Bool {
 		self = !self
 		return self
 	}

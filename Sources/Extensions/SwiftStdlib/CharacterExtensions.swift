@@ -46,6 +46,15 @@ public extension Character {
 		return String(self).rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
 	}
 
+    /// SwifterSwift: Check if character is lowercased.
+    ///
+    ///        Character("a").isLowercased -> true
+    ///        Character("A").isLowercased -> false
+    ///
+    public var isLowercased: Bool {
+        return String(self) == String(self).lowercased()
+    }
+
 	/// SwifterSwift: Check if character is uppercased.
 	///
 	///		Character("a").isUppercased -> false
@@ -53,15 +62,6 @@ public extension Character {
 	///
 	public var isUppercased: Bool {
 		return String(self) == String(self).uppercased()
-	}
-
-	/// SwifterSwift: Check if character is lowercased.
-	///
-	///		Character("a").isLowercased -> true
-	///		Character("A").isLowercased -> false
-	///
-	public var isLowercased: Bool {
-		return String(self) == String(self).lowercased()
 	}
 
 	/// SwifterSwift: Check if character is white space.

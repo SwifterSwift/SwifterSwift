@@ -43,8 +43,8 @@ infix operator ** : PowerPrecedence
 ///   - rhs: exponent float.
 /// - Returns: exponentiation result (4.4 ** 0.5 = 2.0976176963).
 public func ** (lhs: Float, rhs: Float) -> Float {
-	// http://nshipster.com/swift-operators/
-	return pow(lhs, rhs)
+    // http://nshipster.com/swift-operators/
+    return pow(lhs, rhs)
 }
 
 // swiftlint:disable identifier_name
@@ -54,7 +54,7 @@ prefix operator √
 /// - Parameter float: float value to find square root for
 /// - Returns: square root of given float.
 public prefix func √ (float: Float) -> Float {
-	// http://nshipster.com/swift-operators/
-	return sqrt(float)
+    // http://nshipster.com/swift-operators/
+    return sqrt(float)
 }
 // swiftlint:enable identifier_name

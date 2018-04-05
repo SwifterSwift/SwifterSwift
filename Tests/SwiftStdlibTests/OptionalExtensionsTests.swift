@@ -9,6 +9,10 @@
 import XCTest
 @testable import SwifterSwift
 
+private enum OptionalTestError: Error {
+    case optionalIsNil
+}
+
 final class OptionalExtensionsTests: XCTestCase {
 
 	func testUnwrappedOrDefault() {
@@ -60,8 +64,4 @@ final class OptionalExtensionsTests: XCTestCase {
 		XCTAssert(parameters[key2] == parameter2)
 	}
 
-}
-
-enum OptionalTestError: Error {
-	case optionalIsNil
 }

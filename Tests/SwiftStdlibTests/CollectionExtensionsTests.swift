@@ -11,15 +11,15 @@ import XCTest
 
 final class CollectionExtensionsTests: XCTestCase {
 
+    let collection = [1, 2, 3, 4, 5]
+
 	func testForEachInParallel() {
-		let collection = [1, 2, 3, 4, 5]
 		collection.forEachInParallel { item in
 			XCTAssert(collection.contains(item))
 		}
 	}
 
 	func testSafeSubscript() {
-		let collection = [1, 2, 3, 4, 5]
 		XCTAssertNotNil(collection[safe: 2])
 		XCTAssertEqual(collection[safe: 2], 3)
 		XCTAssertNil(collection[safe: 10])
@@ -30,5 +30,10 @@ final class CollectionExtensionsTests: XCTestCase {
 		XCTAssert([1, 2, 3].contains([1, 2, 3].randomItem!))
 		XCTAssertNil([].randomItem)
 	}
+
+    func testAverage() {
+        XCTAssertEqual(collection.average(), 3)
+        XCTAssertEqual([Int]().average(), 0)
+    }
 
 }

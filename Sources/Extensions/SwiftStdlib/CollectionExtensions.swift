@@ -51,14 +51,14 @@ public extension Collection where Index == Int {
 }
 
 // MARK: - Methods (Integer)
-public extension Collection where Iterator.Element == Int, Index == Int {
+public extension Collection where Iterator.Element == IntegerLiteralType, Index == Int {
 
 	/// SwifterSwift: Average of all elements in array.
 	///
 	/// - Returns: the average of the array's elements.
 	public func average() -> Double {
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
-		return isEmpty ? 0 : Double(reduce(0, +)) / Double(endIndex-startIndex)
+		return isEmpty ? 0 : Double(reduce(0, +)) / Double(count)
 	}
 
 }
