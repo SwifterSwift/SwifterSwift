@@ -41,6 +41,11 @@ final class UIViewExtensionsTests: XCTestCase {
 		XCTAssertEqual(view.cornerRadius, 50)
 	}
 
+    func testFirstResponder() {
+        let view = UIView()
+        XCTAssertNil(view.firstResponder)
+    }
+
 	func testHeight() {
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
 		let view = UIView(frame: frame)
@@ -48,6 +53,11 @@ final class UIViewExtensionsTests: XCTestCase {
 		view.height = 150
 		XCTAssertEqual(view.frame.size.height, 150)
 	}
+
+    func testIsRightToLeft() {
+        let view = UIView()
+        XCTAssertFalse(view.isRightToLeft)
+    }
 
 	func testRoundCorners() {
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 100)

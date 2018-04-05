@@ -17,7 +17,6 @@ final class OptionalExtensionsTests: XCTestCase {
 
 	func testUnwrappedOrDefault() {
 		var str: String? = nil
-
 		XCTAssertEqual(str.unwrapped(or: "swift"), "swift")
 
 		str = "swifterswift"
