@@ -6,17 +6,18 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 
+#if !os(watchOS)
 // MARK: - Properties
 public extension UISegmentedControl {
-	
+
 	/// SwifterSwift: Segments titles.
 	public var segmentTitles: [String] {
 		get {
 			let range = 0..<numberOfSegments
-			return range.flatMap { titleForSegment(at: $0) }
+			return range.compactMap { titleForSegment(at: $0) }
 		}
 		set {
 			removeAllSegments()
@@ -25,12 +26,12 @@ public extension UISegmentedControl {
 			}
 		}
 	}
-	
+
 	/// SwifterSwift: Segments images.
 	public var segmentImages: [UIImage] {
 		get {
 			let range = 0..<numberOfSegments
-			return range.flatMap { imageForSegment(at: $0) }
+			return range.compactMap { imageForSegment(at: $0) }
 		}
 		set {
 			removeAllSegments()
@@ -39,6 +40,8 @@ public extension UISegmentedControl {
 			}
 		}
 	}
-	
+
 }
+#endif
+
 #endif

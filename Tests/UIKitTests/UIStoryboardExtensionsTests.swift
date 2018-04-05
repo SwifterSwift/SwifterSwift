@@ -10,13 +10,18 @@
 
 import XCTest
 @testable import SwifterSwift
-    
+
 final class UIStoryboardExtensionsTests: XCTestCase {
-    
-    func testInstantiateViewController() {
-        let storyboard = UIStoryboard(name: "TestStoryboard", bundle: Bundle(for: UIStoryboardExtensionsTests.self))
-        let viewController = storyboard.instantiateViewController(withClass: UIViewController.self)
-        XCTAssertNotNil(viewController)
+
+    func testMainStoryboard() {
+        XCTAssertNil(UIStoryboard.main)
     }
+
+	func testInstantiateViewController() {
+		let storyboard = UIStoryboard(name: "TestStoryboard", bundle: Bundle(for: UIStoryboardExtensionsTests.self))
+		let viewController = storyboard.instantiateViewController(withClass: UIViewController.self)
+		XCTAssertNotNil(viewController)
+	}
+
 }
 #endif

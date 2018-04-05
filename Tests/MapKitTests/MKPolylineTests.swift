@@ -13,6 +13,7 @@ import MapKit
 import struct CoreLocation.CLLocationCoordinate2D
 
 final class MKPolylineTests: XCTestCase {
+
     let coordinates = [(37.330514, -121.888863),
                        (37.330832, -121.888337),
                        (37.329599, -121.886859),
@@ -41,4 +42,5 @@ final class MKPolylineTests: XCTestCase {
             XCTAssertEqual(coordinate1.longitude, coordinate2.longitude, accuracy: 0.000000001)
         }
     }
+
 }

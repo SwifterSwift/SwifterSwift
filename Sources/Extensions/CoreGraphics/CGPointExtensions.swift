@@ -6,15 +6,20 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if os(macOS)
-	import Cocoa
-#else
-	import UIKit
+#if canImport(CoreGraphics)
+import CoreGraphics
+
+#if canImport(UIKit)
+import UIKit
+#endif
+
+#if canImport(Cocoa)
+import Cocoa
 #endif
 
 // MARK: - Methods
 public extension CGPoint {
-	
+
 	/// SwifterSwift: Distance from another CGPoint.
 	///
 	///     let point1 = CGPoint(x: 10, y: 10)
@@ -27,7 +32,7 @@ public extension CGPoint {
 	public func distance(from point: CGPoint) -> CGFloat {
 		return CGPoint.distance(from: self, to: point)
 	}
-	
+
 	/// SwifterSwift: Distance between two CGPoints.
 	///
 	///     let point1 = CGPoint(x: 10, y: 10)
@@ -43,12 +48,12 @@ public extension CGPoint {
 		// http://stackoverflow.com/questions/6416101/calculate-the-distance-between-two-cgpoints
 		return sqrt(pow(point2.x - point1.x, 2) + pow(point2.y - point1.y, 2))
 	}
-	
+
 }
 
 // MARK: - Operators
 public extension CGPoint {
-	
+
 	/// SwifterSwift: Add two CGPoints.
 	///
 	///     let point1 = CGPoint(x: 10, y: 10)
@@ -63,7 +68,7 @@ public extension CGPoint {
 	public static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
 		return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
 	}
-	
+
 	/// SwifterSwift: Add a CGPoints to self.
 	///
 	///     let point1 = CGPoint(x: 10, y: 10)
@@ -75,9 +80,11 @@ public extension CGPoint {
 	///   - lhs: self
 	///   - rhs: CGPoint to add.
 	public static func += (lhs: inout CGPoint, rhs: CGPoint) {
+		// swiftlint:disable shorthand_operator
 		lhs = lhs + rhs
+		// swiftlint:enable shorthand_operator
 	}
-	
+
 	/// SwifterSwift: Subtract two CGPoints.
 	///
 	///     let point1 = CGPoint(x: 10, y: 10)
@@ -92,7 +99,7 @@ public extension CGPoint {
 	public static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
 		return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
 	}
-	
+
 	/// SwifterSwift: Subtract a CGPoints from self.
 	///
 	///     let point1 = CGPoint(x: 10, y: 10)
@@ -104,9 +111,11 @@ public extension CGPoint {
 	///   - lhs: self
 	///   - rhs: CGPoint to subtract.
 	public static func -= (lhs: inout CGPoint, rhs: CGPoint) {
+		// swiftlint:disable shorthand_operator
 		lhs = lhs - rhs
+		// swiftlint:enable shorthand_operator
 	}
-	
+
 	/// SwifterSwift: Multiply a CGPoint with a scalar
 	///
 	///     let point1 = CGPoint(x: 10, y: 10)
@@ -120,7 +129,7 @@ public extension CGPoint {
 	public static func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
 		return CGPoint(x: point.x * scalar, y: point.y * scalar)
 	}
-	
+
 	/// SwifterSwift: Multiply self with a scalar
 	///
 	///     let point1 = CGPoint(x: 10, y: 10)
@@ -132,9 +141,11 @@ public extension CGPoint {
 	///   - scalar: scalar value.
 	/// - Returns: result of multiplication of the given CGPoint with the scalar.
 	public static func *= (point: inout CGPoint, scalar: CGFloat) {
+		// swiftlint:disable shorthand_operator
 		point = point * scalar
+		// swiftlint:enable shorthand_operator
 	}
-	
+
 	/// SwifterSwift: Multiply a CGPoint with a scalar
 	///
 	///     let point1 = CGPoint(x: 10, y: 10)
@@ -148,5 +159,6 @@ public extension CGPoint {
 	public static func * (scalar: CGFloat, point: CGPoint) -> CGPoint {
 		return CGPoint(x: point.x * scalar, y: point.y * scalar)
 	}
-	
+
 }
+#endif

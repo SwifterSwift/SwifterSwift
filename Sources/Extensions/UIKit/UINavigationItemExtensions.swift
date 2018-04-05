@@ -6,12 +6,13 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 
+#if !os(watchOS)
 // MARK: - Methods
 public extension UINavigationItem {
-	
+
 	/// SwifterSwift: Replace title label with an image in navigation item.
 	///
 	/// - Parameter image: UIImage to replace title with.
@@ -21,6 +22,8 @@ public extension UINavigationItem {
 		logoImageView.image = image
 		titleView = logoImageView
 	}
-	
+
 }
+#endif
+
 #endif

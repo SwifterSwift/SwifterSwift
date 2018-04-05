@@ -11,7 +11,7 @@ import XCTest
 
 #if os(iOS)
 final class UISwitchExtensionsTests: XCTestCase {
-	
+
 	func testToggle() {
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 30)
 		let aSwitch = UISwitch(frame: frame)
@@ -19,6 +19,6 @@ final class UISwitchExtensionsTests: XCTestCase {
 		aSwitch.toggle(animated: false)
 		XCTAssert(aSwitch.isOn)
 	}
-	
+
 }
 #endif

@@ -11,17 +11,17 @@ import XCTest
 
 #if os(iOS)
 final class UISearchBarExtensionsTests: XCTestCase {
-	
+
 	func testSearchBar() {
 		let searchBar = UISearchBar()
 		XCTAssertNil(searchBar.textField)
-		
+
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 30)
 		let aSearchBar = UISearchBar(frame: frame)
 		aSearchBar.text = "Hello"
 		XCTAssertNotNil(aSearchBar.textField)
 	}
-	
+
 	func testTrimmedText() {
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 30)
 		let aSearchBar = UISearchBar(frame: frame)
@@ -29,7 +29,7 @@ final class UISearchBarExtensionsTests: XCTestCase {
 		XCTAssertNotNil(aSearchBar.trimmedText)
 		XCTAssertEqual(aSearchBar.trimmedText!, "Hello")
 	}
-	
+
 	func testClear() {
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 30)
 		let aSearchBar = UISearchBar(frame: frame)
@@ -37,6 +37,6 @@ final class UISearchBarExtensionsTests: XCTestCase {
 		aSearchBar.clear()
 		XCTAssertEqual(aSearchBar.text!, "")
 	}
-	
+
 }
 #endif

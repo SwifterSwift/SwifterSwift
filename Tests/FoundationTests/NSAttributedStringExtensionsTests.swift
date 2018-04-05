@@ -10,7 +10,7 @@ import XCTest
 @testable import SwifterSwift
 
 final class NSAttributedStringExtensionsTests: XCTestCase {
-	
+
 	#if !os(macOS) && !os(tvOS)
 	func testBolded() {
 		let string = NSAttributedString(string: "Bolded")
@@ -32,13 +32,14 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 		let out = string.underlined
 		let attributes = out.attributes(at: 0, effectiveRange: nil)
 		let filteredAttributes = attributes.filter { (key, value) -> Bool in
-			return (key == NSAttributedStringKey.underlineStyle && (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.styleSingle.rawValue)
+			return (key == NSAttributedStringKey.underlineStyle &&
+				(value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.styleSingle.rawValue)
 		}
 
 		XCTAssertEqual(filteredAttributes.count, 1)
 	}
 	#endif
-	
+
 	#if !os(macOS) && !os(tvOS)
 	func testItalicized() {
 		let string = NSAttributedString(string: "Italicized")
@@ -82,92 +83,92 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 		XCTAssertEqual(attributes[NSAttributedStringKey.foregroundColor] as? UIColor, UIColor.blue)
 		XCTAssertNotEqual(attributes[NSAttributedStringKey.foregroundColor] as? UIColor, .red)
 	}
-    
-	#endif
-    
-    #if !os(macOS) && !os(tvOS)
-    func testApplyingToRegex() {
-        let email = "steve.jobs@apple.com"
-        let testString = NSAttributedString(string: "Your email is \(email)!").bolded
-        let attributes: [NSAttributedStringKey: Any] = [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue, .foregroundColor: UIColor.blue]
-        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
-        
-        let attrTestString = testString.applying(attributes: attributes, toRangesMatching: pattern)
-        
-        let attrAtBeginning = attrTestString.attributes(at: 0, effectiveRange: nil)
-        XCTAssert(attrAtBeginning.count == 1)
-        
-        var passed = false
-        // iterate through each range of attributes
-        attrTestString.enumerateAttributes(in: NSRange(0..<attrTestString.length), options: .longestEffectiveRangeNotRequired) { attrs, range, _ in
-            
-            let emailFromRange = attrTestString.attributedSubstring(from: range).string
-            
-            // exit if there are not more attributes for the subsequence than what was there originally
-            guard attrs.count > attrAtBeginning.count else { return }
 
-            // confirm that the string with the applied attributes is the email
-            XCTAssertEqual(emailFromRange, email)
-            
-            // the range contains the email, check to make sure the attributes are there and correct
-            for attr in attrs {
-                if attr.key == .underlineStyle {
-                    XCTAssertEqual(attr.value as? NSUnderlineStyle.RawValue, NSUnderlineStyle.styleSingle.rawValue)
-                    passed = true
-                } else if attr.key == .foregroundColor {
-                    XCTAssertEqual(attr.value as? UIColor, UIColor.blue)
-                    passed = true
-                } else if attr.key == .font {
-                    XCTAssertEqual((attr.value as? UIFont), .boldSystemFont(ofSize: UIFont.systemFontSize))
-                } else {
-                    passed = false
-                }
-            }
-            
-            XCTAssert(passed)
-        }
-    }
-    
-    func testApplyingToOccurrences() {
-        let name = "Steve Wozniak"
-        let greeting = "Hello, \(name)."
-        let attrGreeting = NSAttributedString(string: greeting).italicized.applying(
-            attributes: [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue,
-                         .foregroundColor: UIColor.red], toOccurrencesOf: name)
-        
-        let attrAtBeginning = attrGreeting.attributes(at: 0, effectiveRange: nil)
-        // assert that there is only one attribute at beginning from italics
-        XCTAssertEqual(attrAtBeginning.count, 1)
-        
-        var passed = false
-        // iterate through each range of attributes
-        attrGreeting.enumerateAttributes(in: NSRange(0..<attrGreeting.length), options: .longestEffectiveRangeNotRequired) { attrs, range, _ in
-            // exit if there are not more attributes for the subsequence than what was there originally
-            guard attrs.count > attrAtBeginning.count else { return }
-            
-            // confirm that the attributed string is the name
-            let stringAtRange = attrGreeting.attributedSubstring(from: range).string
-            XCTAssertEqual(stringAtRange, name)
-            
-            for attr in attrs {
-                if attr.key == .underlineStyle {
-                    XCTAssertEqual(attr.value as? NSUnderlineStyle.RawValue, NSUnderlineStyle.styleSingle.rawValue)
-                    passed = true
-                } else if attr.key == .foregroundColor {
-                    XCTAssertEqual(attr.value as? UIColor, UIColor.red)
-                    passed = true
-                } else if attr.key == .font {
-                    XCTAssertEqual((attr.value as? UIFont), .italicSystemFont(ofSize: UIFont.systemFontSize))
-                } else {
-                    passed = false
-                }
-            }
-        }
-        
-        XCTAssert(passed)
-    }
-    #endif
-    
+	#endif
+
+	#if !os(macOS) && !os(tvOS)
+	func testApplyingToRegex() {
+		let email = "steve.jobs@apple.com"
+		let testString = NSAttributedString(string: "Your email is \(email)!").bolded
+		let attributes: [NSAttributedStringKey: Any] = [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue, .foregroundColor: UIColor.blue]
+		let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+
+		let attrTestString = testString.applying(attributes: attributes, toRangesMatching: pattern)
+
+		let attrAtBeginning = attrTestString.attributes(at: 0, effectiveRange: nil)
+		XCTAssert(attrAtBeginning.count == 1)
+
+		var passed = false
+		// iterate through each range of attributes
+		attrTestString.enumerateAttributes(in: NSRange(0..<attrTestString.length), options: .longestEffectiveRangeNotRequired) { attrs, range, _ in
+
+			let emailFromRange = attrTestString.attributedSubstring(from: range).string
+
+			// exit if there are not more attributes for the subsequence than what was there originally
+			guard attrs.count > attrAtBeginning.count else { return }
+
+			// confirm that the string with the applied attributes is the email
+			XCTAssertEqual(emailFromRange, email)
+
+			// the range contains the email, check to make sure the attributes are there and correct
+			for attr in attrs {
+				if attr.key == .underlineStyle {
+					XCTAssertEqual(attr.value as? NSUnderlineStyle.RawValue, NSUnderlineStyle.styleSingle.rawValue)
+					passed = true
+				} else if attr.key == .foregroundColor {
+					XCTAssertEqual(attr.value as? UIColor, UIColor.blue)
+					passed = true
+				} else if attr.key == .font {
+					XCTAssertEqual((attr.value as? UIFont), .boldSystemFont(ofSize: UIFont.systemFontSize))
+				} else {
+					passed = false
+				}
+			}
+
+			XCTAssert(passed)
+		}
+	}
+
+	func testApplyingToOccurrences() {
+		let name = "Steve Wozniak"
+		let greeting = "Hello, \(name)."
+		let attrGreeting = NSAttributedString(string: greeting).italicized.applying(
+			attributes: [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue,
+						 .foregroundColor: UIColor.red], toOccurrencesOf: name)
+
+		let attrAtBeginning = attrGreeting.attributes(at: 0, effectiveRange: nil)
+		// assert that there is only one attribute at beginning from italics
+		XCTAssertEqual(attrAtBeginning.count, 1)
+
+		var passed = false
+		// iterate through each range of attributes
+		attrGreeting.enumerateAttributes(in: NSRange(0..<attrGreeting.length), options: .longestEffectiveRangeNotRequired) { attrs, range, _ in
+			// exit if there are not more attributes for the subsequence than what was there originally
+			guard attrs.count > attrAtBeginning.count else { return }
+
+			// confirm that the attributed string is the name
+			let stringAtRange = attrGreeting.attributedSubstring(from: range).string
+			XCTAssertEqual(stringAtRange, name)
+
+			for attr in attrs {
+				if attr.key == .underlineStyle {
+					XCTAssertEqual(attr.value as? NSUnderlineStyle.RawValue, NSUnderlineStyle.styleSingle.rawValue)
+					passed = true
+				} else if attr.key == .foregroundColor {
+					XCTAssertEqual(attr.value as? UIColor, UIColor.red)
+					passed = true
+				} else if attr.key == .font {
+					XCTAssertEqual((attr.value as? UIFont), .italicSystemFont(ofSize: UIFont.systemFontSize))
+				} else {
+					passed = false
+				}
+			}
+		}
+
+		XCTAssert(passed)
+	}
+	#endif
+
 	#if !os(macOS) && !os(tvOS)
 	// MARK: - Operators
 	func testAppending() {
@@ -202,31 +203,31 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 		XCTAssertEqual(filteredAttributes.count, 1)
 	}
 	#endif
-    
-    #if !os(macOS) && !os(tvOS)
-    func testAttributes() {
-        let attrString = NSAttributedString(string: "Test String").bolded.struckthrough.underlined.colored(with: UIColor.blue)
-        let attributes = attrString.attributes
 
-        XCTAssertEqual(attributes.count, 4)
+	#if !os(macOS) && !os(tvOS)
+	func testAttributes() {
+		let attrString = NSAttributedString(string: "Test String").bolded.struckthrough.underlined.colored(with: UIColor.blue)
+		let attributes = attrString.attributes
 
-        let filteredAttributes = attributes.filter { (key, value) -> Bool in
-            switch key {
-            case NSAttributedStringKey.underlineStyle:
-                return (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.styleSingle.rawValue
-            case NSAttributedStringKey.strikethroughStyle:
-                return (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.styleSingle.rawValue
-            case NSAttributedStringKey.font:
-                return (value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize)
-            case NSAttributedStringKey.foregroundColor:
-                return (value as? UIColor) == .blue
-            default:
-                return false
-            }
-        }
+		XCTAssertEqual(attributes.count, 4)
 
-        XCTAssertEqual(filteredAttributes.count, 4)
-        
-    }
-    #endif
+		let filteredAttributes = attributes.filter { (key, value) -> Bool in
+			switch key {
+			case NSAttributedStringKey.underlineStyle:
+				return (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.styleSingle.rawValue
+			case NSAttributedStringKey.strikethroughStyle:
+				return (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.styleSingle.rawValue
+			case NSAttributedStringKey.font:
+				return (value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize)
+			case NSAttributedStringKey.foregroundColor:
+				return (value as? UIColor) == .blue
+			default:
+				return false
+			}
+		}
+
+		XCTAssertEqual(filteredAttributes.count, 4)
+
+	}
+	#endif
 }

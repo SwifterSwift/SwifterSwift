@@ -9,7 +9,7 @@ import XCTest
 @testable import SwifterSwift
 
 final class SwifterSwiftTests: XCTestCase {
-	
+
 	func testTypeName() {
 		let number = 8
 		XCTAssertEqual(SwifterSwift.typeName(for: number), "Int")
@@ -43,9 +43,9 @@ final class SwifterSwiftTests: XCTestCase {
 			incrementor()
 		})
 
-		for i in 1...10 {
+		for index in 1...10 {
 			debouncedIncrementor()
-			if i == 10 {
+			if index == 10 {
 				SwifterSwift.delay(milliseconds: 30, completion: {
 					done.fulfill()
 				})
@@ -58,5 +58,5 @@ final class SwifterSwiftTests: XCTestCase {
 			XCTAssertEqual(value, 1, "Value was incremented only once")
 		})
 	}
-	
+
 }
