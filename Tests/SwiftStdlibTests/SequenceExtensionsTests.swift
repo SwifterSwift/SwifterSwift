@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class SequenceExtensionsTests: XCTestCase {
+final class SequenceExtensionsTests: XCTestCase {
     
     func testAllMatch() {
         let collection = [2, 4, 6, 8, 10, 12]
