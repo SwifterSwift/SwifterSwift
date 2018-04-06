@@ -72,5 +72,9 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         }
         XCTAssertEqual(alertController.preferredAction, alertController.actions[preferredButtonIndex])
     }
+    
+    func testViewControllerGetInstace() {
+        XCTAssertNil(UIViewController.instanceFromStoryboard())
+    }
 }
 #endif
