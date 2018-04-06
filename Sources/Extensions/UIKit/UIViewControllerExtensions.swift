@@ -83,6 +83,9 @@ public extension UIViewController {
         
         /// instance from storyboard
         /// ViewControllerClassName.instanceFromStoryboard()
+        /// - Parameters:
+        ///   - storyboardName: Storyboard to which the ViewController belongs (if nil -> search storyboard)
+        /// - Returns: self instance (optional value)
         ///
         public class func instanceFromStoryboard(_ storyboardName: String? = nil) -> Self? {
             let className = String(describing: self)
@@ -98,7 +101,12 @@ public extension UIViewController {
             return fromStoryboardHelper(storyboardName)
         }
         
-        private class func getInstanceFromStoryboard (_ identifier : String) -> UIViewController? {
+        /// Get an instance of a nib whose Identifier matches on the storyboard
+        /// - Parameters:
+        ///   - identifier: ViewController identifier
+        /// - Returns: identifier UIViewController instance (optional value)
+        ///
+        public class func getInstanceFromStoryboard (_ identifier : String) -> UIViewController? {
             guard let resourcePath = Bundle(for: self).resourcePath else { return nil }
             let storyboardPaths : Array = UIViewController.storyboardPaths(resourcePath)
             for storyboardPath : String in storyboardPaths {
@@ -113,6 +121,11 @@ public extension UIViewController {
             return nil;
         }
         
+        /// Look in storyboards in bundles
+        /// - Parameters:
+        ///   - resourcePath: Begins with resource path.
+        /// - Returns: All Storayboard paths
+        ///
         private class func storyboardPaths(_ resourcePath: String ) -> Array<String> {
             var fileNames : [String] = []
             let resourceContents : Array = try! FileManager.default.contentsOfDirectory(atPath: resourcePath)
