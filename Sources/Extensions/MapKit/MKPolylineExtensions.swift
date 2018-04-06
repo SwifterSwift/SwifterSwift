@@ -6,11 +6,11 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if !os(watchOS)
-
+#if canImport(MapKit)
 import MapKit
 
 // MARK: - Initializers
+#if !os(watchOS)
 @available(tvOS 9.2, *)
 public extension MKPolyline {
 
@@ -19,24 +19,25 @@ public extension MKPolyline {
     /// - Parameter coordinates: Array of CLLocationCoordinate2D(s).
     public convenience init(coordinates: [CLLocationCoordinate2D]) {
         var refCoordinates = coordinates
-
         self.init(coordinates: &refCoordinates, count: refCoordinates.count)
     }
-}
 
+}
+#endif
+
+#if !os(watchOS)
 // MARK: - Properties
 @available(tvOS 9.2, *)
 public extension MKPolyline {
 
     /// SwifterSwift: Return an Array of coordinates representing the provided polyline.
     public var coordinates: [CLLocationCoordinate2D] {
-        var coords = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid,
-                                              count: pointCount)
-
+        var coords = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid, count: pointCount)
         getCoordinates(&coords, range: NSRange(location: 0, length: pointCount))
-
         return coords
     }
+
 }
+#endif
 
 #endif

@@ -6,26 +6,30 @@
 //  Copyright © 2016 SwifterSwift
 //
 
+#if canImport(CoreGraphics)
 import CoreGraphics
+#endif
 
 // MARK: - Properties
 public extension Double {
-	
+
 	/// SwifterSwift: Int.
 	public var int: Int {
 		return Int(self)
 	}
-	
+
 	/// SwifterSwift: Float.
 	public var float: Float {
 		return Float(self)
 	}
-	
+
+	#if canImport(CoreGraphics)
 	/// SwifterSwift: CGFloat.
 	public var cgFloat: CGFloat {
 		return CGFloat(self)
 	}
-	
+	#endif
+
 }
 
 // MARK: - Operators
@@ -43,6 +47,7 @@ public func ** (lhs: Double, rhs: Double) -> Double {
 	return pow(lhs, rhs)
 }
 
+// swiftlint:disable identifier_name
 prefix operator √
 /// SwifterSwift: Square root of double.
 ///
@@ -52,3 +57,4 @@ public prefix func √ (double: Double) -> Double {
 	// http://nshipster.com/swift-operators/
 	return sqrt(double)
 }
+// swiftlint:enable identifier_name

@@ -1,26 +1,70 @@
 # CHANGELOG
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
----
+# Upcoming release
+
+
 > # Upcoming release
 >
+> ### Added	 > ### Added
+> ### Changed
+> ### Deprecated
+> ### Removed
+> ### Fixed
+> ### Security
+
+---
+
+# [v4.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.3.0)
+
 ### Added
+- **Swift 4.1 / Xcode 9.3**
+  - Added Swift 4.1 support.
+- **Linux Support**:
+  - Updated all swift files to use Swift's 4.1 [`# if canImport(module)`](https://github.com/apple/swift-evolution/blob/master/proposals/0075-import-test.md) statement, which brings the project one step closer to first-class Linux support.
+- **Sequence**
+  - `all()` method moved from ArrayExtensions to SequenceExtensions. [#424](https://github.com/SwifterSwift/SwifterSwift/pull/424) by [n0an](https://github.com/n0an).
+  - `none()` method moved from ArrayExtensions to SequenceExtensions. [#424](https://github.com/SwifterSwift/SwifterSwift/pull/424) by [n0an](https://github.com/n0an).
+  - Added `any()` method to return if any element of sequence elements conforms to given condition. [#424](https://github.com/SwifterSwift/SwifterSwift/pull/424) by [n0an](https://github.com/n0an).
 - **String**
   - added computed property `isSpelledCorrectly` to check if the given string has typos or not. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
   - added `removingPrefix(_ prefix:)` method to remove given prefix from the string. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
   - added `removingSuffix(_ suffix:)` method to remove given suffix from the string. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
+- **SwiftLint**:
+  - reduced the number of disabled rules in _.swiftlint.yml_, please add `disable` and `enable` statements from now on when needed in code.
+  
+### Changed
+- **SignedNumeric**:
+  - `asLocaleCurrency` now returns an optional string.
+- **Array**:
+  - `rotate` method now returns a `discardableResult`.
+  - `shuffle` method now returns a `discardableResult`.
+  - `sort<T: Comparable>(by:, ascending:)` method now returns a `discardableResult`.
+  - `keep` method now returns a `discardableResult`.
 
-> ### Changed
-> ### Deprecated
-> ### Removed
->
+### Deprecated
+- **UIStoryboard**:
+  - `mainStoryboard` property has been renamed to `main`.
+- **Array**:
+  - deprecated `pop` method in favor of Swift’s `popLast`.
+  - deprecated `push` method in favor of Swift’s `append`.
+  - deprecated `swap` method in favor of Swift’s `swapAt`.
+  - deprecated `item(at index: Int)` method in favor of `subscript(safe:)`.
+  - `duplicatesRemoved` method has been renamed to `withoutDuplicates`.
+- **Bool**:
+  - deprecated `toggled` property, use `!self` instead.
+  - deprecated `toggle` method, use `self = !self` instead.
+
+### Removed
+
 ### Fixed
 - **String**
    - Fixed UIView extension `addShadow`  was not showing the shadow on view bug. [#420](https://github.com/SwifterSwift/SwifterSwift/pull/420) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 
-> ### Security
+### Security
 
 ---
+
 # [v4.2.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.2.0)
 
 ### Added
@@ -62,8 +106,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - added `toSlug()` to return a slug version of a given string. [397#](https://github.com/SwifterSwift/SwifterSwift/pull/397) by [FrankKair](https://github.com/FrankKair)
 - New **UIStackView**
   - added `init(arrangedSubviews:, axis:, spacing:, alignment:, distribution:)` to directly initialize a `UIStackView` with an array of `UIViews`. [#409](https://github.com/SwifterSwift/SwifterSwift/pull/409) by [BennX](https://github.com/BennX)
-### Fixed
 
+### Fixed
 - **String**
   - Fixed `isNumeric` to check if string is a valid Swift number and added isDigits to check if string only contains digits. [#396](https://github.com/SwifterSwift/SwifterSwift/pull/396) by [seifeet](https://github.com/seifeet).
 - **Collection**

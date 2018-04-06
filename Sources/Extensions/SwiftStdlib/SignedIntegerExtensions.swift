@@ -8,27 +8,27 @@
 
 // MARK: - Properties
 public extension SignedInteger {
-	
+
 	/// SwifterSwift: Absolute value of integer number.
 	public var abs: Self {
 		return Swift.abs(self)
 	}
-	
+
 	/// SwifterSwift: Check if integer is positive.
 	public var isPositive: Bool {
 		return self > 0
 	}
-	
+
 	/// SwifterSwift: Check if integer is negative.
 	public var isNegative: Bool {
 		return self < 0
 	}
-	
+
 	/// SwifterSwift: Check if integer is even.
 	public var isEven: Bool {
 		return (self % 2) == 0
 	}
-	
+
 	/// SwifterSwift: Check if integer is odd.
 	public var isOdd: Bool {
 		return (self % 2) != 0
@@ -47,18 +47,19 @@ public extension SignedInteger {
 		}
 		let hours = self / 3600
 		let mins = (self % 3600) / 60
-		
+
 		if hours != 0 && mins == 0 {
 			return "\(hours)h"
 		}
 		return "\(hours)h \(mins)m"
 	}
-	
+
 }
 
 // MARK: - Methods
 public extension SignedInteger {
-	
+
+	// swiftlint:disable identifier_name
 	/// SwifterSwift: Greatest common divisor of integer value and n.
 	///
 	/// - Parameter n: integer value to find gcd with.
@@ -66,7 +67,9 @@ public extension SignedInteger {
 	public func gcd(of n: Self) -> Self {
 		return n == 0 ? self : n.gcd(of: self % n)
 	}
-	
+	// swiftlint:enable identifier_name
+
+	// swiftlint:disable identifier_name
 	/// SwifterSwift: Least common multiple of integer and n.
 	///
 	/// - Parameter n: integer value to find lcm with.
@@ -74,5 +77,6 @@ public extension SignedInteger {
 	public func lcm(of n: Self) -> Self {
 		return (self * n).abs / gcd(of: n)
 	}
-	
+	// swiftlint:enable identifier_name
+
 }

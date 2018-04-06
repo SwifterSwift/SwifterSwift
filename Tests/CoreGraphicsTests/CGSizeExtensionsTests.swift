@@ -10,7 +10,7 @@ import XCTest
 @testable import SwifterSwift
 
 final class CGSizeExtensionsTests: XCTestCase {
-	
+
 	func testAspectFit() {
 		let rect = CGSize(width: 120, height: 80)
 		let parentRect  = CGSize(width: 100, height: 50)
@@ -18,7 +18,7 @@ final class CGSizeExtensionsTests: XCTestCase {
 		XCTAssertEqual(newRect.width, 75)
 		XCTAssertEqual(newRect.height, 50)
 	}
-	
+
 	func testAspectFill() {
 		let rect = CGSize(width: 20, height: 120)
 		let parentRect  = CGSize(width: 100, height: 60)
@@ -26,5 +26,5 @@ final class CGSizeExtensionsTests: XCTestCase {
 		XCTAssertEqual(newRect.width, 100)
 		XCTAssertEqual(newRect.height, 60)
 	}
-	
+
 }

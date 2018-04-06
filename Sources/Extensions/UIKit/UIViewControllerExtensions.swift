@@ -6,23 +6,24 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 
+#if !os(watchOS)
 // MARK: - Properties
 public extension UIViewController {
-	
+
 	/// SwifterSwift: Check if ViewController is onscreen and not hidden.
 	public var isVisible: Bool {
 		// http://stackoverflow.com/questions/2777438/how-to-tell-if-uiviewcontrollers-view-is-visible
 		return self.isViewLoaded && view.window != nil
 	}
-	
+
 }
 
 // MARK: - Methods
 public extension UIViewController {
-	
+
 	/// SwifterSwift: Assign as listener to notification.
 	///
 	/// - Parameters:
@@ -31,19 +32,19 @@ public extension UIViewController {
 	public func addNotificationObserver(name: Notification.Name, selector: Selector) {
 		NotificationCenter.default.addObserver(self, selector: selector, name: name, object: nil)
 	}
-	
+
 	/// SwifterSwift: Unassign as listener to notification.
 	///
 	/// - Parameter name: notification name.
 	public func removeNotificationObserver(name: Notification.Name) {
 		NotificationCenter.default.removeObserver(self, name: name, object: nil)
 	}
-	
+
 	/// SwifterSwift: Unassign as listener from all notifications.
 	public func removeNotificationsObserver() {
 		NotificationCenter.default.removeObserver(self)
 	}
-	
+
     /// SwifterSwift: Helper method to display an alert on any UIViewController subclass. Uses UIAlertController to show an alert
     ///
     /// - Parameters:
@@ -59,7 +60,7 @@ public extension UIViewController {
         if allButtons.count == 0 {
             allButtons.append("OK")
         }
-        
+
         for index in 0..<allButtons.count {
             let buttonTitle = allButtons[index]
             let action = UIAlertAction(title: buttonTitle, style: .default, handler: { (_) in
@@ -76,5 +77,8 @@ public extension UIViewController {
         present(alertController, animated: true, completion: nil)
         return alertController
     }
+
 }
+#endif
+
 #endif

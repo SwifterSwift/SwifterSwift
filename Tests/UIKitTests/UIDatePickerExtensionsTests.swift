@@ -12,20 +12,20 @@ import XCTest
 @testable import SwifterSwift
 
 final class UIDatePickerExtensionsTests: XCTestCase {
-	
+
 	func testTextColor() {
 		let datePicker = UIDatePicker()
 		XCTAssertNil(datePicker.textColor)
-		
+
 		datePicker.textColor = .red
 		XCTAssertEqual(datePicker.textColor, .red)
-		
+
 		datePicker.textColor = .green
 		XCTAssertEqual(datePicker.textColor, .green)
-		
+
 		datePicker.textColor = nil
 		XCTAssertNil(datePicker.textColor)
 	}
-	
+
 }
 #endif
