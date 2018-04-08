@@ -1,9 +1,6 @@
 # CHANGELOG
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
-# Upcoming release
-
-
 > # Upcoming release
 >
 > ### Added
