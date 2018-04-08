@@ -6,7 +6,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 > # Upcoming release
 >
-> ### Added	 > ### Added
+> ### Added
 > ### Changed
 > ### Deprecated
 > ### Removed
