@@ -32,7 +32,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - added `removingSuffix(_ suffix:)` method to remove given suffix from the string. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
 - **SwiftLint**:
   - reduced the number of disabled rules in _.swiftlint.yml_, please add `disable` and `enable` statements from now on when needed in code.
-  
+  - added SwiftLint to test targets to insure code style consistency across the project.
+
 ### Changed
 - **SignedNumeric**:
   - `asLocaleCurrency` now returns an optional string.
