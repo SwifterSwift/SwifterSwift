@@ -1,12 +1,9 @@
 # CHANGELOG
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
-# Upcoming release
-
-
 > # Upcoming release
 >
-> ### Added	 > ### Added
+> ### Added
 > ### Changed
 > ### Deprecated
 > ### Removed
@@ -56,13 +53,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - deprecated `toggled` property, use `!self` instead.
   - deprecated `toggle` method, use `self = !self` instead.
 
-### Removed
-
 ### Fixed
 - **String**
    - Fixed UIView extension `addShadow`  was not showing the shadow on view bug. [#420](https://github.com/SwifterSwift/SwifterSwift/pull/420) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 
-### Security
 
 ---
 
