@@ -48,7 +48,7 @@ If you're new to Open Source or Swift the SwifterSwift community is a great plac
 Please refer to the following rules before submitting a pull request with your new extensions:
 
 - Make sure no similar extension already exist in SwifterSwift.
-- Add your contributions to [**master branch** ](https://github.com/SwifterSwift/SwifterSwift/tree/master):
+- Add your contributions to [**master branch**](https://github.com/SwifterSwift/SwifterSwift/tree/master):
 	- by doing this we can merge new pull-requests into **master** branch as soon as they are accepted, and add them to the next releases once they are fully tested.
 - Mention the original source of extension source (if possible) as a comment inside extension:
 
