@@ -11,7 +11,9 @@ This document contains information and guidelines about contributing to this pro
 - [Adding changelog entries](#adding-changelog-entries)
 - [Reporting Issues](#reporting-issues)
 
+
 ---
+
 
 ## Asking Questions
 
@@ -20,7 +22,9 @@ For any usage questions that are not specific to the project itself, please ask 
 By doing so, you'll be more likely to quickly solve your problem, and you'll allow anyone else with the same question to find the answer.
 This also allows us to focus on improving the project for others.
 
+
 ---
+
 
 ## Ways to Contribute
 
@@ -35,7 +39,9 @@ If you're new to Open Source or Swift the SwifterSwift community is a great plac
 
 **Your contribution is always welcomed, no contribution is too small.**
 
+
 ---
+
 
 ## Adding new Extensions
 
@@ -177,6 +183,17 @@ In Xcode select a method and press `command` + `alt` + `/` to create a documenta
 
 ---
 
+
+## Adding changelog entries
+
+The [Changelog](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md) is a file which contains a curated, chronologically ordered list of notable changes for each version of a project. Please make sure to add a changelog entry describing your contribution to it every time there is a notable change.
+
+The [Changelog Guidelines](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG_GUIDELINES.md) contains instructions for maintaining (or adding new entries) to the Changelog.
+
+
+---
+
+
 ## Reporting Issues
 A great way to contribute to the project is to send a detailed issue when you encounter a problem.
 We always appreciate a well-written, thorough bug report.
@@ -199,13 +216,6 @@ Doing this helps prioritize the most common problems and requests.
 
 This information will help us review and fix your issue faster.
 
----
-
-## Adding changelog entries
-
-The [Changelog](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md) is a file which contains a curated, chronologically ordered list of notable changes for each version of a project. Please make sure to add a changelog entry describing your contribution to it every time there is a notable change.
-
-The [Changelog Guidelines](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG_GUIDELINES.md) contains instructions for maintaining (or adding new entries) to the Changelog.
 
 ---
 
