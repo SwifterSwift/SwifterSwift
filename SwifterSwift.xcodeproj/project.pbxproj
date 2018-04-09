@@ -1077,6 +1077,7 @@
 				07C50CC51F5EAF2700F46E5A /* Sources */,
 				07C50CC61F5EAF2700F46E5A /* Frameworks */,
 				07C50CC71F5EAF2700F46E5A /* Resources */,
+				0763D8C5207A1931000029F3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1114,6 +1115,7 @@
 				07C50CE31F5EAF6300F46E5A /* Sources */,
 				07C50CE41F5EAF6300F46E5A /* Frameworks */,
 				07C50CE51F5EAF6300F46E5A /* Resources */,
+				0763D8C6207A193D000029F3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1267,7 +1269,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		074EAF161F7B859500C74636 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1309,6 +1311,32 @@
 			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		074EAF191F7B85CB00C74636 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		0763D8C5207A1931000029F3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\nswiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+		0763D8C6207A193D000029F3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

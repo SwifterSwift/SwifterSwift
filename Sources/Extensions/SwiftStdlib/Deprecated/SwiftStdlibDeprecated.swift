@@ -5,7 +5,6 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-// MARK: - Properties
 public extension Bool {
 
     /// SwifterSwift: Return inversed value of bool.
@@ -20,7 +19,6 @@ public extension Bool {
 
 }
 
-// MARK: - Methods
 public extension Bool {
 
     @discardableResult
@@ -38,7 +36,6 @@ public extension Bool {
     }
 
 }
-
 
 extension String {
 
@@ -128,7 +125,6 @@ public extension Array {
 
 }
 
-// MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
 
 	/// SwifterSwift: Return array with all duplicate elements removed.

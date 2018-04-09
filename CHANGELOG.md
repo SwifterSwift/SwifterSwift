@@ -1,12 +1,9 @@
 # CHANGELOG
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
-# Upcoming release
-
-
 > # Upcoming release
 >
-> ### Added	 > ### Added
+> ### Added
 > ### Changed
 > ### Deprecated
 > ### Removed
@@ -36,6 +33,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - added `removingSuffix(_ suffix:)` method to remove given suffix from the string. [#430](https://github.com/SwifterSwift/SwifterSwift/pull/430) by [n0an](https://github.com/n0an).
 - **SwiftLint**:
   - reduced the number of disabled rules in _.swiftlint.yml_, please add `disable` and `enable` statements from now on when needed in code.
+  - added SwiftLint to test targets to insure code style consistency across the project.
 
 ### Changed
 - **SignedNumeric**:
@@ -59,13 +57,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - deprecated `toggled` property, use `!self` instead.
   - deprecated `toggle` method, use `self = !self` instead.
 
-### Removed
-
 ### Fixed
 - **String**
    - Fixed UIView extension `addShadow`  was not showing the shadow on view bug. [#420](https://github.com/SwifterSwift/SwifterSwift/pull/420) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 
-### Security
 
 ---
 

@@ -9,6 +9,7 @@
 import Foundation
 
 public extension Sequence {
+
     /// SwifterSwift: Check if all elements in collection match a conditon.
     ///
     ///        [2, 2, 4].all(matching: {$0 % 2 == 0}) -> true
@@ -19,7 +20,7 @@ public extension Sequence {
     public func all(matching condition: (Element) throws -> Bool) rethrows -> Bool {
         return try !contains { try !condition($0) }
     }
-    
+
     /// SwifterSwift: Check if no elements in collection match a conditon.
     ///
     ///        [2, 2, 4].none(matching: {$0 % 2 == 0}) -> false
@@ -30,7 +31,7 @@ public extension Sequence {
     public func none(matching condition: (Element) throws -> Bool) rethrows -> Bool {
         return try !contains { try condition($0) }
     }
-    
+
     /// SwifterSwift: Check if any element in collection match a conditon.
     ///
     ///        [2, 2, 4].any(matching: {$0 % 2 == 0}) -> false
@@ -41,4 +42,5 @@ public extension Sequence {
     public func any(matching condition: (Element) throws -> Bool) rethrows -> Bool {
         return try contains { try condition($0) }
     }
+
 }

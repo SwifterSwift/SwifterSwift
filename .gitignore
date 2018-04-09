@@ -1,4 +1,4 @@
-# Xcode
+## Xcode
 .DS_Store
 
 ## Build generated
@@ -31,15 +31,14 @@ xcuserdata/
 timeline.xctimeline
 playground.xcworkspace
 
-# Swift Package Manager
+## Swift Package Manager
 .build/
 
-# CocoaPods
+## CocoaPods
 Pods/
 
-# Carthage
+## Carthage
 Carthage/Build
 
-# Jazzy docs
-############
+## Jazzy docs
 docs/
