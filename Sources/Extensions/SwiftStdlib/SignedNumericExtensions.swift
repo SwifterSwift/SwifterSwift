@@ -35,6 +35,7 @@ public extension SignedNumeric {
     ///
     /// - Parameter locale: Locale, default is .current.
     /// - Returns: String representation of number spelled in specified locale language. E.g. input 92, output in "en": "ninety-two"
+    #if canImport(Foundation)
     public func spelledOutString(locale: Locale = .current) -> String? {
         let formatter = NumberFormatter()
         formatter.locale = locale
@@ -43,4 +44,5 @@ public extension SignedNumeric {
         guard let number = self as? NSNumber else { return nil }
         return formatter.string(from: number)
     }
+    #endif
 }
