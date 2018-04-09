@@ -715,6 +715,18 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(testString * -5, "")
         XCTAssertEqual(-5 * testString, "")
     }
+    
+    func testIntSpellOut() {
+        let num = 12.32
+        XCTAssertNotNil(num.spelledOutString(locale: Locale(identifier: "en_US")))
+        XCTAssertEqual(num.spelledOutString(locale: Locale(identifier: "en_US")), "twelve point three two")
+    }
+    
+    func testIntOrdinal() {
+        let num = 12
+        XCTAssertNotNil(num.ordinalString())
+        XCTAssertEqual(num.ordinalString(), "12th")
+    }
 
 }
 // swiftlint:enable type_body_length

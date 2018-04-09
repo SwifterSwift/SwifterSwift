@@ -25,3 +25,24 @@ public extension SignedNumeric {
 	}
 
 }
+
+// MARK: - Methods
+public extension SignedNumeric {
+    
+    /// SwifterSwift: Spelled out representation of a number.
+    ///
+    ///        print((12.32).spelledOutString()) // prints "twelve point three two"
+    ///
+    /// - Parameter locale: Locale, default is .current.
+    /// - Returns: String representation of number spelled in specified locale language. E.g. input 92, output in "en": "ninety-two"
+    #if canImport(Foundation)
+    public func spelledOutString(locale: Locale = .current) -> String? {
+        let formatter = NumberFormatter()
+        formatter.locale = locale
+        formatter.numberStyle = .spellOut
+        
+        guard let number = self as? NSNumber else { return nil }
+        return formatter.string(from: number)
+    }
+    #endif
+}
