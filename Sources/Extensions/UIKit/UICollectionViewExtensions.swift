@@ -75,9 +75,12 @@ public extension UICollectionView {
 	///   - name: UICollectionViewCell type.
 	///   - indexPath: location of cell in collectionView.
 	/// - Returns: UICollectionViewCell object with associated class name.
-	public func dequeueReusableCell<T: UICollectionViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T? {
-		return dequeueReusableCell(withReuseIdentifier: String(describing: name), for: indexPath) as? T
-	}
+    public func dequeueReusableCell<T: UICollectionViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
+        guard let cell = self.dequeueReusableCell(withReuseIdentifier: String(describing: name), for: indexPath) as? T else {
+            fatalError("Couldn't find nib file for \(String(describing: name))")
+        }
+        return cell
+    }
 
 	/// SwifterSwift: Dequeue reusable UICollectionReusableView using class name.
 	///
@@ -87,7 +90,10 @@ public extension UICollectionView {
 	///   - indexPath: location of cell in collectionView.
 	/// - Returns: UICollectionReusableView object with associated class name.
 	public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind kind: String, withClass name: T.Type, for indexPath: IndexPath) -> T? {
-		return dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: name), for: indexPath) as? T
+        guard let cell = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: name), for: indexPath) as? T else {
+            fatalError("Couldn't find nib file for \(String(describing: name))")
+        }
+		return cell
 	}
 
 	/// SwifterSwift: Register UICollectionReusableView using class name.
