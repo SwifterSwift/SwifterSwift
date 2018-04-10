@@ -28,7 +28,7 @@ public extension SignedNumeric {
 
 // MARK: - Methods
 public extension SignedNumeric {
-    
+
     /// SwifterSwift: Spelled out representation of a number.
     ///
     ///        print((12.32).spelledOutString()) // prints "twelve point three two"
@@ -40,7 +40,7 @@ public extension SignedNumeric {
         let formatter = NumberFormatter()
         formatter.locale = locale
         formatter.numberStyle = .spellOut
-        
+
         guard let number = self as? NSNumber else { return nil }
         return formatter.string(from: number)
     }
