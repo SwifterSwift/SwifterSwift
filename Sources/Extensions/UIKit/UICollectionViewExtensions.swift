@@ -89,7 +89,7 @@ public extension UICollectionView {
 	///   - name: UICollectionReusableView type.
 	///   - indexPath: location of cell in collectionView.
 	/// - Returns: UICollectionReusableView object with associated class name.
-	public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind kind: String, withClass name: T.Type, for indexPath: IndexPath) -> T? {
+	public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind kind: String, withClass name: T.Type, for indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: name), for: indexPath) as? T else {
             fatalError("Couldn't find nib file for \(String(describing: name))")
         }
