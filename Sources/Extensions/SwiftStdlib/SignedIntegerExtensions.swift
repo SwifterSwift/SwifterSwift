@@ -78,7 +78,7 @@ public extension SignedInteger {
 		return (self * n).abs / gcd(of: n)
 	}
 	// swiftlint:enable identifier_name
-    
+
     #if canImport(Foundation)
     @available(iOS 9.0, macOS 10.11, *)
     /// SwifterSwift: Ordinal representation of an integer.

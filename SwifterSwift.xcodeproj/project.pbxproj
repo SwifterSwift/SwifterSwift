@@ -415,7 +415,6 @@
 
 /* Begin PBXFileReference section */
 		0713066E1FB597920023A9D8 /* FoundationDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDeprecated.swift; sourceTree = "<group>"; };
-		07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDeprecated.swift; sourceTree = "<group>"; };
 		0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtensions.swift; sourceTree = "<group>"; };
 		074EAF1A1F7BA68B00C74636 /* UIFontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensions.swift; sourceTree = "<group>"; };
 		074EAF1E1F7BA74600C74636 /* UIFontExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtensionsTest.swift; sourceTree = "<group>"; };
@@ -611,14 +610,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		071306651FB596600023A9D8 /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				07263D5C1FB3175F003CE515 /* FoundationDeprecated.swift */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		0713066D1FB5977F0023A9D8 /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
@@ -686,7 +677,6 @@
 				07898B8D1F278E6300558C97 /* Sources */,
 				07C50CF21F5EAF7B00F46E5A /* Tests */,
 				07898B5E1F278D7600558C97 /* Products */,
-				071306651FB596600023A9D8 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
