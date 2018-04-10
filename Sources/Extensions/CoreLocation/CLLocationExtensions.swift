@@ -70,5 +70,11 @@ public extension CLLocation {
 		return (degrees+360).truncatingRemainder(dividingBy: 360)
 	}
 
+    /// SwifterSwift: Validates if the CoreLocation is available on the devices
+    
+    public static func isLocationPermissionGranted() -> Bool {
+        guard CLLocationManager.locationServicesEnabled() else { return false }
+        return [.authorizedAlways, .authorizedWhenInUse].contains(CLLocationManager.authorizationStatus())
+    }
 }
 #endif
