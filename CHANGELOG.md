@@ -34,6 +34,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **SwiftLint**:
   - reduced the number of disabled rules in _.swiftlint.yml_, please add `disable` and `enable` statements from now on when needed in code.
   - added SwiftLint to test targets to insure code style consistency across the project.
+- **CoreLocation**:
+  - added a simple method that checks to see if CoreLocation is available on the device 
 
 ### Changed
 - **SignedNumeric**:
