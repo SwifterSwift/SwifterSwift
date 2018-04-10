@@ -79,10 +79,19 @@ public extension UIView {
 			return layer.cornerRadius
 		}
 		set {
-			layer.masksToBounds = true
 			layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
 		}
 	}
+    
+    /// SwifterSwift: masksToBounds to layer of view; also inspectable from Storyboard.
+    @IBInspectable public var masksToBounds: Bool {
+        get {
+            return layer.masksToBounds
+        }
+        set {
+            layer.masksToBounds = newValue
+        }
+    }
 
 	/// SwifterSwift: First responder.
 	public var firstResponder: UIView? {
