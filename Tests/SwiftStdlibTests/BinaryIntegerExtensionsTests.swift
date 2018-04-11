@@ -11,24 +11,24 @@ import XCTest
 
 final class BinaryIntegerExtensionsTests: XCTestCase {
 
-	func testRandomDoubles() {
-		var values = Set<Double>()
+	func testRandomIntegers() {
+		var values = Set<Int>()
 		for _ in 0..<10000 {
-			let random = Double.random(lowerBound: -1, upperBound: 1)
-			XCTAssert(random >= -1 && random <= 1)
+			let random = Int.random(lowerBound: -50, upperBound: 50)
+			XCTAssert(random >= -50 && random < 50)
 			values.insert(random)
 		}
-		XCTAssertEqual(values.count, 10000)
+		XCTAssertEqual(values.count, 100)
 	}
 
-	func testRandomFloat80s() {
-		var values = Set<Float80>()
+	func testRandomUInt32s() {
+		var values = Set<UInt32>()
 		for _ in 0..<10000 {
-			let random = Float80.random(lowerBound: -1, upperBound: 1)
-			XCTAssert(random >= -1 && random <= 1)
+			let random = UInt32.random(upperBound: 100)
+			XCTAssert(random >= 0 && random < 100)
 			values.insert(random)
 		}
-		XCTAssertEqual(values.count, 10000)
+		XCTAssertEqual(values.count, 100)
 	}
 
 }
