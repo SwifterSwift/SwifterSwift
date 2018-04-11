@@ -26,10 +26,7 @@ public extension Color {
 
 	/// SwifterSwift: Random color.
 	public static var random: Color {
-		let red = Int(arc4random_uniform(255))
-		let green = Int(arc4random_uniform(255))
-		let blue = Int(arc4random_uniform(255))
-		return Color(red: red, green: green, blue: blue)!
+		return Color(red: CGFloat.random(), green: CGFloat.random(), blue: CGFloat.random(), alpha: 1.0)
 	}
 
 	// swiftlint:disable next large_tuple

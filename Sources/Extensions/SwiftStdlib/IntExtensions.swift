@@ -100,6 +100,7 @@ public extension Int {
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
 	/// - Returns: random double between two double values.
+	@available(*, deprecated: 4.4, message: "Use `Int.random(lowerBound:upperBound:)` instead.")
 	public static func random(between min: Int, and max: Int) -> Int {
 		return random(inRange: min...max)
 	}
@@ -181,8 +182,9 @@ public extension Int {
 	/// - Parameters:
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
+	@available(*, deprecated: 4.4, message: "Use `Int.random(lowerBound:upperBound:)` instead.")
 	public init(randomBetween min: Int, and max: Int) {
-		self = Int.random(between: min, and: max)
+		self = Int.random(lowerBound: min, upperBound: max)
 	}
 
 	/// SwifterSwift: Create a random integer in a closed interval range.

@@ -366,7 +366,7 @@ public extension Array {
 		// http://stackoverflow.com/questions/37843647/shuffle-array-swift-3
 		guard count > 1 else { return self }
 		for index in startIndex..<endIndex - 1 {
-			let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
+			let randomIndex = Int.random(lowerBound: index, upperBound: endIndex)
 			if index != randomIndex { swapAt(index, randomIndex) }
 		}
 		return self
