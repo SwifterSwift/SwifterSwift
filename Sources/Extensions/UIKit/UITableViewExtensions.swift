@@ -173,6 +173,14 @@ public extension UITableView {
         register(UINib(nibName: identifier, bundle: bundle), forCellReuseIdentifier: identifier)
     }
 
+    /// SwifterSwift: Check whether IndexPath is valid within the tableView
+    ///
+    /// - Parameter indexPath: An IndexPath to check
+    /// - Returns: Boolean value for valid or invalid IndexPath
+    public func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
+        return indexPath.section < self.numberOfSections && indexPath.row < self.numberOfRows(inSection: indexPath.section)
+    }
+
 }
 #endif
 
