@@ -96,7 +96,7 @@ final class UITableViewExtensionsTests: XCTestCase {
 		let headerFooterView = tableView.dequeueReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
 		XCTAssertNotNil(headerFooterView)
 	}
-    
+
     func testIsValidIndexPath() {
         let validIndexPath = IndexPath(row: 0, section: 0)
         XCTAssertTrue(tableView.isValidIndexPath(validIndexPath))

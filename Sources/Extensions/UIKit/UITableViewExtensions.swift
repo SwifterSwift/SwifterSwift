@@ -172,7 +172,7 @@ public extension UITableView {
 
         register(UINib(nibName: identifier, bundle: bundle), forCellReuseIdentifier: identifier)
     }
-    
+
     /// SwifterSwift: Check whether IndexPath is valid within the tableView
     ///
     /// - Parameter indexPath: An IndexPath to check
