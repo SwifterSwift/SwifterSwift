@@ -563,7 +563,7 @@ public extension String {
 	}
 	#endif
 
-	// swiftlint:disable identifier_name
+	// swiftlint:disable next identifier_name
 	/// SwifterSwift: Safely subscript string with index.
 	///
 	///		"Hello World!"[3] -> "l"
@@ -574,7 +574,6 @@ public extension String {
 		guard i >= 0 && i < count else { return nil }
 		return self[index(startIndex, offsetBy: i)]
 	}
-	// swiftlint:enable identifier_name
 
 	/// SwifterSwift: Safely subscript string within a half-open range.
 	///
@@ -736,7 +735,7 @@ public extension String {
 		self = String(chars)
 	}
 
-	// swiftlint:disable identifier_name
+	// swiftlint:disable next identifier_name
 	/// SwifterSwift: Sliced string from a start index with length.
 	///
 	///        "Hello World".slicing(from: 6, length: 5) -> "World"
@@ -753,9 +752,8 @@ public extension String {
 		guard length > 0 else { return "" }
 		return self[safe: i..<i.advanced(by: length)]
 	}
-	// swiftlint:enable identifier_name
 
-	// swiftlint:disable identifier_name
+	// swiftlint:disable next identifier_name
 	/// SwifterSwift: Slice given string from a start index with length (if applicable).
 	///
 	///		var str = "Hello World"
@@ -770,7 +768,6 @@ public extension String {
 			self = String(str)
 		}
 	}
-	// swiftlint:enable identifier_name
 
 	/// SwifterSwift: Slice given string from a start index to an end index (if applicable).
 	///
@@ -788,7 +785,7 @@ public extension String {
 		}
 	}
 
-	// swiftlint:disable identifier_name
+	// swiftlint:disable next identifier_name
 	/// SwifterSwift: Slice given string from a start index (if applicable).
 	///
 	///		var str = "Hello World"
@@ -802,7 +799,6 @@ public extension String {
 			self = str
 		}
 	}
-	// swiftlint:enable identifier_name
 
 	/// SwifterSwift: Check if string starts with substring.
 	///

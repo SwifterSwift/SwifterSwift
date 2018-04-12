@@ -48,7 +48,7 @@ extension String {
 		return count
 	}
 
-	// swiftlint:disable identifier_name
+	// swiftlint:disable next identifier_name
 	/// SwifterSwift: Sliced string from a start index.
 	///
 	///		"Hello World".slicing(at: 6) -> "World"
@@ -62,7 +62,6 @@ extension String {
 		}
 		return self[safe: i..<count]
 	}
-	// swiftlint:enable identifier_name
 
 	/// SwifterSwift: Sliced string from a start index to an end index.
 	///

@@ -18,7 +18,7 @@ private struct Person: Equatable {
 
 }
 
-// swiftlint:disable type_body_length
+// swiftlint:disable next type_body_length
 final class ArrayExtensionsTests: XCTestCase {
 
     func testSum() {
@@ -408,4 +408,3 @@ final class ArrayExtensionsTests: XCTestCase {
     }
 
 }
-// swiftlint:enable type_body_length
