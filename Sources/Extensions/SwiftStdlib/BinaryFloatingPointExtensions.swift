@@ -6,7 +6,7 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-extension BinaryFloatingPoint {
+public extension BinaryFloatingPoint {
 	/// SwifterSwift: Generate a random floating point number within a given range.
 	///
 	/// - Parameters:

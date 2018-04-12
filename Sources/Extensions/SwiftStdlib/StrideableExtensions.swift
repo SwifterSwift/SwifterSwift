@@ -6,7 +6,7 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-extension Strideable where Stride: BinaryInteger {
+public extension Strideable where Stride: BinaryInteger {
 	/// SwifterSwift: Generate a random integer within a given `Strideable` range.
 	///
 	/// - Parameters:

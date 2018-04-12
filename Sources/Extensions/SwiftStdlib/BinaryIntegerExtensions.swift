@@ -6,7 +6,7 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-extension BinaryInteger {
+public extension BinaryInteger {
 	/// SwifterSwift: Generate a random integer within a given range.
 	///
 	/// - Parameters:
