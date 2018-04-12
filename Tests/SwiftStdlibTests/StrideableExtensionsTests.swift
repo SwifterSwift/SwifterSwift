@@ -12,24 +12,25 @@ import XCTest
 final class StrideableExtensionsTests: XCTestCase {
 
 	struct StrideableDate: Strideable {
-		static let dayTimeInterval = TimeInterval(60 * 60 * 24)
-
 		let date: Date
+		let calendarComponentStride: Calendar.Component
 
 		// swiftlint:disable identifier_name
 		func advanced(by n: Int) -> StrideableDate {
-			return StrideableDate(date: Date(timeInterval: StrideableDate.dayTimeInterval * TimeInterval(n), since: date))
+			return StrideableDate(date: date.adding(calendarComponentStride, value: n), calendarComponentStride: calendarComponentStride)
 		}
 
 		func distance(to other: StrideableDate) -> Int {
-			return Int(round(other.date.timeIntervalSince(date) / StrideableDate.dayTimeInterval))
+			return Calendar.current.dateComponents([calendarComponentStride], from: date, to: other.date).value(for: calendarComponentStride)!
 		}
 		// swiftlint:enable identifier_name
 	}
 
 	func testDateRange() {
-		let startDate = StrideableDate(date: Date(timeIntervalSinceNow: StrideableDate.dayTimeInterval * -50))
-		let endDate = StrideableDate(date: Date(timeIntervalSinceNow: StrideableDate.dayTimeInterval * 50))
+		let calendarComponent = Calendar.Component.day
+		let now = Date()
+		let startDate = StrideableDate(date: now.adding(calendarComponent, value: -50), calendarComponentStride: calendarComponent)
+		let endDate = StrideableDate(date: now.adding(calendarComponent, value: 50), calendarComponentStride: calendarComponent)
 		var values = Set<Date>()
 		for _ in 0..<10000 {
 			let random = StrideableDate.random(lowerBound: startDate, upperBound: endDate)
