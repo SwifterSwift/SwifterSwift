@@ -76,10 +76,10 @@ public extension Optional {
 
 }
 
-// MARK: - Methods (RandomAccessCollection)
+// MARK: - Methods (Collection)
 public extension Optional where Wrapped: Collection {
 
-    // Check if optional is nil or empty collection.
+    /// Check if optional is nil or empty collection.
     public var isNilOrEmpty: Bool {
         guard let collection = self else { return true }
         return collection.isEmpty
