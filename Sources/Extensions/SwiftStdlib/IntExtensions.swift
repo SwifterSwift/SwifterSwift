@@ -182,7 +182,6 @@ public extension Int {
 	/// - Parameters:
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
-	@available(*, deprecated: 4.4, message: "Use `Int.random(lowerBound:upperBound:)` instead.")
 	public init(randomBetween min: Int, and max: Int) {
 		self = Int.random(lowerBound: min, upperBound: max)
 	}
