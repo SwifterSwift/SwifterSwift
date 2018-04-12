@@ -583,18 +583,20 @@ final class StringExtensionsTests: XCTestCase {
     #if !os(tvOS) && !os(watchOS)
     func testBold() {
         let boldString = "hello".bold
+        // swiftlint:disable legacy_constructor
         let attrs = boldString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, boldString.length))
+        // swiftlint:enable legacy_constructor
         XCTAssertNotNil(attrs[NSAttributedStringKey.font])
 
         #if os(macOS)
         guard let font = attrs[.font] as? NSFont else {
-            XCTFail()
+            XCTFail("Unable to find font in testBold")
             return
         }
         XCTAssertEqual(font, NSFont.boldSystemFont(ofSize: NSFont.systemFontSize))
         #elseif os(iOS)
         guard let font = attrs[NSAttributedStringKey.font] as? UIFont else {
-            XCTFail()
+            XCTFail("Unable to find font in testBold")
             return
         }
         XCTAssertEqual(font, UIFont.boldSystemFont(ofSize: UIFont.systemFontSize))
@@ -604,10 +606,12 @@ final class StringExtensionsTests: XCTestCase {
 
     func testUnderline() {
         let underlinedString = "hello".underline
+        // swiftlint:disable legacy_constructor
         let attrs = underlinedString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, underlinedString.length))
+        // swiftlint:enable legacy_constructor
         XCTAssertNotNil(attrs[NSAttributedStringKey.underlineStyle])
         guard let style = attrs[NSAttributedStringKey.underlineStyle] as? Int else {
-            XCTFail()
+            XCTFail("Unable to find style in testUnderline")
             return
         }
         XCTAssertEqual(style, NSUnderlineStyle.styleSingle.rawValue)
@@ -615,10 +619,12 @@ final class StringExtensionsTests: XCTestCase {
 
     func testStrikethrough() {
         let strikedthroughString = "hello".strikethrough
+        // swiftlint:disable legacy_constructor
         let attrs = strikedthroughString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, strikedthroughString.length))
+        // swiftlint:enable legacy_constructor
         XCTAssertNotNil(attrs[NSAttributedStringKey.strikethroughStyle])
         guard let style = attrs[NSAttributedStringKey.strikethroughStyle] as? NSNumber else {
-            XCTFail()
+            XCTFail("Unable to find style in testStrikethrough")
             return
         }
         XCTAssertEqual(style, NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int))
@@ -627,10 +633,12 @@ final class StringExtensionsTests: XCTestCase {
     #if os(iOS)
     func testItalic() {
         let italicString = "hello".italic
+        // swiftlint:disable legacy_constructor
         let attrs = italicString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, italicString.length))
+        // swiftlint:enable legacy_constructor
         XCTAssertNotNil(attrs[NSAttributedStringKey.font])
         guard let font = attrs[NSAttributedStringKey.font] as? UIFont else {
-            XCTFail()
+            XCTFail("Unable to find font in testItalic")
             return
         }
         XCTAssertEqual(font, UIFont.italicSystemFont(ofSize: UIFont.systemFontSize))
@@ -639,18 +647,20 @@ final class StringExtensionsTests: XCTestCase {
 
     func testColored() {
         let coloredString = "hello".colored(with: .orange)
+        // swiftlint:disable legacy_constructor
         let attrs = coloredString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, coloredString.length))
+        // swiftlint:enable legacy_constructor
         XCTAssertNotNil(attrs[NSAttributedStringKey.foregroundColor])
 
         #if os(macOS)
         guard let color = attrs[.foregroundColor] as? NSColor else {
-            XCTFail()
+            XCTFail("Unable to find color in testColored")
             return
         }
         XCTAssertEqual(color, NSColor.orange)
         #else
         guard let color = attrs[NSAttributedStringKey.foregroundColor] as? UIColor else {
-            XCTFail()
+            XCTFail("Unable to find color in testColored")
             return
         }
         XCTAssertEqual(color, UIColor.orange)
