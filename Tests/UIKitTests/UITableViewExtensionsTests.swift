@@ -104,6 +104,11 @@ final class UITableViewExtensionsTests: XCTestCase {
         XCTAssertFalse(tableView.isValidIndexPath(invalidIndexPath))
     }
 
+    func testSafeScrollToIndexPath() {
+        let invalidIndexPath = IndexPath(row: 10, section: 0)
+        XCTAssertNoThrow(tableView.safeScrollToRow(at: invalidIndexPath, at: .bottom, animated: false))
+    }
+
 	#if os(iOS)
 	func testRegisterReusableViewWithClassAndNib() {
 		let nib = UINib(nibName: "UITableViewHeaderFooterView", bundle: Bundle(for: UITableViewExtensionsTests.self))
