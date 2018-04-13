@@ -82,25 +82,7 @@ public extension UIView {
 			layer.masksToBounds = true
 			layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
 		}
-	}
-
-	/// SwifterSwift: Recursively find the first responder.
-	public var firstResponder: UIView? {
-        guard
-            !isFirstResponder else { return self }
-        guard
-            !subviews.isEmpty else { return nil }
-
-        if let responder = subviews.first(where: { $0.isFirstResponder }) {
-            return responder
-        }
-        for subview in subviews {
-            if let responder = subview.firstResponder {
-                return responder
-            }
-        }
-        return nil
-	}
+    }
 
 	// SwifterSwift: Height of view.
 	public var height: CGFloat {
@@ -235,7 +217,25 @@ public extension UIView {
 // MARK: - Methods
 public extension UIView {
 
-	/// SwifterSwift: Set some or all corners radiuses of view.
+    /// SwifterSwift: Recursively find the first responder.
+    public func firstResponder() -> UIView? {
+        guard
+            !isFirstResponder else { return self }
+        guard
+            !subviews.isEmpty else { return nil }
+
+        if let responder = subviews.first(where: { $0.isFirstResponder }) {
+            return responder
+        }
+        for subview in subviews {
+            if let responder = subview.firstResponder() {
+                return responder
+            }
+        }
+        return nil
+    }
+
+    /// SwifterSwift: Set some or all corners radiuses of view.
 	///
 	/// - Parameters:
 	///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
