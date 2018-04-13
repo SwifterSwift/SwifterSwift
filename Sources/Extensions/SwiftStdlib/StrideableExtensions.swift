@@ -13,9 +13,10 @@ public extension Strideable where Stride: BinaryInteger {
     ///   - lowerBound: The lower bound of the integer-`Strideable` range.
     ///   - upperBound: The upper bound of the integer-`Strideable` range.
     /// - Returns: An integer between `lowerBound` and `upperBound` (exclusive).
+    /// - Warning: This implementation suffers the same issues as `BinaryInteger.random(lowerBound:upperBound:)`
     public static func random(lowerBound: Self, upperBound: Self) -> Self {
         assert(lowerBound < upperBound)
         let distance = lowerBound.distance(to: upperBound)
-        return lowerBound.advanced(by: numericCast(arc4random_uniform(numericCast(distance))))
+        return lowerBound.advanced(by: Self.Stride.random(upperBound: distance))
     }
 }
