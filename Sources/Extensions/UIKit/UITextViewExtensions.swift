@@ -21,12 +21,14 @@ public extension UITextView {
 
 	/// SwifterSwift: Scroll to the bottom of text view
 	public func scrollToBottom() {
+        // swiftlint:disable next legacy_constructor
 		let range = NSMakeRange((text as NSString).length - 1, 1)
-		scrollRangeToVisible(range)
+        scrollRangeToVisible(range)
 	}
 
 	/// SwifterSwift: Scroll to the top of text view
 	public func scrollToTop() {
+        // swiftlint:disable next legacy_constructor
 		let range = NSMakeRange(0, 1)
 		scrollRangeToVisible(range)
 	}
