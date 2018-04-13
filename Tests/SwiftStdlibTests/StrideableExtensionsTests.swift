@@ -55,7 +55,7 @@ final class StrideableExtensionsTests: XCTestCase {
     }
 
     func testMinMaxStrideableDate() {
-        let calendarComponent = Calendar.Component.day
+        let calendarComponent = Calendar.Component.hour
         let startDate = StrideableDate(date: Date.distantPast, calendarComponentStride: calendarComponent)
         let endDate = StrideableDate(date: Date.distantFuture, calendarComponentStride: calendarComponent)
         var values = Set<Date>()
