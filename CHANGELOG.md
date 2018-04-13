@@ -6,13 +6,15 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > ### Added
 - **UITableViewExtentions**:
   - Added `isValidIndexPath(_ indexPath:)` method to check whether given IndexPath is valid within UITableView. [#441](https://github.com/SwifterSwift/SwifterSwift/pull/441) by [setoelkahfi](https://github.com/setoelkahfi).
-> ### Changed
+### Changed
 - **UITableViewExtentions**:
   - `dequeueReusableCell(withClass:for)`, `dequeueReusableCell(withClass)` now return `UITableViewCell` object, `fatalError(...)` if not found. [#439](https://github.com/SwifterSwift/SwifterSwift/pull/439) by [jdisho](https://github.com/jdisho)
   - `dequeueReusableHeaderFooterView(withClass)`now returns `UITableViewHeaderFooterView` object, `fatalError(...)` if not found. [#439](https://github.com/SwifterSwift/SwifterSwift/pull/439) by [jdisho](https://github.com/jdisho)
 - **UICollectionView**:
   - `dequeueReusableCell(withClass:for)` now return `UICollectionViewCell` object, `fatalError(...)` if not found. [#439](https://github.com/SwifterSwift/SwifterSwift/pull/439) by [jdisho](https://github.com/jdisho)
   - `dequeueReusableSupplementaryView(ofKind:withClass:for)`now returns `UICollectionReusableView` object, `fatalError(...)` if not found. [#439](https://github.com/SwifterSwift/SwifterSwift/pull/439) by [jdisho](https://github.com/jdisho)
+- **UIView**:
+  - `firstResponder` UIView extension now suport recursive find in the view hierarchy. [#447](https://github.com/SwifterSwift/SwifterSwift/pull/447) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 > ### Deprecated
 > ### Removed
 > ### Fixed
