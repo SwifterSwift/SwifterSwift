@@ -63,4 +63,28 @@ final class OptionalExtensionsTests: XCTestCase {
 		XCTAssert(parameters[key2] == parameter2)
 	}
 
+    func testIsNilOrEmpty() {
+        let nilArray: [String]? = nil
+        XCTAssertTrue(nilArray.isNilOrEmpty)
+
+        let emptyArray: [String]? = []
+        XCTAssertTrue(emptyArray.isNilOrEmpty)
+
+        let intArray: [Int]? = [1]
+        XCTAssertFalse(intArray.isNilOrEmpty)
+
+        let optionalArray: [Int]? = [1]
+        XCTAssertFalse(optionalArray.isNilOrEmpty)
+
+        let nilString: String? = nil
+        XCTAssert(nilString.isNilOrEmpty)
+
+        let emptyString: String? = ""
+        XCTAssert(emptyString.isNilOrEmpty)
+
+        let string: String? = "hello World!"
+        XCTAssertFalse(string.isNilOrEmpty)
+
+    }
+
 }

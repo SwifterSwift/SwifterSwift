@@ -1,9 +1,9 @@
 # CHANGELOG
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
-> # Upcoming release
->
-> ### Added
+# Upcoming release
+
+### Added
 - **UITableViewExtentions**:
   - Added `isValidIndexPath(_ indexPath:)` method to check whether given IndexPath is valid within UITableView. [#441](https://github.com/SwifterSwift/SwifterSwift/pull/441) by [setoelkahfi](https://github.com/setoelkahfi).
 ### Changed
