@@ -84,7 +84,7 @@ public extension UIView {
 		}
 	}
 
-	/// SwifterSwift: First responder.
+	/// SwifterSwift: Recursively find the first responder.
 	public var firstResponder: UIView? {
         guard
             !isFirstResponder else { return self }
