@@ -188,7 +188,7 @@ public extension UITableView {
     ///   - scrollPosition: Scroll position
     ///   - animated: Whether to animate or not
     public func safeScrollToRow(at indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool) {
-        if isValidIndexPath(indexPath) {
+        if indexPath.section < numberOfSections && indexPath.row < numberOfRows(inSection: indexPath.section) {
             self.scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
         }
     }
