@@ -7,7 +7,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UITableViewExtentions**:
   - Added `isValidIndexPath(_ indexPath:)` method to check whether given IndexPath is valid within UITableView. [#441](https://github.com/SwifterSwift/SwifterSwift/pull/441) by [setoelkahfi](https://github.com/setoelkahfi).
   **(BinaryFloatingPoint/BinaryInteger/Strideable)Extensions**:
-  - Added extensions for generating random numbers for any type of number (BinaryInteger/BinaryFloat). [#444](https://github.com/SwifterSwift/SwifterSwift/pull/444) by [guykogus](https://github.com/guykogus).
+  - Added extensions for generating random numbers for any type of number (BinaryInteger/BinaryFloatingPoint). [#444](https://github.com/SwifterSwift/SwifterSwift/pull/444) by [guykogus](https://github.com/guykogus).
+  **(Signed/Unsigned-RandomizableInteger)**:
+  - Added a new protocol (with extensions for Int/UInt/8/16/32/64) for generating random numbers for any type of integer. [#444](https://github.com/SwifterSwift/SwifterSwift/pull/444) by [guykogus](https://github.com/guykogus).
 > ### Changed
 **Optional**:
   - Added `isNilOrEmpty` property to check whether an optional is nil or empty collection.
