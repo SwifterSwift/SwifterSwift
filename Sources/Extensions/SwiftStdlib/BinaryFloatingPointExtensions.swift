@@ -18,7 +18,7 @@ public extension BinaryFloatingPoint {
     public static func random(lowerBound: Self = 0.0, upperBound: Self = 1.0) -> Self {
         assert(lowerBound <= upperBound)
         let distance = upperBound - lowerBound
-        assert(distance.isNormal)
+        assert(!distance.isSubnormal)
         return lowerBound + (Self(drand48()) * distance)
     }
 
