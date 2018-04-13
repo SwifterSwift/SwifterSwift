@@ -86,11 +86,20 @@ public extension UIView {
 
 	/// SwifterSwift: First responder.
 	public var firstResponder: UIView? {
-		guard !isFirstResponder else { return self }
-		for subView in subviews where subView.isFirstResponder {
-			return subView
-		}
-		return nil
+        guard
+            !isFirstResponder else { return self }
+        guard
+            !subviews.isEmpty else { return nil }
+
+        if let responder = subviews.first(where: { $0.isFirstResponder }) {
+            return responder
+        }
+        for subview in subviews {
+            if let responder = subview.firstResponder {
+                return responder
+            }
+        }
+        return nil
 	}
 
 	// SwifterSwift: Height of view.
