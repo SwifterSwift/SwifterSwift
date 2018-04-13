@@ -111,8 +111,11 @@ final class UITableViewExtensionsTests: XCTestCase {
         let validIndexPathBottom = IndexPath(row: 7, section: 1)
         let bottomOffset = CGPoint(x: 0, y: tableView.contentSize.height - tableView.bounds.size.height)
         tableView.safeScrollToRow(at: validIndexPathBottom, at: .bottom, animated: false)
-        XCTAssertEqual(bottomOffset.x, tableView.contentOffset.x, accuracy: 0.0)
-        XCTAssertEqual(bottomOffset.y, tableView.contentOffset.y, accuracy: 1.0)
+        #if os(tvOS)
+            XCTAssertEqual(bottomOffset.y, tableView.contentOffset.y, accuracy: 15.0)
+        #else
+            XCTAssertEqual(bottomOffset.y, tableView.contentOffset.y, accuracy: 2.0)
+        #endif
         let invalidIndexPath = IndexPath(row: 10, section: 0)
         XCTAssertNoThrow(tableView.safeScrollToRow(at: invalidIndexPath, at: .bottom, animated: false))
     }
