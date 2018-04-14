@@ -64,6 +64,7 @@ public extension SomeType {
  ```
 
 - A pull request should only add one extension at a time.
+- Do not use an existing SwifterSwift extension inside another SwifterSwift extension. All extensions should be able to be copied and pasted and work immediately without having to copy another extension.
 - All extensions should follow [Swift API Design Guidelines](https://developer.apple.com/videos/play/wwdc2016/403/)
 - Always declare extensions as **public**.
 - All extensions names should be as clear as possible.
