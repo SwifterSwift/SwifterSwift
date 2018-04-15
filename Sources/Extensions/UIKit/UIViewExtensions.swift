@@ -217,19 +217,16 @@ public extension UIView {
 
     /// SwifterSwift: Recursively find the first responder.
     public func firstResponder() -> UIView? {
-        guard
-            !isFirstResponder else { return self }
-        guard
-            !subviews.isEmpty else { return nil }
-
-        if let responder = subviews.first(where: { $0.isFirstResponder }) {
-            return responder
-        }
-        for subview in subviews {
-            if let responder = subview.firstResponder() {
-                return responder
+        var views = [UIView](arrayLiteral: self)
+        var i = 0
+        repeat {
+            let view = views[i]
+            if view.isFirstResponder {
+                return view
             }
-        }
+            views.append(contentsOf: view.subviews)
+            i += 1
+        } while i < views.count
         return nil
     }
 
