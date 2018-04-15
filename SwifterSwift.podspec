@@ -27,17 +27,17 @@ Pod::Spec.new do |s|
 
   # SwiftStdlib Extensions
   s.subspec 'SwiftStdlib' do |sp|
-    sp.source_files  = 'Sources/Extensions/SwiftStdlib/*.swift'
+    sp.source_files  = 'Sources/Extensions/SwiftStdlib/*.swift', 'Sources/Extensions/Shared/RandomizableInteger.swift'
   end
 
   # Foundation Extensions
   s.subspec 'Foundation' do |sp|
-    sp.source_files  = 'Sources/Extensions/Foundation/*.swift'
+    sp.source_files  = 'Sources/Extensions/Foundation/*.swift', 'Sources/Extensions/SwiftStdlib/BinaryFloatingPointExtensions.swift'
   end
 
   # UIKit Extensions
   s.subspec 'UIKit' do |sp|
-    sp.source_files  = 'Sources/Extensions/UIKit/*.swift', 'Sources/Extensions/Shared/ColorExtensions.swift'
+    sp.source_files  = 'Sources/Extensions/UIKit/*.swift', 'Sources/Extensions/Shared/ColorExtensions.swift', 'Sources/Extensions/SwiftStdlib/BinaryFloatingPointExtensions.swift'
   end
 
   # AppKit Extensions
@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
 
   # CoreGraphics Extensions
   s.subspec 'CoreGraphics' do |sp|
-    sp.source_files  = 'Sources/Extensions/CoreGraphics/*.swift'
+    sp.source_files  = 'Sources/Extensions/CoreGraphics/*.swift', 'Sources/Extensions/SwiftStdlib/BinaryFloatingPointExtensions.swift'
   end
 
   # CoreLocation Extensions

@@ -81,9 +81,9 @@ public extension CGFloat {
 	///   - min: minimum number to start random from.
 	///   - max: maximum number random number end before.
 	/// - Returns: random CGFloat between two CGFloat values.
+	@available(*, deprecated: 4.4, message: "Use `CGFloat.random(lowerBound:upperBound:)` instead.")
 	public static func randomBetween(min: CGFloat, max: CGFloat) -> CGFloat {
-		let delta = max - min
-		return min + CGFloat(arc4random_uniform(UInt32(delta)))
+		return CGFloat.random(lowerBound: min, upperBound: max)
 	}
 
 }

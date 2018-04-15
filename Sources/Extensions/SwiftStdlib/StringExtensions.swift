@@ -719,11 +719,10 @@ public extension String {
 	/// - Returns: random string of given length.
 	public static func random(ofLength length: Int) -> String {
 		guard length > 0 else { return "" }
-		let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+		let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".charactersArray
 		var randomString = ""
 		for _ in 1...length {
-			let randomIndex = arc4random_uniform(UInt32(base.count))
-			let randomCharacter = base.charactersArray[Int(randomIndex)]
+			let randomCharacter = base.randomItem!
 			randomString.append(randomCharacter)
 		}
 		return randomString
@@ -1031,11 +1030,10 @@ public extension String {
 			return
 		}
 
-		let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+		let base = Array("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")
 		var randomString = ""
 		for _ in 1...length {
-			let randomIndex = arc4random_uniform(UInt32(base.count))
-			let randomCharacter = Array(base)[Int(randomIndex)]
+			let randomCharacter = base.randomItem!
 			randomString.append(randomCharacter)
 		}
 		self = randomString

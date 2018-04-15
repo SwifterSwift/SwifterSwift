@@ -866,17 +866,9 @@ public extension Date {
 	///   - toDate: maximum date (default is Date.distantFuture)
 	/// - Returns: random date between two dates.
 	public static func random(from fromDate: Date = Date.distantPast, upTo toDate: Date = Date.distantFuture) -> Date {
-		guard fromDate != toDate else {
-			return fromDate
-		}
-
-		let diff = llabs(Int64(toDate.timeIntervalSinceReferenceDate - fromDate.timeIntervalSinceReferenceDate))
-		var randomValue: Int64 = 0
-		arc4random_buf(&randomValue, MemoryLayout<Int64>.size)
-		randomValue = llabs(randomValue%diff)
-
-		let startReferenceDate = toDate > fromDate ? fromDate : toDate
-		return startReferenceDate.addingTimeInterval(TimeInterval(randomValue))
+        let randomReferenceDate = TimeInterval.random(lowerBound: fromDate.timeIntervalSinceReferenceDate,
+                                                      upperBound: toDate.timeIntervalSinceReferenceDate)
+        return Date(timeIntervalSinceReferenceDate: randomReferenceDate)
 	}
 
 }

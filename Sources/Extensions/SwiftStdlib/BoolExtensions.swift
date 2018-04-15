@@ -33,7 +33,7 @@ public extension Bool {
 	///     Bool.random -> false
 	///
 	public static var random: Bool {
-		return arc4random_uniform(2) == 1
+		return Int.random(upperBound: 2) == 1
 	}
 
 }

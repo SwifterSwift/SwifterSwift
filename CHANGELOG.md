@@ -6,7 +6,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **UITableViewExtentions**:
   - Added `isValidIndexPath(_ indexPath:)` method to check whether given IndexPath is valid within UITableView. [#441](https://github.com/SwifterSwift/SwifterSwift/pull/441) by [setoelkahfi](https://github.com/setoelkahfi).
-**Optional**:
+- **(BinaryFloatingPoint/BinaryInteger/Strideable)Extensions**:
+  - Added extensions for generating random numbers for any type of number (BinaryInteger/BinaryFloatingPoint). [#444](https://github.com/SwifterSwift/SwifterSwift/pull/444) by [guykogus](https://github.com/guykogus).
+- **(Signed/Unsigned-RandomizableInteger)**:
+  - Added a new protocol (with extensions for Int/UInt/8/16/32/64) for generating random numbers for any type of integer. [#444](https://github.com/SwifterSwift/SwifterSwift/pull/444) by [guykogus](https://github.com/guykogus).
+- **Optional**:
   - Added `isNilOrEmpty` property to check whether an optional is nil or empty collection.
 
 ### Changed
@@ -16,12 +20,24 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UICollectionView**:
   - `dequeueReusableCell(withClass:for)` now return `UICollectionViewCell` object, `fatalError(...)` if not found. [#439](https://github.com/SwifterSwift/SwifterSwift/pull/439) by [jdisho](https://github.com/jdisho)
   - `dequeueReusableSupplementaryView(ofKind:withClass:for)`now returns `UICollectionReusableView` object, `fatalError(...)` if not found. [#439](https://github.com/SwifterSwift/SwifterSwift/pull/439) by [jdisho](https://github.com/jdisho)
+- **ColorExtensions**:
+  - `random` now uses `CGFloat.random()` to generate the random color values. [#444](https://github.com/SwifterSwift/SwifterSwift/pull/444) by [guykogus](https://github.com/guykogus).
+- **ArrayExtensions**:
+  - `shuffle()` now uses `Int.random(lowerBound:upperBound:)` to perform the Fisher-Yates shuffle. [#444](https://github.com/SwifterSwift/SwifterSwift/pull/444) by [guykogus](https://github.com/guykogus).
+- **BoolExtensions**:
+  - `random` now uses `Int.random(lowerBound:upperBound:)`. [#444](https://github.com/SwifterSwift/SwifterSwift/pull/444) by [guykogus](https://github.com/guykogus).
 
 ### Deprecated
+- **CGFloatExtensions**:
+  - `randomBetween` has been deprecated in favour of `CGFloat.random(lowerBound:upperBound)`. [#444](https://github.com/SwifterSwift/SwifterSwift/pull/444) by [guykogus](https://github.com/guykogus).
+- **IntExtensions**:
+  - `random(between:and:)` has been deprecated in favour of `Int.random(lowerBound:upperBound)`. [#444](https://github.com/SwifterSwift/SwifterSwift/pull/444) by [guykogus](https://github.com/guykogus).
 
 ### Removed
 
 ### Fixed
+- **Project**
+  - Set `SwifterSwift` as the project's default organization so that newly created files will set it automatically. [#444](https://github.com/SwifterSwift/SwifterSwift/pull/444) by [guykogus](https://github.com/guykogus).
 
 ### Security
 
