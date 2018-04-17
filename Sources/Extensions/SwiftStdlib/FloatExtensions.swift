@@ -47,7 +47,7 @@ public func ** (lhs: Float, rhs: Float) -> Float {
     return pow(lhs, rhs)
 }
 
-// swiftlint:disable identifier_name
+// swiftlint:disable next identifier_name
 prefix operator √
 /// SwifterSwift: Square root of float.
 ///
@@ -57,4 +57,3 @@ public prefix func √ (float: Float) -> Float {
     // http://nshipster.com/swift-operators/
     return sqrt(float)
 }
-// swiftlint:enable identifier_name

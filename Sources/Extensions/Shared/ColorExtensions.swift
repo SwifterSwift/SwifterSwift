@@ -32,7 +32,7 @@ public extension Color {
 		return Color(red: red, green: green, blue: blue)!
 	}
 
-	// swiftlint:disable large_tuple
+	// swiftlint:disable next large_tuple
 	/// SwifterSwift: RGB components for a Color (between 0 and 255).
 	///
 	///		UIColor.red.rgbComponents.red -> 255
@@ -50,9 +50,8 @@ public extension Color {
 		let blue = components[2]
 		return (red: Int(red * 255.0), green: Int(green * 255.0), blue: Int(blue * 255.0))
 	}
-	// swiftlint:enable large_tuple
 
-	// swiftlint:disable large_tuple
+	// swiftlint:disable next large_tuple
 	/// SwifterSwift: RGB components for a Color represented as CGFloat numbers (between 0 and 1)
 	///
 	///		UIColor.red.rgbComponents.red -> 1.0
@@ -70,9 +69,8 @@ public extension Color {
 		let blue = components[2]
 		return (red: red, green: green, blue: blue)
 	}
-	// swiftlint:enable large_tuple
 
-	// swiftlint:disable large_tuple
+	// swiftlint:disable next large_tuple
 	/// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
 	public var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
 		var hue: CGFloat = 0.0
@@ -83,7 +81,6 @@ public extension Color {
 		getHue(&hue, saturation: &saturation, brightness: &brightness, alpha: &alpha)
 		return (hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
 	}
-	// swiftlint:enable large_tuple
 
 	/// SwifterSwift: Hexadecimal value string (read-only).
 	public var hexString: String {
@@ -357,7 +354,7 @@ public extension Color {
 
 }
 
-// swiftlint:disable type_body_length
+// swiftlint:disable next type_body_length
 // MARK: - Social
 public extension Color {
 
@@ -1805,4 +1802,3 @@ public extension Color {
 
 }
 #endif
-// swiftlint:enable type_body_length

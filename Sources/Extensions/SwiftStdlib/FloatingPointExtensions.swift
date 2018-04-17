@@ -100,7 +100,7 @@ public extension FloatingPoint {
 
 // MARK: - Operators
 
-// swiftlint:disable identifier_name
+// swiftlint:disable next identifier_name
 infix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
@@ -112,9 +112,8 @@ public func ±<T: FloatingPoint> (lhs: T, rhs: T) -> (T, T) {
 	// http://nshipster.com/swift-operators/
 	return (lhs + rhs, lhs - rhs)
 }
-// swiftlint:enable identifier_name
 
-// swiftlint:disable identifier_name
+// swiftlint:disable next identifier_name
 prefix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
@@ -124,4 +123,3 @@ public prefix func ±<T: FloatingPoint> (number: T) -> (T, T) {
 	// http://nshipster.com/swift-operators/
 	return 0 ± number
 }
-// swiftlint:enable identifier_name
