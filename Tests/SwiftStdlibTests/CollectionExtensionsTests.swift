@@ -17,6 +17,7 @@ final class CollectionExtensionsTests: XCTestCase {
 		collection.forEachInParallel { item in
 			XCTAssert(collection.contains(item))
 		}
+        collection.groupByKey(keyForValue: { $0 })
 	}
 
 	func testSafeSubscript() {

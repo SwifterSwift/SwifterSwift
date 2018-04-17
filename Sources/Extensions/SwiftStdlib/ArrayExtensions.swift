@@ -280,6 +280,7 @@ public extension Array {
 		return slices
 	}
 
+    @available(*, deprecated, message: "Use 'Dictionary.init(grouping:by:)' instead.")
 	/// SwifterSwift: Group the elements of the array in a dictionary.
 	///
 	///     [0, 2, 5, 4, 7].groupByKey { $0%2 ? "evens" : "odds" } -> [ "evens" : [0, 2, 4], "odds" : [5, 7] ]
