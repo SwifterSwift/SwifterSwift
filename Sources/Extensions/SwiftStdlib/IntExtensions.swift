@@ -172,6 +172,12 @@ public extension Int {
 	}
 	// swiftlint:enable identifier_name
 
+    public func factors() -> [Int] {
+        let factors = (1...self).filter { self % $0 == 0 }
+//        let stringFactors = factors.map { String($0) }
+//        let joinedFactors = stringFactors.joined(separator: ", ")
+        return factors
+    }
 }
 
 // MARK: - Initializers

@@ -117,6 +117,11 @@ final class IntExtensionsTests: XCTestCase {
         XCTAssert(63.roundToNearest(25) == 75)
         XCTAssert(42.roundToNearest(0) == 42)
     }
+    
+    func testFactors() {
+        XCTAssertEqual(83.factors(), [1, 83])
+        XCTAssertEqual(98.factors(), [1, 2, 7, 14, 49, 98])
+    }
 
     func testOperators() {
         XCTAssertEqual(5 ** 2, 25)
