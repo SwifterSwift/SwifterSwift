@@ -1125,6 +1125,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0930;
+				ORGANIZATIONNAME = SwifterSwift;
 				TargetAttributes = {
 					07898B5C1F278D7600558C97 = {
 						CreatedOnToolsVersion = 9.0;
