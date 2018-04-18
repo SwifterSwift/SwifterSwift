@@ -6,10 +6,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 
 - **URL**
-  - Added `deletingAllPathComponents()` and `deleteAllPathComponents()` to delete all path components from a URL. [#452](https://github.com/SwifterSwift/SwifterSwift/pull/452) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+  - Added `deletingAllPathComponents()` and `deleteAllPathComponents()` to delete all path components from a URL. [#441](https://github.com/SwifterSwift/SwifterSwift/pull/441) by [setoelkahfi](https://github.com/setoelkahfi).
 - **UITableView**:
   - Added `isValidIndexPath(_ indexPath:)` method to check whether given IndexPath is valid within UITableView. [#441](https://github.com/SwifterSwift/SwifterSwift/pull/441) by [setoelkahfi](https://github.com/setoelkahfi).
-    **Optional**:
+- **Optional**:
   - Added `isNilOrEmpty` property to check whether an optional is nil or empty collection.
 
 ### Changed
