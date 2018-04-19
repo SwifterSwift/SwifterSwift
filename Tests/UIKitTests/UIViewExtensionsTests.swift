@@ -42,8 +42,28 @@ final class UIViewExtensionsTests: XCTestCase {
 	}
 
     func testFirstResponder() {
-        let view = UIView()
-        XCTAssertNil(view.firstResponder)
+        // When there's no firstResponder
+        XCTAssertNil(UIView().firstResponder())
+
+        let window = UIWindow()
+
+        // When self is firstResponder
+        let txtView = UITextField(frame: CGRect.zero)
+        window.addSubview(txtView)
+        txtView.becomeFirstResponder()
+        XCTAssertTrue(txtView.firstResponder() === txtView)
+
+        // When a subview is firstResponder
+        let superView = UIView()
+        window.addSubview(superView)
+        let subView = UITextField(frame: CGRect.zero)
+        superView.addSubview(subView)
+        subView.becomeFirstResponder()
+        XCTAssertTrue(superView.firstResponder() === subView)
+
+        // When you have to find recursively
+        XCTAssertTrue(window.firstResponder() === subView)
+
     }
 
 	func testHeight() {
