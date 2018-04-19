@@ -20,7 +20,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIView**:
   - **Breaking Change** `firstResponder` UIView extension is now a function and suport recursive find in the view hierarchy. [#447](https://github.com/SwifterSwift/SwifterSwift/pull/447) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
  
-> ### Deprecated
+### Deprecated
 - **Array**
   - `groupByKey(keyForValue:)`. [#454](https://github.com/SwifterSwift/SwifterSwift/pull/454) by [@calebkleveter](https://github.com/calebkleveter)
 
