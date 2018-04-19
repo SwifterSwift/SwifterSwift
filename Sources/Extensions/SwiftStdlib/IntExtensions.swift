@@ -171,11 +171,11 @@ public extension Int {
 		return n == 0 ? self : Int(round(Double(self) / Double(n))) * n
 	}
 	// swiftlint:enable identifier_name
-
+    
+    /// SwifterSwift: Array of factors for given integer.
+    /// - Returns: array of factors
     public func factors() -> [Int] {
         let factors = (1...self).filter { self % $0 == 0 }
-//        let stringFactors = factors.map { String($0) }
-//        let joinedFactors = stringFactors.joined(separator: ", ")
         return factors
     }
 }
