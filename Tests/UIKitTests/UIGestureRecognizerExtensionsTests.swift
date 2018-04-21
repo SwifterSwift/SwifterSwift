@@ -37,6 +37,5 @@ class UIGestureRecognizerExtensionsTests: XCTestCase {
         XCTAssert(view.gestureRecognizers?.isEmpty ?? false)
         XCTAssert(tap.view == nil)
     }
-    
 }
 #endif
