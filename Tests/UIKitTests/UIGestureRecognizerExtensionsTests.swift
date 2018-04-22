@@ -12,7 +12,7 @@ import XCTest
 
 class UIGestureRecognizerExtensionsTests: XCTestCase {
 
-    func testRemove() {
+    func testRemoveFromView() {
         let view = UIImageView()
         let tap = UITapGestureRecognizer()
 
@@ -30,7 +30,7 @@ class UIGestureRecognizerExtensionsTests: XCTestCase {
         XCTAssertFalse((view.gestureRecognizers?.count ?? 0) == 0)
         XCTAssertFalse(view.gestureRecognizers?.isEmpty ?? true)
 
-        tap.remove()
+        tap.removeFromView()
 
         //Verify change
         XCTAssert((view.gestureRecognizers?.count ?? 1) == 0)
