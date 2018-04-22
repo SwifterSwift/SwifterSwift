@@ -29,7 +29,6 @@ public extension UIScrollView{
         frame = CGRect(origin: frame.origin, size: contentSize)
         layer.render(in: context)
         frame = previousFrame
-        layer.render(in: context)
         return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
