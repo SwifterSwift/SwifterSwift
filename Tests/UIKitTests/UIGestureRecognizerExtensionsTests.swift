@@ -12,8 +12,8 @@ import XCTest
 
 class UIGestureRecognizerExtensionsTests: XCTestCase {
 
-    func testExample() {
-        let view: UIImageView = UIImageView()
+    func testRemove() {
+        let view = UIImageView()
         let tap = UITapGestureRecognizer()
 
         //First Baseline Assertion
