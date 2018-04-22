@@ -6,9 +6,10 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) 
 import UIKit
 
+#if !os(watchOS)
 // MARK: - Methods
 public extension UIGestureRecognizer {
 
@@ -17,4 +18,6 @@ public extension UIGestureRecognizer {
         self.view?.removeGestureRecognizer(self)
     }
 }
+#endif
+
 #endif
