@@ -65,8 +65,9 @@ public extension URL {
 
     /// SwifterSwift: Returns a new URL by removing all the path components.
     ///
-    ///        let url = URL(string: "https://domain.com/path/other")!
-    ///        print(url.deletingAllPathComponents()) // prints "https://domain.com/"
+    ///     let url = URL(string: "https://domain.com/path/other")!
+    ///     print(url.deletingAllPathComponents()) // prints "https://domain.com/"
+    ///
     /// - Returns: URL with all path components removed.
     public func deletingAllPathComponents() -> URL {
         var url: URL = self
