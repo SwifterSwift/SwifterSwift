@@ -19,14 +19,16 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UICollectionView**:
   - `dequeueReusableCell(withClass:for)` now return `UICollectionViewCell` object, `fatalError(...)` if not found. [#439](https://github.com/SwifterSwift/SwifterSwift/pull/439) by [jdisho](https://github.com/jdisho)
   - `dequeueReusableSupplementaryView(ofKind:withClass:for)`now returns `UICollectionReusableView` object, `fatalError(...)` if not found. [#439](https://github.com/SwifterSwift/SwifterSwift/pull/439) by [jdisho](https://github.com/jdisho)
-
+- **UIView**:
+  - **Breaking Change** `firstResponder` UIView extension is now a function and suport recursive find in the view hierarchy. [#447](https://github.com/SwifterSwift/SwifterSwift/pull/447) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+ 
 ### Deprecated
+- **Array**
+  - `groupByKey(keyForValue:)`. [#454](https://github.com/SwifterSwift/SwifterSwift/pull/454) by [@calebkleveter](https://github.com/calebkleveter)
 
-### Removed
-
-### Fixed
-
-### Security
+> ### Removed
+> ### Fixed
+> ### Security
 
 ---
 
