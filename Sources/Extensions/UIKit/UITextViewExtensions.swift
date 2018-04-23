@@ -34,7 +34,7 @@ public extension UITextView {
 	}
 
     /// SwifterSwift: Wrap to the content (Text / Attributed Text).
-    func wrapToContent() {
+    public func wrapToContent() {
         self.contentInset = UIEdgeInsets.zero
         self.scrollIndicatorInsets = UIEdgeInsets.zero
         self.contentOffset = CGPoint.zero
