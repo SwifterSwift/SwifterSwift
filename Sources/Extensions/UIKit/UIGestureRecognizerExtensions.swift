@@ -6,7 +6,7 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(UIKit) 
+#if canImport(UIKit)
 import UIKit
 
 #if !os(watchOS)
