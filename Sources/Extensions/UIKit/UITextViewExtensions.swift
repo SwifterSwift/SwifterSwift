@@ -32,7 +32,7 @@ public extension UITextView {
 		let range = NSMakeRange(0, 1)
 		scrollRangeToVisible(range)
 	}
-    
+
     /// SwifterSwift: Wrap to the content (Text / Attributed Text).
     func wrapToContent() {
         self.contentInset = UIEdgeInsets.zero
@@ -42,7 +42,7 @@ public extension UITextView {
         self.textContainer.lineFragmentPadding = 0
         self.sizeToFit()
     }
-    
+
 }
 #endif
 
