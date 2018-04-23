@@ -40,6 +40,7 @@ public extension UITextView {
         self.contentOffset = CGPoint.zero
         self.textContainerInset = UIEdgeInsets.zero
         self.textContainer.lineFragmentPadding = 0
+        self.sizeToFit()
     }
     
 }

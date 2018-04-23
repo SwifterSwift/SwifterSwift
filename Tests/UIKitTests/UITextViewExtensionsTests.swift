@@ -57,17 +57,21 @@ final class UITextViewExtensionsTests: XCTestCase {
         let textHeight = ceil(boundingBox.height)
         let textSize = CGSize.init(width: 100, height: textHeight)
         
-        textView.bounds = CGRect.init(x: 0, y: 0, width: textSize.width, height: textSize.height)
-        
         // before setting wrap, content won't be equal to bounds
         XCTAssertNotEqual(textView.bounds.size, textView.contentSize)
         
-        // setting the wrapping option
+        // calling the wrap extension method
         textView.wrapToContent()
+        
+        // setting the frame
+        //
+        // This is important to set the frame after calling the wrapToContent, otherwise
+        // boundingRect can give you fractional value, and method call `sizeToFit` inside the
+        // wrapToContent would change to the fractional value instead of the ceil value.
+        textView.bounds = CGRect.init(x: 0, y: 0, width: textSize.width, height: textSize.height)
         
         // after setting wrap, content size will be equal to bounds
         XCTAssertEqual(textView.bounds.size, textView.contentSize)
     }
-    
 }
 #endif
