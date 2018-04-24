@@ -63,6 +63,31 @@ public extension URL {
 		self = appendingQueryParameters(parameters)
 	}
 
+    /// SwifterSwift: Returns a new URL by removing all the path components.
+    ///
+    ///     let url = URL(string: "https://domain.com/path/other")!
+    ///     print(url.deletingAllPathComponents()) // prints "https://domain.com/"
+    ///
+    /// - Returns: URL with all path components removed.
+    public func deletingAllPathComponents() -> URL {
+        var url: URL = self
+        for _ in 0..<pathComponents.count - 1 {
+            url.deleteLastPathComponent()
+        }
+        return url
+    }
+
+    /// SwifterSwift: Remove all the path components from the URL.
+    ///
+    ///        var url = URL(string: "https://domain.com/path/other")!
+    ///        url.deleteAllPathComponents()
+    ///        print(url) // prints "https://domain.com/"
+    public mutating func deleteAllPathComponents() {
+        for _ in 0..<pathComponents.count - 1 {
+            deleteLastPathComponent()
+        }
+    }
+
 }
 
 // MARK: - Methods

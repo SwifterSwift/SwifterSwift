@@ -37,6 +37,18 @@ final class URLExtensionsTests: XCTestCase {
 		XCTAssertEqual(parameters["empty"], nil)
 	}
 
+    func testDeletingAllPathComponents() {
+        let url = URL(string: "https://domain.com/path/other/")!
+        let result = url.deletingAllPathComponents()
+        XCTAssertEqual(result.absoluteString, "https://domain.com/")
+    }
+
+    func testDeleteAllPathComponents() {
+        var url = URL(string: "https://domain.com/path/other/")!
+        url.deleteAllPathComponents()
+        XCTAssertEqual(url.absoluteString, "https://domain.com/")
+    }
+
 	#if os(iOS) || os(tvOS)
 	func testThumbnail() {
 		XCTAssertNil(url.thumbnail())
