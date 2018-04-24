@@ -19,6 +19,6 @@ final class UIScrollViewExtensionsTest: XCTestCase {
         XCTAssertNotNil(snapshot)
         let view = UIScrollView()
         XCTAssertNil(view.snapshot)
-    } 
+    }
 }
 #endif
