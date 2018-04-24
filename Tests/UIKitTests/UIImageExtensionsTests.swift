@@ -60,7 +60,7 @@ final class UIImageExtensionsTests: XCTestCase {
 
 		let scaledImage = image.scaled(toHeight: 300)
 		XCTAssertNotNil(scaledImage)
-		XCTAssertEqual(scaledImage!.size.height, 300)
+		XCTAssertEqual(scaledImage!.size.height, 300, accuracy: 0.1)
 	}
 
 	func testScaledToWidth() {
@@ -69,7 +69,7 @@ final class UIImageExtensionsTests: XCTestCase {
 
 		let scaledImage = image.scaled(toWidth: 300)
 		XCTAssertNotNil(scaledImage)
-		XCTAssertEqual(scaledImage!.size.width, 300)
+		XCTAssertEqual(scaledImage!.size.width, 300, accuracy: 0.1)
 	}
 
 	func testFilled() {
