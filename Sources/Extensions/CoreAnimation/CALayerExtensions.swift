@@ -15,20 +15,19 @@ public extension CALayer {
     ///   - color: the tint of the shadow effect.  Default is UIColor.black
     ///   - alpha: opacity of the color applied to the shaddow effect.  Default is 0.5
     ///   - x: the horizontal offset applied to the shadow effect.  Default is 0.
-    ///   - y: the vertical offset applied to the shadow effect.  Default is 2.
-    ///   - blur: if set to 0 the shadow will be sharp, the higher the number, the more blurred it will be.  Default is 4.
-    ///   - spread: positive values increase the size of the shadow, negative values decrease the size. Default is 0 (the shadow is same size as blur).
-    public func applyShadow(color: UIColor = .black, alpha: Float = 0.5, xOffset: CGFloat = 0, yOffset: CGFloat = 2, blur: CGFloat = 4, spread: CGFloat = 0) {
-        shadowColor = color.cgColor
+    ///   - y: the vertical offset applied to the shadow effect.  Default is 0.
+    ///   - blur: if set to 0 the shadow will be sharp, the higher the number, the more blurred it will be.  Default is 0.
+    ///   - spread: positive values increase the size of the shadow, negative values decrease the size. Default is 0.
+    public func applyShadow(color: CGColor = UIColor.black.cgColor, alpha: Float = 0.5, offset: CGSize = CGSize(width: 0, height: 0), blur: CGFloat = 0, spread: CGFloat = 0) {
+        shadowColor = color
         shadowOpacity = alpha
-        shadowOffset = CGSize(width: xOffset, height: yOffset)
+        shadowOffset = offset
         shadowRadius = blur / 2.0
         if spread == 0 {
             shadowPath = nil
         } else {
             let dirX = -spread
-            let rect = bounds.insetBy(dx: dirX, dy: dirX)
-            shadowPath = UIBezierPath(rect: rect).cgPath
+            shadowPath = CGPath(rect: bounds.insetBy(dx: dirX, dy: dirX), transform: nil)
         }
     }
 }
