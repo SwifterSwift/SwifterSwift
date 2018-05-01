@@ -33,4 +33,4 @@ script:
   - bash <(curl -s https://codecov.io/bash) -cF osx -J 'SwifterSwift'
   - xcodebuild clean build -project "$PROJECT" -scheme "$WATCHOS_SCHEME" -destination "$WATCHOS_DESTINATION" | xcpretty
   - swiftlint lint
-  - pod lib lint
+  - pod lib lint --verbose
