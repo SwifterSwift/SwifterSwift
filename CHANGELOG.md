@@ -3,6 +3,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 # Upcoming release
 ### Added
+- **Character**:
+- Added `random()` method to generate a random Character. [#462](https://github.com/SwifterSwift/SwifterSwift/pull/458) by [oliviabrown9](https://github.com/oliviabrown9)
 - **UITextView**:
 - Added `wrapToContent()` method which will remove insets, offsets, paddings which lies within UITextView's `bounds` and `contenSize`. [#458](https://github.com/SwifterSwift/SwifterSwift/pull/458) by [ratulSharker](https://github.com/ratulSharker)
 
