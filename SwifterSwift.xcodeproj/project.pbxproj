@@ -362,7 +362,6 @@
 		86B3F7AE208D3DF300BC297B /* UIScrollViewExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3F7AD208D3DF300BC297B /* UIScrollViewExtensionsTest.swift */; };
 		90693551208B4F9400407C4D /* UIGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90693550208B4F9400407C4D /* UIGestureRecognizerExtensions.swift */; };
 		90693555208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90693554208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift */; };
-		90B1983A2091CCEE0038A08E /* CALayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B198392091CCEE0038A08E /* CALayerExtensions.swift */; };
 		9D4914831F85138E00F3868F /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */; };
 		9D4914841F85138E00F3868F /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */; };
 		9D4914851F85138E00F3868F /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */; };
@@ -552,7 +551,6 @@
 		86B3F7AD208D3DF300BC297B /* UIScrollViewExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScrollViewExtensionsTest.swift; sourceTree = "<group>"; };
 		90693550208B4F9400407C4D /* UIGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
 		90693554208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtensionsTests.swift; sourceTree = "<group>"; };
-		90B198392091CCEE0038A08E /* CALayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CALayerExtensions.swift; sourceTree = "<group>"; };
 		9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensions.swift; sourceTree = "<group>"; };
 		9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensionsTests.swift; sourceTree = "<group>"; };
 		9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExtensions.swift; sourceTree = "<group>"; };
@@ -717,7 +715,6 @@
 		07898B941F27904200558C97 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				90B198382091CCD50038A08E /* CoreAnimation */,
 				784C752D2051BD01001C48DD /* MapKit */,
 				0726D7751F7C19880028CAB5 /* Shared */,
 				077BA0871F6BE73000D9C4AC /* SwiftStdlib */,
@@ -943,14 +940,6 @@
 				784C75362051BE1D001C48DD /* MKPolylineTests.swift */,
 			);
 			path = MapKitTests;
-			sourceTree = "<group>";
-		};
-		90B198382091CCD50038A08E /* CoreAnimation */ = {
-			isa = PBXGroup;
-			children = (
-				90B198392091CCEE0038A08E /* CALayerExtensions.swift */,
-			);
-			path = CoreAnimation;
 			sourceTree = "<group>";
 		};
 		B23678EA1FB116680027C931 /* Deprecated */ = {
@@ -1371,7 +1360,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07B7F2191F5EB43C00E6F910 /* SignedNumericExtensions.swift in Sources */,
-				90B1983A2091CCEE0038A08E /* CALayerExtensions.swift in Sources */,
 				A94AA78720280F9100E229A5 /* FileManagerExtensions.swift in Sources */,
 				90693551208B4F9400407C4D /* UIGestureRecognizerExtensions.swift in Sources */,
 				B23678EC1FB116AD0027C931 /* SwiftStdlibDeprecated.swift in Sources */,
