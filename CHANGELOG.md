@@ -4,6 +4,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+- **CALayer**:
+  - Added `applyShadow(color:alpha:xOffset:yOffset:blur:spread)` method to apply a shadow to a CALayer with the same describing paramaters as Sketch, Zeplin, etc. [#460](https://github.com/SwifterSwift/SwifterSwift/pull/460) by [mmdock](https://github.com/mmdock)
 - **UIScrollView**:
   - Added `snapshot` method to get a full snapshot of a rendered scroll view. [#457](https://github.com/SwifterSwift/SwifterSwift/pull/457) by [aliamcami](https://github.com/aliamcami).
 - **UIGestureRecognizer**:
