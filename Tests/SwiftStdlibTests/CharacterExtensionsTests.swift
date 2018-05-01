@@ -70,10 +70,15 @@ final class CharacterExtensionsTests: XCTestCase {
     }
     
     func testRandom() {
-        let char1 = Character.random()
-        let char2 = Character.random()
+        var string1 = String()
+        var string2 = String()
         
-        XCTAssertNotEqual(char1, char2)
+        for _ in 0..<10 {
+            string1.append(Character.random())
+            string2.append(Character.random())
+        }
+        
+        XCTAssertNotEqual(string1, string2)
     }
 
 	func testOperators() {
