@@ -68,6 +68,13 @@ final class CharacterExtensionsTests: XCTestCase {
     func testLowercased() {
         XCTAssertEqual(Character("S").lowercased, Character("s"))
     }
+    
+    func testRandom() {
+        let char1 = Character.random()
+        let char2 = Character.random()
+        
+        XCTAssertNotEqual(char1, char2)
+    }
 
 	func testOperators() {
 		let sLetter = Character("s")
