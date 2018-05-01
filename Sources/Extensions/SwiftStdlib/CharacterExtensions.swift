@@ -114,7 +114,7 @@ public extension Character {
     ///    Character.random() -> k
     ///
     /// - Returns: A random character.
-    public static func random() -> Character {
+    public static func randomAlphanumeric() -> Character {
         let allCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let randomNumber = Int(arc4random_uniform(UInt32(allCharacters.count)))
         let randomIndex = allCharacters.index(allCharacters.startIndex, offsetBy: randomNumber)

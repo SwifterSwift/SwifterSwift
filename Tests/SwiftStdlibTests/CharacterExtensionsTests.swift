@@ -72,8 +72,8 @@ final class CharacterExtensionsTests: XCTestCase {
         var string1 = String()
         var string2 = String()
         for _ in 0..<10 {
-            string1.append(Character.random())
-            string2.append(Character.random())
+            string1.append(Character.randomAlphanumeric())
+            string2.append(Character.randomAlphanumeric())
         }
         XCTAssertNotEqual(string1, string2)
     }
