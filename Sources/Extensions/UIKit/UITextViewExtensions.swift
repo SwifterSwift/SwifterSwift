@@ -33,6 +33,16 @@ public extension UITextView {
 		scrollRangeToVisible(range)
 	}
 
+    /// SwifterSwift: Wrap to the content (Text / Attributed Text).
+    public func wrapToContent() {
+        contentInset = UIEdgeInsets.zero
+        scrollIndicatorInsets = UIEdgeInsets.zero
+        contentOffset = CGPoint.zero
+        textContainerInset = UIEdgeInsets.zero
+        textContainer.lineFragmentPadding = 0
+        sizeToFit()
+    }
+
 }
 #endif
 
