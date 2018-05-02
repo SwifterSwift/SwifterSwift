@@ -174,9 +174,17 @@ public extension Int {
     
     /// SwifterSwift: Array of factors for given integer.
     /// - Returns: array of factors
-    public func factors() -> [Int] {
-        let factors = (1...self).filter { self % $0 == 0 }
-        return factors
+    func factors() -> [Int] {
+        guard self > 0 else { return [] }
+        
+        let rootSquared = Int(Double(self).squareRoot())
+        var factors = Set<Int>()
+        
+        for i in 1...(rootSquared + 1) where self % i == 0 {
+            factors.formUnion([i, self/i])
+        }
+        
+        return factors.sorted()
     }
 }
 

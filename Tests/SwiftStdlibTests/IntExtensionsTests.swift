@@ -119,6 +119,7 @@ final class IntExtensionsTests: XCTestCase {
     }
     
     func testFactors() {
+        XCTAssertEqual(0.factors(), [])
         XCTAssertEqual(83.factors(), [1, 83])
         XCTAssertEqual(98.factors(), [1, 2, 7, 14, 49, 98])
     }
