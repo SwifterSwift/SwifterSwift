@@ -82,16 +82,7 @@ public extension UIView {
 			layer.masksToBounds = true
 			layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
 		}
-	}
-
-	/// SwifterSwift: First responder.
-	public var firstResponder: UIView? {
-		guard !isFirstResponder else { return self }
-		for subView in subviews where subView.isFirstResponder {
-			return subView
-		}
-		return nil
-	}
+    }
 
 	// SwifterSwift: Height of view.
 	public var height: CGFloat {
@@ -197,7 +188,7 @@ public extension UIView {
 		}
 	}
 
-	// swiftlint:disable identifier_name
+	// swiftlint:disable next identifier_name
 	/// SwifterSwift: x origin of view.
 	public var x: CGFloat {
 		get {
@@ -207,9 +198,8 @@ public extension UIView {
 			frame.origin.x = newValue
 		}
 	}
-	// swiftlint:enable identifier_name
 
-	// swiftlint:disable identifier_name
+	// swiftlint:disable next identifier_name
 	/// SwifterSwift: y origin of view.
 	public var y: CGFloat {
 		get {
@@ -219,14 +209,28 @@ public extension UIView {
 			frame.origin.y = newValue
 		}
 	}
-	// swiftlint:enable identifier_name
 
 }
 
 // MARK: - Methods
 public extension UIView {
 
-	/// SwifterSwift: Set some or all corners radiuses of view.
+    /// SwifterSwift: Recursively find the first responder.
+    public func firstResponder() -> UIView? {
+        var views = [UIView](arrayLiteral: self)
+        var i = 0
+        repeat {
+            let view = views[i]
+            if view.isFirstResponder {
+                return view
+            }
+            views.append(contentsOf: view.subviews)
+            i += 1
+        } while i < views.count
+        return nil
+    }
+
+    /// SwifterSwift: Set some or all corners radiuses of view.
 	///
 	/// - Parameters:
 	///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).

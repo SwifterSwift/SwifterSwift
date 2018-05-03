@@ -8,7 +8,7 @@
 import XCTest
 @testable import SwifterSwift
 
-// swiftlint:disable type_body_length
+// swiftlint:disable next type_body_length
 final class DateExtensionsTests: XCTestCase {
 
 	override func setUp() {
@@ -16,7 +16,7 @@ final class DateExtensionsTests: XCTestCase {
 		NSTimeZone.default = TimeZone(abbreviation: "UTC")!
 	}
 
-	// swiftlint:disable cyclomatic_complexity
+	// swiftlint:disable next cyclomatic_complexity
 	func testCalendar() {
 		switch Calendar.current.identifier {
 		case .buddhist:
@@ -53,7 +53,6 @@ final class DateExtensionsTests: XCTestCase {
 			XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .republicOfChina).identifier)
 		}
 	}
-	// swiftlint:enable cyclomatic_complexity
 
 	func testEra() {
 		let date = Date(timeIntervalSince1970: 0)
@@ -511,7 +510,7 @@ final class DateExtensionsTests: XCTestCase {
 		XCTAssertEqual(date8.adding(.year, value: -4), date)
 	}
 
-	// swiftlint:disable function_body_length
+	// swiftlint:disable next function_body_length
 	func testAdd() {
 		var date = Date(timeIntervalSince1970: 0)
 
@@ -570,7 +569,6 @@ final class DateExtensionsTests: XCTestCase {
 		date.add(.year, value: 1)
 		XCTAssertEqual(date.year, 2018)
 	}
-	// swiftlint:enable function_body_length
 
 	func testChanging() {
 		let date = Date(timeIntervalSince1970: 0)
@@ -943,4 +941,3 @@ final class DateExtensionsTests: XCTestCase {
 	}
 
 }
-// swiftlint:enable type_body_length
