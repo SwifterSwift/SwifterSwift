@@ -37,6 +37,12 @@ final class URLExtensionsTests: XCTestCase {
 		XCTAssertEqual(parameters["empty"], nil)
 	}
 
+    func testValueForQueryKey() {
+        let url = URL(string: "https://google.com?code=12345")!
+        let result = url.value(for: "code")
+        XCTAssertEqual(result, "12345")
+    }
+
     func testDeletingAllPathComponents() {
         let url = URL(string: "https://domain.com/path/other/")!
         let result = url.deletingAllPathComponents()
