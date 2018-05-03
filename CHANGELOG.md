@@ -5,7 +5,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **URL**
-- Added `init?(withPercentEncodingOfString string: String)` method to create a `URL` from after applying percent encoding. by [ratulSharker](https://github.com/ratulSharker)
+- Added `init?(withPercentEncodingOfString string: String)` method to create a `URL` from after applying percent encoding.[#465](https://github.com/SwifterSwift/SwifterSwift/pull/465) by [ratulSharker](https://github.com/ratulSharker)
 - **Character**:
 - Added `randomAlphanumeric()` method to generate a random alphanumeric Character. [#462](https://github.com/SwifterSwift/SwifterSwift/pull/458) by [oliviabrown9](https://github.com/oliviabrown9)
 - **UITextView**:
