@@ -68,7 +68,7 @@ public extension URL {
     ///    var url = URL(string: "https://google.com?code=12345")!
     ///    queryValue(for: "code") -> "12345"
     ///
-    /// - Parameter: Key of a query.
+    /// - Parameter key: The key of a query value.
     public func queryValue(for key: String) -> String? {
         let stringURL = self.absoluteString
         guard let items = URLComponents(string: stringURL)?.queryItems else { return nil }
