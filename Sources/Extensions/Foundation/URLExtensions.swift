@@ -66,13 +66,13 @@ public extension URL {
     /// SwifterSwift: Get value of a query key.
     ///
     ///    var url = URL(string: "https://google.com?code=12345")!
-    ///    url.value(for: code) -> "12345"
+    ///    queryValue(for: "code") -> "12345"
     ///
     /// - Parameter: Key of a query.
-    public func value(for queryKey: String) -> String? {
+    public func queryValue(for key: String) -> String? {
         let stringURL = self.absoluteString
         guard let items = URLComponents(string: stringURL)?.queryItems else { return nil }
-        for item in items where item.name == queryKey {
+        for item in items where item.name == key {
             return item.value
         }
         return nil
