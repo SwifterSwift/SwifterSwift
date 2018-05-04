@@ -165,11 +165,12 @@ public extension Int {
 		return romanValue
 	}
 
-	// swiftlint:disable identifier_name
+	// swiftlint:disable next identifier_name
 	/// SwifterSwift: Rounds to the closest multiple of n
 	public func roundToNearest(_ n: Int) -> Int {
 		return n == 0 ? self : Int(round(Double(self) / Double(n))) * n
 	}
+
 	// swiftlint:enable identifier_name
     
     /// SwifterSwift: Array of factors for given integer.
@@ -224,7 +225,7 @@ public func ** (lhs: Int, rhs: Int) -> Double {
 	return pow(Double(lhs), Double(rhs))
 }
 
-// swiftlint:disable identifier_name
+// swiftlint:disable next identifier_name
 prefix operator √
 /// SwifterSwift: Square root of integer.
 ///
@@ -234,9 +235,8 @@ public prefix func √ (int: Int) -> Double {
 	// http://nshipster.com/swift-operators/
 	return sqrt(Double(int))
 }
-// swiftlint:enable identifier_name
 
-// swiftlint:disable identifier_name
+// swiftlint:disable next identifier_name
 infix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
@@ -248,9 +248,8 @@ public func ± (lhs: Int, rhs: Int) -> (Int, Int) {
 	// http://nshipster.com/swift-operators/
 	return (lhs + rhs, lhs - rhs)
 }
-// swiftlint:enable identifier_name
 
-// swiftlint:disable identifier_name
+// swiftlint:disable next identifier_name
 prefix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
@@ -260,4 +259,3 @@ public prefix func ± (int: Int) -> (Int, Int) {
 	// http://nshipster.com/swift-operators/
 	return 0 ± int
 }
-// swiftlint:enable identifier_name

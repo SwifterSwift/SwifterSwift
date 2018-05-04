@@ -181,6 +181,18 @@ public extension UITableView {
         return indexPath.section < self.numberOfSections && indexPath.row < self.numberOfRows(inSection: indexPath.section)
     }
 
+    /// SwifterSwift: Safely scroll to possibly invalid IndexPath
+    ///
+    /// - Parameters:
+    ///   - indexPath: Target IndexPath to scroll to
+    ///   - scrollPosition: Scroll position
+    ///   - animated: Whether to animate or not
+    public func safeScrollToRow(at indexPath: IndexPath, at scrollPosition: UITableViewScrollPosition, animated: Bool) {
+        guard indexPath.section < numberOfSections else { return }
+        guard indexPath.row < numberOfRows(inSection: indexPath.section) else { return }
+        scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
+    }
+
 }
 #endif
 

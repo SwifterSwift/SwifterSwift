@@ -105,7 +105,21 @@ public extension Character {
 	public var uppercased: Character {
 		return String(self).uppercased().first!
 	}
+}
 
+// MARK: - Methods
+public extension Character {
+    /// SwifterSwift: Random character.
+    ///
+    ///    Character.random() -> k
+    ///
+    /// - Returns: A random character.
+    public static func randomAlphanumeric() -> Character {
+        let allCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let randomNumber = Int(arc4random_uniform(UInt32(allCharacters.count)))
+        let randomIndex = allCharacters.index(allCharacters.startIndex, offsetBy: randomNumber)
+        return allCharacters[randomIndex]
+    }
 }
 
 // MARK: - Operators
@@ -136,5 +150,4 @@ public extension Character {
 		guard lhs > 0 else { return "" }
 		return String(repeating: String(rhs), count: lhs)
 	}
-
 }
