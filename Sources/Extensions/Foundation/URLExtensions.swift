@@ -63,6 +63,20 @@ public extension URL {
 		self = appendingQueryParameters(parameters)
 	}
 
+    /// SwifterSwift: Get value of a query key.
+    ///
+    ///    var url = URL(string: "https://google.com?code=12345")!
+    ///    queryValue(for: "code") -> "12345"
+    ///
+    /// - Parameter key: The key of a query value.
+    public func queryValue(for key: String) -> String? {
+        let stringURL = self.absoluteString
+        guard let items = URLComponents(string: stringURL)?.queryItems else { return nil }
+        for item in items where item.name == key {
+            return item.value
+        }
+        return nil
+    }
     /// SwifterSwift: Returns a new URL by removing all the path components.
     ///
     ///     let url = URL(string: "https://domain.com/path/other")!
