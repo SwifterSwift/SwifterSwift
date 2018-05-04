@@ -66,28 +66,21 @@ public extension URL {
     /// SwifterSwift: Get value of a query key.
     ///
     ///    var url = URL(string: "https://google.com?code=12345")!
-<<<<<<< HEAD
     ///    queryValue(for: "code") -> "12345"
     ///
+<<<<<<< HEAD
     /// - Parameter key: The key of a query value.
+=======
+    /// - Parameter: Key of a query.
+>>>>>>> change from `value(for:)` to `queryValue(for:)` and add a test case for a non-existing key
     public func queryValue(for key: String) -> String? {
         let stringURL = self.absoluteString
         guard let items = URLComponents(string: stringURL)?.queryItems else { return nil }
         for item in items where item.name == key {
-=======
-    ///    url.value(for: code) -> "12345"
-    ///
-    /// - Parameter: Key of a query.
-    public func value(for queryKey: String) -> String? {
-        let stringURL = self.absoluteString
-        guard let items = URLComponents(string: stringURL)?.queryItems else { return nil }
-        for item in items where item.name == queryKey {
->>>>>>> add  function to get the value of a query key
             return item.value
         }
         return nil
     }
-<<<<<<< HEAD
     /// SwifterSwift: Returns a new URL by removing all the path components.
     ///
     ///     let url = URL(string: "https://domain.com/path/other")!
@@ -113,8 +106,6 @@ public extension URL {
         }
     }
 
-=======
->>>>>>> add  function to get the value of a query key
 }
 
 // MARK: - Methods
