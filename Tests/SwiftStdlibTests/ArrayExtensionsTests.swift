@@ -47,39 +47,6 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(swappedEmptyArray, emptyArray)
     }
 
-    func testLastWhere() {
-        let array = [1, 1, 2, 1, 1, 1, 2, 1, 4, 1]
-        let element = array.last { $0 % 2 == 0 }
-        XCTAssertEqual(element, 4)
-        XCTAssertNil([Int]().last { $0 % 2 == 0 })
-    }
-
-    func testRejectWhere() {
-        let input = [1, 2, 3, 4, 5]
-        let output = input.reject { $0 % 2 == 0 }
-        XCTAssertEqual(output, [1, 3, 5])
-    }
-
-    func testCountWhere() {
-        let array = [1, 1, 1, 1, 4, 4, 1, 1, 1]
-        let count = array.count { $0 % 2 == 0 }
-        XCTAssertEqual(count, 2)
-    }
-
-    func testForEachReversed() {
-        let input = [1, 2, 3, 4, 5]
-        var output: [Int] = []
-        input.forEachReversed { output.append($0) }
-        XCTAssertEqual(output.first, 5)
-    }
-
-    func testForEachWhere() {
-        let input = [1, 2, 2, 2, 1, 4, 1]
-        var output: [Int] = []
-        input.forEach(where: {$0 % 2 == 0}, body: { output.append($0 * 2) })
-        XCTAssertEqual(output, [4, 4, 4, 8])
-    }
-
     func testAccumulate() {
         let input = [1, 2, 3]
         let result = input.accumulate(initial: 0, next: +)
