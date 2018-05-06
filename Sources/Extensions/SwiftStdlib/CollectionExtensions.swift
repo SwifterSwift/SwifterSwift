@@ -16,7 +16,7 @@ public extension Collection {
 	///		}
 	///
 	/// - Parameter each: closure to run for each element.
-	public func forEachInParallel(_ each: (Self.Iterator.Element) -> Void) {
+	public func forEachInParallel(_ each: (Self.Element) -> Void) {
 		let indicesArray = Array(indices)
 
 		DispatchQueue.concurrentPerform(iterations: indicesArray.count) { (index) in
@@ -32,7 +32,7 @@ public extension Collection {
 	///		arr[safe: 10] -> nil
 	///
 	/// - Parameter index: index of element to access element.
-	public subscript(safe index: Index) -> Iterator.Element? {
+	public subscript(safe index: Index) -> Element? {
 		return indices.contains(index) ? self[index] : nil
 	}
 
@@ -51,7 +51,7 @@ public extension Collection where Index == Int {
 }
 
 // MARK: - Methods (Integer)
-public extension Collection where Iterator.Element == IntegerLiteralType, Index == Int {
+public extension Collection where Element == IntegerLiteralType, Index == Int {
 
 	/// SwifterSwift: Average of all elements in array.
 	///
@@ -60,5 +60,20 @@ public extension Collection where Iterator.Element == IntegerLiteralType, Index 
 		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
 		return isEmpty ? 0 : Double(reduce(0, +)) / Double(count)
 	}
+
+}
+
+// MARK: - Methods (FloatingPoint)
+public extension Collection where Element: FloatingPoint {
+
+    /// SwifterSwift: Average of all elements in array.
+    ///
+    ///        [1.2, 2.3, 4.5, 3.4, 4.5].average() = 3.18
+    ///
+    /// - Returns: average of the array's elements.
+    public func average() -> Element {
+        guard !isEmpty else { return 0 }
+        return reduce(0, {$0 + $1}) / Element(count)
+    }
 
 }

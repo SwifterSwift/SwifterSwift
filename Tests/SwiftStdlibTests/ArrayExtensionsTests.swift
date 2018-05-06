@@ -21,12 +21,6 @@ private struct Person: Equatable {
 // swiftlint:disable next type_body_length
 final class ArrayExtensionsTests: XCTestCase {
 
-
-    func testAverage() {
-        XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].average(), 3.4)
-        XCTAssertEqual([Double]().average(), 0)
-    }
-
     func testPrepend() {
         var arr = [2, 3, 4, 5]
         arr.prepend(1)

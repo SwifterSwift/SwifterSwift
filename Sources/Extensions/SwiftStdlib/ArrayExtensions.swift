@@ -6,26 +6,6 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-
-// MARK: - Methods (FloatingPoint)
-public extension Array where Element: FloatingPoint {
-
-	/// SwifterSwift: Average of all elements in array.
-	///
-	///		[1.2, 2.3, 4.5, 3.4, 4.5].average() = 3.18
-	///
-	/// - Returns: average of the array's elements.
-	public func average() -> Element {
-		guard !isEmpty else { return 0 }
-		var total: Element = 0
-		for index in 0..<count {
-			total += self[index]
-		}
-		return total / Element(count)
-	}
-
-}
-
 // MARK: - Methods
 public extension Array {
 
