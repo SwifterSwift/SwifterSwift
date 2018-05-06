@@ -59,6 +59,19 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(output, [4, 4, 4, 8])
     }
 
+    func testAccumulate() {
+        let input = [1, 2, 3]
+        let result = input.accumulate(initial: 0, next: +)
+        XCTAssertEqual([1, 3, 6], result)
+    }
+
+    func testFilteredMap() {
+        let input = [1, 2, 3, 4, 5]
+        let result = input.filtered({ $0 % 2 == 0 }, map: { $0.string })
+        XCTAssertEqual(result.count, 2)
+        XCTAssertEqual(["2", "4"], result)
+    }
+
     func testSum() {
         XCTAssertEqual([1, 2, 3, 4, 5].sum(), 15)
         XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum(), 17)
