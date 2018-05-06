@@ -81,7 +81,7 @@ let package = Package(
     name: "YOUR_PROJECT_NAME",
     targets: [],
     dependencies: [
-        .Package(url: "https://github.com/SwifterSwift/SwifterSwift.git", majorVersion: 4),
+        .package(url: "https://github.com/SwifterSwift/SwifterSwift.git", from: "4.0.0")
     ]
 )
 </code></pre>
