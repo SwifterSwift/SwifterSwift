@@ -71,7 +71,7 @@ public extension Array {
 		swapAt(index, otherIndex)
 	}
 
-	/// SwifterSwift: Get first index where condition is met.
+	/// SwifterSwift: Get the first index where condition is met.
 	///
 	///		[1, 7, 1, 2, 4, 1, 6].firstIndex { $0 % 2 == 0 } -> 3
 	///
@@ -84,7 +84,7 @@ public extension Array {
 		return nil
 	}
 
-	/// SwifterSwift: Get last index where condition is met.
+	/// SwifterSwift: Get the last index where condition is met.
 	///
 	///     [1, 7, 1, 2, 4, 1, 8].lastIndex { $0 % 2 == 0 } -> 6
 	///
@@ -142,8 +142,8 @@ public extension Array {
 	/// - Returns: number of times the condition evaluated to true.
 	public func count(where condition: (Element) throws -> Bool) rethrows -> Int {
 		var count = 0
-		for element in self {
-			if try condition(element) { count += 1 }
+		for element in self where try condition(element) {
+            count += 1
 		}
 		return count
 	}
@@ -154,7 +154,7 @@ public extension Array {
 	///
 	/// - Parameter body: a closure that takes an element of the array as a parameter.
 	public func forEachReversed(_ body: (Element) throws -> Void) rethrows {
-		try reversed().forEach { try body($0) }
+		try reversed().forEach(body)
 	}
 
 	/// SwifterSwift: Calls given closure with each element where condition is true.
@@ -243,7 +243,7 @@ public extension Array {
 		return [Element]()
 	}
 
-	/// SwifterSwift: Calls given closure with an array of size of the parameter slice where condition is true.
+	/// SwifterSwift: Calls the given closure with an array of size of the parameter slice.
 	///
 	///     [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> //print: [0, 2], [4, 7]
 	///     [0, 2, 4, 7, 6].forEach(slice: 2) { print($0) } -> //print: [0, 2], [4, 7], [6]
@@ -261,7 +261,7 @@ public extension Array {
 		}
 	}
 
-	/// SwifterSwift: Returns an array of slices of length "size" from the array.  If array can't be split evenly, the final slice will be the remaining elements.
+	/// SwifterSwift: Returns an array of slices of length "size" from the array. If array can't be split evenly, the last slice will be the remaining elements.
 	///
 	///     [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
 	///     [0, 2, 4, 7, 6].group(by: 2) -> [[0, 2], [4, 7], [6]]
@@ -333,7 +333,7 @@ public extension Array {
 	///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
 	///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
 	///
-	/// - Parameter places: Number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
+	/// - Parameter places: The number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start become the end.
 	///
 	/// - Returns: self after rotating
 	public mutating func rotate(by places: Int) -> [Element] {
@@ -367,7 +367,7 @@ public extension Array {
 		return array.shuffle()
 	}
 
-	/// SwifterSwift: Return a sorted array based on an optional keypath.
+	/// SwifterSwift: Returns a sorted array based on an optional keypath.
 	///
 	/// - Parameter path: Key path to sort. The key path type must be Comparable.
 	/// - Parameter ascending: If order must be ascending.
@@ -382,7 +382,7 @@ public extension Array {
 		})
 	}
 
-	/// SwifterSwift: Return a sorted array based on a keypath.
+	/// SwifterSwift: Returns a sorted array based on a keypath.
 	///
 	/// - Parameter path: Key path to sort. The key path type must be Comparable.
 	/// - Parameter ascending: If order must be ascending.
