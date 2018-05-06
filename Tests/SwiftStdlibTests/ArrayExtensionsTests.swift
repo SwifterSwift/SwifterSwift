@@ -18,18 +18,7 @@ private struct Person: Equatable {
 
 }
 
-// swiftlint:disable next type_body_length
 final class ArrayExtensionsTests: XCTestCase {
-
-    func testSum() {
-        XCTAssertEqual([1, 2, 3, 4, 5].sum(), 15)
-        XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum(), 17)
-    }
-
-    func testAverage() {
-        XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].average(), 3.4)
-        XCTAssertEqual([Double]().average(), 0)
-    }
 
     func testPrepend() {
         var arr = [2, 3, 4, 5]
@@ -55,76 +44,6 @@ final class ArrayExtensionsTests: XCTestCase {
         var swappedEmptyArray = emptyArray
         swappedEmptyArray.safeSwap(from: 1, to: 3)
         XCTAssertEqual(swappedEmptyArray, emptyArray)
-    }
-
-    func testFirstIndexWhere() {
-        let array = [1, 7, 1, 2, 4, 1, 6]
-        let index = array.firstIndex { $0 % 2 == 0 }
-        XCTAssertEqual(index, 3)
-        XCTAssertNil([Int]().firstIndex { $0 % 2 == 0 })
-    }
-
-    func testLastIndexWhere() {
-        let array = [1, 1, 1, 2, 2, 1, 1, 2, 1]
-        let index = array.lastIndex { $0 % 2 == 0 }
-        XCTAssertEqual(index, 7)
-        XCTAssertNil(array.lastIndex { $0 == 3 })
-        XCTAssertNil([Int]().lastIndex { $0 % 2 == 0 })
-    }
-
-    func testIndicesWhere() {
-        let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-        let indices = array.indices { $0 % 2 == 0 }
-        XCTAssertEqual(indices!, [0, 2, 4, 6, 8])
-        let emptyArray: [Int] = []
-        let emptyIndices = emptyArray.indices { $0 % 2 == 0 }
-        XCTAssertNil(emptyIndices)
-    }
-
-    func testLastWhere() {
-        let array = [1, 1, 2, 1, 1, 1, 2, 1, 4, 1]
-        let element = array.last { $0 % 2 == 0 }
-        XCTAssertEqual(element, 4)
-        XCTAssertNil([Int]().last { $0 % 2 == 0 })
-    }
-
-    func testRejectWhere() {
-        let input = [1, 2, 3, 4, 5]
-        let output = input.reject { $0 % 2 == 0 }
-        XCTAssertEqual(output, [1, 3, 5])
-    }
-
-    func testCountWhere() {
-        let array = [1, 1, 1, 1, 4, 4, 1, 1, 1]
-        let count = array.count { $0 % 2 == 0 }
-        XCTAssertEqual(count, 2)
-    }
-
-    func testForEachReversed() {
-        let input = [1, 2, 3, 4, 5]
-        var output: [Int] = []
-        input.forEachReversed { output.append($0) }
-        XCTAssertEqual(output.first, 5)
-    }
-
-    func testForEachWhere() {
-        let input = [1, 2, 2, 2, 1, 4, 1]
-        var output: [Int] = []
-        input.forEach(where: {$0 % 2 == 0}, body: { output.append($0 * 2) })
-        XCTAssertEqual(output, [4, 4, 4, 8])
-    }
-
-    func testAccumulate() {
-        let input = [1, 2, 3]
-        let result = input.accumulate(initial: 0, next: +)
-        XCTAssertEqual([1, 3, 6], result)
-    }
-
-    func testFilteredMap() {
-        let input = [1, 2, 3, 4, 5]
-        let result = input.filtered({ $0 % 2 == 0 }, map: { $0.string })
-        XCTAssertEqual(result.count, 2)
-        XCTAssertEqual(["2", "4"], result)
     }
 
     func testKeepWhile() {
@@ -159,96 +78,6 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(output, [7, 7, 8, 10])
 
         XCTAssertEqual([].skip(while: { $0 % 2 == 0}), [])
-    }
-
-    func testForEachSlice() {
-        var iterations: Int = 0
-
-        // A slice with value zero
-        var array: [String] = ["james", "irving", "jordan", "jonshon", "iverson", "shaq"]
-        array.forEach(slice: 0) { _ in
-            iterations += 1
-        }
-        XCTAssertEqual(iterations, 0)
-
-        // A slice that divide the total evenly
-        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
-
-        array.forEach(slice: 2) { (sliceArray) in
-            switch iterations {
-            case 0:
-                XCTAssertEqual(sliceArray, [ "james", "irving" ])
-            case 1:
-                XCTAssertEqual(sliceArray, [ "jordan", "jonshon" ])
-            case 2:
-                XCTAssertEqual(sliceArray, [ "iverson", "shaq" ])
-            default: break
-            }
-            iterations += 1
-        }
-
-        // A slice that does not divide the total evenly
-        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq", "bird"]
-
-        iterations = 0
-
-        array.forEach(slice: 2) { (sliceArray) in
-            switch iterations {
-            case 0:
-                XCTAssertEqual(sliceArray, [ "james", "irving" ])
-            case 1:
-                XCTAssertEqual(sliceArray, [ "jordan", "jonshon" ])
-            case 2:
-                XCTAssertEqual(sliceArray, [ "iverson", "shaq" ])
-            case 3:
-                XCTAssertEqual(sliceArray, [ "bird" ])
-            default: break
-            }
-            iterations += 1
-        }
-
-        // A slice greater than the array count
-        array = [ "james", "irving", "jordan", "jonshon" ]
-        array.forEach(slice: 6) { (sliceArray) in
-            XCTAssertEqual(sliceArray, [ "james", "irving", "jordan", "jonshon"])
-        }
-    }
-
-    func testGroupBySize() {
-
-        // A slice with value zero
-        var array: [String] = ["james", "irving", "jordan", "jonshon", "iverson", "shaq"]
-        var slices = array.group(by: 0)
-        XCTAssertNil(slices)
-
-        // A slice that divide the total evenly
-        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
-        slices = array.group(by: 2)
-        XCTAssertNotNil(slices)
-        XCTAssertEqual(slices?.count, 3)
-
-        // A slice that does not divide the total evenly
-        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq", "bird"]
-        slices = array.group(by: 2)
-        XCTAssertNotNil(slices)
-        XCTAssertEqual(slices?.count, 4)
-
-        // A slice greater than the array count
-        array = [ "james", "irving", "jordan", "jonshon" ]
-        slices = array.group(by: 6)
-        XCTAssertNotNil(slices)
-        XCTAssertEqual(slices?.count, 1)
-    }
-
-    func testGroupBy() {
-        let array: [String] = ["james", "irving", "jordan", "jonshon", "iverson"]
-
-        let grouped = Dictionary(grouping: array) { element -> String in
-            return String(element.first!)
-        }
-
-        XCTAssertEqual(grouped["j"] ?? [], [ "james", "jordan", "jonshon" ])
-        XCTAssertEqual(grouped["i"] ?? [], [ "irving", "iverson" ])
     }
 
     func testDivided() {
@@ -352,15 +181,6 @@ final class ArrayExtensionsTests: XCTestCase {
                                                           Person(name: "Wade", age: nil)])
     }
 
-    func testContains() {
-        XCTAssert([Int]().contains([]))
-        XCTAssertFalse([Int]().contains([1, 2]))
-        XCTAssert([1, 2, 3].contains([1, 2]))
-        XCTAssert([1, 2, 3].contains([2, 3]))
-        XCTAssert([1, 2, 3].contains([1, 3]))
-        XCTAssertFalse([1, 2, 3].contains([4, 5]))
-    }
-
     func testIndices() {
         XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].indices(of: 1), [0, 1, 5, 7])
         XCTAssertEqual(["a", "b", "c", "b", "4", "1", "2", "1"].indices(of: "b"), [1, 3])
@@ -395,18 +215,6 @@ final class ArrayExtensionsTests: XCTestCase {
     func testWithoutDuplicates() {
         XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates(), [1, 2, 3, 4, 5])
         XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
-    }
-
-    func testFirstIndex() {
-        XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2))
-        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2), 2)
-        XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 7))
-    }
-
-    func testLastIndex() {
-        XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2))
-        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2), 6)
-        XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 7))
     }
 
 }
