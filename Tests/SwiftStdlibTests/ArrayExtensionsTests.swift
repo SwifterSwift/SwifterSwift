@@ -217,16 +217,4 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
     }
 
-    func testFirstIndex() {
-        XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2))
-        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2), 2)
-        XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 7))
-    }
-
-    func testLastIndex() {
-        XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2))
-        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2), 6)
-        XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 7))
-    }
-
 }

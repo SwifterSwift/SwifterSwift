@@ -134,6 +134,18 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertEqual(slices?.count, 1)
     }
 
+    func testFirstIndex() {
+        XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2))
+        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2), 2)
+        XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 7))
+    }
+
+    func testLastIndex() {
+        XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2))
+        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2), 6)
+        XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 7))
+    }
+
     func testAverage() {
         XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].average(), 3.4)
         XCTAssertEqual([Double]().average(), 0)
