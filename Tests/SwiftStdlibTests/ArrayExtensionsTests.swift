@@ -18,7 +18,6 @@ private struct Person: Equatable {
 
 }
 
-// swiftlint:disable next type_body_length
 final class ArrayExtensionsTests: XCTestCase {
 
     func testPrepend() {
@@ -79,96 +78,6 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(output, [7, 7, 8, 10])
 
         XCTAssertEqual([].skip(while: { $0 % 2 == 0}), [])
-    }
-
-    func testForEachSlice() {
-        var iterations: Int = 0
-
-        // A slice with value zero
-        var array: [String] = ["james", "irving", "jordan", "jonshon", "iverson", "shaq"]
-        array.forEach(slice: 0) { _ in
-            iterations += 1
-        }
-        XCTAssertEqual(iterations, 0)
-
-        // A slice that divide the total evenly
-        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
-
-        array.forEach(slice: 2) { (sliceArray) in
-            switch iterations {
-            case 0:
-                XCTAssertEqual(sliceArray, [ "james", "irving" ])
-            case 1:
-                XCTAssertEqual(sliceArray, [ "jordan", "jonshon" ])
-            case 2:
-                XCTAssertEqual(sliceArray, [ "iverson", "shaq" ])
-            default: break
-            }
-            iterations += 1
-        }
-
-        // A slice that does not divide the total evenly
-        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq", "bird"]
-
-        iterations = 0
-
-        array.forEach(slice: 2) { (sliceArray) in
-            switch iterations {
-            case 0:
-                XCTAssertEqual(sliceArray, [ "james", "irving" ])
-            case 1:
-                XCTAssertEqual(sliceArray, [ "jordan", "jonshon" ])
-            case 2:
-                XCTAssertEqual(sliceArray, [ "iverson", "shaq" ])
-            case 3:
-                XCTAssertEqual(sliceArray, [ "bird" ])
-            default: break
-            }
-            iterations += 1
-        }
-
-        // A slice greater than the array count
-        array = [ "james", "irving", "jordan", "jonshon" ]
-        array.forEach(slice: 6) { (sliceArray) in
-            XCTAssertEqual(sliceArray, [ "james", "irving", "jordan", "jonshon"])
-        }
-    }
-
-    func testGroupBySize() {
-
-        // A slice with value zero
-        var array: [String] = ["james", "irving", "jordan", "jonshon", "iverson", "shaq"]
-        var slices = array.group(by: 0)
-        XCTAssertNil(slices)
-
-        // A slice that divide the total evenly
-        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
-        slices = array.group(by: 2)
-        XCTAssertNotNil(slices)
-        XCTAssertEqual(slices?.count, 3)
-
-        // A slice that does not divide the total evenly
-        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq", "bird"]
-        slices = array.group(by: 2)
-        XCTAssertNotNil(slices)
-        XCTAssertEqual(slices?.count, 4)
-
-        // A slice greater than the array count
-        array = [ "james", "irving", "jordan", "jonshon" ]
-        slices = array.group(by: 6)
-        XCTAssertNotNil(slices)
-        XCTAssertEqual(slices?.count, 1)
-    }
-
-    func testGroupBy() {
-        let array: [String] = ["james", "irving", "jordan", "jonshon", "iverson"]
-
-        let grouped = Dictionary(grouping: array) { element -> String in
-            return String(element.first!)
-        }
-
-        XCTAssertEqual(grouped["j"] ?? [], [ "james", "jordan", "jonshon" ])
-        XCTAssertEqual(grouped["i"] ?? [], [ "irving", "iverson" ])
     }
 
     func testDivided() {
