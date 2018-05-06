@@ -6,23 +6,6 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-// MARK: - Methods (Numeric)
-public extension Array where Element: Numeric {
-
-	/// SwifterSwift: Sum of all elements in array.
-	///
-	///		[1, 2, 3, 4, 5].sum() -> 15
-	///
-	/// - Returns: sum of the array's elements.
-	public func sum() -> Element {
-		var total: Element = 0
-		for index in 0..<count {
-			total += self[index]
-		}
-		return total
-	}
-
-}
 
 // MARK: - Methods (FloatingPoint)
 public extension Array where Element: FloatingPoint {

@@ -44,3 +44,17 @@ public extension Sequence {
     }
 
 }
+
+// MARK: - Methods (Numeric)
+public extension Sequence where Element: Numeric {
+
+    /// SwifterSwift: Sum of all elements in array.
+    ///
+    ///        [1, 2, 3, 4, 5].sum() -> 15
+    ///
+    /// - Returns: sum of the array's elements.
+    public func sum() -> Element {
+        return reduce(0, {$0 + $1})
+    }
+
+}
