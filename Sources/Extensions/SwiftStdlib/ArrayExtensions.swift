@@ -34,46 +34,6 @@ public extension Array {
 		swapAt(index, otherIndex)
 	}
 
-	/// SwifterSwift: Get the first index where condition is met.
-	///
-	///		[1, 7, 1, 2, 4, 1, 6].firstIndex { $0 % 2 == 0 } -> 3
-	///
-	/// - Parameter condition: condition to evaluate each element against.
-	/// - Returns: first index where the specified condition evaluates to true. (optional)
-	public func firstIndex(where condition: (Element) throws -> Bool) rethrows -> Index? {
-		for (index, value) in lazy.enumerated() where try condition(value) {
-			return index
-		}
-		return nil
-	}
-
-	/// SwifterSwift: Get the last index where condition is met.
-	///
-	///     [1, 7, 1, 2, 4, 1, 8].lastIndex { $0 % 2 == 0 } -> 6
-	///
-	/// - Parameter condition: condition to evaluate each element against.
-	/// - Returns: last index where the specified condition evaluates to true. (optional)
-	public func lastIndex(where condition: (Element) throws -> Bool) rethrows -> Index? {
-		for (index, value) in lazy.enumerated().reversed() where try condition(value) {
-			return index
-		}
-		return nil
-	}
-
-	/// SwifterSwift: Get all indices where condition is met.
-	///
-	///     [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
-	///
-	/// - Parameter condition: condition to evaluate each element against.
-	/// - Returns: all indices where the specified condition evaluates to true. (optional)
-	public func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
-		var indicies: [Index] = []
-		for (index, value) in lazy.enumerated() where try condition(value) {
-			indicies.append(index)
-		}
-		return indicies.isEmpty ? nil : indicies
-	}
-
 	/// SwifterSwift: Get last element that satisfies a conditon.
 	///
 	///		[2, 2, 4, 7].last(where: {$0 % 2 == 0}) -> 4

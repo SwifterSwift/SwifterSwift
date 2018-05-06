@@ -47,30 +47,6 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(swappedEmptyArray, emptyArray)
     }
 
-    func testFirstIndexWhere() {
-        let array = [1, 7, 1, 2, 4, 1, 6]
-        let index = array.firstIndex { $0 % 2 == 0 }
-        XCTAssertEqual(index, 3)
-        XCTAssertNil([Int]().firstIndex { $0 % 2 == 0 })
-    }
-
-    func testLastIndexWhere() {
-        let array = [1, 1, 1, 2, 2, 1, 1, 2, 1]
-        let index = array.lastIndex { $0 % 2 == 0 }
-        XCTAssertEqual(index, 7)
-        XCTAssertNil(array.lastIndex { $0 == 3 })
-        XCTAssertNil([Int]().lastIndex { $0 % 2 == 0 })
-    }
-
-    func testIndicesWhere() {
-        let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-        let indices = array.indices { $0 % 2 == 0 }
-        XCTAssertEqual(indices!, [0, 2, 4, 6, 8])
-        let emptyArray: [Int] = []
-        let emptyIndices = emptyArray.indices { $0 % 2 == 0 }
-        XCTAssertNil(emptyIndices)
-    }
-
     func testLastWhere() {
         let array = [1, 1, 2, 1, 1, 1, 2, 1, 4, 1]
         let element = array.last { $0 % 2 == 0 }
