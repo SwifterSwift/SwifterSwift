@@ -225,13 +225,12 @@ public extension Array where Element: Equatable {
 	/// - Returns: true if array contains all given items.
 	public func contains(_ elements: [Element]) -> Bool {
 		guard !elements.isEmpty else { return true }
-		var found = true
 		for element in elements {
 			if !contains(element) {
-				found = false
+				return false
 			}
 		}
-		return found
+		return true
 	}
 
 	/// SwifterSwift: All indices of specified item.
