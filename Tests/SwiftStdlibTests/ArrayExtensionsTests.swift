@@ -181,15 +181,6 @@ final class ArrayExtensionsTests: XCTestCase {
                                                           Person(name: "Wade", age: nil)])
     }
 
-    func testContains() {
-        XCTAssert([Int]().contains([]))
-        XCTAssertFalse([Int]().contains([1, 2]))
-        XCTAssert([1, 2, 3].contains([1, 2]))
-        XCTAssert([1, 2, 3].contains([2, 3]))
-        XCTAssert([1, 2, 3].contains([1, 3]))
-        XCTAssertFalse([1, 2, 3].contains([4, 5]))
-    }
-
     func testIndices() {
         XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].indices(of: 1), [0, 1, 5, 7])
         XCTAssertEqual(["a", "b", "c", "b", "4", "1", "2", "1"].indices(of: "b"), [1, 3])
