@@ -53,14 +53,6 @@ final class DictionaryExtensionsTests: XCTestCase {
         XCTAssertNil([1: 2].jsonString())
     }
 
-    func testCountWhere() {
-        let dict: [String: String] = ["key1": "value", "key2": "value", "key3": "value3"]
-        let count = dict.count { (tuple) -> Bool in
-            return tuple.0 == "key1" || tuple.1 == "value"
-        }
-        XCTAssertEqual(count, 2)
-    }
-
     func testLowercaseAllKeys() {
         var dict = ["tEstKeY": "value"]
         dict.lowercaseAllKeys()
