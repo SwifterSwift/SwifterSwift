@@ -32,14 +32,6 @@ public extension UIStackView {
         self.distribution = distribution
     }
 
-    /// SwifterSwift: Add an array of views into a UIStackView.
-    ///
-    /// - Parameters views: The UIViews to add to the stack.
-    public func addArrangedSubviews(_ views: [UIView]) {
-        for view in views {
-            addArrangedSubview(view)
-        }
-    }
 }
 #endif
 

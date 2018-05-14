@@ -46,21 +46,5 @@ class UIStackViewExtensionsTest: XCTestCase {
 		XCTAssertEqual(stack.spacing, 16.0)
 	}
 
-    func testAddArrangedSubviews() {
-        let view1 = UIView()
-        let view2 = UIView()
-        let view3 = UIView()
-        let view4 = UIView()
-        let view5 = UIView()
-        let view6 = UIView()
-
-        let views = [view1, view2, view3, view4, view5, view6]
-
-        let stackView = UIStackView()
-        stackView.addArrangedSubviews(views)
-
-        XCTAssertEqual(stackView.arrangedSubviews.count, views.count)
-        XCTAssertEqual(stackView.arrangedSubviews, views)
-    }
 }
 #endif
