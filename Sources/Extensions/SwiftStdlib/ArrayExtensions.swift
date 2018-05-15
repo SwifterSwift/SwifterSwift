@@ -231,6 +231,23 @@ public extension Array where Element: Equatable {
 		return indices
 	}
 
+    @discardableResult
+    /// SwifterSwift: Remove first instance of an element from array.
+    ///
+    ///        [1, 2, 2, 3, 4, 2, 5].removeElement(2) -> [1, 2, 3, 4, 2, 5]
+    ///        ["h", "e", "l", "l", "o"].removeElement("e") -> ["h", "l", "l", "o"]
+    ///
+    /// - Parameter element: element to remove.
+    /// - Returns: the removed element, otherwise nil.
+    public mutating func removeElement(_ element: Element) -> Element? {
+        if count > 0 {
+            for index in startIndex ..< endIndex where self[index] == element {
+                return self.remove(at: index)
+            }
+        }
+        return nil
+    }
+
 	@discardableResult
 	/// SwifterSwift: Remove all instances of an item from array.
 	///

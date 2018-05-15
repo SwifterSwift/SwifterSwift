@@ -186,6 +186,18 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(["a", "b", "c", "b", "4", "1", "2", "1"].indices(of: "b"), [1, 3])
     }
 
+    func testRemoveElement() {
+        var array = [0, 1, 2, 0, 3, 4, 5, 0, 0]
+        array.removeElement(1)
+        XCTAssertEqual(array, [0, 2, 0, 3, 4, 5, 0, 0])
+        array = []
+        XCTAssertNil(array.removeElement(10))
+        array = [2, 2, 1, 2, 3]
+        let removedElement = array.removeElement(2)
+        XCTAssertEqual(array, [2, 1, 2, 3])
+        XCTAssertEqual(removedElement, 2)
+    }
+
     func testRemoveAll() {
         var arr = [0, 1, 2, 0, 3, 4, 5, 0, 0]
         arr.removeAll(0)
