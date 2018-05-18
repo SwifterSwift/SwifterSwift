@@ -52,6 +52,9 @@ SwifterSwift is a collection of **over 500 native Swift extensions**, with handy
 <h4>- Integrate AppKit extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/AppKit'</code></pre>
 
+<h4>- Integrate MapKit extensions only:</h4>
+<pre><code class="ruby language-ruby">pod 'SwifterSwift/MapKit'</code></pre>
+
 <h4>- Integrate CoreGraphics extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/CoreGraphics'</code></pre>
 
