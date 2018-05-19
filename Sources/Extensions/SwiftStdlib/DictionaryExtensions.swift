@@ -30,8 +30,8 @@ public extension Dictionary {
     ///		dict.keys.contains("key2") -> false
     ///
     /// - Parameter keys: keys to be removed
-    public mutating func removeAll(keys: [Key]) {
-        keys.forEach({ removeValue(forKey: $0)})
+    mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
+        Set<Key>(keys).forEach({ removeValue(forKey: $0) })
     }
 
     /// SwifterSwift: JSON Data from dictionary.
@@ -79,7 +79,7 @@ public extension Dictionary {
 }
 
 // MARK: - Methods (ExpressibleByStringLiteral)
-public extension Dictionary where Key: ExpressibleByStringLiteral {
+public extension Dictionary where Key: StringProtocol {
 
     /// SwifterSwift: Lowercase all keys in dictionary.
     ///
@@ -148,7 +148,7 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
     /// - Returns: a new dictionary with keys removed.
-    public static func - (lhs: [Key: Value], keys: [Key]) -> [Key: Value] {
+    public static func - <S: Sequence>(lhs: [Key: Value], keys: S) -> [Key: Value] where S.Element == Key {
         var result = lhs
         result.removeAll(keys: keys)
         return result
@@ -165,7 +165,7 @@ public extension Dictionary {
     /// - Parameters:
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
-    public static func -= (lhs: inout [Key: Value], keys: [Key]) {
+    public static func -= <S: Sequence>(lhs: inout [Key: Value], keys: S) where S.Element == Key {
         lhs.removeAll(keys: keys)
     }
 
