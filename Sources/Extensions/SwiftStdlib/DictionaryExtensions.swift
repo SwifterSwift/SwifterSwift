@@ -30,7 +30,7 @@ public extension Dictionary {
     ///		dict.keys.contains("key2") -> false
     ///
     /// - Parameter keys: keys to be removed
-    mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
+    public mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
         Set<Key>(keys).forEach({ removeValue(forKey: $0) })
     }
 
