@@ -21,7 +21,7 @@ public extension Dictionary {
         return index(forKey: key) != nil
     }
 
-    /// SwifterSwift: Remove all keys of the dictionary.
+    /// SwifterSwift: Remove all keys contained in the keys parameter from the dictionary.
     ///
     ///		var dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
     ///		dict.removeAll(keys: ["key1", "key2"])
@@ -136,7 +136,7 @@ public extension Dictionary {
         rhs.forEach { lhs[$0] = $1}
     }
 
-    /// SwifterSwift: Remove contained in the array from the dictionary
+    /// SwifterSwift: Remove keys contained in the sequence from the dictionary
     ///
     ///		let dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
     ///		let result = dict-["key1", "key2"]
@@ -154,7 +154,7 @@ public extension Dictionary {
         return result
     }
 
-    /// SwifterSwift: Remove contained in the array from the dictionary
+    /// SwifterSwift: Remove keys contained in the sequence from the dictionary
     ///
     ///		var dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
     ///		dict-=["key1", "key2"]
