@@ -31,7 +31,7 @@ public extension Dictionary {
     ///
     /// - Parameter keys: keys to be removed
     public mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
-        keys.forEach({ removeValue(forKey: $0) })
+        keys.forEach { removeValue(forKey: $0) }
     }
 
     /// SwifterSwift: JSON Data from dictionary.
