@@ -21,7 +21,7 @@ public extension Dictionary {
         return index(forKey: key) != nil
     }
 
-    /// SwifterSwift: Remove all keys of the dictionary.
+    /// SwifterSwift: Remove all keys contained in the keys parameter from the dictionary.
     ///
     ///		var dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
     ///		dict.removeAll(keys: ["key1", "key2"])
@@ -30,8 +30,8 @@ public extension Dictionary {
     ///		dict.keys.contains("key2") -> false
     ///
     /// - Parameter keys: keys to be removed
-    public mutating func removeAll(keys: [Key]) {
-        keys.forEach({ removeValue(forKey: $0)})
+    public mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
+        keys.forEach { removeValue(forKey: $0) }
     }
 
     /// SwifterSwift: JSON Data from dictionary.
@@ -79,7 +79,7 @@ public extension Dictionary {
 }
 
 // MARK: - Methods (ExpressibleByStringLiteral)
-public extension Dictionary where Key: ExpressibleByStringLiteral {
+public extension Dictionary where Key: StringProtocol {
 
     /// SwifterSwift: Lowercase all keys in dictionary.
     ///
@@ -136,7 +136,7 @@ public extension Dictionary {
         rhs.forEach { lhs[$0] = $1}
     }
 
-    /// SwifterSwift: Remove contained in the array from the dictionary
+    /// SwifterSwift: Remove keys contained in the sequence from the dictionary
     ///
     ///		let dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
     ///		let result = dict-["key1", "key2"]
@@ -148,13 +148,13 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
     /// - Returns: a new dictionary with keys removed.
-    public static func - (lhs: [Key: Value], keys: [Key]) -> [Key: Value] {
+    public static func - <S: Sequence>(lhs: [Key: Value], keys: S) -> [Key: Value] where S.Element == Key {
         var result = lhs
         result.removeAll(keys: keys)
         return result
     }
 
-    /// SwifterSwift: Remove contained in the array from the dictionary
+    /// SwifterSwift: Remove keys contained in the sequence from the dictionary
     ///
     ///		var dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
     ///		dict-=["key1", "key2"]
@@ -165,7 +165,7 @@ public extension Dictionary {
     /// - Parameters:
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
-    public static func -= (lhs: inout [Key: Value], keys: [Key]) {
+    public static func -= <S: Sequence>(lhs: inout [Key: Value], keys: S) where S.Element == Key {
         lhs.removeAll(keys: keys)
     }
 
