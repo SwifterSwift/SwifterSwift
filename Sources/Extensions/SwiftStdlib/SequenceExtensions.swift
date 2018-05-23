@@ -135,6 +135,22 @@ public extension Sequence {
         })
     }
 
+    /// SwifterSwift: Get the only element based on optional condition.
+    ///
+    ///     [4].single() -> 4
+    ///     [2, 4].single() -> nil
+    ///     [1, 4, 7].single(where: {$0 % 2 == 0}) -> 4
+    ///     [2, 2, 4, 7].single(where: {$0 % 2 == 0}) -> nil
+    ///
+    /// - Parameter condition: condition to evaluate each element against (default is `{_ in true}`).
+    /// - Returns: The only element in the array matching the specified condition. If there are more matching elements, nil is returned. (optional)
+    public func single(where condition: ((Element) throws -> Bool) = { _ in true }) -> Element? {
+        if let filtered = try? filter(condition),
+            filtered.count == 1 {
+            return filtered.first
+        }
+        return nil
+    }
 }
 
 public extension Sequence where Element: Equatable {

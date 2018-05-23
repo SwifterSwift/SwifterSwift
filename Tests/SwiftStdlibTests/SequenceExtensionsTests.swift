@@ -72,6 +72,13 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(["2", "4"], result)
     }
 
+    func testSingle() {
+        XCTAssertEqual([4].single(), 4)
+        XCTAssertNil([2, 4].single())
+        XCTAssertEqual([1, 4, 7].single(where: {$0 % 2 == 0}), 4)
+        XCTAssertNil([2, 2, 4, 7].single(where: {$0 % 2 == 0}))
+    }
+
     func testContains() {
         XCTAssert([Int]().contains([]))
         XCTAssertFalse([Int]().contains([1, 2]))
