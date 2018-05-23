@@ -32,5 +32,10 @@ final class BoolExtensionsTests: XCTestCase {
 		}
 		XCTAssert(trueCount >= 10 && falseCount >= 10)
 	}
+    
+    func testToogle() {
+        var isOn = true
+        XCTAssertEqual(isOn.toggle(), false)
+    }
 
 }
