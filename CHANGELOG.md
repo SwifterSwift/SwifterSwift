@@ -31,6 +31,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 - **Sequence**
   - added `containsDuplicates()` to check whether a sequence contains duplicates. [#496](https://github.com/SwifterSwift/SwifterSwift/pull/496) by [@vyax](https://github.com/vyax).
+  - Added `single(where:)` to get the only element of a sequence that matches a given condition. [#483](https://github.com/SwifterSwift/SwifterSwift/pull/483) by [andlang](https://github.com/andlang).
 
 ### Changed
 - **UITableView**:
