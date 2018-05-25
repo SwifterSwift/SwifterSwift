@@ -73,10 +73,12 @@ final class SequenceExtensionsTests: XCTestCase {
     }
 
     func testSingle() {
+        XCTAssertNil([].single())
         XCTAssertEqual([4].single(), 4)
         XCTAssertNil([2, 4].single())
         XCTAssertEqual([1, 4, 7].single(where: {$0 % 2 == 0}), 4)
         XCTAssertNil([2, 2, 4, 7].single(where: {$0 % 2 == 0}))
+        XCTAssertNil([2].single(where: { _ in throw NSError() }))
     }
 
     func testContains() {
