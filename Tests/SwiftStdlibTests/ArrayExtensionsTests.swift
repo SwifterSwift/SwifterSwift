@@ -216,5 +216,10 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates(), [1, 2, 3, 4, 5])
         XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
     }
+    
+    func testParagraph() {
+        let arr = ["Hello", "Good Morning"]
+        XCTAssertEqual(arr.paragraph(), "Hello\nGood Morning")
+    }
 
 }
