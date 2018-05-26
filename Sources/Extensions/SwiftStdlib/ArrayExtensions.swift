@@ -289,3 +289,15 @@ public extension Array where Element: Equatable {
 	}
 
 }
+
+// MARK: - Methods (CustomStringConvertible)
+public extension Array where Element: CustomStringConvertible {
+    
+    /// SwifterSwift: Returns a String joined by new line.
+    ///
+    ///     ["James", "How are you?"].paragraph() -> "James\nHow are you?")
+    ///
+    public func paragraph() -> String {
+        return self.map{ $0.description }.joined(separator: "\n")
+    }
+}
