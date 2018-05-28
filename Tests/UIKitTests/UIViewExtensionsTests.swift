@@ -201,13 +201,13 @@ final class UIViewExtensionsTests: XCTestCase {
 		let view = UIView(frame: frame)
 		XCTAssertEqual(view.subviews.count, 0)
 
-		view.addSubviews([UIView(), UIView()])
+		view.add(UIView(), UIView())
 		XCTAssertEqual(view.subviews.count, 2)
 	}
 
 	func testRemoveSubviews() {
 		let view = UIView()
-		view.addSubviews([UIView(), UIView()])
+		view.add(UIView(), UIView())
 		view.removeSubviews()
 		XCTAssertEqual(view.subviews.count, 0)
 	}
