@@ -10,6 +10,10 @@ import SpriteKit
 
 // MARK: - Properties
 public extension SKNode {
+    /// SwifterSwift: Return an array of all SKNode descendants
+    ///
+    ///         mySKNode.descendants() -> [childNodeOne, childNodeTwo]
+    ///
     public func descendants() -> [SKNode] {
         let descendantsAtLevel = children.compactMap { $0 }
         let nextDescendants = children.reduce([SKNode]()) { $0 + $1.descendants() }
