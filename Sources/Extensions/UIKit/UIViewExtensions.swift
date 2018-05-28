@@ -264,7 +264,7 @@ public extension UIView {
 	/// SwifterSwift: Add array of subviews to view.
 	///
 	/// - Parameter subviews: array of subviews to add to self.
-	public func addSubviews(_ subviews: [UIView]) {
+	public func add(_ subviews: UIView...) {
 		subviews.forEach({ self.addSubview($0) })
 	}
 
