@@ -9,14 +9,14 @@
 import XCTest
 import SpriteKit
 
-class SpriteKitTests: XCTestCase {
+final class SpriteKitTests: XCTestCase {
     
     func testDescendants() {
         let scene = SKScene()
         let childOne = SKSpriteNode()
         scene.addChild(childOne)
         let childTwo = SKSpriteNode()
-        testNode.addChild(childTwo)
+        childOne.addChild(childTwo)
         XCTAssertEqual(scene.descendants(), [childOne, childTwo])
         XCTAssertEqual(childOne.descendants(), [childTwo])
         XCTAssertEqual(childTwo.descendants(), [])
