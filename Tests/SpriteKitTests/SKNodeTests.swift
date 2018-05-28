@@ -7,3 +7,14 @@
 //
 
 import Foundation
+
+//let scene = SKScene()
+//let testNode = SKSpriteNode()
+//scene.addChild(testNode)
+//let childNode = SKSpriteNode()
+//testNode.addChild(testNode)
+//print("scene descendants")
+//print(scene.descendants().count)
+//print("testNode descendants")
+//print(testNode.descendants().count)
+//print(childNode.descendants().count)
