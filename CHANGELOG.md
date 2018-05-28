@@ -5,7 +5,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **SKNode**:
-- Added `descendants` method to get an array of all descendants of an SKNode. [#](https://github.com/SwifterSwift/SwifterSwift/pull/) by [oliviabrown9](https://github.com/oliviabrown9).
+- Added `descendants` method to get an array of all descendants of an SKNode. [#490](https://github.com/SwifterSwift/SwifterSwift/pull/490) by [oliviabrown9](https://github.com/oliviabrown9).
 
 - **Comparable**:
   - Added `isBetween(min:max:)` and `clamped(min:max:)` to confirm a value is between bounds or limit it between bounds. [#466](https://github.com/SwifterSwift/SwifterSwift/pull/466) by [freak4pc](https://github.com/freak4pc).
