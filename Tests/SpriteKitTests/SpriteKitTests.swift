@@ -13,13 +13,11 @@ final class SpriteKitTests: XCTestCase {
     
     func testDescendants() {
         let scene = SKScene()
-        let childOne = SKSpriteNode()
+        let childOne = SKNode()
         scene.addChild(childOne)
-        let childTwo = SKSpriteNode()
+        let childTwo = SKNode()
         childOne.addChild(childTwo)
-        XCTAssertEqual(scene.descendants(), [childOne, childTwo])
         XCTAssertEqual(childOne.descendants(), [childTwo])
         XCTAssertEqual(childTwo.descendants(), [])
     }
-    
 }
