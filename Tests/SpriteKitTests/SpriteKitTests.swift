@@ -10,7 +10,6 @@ import XCTest
 import SpriteKit
 
 final class SpriteKitTests: XCTestCase {
-    
     func testDescendants() {
         let scene = SKScene()
         let childOne = SKNode()
