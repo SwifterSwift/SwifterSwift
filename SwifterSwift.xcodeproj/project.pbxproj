@@ -352,6 +352,8 @@
 		70269A301FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
 		70269A311FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
 		70269A321FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
+		752AC7A020BC975E00659E76 /* SpriteKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC79F20BC975E00659E76 /* SpriteKitExtensions.swift */; };
+		752AC7A320BC978800659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A220BC978800659E76 /* SpriteKitTests.swift */; };
 		7832C2AF209BB19300224EED /* ComparableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832C2AE209BB19300224EED /* ComparableExtensions.swift */; };
 		7832C2B0209BB19300224EED /* ComparableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832C2AE209BB19300224EED /* ComparableExtensions.swift */; };
 		7832C2B1209BB19300224EED /* ComparableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832C2AE209BB19300224EED /* ComparableExtensions.swift */; };
@@ -552,6 +554,8 @@
 		42F53FEF2039C7140070DC11 /* UIStackViewExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionsTest.swift; sourceTree = "<group>"; };
 		70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
 		70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensionTest.swift; sourceTree = "<group>"; };
+		752AC79F20BC975E00659E76 /* SpriteKitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitExtensions.swift; sourceTree = "<group>"; };
+		752AC7A220BC978800659E76 /* SpriteKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitTests.swift; sourceTree = "<group>"; };
 		7832C2AE209BB19300224EED /* ComparableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableExtensions.swift; sourceTree = "<group>"; };
 		7832C2B3209BB32500224EED /* ComparableExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableExtensionsTests.swift; sourceTree = "<group>"; };
 		784C752E2051BD26001C48DD /* MKPolylineExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPolylineExtensions.swift; sourceTree = "<group>"; };
@@ -726,6 +730,7 @@
 		07898B941F27904200558C97 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				752AC79E20BC974700659E76 /* SpriteKit */,
 				784C752D2051BD01001C48DD /* MapKit */,
 				0726D7751F7C19880028CAB5 /* Shared */,
 				077BA0871F6BE73000D9C4AC /* SwiftStdlib */,
@@ -811,6 +816,7 @@
 		07C50CF21F5EAF7B00F46E5A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				752AC7A120BC977700659E76 /* SpriteKitTests */,
 				784C75322051BDCA001C48DD /* MapKitTests */,
 				077BA0931F6BE93000D9C4AC /* SwiftStdlibTests */,
 				07C50CF91F5EB03200F46E5A /* FoundationTests */,
@@ -935,6 +941,22 @@
 				07C50D281F5EB03200F46E5A /* CLLocationExtensionsTests.swift */,
 			);
 			path = CoreLocationTests;
+			sourceTree = "<group>";
+		};
+		752AC79E20BC974700659E76 /* SpriteKit */ = {
+			isa = PBXGroup;
+			children = (
+				752AC79F20BC975E00659E76 /* SpriteKitExtensions.swift */,
+			);
+			path = SpriteKit;
+			sourceTree = "<group>";
+		};
+		752AC7A120BC977700659E76 /* SpriteKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				752AC7A220BC978800659E76 /* SpriteKitTests.swift */,
+			);
+			path = SpriteKitTests;
 			sourceTree = "<group>";
 		};
 		784C752D2051BD01001C48DD /* MapKit */ = {
@@ -1379,6 +1401,7 @@
 				784C752F2051BD26001C48DD /* MKPolylineExtensions.swift in Sources */,
 				07B7F1A71F5EB42000E6F910 /* UIViewExtensions.swift in Sources */,
 				07B7F1991F5EB42000E6F910 /* UILabelExtensions.swift in Sources */,
+				752AC7A020BC975E00659E76 /* SpriteKitExtensions.swift in Sources */,
 				9D9784DB1FCAE3D200D988E7 /* StringProtocolExtensions.swift in Sources */,
 				07B7F20C1F5EB43C00E6F910 /* BoolExtensions.swift in Sources */,
 				07B7F22F1F5EB45100E6F910 /* CGFloatExtensions.swift in Sources */,
@@ -1389,6 +1412,7 @@
 				07B7F20E1F5EB43C00E6F910 /* CollectionExtensions.swift in Sources */,
 				07B7F2151F5EB43C00E6F910 /* IntExtensions.swift in Sources */,
 				07B7F2111F5EB43C00E6F910 /* DictionaryExtensions.swift in Sources */,
+				752AC7A320BC978800659E76 /* SpriteKitTests.swift in Sources */,
 				076AEC891FDB48580077D153 /* UIDatePickerExtensions.swift in Sources */,
 				07B7F2301F5EB45100E6F910 /* CGPointExtensions.swift in Sources */,
 				07B7F1951F5EB42000E6F910 /* UICollectionViewExtensions.swift in Sources */,
