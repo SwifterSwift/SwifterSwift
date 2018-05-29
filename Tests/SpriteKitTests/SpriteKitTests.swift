@@ -7,6 +7,7 @@
 //
 
 import XCTest
+import SpriteKit
 
 @testable import SwifterSwift
 
