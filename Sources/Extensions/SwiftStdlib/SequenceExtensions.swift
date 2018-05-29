@@ -135,19 +135,37 @@ public extension Sequence {
         })
     }
 
-    /// SwifterSwift: Get the only element based on optional condition.
+    /// SwifterSwift: Get the only element.
     ///
     ///     [].single() -> nil
     ///     [4].single() -> 4
     ///     [2, 4].single() -> nil
+    ///
+    /// - Returns: The only element in the array. If there are more elements, nil is returned. (optional)
+    public func single() -> Element? {
+        var singleElement: Element?
+        for element in self {
+            guard singleElement == nil else {
+                singleElement = nil
+                break
+            }
+            singleElement = element
+        }
+        return singleElement
+    }
+
+    /// SwifterSwift: Get the only element based on a condition.
+    ///
+    ///     [].single(where: {_ in true}) -> nil
+    ///     [4].single(where: {_ in true}) -> 4
     ///     [1, 4, 7].single(where: {$0 % 2 == 0}) -> 4
     ///     [2, 2, 4, 7].single(where: {$0 % 2 == 0}) -> nil
     ///
-    /// - Parameter condition: condition to evaluate each element against (default is `{_ in true}`).
+    /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: The only element in the array matching the specified condition. If there are more matching elements, nil is returned. (optional)
-    public func single(where condition: ((Element) throws -> Bool) = { _ in true }) -> Element? {
+    public func single(where condition: ((Element) throws -> Bool)) rethrows -> Element? {
         var singleElement: Element?
-        for element in self where (try? condition(element)) ?? false {
+        for element in self where try condition(element) {
             guard singleElement == nil else {
                 singleElement = nil
                 break
