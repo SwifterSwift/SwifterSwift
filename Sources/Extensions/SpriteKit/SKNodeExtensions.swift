@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-// MARK: - Properties
+// MARK: - Methods
 public extension SKNode {
     /// SwifterSwift: Return an array of all SKNode descendants
     ///

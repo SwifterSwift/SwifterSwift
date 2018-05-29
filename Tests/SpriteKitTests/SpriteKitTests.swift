@@ -7,7 +7,8 @@
 //
 
 import XCTest
-import SpriteKit
+
+@testable import SwifterSwift
 
 final class SpriteKitTests: XCTestCase {
     func testDescendants() {
