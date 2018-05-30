@@ -1,5 +1,5 @@
 //
-//  SpriteKitExtensions.swift
+//  SKNodeExtensions.swift
 //  SwifterSwift
 //
 //  Created by Olivia Brown on 5/28/18.
