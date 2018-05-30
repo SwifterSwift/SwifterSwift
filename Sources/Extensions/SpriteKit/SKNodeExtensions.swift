@@ -15,8 +15,6 @@ public extension SKNode {
     ///         mySKNode.descendants() -> [childNodeOne, childNodeTwo]
     ///
     public func descendants() -> [SKNode] {
-        let firstLevelDescendants = children.compactMap { $0 }
-        let recursiveDescendants = children.reduce(into: [SKNode]()) { $0 += $1.descendants() }
-        return firstLevelDescendants + recursiveDescendants
+        return children + children.reduce(into: [SKNode]()) { $0 += $1.descendants() }
     }
 }
