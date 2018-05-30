@@ -6,6 +6,7 @@
 //  Copyright © 2018 SwifterSwift
 //
 
+#if canImport(SpriteKit)
 import SpriteKit
 
 // MARK: - Methods
@@ -18,3 +19,4 @@ public extension SKNode {
         return children + children.reduce(into: [SKNode]()) { $0 += $1.descendants() }
     }
 }
+#endif
