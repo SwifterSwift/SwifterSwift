@@ -31,6 +31,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `safeScrollToRow(at:at:animated:)` method to safely scroll UITableView to the given IndexPath. [#445](https://github.com/SwifterSwift/SwifterSwift/pull/445) by [setoelkahfi](https://github.com/setoelkahfi).
 - **Optional**:
   - Added `isNilOrEmpty` property to check whether an optional is nil or empty collection.
+- Added SpriteKitExtensions to docs. [#493](https://github.com/SwifterSwift/SwifterSwift/pull/493) by [@oliviabrown9](https://github.com/oliviabrown9)
 
 ### Changed
 - **UITableView**:
