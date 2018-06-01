@@ -60,6 +60,9 @@ SwifterSwift is a collection of **over 500 native Swift extensions**, with handy
 
 <h4>- Integrate CoreLocation extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/CoreLocation'</code></pre>
+
+<h4>- Integrate SpriteKit extensions only:</h4>
+<pre><code class="ruby language-ruby">pod 'SwifterSwift/SpriteKit'</code></pre>
 </details>
 
 
@@ -211,6 +214,14 @@ let package = Package(
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/MapKit/MKPolylineExtensions.swift"><code>MKPolylineExtensions</code></a></li>
+</ul>
+</details>
+
+<details>
+<summary>SpriteKit Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/SpriteKit/SKNodeExtensions.swift"><code>SKNodeExtensions</code></a></li>
 </ul>
 </details>
 
