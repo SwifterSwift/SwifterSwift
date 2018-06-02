@@ -159,6 +159,22 @@ public extension Sequence where Element: Equatable {
 
 }
 
+public extension Sequence where Element: Hashable {
+
+    /// SwifterSwift: Check whether a sequence contains duplicates.
+    ///
+    /// - Returns: true if the receiver contains duplicates.
+    public func containsDuplicates() -> Bool {
+        var set = Set<Element>()
+        for element in self {
+            if !set.insert(element).inserted {
+                return true
+            }
+        }
+        return false
+    }
+}
+
 // MARK: - Methods (Numeric)
 public extension Sequence where Element: Numeric {
 
