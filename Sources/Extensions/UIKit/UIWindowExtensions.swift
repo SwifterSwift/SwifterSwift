@@ -9,9 +9,9 @@
 #if canImport(UIKit)
 import UIKit
 
+#if os(iOS)
 public extension UIWindow {
 
-    #if os(iOS)
     /// SwifterSwift: Switch current root view controller with a new view controller.
     ///
     /// - Parameters:
@@ -42,7 +42,7 @@ public extension UIWindow {
             completion?()
         })
     }
-    #endif
 
 }
+#endif
 #endif
