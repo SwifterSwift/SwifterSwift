@@ -4,6 +4,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+- **Dictionary**:
+  - Added `removeValueForRandomKey()` to remove a value for a random key from a dictionary. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [vyax](https://github.com/vyax).
+- **RangeReplaceableCollection**:
+  - Added `removeRandomElement()` to remove a random element from a collection. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [vyax](https://github.com/vyax).
 - **UIView**
   - Added `addGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to add multiple gesture recognizers to a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
   - Added `removeGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to remove multiple gesture recognizers from a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
