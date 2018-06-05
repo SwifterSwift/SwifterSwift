@@ -135,25 +135,6 @@ public extension Sequence {
         })
     }
 
-    /// SwifterSwift: Get the only element.
-    ///
-    ///     [].single() -> nil
-    ///     [4].single() -> 4
-    ///     [2, 4].single() -> nil
-    ///
-    /// - Returns: The only element in the array. If there are more elements, nil is returned. (optional)
-    public func single() -> Element? {
-        var singleElement: Element?
-        for element in self {
-            guard singleElement == nil else {
-                singleElement = nil
-                break
-            }
-            singleElement = element
-        }
-        return singleElement
-    }
-
     /// SwifterSwift: Get the only element based on a condition.
     ///
     ///     [].single(where: {_ in true}) -> nil

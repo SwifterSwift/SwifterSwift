@@ -77,12 +77,6 @@ final class SequenceExtensionsTests: XCTestCase {
     }
 
     func testSingle() {
-        XCTAssertNil([].single())
-        XCTAssertEqual([4].single(), 4)
-        XCTAssertNil([2, 4].single())
-    }
-
-    func testSingleWhere() {
         XCTAssertNil([].single(where: { _ in true }))
         XCTAssertEqual([4].single(where: { _ in true }), 4)
         XCTAssertNil([2, 4].single(where: { _ in true }))
