@@ -9,6 +9,10 @@
 import XCTest
 @testable import SwifterSwift
 
+private enum SequenceTestError: Error {
+    case closureThrows
+}
+
 final class SequenceExtensionsTests: XCTestCase {
 
     func testAllMatch() {
@@ -70,6 +74,15 @@ final class SequenceExtensionsTests: XCTestCase {
         let result = input.filtered({ $0 % 2 == 0 }, map: { $0.string })
         XCTAssertEqual(result.count, 2)
         XCTAssertEqual(["2", "4"], result)
+    }
+
+    func testSingle() {
+        XCTAssertNil([].single(where: { _ in true }))
+        XCTAssertEqual([4].single(where: { _ in true }), 4)
+        XCTAssertNil([2, 4].single(where: { _ in true }))
+        XCTAssertEqual([1, 4, 7].single(where: { $0 % 2 == 0 }), 4)
+        XCTAssertNil([2, 2, 4, 7].single(where: { $0 % 2 == 0 }))
+        XCTAssertThrowsError(try [2].single(where: { _ in throw SequenceTestError.closureThrows }))
     }
 
     func testContains() {
