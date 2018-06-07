@@ -17,6 +17,10 @@ if source_changes_exist && no_changelog_entry
     warn(“The source files have been modified. Please consider adding a CHANGELOG entry if necessary.“)
 end
 
+#Xcode summary
+xcode_summary.report 'xcodebuild.json'
+xcode_summary.warning_error_count 'xcodebuild.json'
+
 swiftlint.lint_files
         
 # Checks if pull request is labeled as [WIP]
