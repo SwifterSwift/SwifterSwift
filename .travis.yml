@@ -18,6 +18,7 @@ before_install:
   - bundle install
   - brew update
   - brew outdated xctool || brew upgrade xctool
+  - gem install xcpretty-json-formatter
 before_script:
   - bundle exec danger
 
