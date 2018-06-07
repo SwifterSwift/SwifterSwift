@@ -20,7 +20,7 @@ before_install:
   - brew outdated xctool || brew upgrade xctool
   - gem install xcpretty-json-formatter
 before_script:
-  - bundle exec danger
+  - bundle exec danger --verbose
 
 script:
   - set -o pipefail
