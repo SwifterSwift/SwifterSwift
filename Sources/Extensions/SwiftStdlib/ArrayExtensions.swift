@@ -104,6 +104,9 @@ public extension Array {
 	/// - Returns: The new rotated array
 	public func rotated(by places: Int) -> [Element] {
 		//Inspired by: https://ruby-doc.org/core-2.2.0/Array.html#method-i-rotate
+        
+        var random: Int = 0
+        
 		guard places != 0 && places < count else { return self }
 		var array: [Element] = self
 		if places > 0 {
