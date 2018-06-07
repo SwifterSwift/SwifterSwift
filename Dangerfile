@@ -18,9 +18,10 @@ if source_changes_exist && no_changelog_entry
 end
 
 #Xcode summary
-xcode_summary.report 'xcodebuild.json'
-xcode_summary.warning_error_count 'xcodebuild.json'
-
+xcode_summary.report 'xcodebuild-ios.json'
+xcode_summary.report 'xcodebuild-tvos.json'
+xcode_summary.report 'xcodebuild-macos.json'
+xcode_summary.report 'xcodebuild-watchos.json'
 swiftlint.lint_files
         
 # Checks if pull request is labeled as [WIP]
