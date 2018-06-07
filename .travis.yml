@@ -20,8 +20,6 @@ before_install:
   - brew outdated xctool || brew upgrade xctool
   - gem install xcpretty
   - gem install xcpretty-json-formatter
-before_script:
-  - bundle exec danger --verbose
 
 script:
   - set -o pipefail
@@ -34,4 +32,5 @@ script:
   - bash <(curl -s https://codecov.io/bash) -cF osx -J 'SwifterSwift'
   - xcodebuild clean build -project "$PROJECT" -scheme "$WATCHOS_SCHEME" -destination "$WATCHOS_DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-watchos.json" xcpretty -f `xcpretty-json-formatter`
   - swiftlint lint
+  - bundle exec danger --verbose
   - pod lib lint
