@@ -18,9 +18,6 @@ before_install:
   - bundle install
   - brew update
   - brew outdated xctool || brew upgrade xctool
-  - gem install xcpretty
-  - gem install xcpretty-json-formatter
-
 script:
   - set -o pipefail
   - swift --version
