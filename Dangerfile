@@ -20,7 +20,7 @@ end
 swiftlint.lint_files
         
 # Checks if pull request is labeled as [WIP]
-warn('This pull request is marked as Work in Progress. DO NOT MERGE!') if github.pr_title.include?("[WIP]")
+warn('This pull request is marked as Work in Progress. DO NOT MERGE!') if github.pr_title.include? "[WIP]"
 
 #Xcode summary
 xcode_summary.report 'xcodebuild-ios.json'
