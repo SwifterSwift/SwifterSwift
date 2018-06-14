@@ -210,6 +210,19 @@ public extension Array {
 		return self
 	}
 
+    /// SwifterSwift: Removes the first element of the collection which satisfies the given predicate.
+    ///
+    ///        [1, 2, 2, 3, 4, 2, 5].removeFirst { $0 % 2 == 0 } -> [1, 2, 3, 4, 2, 5]
+    ///        ["h", "e", "l", "l", "o"].removeFirst { $0 == "e" } -> ["h", "l", "l", "o"]
+    ///
+    /// - Parameter predicate: A closure that takes an element as its argument and returns a Boolean value that indicates whether the passed element represents a match.
+    /// - Returns: The first element for which predicate returns true, after removing it. If no elements in the collection satisfy the given predicate, returns `nil`.
+    @discardableResult
+    public mutating func removeFirst(where predicate: (Element) throws -> Bool) rethrows -> Element? {
+        guard let index = try index(where: predicate) else { return nil }
+        return remove(at: index)
+    }
+
 }
 
 // MARK: - Methods (Equatable)
@@ -230,23 +243,6 @@ public extension Array where Element: Equatable {
 		}
 		return indices
 	}
-
-    @discardableResult
-    /// SwifterSwift: Remove first instance of an element from array.
-    ///
-    ///        [1, 2, 2, 3, 4, 2, 5].removeElement(2) -> [1, 2, 3, 4, 2, 5]
-    ///        ["h", "e", "l", "l", "o"].removeElement("e") -> ["h", "l", "l", "o"]
-    ///
-    /// - Parameter element: element to remove.
-    /// - Returns: the removed element, otherwise nil.
-    public mutating func removeElement(_ element: Element) -> Element? {
-        if count > 0 {
-            for index in startIndex ..< endIndex where self[index] == element {
-                return self.remove(at: index)
-            }
-        }
-        return nil
-    }
 
 	@discardableResult
 	/// SwifterSwift: Remove all instances of an item from array.
