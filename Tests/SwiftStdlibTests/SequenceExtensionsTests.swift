@@ -9,6 +9,10 @@
 import XCTest
 @testable import SwifterSwift
 
+private enum SequenceTestError: Error {
+    case closureThrows
+}
+
 final class SequenceExtensionsTests: XCTestCase {
 
     func testAllMatch() {
@@ -72,6 +76,15 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(["2", "4"], result)
     }
 
+    func testSingle() {
+        XCTAssertNil([].single(where: { _ in true }))
+        XCTAssertEqual([4].single(where: { _ in true }), 4)
+        XCTAssertNil([2, 4].single(where: { _ in true }))
+        XCTAssertEqual([1, 4, 7].single(where: { $0 % 2 == 0 }), 4)
+        XCTAssertNil([2, 2, 4, 7].single(where: { $0 % 2 == 0 }))
+        XCTAssertThrowsError(try [2].single(where: { _ in throw SequenceTestError.closureThrows }))
+    }
+
     func testContains() {
         XCTAssert([Int]().contains([]))
         XCTAssertFalse([Int]().contains([1, 2]))
@@ -79,6 +92,12 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssert([1, 2, 3].contains([2, 3]))
         XCTAssert([1, 2, 3].contains([1, 3]))
         XCTAssertFalse([1, 2, 3].contains([4, 5]))
+    }
+
+    func testContainsDuplicates() {
+        XCTAssertFalse([String]().containsDuplicates())
+        XCTAssert(["a", "b", "b", "c"].containsDuplicates())
+        XCTAssertFalse(["a", "b", "c", "d"].containsDuplicates())
     }
 
     func testSum() {

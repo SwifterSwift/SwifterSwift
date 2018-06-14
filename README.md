@@ -52,11 +52,17 @@ SwifterSwift is a collection of **over 500 native Swift extensions**, with handy
 <h4>- Integrate AppKit extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/AppKit'</code></pre>
 
+<h4>- Integrate MapKit extensions only:</h4>
+<pre><code class="ruby language-ruby">pod 'SwifterSwift/MapKit'</code></pre>
+
 <h4>- Integrate CoreGraphics extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/CoreGraphics'</code></pre>
 
 <h4>- Integrate CoreLocation extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/CoreLocation'</code></pre>
+
+<h4>- Integrate SpriteKit extensions only:</h4>
+<pre><code class="ruby language-ruby">pod 'SwifterSwift/SpriteKit'</code></pre>
 </details>
 
 
@@ -170,6 +176,7 @@ let package = Package(
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UITextViewExtensions.swift"><code>UITextView extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIViewControllerExtensions.swift"><code>UIViewController extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIViewExtensions.swift"><code>UIView extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIWindowExtensions.swift"><code>UIWindow extensions</code></a></li>
 </ul>
 </details>
 
@@ -208,6 +215,14 @@ let package = Package(
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/MapKit/MKPolylineExtensions.swift"><code>MKPolylineExtensions</code></a></li>
+</ul>
+</details>
+
+<details>
+<summary>SpriteKit Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/SpriteKit/SKNodeExtensions.swift"><code>SKNodeExtensions</code></a></li>
 </ul>
 </details>
 

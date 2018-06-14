@@ -135,6 +135,26 @@ public extension Sequence {
         })
     }
 
+    /// SwifterSwift: Get the only element based on a condition.
+    ///
+    ///     [].single(where: {_ in true}) -> nil
+    ///     [4].single(where: {_ in true}) -> 4
+    ///     [1, 4, 7].single(where: {$0 % 2 == 0}) -> 4
+    ///     [2, 2, 4, 7].single(where: {$0 % 2 == 0}) -> nil
+    ///
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: The only element in the array matching the specified condition. If there are more matching elements, nil is returned. (optional)
+    public func single(where condition: ((Element) throws -> Bool)) rethrows -> Element? {
+        var singleElement: Element?
+        for element in self where try condition(element) {
+            guard singleElement == nil else {
+                singleElement = nil
+                break
+            }
+            singleElement = element
+        }
+        return singleElement
+    }
 }
 
 public extension Sequence where Element: Equatable {
@@ -157,6 +177,22 @@ public extension Sequence where Element: Equatable {
         return true
     }
 
+}
+
+public extension Sequence where Element: Hashable {
+
+    /// SwifterSwift: Check whether a sequence contains duplicates.
+    ///
+    /// - Returns: true if the receiver contains duplicates.
+    public func containsDuplicates() -> Bool {
+        var set = Set<Element>()
+        for element in self {
+            if !set.insert(element).inserted {
+                return true
+            }
+        }
+        return false
+    }
 }
 
 // MARK: - Methods (Numeric)

@@ -59,4 +59,10 @@ Pod::Spec.new do |s|
   s.subspec 'MapKit' do |sp|
     sp.source_files = 'Sources/Extensions/MapKit/*.swift'
   end
+
+  # SpriteKit Extensions
+  s.subspec 'SpriteKit' do |sp|
+    sp.source_files = 'Sources/Extensions/SpriteKit/*.swift'
+  end
+
 end
