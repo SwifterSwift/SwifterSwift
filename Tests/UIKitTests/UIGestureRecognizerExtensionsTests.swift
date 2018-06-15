@@ -10,7 +10,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UIGestureRecognizerExtensionsTests: XCTestCase {
+final class UIGestureRecognizerExtensionsTests: XCTestCase {
 
     func testRemoveFromView() {
         let view = UIImageView()
