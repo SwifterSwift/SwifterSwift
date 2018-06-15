@@ -14,12 +14,12 @@ extension UIEdgeInsets {
     public var vertical: CGFloat {
         return top + bottom
     }
-    
+
     /// SwifterSwift: Return the horizontal insets. The horizontal insets is composed by  left + right.
     public var horizontal: CGFloat {
         return left + right
     }
-    
+
 }
 
 // MARK: - Methods
@@ -30,7 +30,7 @@ extension UIEdgeInsets {
     public init(inset: CGFloat) {
         self.init(top: inset, left: inset, bottom: inset, right: inset)
     }
-    
+
     /// SwifterSwift: Creates an `UIEdgeInsets` with the horizontal value equally divided and applied to right and left.
     ///               And the vertical value equally divided and applied to top and bottom.
     ///
@@ -43,4 +43,3 @@ extension UIEdgeInsets {
 }
 
 #endif
-
