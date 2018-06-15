@@ -19,19 +19,19 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **URL**
   - Added `deletingAllPathComponents()` and `deleteAllPathComponents()` to delete all path components from a URL. [#441](https://github.com/SwifterSwift/SwifterSwift/pull/441) by [setoelkahfi](https://github.com/setoelkahfi).
   - Added `queryValue(for:)` to get the value of a query key from a URL. [#467](https://github.com/SwifterSwift/SwifterSwift/pull/467) by [jdisho](https://github.com/jdisho).
-
 - **UITableView**:
   - Added `isValidIndexPath(_:)` method to check whether given IndexPath is valid within UITableView. [#441](https://github.com/SwifterSwift/SwifterSwift/pull/441) by [setoelkahfi](https://github.com/setoelkahfi).
   - Added `safeScrollToRow(at:at:animated:)` method to safely scroll UITableView to the given IndexPath. [#445](https://github.com/SwifterSwift/SwifterSwift/pull/445) by [setoelkahfi](https://github.com/setoelkahfi).
-
 - **Optional**:
   - Added `isNilOrEmpty` property to check whether an optional is nil or empty collection.
 - **UIWindow**:
   - Added `switchRootViewController` method to switch root view controller with animation. [#494](https://github.com/SwifterSwift/SwifterSwift/pull/494) by [omaralbeik](https://github.com/omaralbeik).
-
 - **Sequence**
   - added `containsDuplicates()` to check whether a sequence contains duplicates. [#496](https://github.com/SwifterSwift/SwifterSwift/pull/496) by [@vyax](https://github.com/vyax).
   - Added `single(where:)` to get the only element of a sequence that matches a given condition. [#483](https://github.com/SwifterSwift/SwifterSwift/pull/483) by [andlang](https://github.com/andlang).
+- **UIStackView**:
+  - Added `addArrangedSubviews(_ views: )` to add an array of views to the end of the arrangedSubviews array. [#474](https://github.com/SwifterSwift/SwifterSwift/issues/474) by [omaralbeik](https://github.com/omaralbeik).
+  - Added `removeArrangedSubviews` to remove all views in stack’s array of arranged subviews. [#474](https://github.com/SwifterSwift/SwifterSwift/issues/474) by [omaralbeik](https://github.com/omaralbeik).
 
 ### Changed
 - **UITableView**:

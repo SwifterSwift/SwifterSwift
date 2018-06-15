@@ -11,7 +11,7 @@
 import XCTest
 @testable import SwifterSwift
 
-class UIStackViewExtensionsTest: XCTestCase {
+final class UIStackViewExtensionsTest: XCTestCase {
 
 	// MARK: - Initializers
 	func testInitWithViews() {
@@ -44,6 +44,24 @@ class UIStackViewExtensionsTest: XCTestCase {
 		XCTAssertEqual(stack.alignment, .center)
 		XCTAssertEqual(stack.distribution, .fillEqually)
 		XCTAssertEqual(stack.spacing, 16.0)
+	}
+
+	func testAddArrangedSubviews() {
+		let view1 = UIView()
+		let view2 = UIView()
+		let stack = UIStackView()
+		stack.addArrangedSubviews([view1, view2])
+		XCTAssertEqual(stack.arrangedSubviews.count, 2)
+	}
+
+	func testRemoveArrangedSubviews() {
+		let view1 = UIView()
+		let view2 = UIView()
+		let stack = UIStackView()
+		stack.addArrangedSubview(view1)
+		stack.addArrangedSubview(view2)
+		stack.removeArrangedSubviews()
+		XCTAssert(stack.arrangedSubviews.isEmpty)
 	}
 
 }
