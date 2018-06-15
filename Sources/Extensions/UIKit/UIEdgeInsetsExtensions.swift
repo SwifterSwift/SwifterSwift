@@ -39,8 +39,8 @@ extension UIEdgeInsets {
     ///               And the vertical value equally divided and applied to top and bottom.
     ///
     ///
-    /// - Parameter horizontal: Inset to be applied in all the edges.
-    /// - Parameter vertical: Inset to be applied in all the edges.
+    /// - Parameter horizontal: Inset to be applied to right and left.
+    /// - Parameter vertical: Inset to be applied to top and bottom.
     public init(horizontal: CGFloat, vertical: CGFloat) {
         self.init(top: vertical/2, left: horizontal/2, bottom: vertical/2, right: horizontal/2)
     }
