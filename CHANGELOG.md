@@ -5,7 +5,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **SKNode**:
-- Added `descendants` method to get an array of all descendants of an SKNode. [#490](https://github.com/SwifterSwift/SwifterSwift/pull/490) by [oliviabrown9](https://github.com/oliviabrown9).
+  - Added `descendants` method to get an array of all descendants of an SKNode. [#490](https://github.com/SwifterSwift/SwifterSwift/pull/490) by [oliviabrown9](https://github.com/oliviabrown9).
 - **Comparable**:
   - Added `isBetween(min:max:)` and `clamped(min:max:)` to confirm a value is between bounds or limit it between bounds. [#466](https://github.com/SwifterSwift/SwifterSwift/pull/466) by [freak4pc](https://github.com/freak4pc).
 - **UIScrollView**:
@@ -27,11 +27,13 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIWindow**:
   - Added `switchRootViewController` method to switch root view controller with animation. [#494](https://github.com/SwifterSwift/SwifterSwift/pull/494) by [omaralbeik](https://github.com/omaralbeik).
 - **Sequence**
-  - added `containsDuplicates()` to check whether a sequence contains duplicates. [#496](https://github.com/SwifterSwift/SwifterSwift/pull/496) by [@vyax](https://github.com/vyax).
+  - Added `containsDuplicates()` to check whether a sequence contains duplicates. [#496](https://github.com/SwifterSwift/SwifterSwift/pull/496) by [@vyax](https://github.com/vyax).
   - Added `single(where:)` to get the only element of a sequence that matches a given condition. [#483](https://github.com/SwifterSwift/SwifterSwift/pull/483) by [andlang](https://github.com/andlang).
 - **UIStackView**:
-  - Added `addArrangedSubviews(_ views: )` to add an array of views to the end of the arrangedSubviews array. [#474](https://github.com/SwifterSwift/SwifterSwift/issues/474) by [omaralbeik](https://github.com/omaralbeik).
-  - Added `removeArrangedSubviews` to remove all views in stack’s array of arranged subviews. [#474](https://github.com/SwifterSwift/SwifterSwift/issues/474) by [omaralbeik](https://github.com/omaralbeik).
+  - Added `addArrangedSubviews(_ views: )` to add an array of views to the end of the arrangedSubviews array. [#501](https://github.com/SwifterSwift/SwifterSwift/pull/501) by [omaralbeik](https://github.com/omaralbeik).
+  - Added `removeArrangedSubviews` to remove all views in stack’s array of arranged subviews. [#501](https://github.com/SwifterSwift/SwifterSwift/pull/501) by [omaralbeik](https://github.com/omaralbeik).
+- **UIEdgeInsets**
+  - Added `horizontal` and `vertical` properties. Also `init(inset:)` and `init(horizontal: vertical:)` initializers for convenience. [#500](https://github.com/SwifterSwift/SwifterSwift/pull/500) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 
 ### Changed
 - **UITableView**:
@@ -112,7 +114,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Fixed
 - **String**
    - Fixed UIView extension `addShadow`  was not showing the shadow on view bug. [#420](https://github.com/SwifterSwift/SwifterSwift/pull/420) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
-
 
 ---
 
@@ -1146,7 +1147,6 @@ DateExtensions:
 - **nearestHalfHour**: Return nearest half hour to date
 - **changing(component, value)**: Return date by changing a component
 - Fixed a bug in nearestFiveMinutes, nearestTenMinutes where date was always rounded always to next 5, 10 mins
-
 
 ---
 
