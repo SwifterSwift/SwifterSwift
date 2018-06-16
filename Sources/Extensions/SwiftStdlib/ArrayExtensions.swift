@@ -34,13 +34,15 @@ public extension Array {
 		swapAt(index, otherIndex)
 	}
 
-	@discardableResult
 	/// SwifterSwift: Keep elements of Array while condition is true.
 	///
 	///		[0, 2, 4, 7].keep( where: {$0 % 2 == 0}) -> [0, 2, 4]
 	///
 	/// - Parameter condition: condition to evaluate each element against.
-	public mutating func keep(while condition: (Element) throws -> Bool) rethrows -> [Element] {
+	/// - Returns: self after applying provided condition.
+	/// - Throws: provided condition exception.
+	@discardableResult
+    public mutating func keep(while condition: (Element) throws -> Bool) rethrows -> [Element] {
 		for (index, element) in lazy.enumerated() where try !condition(element) {
 			self = Array(self[startIndex..<index])
 			break
@@ -120,27 +122,26 @@ public extension Array {
 		return array
 	}
 
-	@discardableResult
 	/// SwifterSwift: Rotate the array by the given places.
 	///
 	///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
 	///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
 	///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
 	///
-	/// - Parameter places: The number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start become the end.
-	///
-	/// - Returns: self after rotating
+	/// - Parameter places: The number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start become the end.
+	/// - Returns: self after rotating.
+	@discardableResult
 	public mutating func rotate(by places: Int) -> [Element] {
 		self = rotated(by: places)
 		return self
 	}
 
-	@discardableResult
 	/// SwifterSwift: Shuffle array. (Using Fisher-Yates Algorithm)
 	///
 	///		[1, 2, 3, 4, 5].shuffle() // shuffles array
 	///
-	/// - Returns: self after shuffling
+	/// - Returns: self after shuffling.
+	@discardableResult
 	public mutating func shuffle() -> [Element] {
 		// http://stackoverflow.com/questions/37843647/shuffle-array-swift-3
 		guard count > 1 else { return self }
@@ -190,21 +191,25 @@ public extension Array {
 		})
 	}
 
-	@discardableResult
 	/// SwifterSwift: Sort the array based on an optional keypath.
 	///
-	/// - Parameter path: Key path to sort. The key path type must be Comparable.
-	/// - Parameter ascending: If order must be ascending.
+	/// - Parameters:
+	///   - path: Key path to sort, must be Comparable.
+	///   - ascending: whether order is ascending or not.
+	/// - Returns: self after sorting.
+	@discardableResult
 	public mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
 		self = sorted(by: path, ascending: ascending)
 		return self
 	}
 
-	@discardableResult
 	/// SwifterSwift: Sort the array based on a keypath.
 	///
-	/// - Parameter path: Key path to sort. The key path type must be Comparable.
-	/// - Parameter ascending: If order must be ascending.
+	/// - Parameters:
+	///   - path: Key path to sort, must be Comparable.
+	///   - ascending: whether order is ascending or not.
+	/// - Returns: self after sorting.
+	@discardableResult
 	public mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
 		self = sorted(by: path, ascending: ascending)
 		return self
@@ -244,7 +249,6 @@ public extension Array where Element: Equatable {
 		return indices
 	}
 
-	@discardableResult
 	/// SwifterSwift: Remove all instances of an item from array.
 	///
 	///		[1, 2, 2, 3, 4, 5].removeAll(2) -> [1, 3, 4, 5]
@@ -252,12 +256,12 @@ public extension Array where Element: Equatable {
 	///
 	/// - Parameter item: item to remove.
 	/// - Returns: self after removing all instances of item.
+	@discardableResult
 	public mutating func removeAll(_ item: Element) -> [Element] {
 		self = filter { $0 != item }
 		return self
 	}
 
-	@discardableResult
 	/// SwifterSwift: Remove all instances contained in items parameter from array.
 	///
 	///		[1, 2, 2, 3, 4, 5].removeAll([2,5]) -> [1, 3, 4]
@@ -265,6 +269,7 @@ public extension Array where Element: Equatable {
 	///
 	/// - Parameter items: items to remove.
 	/// - Returns: self after removing all instances of all items in given array.
+	@discardableResult
 	public mutating func removeAll(_ items: [Element]) -> [Element] {
 		guard !items.isEmpty else { return self }
 		self = filter { !items.contains($0) }

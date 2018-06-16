@@ -18,8 +18,13 @@ public extension Date {
 	/// - oneLetter: 1 letter day abbreviation of day name.
 	/// - full: Full day name.
 	public enum DayNameStyle {
+		/// 3 letter day abbreviation of day name.
 		case threeLetters
+
+		/// 1 letter day abbreviation of day name.
 		case oneLetter
+
+		/// Full day name.
 		case full
 	}
 
@@ -29,8 +34,13 @@ public extension Date {
 	/// - oneLetter: 1 letter month abbreviation of month name.
 	/// - full: Full month name.
 	public enum MonthNameStyle {
+		/// 3 letter month abbreviation of month name.
 		case threeLetters
+
+		/// 1 letter month abbreviation of month name.
 		case oneLetter
+
+		/// Full month name.
 		case full
 	}
 

@@ -78,13 +78,13 @@ public extension SignedInteger {
 	}
 
     #if canImport(Foundation)
-    @available(iOS 9.0, macOS 10.11, *)
-    /// SwifterSwift: Ordinal representation of an integer.
+	/// SwifterSwift: Ordinal representation of an integer.
     ///
-    ///        print((12).ordinalString()) // prints "12th"
-    ///
-    /// - Parameter locale: Locale, default is .current.
-    /// - Returns: String ordinal representation of number in specified locale language. E.g. input 92, output in "en": "92nd"
+	///        print((12).ordinalString()) // prints "12th"
+	///
+    /// - Parameter locale: locale, default is .current.
+    /// - Returns: string ordinal representation of number in specified locale language. E.g. input 92, output in "en": "92nd".
+	@available(iOS 9.0, macOS 10.11, *)
     public func ordinalString(locale: Locale = .current) -> String? {
             let formatter = NumberFormatter()
             formatter.locale = locale

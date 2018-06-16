@@ -8,11 +8,13 @@
 
 #if canImport(UIKit)
 import UIKit
+/// Color
 public typealias Color = UIColor
 #endif
 
 #if canImport(Cocoa)
 import Cocoa
+/// Color
 public typealias Color = NSColor
 #endif
 
