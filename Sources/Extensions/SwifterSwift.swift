@@ -288,9 +288,8 @@ public extension SwifterSwift {
 		// http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
 		var lastFireTime = DispatchTime.now()
 		let dispatchDelay = DispatchTimeInterval.milliseconds(millisecondsDelay)
-
+		let dispatchTime: DispatchTime = lastFireTime + dispatchDelay
 		return {
-			let dispatchTime: DispatchTime = lastFireTime + dispatchDelay
 			queue.asyncAfter(deadline: dispatchTime) {
 				let when: DispatchTime = lastFireTime + dispatchDelay
 				let now = DispatchTime.now()
