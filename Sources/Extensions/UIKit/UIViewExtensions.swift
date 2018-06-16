@@ -17,7 +17,10 @@ import UIKit
 /// - horizontal: Shake left and right.
 /// - vertical: Shake up and down.
 public enum ShakeDirection {
+	/// Shake left and right.
 	case horizontal
+
+	/// Shake up and down.
 	case vertical
 }
 
@@ -26,20 +29,30 @@ public enum ShakeDirection {
 /// - degrees: degrees.
 /// - radians: radians.
 public enum AngleUnit {
+	/// degrees.
 	case degrees
+
+	/// radians.
 	case radians
 }
 
 /// SwifterSwift: Shake animations types.
 ///
 /// - linear: linear animation.
-/// - easeIn: easeIn animation
+/// - easeIn: easeIn animation.
 /// - easeOut: easeOut animation.
 /// - easeInOut: easeInOut animation.
 public enum ShakeAnimationType {
+	/// linear animation.
 	case linear
+
+	/// easeIn animation.
 	case easeIn
+
+	/// easeOut animation.
 	case easeOut
+
+	/// easeInOut animation.
 	case easeInOut
 }
 
@@ -84,7 +97,7 @@ public extension UIView {
 		}
     }
 
-	// SwifterSwift: Height of view.
+	/// SwifterSwift: Height of view.
 	public var height: CGFloat {
 		get {
 			return frame.size.height

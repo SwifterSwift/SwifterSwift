@@ -7,13 +7,13 @@
 
 public extension Bool {
 
-    /// SwifterSwift: Return inversed value of bool.
-    ///
-    ///        false.toggled -> true
-    ///        true.toggled -> false
-    ///
-    @available(*, deprecated: 4.3, message: "Use !self instead.")
-    public var toggled: Bool {
+	/// SwifterSwift: Return inversed value of bool.
+	///
+	///        false.toggled -> true
+	///        true.toggled -> false
+	///
+	@available(*, deprecated: 4.3, message: "Use !self instead.")
+	public var toggled: Bool {
         return !self
     }
 
@@ -21,7 +21,6 @@ public extension Bool {
 
 public extension Bool {
 
-    @discardableResult
     /// SwifterSwift: Toggle value for bool.
     ///
     ///        var bool = false
@@ -29,7 +28,8 @@ public extension Bool {
     ///        print(bool) -> true
     ///
     /// - Returns: inversed value of bool.
-    @available(*, deprecated: 4.3, message: "Use !self instead.")
+	@available(*, deprecated: 4.3, message: "Use !self instead.")
+	@discardableResult
     public mutating func toggle() -> Bool {
         self = !self
         return self
@@ -91,8 +91,6 @@ extension String {
 		return map({ String($0) }).index(of: string)
 	}
 
-	//
-
 	/// SwifterSwift: Array of strings separated by given string.
 	///
 	///		"hello World".splited(by: " ") -> ["hello", "World"]
@@ -128,7 +126,7 @@ public extension Array {
     ///
     /// - Parameter getKey: Clousure to define the key for each element.
     /// - Returns: A dictionary with values grouped with keys.
-    @available(*, deprecated, message: "Use 'Dictionary.init(grouping:by:)' instead.")
+	@available(*, deprecated, message: "Use 'Dictionary.init(grouping:by:)' instead.")
     public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
         var group = [K: [Element]]()
         for value in self {
