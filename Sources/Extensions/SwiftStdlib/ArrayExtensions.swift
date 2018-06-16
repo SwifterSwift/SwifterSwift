@@ -41,7 +41,8 @@ public extension Array {
 	/// - Parameter condition: condition to evaluate each element against.
 	/// - Returns: self after applying provided condition.
 	/// - Throws: provided condition exception.
-	@discardableResult public mutating func keep(while condition: (Element) throws -> Bool) rethrows -> [Element] {
+	@discardableResult
+    public mutating func keep(while condition: (Element) throws -> Bool) rethrows -> [Element] {
 		for (index, element) in lazy.enumerated() where try !condition(element) {
 			self = Array(self[startIndex..<index])
 			break
