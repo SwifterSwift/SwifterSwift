@@ -15,12 +15,14 @@ public extension UINavigationController {
 
 	/// SwifterSwift: Pop ViewController with completion handler.
 	///
-	/// - Parameter completion: optional completion handler (default is nil).
-	public func popViewController(_ completion: (() -> Void)? = nil) {
+	/// - Parameters:
+	///   - animated: Set this value to true to animate the transition (default is true).
+	///   - completion: optional completion handler (default is nil).
+	public func popViewController(animated: Bool = true, _ completion: (() -> Void)? = nil) {
 		// https://github.com/cotkjaer/UserInterface/blob/master/UserInterface/UIViewController.swift
 		CATransaction.begin()
 		CATransaction.setCompletionBlock(completion)
-		popViewController(animated: true)
+		popViewController(animated: animated)
 		CATransaction.commit()
 	}
 
