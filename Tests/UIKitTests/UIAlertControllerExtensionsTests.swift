@@ -6,7 +6,7 @@
 //  Copyright © 2017 SwifterSwift
 //
 
-#if os(iOS)
+#if os(iOS) || os(tvOS)
 import XCTest
 @testable import SwifterSwift
 

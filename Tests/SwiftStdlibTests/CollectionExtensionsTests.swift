@@ -149,6 +149,9 @@ final class CollectionExtensionsTests: XCTestCase {
     func testAverage() {
         XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].average(), 3.4)
         XCTAssertEqual([Double]().average(), 0)
+
+		XCTAssertEqual([1, 2, 3, 4, 5].average(), 3)
+		XCTAssertEqual([Int]().average(), 0)
     }
 
 }

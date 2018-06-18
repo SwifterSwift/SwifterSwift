@@ -84,7 +84,6 @@
 		07B7F1B01F5EB42000E6F910 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1841F5EB41600E6F910 /* UINavigationBarExtensions.swift */; };
 		07B7F1B11F5EB42000E6F910 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1851F5EB41600E6F910 /* UINavigationControllerExtensions.swift */; };
 		07B7F1B21F5EB42000E6F910 /* UINavigationItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1861F5EB41600E6F910 /* UINavigationItemExtensions.swift */; };
-		07B7F1B31F5EB42000E6F910 /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1871F5EB41600E6F910 /* UISearchBarExtensions.swift */; };
 		07B7F1B41F5EB42000E6F910 /* UISegmentedControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1881F5EB41600E6F910 /* UISegmentedControlExtensions.swift */; };
 		07B7F1B51F5EB42000E6F910 /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1891F5EB41600E6F910 /* UISliderExtensions.swift */; };
 		07B7F1B61F5EB42000E6F910 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F18A1F5EB41600E6F910 /* UIStoryboardExtensions.swift */; };
@@ -105,7 +104,6 @@
 		07B7F1C61F5EB42200E6F910 /* UINavigationBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1841F5EB41600E6F910 /* UINavigationBarExtensions.swift */; };
 		07B7F1C71F5EB42200E6F910 /* UINavigationControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1851F5EB41600E6F910 /* UINavigationControllerExtensions.swift */; };
 		07B7F1C81F5EB42200E6F910 /* UINavigationItemExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1861F5EB41600E6F910 /* UINavigationItemExtensions.swift */; };
-		07B7F1C91F5EB42200E6F910 /* UISearchBarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1871F5EB41600E6F910 /* UISearchBarExtensions.swift */; };
 		07B7F1CA1F5EB42200E6F910 /* UISegmentedControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1881F5EB41600E6F910 /* UISegmentedControlExtensions.swift */; };
 		07B7F1CB1F5EB42200E6F910 /* UISliderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F1891F5EB41600E6F910 /* UISliderExtensions.swift */; };
 		07B7F1CC1F5EB42200E6F910 /* UIStoryboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07B7F18A1F5EB41600E6F910 /* UIStoryboardExtensions.swift */; };
@@ -1523,7 +1521,6 @@
 				07B7F1BC1F5EB42000E6F910 /* UIViewControllerExtensions.swift in Sources */,
 				07B7F2371F5EB45200E6F910 /* CGSizeExtensions.swift in Sources */,
 				07B7F1FB1F5EB43C00E6F910 /* CharacterExtensions.swift in Sources */,
-				07B7F1B31F5EB42000E6F910 /* UISearchBarExtensions.swift in Sources */,
 				07B7F2081F5EB43C00E6F910 /* StringExtensions.swift in Sources */,
 				07B7F2391F5EB45200E6F910 /* NSAttributedStringExtensions.swift in Sources */,
 				071306701FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
@@ -1589,7 +1586,6 @@
 				07B7F1D21F5EB42200E6F910 /* UIViewControllerExtensions.swift in Sources */,
 				07B7F22B1F5EB45100E6F910 /* CGSizeExtensions.swift in Sources */,
 				07B7F1E91F5EB43B00E6F910 /* CharacterExtensions.swift in Sources */,
-				07B7F1C91F5EB42200E6F910 /* UISearchBarExtensions.swift in Sources */,
 				07B7F1F61F5EB43B00E6F910 /* StringExtensions.swift in Sources */,
 				07B7F22D1F5EB45100E6F910 /* NSAttributedStringExtensions.swift in Sources */,
 				071306711FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
