@@ -39,16 +39,16 @@ final class SwifterSwiftTests: XCTestCase {
 			value += 1
 		}
 
-		let debouncedIncrementor = SwifterSwift.debounce(millisecondsDelay: 20, action: {
+		let debouncedIncrementor = SwifterSwift.debounce(millisecondsDelay: 20) {
 			incrementor()
-		})
+		}
 
 		for index in 1...10 {
 			debouncedIncrementor()
 			if index == 10 {
-				SwifterSwift.delay(milliseconds: 30, completion: {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
 					done.fulfill()
-				})
+				}
 			}
 		}
 

@@ -32,6 +32,22 @@ public extension UIStackView {
         self.distribution = distribution
     }
 
+	/// SwifterSwift: Adds array of views to the end of the arrangedSubviews array.
+	///
+	/// - Parameter views: views array.
+	public func addArrangedSubviews(_ views: [UIView]) {
+		for view in views {
+			addArrangedSubview(view)
+		}
+	}
+
+	/// SwifterSwift: Removes all views in stack’s array of arranged subviews.
+	public func removeArrangedSubviews() {
+		for view in arrangedSubviews {
+			removeArrangedSubview(view)
+		}
+	}
+
 }
 #endif
 
