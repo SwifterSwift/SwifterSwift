@@ -8,6 +8,8 @@
 import XCTest
 @testable import SwifterSwift
 
+// swiftlint:disable type_body_length, type_body_length
+
 #if os(iOS) || os(tvOS)
 final class UIViewExtensionsTests: XCTestCase {
 
@@ -203,6 +205,95 @@ final class UIViewExtensionsTests: XCTestCase {
 
 		view.addSubviews([UIView(), UIView()])
 		XCTAssertEqual(view.subviews.count, 2)
+	}
+
+	func testFadeIn() {
+		let view1 = UIView()
+		view1.isHidden = true
+		view1.alpha = 0
+
+		view1.fadeIn(duration: 0, completion: nil)
+		XCTAssertFalse(view1.isHidden)
+		XCTAssertEqual(view1.alpha, 1)
+
+		let fadeInExpectation = expectation(description: "Faded in")
+
+		let view2 = UIView()
+		view2.alpha = 0
+		XCTAssertFalse(view1.isHidden)
+
+		view2.fadeIn(duration: 0.5) { _ in
+			fadeInExpectation.fulfill()
+		}
+
+		XCTAssertEqual(view2.alpha, 1)
+		waitForExpectations(timeout: 0.5, handler: nil)
+	}
+
+	func testFadeOut() {
+		let view1 = UIView()
+		view1.isHidden = true
+
+		view1.fadeOut(duration: 0, completion: nil)
+		XCTAssertFalse(view1.isHidden)
+		XCTAssertEqual(view1.alpha, 0)
+
+		let fadeOutExpectation = expectation(description: "Faded out")
+
+		let view2 = UIView()
+		XCTAssertFalse(view1.isHidden)
+
+		view2.fadeOut(duration: 0.5) { _ in
+			fadeOutExpectation.fulfill()
+		}
+		XCTAssertEqual(view2.alpha, 0)
+		waitForExpectations(timeout: 0.5, handler: nil)
+	}
+
+	func testRotateByAngle() {
+		let view1 = UIView()
+		let transform1 = CGAffineTransform(rotationAngle: 2)
+		view1.rotate(byAngle: 2, ofType: .radians, animated: false, duration: 0, completion: nil)
+		XCTAssertEqual(view1.transform, transform1)
+
+		let view2 = UIView()
+		let transform2 = CGAffineTransform(rotationAngle: .pi * 90.0 / 180.0)
+		view2.rotate(byAngle: 90, ofType: .degrees, animated: false, duration: 0, completion: nil)
+		XCTAssertEqual(view2.transform, transform2)
+
+		let rotateExpectation = expectation(description: "view rotated")
+
+		let view3 = UIView()
+		let transform3 = CGAffineTransform(rotationAngle: 2)
+
+		view3.rotate(byAngle: 2, ofType: .radians, animated: true, duration: 0.5) { _ in
+			rotateExpectation.fulfill()
+		}
+		XCTAssertEqual(view3.transform, transform3)
+		waitForExpectations(timeout: 0.5, handler: nil)
+	}
+
+	func testRotateToAngle() {
+		let view1 = UIView()
+		let transform1 = CGAffineTransform(rotationAngle: 2)
+		view1.rotate(toAngle: 2, ofType: .radians, animated: false, duration: 0, completion: nil)
+		XCTAssertEqual(view1.transform, transform1)
+
+		let view2 = UIView()
+		let transform2 = CGAffineTransform(rotationAngle: .pi * 90.0 / 180.0)
+		view2.rotate(toAngle: 90, ofType: .degrees, animated: false, duration: 0, completion: nil)
+		XCTAssertEqual(view2.transform, transform2)
+
+		let rotateExpectation = expectation(description: "view rotated")
+
+		let view3 = UIView()
+		let transform3 = CGAffineTransform(rotationAngle: 2)
+
+		view3.rotate(toAngle: 2, ofType: .radians, animated: true, duration: 0.5) { _ in
+			rotateExpectation.fulfill()
+		}
+		XCTAssertEqual(view3.transform, transform3)
+		waitForExpectations(timeout: 0.5, handler: nil)
 	}
 
 	func testRemoveSubviews() {

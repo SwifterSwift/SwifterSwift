@@ -32,7 +32,7 @@ public extension CGFloat {
 
 	/// SwifterSwift: Radian value of degree input.
 	public var degreesToRadians: CGFloat {
-		return CGFloat.pi * self / 180.0
+		return .pi * self / 180.0
 	}
 
 	/// SwifterSwift: Floor of CGFloat value.
