@@ -104,6 +104,7 @@ public extension String {
 		guard let first = self.first else { return nil }
 		return String(first)
 	}
+    
     /// SwifterSwift: First character of string uppercased(if applicable) while keeping the original string.
     ///
     ///        "hello world".firstCharacterUppercased -> Optional("Hello world")
