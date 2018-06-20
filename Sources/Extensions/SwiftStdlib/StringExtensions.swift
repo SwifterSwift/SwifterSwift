@@ -104,7 +104,12 @@ public extension String {
 		guard let first = self.first else { return nil }
 		return String(first)
 	}
-
+    
+    public var firstCharacterUppercased: String? {
+        guard let first = first else { return nil }
+        return String(first).uppercased() + dropFirst()
+    }
+    
 	#if canImport(Foundation)
 	/// SwifterSwift: Check if string contains one or more letters.
 	///
