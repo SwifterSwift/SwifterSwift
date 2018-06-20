@@ -107,8 +107,8 @@ public extension String {
 
     /// SwifterSwift: First character of string uppercased(if applicable) while keeping the original string.
     ///
-    ///        "hello world".firstCharacterUppercased -> Optional("Hello world")
-    ///        "".firstCharacterUppercased -> nil
+    ///        "hello world".firstCharacterUppercased -> "Hello world"
+    ///        "".firstCharacterUppercased -> ""
     ///
     public var firstCharacterUppercased: String {
         guard let first = first else { return "" }
