@@ -104,18 +104,18 @@ public extension String {
 		guard let first = self.first else { return nil }
 		return String(first)
 	}
-    
+
     /// SwifterSwift: First character of string uppercased(if applicable) while keeping the original string.
     ///
     ///        "hello world".firstCharacterUppercased -> Optional("Hello world")
     ///        "".firstCharacterUppercased -> nil
     ///
-    public var firstCharacterUppercased: String? {
-        guard let first = first else { return nil }
+    public var firstCharacterUppercased: String {
+        guard let first = first else { return "" }
         return String(first).uppercased() + dropFirst()
     }
-    
-	#if canImport(Foundation)
+
+    #if canImport(Foundation)
 	/// SwifterSwift: Check if string contains one or more letters.
 	///
 	///		"123abc".hasLetters -> true
