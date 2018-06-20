@@ -51,7 +51,7 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testFirstCharacterUppercased() {
-        XCTAssertNotNil("hello world".firstCharacterUppercased)
+        XCTAssertNotNil("".firstCharacterUppercased)
         XCTAssertEqual("hello world".firstCharacterUppercased, "Hello world")
     }
 

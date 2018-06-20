@@ -111,7 +111,7 @@ public extension String {
     ///        "".firstCharacterUppercased -> ""
     ///
     public var firstCharacterUppercased: String {
-        guard let first = first else { return "" }
+        guard let first = first else { return self }
         return String(first).uppercased() + dropFirst()
     }
 
