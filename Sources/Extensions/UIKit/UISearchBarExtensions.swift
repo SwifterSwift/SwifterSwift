@@ -9,7 +9,7 @@
 #if canImport(UIKit)
 import UIKit
 
-#if !os(watchOS)
+#if os(iOS)
 // MARK: - Properties
 public extension UISearchBar {
 

@@ -45,14 +45,12 @@ final class FileManagerExtensionsTests: XCTestCase {
 	func testJSONFromFileWithFilename() {
 		do {
 			var filename = "test.json"  // With extension
-			var json = try FileManager.default.jsonFromFile(withFilename: filename,
-															at: FileManagerExtensionsTests.self)
+			var json = try FileManager.default.jsonFromFile(withFilename: filename, at: FileManagerExtensionsTests.self)
 
 			XCTAssertNotNil(json)
 
 			filename = "test"  // Without extension
-			json = try FileManager.default.jsonFromFile(withFilename: filename,
-														at: FileManagerExtensionsTests.self)
+			json = try FileManager.default.jsonFromFile(withFilename: filename, at: FileManagerExtensionsTests.self)
 
 			XCTAssertNotNil(json)
 
@@ -70,6 +68,14 @@ final class FileManagerExtensionsTests: XCTestCase {
 		} catch {
 			XCTFail("Error encountered during opening of file.")
 		}
+	}
+
+	func testInvalidFile() {
+		let filename = "another_test.not_json"
+		do {
+			let json = try FileManager.default.jsonFromFile(withFilename: filename, at: FileManagerExtensionsTests.self)
+			XCTAssertNil(json)
+		} catch {}
 	}
 
 }

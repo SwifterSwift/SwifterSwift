@@ -170,7 +170,6 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 	#endif
 
 	#if !os(macOS) && !os(tvOS)
-	// MARK: - Operators
 	func testAppending() {
 		var string = NSAttributedString(string: "Test").italicized.underlined.struckthrough
 		string += NSAttributedString(string: " Appending").bolded
@@ -228,6 +227,19 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
 		XCTAssertEqual(filteredAttributes.count, 4)
 
+	}
+	#endif
+
+	#if !os(macOS) && !os(tvOS)
+	// MARK: - Operators
+	func testOperators() {
+		var string1 = NSAttributedString(string: "Test").italicized.underlined.struckthrough
+		let string2 = NSAttributedString(string: " Appending").bolded
+		XCTAssertEqual((string1 + string2).string, "Test Appending")
+		XCTAssertEqual((string1 + string2.string).string, "Test Appending")
+
+		string1 += string2.string
+		XCTAssertEqual(string1.string, "Test Appending")
 	}
 	#endif
 }

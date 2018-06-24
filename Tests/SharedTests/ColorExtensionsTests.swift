@@ -87,6 +87,15 @@ final class ColorExtensionsTests: XCTestCase {
 		XCTAssertEqual(color.alpha, 1.0)
 	}
 
+	#if !os(watchOS)
+	func testCoreImageColor() {
+		let color = Color.red
+		let coreImageColor = color.coreImageColor
+		XCTAssertNotNil(color.coreImageColor)
+		XCTAssertEqual(color.coreImageColor!, coreImageColor)
+	}
+	#endif
+
 	// MARK: - Test properties
 	func testHsbaComponents() {
 		var color = Color(hex: 0x00FF00, transparency: 1.0)!

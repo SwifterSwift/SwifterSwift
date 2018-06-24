@@ -20,7 +20,7 @@ final class UIEdgeInsetsExtensionsTests: XCTestCase {
 
     func testVertical() {
         let inset = UIEdgeInsets(top: 10.0, left: 10.0, bottom: 5.0, right: 10.0)
-        XCTAssertEqual(inset.horizontal, 20.0)
+        XCTAssertEqual(inset.vertical, 15.0)
     }
 
     func testInitInset() {

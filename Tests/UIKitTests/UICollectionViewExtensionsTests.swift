@@ -11,6 +11,8 @@
 import XCTest
 @testable import SwifterSwift
 
+final private class TestCell: UICollectionViewCell {}
+
 final class UICollectionViewExtensionsTests: XCTestCase {
 
 	let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
@@ -53,6 +55,15 @@ final class UICollectionViewExtensionsTests: XCTestCase {
 			XCTAssert(completionCalled)
 		}
 	}
+
+	#if os(iOS)
+	func testRegisterCellWithClass() {
+		let indexPath = IndexPath(row: 0, section: 0)
+		collectionView.register(cellWithClass: TestCell.self)
+		let cell = collectionView.dequeueReusableCell(withClass: TestCell.self, for: indexPath)
+		XCTAssertNotNil(cell)
+	}
+	#endif
 
 	#if os(iOS)
 	func testRegisterCellWithNibUsingClass() {
