@@ -1,7 +1,18 @@
 # CHANGELOG
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
-# Upcoming release
+> # Upcoming release
+>
+> ### Added
+> ### Changed
+> ### Deprecated
+> ### Removed
+> ### Fixed
+> ### Security
+
+---
+
+# [v4.4.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.4.0)
 
 ### Added
 - **SKNode**:
@@ -62,8 +73,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIImage**:
   - `scaled(toWidth:, with orientation:)` and `scaled(toHeight:, with orientation:)` were ignoring an image's scale. [#446](https://github.com/SwifterSwift/SwifterSwift/pull/446) by [vyax](https://github.com/vyax)
   - `init(color:size:)` fixed to ensure that `UIGraphicsEndImageContext` is always called after `UIGraphicsBeginImageContextWithOptions(_:_:_)` [#507](https://github.com/SwifterSwift/SwifterSwift/pull/507) by [guykogus](https://github.com/guykogus)
-
->### Security
 
 ---
 
