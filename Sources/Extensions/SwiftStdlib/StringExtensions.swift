@@ -566,8 +566,8 @@ public extension String {
 	// swiftlint:disable next identifier_name
 	/// SwifterSwift: Safely subscript string with index.
 	///
-	///		"Hello World!"[3] -> "l"
-	///		"Hello World!"[20] -> nil
+	///		"Hello World!"[safe: 3] -> "l"
+	///		"Hello World!"[safe: 20] -> nil
 	///
 	/// - Parameter i: index.
 	public subscript(safe i: Int) -> Character? {
@@ -577,8 +577,8 @@ public extension String {
 
 	/// SwifterSwift: Safely subscript string within a half-open range.
 	///
-	///		"Hello World!"[6..<11] -> "World"
-	///		"Hello World!"[21..<110] -> nil
+	///		"Hello World!"[safe: 6..<11] -> "World"
+	///		"Hello World!"[safe: 21..<110] -> nil
 	///
 	/// - Parameter range: Half-open range.
 	public subscript(safe range: CountableRange<Int>) -> String? {
@@ -589,8 +589,8 @@ public extension String {
 
 	/// SwifterSwift: Safely subscript string within a closed range.
 	///
-	///		"Hello World!"[6...11] -> "World!"
-	///		"Hello World!"[21...110] -> nil
+	///		"Hello World!"[safe: 6...11] -> "World!"
+	///		"Hello World!"[safe: 21...110] -> nil
 	///
 	/// - Parameter range: Closed range.
 	public subscript(safe range: ClosedRange<Int>) -> String? {

@@ -292,8 +292,8 @@ public extension Array where Element: Equatable {
 
 	/// SwifterSwift: Return array with all duplicate elements removed.
 	///
-	///     [1, 1, 2, 2, 3, 3, 3, 4, 5].duplicatesRemoved() -> [1, 2, 3, 4, 5])
-	///     ["h", "e", "l", "l", "o"].duplicatesRemoved() -> ["h", "e", "l", "o"])
+	///     [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
+	///     ["h", "e", "l", "l", "o"].withoutDuplicates() -> ["h", "e", "l", "o"])
 	///
 	/// - Returns: an array of unique elements.
 	///
