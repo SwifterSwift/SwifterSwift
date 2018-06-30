@@ -77,7 +77,68 @@ public extension UIViewController {
         present(alertController, animated: true, completion: nil)
         return alertController
     }
-
+    /// SwifterSwift: Replace the "navigationController?.pushViewController" method.
+    ///
+    /// - Parameters:
+    ///   - viewController: viewController.
+    ///   - animated: (Optional)The default value of “true”.
+    public func push(_ viewController: UIViewController, animated: Bool = true) {
+        navigationController?.pushViewController(viewController, animated: animated)
+    }
+    /// SwifterSwift: Replace the "navigationController?.popViewController" method.
+    ///
+    /// - Parameters:
+    ///   - animated: (Optional)The default value of “true”.
+    @discardableResult public func pop(animated: Bool = true) -> UIViewController? {
+        return navigationController?.popViewController(animated: animated)
+    }
+    /// SwifterSwift: Replace the "navigationController?.popToRootViewController" method.
+    ///
+    /// - Parameters:
+    ///   - animated: (Optional)The default value of “true”.
+    /// - Returns: [UIViewController]? (discardable).
+    @discardableResult public func popToRoot(animated: Bool = true) -> [UIViewController]? {
+        return navigationController?.popToRootViewController(animated: animated)
+    }
+    /// SwifterSwift: Replace the "navigationController?.popToViewController" method.
+    ///
+    /// - Parameters:
+    ///   - viewController: viewController.
+    ///   - animated: (Optional)The default value of “true”.
+    /// - Returns: [UIViewController]? (discardable).
+    @discardableResult public func popToViewController(_ viewController: UIViewController, animated: Bool = true) -> [UIViewController]? {
+        return navigationController?.popToViewController(viewController, animated: animated)
+    }
+    /// SwifterSwift: Replace the "present" method.
+    ///
+    /// - Parameters:
+    ///   - viewControllerToPresent: viewControllerToPresent.
+    ///   - completion: (Optional)The default value of “nil”.
+    public func present(_ viewControllerToPresent: UIViewController, _ completion: (() -> Swift.Void)? = nil) {
+        present(viewControllerToPresent, animated: true, completion: completion)
+    }
+    /// SwifterSwift: Replace the "present" method.
+    ///
+    /// - Parameters:
+    ///   - viewControllerToPresent: viewControllerToPresent.
+    ///   - animated: animated.
+    public func present(_ viewControllerToPresent: UIViewController, animated: Bool) {
+        present(viewControllerToPresent, animated: animated, completion: nil)
+    }
+    /// SwifterSwift: Replace the "dismiss" method.
+    ///
+    /// - Parameters:
+    ///   - completion: (Optional)The default value of “nil”.
+    public func dismiss(_ completion: (() -> Swift.Void)? = nil) {
+        dismiss(animated: true, completion: completion)
+    }
+    /// SwifterSwift: Replace the "dismiss" method.
+    ///
+    /// - Parameters:
+    ///   - animated: animated.
+    public func dismiss(animated: Bool) {
+        dismiss(animated: animated, completion: nil)
+    }
 }
 #endif
 

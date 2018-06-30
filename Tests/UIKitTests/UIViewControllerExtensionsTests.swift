@@ -78,5 +78,45 @@ final class UIViewControllerExtensionsTests: XCTestCase {
 		XCTAssertEqual(alertController.preferredAction, alertController.actions[preferredButtonIndex])
 	}
 
+    func testPush() {
+        let rootViewControoler = UIViewController()
+        let navigationController = UINavigationController(rootViewController: rootViewControoler)
+        UIApplication.shared.keyWindow?.rootViewController = navigationController
+        let viewController = UIViewController()
+        XCTAssertNoThrow(rootViewControoler.push(viewController))
+        XCTAssertNoThrow(rootViewControoler.push(viewController, animated: true))
+    }
+
+    func testPop() {
+        let rootViewControoler = UIViewController()
+        let navigationController = UINavigationController(rootViewController: rootViewControoler)
+        UIApplication.shared.keyWindow?.rootViewController = navigationController
+        let viewController = UIViewController()
+        XCTAssertNoThrow(viewController.pop())
+        XCTAssertNoThrow(viewController.pop(animated: true))
+    }
+
+    func testPopToViewController() {
+        let rootViewControoler = UIViewController()
+        let navigationController = UINavigationController(rootViewController: rootViewControoler)
+        UIApplication.shared.keyWindow?.rootViewController = navigationController
+        let viewController = UIViewController()
+        XCTAssertNoThrow(viewController.popToViewController(rootViewControoler))
+        XCTAssertNoThrow(viewController.popToViewController(rootViewControoler, animated: true))
+    }
+
+    func testPresent() {
+        let viewControoler = UIViewController()
+        XCTAssertNoThrow(viewControoler.present(UIViewController()))
+        XCTAssertNoThrow(viewControoler.present(UIViewController()) { })
+        XCTAssertNoThrow(viewControoler.present(UIViewController(), animated: true))
+    }
+
+    func testDismiss() {
+        let viewControoler = UIViewController()
+        XCTAssertNoThrow(viewControoler.dismiss())
+        XCTAssertNoThrow(viewControoler.dismiss(animated: true))
+        XCTAssertNoThrow(viewControoler.dismiss({ }))
+    }
 }
 #endif
