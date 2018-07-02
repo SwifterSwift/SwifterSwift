@@ -9,21 +9,21 @@
 // MARK: - Methods
 extension RangeReplaceableCollection {
 
-    /// SwifterSwift: Returns a new rotated array by the given places.
+    /// SwifterSwift: Returns a new rotated collection by the given places.
     ///
     ///     [1, 2, 3, 4].rotated(by: 1) -> [4,1,2,3]
     ///     [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
     ///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
     ///
-    /// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
-    /// - Returns: The new rotated array
+    /// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
+    /// - Returns: The new rotated collection.
     public func rotated(by places: Int) -> Self {
         //Inspired by: https://ruby-doc.org/core-2.2.0/Array.html#method-i-rotate
         var copy = self
         return copy.rotate(by: places)
     }
 
-    /// SwifterSwift: Rotate the array by the given places.
+    /// SwifterSwift: Rotate the collection by the given places.
     ///
     ///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
     ///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
