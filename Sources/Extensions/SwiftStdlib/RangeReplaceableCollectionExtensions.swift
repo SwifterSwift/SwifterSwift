@@ -36,7 +36,7 @@ extension RangeReplaceableCollection {
         guard places != 0 else { return self }
         let placesToMove = abs(places) >= count ? places%count : places
         if placesToMove > 0 {
-            let range = index(endIndex, offsetBy: -placeToMove)...
+            let range = index(endIndex, offsetBy: -placesToMove)...
             let slice = self[range]
             removeSubrange(range)
             insert(contentsOf: slice, at: startIndex)
