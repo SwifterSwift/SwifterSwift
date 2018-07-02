@@ -4,7 +4,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 > # Upcoming release
 >
 > ### Added
-> ### Changed
+### Changed
+- **RangeReplaceableCollection**:
+  - `rotate(by:)` and `rotated(by:)` array extensions now are more generic `RangeReplaceableCollection` extensions. [#512](https://github.com/SwifterSwift/SwifterSwift/pull/512) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).z
 > ### Deprecated
 > ### Removed
 > ### Fixed
