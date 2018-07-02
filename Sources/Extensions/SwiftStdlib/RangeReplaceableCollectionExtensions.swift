@@ -34,7 +34,7 @@ extension RangeReplaceableCollection {
     @discardableResult
     public mutating func rotate(by places: Int) -> Self {
         guard places != 0 else { return self }
-        let placesToMove = abs(places) >= count ? places%count : places
+        let placesToMove = places%count
         if placesToMove > 0 {
             let range = index(endIndex, offsetBy: -placesToMove)...
             let slice = self[range]
