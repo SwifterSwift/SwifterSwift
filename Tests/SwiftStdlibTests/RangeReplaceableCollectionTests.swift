@@ -14,13 +14,13 @@ class RangeReplaceableCollectionTests: XCTestCase {
     func testRotated() {
         let array: [Int] = [1, 2, 3, 4]
         XCTAssertEqual(array.rotated(by: 0), [1, 2, 3, 4])
-        XCTAssertEqual(array.rotated(by: 5), [1, 2, 3, 4])
+        XCTAssertEqual(array.rotated(by: 5), [4, 1, 2, 3])
         XCTAssertEqual(array.rotated(by: 4), [1, 2, 3, 4])
         XCTAssertEqual(array.rotated(by: 1), [4, 1, 2, 3])
         XCTAssertEqual(array.rotated(by: 3), [2, 3, 4, 1])
         XCTAssertEqual(array.rotated(by: -1), [2, 3, 4, 1])
         XCTAssertEqual(array.rotated(by: -3), [4, 1, 2, 3])
-        XCTAssertEqual(array.rotated(by: -5), [1, 2, 3, 4])
+        XCTAssertEqual(array.rotated(by: -5), [2, 3, 4, 1])
 
     }
 

@@ -33,14 +33,15 @@ extension RangeReplaceableCollection {
     /// - Returns: self after rotating.
     @discardableResult
     public mutating func rotate(by places: Int) -> Self {
-        guard places != 0 && abs(places) < count else { return self }
-        if places > 0 {
-            let range = index(endIndex, offsetBy: -places)...
+        guard places != 0 else { return self }
+        let placeToMove = abs(places) >= count ? places%count : places
+        if placeToMove > 0 {
+            let range = index(endIndex, offsetBy: -placeToMove)...
             let slice = self[range]
             removeSubrange(range)
             insert(contentsOf: slice, at: startIndex)
         } else {
-            let range = startIndex..<index(startIndex, offsetBy: -places)
+            let range = startIndex..<index(startIndex, offsetBy: -placeToMove)
             let slice = self[range]
             removeSubrange(range)
             append(contentsOf: slice)
