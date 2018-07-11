@@ -96,46 +96,6 @@ public extension Array {
 		return (matching, nonMatching)
 	}
 
-	/// SwifterSwift: Returns a new rotated array by the given places.
-	///
-	///     [1, 2, 3, 4].rotated(by: 1) -> [4,1,2,3]
-	///     [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
-	///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
-	///
-	/// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
-	/// - Returns: The new rotated array
-	public func rotated(by places: Int) -> [Element] {
-		//Inspired by: https://ruby-doc.org/core-2.2.0/Array.html#method-i-rotate
-		guard places != 0 && places < count else { return self }
-		var array: [Element] = self
-		if places > 0 {
-			let range = (array.count - places)..<array.endIndex
-			let slice = array[range]
-			array.removeSubrange(range)
-			array.insert(contentsOf: slice, at: 0)
-		} else {
-			let range = array.startIndex..<(places * -1)
-			let slice = array[range]
-			array.removeSubrange(range)
-			array.append(contentsOf: slice)
-		}
-		return array
-	}
-
-	/// SwifterSwift: Rotate the array by the given places.
-	///
-	///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
-	///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
-	///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
-	///
-	/// - Parameter places: The number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start become the end.
-	/// - Returns: self after rotating.
-	@discardableResult
-	public mutating func rotate(by places: Int) -> [Element] {
-		self = rotated(by: places)
-		return self
-	}
-
 	/// SwifterSwift: Shuffle array. (Using Fisher-Yates Algorithm)
 	///
 	///		[1, 2, 3, 4, 5].shuffle() // shuffles array
