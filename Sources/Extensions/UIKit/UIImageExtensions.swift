@@ -69,12 +69,11 @@ public extension UIImage {
 	/// - Parameters:
 	///   - toHeight: new height.
     ///   - opaque: flag indicating whether the bitmap is opaque.
-	///   - orientation: optional UIImage orientation (default is nil).
 	/// - Returns: optional scaled UIImage (if applicable).
-    public func scaled(toHeight: CGFloat, opaque: Bool = false, with orientation: UIImageOrientation? = nil) -> UIImage? {
+    public func scaled(toHeight: CGFloat, opaque: Bool = false) -> UIImage? {
 		let scale = toHeight / size.height
 		let newWidth = size.width * scale
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: newWidth, height: toHeight), opaque, scale)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: newWidth, height: toHeight), opaque, 0)
 		draw(in: CGRect(x: 0, y: 0, width: newWidth, height: toHeight))
 		let newImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
@@ -86,12 +85,11 @@ public extension UIImage {
 	/// - Parameters:
 	///   - toWidth: new width.
     ///   - opaque: flag indicating whether the bitmap is opaque.
-	///   - orientation: optional UIImage orientation (default is nil).
 	/// - Returns: optional scaled UIImage (if applicable).
-	public func scaled(toWidth: CGFloat, opaque: Bool = false, with orientation: UIImageOrientation? = nil) -> UIImage? {
+	public func scaled(toWidth: CGFloat, opaque: Bool = false) -> UIImage? {
 		let scale = toWidth / size.width
 		let newHeight = size.height * scale
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: toWidth, height: newHeight), opaque, scale)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: toWidth, height: newHeight), opaque, 0)
 		draw(in: CGRect(x: 0, y: 0, width: toWidth, height: newHeight))
 		let newImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
