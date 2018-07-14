@@ -161,11 +161,6 @@ final class ArrayExtensionsTests: XCTestCase {
                                                           Person(name: "Wade", age: nil)])
     }
 
-    func testIndices() {
-        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].indices(of: 1), [0, 1, 5, 7])
-        XCTAssertEqual(["a", "b", "c", "b", "4", "1", "2", "1"].indices(of: "b"), [1, 3])
-    }
-
     func testRemoveAll() {
         var arr = [0, 1, 2, 0, 3, 4, 5, 0, 0]
         arr.removeAll(0)
