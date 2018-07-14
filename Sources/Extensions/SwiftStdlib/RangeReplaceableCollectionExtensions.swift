@@ -48,4 +48,17 @@ extension RangeReplaceableCollection {
         }
         return self
     }
+
+    /// SwifterSwift: Removes the first element of the collection which satisfies the given predicate.
+    ///
+    ///        [1, 2, 2, 3, 4, 2, 5].removeFirst { $0 % 2 == 0 } -> [1, 2, 3, 4, 2, 5]
+    ///        ["h", "e", "l", "l", "o"].removeFirst { $0 == "e" } -> ["h", "l", "l", "o"]
+    ///
+    /// - Parameter predicate: A closure that takes an element as its argument and returns a Boolean value that indicates whether the passed element represents a match.
+    /// - Returns: The first element for which predicate returns true, after removing it. If no elements in the collection satisfy the given predicate, returns `nil`.
+    @discardableResult
+    public mutating func removeFirst(where predicate: (Element) throws -> Bool) rethrows -> Element? {
+        guard let index = try index(where: predicate) else { return nil }
+        return remove(at: index)
+    }
 }
