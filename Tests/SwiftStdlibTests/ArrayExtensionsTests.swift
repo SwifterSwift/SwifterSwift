@@ -161,25 +161,6 @@ final class ArrayExtensionsTests: XCTestCase {
                                                           Person(name: "Wade", age: nil)])
     }
 
-    func testIndices() {
-        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].indices(of: 1), [0, 1, 5, 7])
-        XCTAssertEqual(["a", "b", "c", "b", "4", "1", "2", "1"].indices(of: "b"), [1, 3])
-    }
-
-    func testRemoveWhere() {
-        var array = [0, 1, 2, 0, 3, 4, 5, 0, 0]
-        array.removeFirst { $0 == 1 }
-        XCTAssertEqual(array, [0, 2, 0, 3, 4, 5, 0, 0])
-        array = []
-        XCTAssertNil(array.removeFirst { $0 == 10 })
-        array = [2, 2, 1, 2, 3]
-        let removedElement = array.removeFirst { $0 == 2 }
-        XCTAssertEqual(array, [2, 1, 2, 3])
-        XCTAssertEqual(removedElement, 2)
-
-        XCTAssertThrowsError(try array.removeFirst(where: { _ in throw NSError() }))
-    }
-
     func testRemoveAll() {
         var arr = [0, 1, 2, 0, 3, 4, 5, 0, 0]
         arr.removeAll(0)

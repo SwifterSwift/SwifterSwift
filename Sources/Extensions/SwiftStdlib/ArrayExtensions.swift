@@ -174,40 +174,10 @@ public extension Array {
 		self = sorted(by: path, ascending: ascending)
 		return self
 	}
-
-    /// SwifterSwift: Removes the first element of the collection which satisfies the given predicate.
-    ///
-    ///        [1, 2, 2, 3, 4, 2, 5].removeFirst { $0 % 2 == 0 } -> [1, 2, 3, 4, 2, 5]
-    ///        ["h", "e", "l", "l", "o"].removeFirst { $0 == "e" } -> ["h", "l", "l", "o"]
-    ///
-    /// - Parameter predicate: A closure that takes an element as its argument and returns a Boolean value that indicates whether the passed element represents a match.
-    /// - Returns: The first element for which predicate returns true, after removing it. If no elements in the collection satisfy the given predicate, returns `nil`.
-    @discardableResult
-    public mutating func removeFirst(where predicate: (Element) throws -> Bool) rethrows -> Element? {
-        guard let index = try index(where: predicate) else { return nil }
-        return remove(at: index)
-    }
-
 }
 
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
-
-	/// SwifterSwift: All indices of specified item.
-	///
-	///		[1, 2, 2, 3, 4, 2, 5].indices(of 2) -> [1, 2, 5]
-	///		[1.2, 2.3, 4.5, 3.4, 4.5].indices(of 2.3) -> [1]
-	///		["h", "e", "l", "l", "o"].indices(of "l") -> [2, 3]
-	///
-	/// - Parameter item: item to check.
-	/// - Returns: an array with all indices of the given item.
-	public func indices(of item: Element) -> [Index] {
-		var indices: [Index] = []
-		for index in startIndex..<endIndex where self[index] == item {
-			indices.append(index)
-		}
-		return indices
-	}
 
 	/// SwifterSwift: Remove all instances of an item from array.
 	///
