@@ -13,6 +13,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `indices(of:)` array extension now is more generic `RandomAccessCollection` extensions. [#516](https://github.com/SwifterSwift/SwifterSwift/pull/516) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 
 ### Fixed
+- **UIImage**:
+- Fixed `scaled(toWidth:, with orientation:)` and `scaled(toHeight:, with orientation:)` were using image's scale as the scale factor. [#515](https://github.com/SwifterSwift/SwifterSwift/pull/515) by [VincentSit](https://github.com/VincentSit).
 - **String**:
   - Used [RFC 5322](http://emailregex.com/) in `isValidEmail`, an email address regex that 99.99% works. [#517](https://github.com/SwifterSwift/SwifterSwift/pull/517) by [Omar Albeik](https://github.com/omaralbeik)
 
