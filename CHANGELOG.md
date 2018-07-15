@@ -1,19 +1,26 @@
 # CHANGELOG
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
-> # Upcoming release
->
-> ### Added
+# Upcoming release
+
+### Added
+
 ### Changed
 - **RangeReplaceableCollection**:
   - `rotate(by:)` and `rotated(by:)` array extensions now are more generic `RangeReplaceableCollection` extensions. [#512](https://github.com/SwifterSwift/SwifterSwift/pull/512) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
   - `removeFirst(where:)` array extension now is more generic `RangeReplaceableCollection` extensions. [#516](https://github.com/SwifterSwift/SwifterSwift/pull/516) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **RandomAccessCollection**:
   - `indices(of:)` array extension now is more generic `RandomAccessCollection` extensions. [#516](https://github.com/SwifterSwift/SwifterSwift/pull/516) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
-> ### Deprecated
-> ### Removed
-> ### Fixed
-> ### Security
+
+### Fixed
+- **String**:
+  - Used [RFC 5322](http://emailregex.com/) in `isEmail`, an email address regex that 99.99% works. [#514](https://github.com/SwifterSwift/SwifterSwift/issues/514) by [Omar Albeik](https://github.com/omaralbeik)
+
+### Deprecated
+
+### Removed
+
+### Security
 
 ---
 

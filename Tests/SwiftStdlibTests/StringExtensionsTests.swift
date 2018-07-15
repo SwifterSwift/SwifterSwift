@@ -77,7 +77,12 @@ final class StringExtensionsTests: XCTestCase {
     func testIsEmail() {
         XCTAssert("john@appleseed.com".isEmail)
         XCTAssertFalse("john@appleseedcom".isEmail)
-        XCTAssertFalse("johnappleseed.com".isEmail)
+		XCTAssertFalse("johnappleseed.com".isEmail)
+		XCTAssertFalse("john@apple seed.com".isEmail)
+		XCTAssertFalse(" john@appleseed.com".isEmail)
+		XCTAssertFalse("john@appleseed.com ".isEmail)
+		XCTAssertFalse("email.@.email.com".isEmail)
+		XCTAssertFalse("foo@bar".isEmail)
     }
 
     func testIsValidUrl() {
