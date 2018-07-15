@@ -14,9 +14,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Fixed
 - **String**:
-  - Used [RFC 5322](http://emailregex.com/) in `isEmail`, an email address regex that 99.99% works. [#514](https://github.com/SwifterSwift/SwifterSwift/issues/514) by [Omar Albeik](https://github.com/omaralbeik)
+  - Used [RFC 5322](http://emailregex.com/) in `isValidEmail`, an email address regex that 99.99% works. [#517](https://github.com/SwifterSwift/SwifterSwift/pull/517) by [Omar Albeik](https://github.com/omaralbeik)
 
 ### Deprecated
+- **String**:
+  - `isEmail` property has been renamed to `isValidEmail`.
 
 ### Removed
 

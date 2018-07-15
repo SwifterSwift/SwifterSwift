@@ -39,6 +39,20 @@ public extension Bool {
 
 extension String {
 
+	#if canImport(Foundation)
+	/// SwifterSwift: Check if string is valid email format.
+	/// **Note that this property does not validate the email address against an email server. It merely attempts to determine whether its format is suitable for an email address.**.
+	///
+	///		"john@doe.com".isEmail -> true
+	///
+	@available(*, deprecated: 4.5.0, message: "Use isValidEmail instead", renamed: "isValidEmail")
+	public var isEmail: Bool {
+		// http://emailregex.com/
+		let regex = "^(?:[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[\\p{L}0-9](?:[a-z0-9-]*[\\p{L}0-9])?\\.)+[\\p{L}0-9](?:[\\p{L}0-9-]*[\\p{L}0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[\\p{L}0-9-]*[\\p{L}0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])$"
+		return range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
+	}
+	#endif
+
 	/// SwifterSwift: Number of characters in string.
 	///
 	///		"Hello world!".length -> 12
