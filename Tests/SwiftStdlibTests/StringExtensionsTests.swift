@@ -104,7 +104,10 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertFalse("email@domain.com (Joe Smith)".isValidEmail)
         XCTAssertFalse("email@domain".isValidEmail)
         XCTAssertFalse("email@-domain.com".isValidEmail)
-        XCTAssertFalse("email@domain..com".isValidEmail)
+        XCTAssertFalse(" email@domain.com".isValidEmail)
+        XCTAssertFalse("email@domain.com ".isValidEmail)
+        XCTAssertFalse("\nemail@domain.com".isValidEmail)
+        XCTAssertFalse("nemail@domain.com   \n\n".isValidEmail)
     }
 
     func testIsValidUrl() {
