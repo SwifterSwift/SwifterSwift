@@ -157,9 +157,10 @@ public extension String {
 
 	#if canImport(Foundation)
 	/// SwifterSwift: Check if string is valid email format.
-	/// **Note that this property does not validate the email address against an email server. It merely attempts to determine whether its format is suitable for an email address.**.
 	///
-	///		"john@doe.com".isEmail -> true
+	/// - Note: Note that this property does not validate the email address against an email server. It merely attempts to determine whether its format is suitable for an email address.
+	///
+	///		"john@doe.com".isValidEmail -> true
 	///
 	public var isValidEmail: Bool {
 		// http://emailregex.com/
