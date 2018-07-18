@@ -77,7 +77,7 @@ public extension SomeType {
 	- Instance methods & type methods
 	- Initializers
 	- Structs
-- All extensions should be tested. See "Adding Tests" to know more.
+- All extensions should be tested. See [Adding Tests](#adding-tests) to know more.
 - Files are named based on the type that the contained extensions extend.
    - (example: all String extensions are found in "**StringExtensions.swift**" file)
 - Extensions and tests are ordered inside files in the following order:
@@ -102,19 +102,19 @@ public extension SomeType {}
 
 ## Adding Tests
 
-Please refer to the following rules before submitting a pull request with your new tests:
+Please follow these guidelines before submitting a pull request with new tests:
 
 - Every extended SwifterSwift type should have one specific subclass of XCTestCase.
-- The subclass should be marked as final.
-- All extensions files and test files have a one to one relation.
-   - (example: all tests for "**StringExtensions.swift**" are found in the "**StringExtensionsTests.swift**" file)
 - There should be a one to one relationship between methods/properties and their backing tests.
 - Tests should be named using the same API of the extension it backs.
    - (example: `DateExtensions` method `isBetween` is named `testIsBetween`)
 - All test files are named based on the extensions which it tests.
    - (example: all String extensions tests are found in "**StringExtensionsTests.swift**" file)
+- The subclass should be marked as final.
+- All extensions files and test files have a one to one relationship.
+   - (example: all tests for "**StringExtensions.swift**" are found in the "**StringExtensionsTests.swift**" file)
 - SwifterSwift source files should not be added to the test target directly, but you should rather import SwifterSwift into the test target by using: @testable import SwifterSwift
-- Tests are ordered inside files in the same order as extensions. See "Adding new Extensions" to know more.
+- Tests are ordered inside files in the same order as extensions. See [Adding new Extensions](#adding-new-extensions) to know more.
 
 ---
 
