@@ -7,6 +7,7 @@ This document contains information and guidelines about contributing to this pro
 - [Asking Questions](#asking-questions)
 - [Ways to Contribute](#ways-to-contribute)
 - [Adding new Extensions](#adding-new-extensions)
+- [Adding Tests](#adding-tests)
 - [Adding documentation](#adding-documentation)
 - [Adding changelog entries](#adding-changelog-entries)
 - [Reporting Issues](#reporting-issues)
@@ -76,16 +77,9 @@ public extension SomeType {
 	- Instance methods & type methods
 	- Initializers
 	- Structs
-- All extensions should be tested.
+- All extensions should be tested. See [Adding Tests](#adding-tests) to know more.
 - Files are named based on the type that the contained extensions extend.
    - (example: all String extensions are found in "**StringExtensions.swift**" file)
-- All extensions files and test files have a one to one relation.
-   - (example: all tests for "**StringExtensions.swift**" are found in the "**StringExtensionsTests.swift**" file)
-- There should be a one to one relationship between extensions and their backing tests.
-- Tests should be named using the same API of the extension it backs.
-   - (example: `DateExtensions` method `isBetween` is named `testIsBetween`)
-- All test files are named based on the extensions which it tests.
-   - (example: all String extensions tests are found in "**StringExtensionsTests.swift**" file)
 - Extensions and tests are ordered inside files in the following order:
 
 ```swift
@@ -103,6 +97,24 @@ public extension SomeType {}
 // MARK: - Initializers
 public extension SomeType {}
 ```
+
+---
+
+## Adding Tests
+
+Please follow these guidelines before submitting a pull request with new tests:
+
+- Every extended SwifterSwift type should have one specific subclass of XCTestCase.
+- There should be a one to one relationship between methods/properties and their backing tests.
+- Tests should be named using the same API of the extension it backs.
+   - (example: `DateExtensions` method `isBetween` is named `testIsBetween`)
+- All test files are named based on the extensions which it tests.
+   - (example: all String extensions tests are found in "**StringExtensionsTests.swift**" file)
+- The subclass should be marked as final.
+- All extensions files and test files have a one to one relationship.
+   - (example: all tests for "**StringExtensions.swift**" are found in the "**StringExtensionsTests.swift**" file)
+- SwifterSwift source files should not be added to the test target directly, but you should rather import SwifterSwift into the test target by using: @testable import SwifterSwift
+- Tests are ordered inside files in the same order as extensions. See [Adding new Extensions](#adding-new-extensions) to know more.
 
 ---
 
