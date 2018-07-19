@@ -74,10 +74,40 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertFalse("abc".isAlphaNumeric)
     }
 
-    func testIsEmail() {
-        XCTAssert("john@appleseed.com".isEmail)
-        XCTAssertFalse("john@appleseedcom".isEmail)
-        XCTAssertFalse("johnappleseed.com".isEmail)
+    func testisValidEmail() {
+        // https://blogs.msdn.microsoft.com/testing123/2009/02/06/email-address-test-cases/
+
+        XCTAssert("email@domain.com".isValidEmail)
+        XCTAssert("firstname.lastname@domain.com".isValidEmail)
+        XCTAssert("email@subdomain.domain.com".isValidEmail)
+        XCTAssert("firstname+lastname@domain.com".isValidEmail)
+        XCTAssert("email@123.123.123.123".isValidEmail)
+        XCTAssert("email@[123.123.123.123]".isValidEmail)
+        XCTAssert("\"email\"@domain.com".isValidEmail)
+        XCTAssert("1234567890@domain.com".isValidEmail)
+        XCTAssert("email@domain-one.com".isValidEmail)
+        XCTAssert("_______@domain.com".isValidEmail)
+        XCTAssert("email@domain.name".isValidEmail)
+        XCTAssert("email@domain.co.jp".isValidEmail)
+        XCTAssert("firstname-lastname@domain.com".isValidEmail)
+
+        XCTAssertFalse("".isValidEmail)
+        XCTAssertFalse("plainaddress".isValidEmail)
+        XCTAssertFalse("#@%^%#$@#$@#.com".isValidEmail)
+        XCTAssertFalse("@domain.com".isValidEmail)
+        XCTAssertFalse("Joe Smith <email@domain.com>".isValidEmail)
+        XCTAssertFalse("email.domain.com".isValidEmail)
+        XCTAssertFalse("email@domain@domain.com".isValidEmail)
+        XCTAssertFalse(".email@domain.com".isValidEmail)
+        XCTAssertFalse("email.@domain.com".isValidEmail)
+        XCTAssertFalse("email..email@domain.com".isValidEmail)
+        XCTAssertFalse("email@domain.com (Joe Smith)".isValidEmail)
+        XCTAssertFalse("email@domain".isValidEmail)
+        XCTAssertFalse("email@-domain.com".isValidEmail)
+        XCTAssertFalse(" email@domain.com".isValidEmail)
+        XCTAssertFalse("email@domain.com ".isValidEmail)
+        XCTAssertFalse("\nemail@domain.com".isValidEmail)
+        XCTAssertFalse("nemail@domain.com   \n\n".isValidEmail)
     }
 
     func testIsValidUrl() {
