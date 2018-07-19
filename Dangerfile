@@ -23,7 +23,29 @@ swiftlint.lint_files
 warn('This pull request is marked as Work in Progress. DO NOT MERGE!') if github.pr_title.include? "[WIP]"
 
 # Xcode summary
-xcode_summary.report 'xcodebuild-ios.json'
-xcode_summary.report 'xcodebuild-tvos.json'
-xcode_summary.report 'xcodebuild-macos.json'
-xcode_summary.report 'xcodebuild-watchos.json'
+def summary(platform:)
+    xcode_summary.report "xcodebuild-#{platform}.json"
+end
+  
+def label_tests_summary(label:, platform:) 
+    file_name = "xcodebuild-#{platform}.json"
+    json = File.read(file_name)
+    data = JSON.parse(json)
+    data["tests_summary_messages"].each { |message| 
+        if !message.empty?
+            message.insert(1, " " + label + ":")
+        end
+    }
+    File.open(file_name,"w") do |f|
+        f.puts JSON.pretty_generate(data)
+    end 
+end
+
+label_tests_summary(label: "iOS", platform: "ios")
+label_tests_summary(label: "tvOS", platform: "tvos")
+label_tests_summary(label: "macOS", platform: "macos")
+  
+summary(platform: "ios")
+summary(platform: "tvos")
+summary(platform: "macos")
+summary(platform: "watchos")
