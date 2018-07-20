@@ -328,6 +328,30 @@ public extension UIView {
 	public func removeGestureRecognizers() {
 		gestureRecognizers?.forEach(removeGestureRecognizer)
 	}
+    
+    /// SwifterSwift: Attaches one or more gesture recognizers to the view.
+    ///
+    /// Attaching gesture recognizers to a view defines the scope of the represented
+    /// gesture, causing it to receive touches hit-tested to that view and all of its
+    /// subviews. The view establishes a strong reference to the gesture recognizers.
+    ///
+    /// - Parameter gestureRecognizers: The gesture recognizers to be added to the view.
+    func addGestureRecognizers(_ gestureRecognizers: UIGestureRecognizer...) {
+        for recognizer in gestureRecognizers {
+            addGestureRecognizer(recognizer)
+        }
+    }
+    
+    /// SwifterSwift: Detaches one or more gesture recognizers from the receiving view.
+    ///
+    /// This method releases gestureRecognizers in addition to detaching them from the view.
+    ///
+    /// - Parameter gestureRecognizers: The gesture recognizers to be removed from the view.
+    func removeGestureRecognizers(_ gestureRecognizers: UIGestureRecognizer...) {
+        for recognizer in gestureRecognizers {
+            removeGestureRecognizer(recognizer)
+        }
+    }
 
 	/// SwifterSwift: Rotate view by angle on relative axis.
 	///
