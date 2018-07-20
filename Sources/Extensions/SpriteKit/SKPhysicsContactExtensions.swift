@@ -13,21 +13,11 @@ public extension SKPhysicsContact {
     /// SwifterSwift: A convenience variable for accessing the
     /// nodes involved in a physical contact.
     public var nodes: [SKNode] {
-        var nodes = [SKNode]()
-        
-        if let nodeA = bodyA.node {
-            nodes.append(nodeA)
-        }
-        
-        if let nodeB = bodyB.node {
-            nodes.append(nodeB)
-        }
-        
-        return nodes
+        return [bodyA.node, bodyB.node].compactMap({ $0 })
     }
     
     ///
-    /// SwifterSwift: Checks if a physical contact involves two specific categories
+    /// SwifterSwift: Checks if a physical contact involves two specific category bitmasks
     ///
     /// - Parameters:
     ///     - categoryA: The first category to check
@@ -37,7 +27,8 @@ public extension SKPhysicsContact {
     ///     categories, `false` otherwise.
     ///
     public func involves(_ categoryA: UInt32, and categoryB: UInt32) -> Bool {
-        return bodyA.categoryBitMask ^ bodyB.categoryBitMask == categoryA ^ categoryB
+        return (bodyA.categoryBitMask == categoryA && bodyB.categoryBitMask == categoryB) ||
+            (bodyB.categoryBitMask == categoryA && bodyA.categoryBitMask == categoryB)
     }
 
 }

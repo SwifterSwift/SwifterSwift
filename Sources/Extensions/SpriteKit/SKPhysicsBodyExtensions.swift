@@ -10,7 +10,6 @@ import SpriteKit
 
 public extension SKPhysicsBody {
     
-    
     /// SwifterSwift: Checks if a physics body is contacting another body
     /// with the given `categoryBitMask`
     ///
