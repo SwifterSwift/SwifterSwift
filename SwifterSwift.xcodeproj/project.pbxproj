@@ -357,6 +357,7 @@
 		70269A321FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
 		73B6ABB42102271700D81EED /* SKPhysicsContactExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB32102271700D81EED /* SKPhysicsContactExtensions.swift */; };
 		73B6ABB62102284000D81EED /* SKPhysicsBodyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB52102284000D81EED /* SKPhysicsBodyExtensions.swift */; };
+		73B6ABB821022C4E00D81EED /* SKSpriteNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB721022C4E00D81EED /* SKSpriteNodeExtensions.swift */; };
 		752AC7A020BC975E00659E76 /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC79F20BC975E00659E76 /* SKNodeExtensions.swift */; };
 		752AC7A520BC9FF500659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */; };
 		752AC7A620BCA04100659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */; };
@@ -583,6 +584,7 @@
 		70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensionTest.swift; sourceTree = "<group>"; };
 		73B6ABB32102271700D81EED /* SKPhysicsContactExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKPhysicsContactExtensions.swift; sourceTree = "<group>"; };
 		73B6ABB52102284000D81EED /* SKPhysicsBodyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKPhysicsBodyExtensions.swift; sourceTree = "<group>"; };
+		73B6ABB721022C4E00D81EED /* SKSpriteNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNodeExtensions.swift; sourceTree = "<group>"; };
 		752AC79F20BC975E00659E76 /* SKNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
 		752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitTests.swift; sourceTree = "<group>"; };
 		7832C2AE209BB19300224EED /* ComparableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableExtensions.swift; sourceTree = "<group>"; };
@@ -992,6 +994,7 @@
 				752AC79F20BC975E00659E76 /* SKNodeExtensions.swift */,
 				73B6ABB32102271700D81EED /* SKPhysicsContactExtensions.swift */,
 				73B6ABB52102284000D81EED /* SKPhysicsBodyExtensions.swift */,
+				73B6ABB721022C4E00D81EED /* SKSpriteNodeExtensions.swift */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -1444,6 +1447,7 @@
 				0726D7771F7C199E0028CAB5 /* ColorExtensions.swift in Sources */,
 				07B7F2181F5EB43C00E6F910 /* SignedIntegerExtensions.swift in Sources */,
 				784C752F2051BD26001C48DD /* MKPolylineExtensions.swift in Sources */,
+				73B6ABB821022C4E00D81EED /* SKSpriteNodeExtensions.swift in Sources */,
 				07B7F1A71F5EB42000E6F910 /* UIViewExtensions.swift in Sources */,
 				07B7F1991F5EB42000E6F910 /* UILabelExtensions.swift in Sources */,
 				752AC7A020BC975E00659E76 /* SKNodeExtensions.swift in Sources */,
