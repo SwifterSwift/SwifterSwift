@@ -336,7 +336,7 @@ public extension UIView {
     /// subviews. The view establishes a strong reference to the gesture recognizers.
     ///
     /// - Parameter gestureRecognizers: The gesture recognizers to be added to the view.
-    func addGestureRecognizers(_ gestureRecognizers: UIGestureRecognizer...) {
+    public func addGestureRecognizers(_ gestureRecognizers: UIGestureRecognizer...) {
         for recognizer in gestureRecognizers {
             addGestureRecognizer(recognizer)
         }
@@ -347,7 +347,7 @@ public extension UIView {
     /// This method releases gestureRecognizers in addition to detaching them from the view.
     ///
     /// - Parameter gestureRecognizers: The gesture recognizers to be removed from the view.
-    func removeGestureRecognizers(_ gestureRecognizers: UIGestureRecognizer...) {
+    public func removeGestureRecognizers(_ gestureRecognizers: UIGestureRecognizer...) {
         for recognizer in gestureRecognizers {
             removeGestureRecognizer(recognizer)
         }
