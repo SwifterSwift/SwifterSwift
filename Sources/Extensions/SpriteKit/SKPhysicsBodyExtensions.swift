@@ -19,7 +19,7 @@ public extension SKPhysicsBody {
     ///         // Reduce player health
     ///     }
     ///
-    /// - Parameter category: The `categoryBitmMask` to check
+    /// - Parameter category: The `categoryBitMask` to check
     /// - Returns: `true` if the physics body is contacting another body
     ///             with the given bitmask, `false` otherwise.
     public func isTouching(_ category: UInt32) -> Bool {
