@@ -355,6 +355,8 @@
 		70269A301FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
 		70269A311FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
 		70269A321FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
+		73B6ABB42102271700D81EED /* SKPhysicsContactExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB32102271700D81EED /* SKPhysicsContactExtensions.swift */; };
+		73B6ABB62102284000D81EED /* SKPhysicsBodyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB52102284000D81EED /* SKPhysicsBodyExtensions.swift */; };
 		752AC7A020BC975E00659E76 /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC79F20BC975E00659E76 /* SKNodeExtensions.swift */; };
 		752AC7A520BC9FF500659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */; };
 		752AC7A620BCA04100659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */; };
@@ -579,6 +581,8 @@
 		42F53FEF2039C7140070DC11 /* UIStackViewExtensionsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionsTest.swift; sourceTree = "<group>"; };
 		70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
 		70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensionTest.swift; sourceTree = "<group>"; };
+		73B6ABB32102271700D81EED /* SKPhysicsContactExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKPhysicsContactExtensions.swift; sourceTree = "<group>"; };
+		73B6ABB52102284000D81EED /* SKPhysicsBodyExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKPhysicsBodyExtensions.swift; sourceTree = "<group>"; };
 		752AC79F20BC975E00659E76 /* SKNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
 		752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitTests.swift; sourceTree = "<group>"; };
 		7832C2AE209BB19300224EED /* ComparableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableExtensions.swift; sourceTree = "<group>"; };
@@ -986,6 +990,8 @@
 			isa = PBXGroup;
 			children = (
 				752AC79F20BC975E00659E76 /* SKNodeExtensions.swift */,
+				73B6ABB32102271700D81EED /* SKPhysicsContactExtensions.swift */,
+				73B6ABB52102284000D81EED /* SKPhysicsBodyExtensions.swift */,
 			);
 			path = SpriteKit;
 			sourceTree = "<group>";
@@ -1476,6 +1482,7 @@
 				07B7F21A1F5EB43C00E6F910 /* StringExtensions.swift in Sources */,
 				07B7F2331F5EB45100E6F910 /* NSAttributedStringExtensions.swift in Sources */,
 				B29527AD20F99E9700E1F75D /* RandomAccessCollectionExtensions.swift in Sources */,
+				73B6ABB62102284000D81EED /* SKPhysicsBodyExtensions.swift in Sources */,
 				0713066F1FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
 				07B7F1971F5EB42000E6F910 /* UIImageExtensions.swift in Sources */,
 				B22EB2B720E9E720001EAE70 /* RangeReplaceableCollectionExtensions.swift in Sources */,
@@ -1499,6 +1506,7 @@
 				07B7F20F1F5EB43C00E6F910 /* DataExtensions.swift in Sources */,
 				07B7F19C1F5EB42000E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				07B7F1A51F5EB42000E6F910 /* UITextViewExtensions.swift in Sources */,
+				73B6ABB42102271700D81EED /* SKPhysicsContactExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
