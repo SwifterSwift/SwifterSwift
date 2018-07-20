@@ -15,6 +15,10 @@ public extension SKPhysicsBody {
     /// SwifterSwift: Checks if a physics body is contacting another body
     /// with the given `categoryBitMask`
     ///
+    ///     if player.physicsBody?.isTouching(Category.fire) {
+    ///         // Reduce player health
+    ///     }
+    ///
     /// - Parameter category: The `categoryBitmMask` to check
     /// - Returns: `true` if the physics body is contacting another body
     ///             with the given bitmask, `false` otherwise.

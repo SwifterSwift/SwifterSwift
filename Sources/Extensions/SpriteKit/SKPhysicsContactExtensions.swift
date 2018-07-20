@@ -24,6 +24,10 @@ public extension SKPhysicsContact {
 
     /// SwifterSwift: Checks if a physical contact involves two specific category bitmasks
     ///
+    ///     if contact.involves(.player, and: .enemy) {
+    ///         // GAME OVER
+    ///     }
+    ///
     /// - Parameters:
     ///     - categoryA: The first category to check
     ///     - categoryB: The second category to check
