@@ -9,6 +9,7 @@
 #if canImport(SpriteKit)
 import SpriteKit
 
+// MARK: - Methods
 public extension SKSpriteNode {
     /// SwifterSwift: Creates and runs an action that animates changes to a sprite’s texture,
     /// possibly resizing the sprite. When the action executes, the sprite’s texture property

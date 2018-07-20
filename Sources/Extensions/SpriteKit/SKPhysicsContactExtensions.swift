@@ -9,6 +9,7 @@
 #if canImport(SpriteKit)
 import SpriteKit
 
+// MARK: - Properties
 public extension SKPhysicsContact {
     
     /// SwifterSwift: A convenience variable for accessing the
@@ -16,8 +17,11 @@ public extension SKPhysicsContact {
     public var nodes: [SKNode] {
         return [bodyA.node, bodyB.node].compactMap({ $0 })
     }
-    
-    ///
+}
+
+// MARK: - Methods
+public extension SKPhysicsContact {
+
     /// SwifterSwift: Checks if a physical contact involves two specific category bitmasks
     ///
     /// - Parameters:
@@ -31,6 +35,5 @@ public extension SKPhysicsContact {
         return (bodyA.categoryBitMask == categoryA && bodyB.categoryBitMask == categoryB) ||
             (bodyB.categoryBitMask == categoryA && bodyA.categoryBitMask == categoryB)
     }
-
 }
 #endif

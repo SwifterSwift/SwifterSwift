@@ -9,6 +9,7 @@
 #if canImport(SpriteKit)
 import SpriteKit
 
+// MARK: - Methods
 public extension SKPhysicsBody {
     
     /// SwifterSwift: Checks if a physics body is contacting another body
