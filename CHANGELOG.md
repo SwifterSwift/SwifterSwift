@@ -4,7 +4,15 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
-
+- **SKPhysicsContact**:
+  - Added `nodes` property to easily access the nodes involved in a physics contact. [#522](https://github.com/SwifterSwift/SwifterSwift/pull/522) by [moyerr](https://github.com/moyerr)
+  - Added `involves(_:and:)` method to quickly check if a physics contact ivolves two specific category bitmasks. [#522](https://github.com/SwifterSwift/SwifterSwift/pull/522) by [moyerr](https://github.com/moyerr)
+- **SKPhysicsBody**:
+  - Added `isTouching(_:)` to check if a physics body is touching another body with the given category bitmask. [#522](https://github.com/SwifterSwift/SwifterSwift/pull/522) by [moyerr](https://github.com/moyerr)
+  - Overloaded `isTouching(_:)` to accept a `SKPhysicsBody`. Checks if a physics body is touching another physics body. [#522](https://github.com/SwifterSwift/SwifterSwift/pull/522) by [moyerr](https://github.com/moyerr)
+- **SKSpriteNode**:
+  - Added `animate(withAtlasNamed:timePerFrame:resize:restore:completion)` to easily animate a sprite node with a texture atlas by name. [#522](https://github.com/SwifterSwift/SwifterSwift/pull/522) by [moyerr](https://github.com/moyerr)
+  
 ### Changed
 - **RangeReplaceableCollection**:
   - `rotate(by:)` and `rotated(by:)` array extensions now are more generic `RangeReplaceableCollection` extensions. [#512](https://github.com/SwifterSwift/SwifterSwift/pull/512) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
