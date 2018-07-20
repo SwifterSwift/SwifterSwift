@@ -6,6 +6,7 @@
 //  Copyright © 2018 SwifterSwift
 //
 
+#if canImport(SpriteKit)
 import SpriteKit
 
 public extension SKSpriteNode {
@@ -55,3 +56,4 @@ public extension SKSpriteNode {
         }
     }
 }
+#endif

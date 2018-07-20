@@ -6,6 +6,7 @@
 //  Copyright © 2018 SwifterSwift
 //
 
+#if canImport(SpriteKit)
 import SpriteKit
 
 public extension SKPhysicsBody {
@@ -19,4 +20,13 @@ public extension SKPhysicsBody {
     public func isTouching(_ category: UInt32) -> Bool {
         return allContactedBodies().contains(where: { $0.categoryBitMask == category })
     }
+    
+    /// SwifterSwift: Checks if a physics body is contacting another body.
+    ///
+    /// - Parameter body: The other physics body to check
+    /// - Returns: `true` if the physics body is contacting the other, `false` otherwise.
+    public func isTouching(_ body: SKPhysicsBody) -> Bool {
+        return allContactedBodies().contains(body)
+    }
 }
+#endif

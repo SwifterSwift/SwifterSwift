@@ -6,6 +6,7 @@
 //  Copyright © 2018 SwifterSwift
 //
 
+#if canImport(SpriteKit)
 import SpriteKit
 
 public extension SKPhysicsContact {
@@ -32,3 +33,4 @@ public extension SKPhysicsContact {
     }
 
 }
+#endif
