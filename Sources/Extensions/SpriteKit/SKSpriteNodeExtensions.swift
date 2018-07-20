@@ -45,11 +45,10 @@ public extension SKSpriteNode {
         completion: (() -> Void)? = nil) {
         
         let textureAtlas = SKTextureAtlas(named: atlasName)
-        var textures = [SKTexture]()
         
-        for textureName in textureAtlas.textureNames.sorted() {
-            textures.append(SKTexture(imageNamed: textureName))
-        }
+        let textures = textureAtlas.textureNames
+            .sorted()
+            .map({ SKTexture(imageNamed: $0) })
         
         run(SKAction.animate(with: textures, timePerFrame: seconds, resize: resize, restore: restore)) {
             completion?()
