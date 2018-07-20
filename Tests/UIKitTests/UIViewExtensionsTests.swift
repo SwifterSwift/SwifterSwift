@@ -315,6 +315,47 @@ final class UIViewExtensionsTests: XCTestCase {
 		view.removeGestureRecognizers()
 		XCTAssertEqual(view.gestureRecognizers!.count, 0)
 	}
+    
+    func testAddGestureRecognizers() {
+        let view = UIView()
+        
+        XCTAssertNil(view.gestureRecognizers)
+        
+        let tap = UITapGestureRecognizer(target: nil, action: nil)
+        let pan = UIPanGestureRecognizer(target: nil, action: nil)
+        let swipe = UISwipeGestureRecognizer(target: nil, action: nil)
+        
+        view.addGestureRecognizers(tap, pan, swipe)
+        
+        XCTAssertNotNil(view.gestureRecognizers)
+        XCTAssertEqual(view.gestureRecognizers!.count, 3)
+    }
+    
+    func testRemoveGestureRecognizersVariadic() {
+        let view = UIView()
+        
+        XCTAssertNil(view.gestureRecognizers)
+        
+        let tap = UITapGestureRecognizer(target: nil, action: nil)
+        let pan = UIPanGestureRecognizer(target: nil, action: nil)
+        let swipe = UISwipeGestureRecognizer(target: nil, action: nil)
+        let rotate = UIRotationGestureRecognizer(target: nil, action: nil)
+        
+        view.addGestureRecognizers(tap, pan, swipe, rotate)
+        
+        XCTAssertNotNil(view.gestureRecognizers)
+        XCTAssertEqual(view.gestureRecognizers!.count, 4)
+        
+        view.removeGestureRecognizers(swipe, rotate)
+        
+        XCTAssertNotNil(view.gestureRecognizers)
+        XCTAssertEqual(view.gestureRecognizers!.count, 2)
+        
+        view.removeGestureRecognizers(tap, pan)
+        
+        XCTAssertNotNil(view.gestureRecognizers)
+        XCTAssert(view.gestureRecognizers!.isEmpty)
+    }
 
 	func testAnchor() {
 		let view = UIView()
