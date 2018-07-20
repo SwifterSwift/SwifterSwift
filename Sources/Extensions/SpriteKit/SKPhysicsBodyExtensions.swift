@@ -23,7 +23,7 @@ public extension SKPhysicsBody {
     /// - Returns: `true` if the physics body is contacting another body
     ///             with the given bitmask, `false` otherwise.
     public func isTouching(_ category: UInt32) -> Bool {
-        return allContactedBodies().contains(where: { $0.categoryBitMask == category })
+        return allContactedBodies().contains(where: { $0.categoryBitMask & category != 0 })
     }
     
     /// SwifterSwift: Checks if a physics body is contacting another body.

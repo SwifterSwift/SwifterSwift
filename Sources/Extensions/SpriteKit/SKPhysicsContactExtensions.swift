@@ -15,7 +15,7 @@ public extension SKPhysicsContact {
     /// SwifterSwift: A convenience variable for accessing the
     /// nodes involved in a physical contact.
     public var nodes: [SKNode] {
-        return [bodyA.node, bodyB.node].compactMap({ $0 })
+        return [bodyA.node, bodyB.node].compactMap { $0 }
     }
 }
 
@@ -36,8 +36,8 @@ public extension SKPhysicsContact {
     ///     categories, `false` otherwise.
     ///
     public func involves(_ categoryA: UInt32, and categoryB: UInt32) -> Bool {
-        return (bodyA.categoryBitMask == categoryA && bodyB.categoryBitMask == categoryB) ||
-            (bodyB.categoryBitMask == categoryA && bodyA.categoryBitMask == categoryB)
+        return ((bodyA.categoryBitMask & categoryA != 0) && (bodyB.categoryBitMask & categoryB != 0)) ||
+            ((bodyB.categoryBitMask & categoryA != 0) && (bodyA.categoryBitMask & categoryB != 0))
     }
 }
 #endif

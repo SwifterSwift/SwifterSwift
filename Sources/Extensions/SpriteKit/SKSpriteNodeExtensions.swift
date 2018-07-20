@@ -49,7 +49,7 @@ public extension SKSpriteNode {
         
         let textures = textureAtlas.textureNames
             .sorted()
-            .map({ SKTexture(imageNamed: $0) })
+            .map { SKTexture(imageNamed: $0) }
         
         run(SKAction.animate(with: textures, timePerFrame: seconds, resize: resize, restore: restore)) {
             completion?()
