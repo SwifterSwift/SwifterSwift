@@ -339,19 +339,18 @@ final class UIViewExtensionsTests: XCTestCase {
         let tap = UITapGestureRecognizer(target: nil, action: nil)
         let pan = UIPanGestureRecognizer(target: nil, action: nil)
         let swipe = UISwipeGestureRecognizer(target: nil, action: nil)
-        let rotate = UIRotationGestureRecognizer(target: nil, action: nil)
         
-        view.addGestureRecognizers(tap, pan, swipe, rotate)
-        
-        XCTAssertNotNil(view.gestureRecognizers)
-        XCTAssertEqual(view.gestureRecognizers!.count, 4)
-        
-        view.removeGestureRecognizers(swipe, rotate)
+        view.addGestureRecognizers(tap, pan, swipe)
         
         XCTAssertNotNil(view.gestureRecognizers)
-        XCTAssertEqual(view.gestureRecognizers!.count, 2)
+        XCTAssertEqual(view.gestureRecognizers!.count, 3)
         
-        view.removeGestureRecognizers(tap, pan)
+        view.removeGestureRecognizers(pan, swipe)
+        
+        XCTAssertNotNil(view.gestureRecognizers)
+        XCTAssertEqual(view.gestureRecognizers!.count, 1)
+        
+        view.removeGestureRecognizers(tap)
         
         XCTAssertNotNil(view.gestureRecognizers)
         XCTAssert(view.gestureRecognizers!.isEmpty)
