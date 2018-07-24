@@ -11,7 +11,7 @@ import SpriteKit
 
 // MARK: - Methods
 public extension SKPhysicsBody {
-    
+
     /// SwifterSwift: Checks if a physics body is contacting another body
     /// with the given `categoryBitMask`
     ///
@@ -25,7 +25,7 @@ public extension SKPhysicsBody {
     public func isTouching(_ category: UInt32) -> Bool {
         return allContactedBodies().contains(where: { $0.categoryBitMask & category != 0 })
     }
-    
+
     /// SwifterSwift: Checks if a physics body is contacting another body.
     ///
     /// - Parameter body: The other physics body to check

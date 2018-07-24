@@ -11,7 +11,7 @@ import SpriteKit
 
 // MARK: - Properties
 public extension SKPhysicsContact {
-    
+
     /// SwifterSwift: A convenience variable for accessing the
     /// nodes involved in a physical contact.
     public var nodes: [SKNode] {

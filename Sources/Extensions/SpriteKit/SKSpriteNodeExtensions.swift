@@ -44,13 +44,13 @@ public extension SKSpriteNode {
         resize: Bool,
         restore: Bool,
         completion: (() -> Void)? = nil) {
-        
+
         let textureAtlas = SKTextureAtlas(named: atlasName)
-        
+
         let textures = textureAtlas.textureNames
             .sorted()
             .map { SKTexture(imageNamed: $0) }
-        
+
         run(SKAction.animate(with: textures, timePerFrame: seconds, resize: resize, restore: restore)) {
             completion?()
         }
