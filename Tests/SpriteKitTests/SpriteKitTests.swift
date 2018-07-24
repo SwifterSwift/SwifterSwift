@@ -35,7 +35,7 @@ final class SpriteKitTests: XCTestCase {
             static let node4: UInt32 = 0b1000
         }
 
-        let sceneView = SKView(frame: CGRect(x:0 , y:0, width: 300, height: 300))
+        let sceneView = SKView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         let contactDelegate = ContactDelegateMock()
 
         let scene = SKScene(size: sceneView.frame.size)
@@ -96,7 +96,7 @@ final class SpriteKitTests: XCTestCase {
             static let node3: UInt32 = 0b0100
         }
 
-        let sceneView = SKView(frame: CGRect(x:0 , y:0, width: 300, height: 300))
+        let sceneView = SKView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         let contactDelegate = ContactDelegateMock()
 
         let scene = SKScene(size: sceneView.frame.size)
@@ -149,7 +149,7 @@ final class SpriteKitTests: XCTestCase {
 
         wait(for: [expectation], timeout: 0.1)
     }
-    
+
     func testInvolves() {
 
         let expectation = XCTestExpectation(description: "Contact involves Node 1 and Node 2, but not Node 3")
@@ -160,7 +160,7 @@ final class SpriteKitTests: XCTestCase {
             static let node3: UInt32 = 0b0100
         }
 
-        let sceneView = SKView(frame: CGRect(x:0 , y:0, width: 300, height: 300))
+        let sceneView = SKView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         let contactDelegate = ContactDelegateMock()
 
         let scene = SKScene(size: sceneView.frame.size)
@@ -221,7 +221,7 @@ final class SpriteKitTests: XCTestCase {
             static let node3: UInt32 = 0b0100
         }
 
-        let sceneView = SKView(frame: CGRect(x:0 , y:0, width: 300, height: 300))
+        let sceneView = SKView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
         let contactDelegate = ContactDelegateMock()
 
         let scene = SKScene(size: sceneView.frame.size)
