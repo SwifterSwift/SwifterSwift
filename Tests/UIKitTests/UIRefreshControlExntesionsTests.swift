@@ -14,13 +14,14 @@ import XCTest
 final class UIRefreshControlExtensionTests: XCTestCase {
 
     func testBeginRefreshProgramatically() {
-        let tableFrame = CGRect.init(x: 0, y: 0, width: 400, height: 400)
+        let tableFrame = CGRect(x: 0, y: 0, width: 400, height: 400)
         let tableView = UITableView.init(frame: tableFrame)
-        XCTAssertEqual(tableView.contentOffset, CGPoint.zero)
+        XCTAssertEqual(tableView.contentOffset, .zero)
         let refreshControl = UIRefreshControl.init()
         tableView.addSubview(refreshControl)
         refreshControl.beginRefreshProgramatically(in: tableView)
-        XCTAssertEqual(tableView.contentOffset.y, -refreshControl.frame.size.height)
+        XCTAssertTrue(refreshControl.isRefreshing)
+        XCTAssertEqual(tableView.contentOffset.y, -refreshControl.frame.height)
     }
 
 }

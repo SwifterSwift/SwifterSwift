@@ -19,7 +19,7 @@ public extension UIRefreshControl {
     public func beginRefreshProgramatically(in tableView: UITableView) {
         //https://stackoverflow.com/questions/14718850/uirefreshcontrol-beginrefreshing-not-working-when-uitableviewcontroller-is-ins/14719658#14719658
         beginRefreshing()
-        let offsetPoint = CGPoint.init(x: 0, y: -frame.size.height)
+        let offsetPoint = CGPoint(x: 0, y: -frame.height)
         tableView.setContentOffset(offsetPoint, animated: true)
     }
 
