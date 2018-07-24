@@ -4,6 +4,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+-**UIRefreshControl**:
+- `beginRefreshProgramatically(tableView:)` UIRefreshControl extension to begin refresh programatically. 
 
 ### Changed
 - **RangeReplaceableCollection**:
