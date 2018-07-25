@@ -73,11 +73,10 @@ public extension CGVector {
     ///     let vector = CGVector(angle: .pi, magnitude: 1)
     ///
     /// - Parameters:
-    ///     - θ: The angle of rotation (in radians) counterclockwise from the positive x-axis.
-    ///     - r: The lenth of the vector.
+    ///     - angle: The angle of rotation (in radians) counterclockwise from the positive x-axis.
+    ///     - magnitude: The lenth of the vector.
     ///
-    public init(angle θ: CGFloat, magnitude r: CGFloat) {
-        self.init(dx: r * cos(θ), dy: r * sin(θ))
+    public init(angle: CGFloat, magnitude: CGFloat) {
+        self.init(dx: magnitude * cos(angle), dy: magnitude * sin(angle))
     }
 }
-

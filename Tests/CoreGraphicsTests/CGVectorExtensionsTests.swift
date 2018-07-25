@@ -38,7 +38,6 @@ final class CGVectorExtensionsTests: XCTestCase {
         let vector4 = CGVector(dx: 5, dy: 12)
         let vector5 = CGVector(dx: 8, dy: 15)
 
-
         XCTAssertEqual(vector1.magnitude, 5)
         XCTAssertEqual(vector2.magnitude, sqrt(2))
         XCTAssertEqual(vector3.magnitude, 20)
