@@ -52,7 +52,8 @@ public extension CGVector {
         return CGVector(dx: scalar * vector.dx, dy: scalar * vector.dy)
     }
 
-    /// SwifterSwift: Negates the components of a vector
+    /// SwifterSwift: Negates the vector. The direction is reversed, but magnitude
+    /// remains the same.
     ///
     ///     let vector = CGVector(dx: 1, dy: 1)
     ///     let reversedVector = -vector
