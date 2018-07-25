@@ -355,6 +355,15 @@
 		70269A301FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
 		70269A311FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
 		70269A321FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */; };
+		734307FF2108DD460029CD16 /* SKPhysicsContactExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB32102271700D81EED /* SKPhysicsContactExtensions.swift */; };
+		734308002108DD470029CD16 /* SKPhysicsContactExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB32102271700D81EED /* SKPhysicsContactExtensions.swift */; };
+		734308012108DD480029CD16 /* SKPhysicsContactExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB32102271700D81EED /* SKPhysicsContactExtensions.swift */; };
+		734308022108DD4D0029CD16 /* SKPhysicsBodyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB52102284000D81EED /* SKPhysicsBodyExtensions.swift */; };
+		734308032108DD4E0029CD16 /* SKPhysicsBodyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB52102284000D81EED /* SKPhysicsBodyExtensions.swift */; };
+		734308042108DD4F0029CD16 /* SKPhysicsBodyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB52102284000D81EED /* SKPhysicsBodyExtensions.swift */; };
+		734308052108DD540029CD16 /* SKSpriteNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB721022C4E00D81EED /* SKSpriteNodeExtensions.swift */; };
+		734308062108DD540029CD16 /* SKSpriteNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB721022C4E00D81EED /* SKSpriteNodeExtensions.swift */; };
+		734308072108DD550029CD16 /* SKSpriteNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB721022C4E00D81EED /* SKSpriteNodeExtensions.swift */; };
 		73B6ABB42102271700D81EED /* SKPhysicsContactExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB32102271700D81EED /* SKPhysicsContactExtensions.swift */; };
 		73B6ABB62102284000D81EED /* SKPhysicsBodyExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB52102284000D81EED /* SKPhysicsBodyExtensions.swift */; };
 		73B6ABB821022C4E00D81EED /* SKSpriteNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B6ABB721022C4E00D81EED /* SKSpriteNodeExtensions.swift */; };
@@ -1520,6 +1529,7 @@
 			files = (
 				07B7F2071F5EB43C00E6F910 /* SignedNumericExtensions.swift in Sources */,
 				B247BDE720D376EC00842ACC /* UIEdgeInsetsExtensions.swift in Sources */,
+				734307FF2108DD460029CD16 /* SKPhysicsContactExtensions.swift in Sources */,
 				1875A8F820BDE50A00A6D258 /* SKNodeExtensions.swift in Sources */,
 				B23678ED1FB116AD0027C931 /* SwiftStdlibDeprecated.swift in Sources */,
 				0726D77A1F7C24830028CAB5 /* ColorExtensions.swift in Sources */,
@@ -1561,6 +1571,7 @@
 				07B7F2391F5EB45200E6F910 /* NSAttributedStringExtensions.swift in Sources */,
 				071306701FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
 				07B7F1AD1F5EB42000E6F910 /* UIImageExtensions.swift in Sources */,
+				734308052108DD540029CD16 /* SKSpriteNodeExtensions.swift in Sources */,
 				077BA08B1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				B29527AE20F99F9900E1F75D /* RandomAccessCollectionExtensions.swift in Sources */,
 				9D4914841F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
@@ -1572,6 +1583,7 @@
 				07B7F2341F5EB45200E6F910 /* CGColorExtensions.swift in Sources */,
 				B22EB2BA20E9E81B001EAE70 /* RangeReplaceableCollectionExtensions.swift in Sources */,
 				07B7F21E1F5EB43F00E6F910 /* SwifterSwift.swift in Sources */,
+				734308022108DD4D0029CD16 /* SKPhysicsBodyExtensions.swift in Sources */,
 				70269A2C1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */,
 				07B7F2041F5EB43C00E6F910 /* LocaleExtensions.swift in Sources */,
 				07B7F1FE1F5EB43C00E6F910 /* DateExtensions.swift in Sources */,
@@ -1589,6 +1601,7 @@
 			files = (
 				07B7F1F51F5EB43B00E6F910 /* SignedNumericExtensions.swift in Sources */,
 				1875A8FB20BDE50D00A6D258 /* SKNodeExtensions.swift in Sources */,
+				734308062108DD540029CD16 /* SKSpriteNodeExtensions.swift in Sources */,
 				B23678EE1FB116AD0027C931 /* SwiftStdlibDeprecated.swift in Sources */,
 				0726D77B1F7C24840028CAB5 /* ColorExtensions.swift in Sources */,
 				07B7F1F41F5EB43B00E6F910 /* SignedIntegerExtensions.swift in Sources */,
@@ -1625,6 +1638,7 @@
 				07B7F22B1F5EB45100E6F910 /* CGSizeExtensions.swift in Sources */,
 				07B7F1E91F5EB43B00E6F910 /* CharacterExtensions.swift in Sources */,
 				07B7F1F61F5EB43B00E6F910 /* StringExtensions.swift in Sources */,
+				734308032108DD4E0029CD16 /* SKPhysicsBodyExtensions.swift in Sources */,
 				07B7F22D1F5EB45100E6F910 /* NSAttributedStringExtensions.swift in Sources */,
 				071306711FB597920023A9D8 /* FoundationDeprecated.swift in Sources */,
 				07B7F1C31F5EB42200E6F910 /* UIImageExtensions.swift in Sources */,
@@ -1643,6 +1657,7 @@
 				07B7F1F21F5EB43B00E6F910 /* LocaleExtensions.swift in Sources */,
 				07B7F1EC1F5EB43B00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F1F01F5EB43B00E6F910 /* FloatingPointExtensions.swift in Sources */,
+				734308002108DD470029CD16 /* SKPhysicsContactExtensions.swift in Sources */,
 				07B7F1CA1F5EB42200E6F910 /* UISegmentedControlExtensions.swift in Sources */,
 				07B7F1EB1F5EB43B00E6F910 /* DataExtensions.swift in Sources */,
 				07B7F1C81F5EB42200E6F910 /* UINavigationItemExtensions.swift in Sources */,
@@ -1668,11 +1683,14 @@
 				07B7F1D71F5EB43B00E6F910 /* CharacterExtensions.swift in Sources */,
 				07B7F2231F5EB44600E6F910 /* CGSizeExtensions.swift in Sources */,
 				07B7F1E11F5EB43B00E6F910 /* OptionalExtensions.swift in Sources */,
+				734308012108DD480029CD16 /* SKPhysicsContactExtensions.swift in Sources */,
 				9D9784DE1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */,
 				07B7F2221F5EB44600E6F910 /* CGPointExtensions.swift in Sources */,
 				07B7F2251F5EB44600E6F910 /* NSAttributedStringExtensions.swift in Sources */,
 				077BA08D1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				18C8E5E12074C60C00F8AF51 /* SequenceExtensions.swift in Sources */,
+				734308072108DD550029CD16 /* SKSpriteNodeExtensions.swift in Sources */,
+				734308042108DD4F0029CD16 /* SKPhysicsBodyExtensions.swift in Sources */,
 				784C75302051BD4A001C48DD /* MKPolylineExtensions.swift in Sources */,
 				07B7F1E31F5EB43B00E6F910 /* SignedNumericExtensions.swift in Sources */,
 				07B7F2241F5EB44600E6F910 /* CLLocationExtensions.swift in Sources */,
