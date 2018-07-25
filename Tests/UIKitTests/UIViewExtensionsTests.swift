@@ -206,6 +206,38 @@ final class UIViewExtensionsTests: XCTestCase {
 		view.addSubviews([UIView(), UIView()])
 		XCTAssertEqual(view.subviews.count, 2)
 	}
+    
+    func testAddSubViewsWithTranslatesAutoresizingMaskIntoConstraints() {
+        let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        let view = UIView(frame: frame)
+        XCTAssertEqual(view.subviews.count, 0)
+        
+        let subview1 = UIView()
+        view.addSubviews([subview1], translatesAutoresizingMaskIntoConstraints: false)
+        XCTAssertEqual(view.subviews.count, 1)
+        XCTAssertEqual(subview1.translatesAutoresizingMaskIntoConstraints, false)
+        
+        let subview2 = UIView()
+        view.addSubviews([subview2], translatesAutoresizingMaskIntoConstraints: true)
+        XCTAssertEqual(view.subviews.count, 2)
+        XCTAssertEqual(subview2.translatesAutoresizingMaskIntoConstraints, true)
+    }
+    
+    func testAddSubViewWithTranslatesAutoresizingMaskIntoConstraints() {
+        let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        let view = UIView(frame: frame)
+        XCTAssertEqual(view.subviews.count, 0)
+        
+        let subview1 = UIView()
+        view.addSubview(subview1, translatesAutoresizingMaskIntoConstraints: false)
+        XCTAssertEqual(view.subviews.count, 1)
+        XCTAssertEqual(subview1.translatesAutoresizingMaskIntoConstraints, false)
+        
+        let subview2 = UIView()
+        view.addSubview(subview2, translatesAutoresizingMaskIntoConstraints: true)
+        XCTAssertEqual(view.subviews.count, 2)
+        XCTAssertEqual(subview2.translatesAutoresizingMaskIntoConstraints, true)
+    }
 
 	func testFadeIn() {
 		let view1 = UIView()
