@@ -359,6 +359,9 @@
 		734307FB2108C85B0029CD16 /* CGVectorExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734307F92108C7F80029CD16 /* CGVectorExtensionsTests.swift */; };
 		734307FD2108C85D0029CD16 /* CGVectorExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734307F92108C7F80029CD16 /* CGVectorExtensionsTests.swift */; };
 		734307FE2108C85E0029CD16 /* CGVectorExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734307F92108C7F80029CD16 /* CGVectorExtensionsTests.swift */; };
+		734308082108E4630029CD16 /* CGVectorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734307F72108C2240029CD16 /* CGVectorExtensions.swift */; };
+		734308092108E4640029CD16 /* CGVectorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734307F72108C2240029CD16 /* CGVectorExtensions.swift */; };
+		7343080A2108E4650029CD16 /* CGVectorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734307F72108C2240029CD16 /* CGVectorExtensions.swift */; };
 		752AC7A020BC975E00659E76 /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC79F20BC975E00659E76 /* SKNodeExtensions.swift */; };
 		752AC7A520BC9FF500659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */; };
 		752AC7A620BCA04100659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */; };
@@ -1550,6 +1553,7 @@
 				07B7F1B51F5EB42000E6F910 /* UISliderExtensions.swift in Sources */,
 				07B7F1A91F5EB42000E6F910 /* UIBarButtonItemExtensions.swift in Sources */,
 				07B7F1B81F5EB42000E6F910 /* UITabBarExtensions.swift in Sources */,
+				734308082108E4630029CD16 /* CGVectorExtensions.swift in Sources */,
 				078CE2A0207643F8001720DF /* UIKitDeprecated.swift in Sources */,
 				07B7F1BC1F5EB42000E6F910 /* UIViewControllerExtensions.swift in Sources */,
 				07B7F2371F5EB45200E6F910 /* CGSizeExtensions.swift in Sources */,
@@ -1602,6 +1606,7 @@
 				07B7F1F11F5EB43B00E6F910 /* IntExtensions.swift in Sources */,
 				07B7F1ED1F5EB43B00E6F910 /* DictionaryExtensions.swift in Sources */,
 				07B7F22A1F5EB45100E6F910 /* CGPointExtensions.swift in Sources */,
+				734308092108E4640029CD16 /* CGVectorExtensions.swift in Sources */,
 				07B7F1C11F5EB42200E6F910 /* UICollectionViewExtensions.swift in Sources */,
 				07B7F1CF1F5EB42200E6F910 /* UITableViewExtensions.swift in Sources */,
 				077BA0911F6BE83600D9C4AC /* UserDefaultsExtensions.swift in Sources */,
@@ -1671,6 +1676,7 @@
 				077BA08D1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				18C8E5E12074C60C00F8AF51 /* SequenceExtensions.swift in Sources */,
 				784C75302051BD4A001C48DD /* MKPolylineExtensions.swift in Sources */,
+				7343080A2108E4650029CD16 /* CGVectorExtensions.swift in Sources */,
 				07B7F1E31F5EB43B00E6F910 /* SignedNumericExtensions.swift in Sources */,
 				07B7F2241F5EB44600E6F910 /* CLLocationExtensions.swift in Sources */,
 				1875A8FA20BDE50D00A6D258 /* SKNodeExtensions.swift in Sources */,

@@ -6,7 +6,8 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-import Foundation
+#if canImport(CoreGraphics)
+import CoreGraphics
 
 // MARK: - Properties
 public extension CGVector {
@@ -80,3 +81,4 @@ public extension CGVector {
         self.init(dx: magnitude * cos(angle), dy: magnitude * sin(angle))
     }
 }
+#endif
