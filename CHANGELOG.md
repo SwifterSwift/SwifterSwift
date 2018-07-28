@@ -12,6 +12,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `addGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to add multiple gesture recognizers to a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
   - Added `removeGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to remove multiple gesture recognizers from a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
 
+- added `addSubviews(_:translatesAutoresizingMaskIntoConstraints:)` and `addSubview(_:translatesAutoresizingMaskIntoConstraints:)`
+
 ### Changed
 - **RangeReplaceableCollection**:
   - `rotate(by:)` and `rotated(by:)` array extensions now are more generic `RangeReplaceableCollection` extensions. [#512](https://github.com/SwifterSwift/SwifterSwift/pull/512) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).

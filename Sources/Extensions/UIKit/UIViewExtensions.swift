@@ -278,8 +278,25 @@ public extension UIView {
 	///
 	/// - Parameter subviews: array of subviews to add to self.
 	public func addSubviews(_ subviews: [UIView]) {
-		subviews.forEach({ self.addSubview($0) })
+		subviews.forEach({ addSubview($0) })
 	}
+    
+    /// SwifterSwift: Add array of subviews to view and set translatesAutoresizingMaskIntoConstraints.
+    ///
+    /// - Parameter subviews: array of subviews to add to self.
+    /// - Parameter translatesAutoresizingMaskIntoConstraints: set translatesAutoresizingMaskIntoConstraints of the added subviews.
+    public func addSubviews(_ subviews: [UIView], translatesAutoresizingMaskIntoConstraints: Bool) {
+        subviews.forEach({ addSubview($0, translatesAutoresizingMaskIntoConstraints: translatesAutoresizingMaskIntoConstraints) })
+    }
+    
+    /// SwifterSwift: Add subview to view and set translatesAutoresizingMaskIntoConstraints.
+    ///
+    /// - Parameter subview: subview to add to self.
+    /// - Parameter translatesAutoresizingMaskIntoConstraints: set translatesAutoresizingMaskIntoConstraints of the added subview.
+    public func addSubview(_ subview: UIView, translatesAutoresizingMaskIntoConstraints: Bool) {
+        subview.translatesAutoresizingMaskIntoConstraints = translatesAutoresizingMaskIntoConstraints
+        addSubview(subview)
+    }
 
 	/// SwifterSwift: Fade in view.
 	///
