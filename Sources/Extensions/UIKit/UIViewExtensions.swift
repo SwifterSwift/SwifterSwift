@@ -552,6 +552,18 @@ public extension UIView {
 		anchorCenterYToSuperview()
 	}
 
+    /// SwifterSwift: Add array of subviews to view and
+    /// set `UIView.translatesAutoresizingMaskIntoConstraints` to false
+    ///
+    ///     view.add(subview1, subview2)
+    ///
+    /// - Parameter subviews: array of subviews to add to self.
+    public func add(_ subviews: UIView...) {
+        subviews.forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            self.addSubview($0)
+        }
+    }
 }
 #endif
 
