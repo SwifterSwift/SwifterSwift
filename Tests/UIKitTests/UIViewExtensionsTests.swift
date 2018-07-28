@@ -409,5 +409,18 @@ final class UIViewExtensionsTests: XCTestCase {
 		XCTAssertNotNil(subview.centerYAnchor)
 	}
 
+    func testAdd() {
+        let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        let view = UIView(frame: frame)
+        let subview1 = UIView()
+        let subview2 = UIView()
+        XCTAssertEqual(view.subviews.count, 0)
+        XCTAssertTrue(subview1.translatesAutoresizingMaskIntoConstraints)
+        XCTAssertTrue(subview2.translatesAutoresizingMaskIntoConstraints)
+        view.add(subview1, subview2)
+        XCTAssertEqual(view.subviews.count, 2)
+        XCTAssertFalse(subview1.translatesAutoresizingMaskIntoConstraints)
+        XCTAssertFalse(subview2.translatesAutoresizingMaskIntoConstraints)
+    }
 }
 #endif

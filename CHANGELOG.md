@@ -7,6 +7,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIView**
   - Added `addGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to add multiple gesture recognizers to a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
   - Added `removeGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to remove multiple gesture recognizers from a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
+  - Added `add(_:)` which acceps a list of `UIView` to add subviews and set their `UIView.translatesAutoresizingMaskIntoConstraints` to false. [#529](https://github.com/SwifterSwift/SwifterSwift/pull/529) by [sammy-sc](https://github.com/sammy-SC)
 
 ### Changed
 - **RangeReplaceableCollection**:
