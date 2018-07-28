@@ -47,12 +47,21 @@ final class CGVectorExtensionsTests: XCTestCase {
 
     func testScalarMultiplication() {
         let vector = CGVector(dx: 3, dy: 4)
-
+        
         XCTAssertEqual(2 * vector, vector * 2)
         XCTAssertEqual(0 * vector, .zero)
         XCTAssertEqual(1 * vector, vector)
         XCTAssertEqual(-1 * vector, CGVector(dx: -3, dy: -4))
         XCTAssertEqual(3 * vector, CGVector(dx: 9, dy: 12))
+        
+        var mutableVector = CGVector(dx: 3, dy: 4)
+        
+        XCTAssertEqual(vector, mutableVector)
+        
+        mutableVector *= 5
+        
+        XCTAssertEqual(mutableVector, CGVector(dx: 15, dy: 20))
+        XCTAssertEqual(mutableVector, vector * 5)
     }
 
     func testNegation() {
