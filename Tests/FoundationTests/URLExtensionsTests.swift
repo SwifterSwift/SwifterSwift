@@ -72,16 +72,23 @@ final class URLExtensionsTests: XCTestCase {
 	#endif
 
     func testDropScheme() {
-        let urls: [String: String] = [
+        let urls: [String: String?] = [
             "https://domain.com/path/other/": "domain.com/path/other/",
             "https://domain.com": "domain.com",
             "http://domain.com": "domain.com",
-            "file://domain.com/image.jpeg": "domain.com/image.jpeg"
+            "file://domain.com/image.jpeg": "domain.com/image.jpeg",
+            "://apple.com": "apple.com",
+            "//apple.com": "apple.com",
+            "apple.com": "apple.com",
+            "http://": nil,
+            "//": "//"
         ]
 
         urls.forEach { input, expected in
             let url = URL(string: input)!
-            XCTAssertEqual(url.droppedScheme().absoluteString, expected)
+            XCTAssertEqual(url.droppedScheme()?.absoluteString,
+                           expected,
+                           "input url: \(input)")
         }
     }
 }
