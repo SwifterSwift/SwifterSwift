@@ -77,6 +77,38 @@ final class UIViewControllerExtensionsTests: XCTestCase {
 		}
 		XCTAssertEqual(alertController.preferredAction, alertController.actions[preferredButtonIndex])
 	}
+    
+    func testAddChildViewController() {
+        let parentViewController = UIViewController()
+        let childViewController = UIViewController()
+
+        XCTAssert(parentViewController.childViewControllers.isEmpty == true)
+        XCTAssertNil(childViewController.parent)
+        
+        parentViewController.add(childViewController)
+        
+        XCTAssert(parentViewController.childViewControllers == [childViewController])
+        XCTAssertNotNil(childViewController.parent)
+        XCTAssertEqual(childViewController.parent, parentViewController)
+    }
+    
+    func testRemoveChildViewController() {
+        let parentViewController = UIViewController()
+        let childViewController = UIViewController()
+        
+        parentViewController.addChildViewController(childViewController)
+        parentViewController.view.addSubview(childViewController.view)
+        childViewController.didMove(toParentViewController: parentViewController)
+        
+        XCTAssert(parentViewController.childViewControllers == [childViewController])
+        XCTAssertNotNil(childViewController.parent)
+        XCTAssertEqual(childViewController.parent, parentViewController)
+        
+        childViewController.remove()
+        
+        XCTAssert(parentViewController.childViewControllers.isEmpty == true)
+        XCTAssertNil(childViewController.parent)
+    }
 
 }
 #endif
