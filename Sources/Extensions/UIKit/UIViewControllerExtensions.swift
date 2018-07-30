@@ -77,7 +77,7 @@ public extension UIViewController {
         present(alertController, animated: true, completion: nil)
         return alertController
     }
-    
+
     /// SwifterSwift: Helper method to add a UIViewController as a childViewController.
     ///
     /// - Parameters:
@@ -87,11 +87,11 @@ public extension UIViewController {
         containerView.addSubview(child.view)
         child.didMove(toParentViewController: self)
     }
-    
+
     /// SwifterSwift: Helper method to remove a UIViewController from its parent.
     public func removeViewAndControllerFromParentViewController() {
         guard parent != nil else { return }
-        
+
         willMove(toParentViewController: nil)
         removeFromParentViewController()
         view.removeFromSuperview()
