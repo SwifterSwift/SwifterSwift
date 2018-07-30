@@ -116,7 +116,7 @@ public extension URL {
             return self
         }
 
-        return URL(string: String(absoluteString.dropFirst(2)))!
+        return URL(string: String(absoluteString.dropFirst(2)))
     }
 }
 
