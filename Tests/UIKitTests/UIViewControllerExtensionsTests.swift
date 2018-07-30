@@ -85,7 +85,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssert(parentViewController.childViewControllers.isEmpty == true)
         XCTAssertNil(childViewController.parent)
         
-        parentViewController.addChildViewControllerWithView(childViewController)
+        parentViewController.addChildViewController(childViewController, toContainerView: parentViewController.view)
         
         XCTAssert(parentViewController.childViewControllers == [childViewController])
         XCTAssertNotNil(childViewController.parent)

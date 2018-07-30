@@ -82,9 +82,9 @@ public extension UIViewController {
     ///
     /// - Parameters:
     ///   - child: the view controller to add as a child
-    public func addChildViewControllerWithView(_ child: UIViewController) {
+    public func addChildViewController(_ child: UIViewController, toContainerView containerView: UIView) {
         addChildViewController(child)
-        view.addSubview(child.view)
+        containerView.addSubview(child.view)
         child.didMove(toParentViewController: self)
     }
     
