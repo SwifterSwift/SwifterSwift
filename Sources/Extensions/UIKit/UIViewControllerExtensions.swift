@@ -82,17 +82,15 @@ public extension UIViewController {
     ///
     /// - Parameters:
     ///   - child: the view controller to add as a child
-    public func add(_ child: UIViewController) {
+    public func addChildViewControllerWithView(_ child: UIViewController) {
         addChildViewController(child)
         view.addSubview(child.view)
         child.didMove(toParentViewController: self)
     }
     
     /// SwifterSwift: Helper method to remove a UIViewController from its parent.
-    public func remove() {
-        guard parent != nil else {
-            return
-        }
+    public func removeViewAndControllerFromParentViewController() {
+        guard parent != nil else { return }
         
         willMove(toParentViewController: nil)
         removeFromParentViewController()
