@@ -109,14 +109,16 @@ public extension URL {
     public func droppedScheme() -> URL? {
         // https://github.com/SwifterSwift/SwifterSwift/issues/464
         if let scheme = self.scheme {
-            return URL(string: String(self.absoluteString.dropFirst(scheme.count + 3)))
+            let droppedScheme = String(self.absoluteString.dropFirst(scheme.count + 3))
+            return URL(string: droppedScheme)
         }
 
         guard host != nil else {
             return self
         }
 
-        return URL(string: String(absoluteString.dropFirst(2)))
+        let droppedScheme = String(absoluteString.dropFirst(2))
+        return URL(string: droppedScheme)
     }
 }
 
