@@ -107,7 +107,6 @@ public extension URL {
     ///        let url = URL(string: "https://domain.com")!
     ///        print(url.droppedScheme()) // prints "domain.com"
     public func droppedScheme() -> URL? {
-        // https://github.com/SwifterSwift/SwifterSwift/issues/464
         if let scheme = self.scheme {
             let droppedScheme = String(self.absoluteString.dropFirst(scheme.count + 3))
             return URL(string: droppedScheme)
