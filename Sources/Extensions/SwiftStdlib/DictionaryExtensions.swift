@@ -34,6 +34,13 @@ public extension Dictionary {
         keys.forEach { removeValue(forKey: $0) }
     }
 
+    /// SwifterSwift: Remove a value for a random key from the dictionary.
+    @discardableResult public mutating func removeValueForRandomKey() -> Value? {
+        guard !isEmpty else { return nil }
+        let key = Array(keys)[Int(arc4random_uniform(UInt32(keys.count)))]
+        return removeValue(forKey: key)
+    }
+
     /// SwifterSwift: JSON Data from dictionary.
     ///
     /// - Parameter prettify: set true to prettify data (default is false).

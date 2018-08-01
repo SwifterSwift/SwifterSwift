@@ -26,6 +26,17 @@ final class DictionaryExtensionsTests: XCTestCase {
         XCTAssertFalse(dict.keys.contains("key2"))
     }
 
+    func testRemoveElementForRandomKey() {
+        var emptyDict = [String: String]()
+        XCTAssertNil(emptyDict.removeValueForRandomKey())
+
+        var dict = ["key1": "value1", "key2": "value2", "key3": "value3"]
+        let elements = dict.count
+        let removedElement = dict.removeValueForRandomKey()
+        XCTAssertEqual(elements - 1, dict.count)
+        XCTAssertFalse(dict.contains(where: {$0.value == removedElement}))
+    }
+
     func testJsonData() {
         let dict = ["key": "value"]
 
