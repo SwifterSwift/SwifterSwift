@@ -78,5 +78,46 @@ final class UIViewControllerExtensionsTests: XCTestCase {
 		XCTAssertEqual(alertController.preferredAction, alertController.actions[preferredButtonIndex])
 	}
 
+    func testAddChildViewController() {
+        let parentViewController = UIViewController()
+        let childViewController = UIViewController()
+
+        XCTAssert(parentViewController.childViewControllers.isEmpty)
+        XCTAssertNil(childViewController.parent)
+
+        parentViewController.addChildViewController(childViewController, toContainerView: parentViewController.view)
+
+        XCTAssertEqual(parentViewController.childViewControllers, [childViewController])
+        XCTAssertNotNil(childViewController.parent)
+        XCTAssertEqual(childViewController.parent, parentViewController)
+    }
+
+    func testRemoveChildViewController() {
+        let parentViewController = UIViewController()
+        let childViewController = UIViewController()
+
+        parentViewController.addChildViewController(childViewController)
+        parentViewController.view.addSubview(childViewController.view)
+        childViewController.didMove(toParentViewController: parentViewController)
+
+        XCTAssertEqual(parentViewController.childViewControllers, [childViewController])
+        XCTAssertNotNil(childViewController.parent)
+        XCTAssertEqual(childViewController.parent, parentViewController)
+
+        childViewController.removeViewAndControllerFromParentViewController()
+
+        XCTAssert(parentViewController.childViewControllers.isEmpty)
+        XCTAssertNil(childViewController.parent)
+    }
+
+    func testRemoveChildViewControllerWithNoParent() {
+        let childViewController = UIViewController()
+        XCTAssertNil(childViewController.parent)
+
+        childViewController.removeViewAndControllerFromParentViewController()
+
+        XCTAssertNil(childViewController.parent)
+    }
+
 }
 #endif
