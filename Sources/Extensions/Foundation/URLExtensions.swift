@@ -112,9 +112,7 @@ public extension URL {
             return URL(string: droppedScheme)
         }
 
-        guard host != nil else {
-            return self
-        }
+        guard host != nil else { return self }
 
         let droppedScheme = String(absoluteString.dropFirst(2))
         return URL(string: droppedScheme)
