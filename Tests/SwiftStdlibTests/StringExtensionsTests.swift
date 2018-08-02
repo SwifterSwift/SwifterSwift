@@ -50,11 +50,6 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("Hello".firstCharacterAsString, "H")
     }
 
-    func testFirstCharacterUppercased() {
-        XCTAssertEqual("".firstCharacterUppercased, "")
-        XCTAssertEqual("hello world".firstCharacterUppercased, "Hello world")
-    }
-
     func testHasLetters() {
         XCTAssert("hsj 1 wq3".hasLetters)
         XCTAssertFalse("123".hasLetters)
@@ -326,6 +321,21 @@ final class StringExtensionsTests: XCTestCase {
         str = "helloWorld"
         str.camelize()
         XCTAssertEqual(str, "helloworld")
+    }
+
+    func testFirstCharacterUppercased() {
+        var str = "hello test"
+        str.firstCharacterUppercased()
+        XCTAssertEqual(str, "Hello test")
+
+        str = "helloworld"
+        str.firstCharacterUppercased()
+        XCTAssertEqual(str, "Helloworld")
+
+        str = ""
+        str.firstCharacterUppercased()
+        XCTAssertEqual(str, "")
+
     }
 
     func testHasUniqueCharacters() {

@@ -105,16 +105,6 @@ public extension String {
 		return String(first)
 	}
 
-    /// SwifterSwift: First character of string uppercased(if applicable) while keeping the original string.
-    ///
-    ///        "hello world".firstCharacterUppercased -> "Hello world"
-    ///        "".firstCharacterUppercased -> ""
-    ///
-    public var firstCharacterUppercased: String {
-        guard let first = first else { return self }
-        return String(first).uppercased() + dropFirst()
-    }
-
     #if canImport(Foundation)
 	/// SwifterSwift: Check if string contains one or more letters.
 	///
@@ -644,6 +634,16 @@ public extension String {
 
 		self = first + rest
 	}
+
+    /// SwifterSwift: First character of string uppercased(if applicable) while keeping the original string.
+    ///
+    ///        "hello world".firstCharacterUppercased() -> "Hello world"
+    ///        "".firstCharacterUppercased() -> ""
+    ///
+    public mutating func firstCharacterUppercased() {
+        guard let first = first else { return }
+        self = String(first).uppercased() + dropFirst()
+    }
 
 	/// SwifterSwift: Check if string contains only unique characters.
 	///
