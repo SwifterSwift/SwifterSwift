@@ -85,7 +85,7 @@ final class URLExtensionsTests: XCTestCase {
         ]
 
         urls.forEach { input, expected in
-            guard let url = URL(string: input) else { return XCTFail() }
+            guard let url = URL(string: input) else { return XCTFail("Failed to initialize URL.") }
             XCTAssertEqual(url.droppedScheme()?.absoluteString,
                            expected,
                            "input url: \(input)")
