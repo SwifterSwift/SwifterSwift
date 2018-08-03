@@ -45,7 +45,7 @@ public extension CGVector {
 
 // MARK: - Operators
 public extension CGVector {
-    
+
     /// SwifterSwift: Multiplies a scalar and a vector (commutative).
     ///
     ///     let vector = CGVector(dx: 1, dy: 1)
@@ -58,7 +58,7 @@ public extension CGVector {
     public static func * (vector: CGVector, scalar: CGFloat) -> CGVector {
         return CGVector(dx: vector.dx * scalar, dy: vector.dy * scalar)
     }
-    
+
     /// SwifterSwift: Multiplies a scalar and a vector (commutative).
     ///
     ///     let vector = CGVector(dx: 1, dy: 1)
@@ -71,7 +71,7 @@ public extension CGVector {
     public static func * (scalar: CGFloat, vector: CGVector) -> CGVector {
         return CGVector(dx: scalar * vector.dx, dy: scalar * vector.dy)
     }
-    
+
     /// SwifterSwift: Compound assignment operator for vector-scalr multiplication
     ///
     ///     var vector = CGVector(dx: 1, dy: 1)
@@ -85,7 +85,7 @@ public extension CGVector {
         vector = vector * scalar
         // swiftlint:enable shorthand_operator
     }
-    
+
     /// SwifterSwift: Negates the vector. The direction is reversed, but magnitude
     /// remains the same.
     ///
