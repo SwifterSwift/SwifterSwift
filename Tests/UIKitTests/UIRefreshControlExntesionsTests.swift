@@ -29,7 +29,7 @@ final class UIRefreshControlExtensionTests: XCTestCase {
             let tableview = UITableView()
             XCTAssertEqual(tableview.contentOffset, .zero)
             tableview.refreshControl = UIRefreshControl()
-            tableview.refreshControl?.beginRefreshing(in: tableview, animated: true)
+            tableview.refreshControl?.beginRefreshing(in: tableview, animated: true, sendAction: true)
 
             XCTAssertTrue(tableview.refreshControl!.isRefreshing)
             XCTAssertEqual(tableview.contentOffset.y, -tableview.refreshControl!.frame.height)
