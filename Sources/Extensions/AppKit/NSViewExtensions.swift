@@ -101,6 +101,21 @@ public extension NSView {
 			layer?.shadowRadius = newValue
 		}
 	}
+    
+    /// SwifterSwift: set and get background color of NSView
+    @IBInspectable public var backgroundColor: NSColor? {
+        get {
+            if let colorRef = self.layer?.backgroundColor {
+                return NSColor(cgColor: colorRef)
+            } else {
+                return nil
+            }
+        }
+        set {
+            self.wantsLayer = true
+            self.layer?.backgroundColor = newValue?.cgColor
+        }
+    }
 
 	/// SwifterSwift: Size of view.
 	public var size: CGSize {
@@ -140,24 +155,6 @@ extension NSView {
 		subviews.forEach({$0.removeFromSuperview()})
 	}
 
-}
-
-extension NSView
-{
-    /// SwifterSwift: set and get background color of NSView
-    @IBInspectable public var backgroundColor: NSColor? {
-        get {
-            if let colorRef = self.layer?.backgroundColor {
-                return NSColor(cgColor: colorRef)
-            } else {
-                return nil
-            }
-        }
-        set {
-            self.wantsLayer = true
-            self.layer?.backgroundColor = newValue?.cgColor
-        }
-    }
 }
 
 #endif
