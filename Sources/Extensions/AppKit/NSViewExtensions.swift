@@ -141,4 +141,23 @@ extension NSView {
 	}
 
 }
+
+extension NSView
+{
+    /// SwifterSwift: set and get background color of NSView
+    @IBInspectable var backgroundColor: NSColor? {
+        get {
+            if let colorRef = self.layer?.backgroundColor {
+                return NSColor(cgColor: colorRef)
+            } else {
+                return nil
+            }
+        }
+        set {
+            self.wantsLayer = true
+            self.layer?.backgroundColor = newValue?.cgColor
+        }
+    }
+}
+
 #endif
