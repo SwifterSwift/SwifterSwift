@@ -14,7 +14,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIViewController**
   - Added `addChildViewController(_:toContainerView)` to easily add child view controllers. Accepts a `UIViewController` and a `UIView` to add the child's view to. 
   - Added `removeViewAndControllerFromParentViewController()` to remove a `UIViewController` from its parent.
-
+- **NSView**
+  - Added `backgroundColor` which allows to change backgroundColor of NSView [#534](https://github.com/SwifterSwift/SwifterSwift/pull/534) by [phiren](https://github.com/phiren)
+  
 ### Changed
 - **RangeReplaceableCollection**:
   - `rotate(by:)` and `rotated(by:)` array extensions now are more generic `RangeReplaceableCollection` extensions. [#512](https://github.com/SwifterSwift/SwifterSwift/pull/512) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
