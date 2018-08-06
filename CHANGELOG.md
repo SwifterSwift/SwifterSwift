@@ -16,6 +16,15 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `removeViewAndControllerFromParentViewController()` to remove a `UIViewController` from its parent.
 - **UIEdgeInsets**
   - Added  `insetBy(top:)`, `insetBy(left:)`, `insetBy(bottom:)`, `insetBy(right:)`, `insetBy(horizontal:)` and `insetBy(vertical:)` to creates an `UIEdgeInsets` based on current value and adjusted by given offset. [#532](https://github.com/SwifterSwift/SwifterSwift/pull/532) by [VincentSit](https://github.com/VincentSit).
+  - **CGSize**
+  - Added operator `+` to return the addition of two CGSize.
+  - Added operator `+=` to add a CGSize to another.
+  - Added operator `-` to return the subtraction of two CGSize.
+  - Added operator `-=` to subtract a CGSize from another.
+  - Added operator `CGSize * CGSize` to return the multiplication of two CGSize.
+  - Added operator `CGSize * CGFloat` and `CGFloat * CGSize` to return the multiplication of a CGSize and a CGFloat value.
+  - Added operator `CGSize *= CGSize` to multiply a CGSize with another one.
+  - Added operator `CGSize *= CGFloat` to multiply a CGSize with a CGFloat value.
 
 ### Changed
 - **RangeReplaceableCollection**:
