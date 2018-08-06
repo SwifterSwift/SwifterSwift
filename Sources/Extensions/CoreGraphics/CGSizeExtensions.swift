@@ -52,9 +52,9 @@ public extension CGSize {
 
 }
 
-//MARK: - Operators
+// MARK: - Operators
 public extension CGSize {
-    
+
     /// SwifterSwift: Add two CGSize
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -69,7 +69,7 @@ public extension CGSize {
     public static func + (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
     }
-    
+
     /// SwifterSwift: Add a CGSize to self.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -83,7 +83,7 @@ public extension CGSize {
     public static func += (lhs: inout CGSize, rhs: CGSize) {
         lhs = CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
     }
-    
+
     /// SwifterSwift: Subtract two CGSize
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -98,7 +98,7 @@ public extension CGSize {
     public static func - (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width - rhs.width, height: lhs.height - rhs.height)
     }
-    
+
     /// SwifterSwift: Subtract a CGSize from self.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -112,7 +112,7 @@ public extension CGSize {
     public static func -= (lhs: inout CGSize, rhs: CGSize) {
         lhs = CGSize(width: lhs.width - rhs.width, height: lhs.height - rhs.height)
     }
-    
+
     /// SwifterSwift: Multiply two CGSize
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -127,7 +127,7 @@ public extension CGSize {
     public static func * (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width * rhs.width, height: lhs.height * rhs.height)
     }
-    
+
     /// SwifterSwift: Multiply a CGSize with a scalar.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -141,7 +141,7 @@ public extension CGSize {
     public static func * (lhs: CGSize, scalar: CGFloat) -> CGSize {
         return CGSize(width: lhs.width * scalar, height: lhs.height * scalar)
     }
-    
+
     /// SwifterSwift: Multiply a CGSize with a scalar.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -155,7 +155,7 @@ public extension CGSize {
     public static func * (scalar: CGFloat, rhs: CGSize) -> CGSize {
         return CGSize(width: scalar * rhs.width, height: scalar * rhs.height)
     }
-    
+
     /// SwifterSwift: Multiply self with a CGSize.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -169,7 +169,7 @@ public extension CGSize {
     public static func *= (lhs: inout CGSize, rhs: CGSize) {
         lhs = CGSize(width: lhs.width * rhs.width, height: lhs.height * rhs.height)
     }
-    
+
     /// SwifterSwift: Multiply self with a scalar.
     ///
     ///     let sizeA = CGSize(width: 5, height: 10)
@@ -182,6 +182,6 @@ public extension CGSize {
     public static func *= (lhs: inout CGSize, scalar: CGFloat) {
         lhs = CGSize(width: lhs.width * scalar, height: lhs.height * scalar)
     }
-    
+
 }
 #endif
