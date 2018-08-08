@@ -15,7 +15,10 @@ class RangeReplaceableCollectionTests: XCTestCase {
         var array = [1, 2, 3]
         let newArray = [Int](expression: array.removeLast(), size: array.count)
         XCTAssertEqual(newArray, [3, 2, 1])
-        XCTAssertTrue(array.isEmpty)
+        XCTAssertTrue(newArray.isEmpty)
+        let empty = [Int](expression: 1, size: 0)
+        XCTAssertTrue(empty.isEmpty)
+
     }
 
     func testRotated() {

@@ -17,13 +17,13 @@ extension RangeReplaceableCollection {
     ///
     /// - Parameters:
     ///   - expression: The expression to execute for each position of the collection.
-    ///   - size: The size of the collection.
-    public init(expression: @autoclosure () -> Element, size: Int) {
+    ///   - count: The count of the collection.
+    public init(expression: @autoclosure () throws -> Element, count: Int) rethrows {
         self.init()
-        if size > 0 {
-            reserveCapacity(size)
-            while count < size {
-                append(expression())
+        if count > 0 { //swiftlint:disable:this empty_count
+            reserveCapacity(count)
+            while self.count < count {
+                append(try expression())
             }
         }
     }
