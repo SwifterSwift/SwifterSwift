@@ -6,6 +6,29 @@
 //  Copyright © 2018 SwifterSwift
 //
 
+// MARK: - Initializers
+extension RangeReplaceableCollection {
+    /// Creates a new collection of a given size where for each position of the collection the value will be the result
+    /// of a call of the given expression.
+    ///
+    ///     let values = Array(expression: "Value", count: 3)
+    ///     print(values)
+    ///     // Prints "["Value", "Value", "Value"]"
+    ///
+    /// - Parameters:
+    ///   - expression: The expression to execute for each position of the collection.
+    ///   - size: The size of the collection.
+    public init(expression: @autoclosure () -> Element, size: Int) {
+        self.init()
+        if size > 0 {
+            reserveCapacity(size)
+            while count < size {
+                append(expression())
+            }
+        }
+    }
+}
+
 // MARK: - Methods
 extension RangeReplaceableCollection {
 
