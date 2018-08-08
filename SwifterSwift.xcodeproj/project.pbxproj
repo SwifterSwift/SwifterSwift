@@ -421,6 +421,8 @@
 		B29527B220F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */; };
 		B29527B320F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */; };
 		B29527B420F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */; };
+		B2EEA14A211A7AC900EF7F8E /* RangeReplaceableCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EB2B620E9E720001EAE70 /* RangeReplaceableCollectionExtensions.swift */; };
+		B2EEA14B211A7ACA00EF7F8E /* RangeReplaceableCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EB2B620E9E720001EAE70 /* RangeReplaceableCollectionExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1526,6 +1528,7 @@
 				07B7F2361F5EB45200E6F910 /* CGPointExtensions.swift in Sources */,
 				07B7F1AB1F5EB42000E6F910 /* UICollectionViewExtensions.swift in Sources */,
 				07B7F1B91F5EB42000E6F910 /* UITableViewExtensions.swift in Sources */,
+				B2EEA14B211A7ACA00EF7F8E /* RangeReplaceableCollectionExtensions.swift in Sources */,
 				7832C2B0209BB19300224EED /* ComparableExtensions.swift in Sources */,
 				077BA0901F6BE83600D9C4AC /* UserDefaultsExtensions.swift in Sources */,
 				07B7F1B71F5EB42000E6F910 /* UISwitchExtensions.swift in Sources */,
@@ -1640,6 +1643,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B2EEA14A211A7AC900EF7F8E /* RangeReplaceableCollectionExtensions.swift in Sources */,
 				07B7F1E01F5EB43B00E6F910 /* LocaleExtensions.swift in Sources */,
 				07B7F1DA1F5EB43B00E6F910 /* DateExtensions.swift in Sources */,
 				07B7F1D81F5EB43B00E6F910 /* CollectionExtensions.swift in Sources */,
