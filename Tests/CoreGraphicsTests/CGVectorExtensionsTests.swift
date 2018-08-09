@@ -76,16 +76,18 @@ final class CGVectorExtensionsTests: XCTestCase {
         let vector3 = CGVector(angle: .pi/6, magnitude: 2)
         let vector4 = CGVector(angle: .pi/3, magnitude: 2)
 
-        XCTAssertEqual(vector1.dx, 1, accuracy: 0.000000000000001)
-        XCTAssertEqual(vector1.dy, 1, accuracy: 0.000000000000001)
+        let cgFloatPrecision: CGFloat = 0.000000000000001
 
-        XCTAssertEqual(vector2.dx, -1, accuracy: 0.000000000000001)
-        XCTAssertEqual(vector2.dy, 0, accuracy: 0.000000000000001)
+        XCTAssertEqual(vector1.dx, 1, accuracy: cgFloatPrecision)
+        XCTAssertEqual(vector1.dy, 1, accuracy: cgFloatPrecision)
 
-        XCTAssertEqual(vector3.dx, sqrt(3), accuracy: 0.000000000000001)
-        XCTAssertEqual(vector3.dy, 1, accuracy: 0.000000000000001)
+        XCTAssertEqual(vector2.dx, -1, accuracy: cgFloatPrecision)
+        XCTAssertEqual(vector2.dy, 0, accuracy: cgFloatPrecision)
 
-        XCTAssertEqual(vector4.dx, 1, accuracy: 0.000000000000001)
-        XCTAssertEqual(vector4.dy, sqrt(3), accuracy: 0.000000000000001)
+        XCTAssertEqual(vector3.dx, sqrt(3), accuracy: cgFloatPrecision)
+        XCTAssertEqual(vector3.dy, 1, accuracy: cgFloatPrecision)
+
+        XCTAssertEqual(vector4.dx, 1, accuracy: cgFloatPrecision)
+        XCTAssertEqual(vector4.dy, sqrt(3), accuracy: cgFloatPrecision)
     }
 }

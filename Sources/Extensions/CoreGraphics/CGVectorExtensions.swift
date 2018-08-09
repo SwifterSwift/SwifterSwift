@@ -14,14 +14,16 @@ public extension CGVector {
 
     /// SwifterSwift: The angle of rotation (in radians) of the vector.
     /// The range of the angle is -π to π; an angle of 0 points to the right.
+    ///
+    /// https://en.wikipedia.org/wiki/Atan2
     public var angle: CGFloat {
-        // https://en.wikipedia.org/wiki/Atan2
         return atan2(dy, dx)
     }
 
     /// SwifterSwift: The magnitude (or length) of the vector.
+    ///
+    /// https://en.wikipedia.org/wiki/Euclidean_vector#Length
     public var magnitude: CGFloat {
-        // https://en.wikipedia.org/wiki/Euclidean_vector#Length
         return sqrt((dx * dx) + (dy * dy))
     }
 }
@@ -31,6 +33,8 @@ public extension CGVector {
 
     /// SwifterSwift: Creates a vector with the given magnitude and angle.
     ///
+    /// https://www.grc.nasa.gov/WWW/K-12/airplane/vectpart.html
+    ///
     ///     let vector = CGVector(angle: .pi, magnitude: 1)
     ///
     /// - Parameters:
@@ -38,7 +42,6 @@ public extension CGVector {
     ///     - magnitude: The lenth of the vector.
     ///
     public init(angle: CGFloat, magnitude: CGFloat) {
-        // https://www.grc.nasa.gov/WWW/K-12/airplane/vectpart.html
         self.init(dx: magnitude * cos(angle), dy: magnitude * sin(angle))
     }
 }
@@ -81,9 +84,8 @@ public extension CGVector {
     ///   - vector: The vector to be multiplied
     ///   - scalar: The scale by which the vector will be multiplied
     public static func *= (vector: inout CGVector, scalar: CGFloat) {
-        // swiftlint:disable shorthand_operator
+        // swiftlint:disable next shorthand_operator
         vector = vector * scalar
-        // swiftlint:enable shorthand_operator
     }
 
     /// SwifterSwift: Negates the vector. The direction is reversed, but magnitude
