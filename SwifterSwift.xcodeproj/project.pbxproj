@@ -421,8 +421,11 @@
 		B29527B220F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */; };
 		B29527B320F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */; };
 		B29527B420F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */; };
+		CA1317542106D35E002F1B0D /* UIRefreshControlExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1317532106D35E002F1B0D /* UIRefreshControlExtensions.swift */; };
+		CA1317582106D4F5002F1B0D /* UIRefreshControlExntesionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA1317562106D4F5002F1B0D /* UIRefreshControlExntesionsTests.swift */; };
 		B2EEA14A211A7AC900EF7F8E /* RangeReplaceableCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EB2B620E9E720001EAE70 /* RangeReplaceableCollectionExtensions.swift */; };
 		B2EEA14B211A7ACA00EF7F8E /* RangeReplaceableCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EB2B620E9E720001EAE70 /* RangeReplaceableCollectionExtensions.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -604,6 +607,8 @@
 		B247BDE820D37AFE00842ACC /* UIEdgeInsetsExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEdgeInsetsExtensionsTests.swift; sourceTree = "<group>"; };
 		B29527AC20F99E9700E1F75D /* RandomAccessCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollectionExtensions.swift; sourceTree = "<group>"; };
 		B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollectionExtensionsTests.swift; sourceTree = "<group>"; };
+		CA1317532106D35E002F1B0D /* UIRefreshControlExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRefreshControlExtensions.swift; sourceTree = "<group>"; };
+		CA1317562106D4F5002F1B0D /* UIRefreshControlExntesionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIRefreshControlExntesionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -846,6 +851,7 @@
 				86B3F7AB208D3D5C00BC297B /* UIScrollViewExtensions.swift */,
 				0722CB3720C2E46B00C6C1B6 /* UIWindowExtensions.swift */,
 				B247BDE520D376EC00842ACC /* UIEdgeInsetsExtensions.swift */,
+				CA1317532106D35E002F1B0D /* UIRefreshControlExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -931,6 +937,7 @@
 				90693554208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift */,
 				0722CB3920C2E49900C6C1B6 /* UIWindowExtensionsTests.swift */,
 				B247BDE820D37AFE00842ACC /* UIEdgeInsetsExtensionsTests.swift */,
+				CA1317562106D4F5002F1B0D /* UIRefreshControlExntesionsTests.swift */,
 			);
 			path = UIKitTests;
 			sourceTree = "<group>";
@@ -1486,6 +1493,7 @@
 				07B7F2121F5EB43C00E6F910 /* DoubleExtensions.swift in Sources */,
 				07B7F2171F5EB43C00E6F910 /* OptionalExtensions.swift in Sources */,
 				074EAF1B1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */,
+				CA1317542106D35E002F1B0D /* UIRefreshControlExtensions.swift in Sources */,
 				07B7F1921F5EB42000E6F910 /* UIAlertControllerExtensions.swift in Sources */,
 				07B7F22E1F5EB45100E6F910 /* CGColorExtensions.swift in Sources */,
 				07B7F21F1F5EB43F00E6F910 /* SwifterSwift.swift in Sources */,
@@ -1729,6 +1737,7 @@
 				07C50D3E1F5EB04700F46E5A /* UITextViewExtensionsTests.swift in Sources */,
 				074EAF1F1F7BA74700C74636 /* UIFontExtensionsTest.swift in Sources */,
 				07C50D301F5EB04700F46E5A /* UIImageExtensionsTests.swift in Sources */,
+				CA1317582106D4F5002F1B0D /* UIRefreshControlExntesionsTests.swift in Sources */,
 				07C50D3A1F5EB04700F46E5A /* UISwitchExtensionsTests.swift in Sources */,
 				07C50D341F5EB04700F46E5A /* UINavigationControllerExtensionsTests.swift in Sources */,
 				752AC7A520BC9FF500659E76 /* SpriteKitTests.swift in Sources */,
