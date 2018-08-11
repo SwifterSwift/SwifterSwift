@@ -19,6 +19,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIView**
   - Added `addGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to add multiple gesture recognizers to a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
   - Added `removeGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to remove multiple gesture recognizers from a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
+  - Added `fillToSuperviewSafeArea(viewController:)` which anchors view to superview's safe area (or to bottomLayoutGuide and topLayoutGuide on pre iOS 11)
 - **UIViewController**
   - Added `addChildViewController(_:toContainerView)` to easily add child view controllers. Accepts a `UIViewController` and a `UIView` to add the child's view to. 
   - Added `removeViewAndControllerFromParentViewController()` to remove a `UIViewController` from its parent.

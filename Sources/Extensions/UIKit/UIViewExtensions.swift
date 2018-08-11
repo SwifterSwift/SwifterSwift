@@ -465,6 +465,36 @@ public extension UIView {
 		}
 	}
 
+    /// SwifterSwift: Anchors all sides to superview's safe area.
+    ///
+    /// 1. On iOS 11 and latter anchors view's sides to superview's safe area
+    /// 2. On iOS 9-11 anchors leading and trailing to superview,
+    /// top and bottom to viewController's bottomLayoutGuide and topLayoutGuide.
+    ///
+    /// - Parameter viewController: view controller, of which bottomLahoutGuide
+    ///  and topLayoutGuide are used on iOS 9-11
+    @available(iOS 9, *) public func fillToSuperviewSafeArea(viewController: UIViewController) {
+        guard let superview = self.superview else {
+            fatalError("\(#function) : the view isn't in view hierarchy")
+        }
+
+        translatesAutoresizingMaskIntoConstraints = false
+
+        let leading, top, trailing, bottom: NSLayoutConstraint
+        if #available(iOS 11, *) {
+            leading = self.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor)
+            top = self.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor)
+            trailing = self.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor)
+            bottom = self.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor)
+        } else {
+            leading = self.leadingAnchor.constraint(equalTo: superview.leadingAnchor)
+            top = self.topAnchor.constraint(equalTo: viewController.topLayoutGuide.bottomAnchor)
+            trailing = self.trailingAnchor.constraint(equalTo: superview.trailingAnchor)
+            bottom = self.bottomAnchor.constraint(equalTo: viewController.bottomLayoutGuide.topAnchor)
+        }
+        NSLayoutConstraint.activate([leading, top, trailing, bottom])
+    }
+
 	/// SwifterSwift: Add anchors from any side of the current view into the specified anchors and returns the newly added constraints.
 	///
 	/// - Parameters:
