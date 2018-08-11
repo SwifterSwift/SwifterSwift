@@ -57,6 +57,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `removeFromView()` method to remove recognizer from the view the recognizer is attached to. [#456](https://github.com/SwifterSwift/SwifterSwift/pull/456) by [mmdock](https://github.com/mmdock)
 - **Character**:
   - Added `randomAlphanumeric()` method to generate a random alphanumeric Character. [#462](https://github.com/SwifterSwift/SwifterSwift/pull/462) by [oliviabrown9](https://github.com/oliviabrown9)
+- **String**:
+  - Added `firstCharacterUppercased()` method to return a string with only the first character uppercased. [#505](https://github.com/SwifterSwift/SwifterSwift/pull/505) by [happiehappie](https://github.com/happiehappie)
 - **UITextView**:
   - Added `wrapToContent()` method which will remove insets, offsets, paddings which lies within UITextView's `bounds` and `contenSize`. [#458](https://github.com/SwifterSwift/SwifterSwift/pull/458) by [ratulSharker](https://github.com/ratulSharker)
 - **URL**
