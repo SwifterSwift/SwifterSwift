@@ -29,6 +29,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `removeFirst(where:)` array extension now is more generic `RangeReplaceableCollection` extensions. [#516](https://github.com/SwifterSwift/SwifterSwift/pull/516) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **RandomAccessCollection**:
   - `indices(of:)` array extension now is more generic `RandomAccessCollection` extensions. [#516](https://github.com/SwifterSwift/SwifterSwift/pull/516) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **UIView**:
+  - `fillToSuperview()` should be more performant. 
 
 ### Fixed
 - **UIImage**:
