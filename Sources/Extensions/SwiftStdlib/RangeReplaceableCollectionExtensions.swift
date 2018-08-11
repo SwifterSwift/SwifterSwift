@@ -6,6 +6,29 @@
 //  Copyright © 2018 SwifterSwift
 //
 
+// MARK: - Initializers
+extension RangeReplaceableCollection {
+    /// Creates a new collection of a given size where for each position of the collection the value will be the result
+    /// of a call of the given expression.
+    ///
+    ///     let values = Array(expression: "Value", count: 3)
+    ///     print(values)
+    ///     // Prints "["Value", "Value", "Value"]"
+    ///
+    /// - Parameters:
+    ///   - expression: The expression to execute for each position of the collection.
+    ///   - count: The count of the collection.
+    public init(expression: @autoclosure () throws -> Element, count: Int) rethrows {
+        self.init()
+        if count > 0 { //swiftlint:disable:this empty_count
+            reserveCapacity(count)
+            while self.count < count {
+                append(try expression())
+            }
+        }
+    }
+}
+
 // MARK: - Methods
 extension RangeReplaceableCollection {
 
@@ -60,5 +83,11 @@ extension RangeReplaceableCollection {
     public mutating func removeFirst(where predicate: (Element) throws -> Bool) rethrows -> Element? {
         guard let index = try index(where: predicate) else { return nil }
         return remove(at: index)
+    }
+
+    /// SwifterSwift: Remove a random value from the collection.
+    @discardableResult public mutating func removeRandomElement() -> Element? {
+        guard !isEmpty else { return nil }
+        return remove(at: index(startIndex, offsetBy: numericCast(arc4random_uniform(numericCast(count)))))
     }
 }
