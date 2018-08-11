@@ -63,6 +63,24 @@ final class OptionalExtensionsTests: XCTestCase {
 		XCTAssert(parameters[key2] == parameter2)
 	}
 
+    func testConditionalAssignment() {
+        var text1: String?
+        text1 ?= "newText1"
+        XCTAssertEqual(text1, "newText1")
+
+        var text2: String? = "text2"
+        text2 ?= "newText2"
+        XCTAssertEqual(text2, "text2")
+
+        var text3: String?
+        text3 ?= nil
+        XCTAssertEqual(text3, nil)
+
+        var text4: String? = "text4"
+        text4 ?= nil
+        XCTAssertEqual(text4, "text4")
+    }
+
     func testIsNilOrEmpty() {
         let nilArray: [String]? = nil
         XCTAssertTrue(nilArray.isNilOrEmpty)

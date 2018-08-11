@@ -20,6 +20,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added  `insetBy(top:)`, `insetBy(left:)`, `insetBy(bottom:)`, `insetBy(right:)`, `insetBy(horizontal:)` and `insetBy(vertical:)` to creates an `UIEdgeInsets` based on current value and adjusted by given offset. [#532](https://github.com/SwifterSwift/SwifterSwift/pull/532) by [VincentSit](https://github.com/VincentSit).
 - **RangeReplaceableCollection**
   - `init(expression:count:)` to create a collection of a given count initialized with an expression.[#537](https://github.com/SwifterSwift/SwifterSwift/pull/537) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **Optional**:
+  - Added `?=` operator to assign to nil optionals only. 
 
 ### Changed
 - **RangeReplaceableCollection**:
