@@ -21,7 +21,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **RangeReplaceableCollection**
   - `init(expression:count:)` to create a collection of a given count initialized with an expression.[#537](https://github.com/SwifterSwift/SwifterSwift/pull/537) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **Optional**:
-  - Added `?=` operator to assign to nil optionals only. 
+  - Added `?=` operator to assign to nil optionals only. [#538](https://github.com/SwifterSwift/SwifterSwift/pull/538) by [viktart](https://github.com/viktart)
 
 ### Changed
 - **RangeReplaceableCollection**:
@@ -30,7 +30,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **RandomAccessCollection**:
   - `indices(of:)` array extension now is more generic `RandomAccessCollection` extensions. [#516](https://github.com/SwifterSwift/SwifterSwift/pull/516) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **UIView**:
-  - `fillToSuperview()` should be more performant. 
+  - Improved performance in `fillToSuperview()` UIView extension. [#540](https://github.com/SwifterSwift/SwifterSwift/pull/540) by [viktart](https://github.com/viktart)
 
 ### Fixed
 - **UIImage**:
