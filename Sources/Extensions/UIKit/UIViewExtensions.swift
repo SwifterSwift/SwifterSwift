@@ -457,10 +457,11 @@ public extension UIView {
 		// https://videos.letsbuildthatapp.com/
 		translatesAutoresizingMaskIntoConstraints = false
 		if let superview = superview {
-			leftAnchor.constraint(equalTo: superview.leftAnchor).isActive = true
-			rightAnchor.constraint(equalTo: superview.rightAnchor).isActive = true
-			topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
-			bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+			let left = leftAnchor.constraint(equalTo: superview.leftAnchor)
+			let right = rightAnchor.constraint(equalTo: superview.rightAnchor)
+			let top = topAnchor.constraint(equalTo: superview.topAnchor)
+			let bottom = bottomAnchor.constraint(equalTo: superview.bottomAnchor)
+            NSLayoutConstraint.activate([left, right, top, bottom])
 		}
 	}
 
