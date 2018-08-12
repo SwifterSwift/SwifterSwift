@@ -164,7 +164,7 @@ public extension UITableView {
     ///   - bundleClass: Class in which the Bundle instance will be based on.
     public func register<T: UITableViewCell>(nibWithCellClass name: T.Type, at bundleClass: AnyClass? = nil) {
         let identifier = String(describing: name)
-        var bundle: Bundle? = nil
+        var bundle: Bundle?
 
         if let bundleName = bundleClass {
             bundle = Bundle(for: bundleName)
