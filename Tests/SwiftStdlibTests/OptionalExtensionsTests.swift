@@ -16,7 +16,7 @@ private enum OptionalTestError: Error {
 final class OptionalExtensionsTests: XCTestCase {
 
 	func testUnwrappedOrDefault() {
-		var str: String? = nil
+		var str: String?
 		XCTAssertEqual(str.unwrapped(or: "swift"), "swift")
 
 		str = "swifterswift"
@@ -32,7 +32,7 @@ final class OptionalExtensionsTests: XCTestCase {
 	}
 
 	func testRunBlock() {
-		var str: String? = nil
+		var str: String?
 		var didRun = false
 		str.run { _ in
 			didRun = true
