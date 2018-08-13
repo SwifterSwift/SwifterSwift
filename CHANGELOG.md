@@ -4,6 +4,12 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+- **CGVector**
+  - Added `angle` computed property to get the angle of the vector (in radians). [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
+  - Added `magnitude` computed property to get the magnitude (or length) of the vector. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
+  - Added scalar multiplication of CGFloat and CGVector via standard multiplication operator (\*). [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
+  - Added negation of vectors via prefix (-) operator. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
+  - Added `init(angle:magnitude:)` to create vectors based on their angle and magnitude. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
 -**UIRefreshControl**:
   - `beginRefresh(in tableView:, animated:, sendAction:)` UIRefreshControl extension to begin refresh programatically. [#525](https://github.com/SwifterSwift/SwifterSwift/pull/525) by [ratulSharker](https://github.com/ratulSharker)
 - **Dictionary**:
