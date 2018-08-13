@@ -102,6 +102,21 @@ public extension URL {
         }
     }
 
+    /// SwifterSwift: Generates new URL that does not have scheme.
+    ///
+    ///        let url = URL(string: "https://domain.com")!
+    ///        print(url.droppedScheme()) // prints "domain.com"
+    public func droppedScheme() -> URL? {
+        if let scheme = self.scheme {
+            let droppedScheme = String(self.absoluteString.dropFirst(scheme.count + 3))
+            return URL(string: droppedScheme)
+        }
+
+        guard host != nil else { return self }
+
+        let droppedScheme = String(absoluteString.dropFirst(2))
+        return URL(string: droppedScheme)
+    }
 }
 
 // MARK: - Methods

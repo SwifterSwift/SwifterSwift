@@ -10,6 +10,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added scalar multiplication of CGFloat and CGVector via standard multiplication operator (\*). [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
   - Added negation of vectors via prefix (-) operator. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
   - Added `init(angle:magnitude:)` to create vectors based on their angle and magnitude. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
+-**UIRefreshControl**:
+  - `beginRefresh(in tableView:, animated:, sendAction:)` UIRefreshControl extension to begin refresh programatically. [#525](https://github.com/SwifterSwift/SwifterSwift/pull/525) by [ratulSharker](https://github.com/ratulSharker)
 - **Dictionary**:
   - Added `removeValueForRandomKey()` to remove a value for a random key from a dictionary. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [vyax](https://github.com/vyax).
 - **RangeReplaceableCollection**:
@@ -24,6 +26,13 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added  `insetBy(top:)`, `insetBy(left:)`, `insetBy(bottom:)`, `insetBy(right:)`, `insetBy(horizontal:)` and `insetBy(vertical:)` to creates an `UIEdgeInsets` based on current value and adjusted by given offset. [#532](https://github.com/SwifterSwift/SwifterSwift/pull/532) by [VincentSit](https://github.com/VincentSit).
 - **RangeReplaceableCollection**
   - `init(expression:count:)` to create a collection of a given count initialized with an expression.[#537](https://github.com/SwifterSwift/SwifterSwift/pull/537) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **Optional**:
+  - Added `?=` operator to assign to nil optionals only. [#538](https://github.com/SwifterSwift/SwifterSwift/pull/538) by [viktart](https://github.com/viktart)
+- **Data**:
+  - Added `jsonObject(options:)` to convert a data object into a JSON object. [#542](https://github.com/SwifterSwift/SwifterSwift/pull/542) by [guykogus](https://github.com/guykogus)
+
+- **URL**
+  - Added `droppedScheme()` which returns new `URL` that does not have scheme. [#528](https://github.com/SwifterSwift/SwifterSwift/pull/528) by [sammy-sc](https://github.com/sammy-SC)
 
 ### Changed
 - **RangeReplaceableCollection**:
@@ -31,6 +40,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `removeFirst(where:)` array extension now is more generic `RangeReplaceableCollection` extensions. [#516](https://github.com/SwifterSwift/SwifterSwift/pull/516) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **RandomAccessCollection**:
   - `indices(of:)` array extension now is more generic `RandomAccessCollection` extensions. [#516](https://github.com/SwifterSwift/SwifterSwift/pull/516) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **UIView**:
+  - Improved performance in `fillToSuperview()` UIView extension. [#540](https://github.com/SwifterSwift/SwifterSwift/pull/540) by [viktart](https://github.com/viktart)
 
 ### Fixed
 - **UIImage**:
@@ -61,6 +72,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `removeFromView()` method to remove recognizer from the view the recognizer is attached to. [#456](https://github.com/SwifterSwift/SwifterSwift/pull/456) by [mmdock](https://github.com/mmdock)
 - **Character**:
   - Added `randomAlphanumeric()` method to generate a random alphanumeric Character. [#462](https://github.com/SwifterSwift/SwifterSwift/pull/462) by [oliviabrown9](https://github.com/oliviabrown9)
+- **String**:
+  - Added `firstCharacterUppercased()` method to return a string with only the first character uppercased. [#505](https://github.com/SwifterSwift/SwifterSwift/pull/505) by [happiehappie](https://github.com/happiehappie)
 - **UITextView**:
   - Added `wrapToContent()` method which will remove insets, offsets, paddings which lies within UITextView's `bounds` and `contenSize`. [#458](https://github.com/SwifterSwift/SwifterSwift/pull/458) by [ratulSharker](https://github.com/ratulSharker)
 - **URL**
