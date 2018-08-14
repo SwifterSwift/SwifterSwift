@@ -499,11 +499,11 @@ public extension String {
 
 	/// SwifterSwift: Array with unicodes for all characters in a string.
 	///
-	///		"SwifterSwift".unicodeArray -> [83, 119, 105, 102, 116, 101, 114, 83, 119, 105, 102, 116]
+	///		"SwifterSwift".unicodeArray() -> [83, 119, 105, 102, 116, 101, 114, 83, 119, 105, 102, 116]
 	///
 	/// - Returns: The unicodes for all characters in a string.
 	public func unicodeArray() -> [Int] {
-		return unicodeScalars.map { $0.hashValue }
+		return unicodeScalars.map { Int($0.value) }
 	}
 
 	#if canImport(Foundation)
