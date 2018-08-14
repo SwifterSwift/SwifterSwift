@@ -353,6 +353,21 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(str, "helloworld")
     }
 
+    func testFirstCharacterUppercased() {
+        var str = "hello test"
+        str.firstCharacterUppercased()
+        XCTAssertEqual(str, "Hello test")
+
+        str = "helloworld"
+        str.firstCharacterUppercased()
+        XCTAssertEqual(str, "Helloworld")
+
+        str = ""
+        str.firstCharacterUppercased()
+        XCTAssertEqual(str, "")
+
+    }
+
     func testHasUniqueCharacters() {
         XCTAssert("swift".hasUniqueCharacters())
         XCTAssertFalse("language".hasUniqueCharacters())

@@ -11,6 +11,16 @@ import XCTest
 
 class RangeReplaceableCollectionTests: XCTestCase {
 
+    func testInitExpressionOfSize() {
+        var array = [1, 2, 3]
+        let newArray = [Int](expression: array.removeLast(), count: array.count)
+        XCTAssertEqual(newArray, [3, 2, 1])
+        XCTAssertTrue(array.isEmpty)
+        let empty = [Int](expression: 1, count: 0)
+        XCTAssertTrue(empty.isEmpty)
+
+    }
+
     func testRotated() {
         let array: [Int] = [1, 2, 3, 4]
         XCTAssertEqual(array.rotated(by: 0), [1, 2, 3, 4])

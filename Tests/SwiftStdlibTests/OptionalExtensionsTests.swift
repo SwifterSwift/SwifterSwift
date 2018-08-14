@@ -16,7 +16,7 @@ private enum OptionalTestError: Error {
 final class OptionalExtensionsTests: XCTestCase {
 
 	func testUnwrappedOrDefault() {
-		var str: String? = nil
+		var str: String?
 		XCTAssertEqual(str.unwrapped(or: "swift"), "swift")
 
 		str = "swifterswift"
@@ -32,7 +32,7 @@ final class OptionalExtensionsTests: XCTestCase {
 	}
 
 	func testRunBlock() {
-		var str: String? = nil
+		var str: String?
 		var didRun = false
 		str.run { _ in
 			didRun = true
@@ -62,6 +62,24 @@ final class OptionalExtensionsTests: XCTestCase {
 		XCTAssertFalse(parameters[key1] != parameter1)
 		XCTAssert(parameters[key2] == parameter2)
 	}
+
+    func testConditionalAssignment() {
+        var text1: String?
+        text1 ?= "newText1"
+        XCTAssertEqual(text1, "newText1")
+
+        var text2: String? = "text2"
+        text2 ?= "newText2"
+        XCTAssertEqual(text2, "text2")
+
+        var text3: String?
+        text3 ?= nil
+        XCTAssertEqual(text3, nil)
+
+        var text4: String? = "text4"
+        text4 ?= nil
+        XCTAssertEqual(text4, "text4")
+    }
 
     func testIsNilOrEmpty() {
         let nilArray: [String]? = nil
