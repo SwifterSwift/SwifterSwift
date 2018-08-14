@@ -33,6 +33,15 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 - **URL**
   - Added `droppedScheme()` which returns new `URL` that does not have scheme. [#528](https://github.com/SwifterSwift/SwifterSwift/pull/528) by [sammy-sc](https://github.com/sammy-SC)
+- **CGSize**
+  - Added operator `+` to return the addition of two CGSize.
+  - Added operator `+=` to add a CGSize to another.
+  - Added operator `-` to return the subtraction of two CGSize.
+  - Added operator `-=` to subtract a CGSize from another.
+  - Added operator `CGSize * CGSize` to return the multiplication of two CGSize.
+  - Added operator `CGSize * CGFloat` and `CGFloat * CGSize` to return the multiplication of a CGSize and a CGFloat value.
+  - Added operator `CGSize *= CGSize` to multiply a CGSize with another one.
+  - Added operator `CGSize *= CGFloat` to multiply a CGSize with a CGFloat value.
 
 ### Changed
 - **RangeReplaceableCollection**:
