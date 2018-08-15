@@ -102,17 +102,17 @@ final class DictionaryExtensionsTests: XCTestCase {
         XCTAssertFalse(dict.keys.contains("key2"))
     }
 
-    func testMap() {
+    func testMapKeysAndValues() {
         let intToString = [0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9: "9"]
 
-        let stringToInt: [String: Int] = intToString.map { (key, value) in
+        let stringToInt: [String: Int] = intToString.mapKeysAndValues { (key, value) in
             return (String(describing: key), Int(value)!)
         }
 
         XCTAssertEqual(stringToInt, ["0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9])
     }
 
-    func testCompactMap() {
+    func testCompactMapKeysAndValues() {
         // swiftlint:disable:next nesting
         enum IntWord: String {
             case zero
@@ -126,7 +126,7 @@ final class DictionaryExtensionsTests: XCTestCase {
             2: "two",
             3: "three"
         ]
-        let words: [String: IntWord] = strings.compactMap { (key, value) in
+        let words: [String: IntWord] = strings.compactMapKeysAndValues { (key, value) in
             guard let word = IntWord(rawValue: value) else { return nil }
             return (String(describing: key), word)
         }
