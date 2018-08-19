@@ -6,7 +6,7 @@
 //  Copyright © 2018 SwifterSwift. All rights reserved.
 //
 
-#if canImport(UIKit)
+#if os(iOS) || os(tvOS)
 import UIKit
 
 // MARK: - Initializers
