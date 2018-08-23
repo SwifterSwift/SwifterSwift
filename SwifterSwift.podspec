@@ -29,6 +29,11 @@ Pod::Spec.new do |s|
   s.subspec 'SwiftStdlib' do |sp|
     sp.source_files  = 'Sources/Extensions/SwiftStdlib/*.swift'
   end
+  
+  # Misc. Extensions Extensions
+  s.subspec 'MiscExtensions' do |sp|
+    sp.source_files  = 'Sources/Extensions/MiscExtensions/*.swift'
+  end
 
   # Foundation Extensions
   s.subspec 'Foundation' do |sp|
