@@ -3,56 +3,62 @@
 //  SwifterSwift
 //
 //  Created by Steven on 2/16/17.
-//  Copyright © 2017 omaralbeik. All rights reserved.
+//  Copyright © 2017 SwifterSwift
 //
 
 #if os(iOS) || os(tvOS)
-    
+
 import XCTest
 @testable import SwifterSwift
-    
-class UINavigationControllerExtensionsTests: XCTestCase {
-// This test is commented because we not sure if after the animation it already removed the viewcontroller from the array, it's something internal of UIKit that require a deeper looking.    
-//    func testPopViewController() {
-//        let navigationController = UINavigationController()
-//        let vcToPop = UIViewController()
-//        let exp = expectation(description: "popCallback")
-//
-//        navigationController.pushViewController(vcToPop, animated: false)
-//        
-//        navigationController.popViewController() {
-//            XCTAssert(navigationController.viewControllers.isEmpty)
-//            exp.fulfill()
-//        }
-//        waitForExpectations(timeout: 5, handler: nil)
-//    }
-    
-    func testPushViewController() {
-        let navigationController = UINavigationController()
-        let vcToPush = UIViewController()
-        
-        navigationController.pushViewController(vcToPush, animated: false)
-        
-        let exp = expectation(description: "pushCallback")
 
-        navigationController.pushViewController(vcToPush) {
-            XCTAssert(navigationController.viewControllers.count == 1)
-            XCTAssertEqual(navigationController.topViewController, vcToPush)
-            exp.fulfill()
-        }
-        waitForExpectations(timeout: 5, handler: nil)
+final class UINavigationControllerExtensionsTests: XCTestCase {
 
-    }
-    
-    func testMakeTransparent() {
-        let navigationController = UINavigationController()
-        navigationController.makeTransparent(withTint: .red)
-        XCTAssertNotNil(navigationController.navigationBar.backgroundImage(for: .default))
-        XCTAssertNotNil(navigationController.navigationBar.shadowImage)
-        XCTAssert(navigationController.navigationBar.isTranslucent)
-        XCTAssertEqual(navigationController.navigationBar.tintColor, .red)
-        let titleColor = navigationController.navigationBar.titleTextAttributes?[NSForegroundColorAttributeName] as? UIColor
-        XCTAssertEqual(titleColor, .red)
-    }
+	func testPushViewController() {
+		let navigationController = UINavigationController()
+		let vcToPush = UIViewController()
+
+		navigationController.pushViewController(vcToPush, animated: false)
+
+		let exp = expectation(description: "pushCallback")
+
+		navigationController.pushViewController(vcToPush) {
+			XCTAssert(navigationController.viewControllers.count == 1)
+			XCTAssertEqual(navigationController.topViewController, vcToPush)
+			exp.fulfill()
+		}
+		waitForExpectations(timeout: 5, handler: nil)
+	}
+
+	func testPopViewController() {
+		let rootVC = UIViewController()
+		let navigationController = UINavigationController(rootViewController: rootVC)
+		let vcToPush = UIViewController()
+		navigationController.pushViewController(vcToPush, animated: false)
+		XCTAssert(navigationController.viewControllers.count == 2)
+
+		let exp = expectation(description: "pushCallback")
+		navigationController.popViewController(animated: false) {
+			XCTAssert(navigationController.viewControllers.count == 1)
+			XCTAssertEqual(navigationController.topViewController, rootVC)
+			exp.fulfill()
+		}
+		waitForExpectations(timeout: 5, handler: nil)
+	}
+
+	func testMakeTransparent() {
+		let navigationController = UINavigationController(rootViewController: UIViewController())
+		navigationController.makeTransparent(withTint: .red)
+		let navBar = navigationController.navigationBar
+		XCTAssertNotNil(navBar.shadowImage)
+		XCTAssert(navBar.isTranslucent)
+		XCTAssertEqual(navBar.tintColor, UIColor.red)
+
+		let attrs = navBar.titleTextAttributes
+		XCTAssertNotNil(attrs)
+		let color = attrs![.foregroundColor] as? UIColor
+		XCTAssertNotNil(color)
+		XCTAssertEqual(color!, .red)
+	}
+
 }
 #endif

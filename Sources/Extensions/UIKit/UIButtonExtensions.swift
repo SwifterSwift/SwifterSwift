@@ -3,19 +3,18 @@
 //  SwifterSwift
 //
 //  Created by Omar Albeik on 8/22/16.
-//  Copyright © 2016 Omar Albeik. All rights reserved.
+//  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 
-
+#if !os(watchOS)
 // MARK: - Properties
 public extension UIButton {
-	
-	@IBInspectable
+
 	/// SwifterSwift: Image of disabled state for button; also inspectable from Storyboard.
-	public var imageForDisabled: UIImage? {
+	@IBInspectable public var imageForDisabled: UIImage? {
 		get {
 			return image(for: .disabled)
 		}
@@ -23,10 +22,9 @@ public extension UIButton {
 			setImage(newValue, for: .disabled)
 		}
 	}
-	
-	@IBInspectable
+
 	/// SwifterSwift: Image of highlighted state for button; also inspectable from Storyboard.
-	public var imageForHighlighted: UIImage? {
+	@IBInspectable public var imageForHighlighted: UIImage? {
 		get {
 			return image(for: .highlighted)
 		}
@@ -34,10 +32,9 @@ public extension UIButton {
 			setImage(newValue, for: .highlighted)
 		}
 	}
-	
-	@IBInspectable
+
 	/// SwifterSwift: Image of normal state for button; also inspectable from Storyboard.
-	public var imageForNormal: UIImage? {
+	@IBInspectable public var imageForNormal: UIImage? {
 		get {
 			return image(for: .normal)
 		}
@@ -45,10 +42,9 @@ public extension UIButton {
 			setImage(newValue, for: .normal)
 		}
 	}
-	
-	@IBInspectable
+
 	/// SwifterSwift: Image of selected state for button; also inspectable from Storyboard.
-	public var imageForSelected: UIImage? {
+	@IBInspectable public var imageForSelected: UIImage? {
 		get {
 			return image(for: .selected)
 		}
@@ -56,10 +52,9 @@ public extension UIButton {
 			setImage(newValue, for: .selected)
 		}
 	}
-	
-	@IBInspectable
+
 	/// SwifterSwift: Title color of disabled state for button; also inspectable from Storyboard.
-	public var titleColorForDisabled: UIColor? {
+	@IBInspectable public var titleColorForDisabled: UIColor? {
 		get {
 			return titleColor(for: .disabled)
 		}
@@ -67,10 +62,9 @@ public extension UIButton {
 			setTitleColor(newValue, for: .disabled)
 		}
 	}
-	
-	@IBInspectable
+
 	/// SwifterSwift: Title color of highlighted state for button; also inspectable from Storyboard.
-	public var titleColorForHighlighted: UIColor? {
+	@IBInspectable public var titleColorForHighlighted: UIColor? {
 		get {
 			return titleColor(for: .highlighted)
 		}
@@ -78,10 +72,9 @@ public extension UIButton {
 			setTitleColor(newValue, for: .highlighted)
 		}
 	}
-	
-	@IBInspectable
+
 	/// SwifterSwift: Title color of normal state for button; also inspectable from Storyboard.
-	public var titleColorForNormal: UIColor? {
+	@IBInspectable public var titleColorForNormal: UIColor? {
 		get {
 			return titleColor(for: .normal)
 		}
@@ -89,10 +82,9 @@ public extension UIButton {
 			setTitleColor(newValue, for: .normal)
 		}
 	}
-	
-	@IBInspectable
+
 	/// SwifterSwift: Title color of selected state for button; also inspectable from Storyboard.
-	public var titleColorForSelected: UIColor? {
+	@IBInspectable public var titleColorForSelected: UIColor? {
 		get {
 			return titleColor(for: .selected)
 		}
@@ -100,10 +92,9 @@ public extension UIButton {
 			setTitleColor(newValue, for: .selected)
 		}
 	}
-	
-	@IBInspectable
+
 	/// SwifterSwift: Title of disabled state for button; also inspectable from Storyboard.
-	public var titleForDisabled: String? {
+	@IBInspectable public var titleForDisabled: String? {
 		get {
 			return title(for: .disabled)
 		}
@@ -111,10 +102,9 @@ public extension UIButton {
 			setTitle(newValue, for: .disabled)
 		}
 	}
-	
-	@IBInspectable
+
 	/// SwifterSwift: Title of highlighted state for button; also inspectable from Storyboard.
-	public var titleForHighlighted: String? {
+	@IBInspectable public var titleForHighlighted: String? {
 		get {
 			return title(for: .highlighted)
 		}
@@ -122,10 +112,9 @@ public extension UIButton {
 			setTitle(newValue, for: .highlighted)
 		}
 	}
-	
-	@IBInspectable
+
 	/// SwifterSwift: Title of normal state for button; also inspectable from Storyboard.
-	public var titleForNormal: String? {
+	@IBInspectable public var titleForNormal: String? {
 		get {
 			return title(for: .normal)
 		}
@@ -133,10 +122,9 @@ public extension UIButton {
 			setTitle(newValue, for: .normal)
 		}
 	}
-	
-	@IBInspectable
+
 	/// SwifterSwift: Title of selected state for button; also inspectable from Storyboard.
-	public var titleForSelected: String? {
+	@IBInspectable public var titleForSelected: String? {
 		get {
 			return title(for: .selected)
 		}
@@ -144,37 +132,48 @@ public extension UIButton {
 			setTitle(newValue, for: .selected)
 		}
 	}
-	
-}
 
+}
 
 // MARK: - Methods
 public extension UIButton {
-    
-    private var states: [UIControlState] {
-        return [.normal, .selected, .highlighted, .disabled]
-    }
-	
+
+	private var states: [UIControlState] {
+		return [.normal, .selected, .highlighted, .disabled]
+	}
+
 	/// SwifterSwift: Set image for all states.
 	///
 	/// - Parameter image: UIImage.
 	public func setImageForAllStates(_ image: UIImage) {
-		states.forEach { self.setImage(image, for:  $0) }
+		states.forEach { self.setImage(image, for: $0) }
 	}
-	
+
 	/// SwifterSwift: Set title color for all states.
 	///
 	/// - Parameter color: UIColor.
 	public func setTitleColorForAllStates(_ color: UIColor) {
 		states.forEach { self.setTitleColor(color, for: $0) }
 	}
-	
+
 	/// SwifterSwift: Set title for all states.
 	///
 	/// - Parameter title: title string.
 	public func setTitleForAllStates(_ title: String) {
 		states.forEach { self.setTitle(title, for: $0) }
 	}
-	
+
+    /// SwifterSwift: Center align title text and image on UIButton
+    ///
+    /// - Parameter spacing: spacing between UIButton title text and UIButton Image.
+    public func centerTextAndImage(spacing: CGFloat) {
+        let insetAmount = spacing / 2
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
+    }
+
 }
+#endif
+
 #endif

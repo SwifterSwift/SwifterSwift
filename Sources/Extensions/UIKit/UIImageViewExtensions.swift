@@ -3,16 +3,16 @@
 //  SwifterSwift
 //
 //  Created by Omar Albeik on 8/25/16.
-//  Copyright © 2016 Omar Albeik. All rights reserved.
+//  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 
-
+#if !os(watchOS)
 // MARK: - Methods
 public extension UIImageView {
-	
+
 	/// SwifterSwift: Set image from a URL.
 	///
 	/// - Parameters:
@@ -20,14 +20,15 @@ public extension UIImageView {
 	///   - contentMode: imageView content mode (default is .scaleAspectFit).
 	///   - placeHolder: optional placeholder image
 	///   - completionHandler: optional completion handler to run when download finishs (default is nil).
-	public func download(from url: URL,
-	                     contentMode: UIViewContentMode = .scaleAspectFit,
-	                     placeholder: UIImage? = nil,
-	                     completionHandler: ((UIImage?) -> Void)? = nil) {
-		
+	public func download(
+		from url: URL,
+		contentMode: UIViewContentMode = .scaleAspectFit,
+		placeholder: UIImage? = nil,
+		completionHandler: ((UIImage?) -> Void)? = nil) {
+
 		image = placeholder
 		self.contentMode = contentMode
-		URLSession.shared.dataTask(with: url) { (data, response, error) in
+		URLSession.shared.dataTask(with: url) { (data, response, _) in
 			guard
 				let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
 				let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
@@ -37,13 +38,13 @@ public extension UIImageView {
 					completionHandler?(nil)
 					return
 			}
-			DispatchQueue.main.async() { () -> Void in
+			DispatchQueue.main.async {
 				self.image = image
 				completionHandler?(image)
 			}
 			}.resume()
 	}
-	
+
 	/// SwifterSwift: Make image view blurry
 	///
 	/// - Parameter style: UIBlurEffectStyle (default is .light).
@@ -55,7 +56,7 @@ public extension UIImageView {
 		addSubview(blurEffectView)
 		clipsToBounds = true
 	}
-	
+
 	/// SwifterSwift: Blurred version of an image view
 	///
 	/// - Parameter style: UIBlurEffectStyle (default is .light).
@@ -65,6 +66,8 @@ public extension UIImageView {
 		imgView.blur(withStyle: style)
 		return imgView
 	}
-	
+
 }
+#endif
+
 #endif

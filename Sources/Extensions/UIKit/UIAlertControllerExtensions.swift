@@ -3,17 +3,20 @@
 //  SwifterSwift
 //
 //  Created by Omar Albeik on 8/23/16.
-//  Copyright © 2016 Omar Albeik. All rights reserved.
+//  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS)
+#if canImport(UIKit)
 import UIKit
+
+#if canImport(AudioToolbox)
 import AudioToolbox
+#endif
 
-
-// MARK: - Methods
+#if !os(watchOS)
+// MARK: - Methodss
 public extension UIAlertController {
-	
+
 	/// SwifterSwift: Present alert view controller in the current view controller.
 	///
 	/// - Parameters:
@@ -23,10 +26,12 @@ public extension UIAlertController {
 	public func show(animated: Bool = true, vibrate: Bool = false, completion: (() -> Void)? = nil) {
 		UIApplication.shared.keyWindow?.rootViewController?.present(self, animated: animated, completion: completion)
 		if vibrate {
+			#if canImport(AudioToolbox)
 			AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+			#endif
 		}
 	}
-	
+
 	/// SwifterSwift: Add an action to Alert
 	///
 	/// - Parameters:
@@ -41,7 +46,7 @@ public extension UIAlertController {
 		addAction(action)
 		return action
 	}
-	
+
 	/// SwifterSwift: Add a text field to Alert
 	///
 	/// - Parameters:
@@ -50,21 +55,20 @@ public extension UIAlertController {
 	///   - editingChangedTarget: an optional target for text field's editingChanged
 	///   - editingChangedSelector: an optional selector for text field's editingChanged
 	public func addTextField(text: String? = nil, placeholder: String? = nil, editingChangedTarget: Any?, editingChangedSelector: Selector?) {
-		addTextField { tf in
-			tf.text = text
-			tf.placeholder = placeholder
+		addTextField { textField in
+			textField.text = text
+			textField.placeholder = placeholder
 			if let target = editingChangedTarget, let selector = editingChangedSelector {
-				tf.addTarget(target, action: selector, for: .editingChanged)
+				textField.addTarget(target, action: selector, for: .editingChanged)
 			}
 		}
 	}
-	
-}
 
+}
 
 // MARK: - Initializers
 public extension UIAlertController {
-	
+
 	/// SwifterSwift: Create new alert view controller with default OK action.
 	///
 	/// - Parameters:
@@ -80,7 +84,7 @@ public extension UIAlertController {
 			view.tintColor = color
 		}
 	}
-	
+
 	/// SwifterSwift: Create new error alert view controller from Error with default OK action.
 	///
 	/// - Parameters:
@@ -88,14 +92,16 @@ public extension UIAlertController {
 	///   - error: error to set alert controller's message to it's localizedDescription.
 	///   - defaultActionButtonTitle: default action button title (default is "OK")
 	///   - tintColor: alert controller's tint color (default is nil)
-	public convenience init(title: String = "Error", error: Error, defaultActionButtonTitle: String = "OK", tintColor: UIColor? = nil) {
-		self.init(title: title, message: error.localizedDescription, preferredStyle: .alert)
+	public convenience init(title: String = "Error", error: Error, defaultActionButtonTitle: String = "OK", preferredStyle: UIAlertControllerStyle = .alert, tintColor: UIColor? = nil) {
+		self.init(title: title, message: error.localizedDescription, preferredStyle: preferredStyle)
 		let defaultAction = UIAlertAction(title: defaultActionButtonTitle, style: .default, handler: nil)
 		addAction(defaultAction)
 		if let color = tintColor {
 			view.tintColor = color
 		}
 	}
-	
+
 }
+#endif
+
 #endif

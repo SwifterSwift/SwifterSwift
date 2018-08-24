@@ -3,39 +3,41 @@
 //  SwifterSwift
 //
 //  Created by Omar Albeik on 8/22/16.
-//  Copyright © 2016 Omar Albeik. All rights reserved.
+//  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 
-
+#if !os(watchOS)
 // MARK: - Methods
 public extension UINavigationBar {
-	
+
 	/// SwifterSwift: Set Navigation Bar title, title color and font.
 	///
 	/// - Parameters:
 	///   - font: title font
 	///   - color: title text color (default is .black).
-	public func setTitleFont(_ font: UIFont, color: UIColor = UIColor.black) {
-		var attrs = [String: AnyObject]()
-		attrs[NSFontAttributeName] = font
-		attrs[NSForegroundColorAttributeName] = color
+	public func setTitleFont(_ font: UIFont, color: UIColor = .black) {
+		var attrs = [NSAttributedStringKey: Any]()
+		attrs[.font] = font
+		attrs[.foregroundColor] = color
 		titleTextAttributes = attrs
 	}
-	
+
 	/// SwifterSwift: Make navigation bar transparent.
 	///
 	/// - Parameter tint: tint color (default is .white).
 	public func makeTransparent(withTint tint: UIColor = .white) {
-		setBackgroundImage(UIImage(), for: .default)
-		shadowImage = UIImage()
 		isTranslucent = true
+		backgroundColor = .clear
+		barTintColor = .clear
+		setBackgroundImage(UIImage(), for: .default)
 		tintColor = tint
-		titleTextAttributes = [NSForegroundColorAttributeName: tint]
+		titleTextAttributes = [.foregroundColor: tint]
+		shadowImage = UIImage()
 	}
-	
+
 	/// SwifterSwift: Set navigationBar background and text colors
 	///
 	/// - Parameters:
@@ -45,9 +47,12 @@ public extension UINavigationBar {
 		isTranslucent = false
 		backgroundColor = background
 		barTintColor = background
-		setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+		setBackgroundImage(UIImage(), for: .default)
 		tintColor = text
-		titleTextAttributes = [NSForegroundColorAttributeName: text]
+		titleTextAttributes = [.foregroundColor: text]
 	}
+
 }
+#endif
+
 #endif

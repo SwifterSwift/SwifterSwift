@@ -1,0 +1,3 @@
+disabled_rules:
+- line_length
+- file_length

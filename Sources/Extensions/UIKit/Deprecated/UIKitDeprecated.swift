@@ -2,39 +2,26 @@
 //  UIKitDeprecated.swift
 //  SwifterSwift
 //
-//  Created by Omar Albeik on 7/21/17.
-//
+//  Created by Omar Albeik on 5.04.2018.
+//  Copyright © 2018 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
 import UIKit
 
+#if !os(watchOS)
+public extension UIStoryboard {
 
-// MARK: - Deprecated
-extension UIColor {
-	
-	@available(*, deprecated: 3.1.0, message: "Use rgbComponenets.red instead", renamed: "rgbComponenets.red")
-	/// SwifterSwift: Red component of UIColor (read-only).
-	public var redComponent: Int {
-		let red = CIColor(color: self).red
-		return Int(red * CGFloat(255.0))
-	}
-	
-	@available(*, deprecated: 3.1.0, message: "Use rgbComponenets.green instead", renamed: "rgbComponenets.green")
-	/// SwifterSwift: Green component of UIColor (read-only).
-	public var greenComponent: Int {
-		var green: CGFloat = 0.0
-		getRed(nil, green: &green, blue: nil, alpha: nil)
-		return Int(green * CGFloat(255.0))
-	}
-	
-	@available(*, deprecated: 3.1.0, message: "Use rgbComponenets.blue instead", renamed: "rgbComponenets.blue")
-	/// SwifterSwift: blue component of UIColor (read-only).
-	public var blueComponent: Int {
-		var blue: CGFloat = 0.0
-		getRed(nil, green: nil, blue: &blue, alpha: nil)
-		return Int(blue * CGFloat(255.0))
-	}
-	
+    /// SwifterSwift: Check if date is within the current week.
+    @available(*, deprecated: 4.3, message: "Use main instead", renamed: "main")
+    /// SwifterSwift: Get main storyboard for application
+    public static var mainStoryboard: UIStoryboard? {
+        let bundle = Bundle.main
+        guard let name = bundle.object(forInfoDictionaryKey: "UIMainStoryboardFile") as? String else { return nil }
+        return UIStoryboard(name: name, bundle: bundle)
+    }
+
 }
+#endif
+
 #endif
