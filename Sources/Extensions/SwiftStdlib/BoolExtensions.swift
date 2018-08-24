@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Properties
 public extension Bool {
-    
+
     /// SwifterSwift: Return 1 if true, or 0 if false.
     ///
     ///        false.int -> 0
@@ -21,7 +21,7 @@ public extension Bool {
     public var int: Int {
         return self ? 1 : 0
     }
-    
+
     /// SwifterSwift: Return "true" if true, or "false" if false.
     ///
     ///        false.string -> "false"
@@ -30,7 +30,7 @@ public extension Bool {
     public var string: String {
         return description
     }
-    
+
     /// SwifterSwift: Returns a random boolean value.
     ///
     ///     Bool.random -> true

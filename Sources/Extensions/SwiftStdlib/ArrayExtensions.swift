@@ -11,7 +11,6 @@ import Foundation
 
 // MARK: - Methods
 public extension Array {
-    
     /// SwifterSwift: Insert an element at the beginning of array.
     ///
     ///        [2, 3, 4, 5].prepend(1) -> [1, 2, 3, 4, 5]
@@ -21,7 +20,7 @@ public extension Array {
     public mutating func prepend(_ newElement: Element) {
         insert(newElement, at: 0)
     }
-    
+
     /// SwifterSwift: Safely Swap values at index positions.
     ///
     ///        [1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
@@ -36,7 +35,7 @@ public extension Array {
             startIndex..<endIndex ~= otherIndex else { return }
         swapAt(index, otherIndex)
     }
-    
+
     /// SwifterSwift: Keep elements of Array while condition is true.
     ///
     ///        [0, 2, 4, 7].keep( where: {$0 % 2 == 0}) -> [0, 2, 4]
@@ -52,7 +51,7 @@ public extension Array {
         }
         return self
     }
-    
+
     /// SwifterSwift: Take element of Array while condition is true.
     ///
     ///        [0, 2, 4, 7, 6, 8].take( where: {$0 % 2 == 0}) -> [0, 2, 4]
@@ -65,7 +64,7 @@ public extension Array {
         }
         return self
     }
-    
+
     /// SwifterSwift: Skip elements of Array while condition is true.
     ///
     ///        [0, 2, 4, 7, 6, 8].skip( where: {$0 % 2 == 0}) -> [6, 8]
@@ -78,7 +77,7 @@ public extension Array {
         }
         return [Element]()
     }
-    
+
     /// SwifterSwift: Separates an array into 2 arrays based on a predicate.
     ///
     ///     [0, 1, 2, 3, 4, 5].divided { $0 % 2 == 0 } -> ( [0, 2, 4], [1, 3, 5] )
@@ -98,7 +97,7 @@ public extension Array {
         }
         return (matching, nonMatching)
     }
-    
+
     #if canImport(Foundation)
     /// SwifterSwift: Shuffle array. (Using Fisher-Yates Algorithm)
     ///
@@ -116,7 +115,7 @@ public extension Array {
         return self
     }
     #endif
-    
+
     /// SwifterSwift: Shuffled version of array. (Using Fisher-Yates Algorithm)
     ///
     ///        [1, 2, 3, 4, 5].shuffled // return a shuffled version from given array e.g. [2, 4, 1, 3, 5].
@@ -126,7 +125,7 @@ public extension Array {
         var array = self
         return array.shuffle()
     }
-    
+
     /// SwifterSwift: Returns a sorted array based on an optional keypath.
     ///
     /// - Parameter path: Key path to sort. The key path type must be Comparable.
@@ -141,7 +140,7 @@ public extension Array {
             return lhsValue > rhsValue
         })
     }
-    
+
     /// SwifterSwift: Returns a sorted array based on a keypath.
     ///
     /// - Parameter path: Key path to sort. The key path type must be Comparable.
@@ -155,7 +154,7 @@ public extension Array {
             return lhs[keyPath: path] > rhs[keyPath: path]
         })
     }
-    
+
     /// SwifterSwift: Sort the array based on an optional keypath.
     ///
     /// - Parameters:
@@ -167,7 +166,7 @@ public extension Array {
         self = sorted(by: path, ascending: ascending)
         return self
     }
-    
+
     /// SwifterSwift: Sort the array based on a keypath.
     ///
     /// - Parameters:
@@ -183,7 +182,7 @@ public extension Array {
 
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
-    
+
     /// SwifterSwift: Remove all instances of an item from array.
     ///
     ///        [1, 2, 2, 3, 4, 5].removeAll(2) -> [1, 3, 4, 5]
@@ -196,7 +195,7 @@ public extension Array where Element: Equatable {
         self = filter { $0 != item }
         return self
     }
-    
+
     /// SwifterSwift: Remove all instances contained in items parameter from array.
     ///
     ///        [1, 2, 2, 3, 4, 5].removeAll([2,5]) -> [1, 3, 4]
@@ -210,7 +209,7 @@ public extension Array where Element: Equatable {
         self = filter { !items.contains($0) }
         return self
     }
-    
+
     /// SwifterSwift: Remove all duplicate elements from Array.
     ///
     ///        [1, 2, 2, 3, 4, 5].removeDuplicates() -> [1, 2, 3, 4, 5]
@@ -224,7 +223,7 @@ public extension Array where Element: Equatable {
             }
         }
     }
-    
+
     /// SwifterSwift: Return array with all duplicate elements removed.
     ///
     ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
@@ -240,5 +239,5 @@ public extension Array where Element: Equatable {
             }
         }
     }
-    
+
 }

@@ -1,98 +1,99 @@
 //
-//  RangeReplaceableCollectionExtensions.swift
+//  SignedIntegerExtensions.swift
 //  SwifterSwift
 //
-//  Created by Luciano Almeida on 7/2/18.
-//  Copyright © 2018 SwifterSwift
+//  Created by Omar Albeik on 8/15/17.
+//  Copyright © 2017 SwifterSwift
 //
 #if canImport(Foundation)
 import Foundation
 #endif
 
-// MARK: - Initializers
-extension RangeReplaceableCollection {
-    /// Creates a new collection of a given size where for each position of the collection the value will be the result
-    /// of a call of the given expression.
-    ///
-    ///     let values = Array(expression: "Value", count: 3)
-    ///     print(values)
-    ///     // Prints "["Value", "Value", "Value"]"
-    ///
-    /// - Parameters:
-    ///   - expression: The expression to execute for each position of the collection.
-    ///   - count: The count of the collection.
-    public init(expression: @autoclosure () throws -> Element, count: Int) rethrows {
-        self.init()
-        if count > 0 { //swiftlint:disable:this empty_count
-            reserveCapacity(count)
-            while self.count < count {
-                append(try expression())
-            }
-        }
-    }
+// MARK: - Properties
+public extension SignedInteger {
+
+	/// SwifterSwift: Absolute value of integer number.
+	public var abs: Self {
+		return Swift.abs(self)
+	}
+
+	/// SwifterSwift: Check if integer is positive.
+	public var isPositive: Bool {
+		return self > 0
+	}
+
+	/// SwifterSwift: Check if integer is negative.
+	public var isNegative: Bool {
+		return self < 0
+	}
+
+	/// SwifterSwift: Check if integer is even.
+	public var isEven: Bool {
+		return (self % 2) == 0
+	}
+
+	/// SwifterSwift: Check if integer is odd.
+	public var isOdd: Bool {
+		return (self % 2) != 0
+	}
+
+	/// SwifterSwift: String of format (XXh XXm) from seconds Int.
+	public var timeString: String {
+		guard self > 0 else {
+			return "0 sec"
+		}
+		if self < 60 {
+			return "\(self) sec"
+		}
+		if self < 3600 {
+			return "\(self / 60) min"
+		}
+		let hours = self / 3600
+		let mins = (self % 3600) / 60
+
+		if hours != 0 && mins == 0 {
+			return "\(hours)h"
+		}
+		return "\(hours)h \(mins)m"
+	}
+
 }
 
 // MARK: - Methods
-extension RangeReplaceableCollection {
-    
-    /// SwifterSwift: Returns a new rotated collection by the given places.
-    ///
-    ///     [1, 2, 3, 4].rotated(by: 1) -> [4,1,2,3]
-    ///     [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
-    ///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
-    ///
-    /// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
-    /// - Returns: The new rotated collection.
-    public func rotated(by places: Int) -> Self {
-        //Inspired by: https://ruby-doc.org/core-2.2.0/Array.html#method-i-rotate
-        var copy = self
-        return copy.rotate(by: places)
-    }
-    
-    /// SwifterSwift: Rotate the collection by the given places.
-    ///
-    ///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
-    ///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
-    ///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
-    ///
-    /// - Parameter places: The number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start become the end.
-    /// - Returns: self after rotating.
-    @discardableResult
-    public mutating func rotate(by places: Int) -> Self {
-        guard places != 0 else { return self }
-        let placesToMove = places%count
-        if placesToMove > 0 {
-            let range = index(endIndex, offsetBy: -placesToMove)...
-            let slice = self[range]
-            removeSubrange(range)
-            insert(contentsOf: slice, at: startIndex)
-        } else {
-            let range = startIndex..<index(startIndex, offsetBy: -placesToMove)
-            let slice = self[range]
-            removeSubrange(range)
-            append(contentsOf: slice)
-        }
-        return self
-    }
-    
-    /// SwifterSwift: Removes the first element of the collection which satisfies the given predicate.
-    ///
-    ///        [1, 2, 2, 3, 4, 2, 5].removeFirst { $0 % 2 == 0 } -> [1, 2, 3, 4, 2, 5]
-    ///        ["h", "e", "l", "l", "o"].removeFirst { $0 == "e" } -> ["h", "l", "l", "o"]
-    ///
-    /// - Parameter predicate: A closure that takes an element as its argument and returns a Boolean value that indicates whether the passed element represents a match.
-    /// - Returns: The first element for which predicate returns true, after removing it. If no elements in the collection satisfy the given predicate, returns `nil`.
-    @discardableResult
-    public mutating func removeFirst(where predicate: (Element) throws -> Bool) rethrows -> Element? {
-        guard let index = try index(where: predicate) else { return nil }
-        return remove(at: index)
-    }
-    
+public extension SignedInteger {
+
+	// swiftlint:disable next identifier_name
+	/// SwifterSwift: Greatest common divisor of integer value and n.
+	///
+	/// - Parameter n: integer value to find gcd with.
+	/// - Returns: greatest common divisor of self and n.
+	public func gcd(of n: Self) -> Self {
+		return n == 0 ? self : n.gcd(of: self % n)
+	}
+
+	// swiftlint:disable next identifier_name
+	/// SwifterSwift: Least common multiple of integer and n.
+	///
+	/// - Parameter n: integer value to find lcm with.
+	/// - Returns: least common multiple of self and n.
+	public func lcm(of n: Self) -> Self {
+		return (self * n).abs / gcd(of: n)
+	}
+
     #if canImport(Foundation)
-    /// SwifterSwift: Remove a random value from the collection.
-    @discardableResult public mutating func removeRandomElement() -> Element? {
-        guard !isEmpty else { return nil }
-        return remove(at: index(startIndex, offsetBy: numericCast(arc4random_uniform(numericCast(count)))))
+	/// SwifterSwift: Ordinal representation of an integer.
+    ///
+	///        print((12).ordinalString()) // prints "12th"
+	///
+    /// - Parameter locale: locale, default is .current.
+    /// - Returns: string ordinal representation of number in specified locale language. E.g. input 92, output in "en": "92nd".
+	@available(iOS 9.0, macOS 10.11, *)
+    public func ordinalString(locale: Locale = .current) -> String? {
+            let formatter = NumberFormatter()
+            formatter.locale = locale
+            formatter.numberStyle = .ordinal
+            guard let number = self as? NSNumber else { return nil }
+            return formatter.string(from: number)
     }
     #endif
 }

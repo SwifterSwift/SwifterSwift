@@ -12,7 +12,7 @@ import Foundation
 
 // MARK: - Methods
 public extension Dictionary {
-    
+
     /// SwifterSwift: Check if key exists in dictionary.
     ///
     ///        let dict: [String : Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
@@ -24,7 +24,7 @@ public extension Dictionary {
     public func has(key: Key) -> Bool {
         return index(forKey: key) != nil
     }
-    
+
     /// SwifterSwift: Remove all keys contained in the keys parameter from the dictionary.
     ///
     ///        var dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
@@ -37,7 +37,7 @@ public extension Dictionary {
     public mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
         keys.forEach { removeValue(forKey: $0) }
     }
-    
+
     #if canImport(Foundation)
     /// SwifterSwift: Remove a value for a random key from the dictionary.
     @discardableResult public mutating func removeValueForRandomKey() -> Value? {
@@ -46,7 +46,7 @@ public extension Dictionary {
         return removeValue(forKey: key)
     }
     #endif
-    
+
     #if canImport(Foundation)
     /// SwifterSwift: JSON Data from dictionary.
     ///
@@ -60,7 +60,7 @@ public extension Dictionary {
         return try? JSONSerialization.data(withJSONObject: self, options: options)
     }
     #endif
-    
+
     #if canImport(Foundation)
     /// SwifterSwift: JSON String from dictionary.
     ///
@@ -92,12 +92,12 @@ public extension Dictionary {
         return String(data: jsonData, encoding: .utf8)
     }
     #endif
-    
+
 }
 
 // MARK: - Methods (ExpressibleByStringLiteral)
 public extension Dictionary where Key: StringProtocol {
-    
+
     /// SwifterSwift: Lowercase all keys in dictionary.
     ///
     ///        var dict = ["tEstKeY": "value"]
@@ -112,12 +112,12 @@ public extension Dictionary where Key: StringProtocol {
             }
         }
     }
-    
+
 }
 
 // MARK: - Operators
 public extension Dictionary {
-    
+
     /// SwifterSwift: Merge the keys/values of two dictionaries.
     ///
     ///        let dict : [String : String] = ["key1" : "value1"]
@@ -135,9 +135,9 @@ public extension Dictionary {
         rhs.forEach { result[$0] = $1 }
         return result
     }
-    
+
     // MARK: - Operators
-    
+
     /// SwifterSwift: Append the keys and values from the second dictionary into the first one.
     ///
     ///        var dict : [String : String] = ["key1" : "value1"]
@@ -152,7 +152,7 @@ public extension Dictionary {
     public static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
         rhs.forEach { lhs[$0] = $1}
     }
-    
+
     /// SwifterSwift: Remove keys contained in the sequence from the dictionary
     ///
     ///        let dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
@@ -170,7 +170,7 @@ public extension Dictionary {
         result.removeAll(keys: keys)
         return result
     }
-    
+
     /// SwifterSwift: Remove keys contained in the sequence from the dictionary
     ///
     ///        var dict : [String : String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
@@ -185,5 +185,5 @@ public extension Dictionary {
     public static func -= <S: Sequence>(lhs: inout [Key: Value], keys: S) where S.Element == Key {
         lhs.removeAll(keys: keys)
     }
-    
+
 }

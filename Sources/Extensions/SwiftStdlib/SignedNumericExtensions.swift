@@ -12,12 +12,12 @@ import Foundation
 
 // MARK: - Properties
 public extension SignedNumeric {
-    
+
     /// SwifterSwift: String.
     public var string: String {
         return String(describing: self)
     }
-    
+
     #if canImport(Foundation)
     /// SwifterSwift: String with number and current locale currency.
     public var asLocaleCurrency: String? {
@@ -28,12 +28,12 @@ public extension SignedNumeric {
         return formatter.string(from: self as! NSNumber)
     }
     #endif
-    
+
 }
 
 // MARK: - Methods
 public extension SignedNumeric {
-    
+
     #if canImport(Foundation)
     /// SwifterSwift: Spelled out representation of a number.
     ///
@@ -45,7 +45,7 @@ public extension SignedNumeric {
         let formatter = NumberFormatter()
         formatter.locale = locale
         formatter.numberStyle = .spellOut
-        
+
         guard let number = self as? NSNumber else { return nil }
         return formatter.string(from: number)
     }
