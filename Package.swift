@@ -2,5 +2,6 @@ import PackageDescription
 
 let package = Package(
     name: "SwifterSwift",
-    dependencies: []
+    dependencies: [],
+    swiftLanguageVersions: [4]
 )

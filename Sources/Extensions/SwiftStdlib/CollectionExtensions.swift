@@ -6,48 +6,54 @@
 //  Copyright © 2016 SwifterSwift
 //
 
+#if canImport(Foundation)
+import Foundation
+#endif
+
 // MARK: - Methods
 public extension Collection {
-
-	/// SwifterSwift: Performs `each` closure for each element of collection in parallel.
-	///
-	///		array.forEachInParallel { item in
-	///			print(item)
-	///		}
-	///
-	/// - Parameter each: closure to run for each element.
-	public func forEachInParallel(_ each: (Self.Element) -> Void) {
-		let indicesArray = Array(indices)
-
-		DispatchQueue.concurrentPerform(iterations: indicesArray.count) { (index) in
-			let elementIndex = indicesArray[index]
-			each(self[elementIndex])
-		}
-	}
-
-	/// SwifterSwift: Safe protects the array from out of bounds by use of optional.
-	///
-	///		let arr = [1, 2, 3, 4, 5]
-	///		arr[safe: 1] -> 2
-	///		arr[safe: 10] -> nil
-	///
-	/// - Parameter index: index of element to access element.
-	public subscript(safe index: Index) -> Element? {
-		return indices.contains(index) ? self[index] : nil
-	}
-
+    
+    /// SwifterSwift: Performs `each` closure for each element of collection in parallel.
+    ///
+    ///        array.forEachInParallel { item in
+    ///            print(item)
+    ///        }
+    ///
+    /// - Parameter each: closure to run for each element.
+    public func forEachInParallel(_ each: (Self.Element) -> Void) {
+        let indicesArray = Array(indices)
+        
+        DispatchQueue.concurrentPerform(iterations: indicesArray.count) { (index) in
+            let elementIndex = indicesArray[index]
+            each(self[elementIndex])
+        }
+    }
+    
+    /// SwifterSwift: Safe protects the array from out of bounds by use of optional.
+    ///
+    ///        let arr = [1, 2, 3, 4, 5]
+    ///        arr[safe: 1] -> 2
+    ///        arr[safe: 10] -> nil
+    ///
+    /// - Parameter index: index of element to access element.
+    public subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+    
 }
 
 // MARK: - Methods (Int)
 public extension Collection where Index == Int {
-
-	/// SwifterSwift: Random item from array.
-	public var randomItem: Element? {
+    
+    #if canImport(Foundation)
+    /// SwifterSwift: Random item from array.
+    public var randomItem: Element? {
         guard !isEmpty else { return nil }
-		let index = Int(arc4random_uniform(UInt32(count)))
-		return self[index]
-	}
-
+        let index = Int(arc4random_uniform(UInt32(count)))
+        return self[index]
+    }
+    #endif
+    
     /// SwifterSwift: Get the first index where condition is met.
     ///
     ///        [1, 7, 1, 2, 4, 1, 6].firstIndex { $0 % 2 == 0 } -> 3
@@ -60,7 +66,7 @@ public extension Collection where Index == Int {
         }
         return nil
     }
-
+    
     /// SwifterSwift: Get the last index where condition is met.
     ///
     ///     [1, 7, 1, 2, 4, 1, 8].lastIndex { $0 % 2 == 0 } -> 6
@@ -73,7 +79,7 @@ public extension Collection where Index == Int {
         }
         return nil
     }
-
+    
     /// SwifterSwift: Get all indices where condition is met.
     ///
     ///     [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
@@ -87,7 +93,7 @@ public extension Collection where Index == Int {
         }
         return indicies.isEmpty ? nil : indicies
     }
-
+    
     /// SwifterSwift: Calls the given closure with an array of size of the parameter slice.
     ///
     ///     [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> //print: [0, 2], [4, 7]
@@ -98,14 +104,14 @@ public extension Collection where Index == Int {
     ///   - body: a closure that takes an array of slice size as a parameter.
     public func forEach(slice: Int, body: ([Element]) throws -> Void) rethrows {
         guard slice > 0, !isEmpty else { return }
-
+        
         var value: Int = 0
         while value < count {
             try body(Array(self[Swift.max(value, startIndex)..<Swift.min(value + slice, endIndex)]))
             value += slice
         }
     }
-
+    
     /// SwifterSwift: Returns an array of slices of length "size" from the array. If array can't be split evenly, the final slice will be the remaining elements.
     ///
     ///     [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
@@ -124,11 +130,11 @@ public extension Collection where Index == Int {
         }
         return slices
     }
-
+    
 }
 
 public extension Collection where Element: Equatable, Index == Int {
-
+    
     /// SwifterSwift: First index of a given item in an array.
     ///
     ///        [1, 2, 2, 3, 4, 2, 5].firstIndex(of: 2) -> 1
@@ -143,7 +149,7 @@ public extension Collection where Element: Equatable, Index == Int {
         }
         return nil
     }
-
+    
     /// SwifterSwift: Last index of element in array.
     ///
     ///        [1, 2, 2, 3, 4, 2, 5].lastIndex(of: 2) -> 5
@@ -158,25 +164,25 @@ public extension Collection where Element: Equatable, Index == Int {
         }
         return nil
     }
-
+    
 }
 
 // MARK: - Methods (Integer)
 public extension Collection where Element == IntegerLiteralType, Index == Int {
-
-	/// SwifterSwift: Average of all elements in array.
-	///
-	/// - Returns: the average of the array's elements.
-	public func average() -> Double {
-		// http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
-		return isEmpty ? 0 : Double(reduce(0, +)) / Double(count)
-	}
-
+    
+    /// SwifterSwift: Average of all elements in array.
+    ///
+    /// - Returns: the average of the array's elements.
+    public func average() -> Double {
+        // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
+        return isEmpty ? 0 : Double(reduce(0, +)) / Double(count)
+    }
+    
 }
 
 // MARK: - Methods (FloatingPoint)
 public extension Collection where Element: FloatingPoint {
-
+    
     /// SwifterSwift: Average of all elements in array.
     ///
     ///        [1.2, 2.3, 4.5, 3.4, 4.5].average() = 3.18
@@ -186,5 +192,5 @@ public extension Collection where Element: FloatingPoint {
         guard !isEmpty else { return 0 }
         return reduce(0, {$0 + $1}) / Element(count)
     }
-
+    
 }
