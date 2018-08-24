@@ -873,7 +873,7 @@
 				07C50CF91F5EB03200F46E5A /* FoundationTests */,
 				07C50CCD1F5EAF2700F46E5A /* Info.plist */,
 				784C75322051BDCA001C48DD /* MapKitTests */,
-				CAC5EBBE2125270A00AB27EC /* TestResources */,
+				CAC5EBBE2125270A00AB27EC /* ResourcesTests */,
 				D86A98EE1F7E50C90084EDCD /* SharedTests */,
 				752AC7A120BC977700659E76 /* SpriteKitTests */,
 				CAC5EBB9212526E200AB27EC /* SwifterSwiftTests */,
@@ -1033,7 +1033,7 @@
 			path = SwifterSwiftTests;
 			sourceTree = "<group>";
 		};
-		CAC5EBBE2125270A00AB27EC /* TestResources */ = {
+		CAC5EBBE2125270A00AB27EC /* ResourcesTests */ = {
 			isa = PBXGroup;
 			children = (
 				CAC5EBC52125270A00AB27EC /* big_buck_bunny_720p_1mb.mp4 */,
@@ -1044,7 +1044,7 @@
 				CAC5EBC32125270A00AB27EC /* UITableViewCell.xib */,
 				CAC5EBC42125270A00AB27EC /* UITableViewHeaderFooterView.xib */,
 			);
-			path = TestResources;
+			path = ResourcesTests;
 			sourceTree = "<group>";
 		};
 		D86A98EE1F7E50C90084EDCD /* SharedTests */ = {
