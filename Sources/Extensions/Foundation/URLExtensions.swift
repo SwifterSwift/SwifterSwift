@@ -63,60 +63,62 @@ public extension URL {
 		self = appendingQueryParameters(parameters)
 	}
 
-    /// SwifterSwift: Get value of a query key.
-    ///
-    ///    var url = URL(string: "https://google.com?code=12345")!
-    ///    queryValue(for: "code") -> "12345"
-    ///
-    /// - Parameter key: The key of a query value.
-    public func queryValue(for key: String) -> String? {
-        let stringURL = self.absoluteString
-        guard let items = URLComponents(string: stringURL)?.queryItems else { return nil }
-        for item in items where item.name == key {
-            return item.value
-        }
-        return nil
-    }
-    /// SwifterSwift: Returns a new URL by removing all the path components.
-    ///
-    ///     let url = URL(string: "https://domain.com/path/other")!
-    ///     print(url.deletingAllPathComponents()) // prints "https://domain.com/"
-    ///
-    /// - Returns: URL with all path components removed.
-    public func deletingAllPathComponents() -> URL {
-        var url: URL = self
-        for _ in 0..<pathComponents.count - 1 {
-            url.deleteLastPathComponent()
-        }
-        return url
-    }
+	/// SwifterSwift: Get value of a query key.
+	///
+	///    var url = URL(string: "https://google.com?code=12345")!
+	///    queryValue(for: "code") -> "12345"
+	///
+	/// - Parameter key: The key of a query value.
+	public func queryValue(for key: String) -> String? {
+		let stringURL = self.absoluteString
+		guard let items = URLComponents(string: stringURL)?.queryItems else { return nil }
+		for item in items where item.name == key {
+			return item.value
+		}
+		return nil
+	}
 
-    /// SwifterSwift: Remove all the path components from the URL.
-    ///
-    ///        var url = URL(string: "https://domain.com/path/other")!
-    ///        url.deleteAllPathComponents()
-    ///        print(url) // prints "https://domain.com/"
-    public mutating func deleteAllPathComponents() {
-        for _ in 0..<pathComponents.count - 1 {
-            deleteLastPathComponent()
-        }
-    }
+	/// SwifterSwift: Returns a new URL by removing all the path components.
+	///
+	///     let url = URL(string: "https://domain.com/path/other")!
+	///     print(url.deletingAllPathComponents()) // prints "https://domain.com/"
+	///
+	/// - Returns: URL with all path components removed.
+	public func deletingAllPathComponents() -> URL {
+		var url: URL = self
+		for _ in 0..<pathComponents.count - 1 {
+			url.deleteLastPathComponent()
+		}
+		return url
+	}
 
-    /// SwifterSwift: Generates new URL that does not have scheme.
-    ///
-    ///        let url = URL(string: "https://domain.com")!
-    ///        print(url.droppedScheme()) // prints "domain.com"
-    public func droppedScheme() -> URL? {
-        if let scheme = self.scheme {
-            let droppedScheme = String(self.absoluteString.dropFirst(scheme.count + 3))
-            return URL(string: droppedScheme)
-        }
+	/// SwifterSwift: Remove all the path components from the URL.
+	///
+	///        var url = URL(string: "https://domain.com/path/other")!
+	///        url.deleteAllPathComponents()
+	///        print(url) // prints "https://domain.com/"
+	public mutating func deleteAllPathComponents() {
+		for _ in 0..<pathComponents.count - 1 {
+			deleteLastPathComponent()
+		}
+	}
 
-        guard host != nil else { return self }
+	/// SwifterSwift: Generates new URL that does not have scheme.
+	///
+	///        let url = URL(string: "https://domain.com")!
+	///        print(url.droppedScheme()) // prints "domain.com"
+	public func droppedScheme() -> URL? {
+		if let scheme = self.scheme {
+			let droppedScheme = String(self.absoluteString.dropFirst(scheme.count + 3))
+			return URL(string: droppedScheme)
+		}
 
-        let droppedScheme = String(absoluteString.dropFirst(2))
-        return URL(string: droppedScheme)
-    }
+		guard host != nil else { return self }
+
+		let droppedScheme = String(absoluteString.dropFirst(2))
+		return URL(string: droppedScheme)
+	}
+
 }
 
 // MARK: - Methods

@@ -14,13 +14,13 @@ import MapKit
 @available(tvOS 9.2, *)
 public extension MKPolyline {
 
-    /// SwifterSwift: Create a new MKPolyline from a provided Array of coordinates.
-    ///
-    /// - Parameter coordinates: Array of CLLocationCoordinate2D(s).
-    public convenience init(coordinates: [CLLocationCoordinate2D]) {
-        var refCoordinates = coordinates
-        self.init(coordinates: &refCoordinates, count: refCoordinates.count)
-    }
+	/// SwifterSwift: Create a new MKPolyline from a provided Array of coordinates.
+	///
+	/// - Parameter coordinates: Array of CLLocationCoordinate2D(s).
+	public convenience init(coordinates: [CLLocationCoordinate2D]) {
+		var refCoordinates = coordinates
+		self.init(coordinates: &refCoordinates, count: refCoordinates.count)
+	}
 
 }
 #endif
@@ -30,12 +30,12 @@ public extension MKPolyline {
 @available(tvOS 9.2, *)
 public extension MKPolyline {
 
-    /// SwifterSwift: Return an Array of coordinates representing the provided polyline.
-    public var coordinates: [CLLocationCoordinate2D] {
-        var coords = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid, count: pointCount)
-        getCoordinates(&coords, range: NSRange(location: 0, length: pointCount))
-        return coords
-    }
+	/// SwifterSwift: Return an Array of coordinates representing the provided polyline.
+	public var coordinates: [CLLocationCoordinate2D] {
+		var coords = [CLLocationCoordinate2D](repeating: kCLLocationCoordinate2DInvalid, count: pointCount)
+		getCoordinates(&coords, range: NSRange(location: 0, length: pointCount))
+		return coords
+	}
 
 }
 #endif

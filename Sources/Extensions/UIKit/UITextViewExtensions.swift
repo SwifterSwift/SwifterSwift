@@ -21,27 +21,27 @@ public extension UITextView {
 
 	/// SwifterSwift: Scroll to the bottom of text view
 	public func scrollToBottom() {
-        // swiftlint:disable next legacy_constructor
+		// swiftlint:disable next legacy_constructor
 		let range = NSMakeRange((text as NSString).length - 1, 1)
-        scrollRangeToVisible(range)
+		scrollRangeToVisible(range)
 	}
 
 	/// SwifterSwift: Scroll to the top of text view
 	public func scrollToTop() {
-        // swiftlint:disable next legacy_constructor
+		// swiftlint:disable next legacy_constructor
 		let range = NSMakeRange(0, 1)
 		scrollRangeToVisible(range)
 	}
 
-    /// SwifterSwift: Wrap to the content (Text / Attributed Text).
-    public func wrapToContent() {
-        contentInset = UIEdgeInsets.zero
-        scrollIndicatorInsets = UIEdgeInsets.zero
-        contentOffset = CGPoint.zero
-        textContainerInset = UIEdgeInsets.zero
-        textContainer.lineFragmentPadding = 0
-        sizeToFit()
-    }
+	/// SwifterSwift: Wrap to the content (Text / Attributed Text).
+	public func wrapToContent() {
+		contentInset = UIEdgeInsets.zero
+		scrollIndicatorInsets = UIEdgeInsets.zero
+		contentOffset = CGPoint.zero
+		textContainerInset = UIEdgeInsets.zero
+		textContainer.lineFragmentPadding = 0
+		sizeToFit()
+	}
 
 }
 #endif

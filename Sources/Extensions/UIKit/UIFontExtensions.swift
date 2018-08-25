@@ -12,15 +12,15 @@ import UIKit
 // MARK: - Properties
 public extension UIFont {
 
-    /// SwifterSwift: Font as bold font
-    public var bold: UIFont {
-        return UIFont(descriptor: fontDescriptor.withSymbolicTraits(.traitBold)!, size: 0)
-    }
+	/// SwifterSwift: Font as bold font
+	public var bold: UIFont {
+		return UIFont(descriptor: fontDescriptor.withSymbolicTraits(.traitBold)!, size: 0)
+	}
 
-    /// SwifterSwift: Font as italic font
-    public var italic: UIFont {
-        return UIFont(descriptor: fontDescriptor.withSymbolicTraits(.traitItalic)!, size: 0)
-    }
+	/// SwifterSwift: Font as italic font
+	public var italic: UIFont {
+		return UIFont(descriptor: fontDescriptor.withSymbolicTraits(.traitItalic)!, size: 0)
+	}
 
 	/// SwifterSwift: Font as monospaced font
 	///

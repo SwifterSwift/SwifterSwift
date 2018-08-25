@@ -50,7 +50,6 @@ public extension String {
 	#endif
 
 	/// SwifterSwift: Array of characters of a string.
-	///
 	public var charactersArray: [Character] {
 		return Array(self)
 	}
@@ -105,7 +104,7 @@ public extension String {
 		return String(first)
 	}
 
-    #if canImport(Foundation)
+	#if canImport(Foundation)
 	/// SwifterSwift: Check if string contains one or more letters.
 	///
 	///		"123abc".hasLetters -> true
@@ -283,12 +282,14 @@ public extension String {
 	///
 	public var bool: Bool? {
 		let selfLowercased = trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-		if selfLowercased == "true" || selfLowercased == "1" {
+		switch selfLowercased {
+		case "true", "1":
 			return true
-		} else if selfLowercased == "false" || selfLowercased == "0" {
+		case "false", "0":
 			return false
+		default:
+			return nil
 		}
-		return nil
 	}
 	#endif
 
@@ -403,16 +404,16 @@ public extension String {
 	}
 	#endif
 
-    #if os(iOS) || os(tvOS)
-    /// SwifterSwift: Check if the given string spelled correctly
-    public var isSpelledCorrectly: Bool {
-        let checker = UITextChecker()
-        let range = NSRange(location: 0, length: self.utf16.count)
+	#if os(iOS) || os(tvOS)
+	/// SwifterSwift: Check if the given string spelled correctly
+	public var isSpelledCorrectly: Bool {
+		let checker = UITextChecker()
+		let range = NSRange(location: 0, length: self.utf16.count)
 
-        let misspelledRange = checker.rangeOfMisspelledWord(in: self, range: range, startingAt: 0, wrap: false, language: Locale.preferredLanguages.first ?? "en")
-        return misspelledRange.location == NSNotFound
-    }
-    #endif
+		let misspelledRange = checker.rangeOfMisspelledWord(in: self, range: range, startingAt: 0, wrap: false, language: Locale.preferredLanguages.first ?? "en")
+		return misspelledRange.location == NSNotFound
+	}
+	#endif
 
 }
 
@@ -637,15 +638,15 @@ public extension String {
 		self = first + rest
 	}
 
-    /// SwifterSwift: First character of string uppercased(if applicable) while keeping the original string.
-    ///
-    ///        "hello world".firstCharacterUppercased() -> "Hello world"
-    ///        "".firstCharacterUppercased() -> ""
-    ///
-    public mutating func firstCharacterUppercased() {
-        guard let first = first else { return }
-        self = String(first).uppercased() + dropFirst()
-    }
+	/// SwifterSwift: First character of string uppercased(if applicable) while keeping the original string.
+	///
+	///        "hello world".firstCharacterUppercased() -> "Hello world"
+	///        "".firstCharacterUppercased() -> ""
+	///
+	public mutating func firstCharacterUppercased() {
+		guard let first = first else { return }
+		self = String(first).uppercased() + dropFirst()
+	}
 
 	/// SwifterSwift: Check if string contains only unique characters.
 	///
@@ -991,27 +992,27 @@ public extension String {
 		}
 	}
 
-    /// SwifterSwift: Removes given prefix from the string.
-    ///
-    ///   "Hello, World!".removingPrefix("Hello, ") -> "World!"
-    ///
-    /// - Parameter prefix: Prefix to remove from the string.
-    /// - Returns: The string after prefix removing.
-    public func removingPrefix(_ prefix: String) -> String {
-        guard hasPrefix(prefix) else { return self }
-        return String(dropFirst(prefix.count))
-    }
+	/// SwifterSwift: Removes given prefix from the string.
+	///
+	///   "Hello, World!".removingPrefix("Hello, ") -> "World!"
+	///
+	/// - Parameter prefix: Prefix to remove from the string.
+	/// - Returns: The string after prefix removing.
+	public func removingPrefix(_ prefix: String) -> String {
+		guard hasPrefix(prefix) else { return self }
+		return String(dropFirst(prefix.count))
+	}
 
-    /// SwifterSwift: Removes given suffix from the string.
-    ///
-    ///   "Hello, World!".removingSuffix(", World!") -> "Hello"
-    ///
-    /// - Parameter suffix: Suffix to remove from the string.
-    /// - Returns: The string after suffix removing.
-    public func removingSuffix(_ suffix: String) -> String {
-        guard hasSuffix(suffix) else { return self }
-        return String(dropLast(suffix.count))
-    }
+	/// SwifterSwift: Removes given suffix from the string.
+	///
+	///   "Hello, World!".removingSuffix(", World!") -> "Hello"
+	///
+	/// - Parameter suffix: Suffix to remove from the string.
+	/// - Returns: The string after suffix removing.
+	public func removingSuffix(_ suffix: String) -> String {
+		guard hasSuffix(suffix) else { return self }
+		return String(dropLast(suffix.count))
+	}
 
 }
 
@@ -1055,7 +1056,7 @@ public extension String {
 
 }
 
-// MARK: - NSAttributedString extensions
+// MARK: - NSAttributedString
 public extension String {
 
 	#if canImport(UIKit)
@@ -1119,31 +1120,31 @@ public extension String {
 // MARK: - Operators
 public extension String {
 
-    /// SwifterSwift: Repeat string multiple times.
-    ///
-    ///        'bar' * 3 -> "barbarbar"
-    ///
-    /// - Parameters:
-    ///   - lhs: string to repeat.
-    ///   - rhs: number of times to repeat character.
-    /// - Returns: new string with given string repeated n times.
-    public static func * (lhs: String, rhs: Int) -> String {
-        guard rhs > 0 else { return "" }
-        return String(repeating: lhs, count: rhs)
-    }
+	/// SwifterSwift: Repeat string multiple times.
+	///
+	///        'bar' * 3 -> "barbarbar"
+	///
+	/// - Parameters:
+	///   - lhs: string to repeat.
+	///   - rhs: number of times to repeat character.
+	/// - Returns: new string with given string repeated n times.
+	public static func * (lhs: String, rhs: Int) -> String {
+		guard rhs > 0 else { return "" }
+		return String(repeating: lhs, count: rhs)
+	}
 
-    /// SwifterSwift: Repeat string multiple times.
-    ///
-    ///        3 * 'bar' -> "barbarbar"
-    ///
-    /// - Parameters:
-    ///   - lhs: number of times to repeat character.
-    ///   - rhs: string to repeat.
-    /// - Returns: new string with given string repeated n times.
-    public static func * (lhs: Int, rhs: String) -> String {
-        guard lhs > 0 else { return "" }
-        return String(repeating: rhs, count: lhs)
-    }
+	/// SwifterSwift: Repeat string multiple times.
+	///
+	///        3 * 'bar' -> "barbarbar"
+	///
+	/// - Parameters:
+	///   - lhs: number of times to repeat character.
+	///   - rhs: string to repeat.
+	/// - Returns: new string with given string repeated n times.
+	public static func * (lhs: Int, rhs: String) -> String {
+		guard lhs > 0 else { return "" }
+		return String(repeating: rhs, count: lhs)
+	}
 
 }
 
