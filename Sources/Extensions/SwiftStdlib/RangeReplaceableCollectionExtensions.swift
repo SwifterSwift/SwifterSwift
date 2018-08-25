@@ -6,6 +6,10 @@
 //  Copyright © 2018 SwifterSwift
 //
 
+#if canImport(Foundation)
+import Foundation
+#endif
+
 // MARK: - Initializers
 extension RangeReplaceableCollection {
     /// Creates a new collection of a given size where for each position of the collection the value will be the result
@@ -85,9 +89,11 @@ extension RangeReplaceableCollection {
         return remove(at: index)
     }
 
+    #if canImport(Foundation)
     /// SwifterSwift: Remove a random value from the collection.
     @discardableResult public mutating func removeRandomElement() -> Element? {
         guard !isEmpty else { return nil }
         return remove(at: index(startIndex, offsetBy: numericCast(arc4random_uniform(numericCast(count)))))
     }
+    #endif
 }

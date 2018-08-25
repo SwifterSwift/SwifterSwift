@@ -5,6 +5,9 @@
 //  Created by Omar Albeik on 8/15/17.
 //  Copyright © 2017 SwifterSwift
 //
+#if canImport(Foundation)
+import Foundation
+#endif
 
 // MARK: - Properties
 public extension SignedInteger {
