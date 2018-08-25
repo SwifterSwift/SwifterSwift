@@ -14,26 +14,26 @@ public extension Bool {
 	///
 	@available(*, deprecated: 4.3, message: "Use !self instead.")
 	public var toggled: Bool {
-        return !self
-    }
+		return !self
+	}
 
 }
 
 public extension Bool {
 
-    /// SwifterSwift: Toggle value for bool.
-    ///
-    ///        var bool = false
-    ///        bool.toggle()
-    ///        print(bool) -> true
-    ///
-    /// - Returns: inversed value of bool.
+	/// SwifterSwift: Toggle value for bool.
+	///
+	///        var bool = false
+	///        bool.toggle()
+	///        print(bool) -> true
+	///
+	/// - Returns: inversed value of bool.
 	@available(*, deprecated: 4.3, message: "Use !self instead.")
 	@discardableResult
-    public mutating func toggle() -> Bool {
-        self = !self
-        return self
-    }
+	public mutating func toggle() -> Bool {
+		self = !self
+		return self
+	}
 
 }
 
@@ -134,21 +134,21 @@ public extension Array {
 		return self[index]
 	}
 
-    /// SwifterSwift: Group the elements of the array in a dictionary.
-    ///
-    ///     [0, 2, 5, 4, 7].groupByKey { $0%2 ? "evens" : "odds" } -> [ "evens" : [0, 2, 4], "odds" : [5, 7] ]
-    ///
-    /// - Parameter getKey: Clousure to define the key for each element.
-    /// - Returns: A dictionary with values grouped with keys.
+	/// SwifterSwift: Group the elements of the array in a dictionary.
+	///
+	///     [0, 2, 5, 4, 7].groupByKey { $0%2 ? "evens" : "odds" } -> [ "evens" : [0, 2, 4], "odds" : [5, 7] ]
+	///
+	/// - Parameter getKey: Clousure to define the key for each element.
+	/// - Returns: A dictionary with values grouped with keys.
 	@available(*, deprecated, message: "Use 'Dictionary.init(grouping:by:)' instead.")
-    public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
-        var group = [K: [Element]]()
-        for value in self {
-            let key = try keyForValue(value)
-            group[key] = (group[key] ?? []) + [value]
-        }
-        return group
-    }
+	public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
+		var group = [K: [Element]]()
+		for value in self {
+			let key = try keyForValue(value)
+			group[key] = (group[key] ?? []) + [value]
+		}
+		return group
+	}
 }
 
 public extension Array where Element: Equatable {

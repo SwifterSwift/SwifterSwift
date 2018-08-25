@@ -694,12 +694,12 @@
 		077BA0871F6BE73000D9C4AC /* SwiftStdlib */ = {
 			isa = PBXGroup;
 			children = (
+				B23678EA1FB116680027C931 /* Deprecated */,
 				07B7F1661F5EB41600E6F910 /* ArrayExtensions.swift */,
 				07B7F1671F5EB41600E6F910 /* BoolExtensions.swift */,
 				07B7F1681F5EB41600E6F910 /* CharacterExtensions.swift */,
 				07B7F1691F5EB41600E6F910 /* CollectionExtensions.swift */,
 				7832C2AE209BB19300224EED /* ComparableExtensions.swift */,
-				B23678EA1FB116680027C931 /* Deprecated */,
 				07B7F16E1F5EB41600E6F910 /* DictionaryExtensions.swift */,
 				07B7F16F1F5EB41600E6F910 /* DoubleExtensions.swift */,
 				07B7F1701F5EB41600E6F910 /* FloatExtensions.swift */,

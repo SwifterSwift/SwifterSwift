@@ -11,49 +11,52 @@ import UIKit
 
 #if !os(watchOS)
 // MARK: - enums
+public extension UIView {
 
-/// SwifterSwift: Shake directions of a view.
-///
-/// - horizontal: Shake left and right.
-/// - vertical: Shake up and down.
-public enum ShakeDirection {
-	/// Shake left and right.
-	case horizontal
+	/// SwifterSwift: Shake directions of a view.
+	///
+	/// - horizontal: Shake left and right.
+	/// - vertical: Shake up and down.
+	public enum ShakeDirection {
+		/// Shake left and right.
+		case horizontal
 
-	/// Shake up and down.
-	case vertical
-}
+		/// Shake up and down.
+		case vertical
+	}
 
-/// SwifterSwift: Angle units.
-///
-/// - degrees: degrees.
-/// - radians: radians.
-public enum AngleUnit {
-	/// degrees.
-	case degrees
+	/// SwifterSwift: Angle units.
+	///
+	/// - degrees: degrees.
+	/// - radians: radians.
+	public enum AngleUnit {
+		/// degrees.
+		case degrees
 
-	/// radians.
-	case radians
-}
+		/// radians.
+		case radians
+	}
 
-/// SwifterSwift: Shake animations types.
-///
-/// - linear: linear animation.
-/// - easeIn: easeIn animation.
-/// - easeOut: easeOut animation.
-/// - easeInOut: easeInOut animation.
-public enum ShakeAnimationType {
-	/// linear animation.
-	case linear
+	/// SwifterSwift: Shake animations types.
+	///
+	/// - linear: linear animation.
+	/// - easeIn: easeIn animation.
+	/// - easeOut: easeOut animation.
+	/// - easeInOut: easeInOut animation.
+	public enum ShakeAnimationType {
+		/// linear animation.
+		case linear
 
-	/// easeIn animation.
-	case easeIn
+		/// easeIn animation.
+		case easeIn
 
-	/// easeOut animation.
-	case easeOut
+		/// easeOut animation.
+		case easeOut
 
-	/// easeInOut animation.
-	case easeInOut
+		/// easeInOut animation.
+		case easeInOut
+	}
+
 }
 
 // MARK: - Properties
@@ -70,8 +73,8 @@ public extension UIView {
 				layer.borderColor = nil
 				return
 			}
-            // Fix React-Native conflict issue
-            guard String(describing: type(of: color)) != "__NSCFType" else { return }
+			// Fix React-Native conflict issue
+			guard String(describing: type(of: color)) != "__NSCFType" else { return }
 			layer.borderColor = color.cgColor
 		}
 	}
@@ -95,7 +98,7 @@ public extension UIView {
 			layer.masksToBounds = true
 			layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
 		}
-    }
+	}
 
 	/// SwifterSwift: Height of view.
 	public var height: CGFloat {
@@ -228,22 +231,22 @@ public extension UIView {
 // MARK: - Methods
 public extension UIView {
 
-    /// SwifterSwift: Recursively find the first responder.
-    public func firstResponder() -> UIView? {
-        var views = [UIView](arrayLiteral: self)
-        var i = 0
-        repeat {
-            let view = views[i]
-            if view.isFirstResponder {
-                return view
-            }
-            views.append(contentsOf: view.subviews)
-            i += 1
-        } while i < views.count
-        return nil
-    }
+	/// SwifterSwift: Recursively find the first responder.
+	public func firstResponder() -> UIView? {
+		var views = [UIView](arrayLiteral: self)
+		var i = 0
+		repeat {
+			let view = views[i]
+			if view.isFirstResponder {
+				return view
+			}
+			views.append(contentsOf: view.subviews)
+			i += 1
+		} while i < views.count
+		return nil
+	}
 
-    /// SwifterSwift: Set some or all corners radiuses of view.
+	/// SwifterSwift: Set some or all corners radiuses of view.
 	///
 	/// - Parameters:
 	///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
@@ -329,29 +332,29 @@ public extension UIView {
 		gestureRecognizers?.forEach(removeGestureRecognizer)
 	}
 
-    /// SwifterSwift: Attaches gesture recognizers to the view.
-    ///
-    /// Attaching gesture recognizers to a view defines the scope of the represented
-    /// gesture, causing it to receive touches hit-tested to that view and all of its
-    /// subviews. The view establishes a strong reference to the gesture recognizers.
-    ///
-    /// - Parameter gestureRecognizers: The array of gesture recognizers to be added to the view.
-    public func addGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {
-        for recognizer in gestureRecognizers {
-            addGestureRecognizer(recognizer)
-        }
-    }
+	/// SwifterSwift: Attaches gesture recognizers to the view.
+	///
+	/// Attaching gesture recognizers to a view defines the scope of the represented
+	/// gesture, causing it to receive touches hit-tested to that view and all of its
+	/// subviews. The view establishes a strong reference to the gesture recognizers.
+	///
+	/// - Parameter gestureRecognizers: The array of gesture recognizers to be added to the view.
+	public func addGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {
+		for recognizer in gestureRecognizers {
+			addGestureRecognizer(recognizer)
+		}
+	}
 
-    /// SwifterSwift: Detaches gesture recognizers from the receiving view.
-    ///
-    /// This method releases gestureRecognizers in addition to detaching them from the view.
-    ///
-    /// - Parameter gestureRecognizers: The array of gesture recognizers to be removed from the view.
-    public func removeGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {
-        for recognizer in gestureRecognizers {
-            removeGestureRecognizer(recognizer)
-        }
-    }
+	/// SwifterSwift: Detaches gesture recognizers from the receiving view.
+	///
+	/// This method releases gestureRecognizers in addition to detaching them from the view.
+	///
+	/// - Parameter gestureRecognizers: The array of gesture recognizers to be removed from the view.
+	public func removeGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {
+		for recognizer in gestureRecognizers {
+			removeGestureRecognizer(recognizer)
+		}
+	}
 
 	/// SwifterSwift: Rotate view by angle on relative axis.
 	///
@@ -461,7 +464,7 @@ public extension UIView {
 			let right = rightAnchor.constraint(equalTo: superview.rightAnchor)
 			let top = topAnchor.constraint(equalTo: superview.topAnchor)
 			let bottom = bottomAnchor.constraint(equalTo: superview.bottomAnchor)
-            NSLayoutConstraint.activate([left, right, top, bottom])
+			NSLayoutConstraint.activate([left, right, top, bottom])
 		}
 	}
 

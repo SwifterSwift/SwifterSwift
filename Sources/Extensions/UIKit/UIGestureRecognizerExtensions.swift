@@ -13,10 +13,11 @@ import UIKit
 // MARK: - Methods
 public extension UIGestureRecognizer {
 
-    /// SwifterSwift: Remove Gesture Recognizer from its view.
-    public func removeFromView() {
-        self.view?.removeGestureRecognizer(self)
-    }
+	/// SwifterSwift: Remove Gesture Recognizer from its view.
+	public func removeFromView() {
+		self.view?.removeGestureRecognizer(self)
+	}
+
 }
 #endif
 

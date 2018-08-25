@@ -87,4 +87,5 @@ public extension CGFloat {
 	}
 
 }
+
 #endif

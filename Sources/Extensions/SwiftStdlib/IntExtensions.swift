@@ -119,7 +119,7 @@ public extension Int {
 	public func isPrime() -> Bool {
 		// To improve speed on latter loop :)
 		if self == 2 {
-		    return true
+			return true
 		}
 
 		guard self > 1 && self % 2 != 0 else {

@@ -75,12 +75,12 @@ public extension UICollectionView {
 	///   - name: UICollectionViewCell type.
 	///   - indexPath: location of cell in collectionView.
 	/// - Returns: UICollectionViewCell object with associated class name.
-    public func dequeueReusableCell<T: UICollectionViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: name), for: indexPath) as? T else {
-            fatalError("Couldn't find UICollectionViewCell for \(String(describing: name))")
-        }
-        return cell
-    }
+	public func dequeueReusableCell<T: UICollectionViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
+		guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: name), for: indexPath) as? T else {
+			fatalError("Couldn't find UICollectionViewCell for \(String(describing: name))")
+		}
+		return cell
+	}
 
 	/// SwifterSwift: Dequeue reusable UICollectionReusableView using class name.
 	///
@@ -90,9 +90,9 @@ public extension UICollectionView {
 	///   - indexPath: location of cell in collectionView.
 	/// - Returns: UICollectionReusableView object with associated class name.
 	public func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind kind: String, withClass name: T.Type, for indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: name), for: indexPath) as? T else {
-            fatalError("Couldn't find UICollectionReusableView for \(String(describing: name))")
-        }
+		guard let cell = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: name), for: indexPath) as? T else {
+			fatalError("Couldn't find UICollectionReusableView for \(String(describing: name))")
+		}
 		return cell
 	}
 
@@ -131,22 +131,22 @@ public extension UICollectionView {
 		register(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: name))
 	}
 
-    /// SwifterSwift: Register UICollectionViewCell with .xib file using only its corresponding class.
-    ///               Assumes that the .xib filename and cell class has the same name.
-    ///
-    /// - Parameters:
-    ///   - name: UICollectionViewCell type.
-    ///   - bundleClass: Class in which the Bundle instance will be based on.
-    public func register<T: UICollectionViewCell>(nibWithCellClass name: T.Type, at bundleClass: AnyClass? = nil) {
-        let identifier = String(describing: name)
-        var bundle: Bundle?
+	/// SwifterSwift: Register UICollectionViewCell with .xib file using only its corresponding class.
+	///               Assumes that the .xib filename and cell class has the same name.
+	///
+	/// - Parameters:
+	///   - name: UICollectionViewCell type.
+	///   - bundleClass: Class in which the Bundle instance will be based on.
+	public func register<T: UICollectionViewCell>(nibWithCellClass name: T.Type, at bundleClass: AnyClass? = nil) {
+		let identifier = String(describing: name)
+		var bundle: Bundle?
 
-        if let bundleName = bundleClass {
-            bundle = Bundle(for: bundleName)
-        }
+		if let bundleName = bundleClass {
+			bundle = Bundle(for: bundleName)
+		}
 
-        register(UINib(nibName: identifier, bundle: bundle), forCellWithReuseIdentifier: identifier)
-    }
+		register(UINib(nibName: identifier, bundle: bundle), forCellWithReuseIdentifier: identifier)
+	}
 
 }
 #endif
