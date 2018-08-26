@@ -10,6 +10,8 @@ import XCTest
 @testable import SwifterSwift
 
 #if os(iOS)
+import UIKit
+
 final class UISearchBarExtensionsTests: XCTestCase {
 
 	func testSearchBar() {
@@ -39,4 +41,5 @@ final class UISearchBarExtensionsTests: XCTestCase {
 	}
 
 }
+
 #endif

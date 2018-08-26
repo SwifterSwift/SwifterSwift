@@ -6,10 +6,11 @@
 //  Copyright © 2017 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
-
 import XCTest
 @testable import SwifterSwift
+
+#if canImport(UIKit)
+import UIKit
 
 final class UINavigationBarExtensionsTests: XCTestCase {
 
@@ -55,4 +56,5 @@ final class UINavigationBarExtensionsTests: XCTestCase {
 	}
 
 }
+
 #endif

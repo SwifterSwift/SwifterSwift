@@ -9,7 +9,9 @@
 import XCTest
 @testable import SwifterSwift
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
+import UIKit
+
 final class UILabelExtensionsTests: XCTestCase {
 
 	func testInitWithText() {
@@ -32,4 +34,5 @@ final class UILabelExtensionsTests: XCTestCase {
 	}
 
 }
+
 #endif

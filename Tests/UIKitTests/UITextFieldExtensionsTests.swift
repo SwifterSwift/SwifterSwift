@@ -9,7 +9,9 @@
 import XCTest
 @testable import SwifterSwift
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit)
+import UIKit
+
 final class UITextFieldExtensionsTests: XCTestCase {
 
 	func testIsEmpty() {
@@ -144,4 +146,5 @@ final class UITextFieldExtensionsTests: XCTestCase {
 	}
 
 }
+
 #endif

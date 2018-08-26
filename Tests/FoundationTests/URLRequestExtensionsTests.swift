@@ -9,6 +9,9 @@
 import XCTest
 @testable import SwifterSwift
 
+#if canImport(Foundation)
+import Foundation
+
 final class URLRequestExtensionsTests: XCTestCase {
 
 	func testInitFromURLString() {
@@ -23,3 +26,5 @@ final class URLRequestExtensionsTests: XCTestCase {
 	}
 
 }
+
+#endif

@@ -6,10 +6,11 @@
 //  Copyright © 2017 SwifterSwift
 //
 
-#if os(iOS)
-
 import XCTest
 @testable import SwifterSwift
+
+#if canImport(UIKit)
+import UIKit
 
 final class UIDatePickerExtensionsTests: XCTestCase {
 

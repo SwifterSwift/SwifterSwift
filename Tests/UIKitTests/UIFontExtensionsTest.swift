@@ -6,9 +6,11 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS) || os(watchOS)
 import XCTest
 @testable import SwifterSwift
+
+#if canImport(UIKit)
+import UIKit
 
 final class UIFontExtension: XCTestCase {
 
@@ -53,4 +55,5 @@ final class UIFontExtension: XCTestCase {
 	}
 
 }
+
 #endif
