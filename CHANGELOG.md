@@ -53,6 +53,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `indices(of:)` array extension now is more generic `RandomAccessCollection` extensions. [#516](https://github.com/SwifterSwift/SwifterSwift/pull/516) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **UIView**:
   - Improved performance in `fillToSuperview()` UIView extension. [#540](https://github.com/SwifterSwift/SwifterSwift/pull/540) by [viktart](https://github.com/viktart)
+- **UIAlertController**:
+  - `show(animated:vibrate:completion:)` now have some optional parameters to control the display on iPad.  [#556](https://github.com/SwifterSwift/SwifterSwift/pull/556) by [VincentSit](https://github.com/VincentSit).
 
 ### Fixed
 - **UIImage**:
@@ -60,6 +62,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **String**:
   - Used [RFC 5322](http://emailregex.com/) in `isValidEmail`, an email address regex that 99.99% works. [#517](https://github.com/SwifterSwift/SwifterSwift/pull/517) by [Omar Albeik](https://github.com/omaralbeik)
   - Fixed `unicodeArray()` not returning the correct unicode value due to Swift 4.2 new hashing system. [#544](https://github.com/SwifterSwift/SwifterSwift/pull/544) by [Omar Albeik](https://github.com/omaralbeik)
+- **UIAlertController**:
+  - Fixed the UIAlertController with `actionSheet` type call  `show(animated:vibrate:completion:)`  will crash on iPad.  [#556](https://github.com/SwifterSwift/SwifterSwift/pull/556) by [VincentSit](https://github.com/VincentSit).
 
 ### Deprecated
 - **String**:
@@ -1251,3 +1255,5 @@ DateExtensions:
 
 UIViewExtensions:
 - **shake**: Completion handler added to shake function
+
+
