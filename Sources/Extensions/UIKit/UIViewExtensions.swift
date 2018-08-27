@@ -466,31 +466,47 @@ public extension UIView {
 	}
 
     /// SwifterSwift: Anchors all sides to superview's safe area.
+    @available(iOS 11, tvOS 11, *) public func fillToSuperviewSafeArea() {
+        guard let superview = superview else {
+            fatalError("\(#function) : the view isn't in view hierarchy")
+        }
+
+        translatesAutoresizingMaskIntoConstraints = false
+
+        let leading = leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor)
+        let top = topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor)
+        let trailing = trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor)
+        let bottom = bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor)
+
+        NSLayoutConstraint.activate([leading, top, trailing, bottom])
+    }
+
+    /// SwifterSwift: Anchors all sides to superview's "safe area".
     ///
-    /// 1. On iOS 11 and latter anchors view's sides to superview's safe area
-    /// 2. On iOS 9-11 anchors leading and trailing to superview,
-    /// top and bottom to viewController's bottomLayoutGuide and topLayoutGuide.
+    /// 1. On iOS 11, tvOS 11 and later anchors view's sides to superview's safe area
+    /// 2. On iOS 8-10, tvOS 9-10 anchors leading and trailing to superview,
+    /// top and bottom to viewController's `bottomLayoutGuide` and `topLayoutGuide`.
     ///
     /// - Parameter viewController: view controller, of which bottomLahoutGuide
     ///  and topLayoutGuide are used on iOS 9-11
-    @available(iOS 9, *) public func fillToSuperviewSafeArea(viewController: UIViewController) {
-        guard let superview = self.superview else {
+    @available(iOS 8, tvOS 9, *) public func fillToSuperviewSafeArea(viewController: UIViewController) {
+        guard let superview = superview else {
             fatalError("\(#function) : the view isn't in view hierarchy")
         }
 
         translatesAutoresizingMaskIntoConstraints = false
 
         let leading, top, trailing, bottom: NSLayoutConstraint
-        if #available(iOS 11, *) {
-            leading = self.leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor)
-            top = self.topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor)
-            trailing = self.trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor)
-            bottom = self.bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor)
+        if #available(iOS 11, tvOS 11, *) {
+            leading = leadingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.leadingAnchor)
+            top = topAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.topAnchor)
+            trailing = trailingAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.trailingAnchor)
+            bottom = bottomAnchor.constraint(equalTo: superview.safeAreaLayoutGuide.bottomAnchor)
         } else {
-            leading = self.leadingAnchor.constraint(equalTo: superview.leadingAnchor)
-            top = self.topAnchor.constraint(equalTo: viewController.topLayoutGuide.bottomAnchor)
-            trailing = self.trailingAnchor.constraint(equalTo: superview.trailingAnchor)
-            bottom = self.bottomAnchor.constraint(equalTo: viewController.bottomLayoutGuide.topAnchor)
+            leading = NSLayoutConstraint(item: self, attribute: .leading, relatedBy: .equal, toItem: superview, attribute: .leading, multiplier: 1.0, constant: 0)
+            top = NSLayoutConstraint(item: self, attribute: .top, relatedBy: .equal, toItem: viewController.topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0)
+            trailing = NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: .equal, toItem: superview, attribute: .trailing, multiplier: 1.0, constant: 0)
+            bottom = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: viewController.bottomLayoutGuide, attribute: .top, multiplier: 1.0, constant: 0)
         }
         NSLayoutConstraint.activate([leading, top, trailing, bottom])
     }

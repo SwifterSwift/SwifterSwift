@@ -351,6 +351,35 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssert(view.gestureRecognizers!.isEmpty)
     }
 
+    func testFillToSuperviewSafeArea() {
+        guard #available(iOS 11, tvOS 11, *) else {
+            return
+        }
+
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        let subview = UIView()
+        view.addSubview(subview)
+        subview.fillToSuperviewSafeArea()
+
+        XCTAssertNotNil(subview.leftAnchor)
+        XCTAssertNotNil(subview.topAnchor)
+        XCTAssertNotNil(subview.rightAnchor)
+        XCTAssertNotNil(subview.bottomAnchor)
+    }
+
+    func testFillToSuperviewSafeAreaViewController() {
+        let viewController = UIViewController()
+        let subview = UIView()
+        viewController.view.addSubview(subview)
+        subview.fillToSuperviewSafeArea(viewController: viewController)
+
+        XCTAssertNotNil(subview.leftAnchor)
+        XCTAssertNotNil(subview.topAnchor)
+        XCTAssertNotNil(subview.rightAnchor)
+        XCTAssertNotNil(subview.bottomAnchor)
+    }
+
 	func testAnchor() {
 		let view = UIView()
 		let subview = UIView()
