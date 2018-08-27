@@ -44,7 +44,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added operator `CGSize *= CGSize` to multiply a CGSize with another one.
   - Added operator `CGSize *= CGFloat` to multiply a CGSize with a CGFloat value.
 - **UIImage**:
-  - Added `rotate(by:)` for generating rotated versions of images. There are 2 versions, one where the angle is passed directly as a `CGFloat` in radians, the other using the `Measurement` class, which is only available for iOS 10+. [#555](https://github.com/SwifterSwift/SwifterSwift/pull/555) by [guykogus](https://github.com/guykogus)
+  - Added `rotate(by:)` for generating rotated versions of images. There are 2 versions, one where the angle is passed directly as a `CGFloat` in radians, the other using the `Measurement` class, which is only available for iOS 10+/tvOS 10+/watchOS 3+. [#555](https://github.com/SwifterSwift/SwifterSwift/pull/555) by [guykogus](https://github.com/guykogus)
 
 ### Changed
 - **RangeReplaceableCollection**:
