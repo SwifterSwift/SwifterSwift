@@ -9,8 +9,9 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
-// MARK: - Initializers
 extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
+
+    // MARK: - Initializers
 
     /// SwifterSwift: Initialize `UILayoutPriority` with a float literal
     ///
