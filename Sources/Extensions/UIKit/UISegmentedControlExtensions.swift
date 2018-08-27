@@ -6,10 +6,9 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-#if !os(watchOS)
 // MARK: - Properties
 public extension UISegmentedControl {
 
@@ -42,6 +41,4 @@ public extension UISegmentedControl {
 	}
 
 }
-#endif
-
 #endif

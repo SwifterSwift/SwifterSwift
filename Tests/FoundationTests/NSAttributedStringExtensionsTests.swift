@@ -9,6 +9,9 @@
 import XCTest
 @testable import SwifterSwift
 
+#if canImport(Foundation)
+import Foundation
+
 final class NSAttributedStringExtensionsTests: XCTestCase {
 
 	#if !os(macOS) && !os(tvOS)
@@ -242,4 +245,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 		XCTAssertEqual(string1.string, "Test Appending")
 	}
 	#endif
+
 }
+
+#endif

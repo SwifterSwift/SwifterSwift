@@ -6,10 +6,11 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if os(iOS) || os(tvOS)
-
 import XCTest
 @testable import SwifterSwift
+
+#if canImport(UIKit) && !os(watchOS)
+import UIKit
 
 final class UIStackViewExtensionsTest: XCTestCase {
 

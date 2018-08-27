@@ -6,10 +6,9 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-#if !os(watchOS)
 // MARK: - Properties
 public extension UIButton {
 
@@ -163,17 +162,15 @@ public extension UIButton {
 		states.forEach { self.setTitle(title, for: $0) }
 	}
 
-    /// SwifterSwift: Center align title text and image on UIButton
-    ///
-    /// - Parameter spacing: spacing between UIButton title text and UIButton Image.
-    public func centerTextAndImage(spacing: CGFloat) {
-        let insetAmount = spacing / 2
-        imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
-        titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
-        contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
-    }
+	/// SwifterSwift: Center align title text and image on UIButton
+	///
+	/// - Parameter spacing: spacing between UIButton title text and UIButton Image.
+	public func centerTextAndImage(spacing: CGFloat) {
+		let insetAmount = spacing / 2
+		imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
+		titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
+		contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
+	}
 
 }
-#endif
-
 #endif

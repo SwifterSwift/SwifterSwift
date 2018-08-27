@@ -6,38 +6,46 @@
 //  Copyright © 2017 SwifterSwift
 //
 
+#if canImport(Foundation)
+import Foundation
+#endif
+
 // MARK: - Properties
 public extension FloatingPoint {
 
-	/// SwifterSwift: Absolute value of integer number.
+	/// SwifterSwift: Absolute value of number.
 	public var abs: Self {
 		return Swift.abs(self)
 	}
 
-	/// SwifterSwift: Check if integer is positive.
+	/// SwifterSwift: Check if number is positive.
 	public var isPositive: Bool {
 		return self > 0
 	}
 
-	/// SwifterSwift: Check if integer is negative.
+	/// SwifterSwift: Check if number is negative.
 	public var isNegative: Bool {
 		return self < 0
 	}
 
+	#if canImport(Foundation)
 	/// SwifterSwift: Ceil of number.
 	public var ceil: Self {
 		return Foundation.ceil(self)
 	}
+	#endif
 
 	/// SwifterSwift: Radian value of degree input.
 	public var degreesToRadians: Self {
 		return Self.pi * self / Self(180)
 	}
 
+	#if canImport(Foundation)
 	/// SwifterSwift: Floor of number.
 	public var floor: Self {
 		return Foundation.floor(self)
 	}
+	#endif
 
 	/// SwifterSwift: Degree value of radian input.
 	public var radiansToDegrees: Self {
@@ -49,6 +57,7 @@ public extension FloatingPoint {
 // MARK: - Methods
 public extension FloatingPoint {
 
+	#if canImport(Foundation)
 	/// SwifterSwift: Random number between two number.
 	///
 	/// - Parameters:
@@ -61,7 +70,9 @@ public extension FloatingPoint {
 		let delta = aMax - aMin
 		return Self(arc4random()) / Self(UInt64(UINT32_MAX)) * delta + aMin
 	}
+	#endif
 
+	#if canImport(Foundation)
 	/// SwifterSwift: Random number in a closed interval range.
 	///
 	/// - Parameter range: closed interval range.
@@ -70,6 +81,7 @@ public extension FloatingPoint {
 		let delta = range.upperBound - range.lowerBound
 		return Self(arc4random()) / Self(UInt64(UINT32_MAX)) * delta + range.lowerBound
 	}
+	#endif
 
 }
 

@@ -6,18 +6,16 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-#if !os(watchOS)
 // MARK: - Methods
 public extension UIGestureRecognizer {
 
-    /// SwifterSwift: Remove Gesture Recognizer from its view.
-    public func removeFromView() {
-        self.view?.removeGestureRecognizer(self)
-    }
-}
-#endif
+	/// SwifterSwift: Remove Gesture Recognizer from its view.
+	public func removeFromView() {
+		self.view?.removeGestureRecognizer(self)
+	}
 
+}
 #endif

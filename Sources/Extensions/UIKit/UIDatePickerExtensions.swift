@@ -6,10 +6,9 @@
 //  Copyright © 2017 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && os(iOS)
 import UIKit
 
-#if os(iOS)
 // MARK: - Properties
 public extension UIDatePicker {
 
@@ -24,6 +23,4 @@ public extension UIDatePicker {
 	}
 
 }
-#endif
-
 #endif

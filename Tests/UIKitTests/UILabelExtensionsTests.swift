@@ -9,7 +9,9 @@
 import XCTest
 @testable import SwifterSwift
 
-#if os(iOS) || os(tvOS)
+#if canImport(UIKit) && !os(watchOS)
+import UIKit
+
 final class UILabelExtensionsTests: XCTestCase {
 
 	func testInitWithText() {
