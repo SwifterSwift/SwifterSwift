@@ -6,10 +6,9 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-#if !os(watchOS)
 // MARK: - Methods
 public extension UIScrollView {
 
@@ -33,6 +32,4 @@ public extension UIScrollView {
 		return UIGraphicsGetImageFromCurrentImageContext()
 	}
 }
-#endif
-
 #endif

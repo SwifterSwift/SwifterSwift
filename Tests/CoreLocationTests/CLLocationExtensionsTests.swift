@@ -7,6 +7,9 @@
 //
 
 import XCTest
+@testable import SwifterSwift
+
+#if canImport(CoreLocation)
 import CoreLocation
 
 final class CLLocationExtensionsTests: XCTestCase {
@@ -32,3 +35,5 @@ final class CLLocationExtensionsTests: XCTestCase {
 	}
 
 }
+
+#endif

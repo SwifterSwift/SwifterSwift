@@ -6,10 +6,9 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && os(iOS)
 import UIKit
 
-#if os(iOS)
 // MARK: - Methods
 public extension UISlider {
 
@@ -34,6 +33,4 @@ public extension UISlider {
 	}
 
 }
-#endif
-
 #endif

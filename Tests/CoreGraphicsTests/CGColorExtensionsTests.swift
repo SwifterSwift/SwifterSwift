@@ -7,17 +7,21 @@
 //
 
 import XCTest
+@testable import SwifterSwift
+
+#if canImport(CoreGraphics)
+import CoreGraphics
+
 #if os(macOS)
 import Cocoa
 #else
 import UIKit
 #endif
-@testable import SwifterSwift
 
 final class CGColorExtensionsTests: XCTestCase {
 
 	#if !os(macOS)
-	func testUiColor() {
+	func testUIColor() {
 		let red = UIColor.red
 		let cgRed = red.cgColor
 		XCTAssertEqual(cgRed.uiColor, red)
@@ -25,7 +29,7 @@ final class CGColorExtensionsTests: XCTestCase {
 	#endif
 
 	#if os(macOS)
-	func testNsColor() {
+	func testNSColor() {
 		let red = NSColor.red
 		let cgRed = red.cgColor
 		XCTAssertEqual(cgRed.nsColor, red)
@@ -33,3 +37,5 @@ final class CGColorExtensionsTests: XCTestCase {
 	#endif
 
 }
+
+#endif

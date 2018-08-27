@@ -6,14 +6,13 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 #if canImport(AudioToolbox)
 import AudioToolbox
 #endif
 
-#if !os(watchOS)
 // MARK: - Methodss
 public extension UIAlertController {
 
@@ -102,6 +101,4 @@ public extension UIAlertController {
 	}
 
 }
-#endif
-
 #endif

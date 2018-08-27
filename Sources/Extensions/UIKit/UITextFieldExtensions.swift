@@ -6,10 +6,9 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-#if !os(watchOS)
 // MARK: - Enums
 public extension UITextField {
 
@@ -159,7 +158,5 @@ public extension UITextField {
 	}
 
 }
-
-#endif
 
 #endif

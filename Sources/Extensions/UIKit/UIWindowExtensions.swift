@@ -6,10 +6,9 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && os(iOS)
 import UIKit
 
-#if os(iOS)
 // MARK: - Methods
 public extension UIWindow {
 
@@ -45,6 +44,4 @@ public extension UIWindow {
 	}
 
 }
-#endif
-
 #endif

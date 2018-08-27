@@ -6,10 +6,9 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-#if !os(watchOS)
 // MARK: - enums
 public extension UIView {
 
@@ -557,6 +556,4 @@ public extension UIView {
 	}
 
 }
-#endif
-
 #endif

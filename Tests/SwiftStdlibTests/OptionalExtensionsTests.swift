@@ -10,7 +10,7 @@ import XCTest
 @testable import SwifterSwift
 
 private enum OptionalTestError: Error {
-    case optionalIsNil
+	case optionalIsNil
 }
 
 final class OptionalExtensionsTests: XCTestCase {
@@ -63,46 +63,46 @@ final class OptionalExtensionsTests: XCTestCase {
 		XCTAssert(parameters[key2] == parameter2)
 	}
 
-    func testConditionalAssignment() {
-        var text1: String?
-        text1 ?= "newText1"
-        XCTAssertEqual(text1, "newText1")
+	func testConditionalAssignment() {
+		var text1: String?
+		text1 ?= "newText1"
+		XCTAssertEqual(text1, "newText1")
 
-        var text2: String? = "text2"
-        text2 ?= "newText2"
-        XCTAssertEqual(text2, "text2")
+		var text2: String? = "text2"
+		text2 ?= "newText2"
+		XCTAssertEqual(text2, "text2")
 
-        var text3: String?
-        text3 ?= nil
-        XCTAssertEqual(text3, nil)
+		var text3: String?
+		text3 ?= nil
+		XCTAssertEqual(text3, nil)
 
-        var text4: String? = "text4"
-        text4 ?= nil
-        XCTAssertEqual(text4, "text4")
-    }
+		var text4: String? = "text4"
+		text4 ?= nil
+		XCTAssertEqual(text4, "text4")
+	}
 
-    func testIsNilOrEmpty() {
-        let nilArray: [String]? = nil
-        XCTAssertTrue(nilArray.isNilOrEmpty)
+	func testIsNilOrEmpty() {
+		let nilArray: [String]? = nil
+		XCTAssertTrue(nilArray.isNilOrEmpty)
 
-        let emptyArray: [String]? = []
-        XCTAssertTrue(emptyArray.isNilOrEmpty)
+		let emptyArray: [String]? = []
+		XCTAssertTrue(emptyArray.isNilOrEmpty)
 
-        let intArray: [Int]? = [1]
-        XCTAssertFalse(intArray.isNilOrEmpty)
+		let intArray: [Int]? = [1]
+		XCTAssertFalse(intArray.isNilOrEmpty)
 
-        let optionalArray: [Int]? = [1]
-        XCTAssertFalse(optionalArray.isNilOrEmpty)
+		let optionalArray: [Int]? = [1]
+		XCTAssertFalse(optionalArray.isNilOrEmpty)
 
-        let nilString: String? = nil
-        XCTAssert(nilString.isNilOrEmpty)
+		let nilString: String? = nil
+		XCTAssert(nilString.isNilOrEmpty)
 
-        let emptyString: String? = ""
-        XCTAssert(emptyString.isNilOrEmpty)
+		let emptyString: String? = ""
+		XCTAssert(emptyString.isNilOrEmpty)
 
-        let string: String? = "hello World!"
-        XCTAssertFalse(string.isNilOrEmpty)
+		let string: String? = "hello World!"
+		XCTAssertFalse(string.isNilOrEmpty)
 
-    }
+	}
 
 }

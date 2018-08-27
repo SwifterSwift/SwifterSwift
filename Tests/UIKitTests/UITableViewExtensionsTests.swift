@@ -5,10 +5,12 @@
 //  Created by Omar Albeik on 2/24/17.
 //  Copyright © 2017 SwifterSwift
 //
-#if os(iOS) || os(tvOS)
 
 import XCTest
 @testable import SwifterSwift
+
+#if canImport(UIKit) && !os(watchOS)
+import UIKit
 
 final class UITableViewExtensionsTests: XCTestCase {
 
@@ -97,41 +99,41 @@ final class UITableViewExtensionsTests: XCTestCase {
 		XCTAssertNotNil(headerFooterView)
 	}
 
-    func testIsValidIndexPath() {
-        let validIndexPath = IndexPath(row: 0, section: 0)
-        XCTAssertTrue(tableView.isValidIndexPath(validIndexPath))
-        let invalidIndexPath = IndexPath(row: 10, section: 0)
-        XCTAssertFalse(tableView.isValidIndexPath(invalidIndexPath))
-    }
+	func testIsValidIndexPath() {
+		let validIndexPath = IndexPath(row: 0, section: 0)
+		XCTAssertTrue(tableView.isValidIndexPath(validIndexPath))
+		let invalidIndexPath = IndexPath(row: 10, section: 0)
+		XCTAssertFalse(tableView.isValidIndexPath(invalidIndexPath))
+	}
 
-    func testSafeScrollToIndexPath() {
-        let validIndexPathTop = IndexPath(row: 0, section: 0)
+	func testSafeScrollToIndexPath() {
+		let validIndexPathTop = IndexPath(row: 0, section: 0)
 
-        tableView.contentOffset = .init(x: 0, y: 100)
-        XCTAssertNotEqual(tableView.contentOffset, .zero)
+		tableView.contentOffset = .init(x: 0, y: 100)
+		XCTAssertNotEqual(tableView.contentOffset, .zero)
 
-        tableView.safeScrollToRow(at: validIndexPathTop, at: .top, animated: false)
-        XCTAssertEqual(tableView.contentOffset, .zero)
+		tableView.safeScrollToRow(at: validIndexPathTop, at: .top, animated: false)
+		XCTAssertEqual(tableView.contentOffset, .zero)
 
-        let validIndexPathBottom = IndexPath(row: 7, section: 1)
-        let bottomOffset = CGPoint(x: 0, y: tableView.contentSize.height - tableView.bounds.size.height)
+		let validIndexPathBottom = IndexPath(row: 7, section: 1)
+		let bottomOffset = CGPoint(x: 0, y: tableView.contentSize.height - tableView.bounds.size.height)
 
-        tableView.contentOffset = .init(x: 0, y: 200)
-        XCTAssertNotEqual(tableView.contentOffset, bottomOffset)
+		tableView.contentOffset = .init(x: 0, y: 200)
+		XCTAssertNotEqual(tableView.contentOffset, bottomOffset)
 
-        tableView.safeScrollToRow(at: validIndexPathBottom, at: .bottom, animated: false)
-        #if os(tvOS)
-            XCTAssertEqual(bottomOffset.y, tableView.contentOffset.y, accuracy: 15.0)
-        #else
-            XCTAssertEqual(bottomOffset.y, tableView.contentOffset.y, accuracy: 2.0)
-        #endif
+		tableView.safeScrollToRow(at: validIndexPathBottom, at: .bottom, animated: false)
+		#if os(tvOS)
+		XCTAssertEqual(bottomOffset.y, tableView.contentOffset.y, accuracy: 15.0)
+		#else
+		XCTAssertEqual(bottomOffset.y, tableView.contentOffset.y, accuracy: 2.0)
+		#endif
 
-        let invalidIndexPath = IndexPath(row: 213, section: 21)
-        tableView.contentOffset = .zero
+		let invalidIndexPath = IndexPath(row: 213, section: 21)
+		tableView.contentOffset = .zero
 
-        tableView.safeScrollToRow(at: invalidIndexPath, at: .bottom, animated: false)
-        XCTAssertEqual(tableView.contentOffset, .zero)
-    }
+		tableView.safeScrollToRow(at: invalidIndexPath, at: .bottom, animated: false)
+		XCTAssertEqual(tableView.contentOffset, .zero)
+	}
 
 	#if os(iOS)
 	func testRegisterReusableViewWithClassAndNib() {
@@ -192,5 +194,4 @@ extension UITableViewExtensionsTests: UITableViewDataSource {
 	}
 
 }
-
 #endif

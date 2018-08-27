@@ -6,10 +6,9 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-#if !os(watchOS)
 public extension UIStoryboard {
 
 	/// SwifterSwift: Get main storyboard for application
@@ -21,6 +20,4 @@ public extension UIStoryboard {
 	}
 
 }
-#endif
-
 #endif

@@ -99,5 +99,4 @@ extension UIEdgeInsets {
 		return UIEdgeInsets(top: top + vertical/2, left: left, bottom: bottom + vertical/2, right: right)
 	}
 }
-
 #endif

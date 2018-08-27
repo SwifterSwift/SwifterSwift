@@ -5,8 +5,12 @@
 //  Created by Omar Albeik on 9/6/17.
 //  Copyright © 2016 SwifterSwift
 //
+
 import XCTest
 @testable import SwifterSwift
+
+#if canImport(Foundation)
+import Foundation
 
 final class UserDefaultsExtensionsTests: XCTestCase {
 
@@ -59,3 +63,5 @@ final class UserDefaultsExtensionsTests: XCTestCase {
 	}
 
 }
+
+#endif
