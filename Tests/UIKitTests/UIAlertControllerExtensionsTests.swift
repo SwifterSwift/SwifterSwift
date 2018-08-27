@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UIAlertControllerExtensionsTests: XCTestCase {
@@ -90,5 +90,4 @@ final class UIAlertControllerExtensionsTests: XCTestCase {
 	}
 
 }
-
 #endif

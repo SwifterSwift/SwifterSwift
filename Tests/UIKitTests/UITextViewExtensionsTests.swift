@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UITextViewExtensionsTests: XCTestCase {
@@ -76,5 +76,4 @@ final class UITextViewExtensionsTests: XCTestCase {
 		XCTAssertEqual(textView.bounds.size, textView.contentSize)
 	}
 }
-
 #endif

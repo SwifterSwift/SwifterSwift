@@ -41,5 +41,4 @@ final class UISearchBarExtensionsTests: XCTestCase {
 	}
 
 }
-
 #endif

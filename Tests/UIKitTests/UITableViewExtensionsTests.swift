@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UITableViewExtensionsTests: XCTestCase {
@@ -194,5 +194,4 @@ extension UITableViewExtensionsTests: UITableViewDataSource {
 	}
 
 }
-
 #endif

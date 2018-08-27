@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if os(iOS)
+#if os(iOS) && !os(watchOS)
 import UIKit
 
 final class UIGestureRecognizerExtensionsTests: XCTestCase {

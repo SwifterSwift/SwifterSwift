@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // swiftlint:disable type_body_length, type_body_length
@@ -412,5 +412,4 @@ final class UIViewExtensionsTests: XCTestCase {
 	}
 
 }
-
 #endif

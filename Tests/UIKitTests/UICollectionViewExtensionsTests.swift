@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final private class TestCell: UICollectionViewCell {}
@@ -92,5 +92,4 @@ extension UICollectionViewExtensionsTests: UICollectionViewDataSource, UICollect
 	}
 
 }
-
 #endif

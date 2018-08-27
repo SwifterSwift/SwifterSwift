@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UIStackViewExtensionsTest: XCTestCase {
@@ -66,5 +66,4 @@ final class UIStackViewExtensionsTest: XCTestCase {
 	}
 
 }
-
 #endif

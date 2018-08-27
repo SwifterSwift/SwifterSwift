@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UISegmentedControlExtensionsTests: XCTestCase {
@@ -31,5 +31,4 @@ final class UISegmentedControlExtensionsTests: XCTestCase {
 	}
 
 }
-
 #endif
