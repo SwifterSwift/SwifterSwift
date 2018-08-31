@@ -116,6 +116,18 @@ extension UIEdgeInsets {
                             right: lhs.right + rhs.right)
     }
 
+    /// SwifterSwift: Add all the properties of two `UIEdgeInsets` to the left-hand instance.
+    ///
+    /// - Parameters:
+    ///   - lhs: The left-hand expression to be mutated
+    ///   - rhs: The right-hand expression
+    public static func += (_ lhs: inout UIEdgeInsets, _ rhs: UIEdgeInsets) {
+        lhs.top += rhs.top
+        lhs.left += rhs.left
+        lhs.bottom += rhs.bottom
+        lhs.right += rhs.right
+    }
+
 }
 
 #endif
