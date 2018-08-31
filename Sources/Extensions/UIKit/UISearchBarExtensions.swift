@@ -6,10 +6,9 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && os(iOS)
 import UIKit
 
-#if os(iOS)
 // MARK: - Properties
 public extension UISearchBar {
 
@@ -38,6 +37,4 @@ public extension UISearchBar {
 	}
 
 }
-#endif
-
 #endif

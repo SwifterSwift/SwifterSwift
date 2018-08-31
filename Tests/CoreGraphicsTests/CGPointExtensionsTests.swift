@@ -9,6 +9,9 @@
 import XCTest
 @testable import SwifterSwift
 
+#if canImport(CoreGraphics)
+import CoreGraphics
+
 final class CGPointExtensionsTests: XCTestCase {
 
 	let point1 = CGPoint(x: 10, y: 10)
@@ -68,3 +71,5 @@ final class CGPointExtensionsTests: XCTestCase {
 	}
 
 }
+
+#endif

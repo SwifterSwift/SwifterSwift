@@ -9,6 +9,9 @@
 import XCTest
 @testable import SwifterSwift
 
+#if canImport(Foundation)
+import Foundation
+
 final class NSPredicateExtensionsTests: XCTestCase {
 
 	func testNot() {
@@ -76,4 +79,7 @@ final class NSPredicateExtensionsTests: XCTestCase {
 		XCTAssert(subPredicate.evaluate(with: 2))
 		XCTAssertFalse(subPredicate.evaluate(with: 4))
 	}
+
 }
+
+#endif

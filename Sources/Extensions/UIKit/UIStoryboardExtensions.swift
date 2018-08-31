@@ -6,19 +6,18 @@
 //  Copyright © 2017 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit)  && !os(watchOS)
 import UIKit
 
-#if !os(watchOS)
 // MARK: - Methods
 public extension UIStoryboard {
 
-    /// SwifterSwift: Get main storyboard for application
-    public static var main: UIStoryboard? {
-        let bundle = Bundle.main
-        guard let name = bundle.object(forInfoDictionaryKey: "UIMainStoryboardFile") as? String else { return nil }
-        return UIStoryboard(name: name, bundle: bundle)
-    }
+	/// SwifterSwift: Get main storyboard for application
+	public static var main: UIStoryboard? {
+		let bundle = Bundle.main
+		guard let name = bundle.object(forInfoDictionaryKey: "UIMainStoryboardFile") as? String else { return nil }
+		return UIStoryboard(name: name, bundle: bundle)
+	}
 
 	/// SwifterSwift: Instantiate a UIViewController using its class name
 	///
@@ -29,6 +28,4 @@ public extension UIStoryboard {
 	}
 
 }
-#endif
-
 #endif

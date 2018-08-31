@@ -31,16 +31,16 @@ public extension Data {
 		return String(data: self, encoding: encoding)
 	}
 
-    /// SwifterSwift: Returns a Foundation object from given JSON data.
-    ///
-    /// - Parameter options: Options for reading the JSON data and creating the Foundation object.
-    ///
-    ///   For possible values, see `JSONSerialization.ReadingOptions`.
-    /// - Returns: A Foundation object from the JSON data in the receiver, or `nil` if an error occurs.
-    /// - Throws: An `NSError` if the receiver does not represent a valid JSON object.
-    public func jsonObject(options: JSONSerialization.ReadingOptions = []) throws -> Any {
-        return try JSONSerialization.jsonObject(with: self, options: options)
-    }
+	/// SwifterSwift: Returns a Foundation object from given JSON data.
+	///
+	/// - Parameter options: Options for reading the JSON data and creating the Foundation object.
+	///
+	///   For possible values, see `JSONSerialization.ReadingOptions`.
+	/// - Returns: A Foundation object from the JSON data in the receiver, or `nil` if an error occurs.
+	/// - Throws: An `NSError` if the receiver does not represent a valid JSON object.
+	public func jsonObject(options: JSONSerialization.ReadingOptions = []) throws -> Any {
+		return try JSONSerialization.jsonObject(with: self, options: options)
+	}
 
 }
 #endif

@@ -6,10 +6,11 @@
 //  Copyright © 2017 SwifterSwift
 //
 
-#if os(iOS)
-
 import XCTest
 @testable import SwifterSwift
+
+#if os(iOS)
+import UIKit
 
 final class UISliderExtensionsTests: XCTestCase {
 
