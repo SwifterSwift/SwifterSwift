@@ -9,6 +9,9 @@
 import XCTest
 @testable import SwifterSwift
 
+#if canImport(Foundation)
+import Foundation
+
 final class FileManagerExtensionsTests: XCTestCase {
 
 	func testJSONFromFileAtPath() {
@@ -18,7 +21,6 @@ final class FileManagerExtensionsTests: XCTestCase {
 
 			guard let path = filePath else {
 				XCTFail("File path undefined.")
-
 				return
 			}
 
@@ -38,7 +40,7 @@ final class FileManagerExtensionsTests: XCTestCase {
 				XCTFail("Opening of file returned nil.")
 			}
 		} catch {
-			XCTFail("Error encountered during opening of file.")
+			XCTFail("Error encountered during opening of file. \(error.localizedDescription)")
 		}
 	}
 
@@ -66,7 +68,7 @@ final class FileManagerExtensionsTests: XCTestCase {
 				XCTFail("Opening of file returned nil.")
 			}
 		} catch {
-			XCTFail("Error encountered during opening of file.")
+			XCTFail("Error encountered during opening of file. \(error.localizedDescription)")
 		}
 	}
 
@@ -79,3 +81,5 @@ final class FileManagerExtensionsTests: XCTestCase {
 	}
 
 }
+
+#endif

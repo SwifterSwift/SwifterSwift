@@ -6,10 +6,9 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-#if !os(watchOS)
 // MARK: - Properties
 public extension UIButton {
 
@@ -174,6 +173,4 @@ public extension UIButton {
 	}
 
 }
-#endif
-
 #endif

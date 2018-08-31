@@ -32,5 +32,4 @@ public extension UIRefreshControl {
 	}
 
 }
-
 #endif

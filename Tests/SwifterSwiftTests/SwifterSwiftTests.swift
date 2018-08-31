@@ -8,6 +8,8 @@
 import XCTest
 @testable import SwifterSwift
 
+#if !os(Linux)
+
 final class SwifterSwiftTests: XCTestCase {
 
 	func testTypeName() {
@@ -60,3 +62,5 @@ final class SwifterSwiftTests: XCTestCase {
 	}
 
 }
+
+#endif

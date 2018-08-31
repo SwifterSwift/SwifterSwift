@@ -6,10 +6,9 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-#if !os(watchOS)
 // MARK: - Initializers
 @available(iOS 9.0, *)
 public extension UIStackView {
@@ -49,6 +48,4 @@ public extension UIStackView {
 	}
 
 }
-#endif
-
 #endif

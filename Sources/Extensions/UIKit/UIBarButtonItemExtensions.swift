@@ -6,10 +6,9 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-#if !os(watchOS)
 // MARK: - Methods
 public extension UIBarButtonItem {
 
@@ -24,6 +23,4 @@ public extension UIBarButtonItem {
 	}
 
 }
-#endif
-
 #endif
