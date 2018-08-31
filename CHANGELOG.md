@@ -26,6 +26,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `removeViewAndControllerFromParentViewController()` to remove a `UIViewController` from its parent.
 - **UIEdgeInsets**
   - Added  `insetBy(top:)`, `insetBy(left:)`, `insetBy(bottom:)`, `insetBy(right:)`, `insetBy(horizontal:)` and `insetBy(vertical:)` to creates an `UIEdgeInsets` based on current value and adjusted by given offset. [#532](https://github.com/SwifterSwift/SwifterSwift/pull/532) by [VincentSit](https://github.com/VincentSit).
+- **UILayoutPriority**
+  - Added `init(floatLiteral value: Float)` initializer to initialize priority with float literal. [#549](https://github.com/SwifterSwift/SwifterSwift/pull/549) by [diamantidis](https://github.com/diamantidis).
+  - Added `init(integerLiteral value: Int)` initializer to initialize priority with integer literal. [#549](https://github.com/SwifterSwift/SwifterSwift/pull/549) by [diamantidis](https://github.com/diamantidis).
 - **RangeReplaceableCollection**
   - `init(expression:count:)` to create a collection of a given count initialized with an expression.[#537](https://github.com/SwifterSwift/SwifterSwift/pull/537) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **Optional**:
