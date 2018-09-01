@@ -99,4 +99,35 @@ extension UIEdgeInsets {
 		return UIEdgeInsets(top: top + vertical/2, left: left, bottom: bottom + vertical/2, right: right)
 	}
 }
+
+// MARK: - Operators
+extension UIEdgeInsets {
+
+    /// SwifterSwift: Add all the properties of two `UIEdgeInsets` to create their addition.
+    ///
+    /// - Parameters:
+    ///   - lhs: The left-hand expression
+    ///   - rhs: The right-hand expression
+    /// - Returns: A new `UIEdgeInsets` instance where the values of `lhs` and `rhs` are added together.
+    public static func + (_ lhs: UIEdgeInsets, _ rhs: UIEdgeInsets) -> UIEdgeInsets {
+        return UIEdgeInsets(top: lhs.top + rhs.top,
+                            left: lhs.left + rhs.left,
+                            bottom: lhs.bottom + rhs.bottom,
+                            right: lhs.right + rhs.right)
+    }
+
+    /// SwifterSwift: Add all the properties of two `UIEdgeInsets` to the left-hand instance.
+    ///
+    /// - Parameters:
+    ///   - lhs: The left-hand expression to be mutated
+    ///   - rhs: The right-hand expression
+    public static func += (_ lhs: inout UIEdgeInsets, _ rhs: UIEdgeInsets) {
+        lhs.top += rhs.top
+        lhs.left += rhs.left
+        lhs.bottom += rhs.bottom
+        lhs.right += rhs.right
+    }
+
+}
+
 #endif
