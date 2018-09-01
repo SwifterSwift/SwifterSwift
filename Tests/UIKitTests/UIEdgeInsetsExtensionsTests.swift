@@ -158,5 +158,35 @@ final class UIEdgeInsetsExtensionsTests: XCTestCase {
 		XCTAssertEqual(negativeComposedInset.top, 10)
 		XCTAssertEqual(negativeComposedInset.bottom, 5.0)
 	}
+
+    func testAddition() {
+        XCTAssertEqual(UIEdgeInsets.zero + UIEdgeInsets.zero, UIEdgeInsets.zero)
+
+        let insets1 = UIEdgeInsets(top: 1, left: 2, bottom: 3, right: 4)
+        let insets2 = UIEdgeInsets(top: 5, left: 6, bottom: 7, right: 8)
+        let expected = UIEdgeInsets(top: 6, left: 8, bottom: 10, right: 12)
+        XCTAssertEqual(insets1 + insets2, expected)
+
+        let negativeInsets1 = UIEdgeInsets(top: -1, left: -2, bottom: -3, right: -4)
+        let negativeInsets2 = UIEdgeInsets(top: -5, left: -6, bottom: -7, right: -8)
+        let negativeExpected = UIEdgeInsets(top: -6, left: -8, bottom: -10, right: -12)
+        XCTAssertEqual(negativeInsets1 + negativeInsets2, negativeExpected)
+    }
+
+    func testInPlaceAddition() {
+        var zero = UIEdgeInsets.zero
+        zero += UIEdgeInsets.zero
+        XCTAssertEqual(zero, UIEdgeInsets.zero)
+
+        var insets = UIEdgeInsets(top: 1, left: 2, bottom: 3, right: 4)
+        insets += UIEdgeInsets(top: 5, left: 6, bottom: 7, right: 8)
+        let expected = UIEdgeInsets(top: 6, left: 8, bottom: 10, right: 12)
+        XCTAssertEqual(insets, expected)
+
+        var negativeInsets = UIEdgeInsets(top: -1, left: -2, bottom: -3, right: -4)
+        negativeInsets += UIEdgeInsets(top: -5, left: -6, bottom: -7, right: -8)
+        let negativeExpected = UIEdgeInsets(top: -6, left: -8, bottom: -10, right: -12)
+        XCTAssertEqual(negativeInsets, negativeExpected)
+    }
 }
 #endif
