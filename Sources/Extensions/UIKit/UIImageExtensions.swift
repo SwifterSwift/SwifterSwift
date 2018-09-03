@@ -96,6 +96,69 @@ public extension UIImage {
 		return newImage
 	}
 
+    /// SwifterSwift: Creates a copy of the receiver rotated by the given angle.
+	///
+	///     // Rotate the image by 180°
+	///     image.rotated(by: Measurement(value: 180, unit: .degrees))
+	///
+	/// - Parameter angle: The angle measurement by which to rotate the image.
+	/// - Returns: A new image rotated by the given angle.
+	@available(iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+	public func rotated(by angle: Measurement<UnitAngle>) -> UIImage? {
+		let radians = CGFloat(angle.converted(to: .radians).value)
+
+		let destRect = CGRect(origin: .zero, size: size)
+			.applying(CGAffineTransform(rotationAngle: radians))
+		let roundedDestRect = CGRect(x: destRect.origin.x.rounded(),
+									 y: destRect.origin.y.rounded(),
+									 width: destRect.width.rounded(),
+									 height: destRect.height.rounded())
+
+		UIGraphicsBeginImageContext(roundedDestRect.size)
+		guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
+
+		contextRef.translateBy(x: roundedDestRect.width / 2, y: roundedDestRect.height / 2)
+		contextRef.rotate(by: radians)
+
+		draw(in: CGRect(origin: CGPoint(x: -size.width / 2,
+										y: -size.height / 2),
+						size: size))
+
+		let newImage = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return newImage
+	}
+
+	/// SwifterSwift: Creates a copy of the receiver rotated by the given angle (in radians).
+	///
+	///     // Rotate the image by 180°
+	///     image.rotated(by: .pi)
+	///
+	/// - Parameter radians: The angle, in radians, by which to rotate the image.
+	/// - Returns: A new image rotated by the given angle.
+	public func rotated(by radians: CGFloat) -> UIImage? {
+		let destRect = CGRect(origin: .zero, size: size)
+			.applying(CGAffineTransform(rotationAngle: radians))
+		let roundedDestRect = CGRect(x: destRect.origin.x.rounded(),
+									 y: destRect.origin.y.rounded(),
+									 width: destRect.width.rounded(),
+									 height: destRect.height.rounded())
+
+		UIGraphicsBeginImageContext(roundedDestRect.size)
+		guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
+
+		contextRef.translateBy(x: roundedDestRect.width / 2, y: roundedDestRect.height / 2)
+		contextRef.rotate(by: radians)
+
+		draw(in: CGRect(origin: CGPoint(x: -size.width / 2,
+										y: -size.height / 2),
+						size: size))
+
+		let newImage = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return newImage
+	}
+
 	/// SwifterSwift: UIImage filled with color
 	///
 	/// - Parameter color: color to fill image with.

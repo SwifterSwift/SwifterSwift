@@ -73,6 +73,35 @@ final class UIImageExtensionsTests: XCTestCase {
 		XCTAssertEqual(scaledImage!.size.width, 300, accuracy: 0.1)
 	}
 
+	@available(iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+	func testRotatedByMeasurement() {
+		let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+		let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+
+		let halfRotatedImage = image.rotated(by: Measurement(value: 90, unit: .degrees))
+		XCTAssertNotNil(halfRotatedImage)
+		XCTAssertEqual(halfRotatedImage!.size, CGSize(width: image.size.height, height: image.size.width))
+
+		let rotatedImage = image.rotated(by: Measurement(value: 180, unit: .degrees))
+		XCTAssertNotNil(rotatedImage)
+		XCTAssertEqual(rotatedImage!.size, image.size)
+		XCTAssertNotEqual(UIImageJPEGRepresentation(image, 1), UIImageJPEGRepresentation(rotatedImage!, 1))
+	}
+
+	func testRotatedByRadians() {
+		let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+		let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+
+		let halfRotatedImage = image.rotated(by: .pi / 2)
+		XCTAssertNotNil(halfRotatedImage)
+		XCTAssertEqual(halfRotatedImage!.size, CGSize(width: image.size.height, height: image.size.width))
+
+		let rotatedImage = image.rotated(by: .pi)
+		XCTAssertNotNil(rotatedImage)
+		XCTAssertEqual(rotatedImage!.size, image.size)
+		XCTAssertNotEqual(UIImageJPEGRepresentation(image, 1), UIImageJPEGRepresentation(rotatedImage!, 1))
+	}
+
 	func testFilled() {
 		let image = UIImage(color: .black, size: CGSize(width: 20, height: 20))
 		let image2 = UIImage(color: .yellow, size: CGSize(width: 20, height: 20))

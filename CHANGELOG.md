@@ -36,7 +36,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `?=` operator to assign to nil optionals only. [#538](https://github.com/SwifterSwift/SwifterSwift/pull/538) by [viktart](https://github.com/viktart)
 - **Data**:
   - Added `jsonObject(options:)` to convert a data object into a JSON object. [#542](https://github.com/SwifterSwift/SwifterSwift/pull/542) by [guykogus](https://github.com/guykogus)
-
 - **URL**
   - Added `droppedScheme()` which returns new `URL` that does not have scheme. [#528](https://github.com/SwifterSwift/SwifterSwift/pull/528) by [sammy-sc](https://github.com/sammy-SC)
 - **CGSize**
@@ -48,6 +47,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added operator `CGSize * CGFloat` and `CGFloat * CGSize` to return the multiplication of a CGSize and a CGFloat value.
   - Added operator `CGSize *= CGSize` to multiply a CGSize with another one.
   - Added operator `CGSize *= CGFloat` to multiply a CGSize with a CGFloat value.
+- **UIImage**:
+  - Added `rotate(by:)` for generating rotated versions of images. There are 2 versions, one where the angle is passed directly as a `CGFloat` in radians, the other using the `Measurement` class, which is only available for iOS 10+/tvOS 10+/watchOS 3+. [#555](https://github.com/SwifterSwift/SwifterSwift/pull/555) by [guykogus](https://github.com/guykogus)
 
 ### Changed
 - **RangeReplaceableCollection**:
