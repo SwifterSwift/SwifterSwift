@@ -17,7 +17,6 @@ import AudioToolbox
 // MARK: - Methodss
 public extension UIAlertController {
 
-  // swiftlint:disable next cyclomatic_complexity
   /// SwifterSwift: Present alert view controller.
   ///
   /// - Parameters:
@@ -36,12 +35,17 @@ public extension UIAlertController {
     }
 
     // Use the frontmost viewController for presentation.
-    while let frontViewController = viewController.presentedViewController, !frontViewController.isBeingDismissed {
-      viewController = frontViewController
+    while let frontViewController = viewController.presentedViewController,
+      !frontViewController.isBeingDismissed {
+        viewController = frontViewController
     }
 
-    // If it has already been set, we should not overwrite it. Will do nothing on iPhone since the popover is nil.
-    if let popover = popoverPresentationController, popover.sourceView == nil, popover.barButtonItem == nil {
+    // iPad popover support. It is only necessary in type actionSheet. Will do nothing on iPhone since the popover is nil.
+    // If it has already been set, we should not overwrite it.
+    if preferredStyle == .actionSheet,
+      let popover = popoverPresentationController,
+      popover.sourceView == nil,
+      popover.barButtonItem == nil {
       switch anchor {
       case let value as UIBarButtonItem:
         popover.barButtonItem = value
@@ -58,23 +62,13 @@ public extension UIAlertController {
 
       // Workaround for rdar://18921595. Unsatisfiable constraints when presenting UIAlertController.
       // If the rect is too large, the action sheet can't be displayed.
-      let sourceRect: CGRect = popover.sourceRect
-      let screen: CGRect = UIScreen.main.bounds
+      let sourceRect = popover.sourceRect
+      let screen = UIScreen.main.bounds
       if sourceRect.height > screen.height * 0.5 || sourceRect.width > screen.width * 0.5 {
         popover.sourceRect = CGRect(x: sourceRect.origin.x + sourceRect.width / 2.0, y: sourceRect.origin.y + sourceRect.height / 2.0, width: 1.0, height: 1.0)
       }
 
-      // Optimize arrow positioning for up and down.
       popover.permittedArrowDirections = arrowDirection
-      switch arrowDirection {
-      case .down:
-        popover.sourceRect = CGRect(x: sourceRect.origin.x + sourceRect.size.width / 2.0, y: sourceRect.origin.y, width: 1.0, height: 1.0)
-      case .up:
-        popover.sourceRect = CGRect(x: sourceRect.origin.x + sourceRect.size.width / 2.0, y: sourceRect.origin.y + sourceRect.size.height, width: 1.0, height: 1.0)
-      // Left and right is too buggy.
-      default:
-        break
-      }
     }
 
     viewController.present(self, animated: animated, completion: completion)
