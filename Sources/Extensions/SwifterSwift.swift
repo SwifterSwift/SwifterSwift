@@ -322,5 +322,31 @@ public extension SwifterSwift {
 		return String.init(describing: objectType)
 	}
 
+    ///
+    /// Evaluates a closure while ensuring that the given instance is not destroyed
+    /// before the closure returns (if the given instance isn't destroyed already).
+    /// It's basically syntactic sugar for Swift's `withExtendedLifetime`.
+    ///
+    ///
+    ///     UIView.animateWithDuration(0.3) { [weak self] in
+    ///         SwifterSwift.withExtendedLifetime(self) {
+    ///             $0.someMethodOfSelf()
+    ///         }
+    ///     }
+    ///
+    /// - Parameters:
+    ///   - object: An instance to preserve until the execution of `body` is completed.
+    ///   - body: A closure to execute that depends on the lifetime of `object` being
+    ///     extended.
+    /// - Returns: The return value, if any, of the `body` closure parameter. If `object` is `nil`
+    /// returns `nil`
+    public static func withExtendedLifetime<T, Result>(_ object: T?, _ body: (T) throws -> Result) rethrows -> Result? {
+        return try Swift.withExtendedLifetime(object) {
+            guard let strongObject = object else {
+                return nil
+            }
+            return try body(strongObject)
+        }
+    }
 }
 #endif

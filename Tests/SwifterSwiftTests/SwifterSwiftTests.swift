@@ -61,6 +61,26 @@ final class SwifterSwiftTests: XCTestCase {
 		})
 	}
 
+    func testWithExtendedLifetime() {
+        // swiftlint:disable nesting
+        class MyClass {
+            var num: Int = 0
+        }
+
+        var strongRef: MyClass? = MyClass()
+        weak var weakRef: MyClass? = strongRef
+
+        XCTAssertNotNil(weakRef)
+        SwifterSwift.withExtendedLifetime(weakRef) {
+            strongRef?.num = 12345
+            strongRef = nil
+            XCTAssertNotNil($0)
+            XCTAssertEqual($0.num, 12345)
+        }
+        XCTAssertNil(weakRef)
+        // swiftlint:enable nesting
+    }
+
 }
 
 #endif
