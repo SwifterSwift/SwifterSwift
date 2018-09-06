@@ -21,6 +21,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIView**
   - Added `addGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to add multiple gesture recognizers to a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
   - Added `removeGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to remove multiple gesture recognizers from a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
+  - Added `ancestorView(withClass:)` to search for a view with a given class in the superviews. by [overovermind](https://github.com/overovermind)
 - **UIViewController**
   - Added `addChildViewController(_:toContainerView)` to easily add child view controllers. Accepts a `UIViewController` and a `UIView` to add the child's view to. 
   - Added `removeViewAndControllerFromParentViewController()` to remove a `UIViewController` from its parent.
@@ -49,7 +50,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added operator `CGSize *= CGFloat` to multiply a CGSize with a CGFloat value.
 - **UIImage**:
   - Added `rotate(by:)` for generating rotated versions of images. There are 2 versions, one where the angle is passed directly as a `CGFloat` in radians, the other using the `Measurement` class, which is only available for iOS 10+/tvOS 10+/watchOS 3+. [#555](https://github.com/SwifterSwift/SwifterSwift/pull/555) by [guykogus](https://github.com/guykogus)
-  - Added `ancestorView(withClass:)` to search for a view with a given class in the superviews. by [overovermind](https://github.com/overovermind)
 
 ### Changed
 - **RangeReplaceableCollection**:

@@ -559,11 +559,8 @@ public extension UIView {
     ///
     /// - Parameter name: class of the view to search.
     public func ancestorView<T: UIView>(withClass name: T.Type) -> T? {
-        guard let superview = superview else {
-            return nil
-        }
         guard let view = superview as? T else {
-            return superview.ancestorView(withClass: name)
+            return superview?.ancestorView(withClass: name)
         }
         return view
     }
