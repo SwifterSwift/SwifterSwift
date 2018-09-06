@@ -411,5 +411,21 @@ final class UIViewExtensionsTests: XCTestCase {
 		XCTAssertNotNil(subview.centerYAnchor)
 	}
 
+    func testSuperviewWithClass() {
+        let tableView = UITableView(frame: .zero)
+        let tableViewCell = UITableViewCell(frame: .zero)
+        tableView.addSubview(tableViewCell)
+        let button = UIButton(frame: .zero)
+        tableViewCell.addSubview(button)
+        let buttonSubview = UIView(frame: .zero)
+        button.addSubview(buttonSubview)
+        XCTAssertEqual(button.ancestorView(withClass: UITableViewCell.self), tableViewCell)
+        XCTAssertEqual(button.ancestorView(withClass: UITableView.self), tableView)
+        XCTAssertEqual(button.ancestorView(withClass: UIButton.self), nil)
+        XCTAssertEqual(tableView.ancestorView(withClass: UIButton.self), nil)
+        XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableViewCell.self), tableViewCell)
+        XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableView.self), tableView)
+    }
+
 }
 #endif
