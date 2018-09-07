@@ -555,14 +555,21 @@ public extension UIView {
 		anchorCenterYToSuperview()
 	}
 
+    /// SwifterSwift: Search all superviews until a view with the condition is found.
+    ///
+    /// - Parameter predicate: predicate to evaluate on superviews.
+    public func ancestorView(where predicate: (UIView?) -> Bool) -> UIView? {
+        if predicate(superview) {
+            return superview
+        }
+        return superview?.ancestorView(where: predicate)
+    }
+
     /// SwifterSwift: Search all superviews until a view with this class is found.
     ///
     /// - Parameter name: class of the view to search.
     public func ancestorView<T: UIView>(withClass name: T.Type) -> T? {
-        guard let view = superview as? T else {
-            return superview?.ancestorView(withClass: name)
-        }
-        return view
+        return ancestorView(where: { $0 is T }) as? T
     }
 
 }
