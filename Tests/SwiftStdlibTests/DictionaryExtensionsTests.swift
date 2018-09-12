@@ -63,14 +63,13 @@ final class DictionaryExtensionsTests: XCTestCase {
 		XCTAssertNil(["key": NSObject()].jsonString())
 		XCTAssertNil([1: 2].jsonString())
 	}
-    
+
     func testKeysForValue() {
         let dict = ["key1": "value1", "key2": "value1", "key3": "value2"]
         let result = dict.keys(forValue: "value1")
-        XCTAssertNotNil(result)
-        XCTAssertEqual(result?.contains("key1"), true)
-        XCTAssertEqual(result?.contains("key2"), true)
-        XCTAssertNotEqual(result?.contains("key3"), true)
+        XCTAssertTrue(result.contains("key1"))
+        XCTAssertTrue(result.contains("key2"))
+        XCTAssertFalse(result.contains("key3"))
     }
 
 	func testLowercaseAllKeys() {
