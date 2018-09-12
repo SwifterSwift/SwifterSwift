@@ -120,7 +120,7 @@ public extension Dictionary where Value: Equatable {
     ///        dict.keys(forValue: "value2") -> ["key3"]
     ///        dict.keys(forValue: "value3") -> []
     ///
-    /// - Parameter forValue: Value for which keys are to be fetched.
+    /// - Parameter value: Value for which keys are to be fetched.
     /// - Returns: An array containing keys that have the given value.
     public func keys(forValue value: Value) -> [Key] {
         return keys.filter { self[$0] == value }
