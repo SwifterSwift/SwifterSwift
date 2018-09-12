@@ -64,6 +64,14 @@ final class DictionaryExtensionsTests: XCTestCase {
 		XCTAssertNil([1: 2].jsonString())
 	}
 
+    func testKeysForValue() {
+        let dict = ["key1": "value1", "key2": "value1", "key3": "value2"]
+        let result = dict.keys(forValue: "value1")
+        XCTAssertTrue(result.contains("key1"))
+        XCTAssertTrue(result.contains("key2"))
+        XCTAssertFalse(result.contains("key3"))
+    }
+
 	func testLowercaseAllKeys() {
 		var dict = ["tEstKeY": "value"]
 		dict.lowercaseAllKeys()

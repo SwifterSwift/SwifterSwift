@@ -110,6 +110,24 @@ public extension Dictionary {
 
 }
 
+// MARK: - Methods (Value: Equatable)
+public extension Dictionary where Value: Equatable {
+
+    /// SwifterSwift: Returns an array of all keys that have the given value in dictionary.
+    ///
+    ///        let dict = ["key1": "value1", "key2": "value1", "key3": "value2"]
+    ///        dict.keys(forValue: "value1") -> ["key1", "key2"]
+    ///        dict.keys(forValue: "value2") -> ["key3"]
+    ///        dict.keys(forValue: "value3") -> []
+    ///
+    /// - Parameter value: Value for which keys are to be fetched.
+    /// - Returns: An array containing keys that have the given value.
+    public func keys(forValue value: Value) -> [Key] {
+        return keys.filter { self[$0] == value }
+    }
+
+}
+
 // MARK: - Methods (ExpressibleByStringLiteral)
 public extension Dictionary where Key: StringProtocol {
 
