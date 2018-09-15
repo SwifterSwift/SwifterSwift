@@ -184,8 +184,8 @@ public extension Array where Element: Equatable {
 	/// - Returns: self after removing all instances of item.
 	@discardableResult
 	public mutating func removeAll(_ item: Element) -> [Element] {
-		self = filter { $0 != item }
-		return self
+		removeAll(where: { $0 == item })
+        return self
 	}
 
 	/// SwifterSwift: Remove all instances contained in items parameter from array.
@@ -198,7 +198,7 @@ public extension Array where Element: Equatable {
 	@discardableResult
 	public mutating func removeAll(_ items: [Element]) -> [Element] {
 		guard !items.isEmpty else { return self }
-		self = filter { !items.contains($0) }
+		removeAll(where: { items.contains($0) })
 		return self
 	}
 
