@@ -29,7 +29,7 @@ public extension NSAttributedString {
 
 	/// SwifterSwift: Underlined string.
 	public var underlined: NSAttributedString {
-		return applying(attributes: [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+        return applying(attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
 	}
 
 	#if os(iOS)
@@ -41,11 +41,11 @@ public extension NSAttributedString {
 
 	/// SwifterSwift: Struckthrough string.
 	public var struckthrough: NSAttributedString {
-		return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
+        return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
 	}
 
 	/// SwifterSwift: Dictionary of the attributes applied across the whole string
-	public var attributes: [NSAttributedStringKey: Any] {
+    public var attributes: [NSAttributedString.Key: Any] {
 		return attributes(at: 0, effectiveRange: nil)
 	}
 
@@ -58,7 +58,7 @@ public extension NSAttributedString {
 	///
 	/// - Parameter attributes: Dictionary of attributes
 	/// - Returns: NSAttributedString with applied attributes
-	fileprivate func applying(attributes: [NSAttributedStringKey: Any]) -> NSAttributedString {
+    fileprivate func applying(attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
 		let copy = NSMutableAttributedString(attributedString: self)
 		let range = (string as NSString).range(of: string)
 		copy.addAttributes(attributes, range: range)
@@ -90,7 +90,7 @@ public extension NSAttributedString {
 	///   - attributes: Dictionary of attributes
 	///   - pattern: a regular expression to target
 	/// - Returns: An NSAttributedString with attributes applied to substrings matching the pattern
-	public func applying(attributes: [NSAttributedStringKey: Any], toRangesMatching pattern: String) -> NSAttributedString {
+    public func applying(attributes: [NSAttributedString.Key: Any], toRangesMatching pattern: String) -> NSAttributedString {
 		guard let pattern = try? NSRegularExpression(pattern: pattern, options: []) else { return self }
 
 		let matches = pattern.matches(in: string, options: [], range: NSRange(0..<length))
@@ -109,7 +109,7 @@ public extension NSAttributedString {
 	///   - attributes: Dictionary of attributes
 	///   - target: a subsequence string for the attributes to be applied to
 	/// - Returns: An NSAttributedString with attributes applied on the target string
-	public func applying<T: StringProtocol>(attributes: [NSAttributedStringKey: Any], toOccurrencesOf target: T) -> NSAttributedString {
+    public func applying<T: StringProtocol>(attributes: [NSAttributedString.Key: Any], toOccurrencesOf target: T) -> NSAttributedString {
 		let pattern = "\\Q\(target)\\E"
 
 		return applying(attributes: attributes, toRangesMatching: pattern)

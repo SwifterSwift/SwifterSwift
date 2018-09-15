@@ -83,12 +83,12 @@ final class UIViewControllerExtensionsTests: XCTestCase {
 		let parentViewController = UIViewController()
 		let childViewController = UIViewController()
 
-		XCTAssert(parentViewController.childViewControllers.isEmpty)
+        XCTAssert(parentViewController.children.isEmpty)
 		XCTAssertNil(childViewController.parent)
 
 		parentViewController.addChildViewController(childViewController, toContainerView: parentViewController.view)
 
-		XCTAssertEqual(parentViewController.childViewControllers, [childViewController])
+        XCTAssertEqual(parentViewController.children, [childViewController])
 		XCTAssertNotNil(childViewController.parent)
 		XCTAssertEqual(childViewController.parent, parentViewController)
 	}
@@ -97,17 +97,17 @@ final class UIViewControllerExtensionsTests: XCTestCase {
 		let parentViewController = UIViewController()
 		let childViewController = UIViewController()
 
-		parentViewController.addChildViewController(childViewController)
+        parentViewController.addChild(childViewController)
 		parentViewController.view.addSubview(childViewController.view)
-		childViewController.didMove(toParentViewController: parentViewController)
+        childViewController.didMove(toParent: parentViewController)
 
-		XCTAssertEqual(parentViewController.childViewControllers, [childViewController])
+        XCTAssertEqual(parentViewController.children, [childViewController])
 		XCTAssertNotNil(childViewController.parent)
 		XCTAssertEqual(childViewController.parent, parentViewController)
 
 		childViewController.removeViewAndControllerFromParentViewController()
 
-		XCTAssert(parentViewController.childViewControllers.isEmpty)
+        XCTAssert(parentViewController.children.isEmpty)
 		XCTAssertNil(childViewController.parent)
 	}
 

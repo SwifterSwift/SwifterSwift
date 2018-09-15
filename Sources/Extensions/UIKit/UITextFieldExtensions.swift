@@ -154,7 +154,7 @@ public extension UITextField {
 		imageView.contentMode = .center
 		self.leftView = imageView
 		self.leftView?.frame.size = CGSize(width: image.size.width + padding, height: image.size.height)
-		self.leftViewMode = UITextFieldViewMode.always
+        self.leftViewMode = UITextField.ViewMode.always
 	}
 
 }

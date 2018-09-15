@@ -85,7 +85,7 @@ final class UIImageExtensionsTests: XCTestCase {
 		let rotatedImage = image.rotated(by: Measurement(value: 180, unit: .degrees))
 		XCTAssertNotNil(rotatedImage)
 		XCTAssertEqual(rotatedImage!.size, image.size)
-		XCTAssertNotEqual(UIImageJPEGRepresentation(image, 1), UIImageJPEGRepresentation(rotatedImage!, 1))
+		XCTAssertNotEqual(image.jpegData(compressionQuality: 1), rotatedImage!.jpegData(compressionQuality: 1))
 	}
 
 	func testRotatedByRadians() {
@@ -99,7 +99,7 @@ final class UIImageExtensionsTests: XCTestCase {
 		let rotatedImage = image.rotated(by: .pi)
 		XCTAssertNotNil(rotatedImage)
 		XCTAssertEqual(rotatedImage!.size, image.size)
-		XCTAssertNotEqual(UIImageJPEGRepresentation(image, 1), UIImageJPEGRepresentation(rotatedImage!, 1))
+		XCTAssertNotEqual(image.jpegData(compressionQuality: 1), rotatedImage!.jpegData(compressionQuality: 1))
 	}
 
 	func testFilled() {

@@ -18,7 +18,7 @@ public extension UINavigationBar {
 	///   - font: title font
 	///   - color: title text color (default is .black).
 	public func setTitleFont(_ font: UIFont, color: UIColor = .black) {
-		var attrs = [NSAttributedStringKey: Any]()
+        var attrs = [NSAttributedString.Key: Any]()
 		attrs[.font] = font
 		attrs[.foregroundColor] = color
 		titleTextAttributes = attrs

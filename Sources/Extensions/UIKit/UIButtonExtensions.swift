@@ -137,7 +137,7 @@ public extension UIButton {
 // MARK: - Methods
 public extension UIButton {
 
-	private var states: [UIControlState] {
+    private var states: [UIControl.State] {
 		return [.normal, .selected, .highlighted, .disabled]
 	}
 
