@@ -15,7 +15,7 @@ final class NSImageExtensionsTests: XCTestCase {
 
 	func testScaledToMaxSize() {
 		let bundle = Bundle.init(for: NSImageExtensionsTests.self)
-		let image = bundle.image(forResource: NSImage.Name(rawValue: "TestImage"))
+		let image = bundle.image(forResource: NSImage.Name(stringLiteral: "TestImage"))
 		XCTAssertNotNil(image)
 
 		let scaledImage = image!.scaled(toMaxSize: NSSize(width: 150, height: 150))
