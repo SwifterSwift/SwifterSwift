@@ -6,12 +6,16 @@
 //  Copyright © 2016 SwifterSwift
 //
 
+#if canImport(Foundation)
+import Foundation
+#endif
+
 // MARK: - Properties
 public extension Character {
 
 	/// SwifterSwift: Check if character is emoji.
 	///
-	///		Character("😀").isEmoji -> true
+	///        Character("😀").isEmoji -> true
 	///
 	public var isEmoji: Bool {
 		// http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
@@ -30,8 +34,8 @@ public extension Character {
 
 	/// SwifterSwift: Check if character is number.
 	///
-	///		Character("1").isNumber -> true
-	///		Character("a").isNumber -> false
+	///        Character("1").isNumber -> true
+	///        Character("a").isNumber -> false
 	///
 	public var isNumber: Bool {
 		return Int(String(self)) != nil
@@ -39,26 +43,26 @@ public extension Character {
 
 	/// SwifterSwift: Check if character is a letter.
 	///
-	///		Character("4").isLetter -> false
-	///		Character("a").isLetter -> true
+	///        Character("4").isLetter -> false
+	///        Character("a").isLetter -> true
 	///
 	public var isLetter: Bool {
 		return String(self).rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
 	}
 
-    /// SwifterSwift: Check if character is lowercased.
-    ///
-    ///        Character("a").isLowercased -> true
-    ///        Character("A").isLowercased -> false
-    ///
-    public var isLowercased: Bool {
-        return String(self) == String(self).lowercased()
-    }
+	/// SwifterSwift: Check if character is lowercased.
+	///
+	///        Character("a").isLowercased -> true
+	///        Character("A").isLowercased -> false
+	///
+	public var isLowercased: Bool {
+		return String(self) == String(self).lowercased()
+	}
 
 	/// SwifterSwift: Check if character is uppercased.
 	///
-	///		Character("a").isUppercased -> false
-	///		Character("A").isUppercased -> true
+	///        Character("a").isUppercased -> false
+	///        Character("A").isUppercased -> true
 	///
 	public var isUppercased: Bool {
 		return String(self) == String(self).uppercased()
@@ -66,8 +70,8 @@ public extension Character {
 
 	/// SwifterSwift: Check if character is white space.
 	///
-	///		Character(" ").isWhiteSpace -> true
-	///		Character("A").isWhiteSpace -> false
+	///        Character(" ").isWhiteSpace -> true
+	///        Character("A").isWhiteSpace -> false
 	///
 	public var isWhiteSpace: Bool {
 		return String(self) == " "
@@ -75,8 +79,8 @@ public extension Character {
 
 	/// SwifterSwift: Integer from character (if applicable).
 	///
-	///		Character("1").int -> 1
-	///		Character("A").int -> nil
+	///        Character("1").int -> 1
+	///        Character("A").int -> nil
 	///
 	public var int: Int? {
 		return Int(String(self))
@@ -84,7 +88,7 @@ public extension Character {
 
 	/// SwifterSwift: String from character.
 	///
-	///		Character("a").string -> "a"
+	///        Character("a").string -> "a"
 	///
 	public var string: String {
 		return String(self)
@@ -92,7 +96,7 @@ public extension Character {
 
 	/// SwifterSwift: Return the character lowercased.
 	///
-	///		Character("A").lowercased -> Character("a")
+	///        Character("A").lowercased -> Character("a")
 	///
 	public var lowercased: Character {
 		return String(self).lowercased().first!
@@ -100,26 +104,31 @@ public extension Character {
 
 	/// SwifterSwift: Return the character uppercased.
 	///
-	///		Character("a").uppercased -> Character("A")
+	///        Character("a").uppercased -> Character("A")
 	///
 	public var uppercased: Character {
 		return String(self).uppercased().first!
 	}
+
 }
 
 // MARK: - Methods
 public extension Character {
-    /// SwifterSwift: Random character.
-    ///
-    ///    Character.random() -> k
-    ///
-    /// - Returns: A random character.
-    public static func randomAlphanumeric() -> Character {
-        let allCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let randomNumber = Int(arc4random_uniform(UInt32(allCharacters.count)))
-        let randomIndex = allCharacters.index(allCharacters.startIndex, offsetBy: randomNumber)
-        return allCharacters[randomIndex]
-    }
+
+	#if canImport(Foundation)
+	/// SwifterSwift: Random character.
+	///
+	///    Character.random() -> k
+	///
+	/// - Returns: A random character.
+	public static func randomAlphanumeric() -> Character {
+		let allCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+		let randomNumber = Int(arc4random_uniform(UInt32(allCharacters.count)))
+		let randomIndex = allCharacters.index(allCharacters.startIndex, offsetBy: randomNumber)
+		return allCharacters[randomIndex]
+	}
+	#endif
+
 }
 
 // MARK: - Operators
@@ -127,7 +136,7 @@ public extension Character {
 
 	/// SwifterSwift: Repeat character multiple times.
 	///
-	///		Character("-") * 10 -> "----------"
+	///        Character("-") * 10 -> "----------"
 	///
 	/// - Parameters:
 	///   - lhs: character to repeat.
@@ -140,7 +149,7 @@ public extension Character {
 
 	/// SwifterSwift: Repeat character multiple times.
 	///
-	///		10 * Character("-") -> "----------"
+	///        10 * Character("-") -> "----------"
 	///
 	/// - Parameters:
 	///   - lhs: number of times to repeat character.
@@ -150,4 +159,5 @@ public extension Character {
 		guard lhs > 0 else { return "" }
 		return String(repeating: String(rhs), count: lhs)
 	}
+
 }

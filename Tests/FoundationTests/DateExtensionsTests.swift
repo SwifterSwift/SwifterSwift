@@ -5,8 +5,12 @@
 //  Created by Omar Albeik on 8/27/16.
 //  Copyright © 2016 SwifterSwift
 //
+
 import XCTest
 @testable import SwifterSwift
+
+#if canImport(Foundation)
+import Foundation
 
 // swiftlint:disable next type_body_length
 final class DateExtensionsTests: XCTestCase {
@@ -941,3 +945,5 @@ final class DateExtensionsTests: XCTestCase {
 	}
 
 }
+
+#endif

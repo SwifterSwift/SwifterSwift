@@ -68,12 +68,12 @@ public extension UIImage {
 	///
 	/// - Parameters:
 	///   - toHeight: new height.
-    ///   - opaque: flag indicating whether the bitmap is opaque.
+	///   - opaque: flag indicating whether the bitmap is opaque.
 	/// - Returns: optional scaled UIImage (if applicable).
-    public func scaled(toHeight: CGFloat, opaque: Bool = false) -> UIImage? {
+	public func scaled(toHeight: CGFloat, opaque: Bool = false) -> UIImage? {
 		let scale = toHeight / size.height
 		let newWidth = size.width * scale
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: newWidth, height: toHeight), opaque, 0)
+		UIGraphicsBeginImageContextWithOptions(CGSize(width: newWidth, height: toHeight), opaque, 0)
 		draw(in: CGRect(x: 0, y: 0, width: newWidth, height: toHeight))
 		let newImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
@@ -84,13 +84,76 @@ public extension UIImage {
 	///
 	/// - Parameters:
 	///   - toWidth: new width.
-    ///   - opaque: flag indicating whether the bitmap is opaque.
+	///   - opaque: flag indicating whether the bitmap is opaque.
 	/// - Returns: optional scaled UIImage (if applicable).
 	public func scaled(toWidth: CGFloat, opaque: Bool = false) -> UIImage? {
 		let scale = toWidth / size.width
 		let newHeight = size.height * scale
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: toWidth, height: newHeight), opaque, 0)
+		UIGraphicsBeginImageContextWithOptions(CGSize(width: toWidth, height: newHeight), opaque, 0)
 		draw(in: CGRect(x: 0, y: 0, width: toWidth, height: newHeight))
+		let newImage = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return newImage
+	}
+
+    /// SwifterSwift: Creates a copy of the receiver rotated by the given angle.
+	///
+	///     // Rotate the image by 180°
+	///     image.rotated(by: Measurement(value: 180, unit: .degrees))
+	///
+	/// - Parameter angle: The angle measurement by which to rotate the image.
+	/// - Returns: A new image rotated by the given angle.
+	@available(iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+	public func rotated(by angle: Measurement<UnitAngle>) -> UIImage? {
+		let radians = CGFloat(angle.converted(to: .radians).value)
+
+		let destRect = CGRect(origin: .zero, size: size)
+			.applying(CGAffineTransform(rotationAngle: radians))
+		let roundedDestRect = CGRect(x: destRect.origin.x.rounded(),
+									 y: destRect.origin.y.rounded(),
+									 width: destRect.width.rounded(),
+									 height: destRect.height.rounded())
+
+		UIGraphicsBeginImageContext(roundedDestRect.size)
+		guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
+
+		contextRef.translateBy(x: roundedDestRect.width / 2, y: roundedDestRect.height / 2)
+		contextRef.rotate(by: radians)
+
+		draw(in: CGRect(origin: CGPoint(x: -size.width / 2,
+										y: -size.height / 2),
+						size: size))
+
+		let newImage = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return newImage
+	}
+
+	/// SwifterSwift: Creates a copy of the receiver rotated by the given angle (in radians).
+	///
+	///     // Rotate the image by 180°
+	///     image.rotated(by: .pi)
+	///
+	/// - Parameter radians: The angle, in radians, by which to rotate the image.
+	/// - Returns: A new image rotated by the given angle.
+	public func rotated(by radians: CGFloat) -> UIImage? {
+		let destRect = CGRect(origin: .zero, size: size)
+			.applying(CGAffineTransform(rotationAngle: radians))
+		let roundedDestRect = CGRect(x: destRect.origin.x.rounded(),
+									 y: destRect.origin.y.rounded(),
+									 width: destRect.width.rounded(),
+									 height: destRect.height.rounded())
+
+		UIGraphicsBeginImageContext(roundedDestRect.size)
+		guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
+
+		contextRef.translateBy(x: roundedDestRect.width / 2, y: roundedDestRect.height / 2)
+		contextRef.rotate(by: radians)
+
+		draw(in: CGRect(origin: CGPoint(x: -size.width / 2,
+										y: -size.height / 2),
+						size: size))
+
 		let newImage = UIGraphicsGetImageFromCurrentImageContext()
 		UIGraphicsEndImageContext()
 		return newImage
@@ -138,30 +201,30 @@ public extension UIImage {
 		return tintedImage!
 	}
 
-    /// SwifterSwift: UIImage with rounded corners
-    ///
-    /// - Parameters:
-    ///   - radius: corner radius (optional), resulting image will be round if unspecified
-    /// - Returns: UIImage with all corners rounded
-    public func withRoundedCorners(radius: CGFloat? = nil) -> UIImage? {
-        let maxRadius = min(size.width, size.height) / 2
-        let cornerRadius: CGFloat
-        if let radius = radius, radius > 0 && radius <= maxRadius {
-            cornerRadius = radius
-        } else {
-            cornerRadius = maxRadius
-        }
+	/// SwifterSwift: UIImage with rounded corners
+	///
+	/// - Parameters:
+	///   - radius: corner radius (optional), resulting image will be round if unspecified
+	/// - Returns: UIImage with all corners rounded
+	public func withRoundedCorners(radius: CGFloat? = nil) -> UIImage? {
+		let maxRadius = min(size.width, size.height) / 2
+		let cornerRadius: CGFloat
+		if let radius = radius, radius > 0 && radius <= maxRadius {
+			cornerRadius = radius
+		} else {
+			cornerRadius = maxRadius
+		}
 
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+		UIGraphicsBeginImageContextWithOptions(size, false, scale)
 
-        let rect = CGRect(origin: .zero, size: size)
-        UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
-        draw(in: rect)
+		let rect = CGRect(origin: .zero, size: size)
+		UIBezierPath(roundedRect: rect, cornerRadius: cornerRadius).addClip()
+		draw(in: rect)
 
-        let image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return image
-    }
+		let image = UIGraphicsGetImageFromCurrentImageContext()
+		UIGraphicsEndImageContext()
+		return image
+	}
 
 }
 

@@ -4,10 +4,19 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+- **CGVector**
+  - Added `angle` computed property to get the angle of the vector (in radians). [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
+  - Added `magnitude` computed property to get the magnitude (or length) of the vector. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
+  - Added scalar multiplication of CGFloat and CGVector via standard multiplication operator (\*). [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
+  - Added negation of vectors via prefix (-) operator. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
+  - Added `init(angle:magnitude:)` to create vectors based on their angle and magnitude. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
 -**UIRefreshControl**:
   - `beginRefresh(in tableView:, animated:, sendAction:)` UIRefreshControl extension to begin refresh programatically. [#525](https://github.com/SwifterSwift/SwifterSwift/pull/525) by [ratulSharker](https://github.com/ratulSharker)
 - **Dictionary**:
   - Added `removeValueForRandomKey()` to remove a value for a random key from a dictionary. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [vyax](https://github.com/vyax).
+  - Added `mapKeysAndValues(_:)` to map a `Dictionary` into a `Dictionary` with different (or same) `Key` and `Value` types. [#546](https://github.com/SwifterSwift/SwifterSwift/pull/546) by [guykogus](https://github.com/guykogus)
+  - Added `compactMapKeysAndValues(_:)` to map a `Dictionary` into a `Dictionary`, excluding `nil` results, with different (or same) `Key` and `Value` types. [#546](https://github.com/SwifterSwift/SwifterSwift/pull/546) by [guykogus](https://github.com/guykogus)
+  - Added `keys(forValue:)` which returns an array of all keys that have the given value in dictionary. [#561](https://github.com/SwifterSwift/SwifterSwift/pull/561) by [mauliksharma](https://github.com/mauliksharma).
 - **RangeReplaceableCollection**:
   - Added `removeRandomElement()` to remove a random element from a collection. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [vyax](https://github.com/vyax).
 - **UIView**
@@ -18,8 +27,29 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `removeViewAndControllerFromParentViewController()` to remove a `UIViewController` from its parent.
 - **UIEdgeInsets**
   - Added  `insetBy(top:)`, `insetBy(left:)`, `insetBy(bottom:)`, `insetBy(right:)`, `insetBy(horizontal:)` and `insetBy(vertical:)` to creates an `UIEdgeInsets` based on current value and adjusted by given offset. [#532](https://github.com/SwifterSwift/SwifterSwift/pull/532) by [VincentSit](https://github.com/VincentSit).
+  - Added operators `+` and `+=` to add two insets together in order to extend them. [#557](https://github.com/SwifterSwift/SwifterSwift/pull/557) by [guykogus](https://github.com/guykogus)
+- **UILayoutPriority**
+  - Added `init(floatLiteral value: Float)` initializer to initialize priority with float literal. [#549](https://github.com/SwifterSwift/SwifterSwift/pull/549) by [diamantidis](https://github.com/diamantidis).
+  - Added `init(integerLiteral value: Int)` initializer to initialize priority with integer literal. [#549](https://github.com/SwifterSwift/SwifterSwift/pull/549) by [diamantidis](https://github.com/diamantidis).
 - **RangeReplaceableCollection**
   - `init(expression:count:)` to create a collection of a given count initialized with an expression.[#537](https://github.com/SwifterSwift/SwifterSwift/pull/537) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **Optional**:
+  - Added `?=` operator to assign to nil optionals only. [#538](https://github.com/SwifterSwift/SwifterSwift/pull/538) by [viktart](https://github.com/viktart)
+- **Data**:
+  - Added `jsonObject(options:)` to convert a data object into a JSON object. [#542](https://github.com/SwifterSwift/SwifterSwift/pull/542) by [guykogus](https://github.com/guykogus)
+- **URL**
+  - Added `droppedScheme()` which returns new `URL` that does not have scheme. [#528](https://github.com/SwifterSwift/SwifterSwift/pull/528) by [sammy-sc](https://github.com/sammy-SC)
+- **CGSize**
+  - Added operator `+` to return the addition of two CGSize.
+  - Added operator `+=` to add a CGSize to another.
+  - Added operator `-` to return the subtraction of two CGSize.
+  - Added operator `-=` to subtract a CGSize from another.
+  - Added operator `CGSize * CGSize` to return the multiplication of two CGSize.
+  - Added operator `CGSize * CGFloat` and `CGFloat * CGSize` to return the multiplication of a CGSize and a CGFloat value.
+  - Added operator `CGSize *= CGSize` to multiply a CGSize with another one.
+  - Added operator `CGSize *= CGFloat` to multiply a CGSize with a CGFloat value.
+- **UIImage**:
+  - Added `rotate(by:)` for generating rotated versions of images. There are 2 versions, one where the angle is passed directly as a `CGFloat` in radians, the other using the `Measurement` class, which is only available for iOS 10+/tvOS 10+/watchOS 3+. [#555](https://github.com/SwifterSwift/SwifterSwift/pull/555) by [guykogus](https://github.com/guykogus)
 
 ### Changed
 - **RangeReplaceableCollection**:
@@ -27,12 +57,15 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `removeFirst(where:)` array extension now is more generic `RangeReplaceableCollection` extensions. [#516](https://github.com/SwifterSwift/SwifterSwift/pull/516) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **RandomAccessCollection**:
   - `indices(of:)` array extension now is more generic `RandomAccessCollection` extensions. [#516](https://github.com/SwifterSwift/SwifterSwift/pull/516) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **UIView**:
+  - Improved performance in `fillToSuperview()` UIView extension. [#540](https://github.com/SwifterSwift/SwifterSwift/pull/540) by [viktart](https://github.com/viktart)
 
 ### Fixed
 - **UIImage**:
 - Fixed `scaled(toWidth:, with orientation:)` and `scaled(toHeight:, with orientation:)` were using image's scale as the scale factor. [#515](https://github.com/SwifterSwift/SwifterSwift/pull/515) by [VincentSit](https://github.com/VincentSit).
 - **String**:
   - Used [RFC 5322](http://emailregex.com/) in `isValidEmail`, an email address regex that 99.99% works. [#517](https://github.com/SwifterSwift/SwifterSwift/pull/517) by [Omar Albeik](https://github.com/omaralbeik)
+  - Fixed `unicodeArray()` not returning the correct unicode value due to Swift 4.2 new hashing system. [#544](https://github.com/SwifterSwift/SwifterSwift/pull/544) by [Omar Albeik](https://github.com/omaralbeik)
 
 ### Deprecated
 - **String**:
@@ -57,6 +90,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `removeFromView()` method to remove recognizer from the view the recognizer is attached to. [#456](https://github.com/SwifterSwift/SwifterSwift/pull/456) by [mmdock](https://github.com/mmdock)
 - **Character**:
   - Added `randomAlphanumeric()` method to generate a random alphanumeric Character. [#462](https://github.com/SwifterSwift/SwifterSwift/pull/462) by [oliviabrown9](https://github.com/oliviabrown9)
+- **String**:
+  - Added `firstCharacterUppercased()` method to return a string with only the first character uppercased. [#505](https://github.com/SwifterSwift/SwifterSwift/pull/505) by [happiehappie](https://github.com/happiehappie)
 - **UITextView**:
   - Added `wrapToContent()` method which will remove insets, offsets, paddings which lies within UITextView's `bounds` and `contenSize`. [#458](https://github.com/SwifterSwift/SwifterSwift/pull/458) by [ratulSharker](https://github.com/ratulSharker)
 - **URL**

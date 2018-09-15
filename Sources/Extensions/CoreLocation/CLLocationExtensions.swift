@@ -59,8 +59,8 @@ public extension CLLocation {
 		let lat2 = Double.pi * destination.coordinate.latitude / 180.0
 		let long2 = Double.pi * destination.coordinate.longitude / 180.0
 
-		//Formula: θ = atan2( sin Δλ ⋅ cos φ2 , cos φ1 ⋅ sin φ2 − sin φ1 ⋅ cos φ2 ⋅ cos Δλ )
-		//Source: http://www.movable-type.co.uk/scripts/latlong.html
+		// Formula: θ = atan2( sin Δλ ⋅ cos φ2 , cos φ1 ⋅ sin φ2 − sin φ1 ⋅ cos φ2 ⋅ cos Δλ )
+		// Source: http://www.movable-type.co.uk/scripts/latlong.html
 
 		let rads = atan2(
 			sin(long2 - long1) * cos(lat2),

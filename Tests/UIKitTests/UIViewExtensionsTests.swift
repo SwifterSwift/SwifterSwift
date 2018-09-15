@@ -5,12 +5,14 @@
 //  Created by Omar Albeik on 2/15/17.
 //  Copyright © 2017 SwifterSwift
 //
+
 import XCTest
 @testable import SwifterSwift
 
-// swiftlint:disable type_body_length, type_body_length
+#if canImport(UIKit) && !os(watchOS)
+import UIKit
 
-#if os(iOS) || os(tvOS)
+// swiftlint:disable type_body_length, type_body_length
 final class UIViewExtensionsTests: XCTestCase {
 
 	func testBorderColor() {
@@ -43,30 +45,30 @@ final class UIViewExtensionsTests: XCTestCase {
 		XCTAssertEqual(view.cornerRadius, 50)
 	}
 
-    func testFirstResponder() {
-        // When there's no firstResponder
-        XCTAssertNil(UIView().firstResponder())
+	func testFirstResponder() {
+		// When there's no firstResponder
+		XCTAssertNil(UIView().firstResponder())
 
-        let window = UIWindow()
+		let window = UIWindow()
 
-        // When self is firstResponder
-        let txtView = UITextField(frame: CGRect.zero)
-        window.addSubview(txtView)
-        txtView.becomeFirstResponder()
-        XCTAssertTrue(txtView.firstResponder() === txtView)
+		// When self is firstResponder
+		let txtView = UITextField(frame: CGRect.zero)
+		window.addSubview(txtView)
+		txtView.becomeFirstResponder()
+		XCTAssertTrue(txtView.firstResponder() === txtView)
 
-        // When a subview is firstResponder
-        let superView = UIView()
-        window.addSubview(superView)
-        let subView = UITextField(frame: CGRect.zero)
-        superView.addSubview(subView)
-        subView.becomeFirstResponder()
-        XCTAssertTrue(superView.firstResponder() === subView)
+		// When a subview is firstResponder
+		let superView = UIView()
+		window.addSubview(superView)
+		let subView = UITextField(frame: CGRect.zero)
+		superView.addSubview(subView)
+		subView.becomeFirstResponder()
+		XCTAssertTrue(superView.firstResponder() === subView)
 
-        // When you have to find recursively
-        XCTAssertTrue(window.firstResponder() === subView)
+		// When you have to find recursively
+		XCTAssertTrue(window.firstResponder() === subView)
 
-    }
+	}
 
 	func testHeight() {
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -76,10 +78,10 @@ final class UIViewExtensionsTests: XCTestCase {
 		XCTAssertEqual(view.frame.size.height, 150)
 	}
 
-    func testIsRightToLeft() {
-        let view = UIView()
-        XCTAssertFalse(view.isRightToLeft)
-    }
+	func testIsRightToLeft() {
+		let view = UIView()
+		XCTAssertFalse(view.isRightToLeft)
+	}
 
 	func testRoundCorners() {
 		let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
@@ -316,40 +318,40 @@ final class UIViewExtensionsTests: XCTestCase {
 		XCTAssertEqual(view.gestureRecognizers!.count, 0)
 	}
 
-    func testAddGestureRecognizers() {
-        let view = UIView()
+	func testAddGestureRecognizers() {
+		let view = UIView()
 
-        XCTAssertNil(view.gestureRecognizers)
+		XCTAssertNil(view.gestureRecognizers)
 
-        let tap = UITapGestureRecognizer(target: nil, action: nil)
-        let pan = UIPanGestureRecognizer(target: nil, action: nil)
-        let swipe = UISwipeGestureRecognizer(target: nil, action: nil)
+		let tap = UITapGestureRecognizer(target: nil, action: nil)
+		let pan = UIPanGestureRecognizer(target: nil, action: nil)
+		let swipe = UISwipeGestureRecognizer(target: nil, action: nil)
 
-        view.addGestureRecognizers([tap, pan, swipe])
+		view.addGestureRecognizers([tap, pan, swipe])
 
-        XCTAssertNotNil(view.gestureRecognizers)
-        XCTAssertEqual(view.gestureRecognizers!.count, 3)
-    }
+		XCTAssertNotNil(view.gestureRecognizers)
+		XCTAssertEqual(view.gestureRecognizers!.count, 3)
+	}
 
-    func testRemoveGestureRecognizersVariadic() {
-        let view = UIView()
+	func testRemoveGestureRecognizersVariadic() {
+		let view = UIView()
 
-        XCTAssertNil(view.gestureRecognizers)
+		XCTAssertNil(view.gestureRecognizers)
 
-        let tap = UITapGestureRecognizer(target: nil, action: nil)
-        let pan = UIPanGestureRecognizer(target: nil, action: nil)
-        let swipe = UISwipeGestureRecognizer(target: nil, action: nil)
+		let tap = UITapGestureRecognizer(target: nil, action: nil)
+		let pan = UIPanGestureRecognizer(target: nil, action: nil)
+		let swipe = UISwipeGestureRecognizer(target: nil, action: nil)
 
-        view.addGestureRecognizers([tap, pan, swipe])
+		view.addGestureRecognizers([tap, pan, swipe])
 
-        XCTAssertNotNil(view.gestureRecognizers)
-        XCTAssertEqual(view.gestureRecognizers!.count, 3)
+		XCTAssertNotNil(view.gestureRecognizers)
+		XCTAssertEqual(view.gestureRecognizers!.count, 3)
 
-        view.removeGestureRecognizers([tap, pan, swipe])
+		view.removeGestureRecognizers([tap, pan, swipe])
 
-        XCTAssertNotNil(view.gestureRecognizers)
-        XCTAssert(view.gestureRecognizers!.isEmpty)
-    }
+		XCTAssertNotNil(view.gestureRecognizers)
+		XCTAssert(view.gestureRecognizers!.isEmpty)
+	}
 
 	func testAnchor() {
 		let view = UIView()
