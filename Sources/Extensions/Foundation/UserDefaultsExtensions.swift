@@ -40,10 +40,10 @@ public extension UserDefaults {
 		return object(forKey: key) as? Date
 	}
 
-	/// SwifterSwift: Retrieves a Codable object from UserDefaults.
+	/// SwifterSwift: Retrieves a Decodable object from UserDefaults.
 	///
 	/// - Parameters:
-	///   - type: Class that conforms to the Codable protocol.
+	///   - type: Class that conforms to the Decodable protocol.
 	///   - key: Identifier of the object.
 	///   - decoder: Custom JSONDecoder instance. Defaults to `JSONDecoder()`.
 	/// - Returns: Codable object for key (if exists).
@@ -55,7 +55,7 @@ public extension UserDefaults {
 	/// SwifterSwift: Allows storing of Encodable objects to UserDefaults.
 	///
 	/// - Parameters:
-	///   - object: Codable object to store.
+	///   - object: Encodable object to store.
 	///   - key: Identifier of the object.
 	///   - encoder: Custom JSONEncoder instance. Defaults to `JSONEncoder()`.
 	public func set<T: Encodable>(object: T, forKey key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()) {
