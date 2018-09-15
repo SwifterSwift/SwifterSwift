@@ -14,20 +14,20 @@ import UIKit
 
 final class UIBarButtonExtensionsTests: XCTestCase {
 
-	func testSelector() {}
+    func testSelector() {}
 
-	func testAddTargetForAction() {
+    func testAddTargetForAction() {
 
-		let barButton = UIBarButtonItem()
-		let selector = #selector(testSelector)
+        let barButton = UIBarButtonItem()
+        let selector = #selector(testSelector)
 
-		barButton.addTargetForAction(self, action: selector)
+        barButton.addTargetForAction(self, action: selector)
 
-		let target = barButton.target as? UIBarButtonExtensionsTests
+        let target = barButton.target as? UIBarButtonExtensionsTests
 
-		XCTAssertEqual(target, self)
-		XCTAssertEqual(barButton.action, selector)
-	}
+        XCTAssertEqual(target, self)
+        XCTAssertEqual(barButton.action, selector)
+    }
 
 }
 #endif

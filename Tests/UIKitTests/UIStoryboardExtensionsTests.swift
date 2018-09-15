@@ -14,15 +14,15 @@ import UIKit
 
 final class UIStoryboardExtensionsTests: XCTestCase {
 
-	func testMainStoryboard() {
-		XCTAssertNil(UIStoryboard.main)
-	}
+    func testMainStoryboard() {
+        XCTAssertNil(UIStoryboard.main)
+    }
 
-	func testInstantiateViewController() {
-		let storyboard = UIStoryboard(name: "TestStoryboard", bundle: Bundle(for: UIStoryboardExtensionsTests.self))
-		let viewController = storyboard.instantiateViewController(withClass: UIViewController.self)
-		XCTAssertNotNil(viewController)
-	}
+    func testInstantiateViewController() {
+        let storyboard = UIStoryboard(name: "TestStoryboard", bundle: Bundle(for: UIStoryboardExtensionsTests.self))
+        let viewController = storyboard.instantiateViewController(withClass: UIViewController.self)
+        XCTAssertNotNil(viewController)
+    }
 
 }
 #endif

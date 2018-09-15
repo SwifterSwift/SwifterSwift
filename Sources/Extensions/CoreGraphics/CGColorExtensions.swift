@@ -20,19 +20,19 @@ import Cocoa
 // MARK: - Properties
 public extension CGColor {
 
-	#if canImport(UIKit)
-	/// SwifterSwift: UIColor.
-	public var uiColor: UIColor? {
-		return UIColor(cgColor: self)
-	}
-	#endif
+    #if canImport(UIKit)
+    /// SwifterSwift: UIColor.
+    public var uiColor: UIColor? {
+        return UIColor(cgColor: self)
+    }
+    #endif
 
-	#if canImport(Cocoa)
-	/// SwifterSwift: NSColor.
-	public var nsColor: NSColor? {
-		return NSColor(cgColor: self)
-	}
-	#endif
+    #if canImport(Cocoa)
+    /// SwifterSwift: NSColor.
+    public var nsColor: NSColor? {
+        return NSColor(cgColor: self)
+    }
+    #endif
 
 }
 #endif
