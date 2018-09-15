@@ -46,7 +46,7 @@ public extension UserDefaults {
 	///   - type: Class that conforms to the Decodable protocol.
 	///   - key: Identifier of the object.
 	///   - decoder: Custom JSONDecoder instance. Defaults to `JSONDecoder()`.
-	/// - Returns: Codable object for key (if exists).
+	/// - Returns: Decodable object for key (if exists).
 	public func object<T: Decodable>(_ type: T.Type, with key: String, usingDecoder decoder: JSONDecoder = JSONDecoder()) -> T? {
 		guard let data = self.value(forKey: key) as? Data else { return nil }
 		return try? decoder.decode(type.self, from: data)
