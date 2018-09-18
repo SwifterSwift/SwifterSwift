@@ -56,32 +56,6 @@ final class FloatingPointExtensionsTests: XCTestCase {
         XCTAssertEqual(Double.pi.radiansToDegrees, Double(180))
     }
 
-    func testRandom() {
-        XCTAssertGreaterThan(Float.random(between: 1, and: 5), 0)
-        XCTAssertLessThan(Float.random(between: 1, and: 5), 6)
-
-        XCTAssertGreaterThan(Float(randomBetween: 1, and: 5), 0)
-        XCTAssertLessThan(Float(randomBetween: 1, and: 5), 6)
-
-        XCTAssertGreaterThan(Float.random(inRange: 1...5), 0)
-        XCTAssertLessThan(Float.random(inRange: 1...5), 6)
-
-        XCTAssertGreaterThan(Float(randomInRange: 1...5), 0)
-        XCTAssertLessThan(Float(randomInRange: 1...5), 6)
-
-        XCTAssertGreaterThan(Double.random(between: 1, and: 5), 0)
-        XCTAssertLessThan(Double.random(between: 1, and: 5), 6)
-
-        XCTAssertGreaterThan(Double(randomBetween: 1, and: 5), 0)
-        XCTAssertLessThan(Double(randomBetween: 1, and: 5), 6)
-
-        XCTAssertGreaterThan(Double.random(inRange: 1...5), 0)
-        XCTAssertLessThan(Double.random(inRange: 1...5), 6)
-
-        XCTAssertGreaterThan(Double(randomInRange: 1...5), 0)
-        XCTAssertLessThan(Double(randomInRange: 1...5), 6)
-    }
-
     func testOperators() {
         XCTAssert((Float(5.0) ± Float(2.0)) == (Float(3.0), Float(7.0)) || (Float(5.0) ± Float(2.0)) == (Float(7.0), Float(3.0)))
         XCTAssert((±Float(2.0)) == (Float(2.0), Float(-2.0)) || (±Float(2.0)) == (Float(-2.0), Float(2.0)))

@@ -94,32 +94,6 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(tuple.1, [1, 3, 5])
     }
 
-    func testShuffle() {
-        var arr = ["a"]
-        arr.shuffle()
-        XCTAssertEqual(arr, arr)
-
-        let original = [1, 2, 3, 4, 5]
-        var array = original
-
-        while original == array {
-            array.shuffle()
-        }
-        XCTAssertEqual(array.count, 5)
-        XCTAssertNotEqual(original, array)
-    }
-
-    func testShuffled() {
-        let original = [1, 2, 3, 4, 5]
-        var array = original
-
-        while original == array {
-            array = array.shuffled()
-        }
-        XCTAssertEqual(array.count, 5)
-        XCTAssertNotEqual(original, array)
-    }
-
     func testKeyPathSorted() {
         let array = [Person(name: "James", age: 32), Person(name: "Wade", age: 36), Person(name: "Rose", age: 29)]
 

@@ -94,25 +94,6 @@ public extension Int {
 // MARK: - Methods
 public extension Int {
 
-    /// SwifterSwift: Random integer between two integer values.
-    ///
-    /// - Parameters:
-    ///   - min: minimum number to start random from.
-    ///   - max: maximum number random number end before.
-    /// - Returns: random double between two double values.
-    public static func random(between min: Int, and max: Int) -> Int {
-        return random(inRange: min...max)
-    }
-
-    /// SwifterSwift: Random integer in a closed interval range.
-    ///
-    /// - Parameter range: closed interval range.
-    /// - Returns: random double in the given closed range.
-    public static func random(inRange range: ClosedRange<Int>) -> Int {
-        let delta = UInt32(range.upperBound - range.lowerBound + 1)
-        return range.lowerBound + Int(arc4random_uniform(delta))
-    }
-
     /// SwifterSwift: check if given integer prime or not.
     /// Warning: Using big numbers can be computationally expensive!
     /// - Returns: true or false depending on prime-ness
@@ -169,27 +150,6 @@ public extension Int {
     /// SwifterSwift: Rounds to the closest multiple of n
     public func roundToNearest(_ n: Int) -> Int {
         return n == 0 ? self : Int(round(Double(self) / Double(n))) * n
-    }
-
-}
-
-// MARK: - Initializers
-public extension Int {
-
-    /// SwifterSwift: Created a random integer between two integer values.
-    ///
-    /// - Parameters:
-    ///   - min: minimum number to start random from.
-    ///   - max: maximum number random number end before.
-    public init(randomBetween min: Int, and max: Int) {
-        self = Int.random(between: min, and: max)
-    }
-
-    /// SwifterSwift: Create a random integer in a closed interval range.
-    ///
-    /// - Parameter range: closed interval range.
-    public init(randomInRange range: ClosedRange<Int>) {
-        self = Int.random(inRange: range)
     }
 
 }

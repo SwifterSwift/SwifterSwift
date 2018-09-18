@@ -31,15 +31,4 @@ public extension Bool {
         return description
     }
 
-    #if canImport(Foundation)
-    /// SwifterSwift: Returns a random boolean value.
-    ///
-    ///     Bool.random -> true
-    ///     Bool.random -> false
-    ///
-    public static var random: Bool {
-        return arc4random_uniform(2) == 1
-    }
-    #endif
-
 }

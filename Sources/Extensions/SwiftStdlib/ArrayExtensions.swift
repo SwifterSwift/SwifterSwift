@@ -95,34 +95,6 @@ public extension Array {
         return (matching, nonMatching)
     }
 
-    #if canImport(Foundation)
-    /// SwifterSwift: Shuffle array. (Using Fisher-Yates Algorithm)
-    ///
-    ///        [1, 2, 3, 4, 5].shuffle() // shuffles array
-    ///
-    /// - Returns: self after shuffling.
-    @discardableResult
-    public mutating func shuffle() -> [Element] {
-        // http://stackoverflow.com/questions/37843647/shuffle-array-swift-3
-        guard count > 1 else { return self }
-        for index in startIndex..<endIndex - 1 {
-            let randomIndex = Int(arc4random_uniform(UInt32(endIndex - index))) + index
-            if index != randomIndex { swapAt(index, randomIndex) }
-        }
-        return self
-    }
-    #endif
-
-    /// SwifterSwift: Shuffled version of array. (Using Fisher-Yates Algorithm)
-    ///
-    ///        [1, 2, 3, 4, 5].shuffled // return a shuffled version from given array e.g. [2, 4, 1, 3, 5].
-    ///
-    /// - Returns: the array with its elements shuffled.
-    public func shuffled() -> [Element] {
-        var array = self
-        return array.shuffle()
-    }
-
     /// SwifterSwift: Returns a sorted array based on an optional keypath.
     ///
     /// - Parameter path: Key path to sort. The key path type must be Comparable.

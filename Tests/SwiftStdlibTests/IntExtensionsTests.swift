@@ -71,20 +71,6 @@ final class IntExtensionsTests: XCTestCase {
         XCTAssertEqual(1.digitsCount, 1)
     }
 
-    func testRandom() {
-        XCTAssertGreaterThan(Int.random(between: 1, and: 5), 0)
-        XCTAssertLessThan(Int.random(between: 1, and: 5), 6)
-
-        XCTAssertGreaterThan(Int(randomBetween: 1, and: 5), 0)
-        XCTAssertLessThan(Int(randomBetween: 1, and: 5), 6)
-
-        XCTAssertGreaterThan(Int.random(inRange: 1...5), 0)
-        XCTAssertLessThan(Int.random(inRange: 1...5), 6)
-
-        XCTAssertGreaterThan(Int(randomInRange: 1...5), 0)
-        XCTAssertLessThan(Int(randomInRange: 1...5), 6)
-    }
-
     func testIsPrime() {
         // Prime number
         XCTAssertTrue(2.isPrime())

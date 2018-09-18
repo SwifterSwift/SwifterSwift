@@ -45,15 +45,6 @@ public extension Collection {
 // MARK: - Methods (Int)
 public extension Collection where Index == Int {
 
-    #if canImport(Foundation)
-    /// SwifterSwift: Random item from array.
-    public var randomItem: Element? {
-        guard !isEmpty else { return nil }
-        let index = Int(arc4random_uniform(UInt32(count)))
-        return self[index]
-    }
-    #endif
-
     /// SwifterSwift: Get the first index where condition is met.
     ///
     ///        [1, 7, 1, 2, 4, 1, 6].firstIndex { $0 % 2 == 0 } -> 3

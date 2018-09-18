@@ -5,6 +5,20 @@
 //  Copyright © 2016 SwifterSwift
 //
 
+extension Bool {
+    #if canImport(Foundation)
+    /// SwifterSwift: Returns a random boolean value.
+    ///
+    ///     Bool.random -> true
+    ///     Bool.random -> false
+    ///
+    @available(*, deprecated: 4.5.0, message: "Use random() instead")
+    public static var random: Bool {
+        return arc4random_uniform(2) == 1
+    }
+    #endif
+}
+
 extension String {
 
     #if canImport(Foundation)
@@ -190,4 +204,119 @@ public extension Array where Element: Equatable {
         swapAt(index, otherIndex)
     }
 
+}
+
+public extension Collection where Index == Int {
+
+    #if canImport(Foundation)
+    /// SwifterSwift: Random item from array.
+    @available(*, deprecated: 4.5.0, message: "Use randomElement() instead")
+    public var randomItem: Element? {
+        guard !isEmpty else { return nil }
+        let index = Int(arc4random_uniform(UInt32(count)))
+        return self[index]
+    }
+    #endif
+}
+
+// MARK: - Methods
+public extension FloatingPoint {
+
+    #if canImport(Foundation)
+    /// SwifterSwift: Random number between two number.
+    ///
+    /// - Parameters:
+    ///   - min: minimum number to start random from.
+    ///   - max: maximum number random number end before.
+    /// - Returns: random number between two numbers.
+    @available(*, deprecated: 4.5.0, message: "Double.random(in: ClosedRange<Float>)")
+    public static func random(between min: Self, and max: Self) -> Self {
+        let aMin = Self.minimum(min, max)
+        let aMax = Self.maximum(min, max)
+        let delta = aMax - aMin
+        return Self(arc4random()) / Self(UInt64(UINT32_MAX)) * delta + aMin
+    }
+    #endif
+
+    #if canImport(Foundation)
+    /// SwifterSwift: Random number in a closed interval range.
+    ///
+    /// - Parameter range: closed interval range.
+    /// - Returns: random number in the given closed range.
+    @available(*, deprecated: 4.5.0, message: "Double.random(in: ClosedRange<Float>)")
+    public static func random(inRange range: ClosedRange<Self>) -> Self {
+        let delta = range.upperBound - range.lowerBound
+        return Self(arc4random()) / Self(UInt64(UINT32_MAX)) * delta + range.lowerBound
+    }
+    #endif
+
+}
+
+// MARK: - Initializers
+public extension FloatingPoint {
+
+    /// SwifterSwift: Created a random number between two numbers.
+    ///
+    /// - Parameters:
+    ///   - min: minimum number to start random from.
+    ///   - max: maximum number random number end before.
+    @available(*, deprecated: 4.5.0, message: "Double.random(in: ClosedRange<Float>)")
+    public init(randomBetween min: Self, and max: Self) {
+        let aMin = Self.minimum(min, max)
+        let aMax = Self.maximum(min, max)
+        let delta = aMax - aMin
+        self = Self(arc4random()) / Self(UInt64(UINT32_MAX)) * delta + aMin
+    }
+
+    /// SwifterSwift: Create a random number in a closed interval range.
+    ///
+    /// - Parameter range: closed interval range.
+    @available(*, deprecated: 4.5.0, message: "Double.random(in: ClosedRange<Float>)")
+    public init(randomInRange range: ClosedRange<Self>) {
+        let delta = range.upperBound - range.lowerBound
+        self = Self(arc4random()) / Self(UInt64(UINT32_MAX)) * delta + range.lowerBound
+    }
+
+}
+
+public extension Int {
+
+    /// SwifterSwift: Random integer between two integer values.
+    ///
+    /// - Parameters:
+    ///   - min: minimum number to start random from.
+    ///   - max: maximum number random number end before.
+    /// - Returns: random double between two double values.
+    @available(*, deprecated: 4.5.0, message: "Int.random(in: ClosedRange<Float>)")
+    public static func random(between min: Int, and max: Int) -> Int {
+        return random(inRange: min...max)
+    }
+
+    /// SwifterSwift: Random integer in a closed interval range.
+    ///
+    /// - Parameter range: closed interval range.
+    /// - Returns: random double in the given closed range.
+    @available(*, deprecated: 4.5.0, message: "Int.random(in: ClosedRange<Float>)")
+    public static func random(inRange range: ClosedRange<Int>) -> Int {
+        let delta = UInt32(range.upperBound - range.lowerBound + 1)
+        return range.lowerBound + Int(arc4random_uniform(delta))
+    }
+
+    /// SwifterSwift: Created a random integer between two integer values.
+    ///
+    /// - Parameters:
+    ///   - min: minimum number to start random from.
+    ///   - max: maximum number random number end before.
+    @available(*, deprecated: 4.5.0, message: "Int.random(in: ClosedRange<Float>)")
+    public init(randomBetween min: Int, and max: Int) {
+        self = Int.random(between: min, and: max)
+    }
+
+    /// SwifterSwift: Create a random integer in a closed interval range.
+    ///
+    /// - Parameter range: closed interval range.
+    @available(*, deprecated: 4.5.0, message: "Int.random(in: ClosedRange<Float>)")
+    public init(randomInRange range: ClosedRange<Int>) {
+        self = Int.random(inRange: range)
+    }
 }

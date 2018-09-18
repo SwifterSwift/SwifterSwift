@@ -54,62 +54,6 @@ public extension FloatingPoint {
 
 }
 
-// MARK: - Methods
-public extension FloatingPoint {
-
-    #if canImport(Foundation)
-    /// SwifterSwift: Random number between two number.
-    ///
-    /// - Parameters:
-    ///   - min: minimum number to start random from.
-    ///   - max: maximum number random number end before.
-    /// - Returns: random number between two numbers.
-    public static func random(between min: Self, and max: Self) -> Self {
-        let aMin = Self.minimum(min, max)
-        let aMax = Self.maximum(min, max)
-        let delta = aMax - aMin
-        return Self(arc4random()) / Self(UInt64(UINT32_MAX)) * delta + aMin
-    }
-    #endif
-
-    #if canImport(Foundation)
-    /// SwifterSwift: Random number in a closed interval range.
-    ///
-    /// - Parameter range: closed interval range.
-    /// - Returns: random number in the given closed range.
-    public static func random(inRange range: ClosedRange<Self>) -> Self {
-        let delta = range.upperBound - range.lowerBound
-        return Self(arc4random()) / Self(UInt64(UINT32_MAX)) * delta + range.lowerBound
-    }
-    #endif
-
-}
-
-// MARK: - Initializers
-public extension FloatingPoint {
-
-    /// SwifterSwift: Created a random number between two numbers.
-    ///
-    /// - Parameters:
-    ///   - min: minimum number to start random from.
-    ///   - max: maximum number random number end before.
-    public init(randomBetween min: Self, and max: Self) {
-        let aMin = Self.minimum(min, max)
-        let aMax = Self.maximum(min, max)
-        let delta = aMax - aMin
-        self = Self(arc4random()) / Self(UInt64(UINT32_MAX)) * delta + aMin
-    }
-
-    /// SwifterSwift: Create a random number in a closed interval range.
-    ///
-    /// - Parameter range: closed interval range.
-    public init(randomInRange range: ClosedRange<Self>) {
-        let delta = range.upperBound - range.lowerBound
-        self = Self(arc4random()) / Self(UInt64(UINT32_MAX)) * delta + range.lowerBound
-    }
-
-}
-
 // MARK: - Operators
 
 // swiftlint:disable next identifier_name

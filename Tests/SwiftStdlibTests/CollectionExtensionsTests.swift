@@ -25,12 +25,6 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertNil(collection[safe: 10])
     }
 
-    func testRandomItem() {
-        XCTAssertNotNil([1, 2, 3].randomItem)
-        XCTAssert([1, 2, 3].contains([1, 2, 3].randomItem!))
-        XCTAssertNil([].randomItem)
-    }
-
     func testFirstIndexWhere() {
         let array = [1, 7, 1, 2, 4, 1, 6]
         let index = array.firstIndex { $0 % 2 == 0 }
