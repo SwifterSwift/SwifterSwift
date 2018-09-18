@@ -298,8 +298,7 @@ public extension Int {
     /// - Returns: random double in the given closed range.
     @available(*, deprecated: 4.5.0, message: "Int.random(in: ClosedRange<Float>)")
     public static func random(inRange range: ClosedRange<Int>) -> Int {
-        let delta = UInt32(range.upperBound - range.lowerBound + 1)
-        return range.lowerBound + Int(arc4random_uniform(delta))
+        return Int.random(in: range)
     }
 
     /// SwifterSwift: Created a random integer between two integer values.
@@ -317,6 +316,6 @@ public extension Int {
     /// - Parameter range: closed interval range.
     @available(*, deprecated: 4.5.0, message: "Int.random(in: ClosedRange<Float>)")
     public init(randomInRange range: ClosedRange<Int>) {
-        self = Int.random(inRange: range)
+        self = Int.random(in: range)
     }
 }

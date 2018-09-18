@@ -42,7 +42,7 @@ public extension Dictionary {
     /// SwifterSwift: Remove a value for a random key from the dictionary.
     @discardableResult public mutating func removeValueForRandomKey() -> Value? {
         guard !isEmpty else { return nil }
-        let key = Array(keys)[Int(arc4random_uniform(UInt32(keys.count)))]
+        let key = Array(keys)[Int.random(in: 0..<keys.count)]
         return removeValue(forKey: key)
     }
     #endif

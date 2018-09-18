@@ -50,11 +50,6 @@ final class CGFloatExtensionsTests: XCTestCase {
         XCTAssertEqual(CGFloat(9.3).float, Float(9.3))
     }
 
-    func testRandomBetween() {
-        XCTAssertGreaterThan(CGFloat.randomBetween(min: 1, max: 5), 0)
-        XCTAssertLessThan(CGFloat.randomBetween(min: 1, max: 5), 5)
-    }
-
     func testFloor() {
         XCTAssertEqual(CGFloat(9.3).floor, CGFloat(9.0))
     }

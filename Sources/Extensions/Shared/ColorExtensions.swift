@@ -28,9 +28,9 @@ public extension Color {
 
     /// SwifterSwift: Random color.
     public static var random: Color {
-        let red = Int(arc4random_uniform(255))
-        let green = Int(arc4random_uniform(255))
-        let blue = Int(arc4random_uniform(255))
+        let red = Int.random(in: 0...255)
+        let green = Int.random(in: 0...255)
+        let blue = Int.random(in: 0...255)
         return Color(red: red, green: green, blue: blue)!
     }
 
