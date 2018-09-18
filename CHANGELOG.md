@@ -4,6 +4,17 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+### Changed
+### Fixed
+### Deprecated
+### Removed
+### Security
+
+---
+
+# [v4.5.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.5.0)
+
+### Added
 - **CGVector**
   - Added `angle` computed property to get the angle of the vector (in radians). [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
   - Added `magnitude` computed property to get the magnitude (or length) of the vector. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
