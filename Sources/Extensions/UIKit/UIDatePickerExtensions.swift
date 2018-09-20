@@ -12,15 +12,15 @@ import UIKit
 // MARK: - Properties
 public extension UIDatePicker {
 
-	/// SwifterSwift: Text color of UIDatePicker.
-	public var textColor: UIColor? {
-		set {
-			setValue(newValue, forKeyPath: "textColor")
-		}
-		get {
-			return value(forKeyPath: "textColor") as? UIColor
-		}
-	}
+    /// SwifterSwift: Text color of UIDatePicker.
+    public var textColor: UIColor? {
+        set {
+            setValue(newValue, forKeyPath: "textColor")
+        }
+        get {
+            return value(forKeyPath: "textColor") as? UIColor
+        }
+    }
 
 }
 #endif

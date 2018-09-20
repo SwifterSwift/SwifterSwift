@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'SwifterSwift'
-  s.version = '4.4.0'
+  s.version = '4.5.0'
   s.summary = 'A handy collection of more than 500 native Swift extensions to boost your productivity.'
   s.description = <<-DESC
   SwifterSwift is a collection of over 500 native Swift extensions, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS and watchOS.
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.source = { git: 'https://github.com/SwifterSwift/SwifterSwift.git', tag: s.version.to_s }
   s.source_files = 'Sources/**/*.swift'
   s.pod_target_xcconfig = {
-    'SWIFT_VERSION' => '4.1'
+    'SWIFT_VERSION' => '4.2'
   }
   s.documentation_url = 'http://swifterswift.com/docs'
 

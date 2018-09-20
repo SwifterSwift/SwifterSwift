@@ -14,80 +14,80 @@ import UIKit
 
 final class UIAlertControllerExtensionsTests: XCTestCase {
 
-	func testAddAction() {
+    func testAddAction() {
 
-		let alertController = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
-		let discardedResult = alertController.addAction(title: "ActionTitle", style: .destructive, isEnabled: false, handler: nil)
+        let alertController = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
+        let discardedResult = alertController.addAction(title: "ActionTitle", style: .destructive, isEnabled: false, handler: nil)
 
-		XCTAssertNotNil(discardedResult)
+        XCTAssertNotNil(discardedResult)
 
-		XCTAssert(alertController.actions.count == 1)
+        XCTAssert(alertController.actions.count == 1)
 
-		let action = alertController.actions.first
+        let action = alertController.actions.first
 
-		XCTAssertEqual(action?.title, "ActionTitle")
-		XCTAssertEqual(action?.style, .destructive)
-		XCTAssertEqual(action?.isEnabled, false)
-	}
+        XCTAssertEqual(action?.title, "ActionTitle")
+        XCTAssertEqual(action?.style, .destructive)
+        XCTAssertEqual(action?.isEnabled, false)
+    }
 
-	func testSelector() {}
+    func testSelector() {}
 
-	func testAddTextField() {
+    func testAddTextField() {
 
-		let alertController = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)
 
-		let selector = #selector(testSelector)
+        let selector = #selector(testSelector)
 
-		alertController.addTextField(text: "TextField", placeholder: "PlaceHolder", editingChangedTarget: self, editingChangedSelector: selector)
+        alertController.addTextField(text: "TextField", placeholder: "PlaceHolder", editingChangedTarget: self, editingChangedSelector: selector)
 
-		XCTAssert(alertController.textFields?.count == 1)
+        XCTAssert(alertController.textFields?.count == 1)
 
-		let textField = alertController.textFields?.first
+        let textField = alertController.textFields?.first
 
-		XCTAssertEqual(textField?.text, "TextField")
-		XCTAssertEqual(textField?.placeholder, "PlaceHolder")
-		XCTAssertNotNil(textField?.allTargets)
-		XCTAssertNotNil(textField?.actions(forTarget: self, forControlEvent: .editingChanged))
+        XCTAssertEqual(textField?.text, "TextField")
+        XCTAssertEqual(textField?.placeholder, "PlaceHolder")
+        XCTAssertNotNil(textField?.allTargets)
+        XCTAssertNotNil(textField?.actions(forTarget: self, forControlEvent: .editingChanged))
 
-	}
+    }
 
-	func testMessageInit() {
-		let alertController = UIAlertController(title: "Title", message: "Message", defaultActionButtonTitle: "Ok", tintColor: .blue)
+    func testMessageInit() {
+        let alertController = UIAlertController(title: "Title", message: "Message", defaultActionButtonTitle: "Ok", tintColor: .blue)
 
-		XCTAssertNotNil(alertController)
+        XCTAssertNotNil(alertController)
 
-		XCTAssertEqual(alertController.title, "Title")
-		XCTAssertEqual(alertController.message, "Message")
-		XCTAssertEqual(alertController.view.tintColor, .blue)
+        XCTAssertEqual(alertController.title, "Title")
+        XCTAssertEqual(alertController.message, "Message")
+        XCTAssertEqual(alertController.view.tintColor, .blue)
 
-		XCTAssert(alertController.actions.count == 1)
+        XCTAssert(alertController.actions.count == 1)
 
-		let defaultAction = alertController.actions.first
+        let defaultAction = alertController.actions.first
 
-		XCTAssertEqual(defaultAction?.title, "Ok")
-		XCTAssertEqual(defaultAction?.style, .default)
-	}
+        XCTAssertEqual(defaultAction?.title, "Ok")
+        XCTAssertEqual(defaultAction?.style, .default)
+    }
 
-	enum TestError: Error { case error }
+    enum TestError: Error { case error }
 
-	func testErrorInit() {
-		let error = TestError.error
+    func testErrorInit() {
+        let error = TestError.error
 
-		let alertController = UIAlertController(title: "Title", error: error, defaultActionButtonTitle: "Ok", tintColor: .red)
+        let alertController = UIAlertController(title: "Title", error: error, defaultActionButtonTitle: "Ok", tintColor: .red)
 
-		XCTAssertNotNil(alertController)
+        XCTAssertNotNil(alertController)
 
-		XCTAssertEqual(alertController.title, "Title")
-		XCTAssertEqual(alertController.message, error.localizedDescription)
-		XCTAssertEqual(alertController.view.tintColor, .red)
+        XCTAssertEqual(alertController.title, "Title")
+        XCTAssertEqual(alertController.message, error.localizedDescription)
+        XCTAssertEqual(alertController.view.tintColor, .red)
 
-		XCTAssert(alertController.actions.count == 1)
+        XCTAssert(alertController.actions.count == 1)
 
-		let defaultAction = alertController.actions.first
+        let defaultAction = alertController.actions.first
 
-		XCTAssertEqual(defaultAction?.title, "Ok")
-		XCTAssertEqual(defaultAction?.style, .default)
-	}
+        XCTAssertEqual(defaultAction?.title, "Ok")
+        XCTAssertEqual(defaultAction?.style, .default)
+    }
 
 }
 #endif
