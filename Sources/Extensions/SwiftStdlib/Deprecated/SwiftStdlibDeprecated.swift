@@ -35,69 +35,6 @@ extension String {
     }
     #endif
 
-    /// SwifterSwift: Number of characters in string.
-    ///
-    ///		"Hello world!".length -> 12
-    ///
-    @available(*, deprecated: 4.1.0, message: "Use .count instead.")
-    public var length: Int {
-        return count
-    }
-
-    // swiftlint:disable next identifier_name
-    /// SwifterSwift: Sliced string from a start index.
-    ///
-    ///		"Hello World".slicing(at: 6) -> "World"
-    ///
-    /// - Parameter i: string index the slicing should start from.
-    /// - Returns: sliced substring starting from start index (if applicable) (example: "Hello world".slicing(at: 6) -> "world")
-    @available(*, deprecated: 4.1.0, message: "Use string[safe: i] instead.")
-    public func slicing(at i: Int) -> String? {
-        guard i < count else {
-            return nil
-        }
-        return self[safe: i..<count]
-    }
-
-    /// SwifterSwift: Sliced string from a start index to an end index.
-    ///
-    ///		"Hello World".slicing(from: 6, to: 11) -> "World"
-    ///
-    /// - Parameters:
-    ///   - start: string index the slicing should start from.
-    ///   - end: string index the slicing should end at.
-    /// - Returns: sliced substring starting from start index, and ends at end index (if applicable) (example: "Hello World".slicing(from: 6, to: 11) -> "World")
-    @available(*, deprecated: 4.1.0, message: "Use string[safe: start..<end] instead.")
-    public func slicing(from start: Int, to end: Int) -> String? {
-        guard end >= start else {
-            return nil
-        }
-        return self[safe: start..<end]
-    }
-
-    /// SwifterSwift: First index of substring in string.
-    ///
-    ///		"Hello World!".firstIndex(of: "l") -> 2
-    ///		"Hello World!".firstIndex(of: "s") -> nil
-    ///
-    /// - Parameter string: substring to search for.
-    /// - Returns: first index of substring in string (if applicable).
-    @available(*, deprecated: 4.1.0, message: "Use string.index(of: Character) or string.range(of: StringProtocol) instead.")
-    public func firstIndex(of string: String) -> Int? {
-        return map({ String($0) }).index(of: string)
-    }
-
-    /// SwifterSwift: Array of strings separated by given string.
-    ///
-    ///		"hello World".splited(by: " ") -> ["hello", "World"]
-    ///
-    /// - Parameter separator: separator to split string by.
-    /// - Returns: array of strings separated by given string.
-    @available(*, deprecated: 4.1.0, message: "Use string.split(separator: Character) instead.")
-    public func splitted(by separator: Character) -> [String] {
-        return split { $0 == separator }.map(String.init)
-    }
-
 }
 
 public extension Array {
@@ -122,7 +59,7 @@ public extension Array {
     ///
     /// - Parameter getKey: Clousure to define the key for each element.
     /// - Returns: A dictionary with values grouped with keys.
-    @available(*, deprecated, message: "Use 'Dictionary.init(grouping:by:)' instead.")
+    @available(*, deprecated: 4.3, message: "Use 'Dictionary.init(grouping:by:)' instead.")
     public func groupByKey<K: Hashable>(keyForValue: (_ element: Element) throws -> K) rethrows -> [K: [Element]] {
         var group = [K: [Element]]()
         for value in self {
@@ -150,23 +87,6 @@ public extension Array where Element: Equatable {
                 $0.append($1)
             }
         }
-    }
-
-    /// SwifterSwift: All indexes of specified item.
-    ///
-    ///		[1, 2, 2, 3, 4, 2, 5].indexes(of 2) -> [1, 2, 5]
-    ///		[1.2, 2.3, 4.5, 3.4, 4.5].indexes(of 2.3) -> [1]
-    ///		["h", "e", "l", "l", "o"].indexes(of "l") -> [2, 3]
-    ///
-    /// - Parameter item: item to check.
-    /// - Returns: an array with all indexes of the given item.
-    @available(*, deprecated: 4.1.1, message: "Use indices(of:) instead", renamed: "indices(of:)")
-    public func indexes(of item: Element) -> [Int] {
-        var indexes: [Int] = []
-        for index in startIndex..<endIndex where self[index] == item {
-            indexes.append(index)
-        }
-        return indexes
     }
 
     /// SwifterSwift: Remove last element from array and return it.
@@ -289,7 +209,7 @@ public extension Int {
     /// - Returns: random double between two double values.
     @available(*, deprecated: 4.5.0, message: "Int.random(in: ClosedRange<Float>)")
     public static func random(between min: Int, and max: Int) -> Int {
-        return random(inRange: min...max)
+        return random(in: min...max)
     }
 
     /// SwifterSwift: Random integer in a closed interval range.
@@ -298,7 +218,7 @@ public extension Int {
     /// - Returns: random double in the given closed range.
     @available(*, deprecated: 4.5.0, message: "Int.random(in: ClosedRange<Float>)")
     public static func random(inRange range: ClosedRange<Int>) -> Int {
-        return Int.random(in: range)
+        return random(in: range)
     }
 
     /// SwifterSwift: Created a random integer between two integer values.
@@ -308,7 +228,7 @@ public extension Int {
     ///   - max: maximum number random number end before.
     @available(*, deprecated: 4.5.0, message: "Int.random(in: ClosedRange<Float>)")
     public init(randomBetween min: Int, and max: Int) {
-        self = Int.random(between: min, and: max)
+        self = Int.random(in: min...max)
     }
 
     /// SwifterSwift: Create a random integer in a closed interval range.
