@@ -4,6 +4,17 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+### Changed
+### Fixed
+### Deprecated
+### Removed
+### Security
+
+---
+
+# [v4.5.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.5.0)
+
+### Added
 - **CGVector**
   - Added `angle` computed property to get the angle of the vector (in radians). [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
   - Added `magnitude` computed property to get the magnitude (or length) of the vector. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
@@ -16,6 +27,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `removeValueForRandomKey()` to remove a value for a random key from a dictionary. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [vyax](https://github.com/vyax).
   - Added `mapKeysAndValues(_:)` to map a `Dictionary` into a `Dictionary` with different (or same) `Key` and `Value` types. [#546](https://github.com/SwifterSwift/SwifterSwift/pull/546) by [guykogus](https://github.com/guykogus)
   - Added `compactMapKeysAndValues(_:)` to map a `Dictionary` into a `Dictionary`, excluding `nil` results, with different (or same) `Key` and `Value` types. [#546](https://github.com/SwifterSwift/SwifterSwift/pull/546) by [guykogus](https://github.com/guykogus)
+  - Added `keys(forValue:)` which returns an array of all keys that have the given value in dictionary. [#561](https://github.com/SwifterSwift/SwifterSwift/pull/561) by [mauliksharma](https://github.com/mauliksharma).
 - **RangeReplaceableCollection**:
   - Added `removeRandomElement()` to remove a random element from a collection. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [vyax](https://github.com/vyax).
 - **UIView**

@@ -12,13 +12,13 @@ import SpriteKit
 // MARK: - Methods
 public extension SKNode {
 
-	/// SwifterSwift: Return an array of all SKNode descendants
-	///
-	///         mySKNode.descendants() -> [childNodeOne, childNodeTwo]
-	///
-	public func descendants() -> [SKNode] {
-		return children + children.reduce(into: [SKNode]()) { $0 += $1.descendants() }
-	}
+    /// SwifterSwift: Return an array of all SKNode descendants
+    ///
+    ///         mySKNode.descendants() -> [childNodeOne, childNodeTwo]
+    ///
+    public func descendants() -> [SKNode] {
+        return children + children.reduce(into: [SKNode]()) { $0 += $1.descendants() }
+    }
 
 }
 #endif

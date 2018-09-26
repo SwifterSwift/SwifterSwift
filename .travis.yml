@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode9.4
+osx_image: xcode10
 
 env:
   global:
@@ -16,6 +16,7 @@ env:
 
 before_install:
   - bundle install
+  - gem install cocoapods --pre
   - brew update
   - brew outdated xctool || brew upgrade xctool
 script:

@@ -14,10 +14,10 @@ import Foundation
 
 final class LocaleExtensionsTests: XCTestCase {
 
-	func testPosix() {
-		let test: Locale = .posix
-		XCTAssertEqual(test.identifier, "en_US_POSIX")
-	}
+    func testPosix() {
+        let test: Locale = .posix
+        XCTAssertEqual(test.identifier, "en_US_POSIX")
+    }
 
 }
 

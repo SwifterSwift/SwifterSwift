@@ -13,22 +13,22 @@ import CoreGraphics
 // MARK: - Properties
 public extension Double {
 
-	/// SwifterSwift: Int.
-	public var int: Int {
-		return Int(self)
-	}
+    /// SwifterSwift: Int.
+    public var int: Int {
+        return Int(self)
+    }
 
-	/// SwifterSwift: Float.
-	public var float: Float {
-		return Float(self)
-	}
+    /// SwifterSwift: Float.
+    public var float: Float {
+        return Float(self)
+    }
 
-	#if canImport(CoreGraphics)
-	/// SwifterSwift: CGFloat.
-	public var cgFloat: CGFloat {
-		return CGFloat(self)
-	}
-	#endif
+    #if canImport(CoreGraphics)
+    /// SwifterSwift: CGFloat.
+    public var cgFloat: CGFloat {
+        return CGFloat(self)
+    }
+    #endif
 
 }
 
@@ -43,8 +43,8 @@ infix operator ** : PowerPrecedence
 ///   - rhs: exponent double.
 /// - Returns: exponentiation result (example: 4.4 ** 0.5 = 2.0976176963).
 public func ** (lhs: Double, rhs: Double) -> Double {
-	// http://nshipster.com/swift-operators/
-	return pow(lhs, rhs)
+    // http://nshipster.com/swift-operators/
+    return pow(lhs, rhs)
 }
 
 // swiftlint:disable next identifier_name
@@ -54,6 +54,6 @@ prefix operator √
 /// - Parameter double: double value to find square root for.
 /// - Returns: square root of given double.
 public prefix func √ (double: Double) -> Double {
-	// http://nshipster.com/swift-operators/
-	return sqrt(double)
+    // http://nshipster.com/swift-operators/
+    return sqrt(double)
 }
