@@ -411,5 +411,40 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertNotNil(subview.centerYAnchor)
     }
 
+    func testAncestorViewWhere() {
+        let tableView = UITableView(frame: .zero)
+        let tableViewCell = UITableViewCell(frame: .zero)
+        tableView.addSubview(tableViewCell)
+        tableView.tag = 2
+        let button = UIButton(frame: .zero)
+        tableViewCell.addSubview(button)
+        button.tag = 1
+        let buttonSubview = UIView(frame: .zero)
+        button.addSubview(buttonSubview)
+
+        XCTAssertEqual(buttonSubview.ancestorView(where: { $0?.tag == 1 }), button)
+        XCTAssertEqual(buttonSubview.ancestorView(where: { $0?.tag == 2 }), tableView)
+        XCTAssertNil(buttonSubview.ancestorView(where: { $0?.tag == 3 }))
+        XCTAssertEqual(button.ancestorView(where: { $0 is UITableViewCell }), tableViewCell)
+        XCTAssertEqual(button.ancestorView(where: { $0?.superview == nil }), tableView)
+    }
+
+    func testAncestorViewWithClass() {
+        let tableView = UITableView(frame: .zero)
+        let tableViewCell = UITableViewCell(frame: .zero)
+        tableView.addSubview(tableViewCell)
+        let button = UIButton(frame: .zero)
+        tableViewCell.addSubview(button)
+        let buttonSubview = UIView(frame: .zero)
+        button.addSubview(buttonSubview)
+
+        XCTAssertEqual(button.ancestorView(withClass: UITableViewCell.self), tableViewCell)
+        XCTAssertEqual(button.ancestorView(withClass: UITableView.self), tableView)
+        XCTAssertNil(button.ancestorView(withClass: UIButton.self))
+        XCTAssertNil(tableView.ancestorView(withClass: UIButton.self))
+        XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableViewCell.self), tableViewCell)
+        XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableView.self), tableView)
+    }
+
 }
 #endif
