@@ -183,7 +183,7 @@ public struct SwifterSwift {
         return UIDevice.current.userInterfaceIdiom == .phone
     }
     #endif
-    
+
     #if os(iOS)
     /// SwifterSwift: Check if device has straight bangs.
     public static var isIPhoneXType: Bool {
