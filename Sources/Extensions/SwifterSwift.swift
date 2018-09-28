@@ -184,6 +184,16 @@ public struct SwifterSwift {
     }
     #endif
 
+    #if os(iOS)
+    /// SwifterSwift: Check if device has straight bangs.
+    public static var isIPhoneXType: Bool {
+        guard #available(iOS 11.0, *) else {
+            return false
+        }
+        return UIApplication.shared.windows[0].safeAreaInsets.bottom > 0
+    }
+    #endif
+
     #if os(iOS) || os(tvOS)
     /// SwifterSwift: Check if device is registered for remote notifications for current app (read-only).
     public static var isRegisteredForRemoteNotifications: Bool {
