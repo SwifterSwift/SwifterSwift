@@ -145,7 +145,47 @@ public extension Dictionary where Key: StringProtocol {
             }
         }
     }
+}
 
+// MARK: - Subscripts
+public extension Dictionary {
+
+    /// SwifterSwift: Deep fetch or set a value from nested dictionaries.
+    ///
+    ///        var dict =  ["key": ["key1": ["key2": "value"]]]
+    ///        dict[path: ["key", "key1", "key2"]] = "newValue"
+    ///        dict[path: ["key", "key1", "key2"]] -> "newValue"
+    ///
+    /// - Note: Value fetching is iterative, while setting is recursive.
+    ///
+    /// - Complexity: O(N), _N_ being the length of the path passed in.
+    ///
+    /// - Parameter path: An array of keys to the desired value.
+    ///
+    /// - Returns: The value for the key-path passed in. `nil` if no value is found.
+    public subscript(path path: [Key]) -> Any? {
+        get {
+            return path.reduce(self) { result, key -> Any? in
+                if let element = (result as? [Key: Any])?[key] {
+                    return element
+                } else {
+                    return nil
+                }
+            }
+        }
+        set {
+            if let first = path.first {
+                if path.count == 1, let new = newValue as? Value {
+                    return self[first] = new
+                }
+                if var nested = self[first] as? [Key: Any] {
+                    nested[path: Array(path.dropFirst())] = newValue
+                    return self[first] = nested as? Value
+                }
+            }
+            return
+        }
+    }
 }
 
 // MARK: - Operators
