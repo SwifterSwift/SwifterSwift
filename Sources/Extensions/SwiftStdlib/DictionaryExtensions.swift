@@ -165,7 +165,8 @@ public extension Dictionary {
     /// - Returns: The value for the key-path passed in. `nil` if no value is found.
     public subscript(path path: [Key]) -> Any? {
         get {
-            var result: Any?
+            guard path.count > 0 else { return nil }
+            var result: Any? = self
             for key in path {
                 if let element = (result as? [Key: Any])?[key] {
                     result = element
