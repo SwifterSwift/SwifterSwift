@@ -183,7 +183,6 @@ public extension Dictionary {
                     return self[first] = nested as? Value
                 }
             }
-            return
         }
     }
 }
