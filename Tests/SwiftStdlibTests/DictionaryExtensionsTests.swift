@@ -81,6 +81,7 @@ final class DictionaryExtensionsTests: XCTestCase {
     func testSubscriptKeypath() {
         var json = ["key": ["key1": ["key2": "value"]]]
 
+        XCTAssertEqual(json[path: []] as? String, nil)
         XCTAssertEqual(json[path: ["key", "key1", "key2"]] as? String, "value")
         json[path: ["key", "key1", "key2"]] = "newValue"
         XCTAssertEqual(json[path: ["key", "key1", "key2"]] as? String, "newValue")
