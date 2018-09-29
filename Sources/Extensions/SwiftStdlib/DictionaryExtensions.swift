@@ -165,13 +165,15 @@ public extension Dictionary {
     /// - Returns: The value for the key-path passed in. `nil` if no value is found.
     public subscript(path path: [Key]) -> Any? {
         get {
-            return path.reduce(self) { result, key -> Any? in
+            var result: Any?
+            for key in path {
                 if let element = (result as? [Key: Any])?[key] {
-                    return element
+                    result = element
                 } else {
                     return nil
                 }
             }
+            return result
         }
         set {
             if let first = path.first {
