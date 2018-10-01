@@ -6,6 +6,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 ### Changed
 ### Fixed
+- **UIImage**:
+  - `cropped(to:)` fixed size checking. [#575](https://github.com/SwifterSwift/SwifterSwift/pull/575) by [ilyahal](https://github.com/ilyahal)
 ### Deprecated
 ### Removed
 ### Security
