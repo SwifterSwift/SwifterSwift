@@ -59,7 +59,7 @@ public extension UIImage {
     /// - Parameter rect: CGRect to crop UIImage to.
     /// - Returns: cropped UIImage
     public func cropped(to rect: CGRect) -> UIImage {
-        guard rect.size.height < size.height && rect.size.height < size.height else { return self }
+        guard rect.size.width < size.width && rect.size.height < size.height else { return self }
         guard let image: CGImage = cgImage?.cropping(to: rect) else { return self }
         return UIImage(cgImage: image)
     }
