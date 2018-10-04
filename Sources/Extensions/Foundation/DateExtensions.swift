@@ -459,11 +459,11 @@ public extension Date {
 
     /// SwifterSwift: Yesterday date.
     ///
-    ///     var date = Date() // "Oct 3, 2018, 10:57:11"
-    ///     var yesterday = yesterday // "Oct 2, 2018, 10:57:11"
+    ///     let date = Date() // "Oct 3, 2018, 10:57:11"
+    ///     let yesterday = date.yesterday // "Oct 2, 2018, 10:57:11"
     ///
     public var yesterday: Date {
-        return self.addingTimeInterval(-86400.0)
+        return addingTimeInterval(-86400.0)
     }
 
     /// SwifterSwift: UNIX timestamp from date.
