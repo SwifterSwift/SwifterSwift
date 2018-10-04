@@ -41,9 +41,8 @@ public extension Dictionary {
     #if canImport(Foundation)
     /// SwifterSwift: Remove a value for a random key from the dictionary.
     @discardableResult public mutating func removeValueForRandomKey() -> Value? {
-        guard !isEmpty else { return nil }
-        let key = Array(keys)[Int.random(in: 0..<keys.count)]
-        return removeValue(forKey: key)
+        guard let randomKey = keys.randomElement() else { return nil }
+        return removeValue(forKey: randomKey)
     }
     #endif
 
