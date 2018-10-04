@@ -94,8 +94,8 @@ extension RangeReplaceableCollection {
     #if canImport(Foundation)
     /// SwifterSwift: Remove a random value from the collection.
     @discardableResult public mutating func removeRandomElement() -> Element? {
-        guard !isEmpty else { return nil }
-        return remove(at: index(startIndex, offsetBy: Int.random(in: 0..<count)))
+        guard let randomIndex = indices.randomElement() else { return nil }
+        return remove(at: randomIndex)
     }
     #endif
 
