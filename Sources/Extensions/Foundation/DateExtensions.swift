@@ -457,6 +457,15 @@ public extension Date {
         return Calendar.current.timeZone
     }
 
+    /// SwifterSwift: Yesterday date.
+    ///
+    ///     var date = Date() // "Oct 3, 2018, 10:57:11"
+    ///     var yesterday = yesterday // "Oct 2, 2018, 10:57:11"
+    ///
+    public var yesterday: Date {
+        return self.addingTimeInterval(-86400.0)
+    }
+    
     /// SwifterSwift: UNIX timestamp from date.
     ///
     ///		Date().unixTimestamp -> 1484233862.826291

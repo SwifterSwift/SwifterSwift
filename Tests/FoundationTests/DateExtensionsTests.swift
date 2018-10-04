@@ -944,6 +944,10 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
     }
 
+    func testYesterday() {
+        let yesterday = Date().yesterday;
+        XCTAssert(yesterday.isInYesterday)
+    }
 }
 
 #endif
