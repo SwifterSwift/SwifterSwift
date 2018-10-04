@@ -864,7 +864,7 @@ public extension Date {
         return abs(componentValue) <= value
     }
 
-    /// Returns a random date within the specified range.
+    /// SwifterSwift: Returns a random date within the specified range.
     ///
     /// - Parameter range: The range in which to create a random date. `range` must not be empty.
     /// - Returns: A random date within the bounds of `range`.
@@ -873,7 +873,7 @@ public extension Date {
             TimeInterval.random(in: range.lowerBound.timeIntervalSinceReferenceDate..<range.upperBound.timeIntervalSinceReferenceDate))
     }
 
-    /// Returns a random date within the specified range.
+    /// SwifterSwift: Returns a random date within the specified range.
     ///
     /// - Parameter range: The range in which to create a random date.
     /// - Returns: A random date within the bounds of `range`.
@@ -882,7 +882,7 @@ public extension Date {
             TimeInterval.random(in: range.lowerBound.timeIntervalSinceReferenceDate...range.upperBound.timeIntervalSinceReferenceDate))
     }
 
-    /// Returns a random date within the specified range, using the given generator as a source for randomness.
+    /// SwifterSwift: Returns a random date within the specified range, using the given generator as a source for randomness.
     ///
     /// - Parameters:
     ///   - range: The range in which to create a random date. `range` must not be empty.
@@ -894,7 +894,7 @@ public extension Date {
                                 using: &generator))
     }
 
-    /// Returns a random date within the specified range, using the given generator as a source for randomness.
+    /// SwifterSwift: Returns a random date within the specified range, using the given generator as a source for randomness.
     ///
     /// - Parameters:
     ///   - range: The range in which to create a random date.
