@@ -945,7 +945,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testYesterday() {
-        let yesterday = Date().yesterday;
+        let yesterday = Date().yesterday
         XCTAssert(yesterday.isInYesterday)
     }
 }
