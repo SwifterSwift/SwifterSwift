@@ -735,9 +735,7 @@ public extension String {
         let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var randomString = ""
         for _ in 1...length {
-            let randomIndex = Int.random(in: 0..<base.count)
-            let randomCharacter = base.charactersArray[Int(randomIndex)]
-            randomString.append(randomCharacter)
+            randomString.append(base.randomElement()!)
         }
         return randomString
     }
@@ -1047,9 +1045,7 @@ public extension String {
         let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var randomString = ""
         for _ in 1...length {
-            let randomIndex = Int.random(in: 0..<base.count)
-            let randomCharacter = Array(base)[Int(randomIndex)]
-            randomString.append(randomCharacter)
+            randomString.append(base.randomElement()!)
         }
         self = randomString
     }
