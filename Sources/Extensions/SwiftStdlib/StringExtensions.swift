@@ -100,7 +100,7 @@ public extension String {
     ///		"".firstCharacterAsString -> nil
     ///
     public var firstCharacterAsString: String? {
-        guard let first = self.first else { return nil }
+        guard let first = first else { return nil }
         return String(first)
     }
 
@@ -259,7 +259,7 @@ public extension String {
     ///		"".lastCharacterAsString -> nil
     ///
     public var lastCharacterAsString: String? {
-        guard let last = self.last else { return nil }
+        guard let last = last else { return nil }
         return String(last)
     }
 
@@ -400,7 +400,7 @@ public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: Check if the given string contains only white spaces
     public var isWhitespace: Bool {
-        return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        return trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     #endif
 
@@ -408,7 +408,7 @@ public extension String {
     /// SwifterSwift: Check if the given string spelled correctly
     public var isSpelledCorrectly: Bool {
         let checker = UITextChecker()
-        let range = NSRange(location: 0, length: self.utf16.count)
+        let range = NSRange(location: 0, length: utf16.count)
 
         let misspelledRange = checker.rangeOfMisspelledWord(in: self, range: range, startingAt: 0, wrap: false, language: Locale.preferredLanguages.first ?? "en")
         return misspelledRange.location == NSNotFound
@@ -775,7 +775,7 @@ public extension String {
     ///   - i: string index the slicing should start from.
     ///   - length: amount of characters to be sliced after given index.
     public mutating func slice(from i: Int, length: Int) {
-        if let str = self.slicing(from: i, length: length) {
+        if let str = slicing(from: i, length: length) {
             self = String(str)
         }
     }

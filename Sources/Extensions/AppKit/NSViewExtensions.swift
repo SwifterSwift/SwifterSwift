@@ -132,7 +132,7 @@ extension NSView {
     ///
     /// - Parameter subviews: array of subviews to add to self.
     public func addSubviews(_ subviews: [NSView]) {
-        subviews.forEach({self.addSubview($0)})
+        subviews.forEach({addSubview($0)})
     }
 
     /// SwifterSwift: Remove all subviews in view.

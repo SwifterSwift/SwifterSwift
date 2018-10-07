@@ -33,7 +33,7 @@ public extension UICollectionView {
     public func numberOfItems() -> Int {
         var section = 0
         var itemsCount = 0
-        while section < self.numberOfSections {
+        while section < numberOfSections {
             itemsCount += numberOfItems(inSection: section)
             section += 1
         }

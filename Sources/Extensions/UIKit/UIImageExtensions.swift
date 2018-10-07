@@ -173,7 +173,7 @@ public extension UIImage {
         context.setBlendMode(CGBlendMode.normal)
 
         let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        guard let mask = self.cgImage else { return self }
+        guard let mask = cgImage else { return self }
         context.clip(to: rect, mask: mask)
         context.fill(rect)
 
