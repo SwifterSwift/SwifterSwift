@@ -22,9 +22,6 @@ public extension UIActivity.ActivityType {
 
     /// SwifterSwift: XING share extension
     public static let postToXing = UIActivity.ActivityType("com.xing.XING.Xing-Share")
-
-    /// SwifterSwift: Google Plus share extension
-    public static let postToGooglePlus = UIActivity.ActivityType("com.google.GooglePlus.ShareExtension")
 }
 
 #endif
