@@ -22,6 +22,6 @@ public extension UIActivity.ActivityType {
 
     /// SwifterSwift: XING share extension
     public static let postToXing = UIActivity.ActivityType("com.xing.XING.Xing-Share")
-}
 
+}
 #endif
