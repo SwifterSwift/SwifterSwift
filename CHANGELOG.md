@@ -7,7 +7,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Dictionary**
   - Added `Dictionary[path:]` subscript for deep fetching/setting nested values. [#574](https://github.com/SwifterSwift/SwifterSwift/pull/573) by [@calebkleveter](https://github.com/calebkleveter)
 - **UIActivity**
-  - Added `ActivityType` constants for iCloud Drive, WhatsApp, LinkedIn, XING and Google Plus. [#580](https://github.com/SwifterSwift/SwifterSwift/pull/580) by [staffler-xyz](https://github.com/staffler-xyz)
+  - Added `ActivityType` constants for iCloud Drive, WhatsApp, LinkedIn and XING. [#580](https://github.com/SwifterSwift/SwifterSwift/pull/580) by [staffler-xyz](https://github.com/staffler-xyz)
 ### Changed
 ### Fixed
 - **UIImage**:
