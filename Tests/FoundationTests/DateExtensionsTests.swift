@@ -953,6 +953,10 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssert(Date.random(in: singleDate...singleDate, using: &generator).isBetween(singleDate, singleDate, includeBounds: true))
     }
 
+    func testYesterday() {
+        let date = Date()
+        XCTAssertEqual(date.yesterday.timeIntervalSince(date), -86400.0)
+    }
 }
 
 #endif
