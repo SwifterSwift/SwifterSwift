@@ -6,7 +6,7 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(UIKit) && !os(watchOS)
+#if canImport(UIKit) && os(iOS)
 import UIKit
 
 // MARK: - ActivityType
