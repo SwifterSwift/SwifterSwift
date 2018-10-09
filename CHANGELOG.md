@@ -19,6 +19,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # [v4.6.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.6.0)
 
 ### Added
+- **Date**
+    - Added `yesterday` computed property to quickly get yesterday's date to avoid calling `adding(_:value:)` function. [#578](https://github.com/SwifterSwift/SwifterSwift/pull/578) by [AlexeiGitH](https://github.com/AlexeiGitH)
 - **UIView**
   - Added `ancestorView(where:)` and `ancestorView(withClass:)` to search for a view in the superviews. [#560](https://github.com/SwifterSwift/SwifterSwift/pull/560) by [overovermind](https://github.com/overovermind)
 ### Fixed
