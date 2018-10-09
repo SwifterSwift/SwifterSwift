@@ -441,6 +441,9 @@ public extension Color {
 
         /// red: 255, green: 252, blue: 0
         public static let snapchat = Color(red: 255, green: 252, blue: 0)!
+
+        /// red: 37, green: 211, blue: 102
+        public static let whatsApp = Color(red: 37, green: 211, blue: 102)!
     }
 
 }
