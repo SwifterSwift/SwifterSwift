@@ -57,7 +57,7 @@ public extension Optional {
     /// - Parameter block: a block to run if self is not nil.
     public func run(_ block: (Wrapped) -> Void) {
         // http://www.russbishop.net/improving-optionals
-        _ = self.map(block)
+        _ = map(block)
     }
 
     /// SwifterSwift: Assign an optional value to a variable only if the value is not nil.
