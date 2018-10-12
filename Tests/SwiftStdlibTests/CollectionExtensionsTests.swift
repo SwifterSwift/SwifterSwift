@@ -128,6 +128,13 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertEqual(slices?.count, 1)
     }
 
+    func testNthSubscript() {
+        let arr = [1, 2, 3, 4, 5]
+        XCTAssertEqual(arr[nth: 1], 2)
+        XCTAssertEqual(arr[nth: -2], 4)
+        XCTAssertNil(arr[nth: -6])
+    }
+
     func testFirstIndex() {
         XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2))
         XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2), 2)

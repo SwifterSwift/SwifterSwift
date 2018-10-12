@@ -122,6 +122,21 @@ public extension Collection where Index == Int {
         return slices
     }
 
+    /// SwifterSwift: Returns the element at the specified position. If index is
+    /// negative, the nth element from the end will be returned. If index is out
+    /// of the indices, nil will be returned.
+    ///
+    ///        let arr = [1, 2, 3, 4, 5]
+    ///        arr[nth: 1] -> 2
+    ///        arr[nth: -2] -> 4
+    ///        arr[nth: -6] -> nil
+    ///
+    /// - Parameter index: The position of the element to access.
+    public subscript(nth index: Index) -> Element? {
+        let idx = index >= 0 ? index : (count + index)
+        return indices.contains(idx) ? self[idx] : nil
+    }
+
 }
 
 public extension Collection where Element: Equatable, Index == Int {
