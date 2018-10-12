@@ -9,9 +9,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIColor**
   - Added `whatsApp` color constant. [#581](https://github.com/SwifterSwift/SwifterSwift/pull/581) by [staffler-xyz](https://github.com/staffler-xyz)
 - **Float**
-  - Added `rounded(numberOfDecimalPlaces:, rule:)` to get the rounded float with the specified number of decimal places.
+  - Added `rounded(numberOfDecimalPlaces:, rule:)` to get the rounded float with the specified number of decimal places. [#583](https://github.com/SwifterSwift/SwifterSwift/pull/583) by [jianstm](https://github.com/jianstm)
 - **Double**
-  - Added `rounded(numberOfDecimalPlaces:, rule:)` to get the rounded double with the specified number of decimal places.
+  - Added `rounded(numberOfDecimalPlaces:, rule:)` to get the rounded double with the specified number of decimal places. [#583](https://github.com/SwifterSwift/SwifterSwift/pull/583) by [jianstm](https://github.com/jianstm)
 ### Changed
 ### Fixed
 - **UIImage**:
