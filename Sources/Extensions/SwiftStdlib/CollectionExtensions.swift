@@ -122,21 +122,6 @@ public extension Collection where Index == Int {
         return slices
     }
 
-    /// SwifterSwift: Returns the element at the specified position. If index is
-    /// negative, the nth element from the end will be returned. If index is out
-    /// of the indices, nil will be returned.
-    ///
-    ///        let arr = [1, 2, 3, 4, 5]
-    ///        arr[nth: 1] -> 2
-    ///        arr[nth: -2] -> 4
-    ///        arr[nth: -6] -> nil
-    ///
-    /// - Parameter index: The position of the element to access.
-    public subscript(nth index: Index) -> Element? {
-        let idx = index >= 0 ? index : (count + index)
-        return indices.contains(idx) ? self[idx] : nil
-    }
-
 }
 
 public extension Collection where Element: Equatable, Index == Int {
@@ -199,4 +184,21 @@ public extension Collection where Element: FloatingPoint {
         return reduce(0, {$0 + $1}) / Element(count)
     }
 
+}
+
+public extension BidirectionalCollection {
+
+    /// SwifterSwift: Returns the element at the specified position. If offset
+    /// is negative, the `n`th element from the end will be returned where `n`
+    /// is the result of `abs(distance)`.
+    ///
+    ///        let arr = [1, 2, 3, 4, 5]
+    ///        arr[offset: 1] -> 2
+    ///        arr[offset: -2] -> 4
+    ///
+    /// - Parameter distance: The distance to offset.
+    public subscript(offset distance: Int) -> Element {
+        let index = distance >= 0 ? startIndex : endIndex
+        return self[indices.index(index, offsetBy: distance)]
+    }
 }

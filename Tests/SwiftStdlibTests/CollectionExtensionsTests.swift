@@ -128,11 +128,10 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertEqual(slices?.count, 1)
     }
 
-    func testNthSubscript() {
+    func testOffsetSubscript() {
         let arr = [1, 2, 3, 4, 5]
-        XCTAssertEqual(arr[nth: 1], 2)
-        XCTAssertEqual(arr[nth: -2], 4)
-        XCTAssertNil(arr[nth: -6])
+        XCTAssertEqual(arr[offset: 1], 2)
+        XCTAssertEqual(arr[offset: -2], 4)
     }
 
     func testFirstIndex() {
