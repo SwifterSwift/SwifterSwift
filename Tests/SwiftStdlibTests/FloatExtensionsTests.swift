@@ -27,6 +27,15 @@ final class FloatExtensionsTests: XCTestCase {
         XCTAssertEqual(Float(4.3).cgFloat, CGFloat(4.3), accuracy: 0.00001)
     }
 
+    func testRounded() {
+        let num: Float = 3.1415927
+        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 3, rule: .up), 3.142)
+        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 3, rule: .down), 3.141)
+        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 2, rule: .awayFromZero), 3.15)
+        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 4, rule: .towardZero), 3.1415)
+        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: -1, rule: .toNearestOrEven), 3)
+    }
+
     func testOperators() {
         XCTAssertEqual((Float(5.0) ** Float(2.0)), Float(25.0))
         XCTAssertEqual((√Float(25.0)), Float(5.0))
