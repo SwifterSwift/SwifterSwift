@@ -34,6 +34,7 @@ final class FloatExtensionsTests: XCTestCase {
         XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 2, rule: .awayFromZero), 3.15)
         XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 4, rule: .towardZero), 3.1415)
         XCTAssertEqual(num.rounded(numberOfDecimalPlaces: -1, rule: .toNearestOrEven), 3)
+        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 0, rule: .toNearestOrAwayFromZero), 3)
     }
 
     func testOperators() {

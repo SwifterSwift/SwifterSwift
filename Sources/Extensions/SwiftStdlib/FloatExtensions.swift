@@ -46,8 +46,7 @@ public extension Float {
     ///   - rule: The rounding rule to use.
     /// - Returns: The rounded value.
     func rounded(numberOfDecimalPlaces: Int, rule: FloatingPointRoundingRule) -> Float {
-        let number = numberOfDecimalPlaces < 0 ? 0 : numberOfDecimalPlaces
-        let factor = powf(10.0, Float(number))
+        let factor = powf(10.0, Float(max(0, numberOfDecimalPlaces)))
         return (self * factor).rounded(rule) / factor
     }
 
