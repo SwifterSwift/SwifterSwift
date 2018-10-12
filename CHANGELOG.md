@@ -8,6 +8,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `Dictionary[path:]` subscript for deep fetching/setting nested values. [#574](https://github.com/SwifterSwift/SwifterSwift/pull/573) by [@calebkleveter](https://github.com/calebkleveter)
 - **UIColor**
   - Added `whatsApp` color constant. [#581](https://github.com/SwifterSwift/SwifterSwift/pull/581) by [staffler-xyz](https://github.com/staffler-xyz)
+- **Float**
+  - Added `rounded(numberOfDecimalPlaces:, rule:)` to get the rounded float with the specified number of decimal places.
+- **Double**
+  - Added `rounded(numberOfDecimalPlaces:, rule:)` to get the rounded double with the specified number of decimal places.
 ### Changed
 ### Fixed
 - **UIImage**:
