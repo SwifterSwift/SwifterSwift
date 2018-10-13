@@ -22,4 +22,5 @@ public extension BidirectionalCollection {
         let index = distance >= 0 ? startIndex : endIndex
         return self[indices.index(index, offsetBy: distance)]
     }
+
 }
