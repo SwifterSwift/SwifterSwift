@@ -27,16 +27,6 @@ final class DoubleExtensionsTests: XCTestCase {
         XCTAssertEqual(Double(4.3).cgFloat, CGFloat(4.3))
     }
 
-    func testRounded() {
-        let num: Double = 3.1415927
-        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 3, rule: .up), 3.142)
-        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 3, rule: .down), 3.141)
-        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 2, rule: .awayFromZero), 3.15)
-        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 4, rule: .towardZero), 3.1415)
-        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: -1, rule: .toNearestOrEven), 3)
-        XCTAssertEqual(num.rounded(numberOfDecimalPlaces: 0, rule: .toNearestOrAwayFromZero), 3)
-    }
-
     func testOperators() {
         XCTAssertEqual((Double(5.0) ** Double(2.0)), Double(25.0))
         XCTAssertEqual((√Double(25.0)), Double(5.0))
