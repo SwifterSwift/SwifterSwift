@@ -740,13 +740,13 @@
 				078916D92076077000AC0665 /* FloatingPointExtensionsTests.swift */,
 				07C50D031F5EB03200F46E5A /* IntExtensionsTests.swift */,
 				07C50D051F5EB03200F46E5A /* OptionalExtensionsTests.swift */,
-				B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */,
-				B22EB2B820E9E814001EAE70 /* RangeReplaceableCollectionTests.swift */,
 				18C8E5E22074C67000F8AF51 /* SequenceExtensionsTests.swift */,
 				078916DD20760DA700AC0665 /* SignedIntegerExtensionsTests.swift */,
-				07FE50441F891C95000766AA /* SignedNumericExtensionsTests.swift */,
 				07C50D061F5EB03200F46E5A /* StringExtensionsTests.swift */,
 				9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */,
+				07FE50441F891C95000766AA /* SignedNumericExtensionsTests.swift */,
+				B22EB2B820E9E814001EAE70 /* RangeReplaceableCollectionTests.swift */,
+				B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */,
 			);
 			path = SwiftStdlibTests;
 			sourceTree = "<group>";
