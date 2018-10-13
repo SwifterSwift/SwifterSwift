@@ -9,7 +9,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIColor**
   - Added `whatsApp` color constant. [#581](https://github.com/SwifterSwift/SwifterSwift/pull/581) by [staffler-xyz](https://github.com/staffler-xyz)
 - **BidirectionalCollection**
-  - Added `BidirectionalCollection[offset:]` subscript to get element with negative offset. [#582](https://github.com/SwifterSwift/SwifterSwift/pull/582) by [jianstm](https://github.com/jianstm)
+  - Added `subscript[offset:]` to get element with negative offset. [#582](https://github.com/SwifterSwift/SwifterSwift/pull/582) by [jianstm](https://github.com/jianstm)
 ### Changed
 ### Fixed
 - **UIImage**:
