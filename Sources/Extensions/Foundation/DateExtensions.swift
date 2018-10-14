@@ -873,28 +873,46 @@ public extension Date {
         return abs(componentValue) <= value
     }
 
-    /// SwifterSwift: Random date between two dates.
+    /// SwifterSwift: Returns a random date within the specified range.
     ///
-    ///     Date.random()
-    ///     Date.random(from: Date())
-    ///     Date.random(upTo: Date())
-    ///     Date.random(from: Date(), upTo: Date())
+    /// - Parameter range: The range in which to create a random date. `range` must not be empty.
+    /// - Returns: A random date within the bounds of `range`.
+    public static func random(in range: Range<Date>) -> Date {
+        return Date(timeIntervalSinceReferenceDate:
+            TimeInterval.random(in: range.lowerBound.timeIntervalSinceReferenceDate..<range.upperBound.timeIntervalSinceReferenceDate))
+    }
+
+    /// SwifterSwift: Returns a random date within the specified range.
+    ///
+    /// - Parameter range: The range in which to create a random date.
+    /// - Returns: A random date within the bounds of `range`.
+    public static func random(in range: ClosedRange<Date>) -> Date {
+        return Date(timeIntervalSinceReferenceDate:
+            TimeInterval.random(in: range.lowerBound.timeIntervalSinceReferenceDate...range.upperBound.timeIntervalSinceReferenceDate))
+    }
+
+    /// SwifterSwift: Returns a random date within the specified range, using the given generator as a source for randomness.
     ///
     /// - Parameters:
-    ///   - fromDate: minimum date (default is Date.distantPast)
-    ///   - toDate: maximum date (default is Date.distantFuture)
-    /// - Returns: random date between two dates.
-    public static func random(from fromDate: Date = Date.distantPast, upTo toDate: Date = Date.distantFuture) -> Date {
-        guard fromDate != toDate else {
-            return fromDate
-        }
+    ///   - range: The range in which to create a random date. `range` must not be empty.
+    ///   - generator: The random number generator to use when creating the new random date.
+    /// - Returns: A random date within the bounds of `range`.
+    public static func random<T>(in range: Range<Date>, using generator: inout T) -> Date where T: RandomNumberGenerator {
+        return Date(timeIntervalSinceReferenceDate:
+            TimeInterval.random(in: range.lowerBound.timeIntervalSinceReferenceDate..<range.upperBound.timeIntervalSinceReferenceDate,
+                                using: &generator))
+    }
 
-        let diff = llabs(Int64(toDate.timeIntervalSinceReferenceDate - fromDate.timeIntervalSinceReferenceDate))
-        var randomValue: Int64 = Int64.random(in: Int64.min...Int64.max)
-        randomValue = llabs(randomValue%diff)
-
-        let startReferenceDate = toDate > fromDate ? fromDate : toDate
-        return startReferenceDate.addingTimeInterval(TimeInterval(randomValue))
+    /// SwifterSwift: Returns a random date within the specified range, using the given generator as a source for randomness.
+    ///
+    /// - Parameters:
+    ///   - range: The range in which to create a random date.
+    ///   - generator: The random number generator to use when creating the new random date.
+    /// - Returns: A random date within the bounds of `range`.
+    public static func random<T>(in range: ClosedRange<Date>, using generator: inout T) -> Date where T: RandomNumberGenerator {
+        return Date(timeIntervalSinceReferenceDate:
+            TimeInterval.random(in: range.lowerBound.timeIntervalSinceReferenceDate...range.upperBound.timeIntervalSinceReferenceDate,
+                                using: &generator))
     }
 
 }

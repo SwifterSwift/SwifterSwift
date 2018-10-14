@@ -895,53 +895,62 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertNil(Date(integerLiteral: 222))
     }
 
-    func testRandom() {
-        var randomDate = Date.random()
-        XCTAssertTrue(randomDate.isBetween(Date.distantPast, Date.distantFuture, includeBounds: true))
-
-        var date = Date(timeIntervalSinceReferenceDate: 0)
-        randomDate = Date.random(from: date)
-        XCTAssertTrue(randomDate.isBetween(date, Date.distantFuture, includeBounds: true))
-
-        date = Date(timeIntervalSince1970: 10000)
-        randomDate = Date.random(from: date)
-        XCTAssertTrue(randomDate.isBetween(date, Date.distantFuture, includeBounds: true))
-
-        date = Date(timeIntervalSince1970: -10000)
-        randomDate = Date.random(from: date)
-        XCTAssertTrue(randomDate.isBetween(date, Date.distantFuture, includeBounds: true))
-
-        date = Date(timeIntervalSinceReferenceDate: 0)
-        randomDate = Date.random(upTo: date)
-        XCTAssertTrue(randomDate.isBetween(Date.distantPast, date, includeBounds: true))
-
-        date = Date(timeIntervalSince1970: 10000)
-        randomDate = Date.random(upTo: date)
-        XCTAssertTrue(randomDate.isBetween(Date.distantPast, date, includeBounds: true))
-
-        date = Date(timeIntervalSince1970: -10000)
-        randomDate = Date.random(upTo: date)
-        XCTAssertTrue(randomDate.isBetween(Date.distantPast, date, includeBounds: true))
-
+    func testRandomRange() {
         var sinceDate = Date(timeIntervalSinceReferenceDate: 0)
         var toDate = Date(timeIntervalSinceReferenceDate: 10000)
-        randomDate = Date.random(from: sinceDate, upTo: toDate)
-        XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
+        XCTAssert(Date.random(in: sinceDate..<toDate).isBetween(sinceDate, toDate, includeBounds: false))
 
         sinceDate = Date(timeIntervalSince1970: -10000)
         toDate = Date(timeIntervalSince1970: -10)
-        randomDate = Date.random(from: sinceDate, upTo: toDate)
-        XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
+        XCTAssert(Date.random(in: sinceDate..<toDate).isBetween(sinceDate, toDate, includeBounds: false))
 
         sinceDate = Date(timeIntervalSinceReferenceDate: -1000)
         toDate = Date(timeIntervalSinceReferenceDate: 10000)
-        randomDate = Date.random(from: sinceDate, upTo: toDate)
-        XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
+        XCTAssert(Date.random(in: sinceDate..<toDate).isBetween(sinceDate, toDate, includeBounds: false))
 
-        sinceDate = Date(timeIntervalSinceReferenceDate: 0)
-        toDate = sinceDate
-        randomDate = Date.random(from: sinceDate, upTo: toDate)
-        XCTAssertTrue(randomDate.isBetween(sinceDate, toDate, includeBounds: true))
+        sinceDate = Date.distantPast
+        toDate = Date.distantFuture
+        XCTAssert(Date.random(in: sinceDate..<toDate).isBetween(sinceDate, toDate, includeBounds: false))
+    }
+
+    func testRandomClosedRange() {
+        var sinceDate = Date(timeIntervalSinceReferenceDate: 0)
+        var toDate = Date(timeIntervalSinceReferenceDate: 10000)
+        XCTAssert(Date.random(in: sinceDate...toDate).isBetween(sinceDate, toDate, includeBounds: true))
+
+        sinceDate = Date(timeIntervalSince1970: -10000)
+        toDate = Date(timeIntervalSince1970: -10)
+        XCTAssert(Date.random(in: sinceDate...toDate).isBetween(sinceDate, toDate, includeBounds: true))
+
+        sinceDate = Date(timeIntervalSinceReferenceDate: -1000)
+        toDate = Date(timeIntervalSinceReferenceDate: 10000)
+        XCTAssert(Date.random(in: sinceDate...toDate).isBetween(sinceDate, toDate, includeBounds: true))
+
+        sinceDate = Date.distantPast
+        toDate = Date.distantFuture
+        XCTAssert(Date.random(in: sinceDate...toDate).isBetween(sinceDate, toDate, includeBounds: true))
+
+        let singleDate = Date(timeIntervalSinceReferenceDate: 0)
+        XCTAssertFalse(Date.random(in: singleDate...singleDate).isBetween(singleDate, singleDate, includeBounds: false))
+        XCTAssert(Date.random(in: singleDate...singleDate).isBetween(singleDate, singleDate, includeBounds: true))
+    }
+
+    func testRandomRangeWithGenerator() {
+        var generator = SystemRandomNumberGenerator()
+        let sinceDate = Date.distantPast
+        let toDate = Date.distantFuture
+        XCTAssert(Date.random(in: sinceDate..<toDate, using: &generator).isBetween(sinceDate, toDate, includeBounds: false))
+    }
+
+    func testRandomClosedRangeWithGenerator() {
+        var generator = SystemRandomNumberGenerator()
+        let sinceDate = Date.distantPast
+        let toDate = Date.distantFuture
+        XCTAssert(Date.random(in: sinceDate...toDate, using: &generator).isBetween(sinceDate, toDate, includeBounds: true))
+
+        let singleDate = Date(timeIntervalSinceReferenceDate: 0)
+        XCTAssertFalse(Date.random(in: singleDate...singleDate, using: &generator).isBetween(singleDate, singleDate, includeBounds: false))
+        XCTAssert(Date.random(in: singleDate...singleDate, using: &generator).isBetween(singleDate, singleDate, includeBounds: true))
     }
 
     func testYesterday() {
