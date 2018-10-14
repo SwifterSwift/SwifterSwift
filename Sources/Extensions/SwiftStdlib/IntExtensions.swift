@@ -70,7 +70,7 @@ public extension Int {
     public var digits: [Int] {
         guard self != 0 else { return [0] }
         var digits = [Int]()
-        var number = self.abs
+        var number = abs
 
         while number != 0 {
             let xNumber = number % 10
@@ -85,7 +85,7 @@ public extension Int {
     /// SwifterSwift: Number of digits of integer value.
     public var digitsCount: Int {
         guard self != 0 else { return 1 }
-        let number = Double(self.abs)
+        let number = Double(abs)
         return Int(log10(number) + 1)
     }
 
