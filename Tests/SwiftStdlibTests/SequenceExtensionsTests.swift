@@ -93,6 +93,15 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssert([1, 2, 3].contains([1, 3]))
         XCTAssertFalse([1, 2, 3].contains([4, 5]))
     }
+    
+    func testContainsTimes() {
+        let collection = [1, 2, 3, 4, 5, 1, 3, 4, 5, 1]
+        XCTAssert(collection.contains(1, times: 3))
+        XCTAssert(collection.contains(2, times: 1))
+        XCTAssertFalse(collection.contains(5, times: 1))
+        XCTAssertFalse(collection.contains(1, times: 0))
+        XCTAssert(collection.contains(6, times: 0))
+    }
 
     func testContainsDuplicates() {
         XCTAssertFalse([String]().containsDuplicates())
