@@ -677,7 +677,7 @@ public extension String {
         return range(of: string) != nil
     }
     #endif
-    
+
     /// SwifterSwift: Check if string contains substring exactly `times` times
     ///
     ///     "hellohello".contains("hello", times: 2) -> true
@@ -691,18 +691,18 @@ public extension String {
         var index = self.startIndex
         var matchEnd = self.index(self.startIndex, offsetBy: string.count - 1)
         var matches = 0
-        
+
         while matchEnd < self.endIndex {
             if self[index] == string.first {
                 if self[index...matchEnd] == string {
                     matches += 1
                 }
             }
-            
+
             index = self.index(index, offsetBy: 1)
             matchEnd = self.index(index, offsetBy: string.count - 1)
         }
-        
+
         return matches == times
     }
 

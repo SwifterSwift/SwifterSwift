@@ -378,7 +378,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssert("Hello Tests".contains("Hello", caseSensitive: true))
         XCTAssert("Hello Tests".contains("hello", caseSensitive: false))
     }
-    
+
     func testContainsTimes() {
         let str = "hellohello"
         XCTAssert(str.contains("h", times: 2))
