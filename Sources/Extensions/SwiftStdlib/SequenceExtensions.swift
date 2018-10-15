@@ -192,13 +192,11 @@ public extension Sequence where Element: Equatable {
     /// - Returns: true if sequence contains element n times
     public func contains(_ element: Element, times n: Int) -> Bool {
         var matches = 0
-        
-        for item in self {
-            if item == element {
-                matches += 1
-            }
+
+        for item in self where item == element {
+            matches += 1
         }
-        
+
         return matches == n
     }
 }
