@@ -677,6 +677,34 @@ public extension String {
         return range(of: string) != nil
     }
     #endif
+    
+    /// SwifterSwift: Check if string contains substring exactly `times` times
+    ///
+    ///     "hellohello".contains("hello", times: 2) -> true
+    ///     "hello".contains("h", times: 2) -> false
+    ///     "hello.contains("l", times: 2) -> true
+    /// - Parameters:
+    ///     - string: substring to search for
+    ///     - times: amount of times substring should appear in the string
+    /// - Returns: true if string contains substring `times` times
+    public func contains<S>(_ string: S, times: Int) -> Bool where S: StringProtocol {
+        var index = self.startIndex
+        var matchEnd = self.index(self.startIndex, offsetBy: string.count - 1)
+        var matches = 0
+        
+        while matchEnd < self.endIndex {
+            if self[index] == string.first {
+                if self[index...matchEnd] == string {
+                    matches += 1
+                }
+            }
+            
+            index = self.index(index, offsetBy: 1)
+            matchEnd = self.index(index, offsetBy: string.count - 1)
+        }
+        
+        return matches == times
+    }
 
     #if canImport(Foundation)
     /// SwifterSwift: Count of substring in string.
