@@ -180,7 +180,7 @@ public extension Sequence where Element: Equatable {
         return true
     }
 
-    /// SwifterSwift: Check if sequence contains element exactly `n` times
+    /// SwifterSwift: Check if sequence contains element exactly `times` times
     ///
     ///     [1, 2, 3, 1].contains(1, times: 1) -> false
     ///     [1, 2, 3, 1].contains(1, times: 2) -> true
@@ -188,16 +188,16 @@ public extension Sequence where Element: Equatable {
     ///
     /// - Parameters:
     ///     - element: element to check
-    ///     - n: amount of times element should appear in the sequence
+    ///     - times: amount of times element should appear in the sequence
     /// - Returns: true if sequence contains element n times
-    public func contains(_ element: Element, times n: Int) -> Bool {
+    public func contains(_ element: Element, times: Int) -> Bool {
         var matches = 0
 
         for item in self where item == element {
             matches += 1
         }
 
-        return matches == n
+        return matches == times
     }
 }
 
