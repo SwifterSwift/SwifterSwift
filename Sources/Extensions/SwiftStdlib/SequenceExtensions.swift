@@ -189,7 +189,7 @@ public extension Sequence where Element: Equatable {
     /// - Parameters:
     ///     - element: element to check
     ///     - times: amount of times element should appear in the sequence
-    /// - Returns: true if sequence contains element n times
+    /// - Returns: true if sequence contains element `times` times
     public func contains(_ element: Element, times: Int) -> Bool {
         var matches = 0
 
