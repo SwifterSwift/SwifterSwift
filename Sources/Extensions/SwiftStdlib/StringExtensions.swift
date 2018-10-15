@@ -682,7 +682,7 @@ public extension String {
     ///
     ///     "hellohello".contains("hello", times: 2) -> true
     ///     "hello".contains("h", times: 2) -> false
-    ///     "hello.contains("l", times: 2) -> true
+    ///     "hello".contains("l", times: 2) -> true
     /// - Parameters:
     ///     - string: substring to search for
     ///     - times: amount of times substring should appear in the string
