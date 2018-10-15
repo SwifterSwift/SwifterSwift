@@ -14,6 +14,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `subscript[offset:]` to get element with negative offset. [#582](https://github.com/SwifterSwift/SwifterSwift/pull/582) by [jianstm](https://github.com/jianstm)
 - **BinaryFloatingPointExtensions**
   - Added `rounded(numberOfDecimalPlaces:rule:)` to get the rounded floating number with the specified number of decimal places. [#583](https://github.com/SwifterSwift/SwifterSwift/pull/583) by [jianstm](https://github.com/jianstm)
+- **SequenceExtensions**
+  - Added `contains(_:times:)` to check if the sequence contains the provided element exactly `n` times. [#588](https://github.com/SwifterSwift/SwifterSwift/pull/588) by [MrLotU](https://github.com/MrLotU)
 ### Changed
 ### Fixed
 - **UIImage**:
