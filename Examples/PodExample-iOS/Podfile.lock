@@ -1,0 +1,32 @@
+PODS:
+  - SwifterSwift (4.6.0):
+    - SwifterSwift/AppKit (= 4.6.0)
+    - SwifterSwift/CoreGraphics (= 4.6.0)
+    - SwifterSwift/CoreLocation (= 4.6.0)
+    - SwifterSwift/Foundation (= 4.6.0)
+    - SwifterSwift/MapKit (= 4.6.0)
+    - SwifterSwift/SpriteKit (= 4.6.0)
+    - SwifterSwift/SwiftStdlib (= 4.6.0)
+    - SwifterSwift/UIKit (= 4.6.0)
+  - SwifterSwift/AppKit (4.6.0)
+  - SwifterSwift/CoreGraphics (4.6.0)
+  - SwifterSwift/CoreLocation (4.6.0)
+  - SwifterSwift/Foundation (4.6.0)
+  - SwifterSwift/MapKit (4.6.0)
+  - SwifterSwift/SpriteKit (4.6.0)
+  - SwifterSwift/SwiftStdlib (4.6.0)
+  - SwifterSwift/UIKit (4.6.0)
+
+DEPENDENCIES:
+  - SwifterSwift (from `../../`)
+
+EXTERNAL SOURCES:
+  SwifterSwift:
+    :path: "../../"
+
+SPEC CHECKSUMS:
+  SwifterSwift: f2b9e6260047d53a17d9fbd4b3a0ba94c39e2279
+
+PODFILE CHECKSUM: ac84bf06dc1d722c827d1eb389780e5f2b13b616
+
+COCOAPODS: 1.5.3

@@ -1,0 +1,18 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+
+use_frameworks!
+
+target 'PodExample-iOS' do
+    pod 'SwifterSwift', :path => '../../'
+#    pod 'SwifterSwift', '~> 4.6'
+
+    target 'PodExample-iOSTests' do
+        inherit! :search_paths
+    end
+    
+    target 'PodExample-iOSUITests' do
+        inherit! :search_paths
+    end
+end
