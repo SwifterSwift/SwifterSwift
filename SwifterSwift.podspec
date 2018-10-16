@@ -11,17 +11,17 @@ Pod::Spec.new do |s|
   s.authors = { 'Omar Albeik' => 'omaralbeik@gmail.com' }
   s.social_media_url = 'http://twitter.com/omaralbeik'
   s.screenshot = 'https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/master/Assets/logo.png'
+  s.documentation_url = 'http://swifterswift.com/docs'
 
   s.ios.deployment_target = '8.0'
   s.osx.deployment_target = '10.10'
   s.tvos.deployment_target = '9.0'
   s.watchos.deployment_target = '2.0'
 
+  s.swift_version = '4.2'
   s.requires_arc = true
   s.source = { git: 'https://github.com/SwifterSwift/SwifterSwift.git', tag: s.version.to_s }
-  s.source_files = 'Sources/**/*.swift'
-  s.swift_version = '4.2'
-  s.documentation_url = 'http://swifterswift.com/docs'
+  s.source_files = 'Sources/Extensions/*.swift'
 
   # SwiftStdlib Extensions
   s.subspec 'SwiftStdlib' do |sp|
@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
 
   # AppKit Extensions
   s.subspec 'AppKit' do |sp|
-    sp.source_files  = 'Sources/Extensions/AppKit/*.swift', 'Sources/Extensionss/Shared/ColorExtensions.swift'
+    sp.source_files  = 'Sources/Extensions/AppKit/*.swift', 'Sources/Extensions/Shared/ColorExtensions.swift'
   end
 
   # CoreGraphics Extensions
