@@ -35,12 +35,14 @@ Pod::Spec.new do |s|
 
   # UIKit Extensions
   s.subspec 'UIKit' do |sp|
-    sp.source_files  = 'Sources/Extensions/UIKit/*.swift', 'Sources/Extensions/Shared/ColorExtensions.swift'
+    sp.dependency 'SwifterSwift/Shared/Color'
+    sp.source_files  = 'Sources/Extensions/UIKit/*.swift'
   end
 
   # AppKit Extensions
   s.subspec 'AppKit' do |sp|
-    sp.source_files  = 'Sources/Extensions/AppKit/*.swift', 'Sources/Extensions/Shared/ColorExtensions.swift'
+    sp.dependency 'SwifterSwift/Shared/Color'
+    sp.source_files  = 'Sources/Extensions/AppKit/*.swift'
   end
 
   # CoreGraphics Extensions
@@ -61,6 +63,13 @@ Pod::Spec.new do |s|
   # SpriteKit Extensions
   s.subspec 'SpriteKit' do |sp|
     sp.source_files = 'Sources/Extensions/SpriteKit/*.swift'
+  end
+
+  # Shared Subspec Extensions
+  s.subspec 'Shared' do |sp|
+      sp.subspec 'Color' do |sp|
+          sp.source_files = 'Sources/Extensions/Shared/ColorExtensions.swift'
+      end
   end
 
 end
