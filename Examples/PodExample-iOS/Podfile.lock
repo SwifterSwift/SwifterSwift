@@ -5,17 +5,23 @@ PODS:
     - SwifterSwift/CoreLocation (= 4.6.0)
     - SwifterSwift/Foundation (= 4.6.0)
     - SwifterSwift/MapKit (= 4.6.0)
+    - SwifterSwift/Shared (= 4.6.0)
     - SwifterSwift/SpriteKit (= 4.6.0)
     - SwifterSwift/SwiftStdlib (= 4.6.0)
     - SwifterSwift/UIKit (= 4.6.0)
-  - SwifterSwift/AppKit (4.6.0)
+  - SwifterSwift/AppKit (4.6.0):
+    - SwifterSwift/Shared/Color
   - SwifterSwift/CoreGraphics (4.6.0)
   - SwifterSwift/CoreLocation (4.6.0)
   - SwifterSwift/Foundation (4.6.0)
   - SwifterSwift/MapKit (4.6.0)
+  - SwifterSwift/Shared (4.6.0):
+    - SwifterSwift/Shared/Color (= 4.6.0)
+  - SwifterSwift/Shared/Color (4.6.0)
   - SwifterSwift/SpriteKit (4.6.0)
   - SwifterSwift/SwiftStdlib (4.6.0)
-  - SwifterSwift/UIKit (4.6.0)
+  - SwifterSwift/UIKit (4.6.0):
+    - SwifterSwift/Shared/Color
 
 DEPENDENCIES:
   - SwifterSwift (from `../../`)
@@ -25,8 +31,8 @@ EXTERNAL SOURCES:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  SwifterSwift: f2b9e6260047d53a17d9fbd4b3a0ba94c39e2279
+  SwifterSwift: 19071fe19d1c657e34709486ea1aa8ea17edbd70
 
-PODFILE CHECKSUM: ac84bf06dc1d722c827d1eb389780e5f2b13b616
+PODFILE CHECKSUM: fd2021a91929885f3b42e66e45bbcdd8c4c173d0
 
 COCOAPODS: 1.5.3
