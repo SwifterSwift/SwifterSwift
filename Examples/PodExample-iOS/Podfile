@@ -9,11 +9,4 @@ target 'PodExample-iOS' do
 #    pod 'SwifterSwift', '4.6.0' # The group paths of SwifterSwifte in Pods before version 4.6.0 is incorrect. The source files are not contained in their own subspec groups.
 #    pod 'SwifterSwift', :git => 'https://github.com/dklinzh/SwifterSwift.git', :branch => 'pod_install' # The correct group paths of SwifterSwift in Pods as same as that in Development Pods. 
 
-    target 'PodExample-iOSTests' do
-        inherit! :search_paths
-    end
-    
-    target 'PodExample-iOSUITests' do
-        inherit! :search_paths
-    end
 end
