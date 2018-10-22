@@ -937,7 +937,7 @@ public extension Date {
     ///   - nanosecond: Nanosecond (default is current nanosecond).
     public init?(
         calendar: Calendar? = Calendar.current,
-        timeZone: TimeZone? = TimeZone.current,
+        timeZone: TimeZone? = NSTimeZone.default,
         era: Int? = Date().era,
         year: Int? = Date().year,
         month: Int? = Date().month,

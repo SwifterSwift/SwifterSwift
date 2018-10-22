@@ -459,7 +459,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testTimezone() {
-        XCTAssertEqual(Date().timeZone, Calendar.current.timeZone)
+        XCTAssertEqual(NSTimeZone.default, Calendar.current.timeZone)
     }
 
     func testUnixTimestamp() {
@@ -638,12 +638,12 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertNotNil(beginningOfWeek)
         XCTAssertEqual(date.beginning(of: .weekOfMonth)?.day, beginningOfWeek?.day)
 
-        let beginningOfMonth = Date(timeZone: Date().timeZone, year: 2016, month: 8, day: 1, hour: 5)
+        let beginningOfMonth = Date(year: 2016, month: 8, day: 1, hour: 5)
         XCTAssertNotNil(date.beginning(of: .month))
         XCTAssertNotNil(beginningOfMonth)
         XCTAssertEqual(date.beginning(of: .month)?.day, beginningOfMonth?.day)
 
-        let beginningOfYear = Date(timeZone: Date().timeZone, year: 2016, month: 1, day: 1, hour: 5)
+        let beginningOfYear = Date(year: 2016, month: 1, day: 1, hour: 5)
         XCTAssertNotNil(date.beginning(of: .year))
         XCTAssertNotNil(beginningOfYear)
         XCTAssertEqual(date.beginning(of: .year)?.day, beginningOfYear?.day)
@@ -860,13 +860,13 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testNewDateFromComponenets() {
-        let date = Date(calendar: Date().calendar, timeZone: Date().timeZone, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
+        let date = Date(calendar: Date().calendar, timeZone: NSTimeZone.default, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
         XCTAssertNotNil(date)
         let date1 = Date(timeIntervalSince1970: date!.timeIntervalSince1970)
 
         XCTAssertEqual(date?.timeIntervalSince1970, date1.timeIntervalSince1970)
 
-        let date2 = Date(calendar: nil, timeZone: Date().timeZone, era: Date().era, year: nil, month: nil, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
+        let date2 = Date(calendar: nil, timeZone: NSTimeZone.default, era: Date().era, year: nil, month: nil, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
         XCTAssertNil(date2)
     }
 
