@@ -10,6 +10,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `Dictionary[path:]` subscript for deep fetching/setting nested values. [#574](https://github.com/SwifterSwift/SwifterSwift/pull/573) by [@calebkleveter](https://github.com/calebkleveter)
 - **UIColor**
   - Added `whatsApp` color constant. [#581](https://github.com/SwifterSwift/SwifterSwift/pull/581) by [staffler-xyz](https://github.com/staffler-xyz)
+- **DispatchQueue**
+  - Added `isMainQueue` to check if current queue is main queue. [#585](https://github.com/SwifterSwift/SwifterSwift/pull/585) by [jianstm](https://github.com/jianstm)
+  - Added `isCurrent(_:)` to check if current queue is specified queue. [#585](https://github.com/SwifterSwift/SwifterSwift/pull/585) by [jianstm](https://github.com/jianstm)
 - **BidirectionalCollection**
   - Added `subscript[offset:]` to get element with negative offset. [#582](https://github.com/SwifterSwift/SwifterSwift/pull/582) by [jianstm](https://github.com/jianstm)
 - **BinaryFloatingPointExtensions**

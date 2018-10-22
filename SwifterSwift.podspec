@@ -72,4 +72,9 @@ Pod::Spec.new do |s|
       end
   end
 
+  # Dispatch Extensions
+  s.subspec 'Dispatch' do |sp|
+    sp.source_files = 'Sources/Extensions/Dispatch/*.swift'
+  end
+
 end
