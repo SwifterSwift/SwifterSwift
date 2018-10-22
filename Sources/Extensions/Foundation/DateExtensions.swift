@@ -474,7 +474,7 @@ public extension Date {
     public var tomorrow: Date {
         return addingTimeInterval(86400.0)
     }
-    
+
     /// SwifterSwift: UNIX timestamp from date.
     ///
     ///		Date().unixTimestamp -> 1484233862.826291
