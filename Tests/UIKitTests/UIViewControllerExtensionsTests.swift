@@ -119,14 +119,14 @@ final class UIViewControllerExtensionsTests: XCTestCase {
 
         XCTAssertNil(childViewController.parent)
     }
-    
+
     func testPresentPopover() {
         let popover = UIViewController()
-        let vc = UIViewController()
-        
-        vc.presentPopover(popover, sourcePoint: vc.view.center) {
-            XCTAssertEqual(vc.presentedViewController, popover)
-            XCTAssertEqual(popover.presentingViewController, vc)
+        let presentingViewController = UIViewController()
+
+        presentingViewController.presentPopover(popover, sourcePoint: presentingViewController.view.center) {
+            XCTAssertEqual(presentingViewController.presentedViewController, popover)
+            XCTAssertEqual(popover.presentingViewController, presentingViewController)
             XCTAssertEqual(popover.modalPresentationStyle, .popover)
         }
     }
