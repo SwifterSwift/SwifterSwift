@@ -96,5 +96,29 @@ public extension UIViewController {
         removeFromParent()
         view.removeFromSuperview()
     }
+
+    /// SwifterSwift: Helper method to present a UIViewController as a popover.
+    ///
+    /// - Parameters:
+    ///   - popoverContent: the view controller to add as a popover.
+    ///   - sourcePoint: the point in which to anchor the popover.
+    ///   - size: the size of the popover. Default uses the popover preferredContentSize.
+    ///   - delegate: the popover's presentationController delegate. Default is nil.
+    ///   - completion: The block to execute after the presentation finishes. Default is nil.
+    public func presentPopover(_ popoverContent: UIViewController, sourcePoint: CGPoint, size: CGSize? = nil, delegate: UIPopoverPresentationControllerDelegate? = nil, completion: ( () -> Void)? = nil) {
+
+        popoverContent.modalPresentationStyle = .popover
+
+        if let size = size {
+            popoverContent.preferredContentSize = size
+        }
+
+        let popoverPresentationVC = popoverContent.popoverPresentationController!
+        popoverPresentationVC.sourceView = self.view
+        popoverPresentationVC.sourceRect = CGRect(origin: sourcePoint, size: .zero)
+        popoverPresentationVC.delegate = delegate
+
+        self.present(popoverContent, animated: true, completion: completion)
+    }
 }
 #endif
