@@ -124,11 +124,17 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         let popover = UIViewController()
         let presentingViewController = UIViewController()
 
+        let exp = expectation(description: "Waiting for the presentation to happen.")
+
         presentingViewController.presentPopover(popover, sourcePoint: presentingViewController.view.center) {
             XCTAssertEqual(presentingViewController.presentedViewController, popover)
             XCTAssertEqual(popover.presentingViewController, presentingViewController)
             XCTAssertEqual(popover.modalPresentationStyle, .popover)
+
+            exp.fulfill()
         }
+
+        waitForExpectations(timeout: 15)
     }
 
 }

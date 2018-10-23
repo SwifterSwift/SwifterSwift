@@ -97,6 +97,7 @@ public extension UIViewController {
         view.removeFromSuperview()
     }
 
+    #if os(iOS)
     /// SwifterSwift: Helper method to present a UIViewController as a popover.
     ///
     /// - Parameters:
@@ -104,8 +105,9 @@ public extension UIViewController {
     ///   - sourcePoint: the point in which to anchor the popover.
     ///   - size: the size of the popover. Default uses the popover preferredContentSize.
     ///   - delegate: the popover's presentationController delegate. Default is nil.
+    ///   - animated: Pass true to animate the presentation; otherwise, pass false.
     ///   - completion: The block to execute after the presentation finishes. Default is nil.
-    public func presentPopover(_ popoverContent: UIViewController, sourcePoint: CGPoint, size: CGSize? = nil, delegate: UIPopoverPresentationControllerDelegate? = nil, completion: (() -> Void)? = nil) {
+    public func presentPopover(_ popoverContent: UIViewController, sourcePoint: CGPoint, size: CGSize? = nil, delegate: UIPopoverPresentationControllerDelegate? = nil, animated: Bool = true, completion: (() -> Void)? = nil) {
 
         popoverContent.modalPresentationStyle = .popover
 
@@ -113,12 +115,14 @@ public extension UIViewController {
             popoverContent.preferredContentSize = size
         }
 
-        let popoverPresentationVC = popoverContent.popoverPresentationController!
-        popoverPresentationVC.sourceView = self.view
-        popoverPresentationVC.sourceRect = CGRect(origin: sourcePoint, size: .zero)
-        popoverPresentationVC.delegate = delegate
+        if let popoverPresentationVC = popoverContent.popoverPresentationController {
+            popoverPresentationVC.sourceView = view
+            popoverPresentationVC.sourceRect = CGRect(origin: sourcePoint, size: .zero)
+            popoverPresentationVC.delegate = delegate
+        }
 
-        self.present(popoverContent, animated: true, completion: completion)
+        present(popoverContent, animated: animated, completion: completion)
     }
+    #endif
 }
 #endif
