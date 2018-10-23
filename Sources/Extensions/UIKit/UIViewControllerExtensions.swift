@@ -105,7 +105,7 @@ public extension UIViewController {
     ///   - size: the size of the popover. Default uses the popover preferredContentSize.
     ///   - delegate: the popover's presentationController delegate. Default is nil.
     ///   - completion: The block to execute after the presentation finishes. Default is nil.
-    public func presentPopover(_ popoverContent: UIViewController, sourcePoint: CGPoint, size: CGSize? = nil, delegate: UIPopoverPresentationControllerDelegate? = nil, completion: ( () -> Void)? = nil) {
+    public func presentPopover(_ popoverContent: UIViewController, sourcePoint: CGPoint, size: CGSize? = nil, delegate: UIPopoverPresentationControllerDelegate? = nil, completion: (() -> Void)? = nil) {
 
         popoverContent.modalPresentationStyle = .popover
 
