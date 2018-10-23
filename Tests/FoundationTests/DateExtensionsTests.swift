@@ -459,7 +459,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testTimezone() {
-        XCTAssertEqual(NSTimeZone.default, Calendar.current.timeZone)
+        XCTAssertEqual(Date().timeZone, Calendar.current.timeZone)
     }
 
     func testUnixTimestamp() {
