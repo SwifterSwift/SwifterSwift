@@ -108,7 +108,6 @@ public extension UIViewController {
     ///   - animated: Pass true to animate the presentation; otherwise, pass false.
     ///   - completion: The block to execute after the presentation finishes. Default is nil.
     public func presentPopover(_ popoverContent: UIViewController, sourcePoint: CGPoint, size: CGSize? = nil, delegate: UIPopoverPresentationControllerDelegate? = nil, animated: Bool = true, completion: (() -> Void)? = nil) {
-
         popoverContent.modalPresentationStyle = .popover
 
         if let size = size {

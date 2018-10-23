@@ -134,7 +134,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
             exp.fulfill()
         }
 
-        waitForExpectations(timeout: 15)
+        waitForExpectations(timeout: 1)
     }
 
 }
