@@ -36,5 +36,14 @@ extension Date {
         return startReferenceDate.addingTimeInterval(TimeInterval(randomValue))
     }
 
+    /// SwifterSwift: Time zone used currently by system.
+    ///
+    ///        Date().timeZone -> Europe/Istanbul (current)
+    ///
+    @available(*, deprecated: 4.7.0, message: "`Date` objects are timezone-agnostic. Please use Calendar.current.timeZone instead.")
+    public var timeZone: TimeZone {
+        return Calendar.current.timeZone
+    }
+
 }
 #endif

@@ -449,14 +449,6 @@ public extension Date {
         return Calendar.current.date(byAdding: .hour, value: 1, to: date)!
     }
 
-    /// SwifterSwift: Time zone used currently by system.
-    ///
-    ///		Date().timeZone -> Europe/Istanbul (current)
-    ///
-    public var timeZone: TimeZone {
-        return Calendar.current.timeZone
-    }
-
     /// SwifterSwift: Yesterday date.
     ///
     ///     let date = Date() // "Oct 3, 2018, 10:57:11"

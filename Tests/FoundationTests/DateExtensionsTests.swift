@@ -458,10 +458,6 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertEqual(date3.nearestHour, date.adding(.hour, value: 1))
     }
 
-    func testTimezone() {
-        XCTAssertEqual(Date().timeZone, Calendar.current.timeZone)
-    }
-
     func testUnixTimestamp() {
         let date = Date()
         XCTAssertEqual(date.unixTimestamp, date.timeIntervalSince1970)
