@@ -4,8 +4,19 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+- **Date**
+  - `random(in:)` and `random(in:using:)` to generate random dates using the built-in random functions added to Swift 4.2. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576) by [guykogus](https://github.com/guykogus)
 - **Dictionary**
   - Added `Dictionary[path:]` subscript for deep fetching/setting nested values. [#574](https://github.com/SwifterSwift/SwifterSwift/pull/573) by [@calebkleveter](https://github.com/calebkleveter)
+- **UIColor**
+  - Added `whatsApp` color constant. [#581](https://github.com/SwifterSwift/SwifterSwift/pull/581) by [staffler-xyz](https://github.com/staffler-xyz)
+- **DispatchQueue**
+  - Added `isMainQueue` to check if current queue is main queue. [#585](https://github.com/SwifterSwift/SwifterSwift/pull/585) by [jianstm](https://github.com/jianstm)
+  - Added `isCurrent(_:)` to check if current queue is specified queue. [#585](https://github.com/SwifterSwift/SwifterSwift/pull/585) by [jianstm](https://github.com/jianstm)
+- **BidirectionalCollection**
+  - Added `subscript[offset:]` to get element with negative offset. [#582](https://github.com/SwifterSwift/SwifterSwift/pull/582) by [jianstm](https://github.com/jianstm)
+- **BinaryFloatingPointExtensions**
+  - Added `rounded(numberOfDecimalPlaces:rule:)` to get the rounded floating number with the specified number of decimal places. [#583](https://github.com/SwifterSwift/SwifterSwift/pull/583) by [jianstm](https://github.com/jianstm)
 - **UIActivity**
   - Added `ActivityType` constants for iCloud Drive, WhatsApp, LinkedIn and XING. [#580](https://github.com/SwifterSwift/SwifterSwift/pull/580) by [staffler-xyz](https://github.com/staffler-xyz)
 ### Changed
@@ -13,6 +24,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIImage**:
   - `cropped(to:)` fixed size checking. [#575](https://github.com/SwifterSwift/SwifterSwift/pull/575) by [ilyahal](https://github.com/ilyahal)
 ### Deprecated
+- **Date**
+  - `random(from:upTo:)` in favor of `random(in:)` and `random(in:using:)`. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576) by [guykogus](https://github.com/guykogus)
+  - `timeZone` should never have been added because `Date`s are timezone-agnostic. This came to my attention during unit testing over daylight savings changes. [#594](https://github.com/SwifterSwift/SwifterSwift/pull/594) by [guykogus](https://github.com/guykogus)
 ### Removed
 ### Security
 
@@ -624,7 +638,7 @@ N/A
 
 - New **Array** extensions
     - added `groupByKey` to group the elements of the array by key in a dictionary. [#181](https://github.com/SwifterSwift/SwifterSwift/pull/181) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-    - added `forEach(slice:body:)` to iterate by specified slice size and call a closure. [#194](https://github.com/SwifterSwift/SwifterSwift/pull/194/files) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+    - added `forEach(slice:body:)` to iterate by specified slice size and call a closure. [#194](https://github.com/SwifterSwift/SwifterSwift/pull/194) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - New **Dictionary** extensions
     - add `count(where:)` to count dictionary elements where the condition returns true. [#193](https://github.com/SwifterSwift/SwifterSwift/pull/193) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 

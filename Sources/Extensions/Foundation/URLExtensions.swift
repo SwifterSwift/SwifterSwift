@@ -70,7 +70,7 @@ public extension URL {
     ///
     /// - Parameter key: The key of a query value.
     public func queryValue(for key: String) -> String? {
-        let stringURL = self.absoluteString
+        let stringURL = absoluteString
         guard let items = URLComponents(string: stringURL)?.queryItems else { return nil }
         for item in items where item.name == key {
             return item.value
@@ -108,8 +108,8 @@ public extension URL {
     ///        let url = URL(string: "https://domain.com")!
     ///        print(url.droppedScheme()) // prints "domain.com"
     public func droppedScheme() -> URL? {
-        if let scheme = self.scheme {
-            let droppedScheme = String(self.absoluteString.dropFirst(scheme.count + 3))
+        if let scheme = scheme {
+            let droppedScheme = String(absoluteString.dropFirst(scheme.count + 3))
             return URL(string: droppedScheme)
         }
 

@@ -18,8 +18,8 @@ extension NSImage {
     /// - Returns: scaled NSImage
     public func scaled(toMaxSize: NSSize) -> NSImage {
         var ratio: Float = 0.0
-        let imageWidth = Float(self.size.width)
-        let imageHeight = Float(self.size.height)
+        let imageWidth = Float(size.width)
+        let imageHeight = Float(size.height)
         let maxWidth = Float(toMaxSize.width)
         let maxHeight = Float(toMaxSize.height)
 
@@ -40,8 +40,8 @@ extension NSImage {
         let newSize: NSSize = NSSize(width: Int(newWidth), height: Int(newHeight))
 
         // Cast the NSImage to a CGImage
-        var imageRect: CGRect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
-        let imageRef = self.cgImage(forProposedRect: &imageRect, context: nil, hints: nil)
+        var imageRect: CGRect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        let imageRef = cgImage(forProposedRect: &imageRect, context: nil, hints: nil)
 
         // Create NSImage from the CGImage using the new size
         let imageWithNewSize = NSImage(cgImage: imageRef!, size: newSize)
