@@ -11,6 +11,7 @@ import UIKit
 
 // MARK: - ActivityType
 public extension UIActivity.ActivityType {
+
     /// SwifterSwift: AddToiCloudDrive
     public static let addToiCloudDrive = UIActivity.ActivityType("com.apple.CloudDocsUI.AddToiCloudDrive")
 
