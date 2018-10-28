@@ -617,6 +617,7 @@
 		734307F92108C7F80029CD16 /* CGVectorExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGVectorExtensionsTests.swift; sourceTree = "<group>"; };
 		752AC79F20BC975E00659E76 /* SKNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
 		752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitTests.swift; sourceTree = "<group>"; };
+		754D8E6B21851D7F00038A7B /* Examples.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Examples.playground; sourceTree = "<group>"; };
 		7832C2AE209BB19300224EED /* ComparableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableExtensions.swift; sourceTree = "<group>"; };
 		7832C2B3209BB32500224EED /* ComparableExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableExtensionsTests.swift; sourceTree = "<group>"; };
 		784C752E2051BD26001C48DD /* MKPolylineExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKPolylineExtensions.swift; sourceTree = "<group>"; };
@@ -776,6 +777,7 @@
 		07898B511F278CF900558C97 = {
 			isa = PBXGroup;
 			children = (
+				754D8E6921851D7F00038A7B /* Examples */,
 				07898B8D1F278E6300558C97 /* Sources */,
 				07C50CF21F5EAF7B00F46E5A /* Tests */,
 				07898B5E1F278D7600558C97 /* Products */,
@@ -1051,6 +1053,14 @@
 				752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */,
 			);
 			path = SpriteKitTests;
+			sourceTree = "<group>";
+		};
+		754D8E6921851D7F00038A7B /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				754D8E6B21851D7F00038A7B /* Examples.playground */,
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 		784C752D2051BD01001C48DD /* MapKit */ = {
