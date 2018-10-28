@@ -19,6 +19,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **BinaryFloatingPointExtensions**
   - Added `rounded(numberOfDecimalPlaces:rule:)` to get the rounded floating number with the specified number of decimal places. [#583](https://github.com/SwifterSwift/SwifterSwift/pull/583) by [jianstm](https://github.com/jianstm)
 ### Changed
+- **Examples**:
+  - Replace Examples.md with Examples.playground to let users try some examples out of extensions. [#596](https://github.com/SwifterSwift/SwifterSwift/pull/596) by [maxxx777](https://github.com/maxxx777)
 ### Fixed
 - **Installation**:
   - Update `podspec` to make the group paths in Pods project of SwifterSwift correct with Cocoapods installation. [#590](https://github.com/SwifterSwift/SwifterSwift/pull/590) by [dklinzh](https://github.com/dklinzh)
