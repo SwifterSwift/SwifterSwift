@@ -82,12 +82,15 @@ final class FileManagerExtensionsTests: XCTestCase {
 
     func testEncode() {
         let point = CGPoint(x: 1, y: 2) //CGPoint conforms to Encodable
-        let tmpDirPath = NSTemporaryDirectory()
-        let fileURL = URL(fileURLWithPath: tmpDirPath.appending("testEncodeFile"))
-
         do {
-            try FileManager.encode(point, to: fileURL)
-            try FileManager.default.removeItem(at: fileURL) //delete created file
+            let temporaryDirectoryURL = try FileManager.default.url(for: .itemReplacementDirectory, in: .userDomainMask, appropriateFor: URL(fileURLWithPath: "/"), create: true)
+            let temporaryFilename = ProcessInfo().globallyUniqueString
+
+            let temporaryFileURL =
+                temporaryDirectoryURL.appendingPathComponent(temporaryFilename)
+
+            try FileManager.default.encode(point, to: temporaryFileURL)
+            try FileManager.default.removeItem(at: temporaryFileURL)
             XCTAssert(true)
         } catch {
             XCTFail(error.localizedDescription)
