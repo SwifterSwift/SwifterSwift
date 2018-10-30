@@ -56,5 +56,19 @@ public extension FileManager {
         return nil
     }
 
+    /// SwifterSwift: Save Encodable object to a given URL.
+    ///
+    /// - Parameters:
+    ///   - url: URL to save object to.
+    /// - Throws: Throws any errors thrown by JSONEncoder or FileManager.
+    public static func encode<T: Encodable>(_ object: T, to url: URL) throws {
+        do {
+            let encoder = JSONEncoder()
+            let data = try encoder.encode(object)
+            FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil)
+        } catch {
+            throw error
+        }
+    }
 }
 #endif
