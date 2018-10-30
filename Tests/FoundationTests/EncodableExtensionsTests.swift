@@ -15,10 +15,10 @@ class EncodableExtensionsTests: XCTestCase {
 
     func testEncode() {
         let point = CGPoint(x: 1, y: 2) //CGPoint conforms to Encodable
-        
+
         let tmpDirPath = NSTemporaryDirectory()
         let fileURL = URL(fileURLWithPath: tmpDirPath.appending("testEncodeFile"))
-        
+
         do {
             try point.encode(to: fileURL)
             try FileManager.default.removeItem(at: fileURL) //delete created file
