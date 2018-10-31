@@ -65,7 +65,14 @@ public extension FileManager {
     /// - Throws: Throws any errors thrown by JSONEncoder or FileManager.
     public func encode<T: Encodable>(_ object: T, to url: URL, using encoder: JSONEncoder = JSONEncoder(), attributes: [FileAttributeKey: Any]? = nil) throws -> Bool {
         let data = try encoder.encode(object)
+<<<<<<< HEAD
         return createFile(atPath: url.path, contents: data, attributes: attributes)
+=======
+        if createFile(atPath: url.path, contents: data, attributes: attributes) {
+            return true
+        }
+        return false
+>>>>>>> 5917a32bfc9f2af3e8a64af2bf0cc2c3b0548526
     }
 }
 #endif
