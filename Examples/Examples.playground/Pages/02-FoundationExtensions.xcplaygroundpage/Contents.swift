@@ -1,14 +1,10 @@
-//: [Table of Contents](00ToC)
+//: [Table of Contents](00-ToC)
 
 //: [Previous](@previous)
 
 import SwifterSwift
 
 //: ## Foundation extensions
-
-//: ### Calendar extensions
-
-//: ### Data extensions
 
 //: ### Date extensions
 
@@ -46,19 +42,5 @@ Date().dateTimeString()
 // Get day name or month name from a date
 Date().dayName(ofStyle: .full)
 Date().monthName(ofStyle: .threeLetters)
-
-//: ### FileManager extensions
-
-//: ### Locale extensions
-
-//: ### NSAttributedString extensions
-
-//: ### NSPredicate extensions
-
-//: ### URL extensions
-
-//: ### URLRequest extensions
-
-//: ### UserDefaults extensions
 
 //: [Next](@next)

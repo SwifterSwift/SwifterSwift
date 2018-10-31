@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='rendered' executeOnSourceChanges='false'>
+<playground version='6.0' target-platform='ios' display-mode='raw' executeOnSourceChanges='false'>
     <pages>
-        <page name='00ToC'/>
-        <page name='01SwiftStdlibExtensions'/>
-        <page name='02FoundationExtensions'/>
-        <page name='03UIKitExtensions'/>
-        <page name='04AppKitExtensions'/>
-        <page name='05CoreGraphicsExtensions'/>
-        <page name='06CoreLocationExtensions'/>
-        <page name='07MapKitExtensions'/>
-        <page name='08SpriteKitExtensions'/>
-        <page name='09MiscExtensions'/>
+        <page name='00-ToC'/>
+        <page name='01-SwiftStdlibExtensions'/>
+        <page name='02-FoundationExtensions'/>
+        <page name='03-UIKitExtensions'/>
+        <page name='04-CoreGraphicsExtensions'/>
+        <page name='05-MiscExtensions'/>
+        <page name='06-TryYourself'/>
     </pages>
 </playground>

@@ -1,4 +1,4 @@
-//: [Table of Contents](00ToC)
+//: [Table of Contents](00-ToC)
 
 //: [Previous](@previous)
 
@@ -16,4 +16,4 @@ SwifterSwift.didTakeScreenShot({ _ in
     print("User did take a screenshot!")
 })
 
-//: [Previous](@previous)
+//: [Next](@next)

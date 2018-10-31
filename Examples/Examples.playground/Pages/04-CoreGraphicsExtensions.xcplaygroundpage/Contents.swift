@@ -1,14 +1,10 @@
-//: [Table of Contents](00ToC)
+//: [Table of Contents](00-ToC)
 
 //: [Previous](@previous)
 
 import SwifterSwift
 
 //: ## CoreGraphics Extensions
-
-//: ### CGColor extensions
-
-//: ### CGFloat extensions
 
 //: ### CGPoint extensions
 
@@ -22,7 +18,5 @@ let point = CGPoint(x: 10, y: 10)
 
 // Multiply a CGPoint with a scalar
 5 * point
-
-//: ### CGSize extensions
 
 //: [Next](@next)

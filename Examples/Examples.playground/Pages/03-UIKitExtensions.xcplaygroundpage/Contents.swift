@@ -1,4 +1,4 @@
-//: [Table of Contents](00ToC)
+//: [Table of Contents](00-ToC)
 
 //: [Previous](@previous)
 
@@ -14,8 +14,6 @@ let alert = UIAlertController(title: "Couldn't sign in", message: "Invalid usern
 // show alert with ease
 alert.show()
 
-//: ### UIBarButtonItem extensions
-
 //: ### UIButton extensions
 
 let button = UIButton()
@@ -27,12 +25,6 @@ button.setImageForAllStates(UIImage(named: "login")!)
 
 // or set each of them from code or storyboard
 button.titleForHighlighted = "Login"
-
-//: ### UICollectionView extensions
-
-//: ### UIDatePicker extensions
-
-//: ### UIFont extensions
 
 //: ### UIColor extensions
 
@@ -90,8 +82,6 @@ imageView.download(from: URL(string: "https://camo.githubusercontent.com/5d919da
 // Blur image view
 imageView.blur(withStyle: .light)
 
-//: ### UILabel extensions
-
 //: ### UINavigationBar extensions
 
 let navbar = UINavigationBar()
@@ -110,22 +100,6 @@ navController.popViewController(animated: true, nil)
 // Push ViewController with completion handler.
 navController.pushViewController(UIViewController(), completion: nil)
 
-//: ### UINavigationItem extensions
-
-//: ### UISearchBar extensions
-
-//: ### UISegmentedControl extensions
-
-//: ### UISlider extensions
-
-//: ### UIStackView extensions
-
-//: ### UIStoryboard extensions
-
-//: ### UISwitch extensions
-
-//: ### UITabBar extensions
-
 //: ### UITableView extensions
 
 let tableView = UITableView()
@@ -136,12 +110,6 @@ tableView.indexPathForLastRow(inSection: 2)
 // Scroll to bottom or top of TableView.
 tableView.scrollToBottom(animated: true)
 tableView.scrollToTop(animated: true)
-
-//: ### UITextField extensions
-
-//: ### UITextView extensions
-
-//: ### UIViewController extensions
 
 //: ### UIView extensions
 
@@ -168,7 +136,5 @@ view.shake(direction: .horizontal, duration: 1, animationType: .easeOut)
 
 // save screenshot of a view
 let image = view.screenshot
-
-//: ### UIWindow extensions
 
 //: [Next](@next)

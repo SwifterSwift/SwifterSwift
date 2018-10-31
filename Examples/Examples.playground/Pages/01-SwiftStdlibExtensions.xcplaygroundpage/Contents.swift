@@ -1,4 +1,4 @@
-//: [Table of Contents](00ToC)
+//: [Table of Contents](00-ToC)
 
 //: [Previous](@previous)
 
@@ -12,18 +12,6 @@ import SwifterSwift
 var array = ["h", "e", "l", "l", "o"]
 array.removeDuplicates()
 
-//: ### Bidirectional Collection extensions
-
-//: ### Binary Floating Point extensions
-
-//: ### Bool extensions
-
-//: ### Character extensions
-
-//: ### Collection extensions
-
-//: ### Comparable extensions
-
 //: ### Dictionary extensions
 
 var dict : [String : Any] = ["id": 1, "Product-Name": "SwifterSwift"]
@@ -36,12 +24,6 @@ dict.lowercaseAllKeys()
 
 // Create JSON Data and string from a dictionary
 let json = dict.jsonString(prettify: true)
-
-//: ### Double extensions
-
-//: ### Float extensions
-
-//: ### FloatingPoint extensions
 
 //: ### Int extensions
 
@@ -57,20 +39,10 @@ let json = dict.jsonString(prettify: true)
 // Return roman numeral for a number
 134.romanNumeral
 
-//: ### Optional extensions
-
 //: ### Random Access Collection extensions
 
 // Return all indices of specified item
 ["h", "e", "l", "l", "o"].indices(of: "l")
-
-//: ### Range Replaceable Collection extensions
-
-//: ### Sequence extensions
-
-//: ### SignedInteger extensions
-
-//: ### SignedNumeric extensions
 
 //: ### String extensions
 
@@ -135,7 +107,5 @@ str.slicing(from: 6, length: 5)
 
 // NSString has never been easier
 let boldString = "this is string".bold.colored(with: .red)
-
-//: ### StringProtocol extensions
 
 //: [Next](@next)
