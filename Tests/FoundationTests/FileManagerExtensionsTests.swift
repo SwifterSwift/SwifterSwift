@@ -89,7 +89,6 @@ final class FileManagerExtensionsTests: XCTestCase {
             let temporaryFileURL =
                 temporaryDirectoryURL.appendingPathComponent(temporaryFilename)
 
-<<<<<<< HEAD
             XCTAssertNoThrow(try FileManager.default.encode(point, to: temporaryFileURL))
             XCTAssert(FileManager.default.fileExists(atPath: temporaryFileURL.path))
 
@@ -101,11 +100,6 @@ final class FileManagerExtensionsTests: XCTestCase {
 
             try FileManager.default.removeItem(at: temporaryFileURL)
             XCTAssertFalse(FileManager.default.fileExists(atPath: temporaryFileURL.path))
-=======
-            try FileManager.default.encode(point, to: temporaryFileURL)
-            try FileManager.default.removeItem(at: temporaryFileURL)
-            XCTAssert(true)
->>>>>>> 5917a32bfc9f2af3e8a64af2bf0cc2c3b0548526
         } catch {
             XCTFail(error.localizedDescription)
         }
