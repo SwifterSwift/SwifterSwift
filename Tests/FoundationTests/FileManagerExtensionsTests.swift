@@ -87,18 +87,18 @@ final class FileManagerExtensionsTests: XCTestCase {
             let temporaryDirectoryURL = FileManager.default.temporaryDirectory
             let temporaryFilename = ProcessInfo().globallyUniqueString
             let temporaryFileURL = temporaryDirectoryURL.appendingPathComponent(temporaryFilename)
-            
+
             XCTAssertNoThrow(try JSONEncoder().encode(point))
             let data1 = try JSONEncoder().encode(point)
             XCTAssertTrue(FileManager.default.createFile(atPath: temporaryFileURL.path, contents: data1, attributes: nil))
-            
+
             XCTAssert(FileManager.default.fileExists(atPath: temporaryFileURL.path))
-            
+
             let data2 = FileManager.default.contents(atPath: temporaryFileURL.path)
             XCTAssertNotNil(data2)
-            
+
             XCTAssertNoThrow(try FileManager.default.decode(from: temporaryFileURL, as: CGPoint.self))
-            
+
             try FileManager.default.removeItem(at: temporaryFileURL)
             XCTAssertFalse(FileManager.default.fileExists(atPath: temporaryFileURL.path))
         } catch {
