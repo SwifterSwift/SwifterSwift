@@ -4,7 +4,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
-- **Encodable**
+- **FileManager**
 - Added `encode(_:to:)` method to save Encodable object to file at provided URL. [#598](https://github.com/SwifterSwift/SwifterSwift/pull/598) by [AlexeiGitH](https://github.com/AlexeiGitH)
 - **Date**
 - Added `tomorrow` computed property to get tomorrow's date avoiding calling `adding(_:value:)` function. (Completes PR #578) [#587](https://github.com/SwifterSwift/SwifterSwift/pull/587) by [AlexeiGitH](https://github.com/AlexeiGitH)
