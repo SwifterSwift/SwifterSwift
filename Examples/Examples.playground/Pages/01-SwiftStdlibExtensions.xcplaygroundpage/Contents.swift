@@ -14,7 +14,7 @@ array.removeDuplicates()
 
 //: ### Dictionary extensions
 
-var dict : [String : Any] = ["id": 1, "Product-Name": "SwifterSwift"]
+var dict: [String: Any] = ["id": 1, "Product-Name": "SwifterSwift"]
 
 // Check if key exists in dictionary.
 dict.has(key: "id")

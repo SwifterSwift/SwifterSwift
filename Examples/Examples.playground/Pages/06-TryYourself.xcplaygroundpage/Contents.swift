@@ -7,5 +7,4 @@ import SwifterSwift
 //: ## Try yourself
 //: *Here you can try some extensions yourself*
 
-
 //: [Previous](@previous)

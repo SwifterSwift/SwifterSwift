@@ -122,7 +122,6 @@ view.cornerRadius = 30
 // Set some or all corners radiuses of view.
 view.roundCorners([.bottomLeft, .topRight], radius: 30)
 
-
 // Add shadow to view
 view.addShadow(ofColor: .black, radius: 3, opacity: 0.5)
 
