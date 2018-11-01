@@ -82,7 +82,6 @@ final class FileManagerExtensionsTests: XCTestCase {
 
     func testDecode() {
         let point = CGPoint(x: 1, y: 2) //CGPoint conforms to Encodable
-        
         do {
             let temporaryDirectoryURL = FileManager.default.temporaryDirectory
             let temporaryFilename = ProcessInfo().globallyUniqueString
