@@ -11,9 +11,4 @@ SwifterSwift.isInDebuggingMode
 // Check if app is running on simulator
 SwifterSwift.isRunningOnSimulator
 
-// Detect screenshots
-SwifterSwift.didTakeScreenShot({ _ in
-    print("User did take a screenshot!")
-})
-
 //: [Next](@next)
