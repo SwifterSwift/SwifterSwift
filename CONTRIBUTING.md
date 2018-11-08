@@ -80,6 +80,7 @@ public extension SomeType {
 - All extensions should be tested. See [Adding Tests](#adding-tests) to know more.
 - Files are named based on the type that the contained extensions extend.
    - (example: all String extensions are found in "**StringExtensions.swift**" file)
+- Add [subspec](https://github.com/SwifterSwift/SwifterSwift/blob/master/SwifterSwift.podspec) if you submit extensions for a module that is not presented in podspec file yet.
 - Extensions and tests are ordered inside files in the following order:
 
 ```swift
