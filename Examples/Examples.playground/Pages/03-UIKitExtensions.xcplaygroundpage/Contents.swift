@@ -44,7 +44,7 @@ let facebookColor = UIColor.Social.facebook
 
 //: ### UIImage extensions
 
-var image1 = UIImage(named: "logo")!
+let image1 = UIImage(named: "logo")!
 
 // Crop images
 let croppedImage = image1.cropped(to: CGRect(x: 0, y: 0, width: 100, height: 100))
@@ -72,7 +72,7 @@ imageView.download(from: URL(string: "https://developer.apple.com/swift/images/s
                     downloadedImage
                     PlaygroundPage.current.needsIndefiniteExecution = false
                     
-                    imageView.frame = CGRect(origin: CGPoint(x: 0, y: 0), size: downloadedImage!.size)
+                    imageView.sizeToFit()
                     
                     // Blur image view
                     imageView.blur(withStyle: .light)
