@@ -102,7 +102,4 @@ view.cornerRadius = 30
 // Add shadow to view
 view.addShadow(ofColor: .black, radius: 3, opacity: 0.5)
 
-// save screenshot of a view
-let image = view
-
 //: [Next](@next)
