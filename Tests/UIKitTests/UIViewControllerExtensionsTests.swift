@@ -124,8 +124,14 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         let popover = UIViewController()
         let presentingViewController = UIViewController()
 
+        let window = UIWindow()
+        window.rootViewController = presentingViewController
+        window.rootViewController = presentingViewController
+        window.addSubview(presentingViewController.view)
+        RunLoop.current.run(until: Date())
+
         presentingViewController.presentPopover(popover, sourcePoint: presentingViewController.view.center, animated: false)
-        
+
         XCTAssertEqual(presentingViewController.presentedViewController, popover)
         XCTAssertEqual(popover.presentingViewController, presentingViewController)
         XCTAssertEqual(popover.modalPresentationStyle, .popover)
