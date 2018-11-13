@@ -60,10 +60,11 @@ public extension FileManager {
     ///
     /// - Parameters:
     ///   - object: Object of type T that conforms to Encodable protocol.
-    ///   - url: URL to save object to.
     ///   - encoder: JSONEncoder.
+    ///   - url: URL to save object to.
+    ///   - attributes: A dictionary containing the attributes to associate with the new file. You can use these attributes to set the owner and group numbers, file permissions, and modification date. For a list of keys, see FileAttributeKey. Set to nil by default.
     /// - Throws: Throws any errors thrown by JSONEncoder or FileManager.
-    public func encode<T: Encodable>(_ object: T, to url: URL, using encoder: JSONEncoder = JSONEncoder(), attributes: [FileAttributeKey: Any]? = nil) throws -> Bool {
+    public func encode<T: Encodable>(_ object: T, using encoder: JSONEncoder = JSONEncoder(), to url: URL, attributes: [FileAttributeKey: Any]? = nil) throws -> Bool {
         let data = try encoder.encode(object)
         return createFile(atPath: url.path, contents: data, attributes: attributes)
     }
