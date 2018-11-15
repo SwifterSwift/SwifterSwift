@@ -56,5 +56,19 @@ public extension FileManager {
         return nil
     }
 
+    /// SwifterSwift: Save Encodable object to a given URL using PropertyListEncoder.
+    ///
+    /// - Parameters:
+    ///   - object: Object of type T that conforms to Encodable protocol.
+    ///   - encoder: PropertyListEncoder.
+    ///   - outputFormat: PropertyListSerialization.PropertyListFormat. (binary, xml, openStep)
+    ///   - url: URL to save object to.
+    ///   - attributes: A dictionary containing the attributes to associate with the new file. You can use these attributes to set the owner and group numbers, file permissions, and modification date. For a list of keys, see FileAttributeKey. Set to nil by default.
+    /// - Throws: Throws any errors thrown by PropertyListEncoder or FileManager.
+    public func encode<T: Encodable>(_ object: T, using encoder:PropertyListEncoder=PropertyListEncoder(),  outputFormat: PropertyListSerialization.PropertyListFormat = .xml, to url: URL, attributes: [FileAttributeKey:Any]? = nil) throws {
+        encoder.outputFormat = outputFormat
+        let data = try encoder.encode(object)
+        FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil)
+    }
 }
 #endif
