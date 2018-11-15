@@ -96,7 +96,7 @@ final class FileManagerExtensionsTests: XCTestCase {
             let data2 = FileManager.default.contents(atPath: temporaryFileURL.path)
             XCTAssertNotNil(data2)
 
-            XCTAssertNoThrow(try FileManager.default.decode(from: temporaryFileURL, as: CGPoint.self))
+            XCTAssertNoThrow(try FileManager.default.decode(as: CGPoint.self, from: temporaryFileURL))
 
             try FileManager.default.removeItem(at: temporaryFileURL)
             XCTAssertFalse(FileManager.default.fileExists(atPath: temporaryFileURL.path))
