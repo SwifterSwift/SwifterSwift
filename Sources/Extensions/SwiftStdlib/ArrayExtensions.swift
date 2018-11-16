@@ -203,23 +203,5 @@ public extension Array where Element: Equatable {
             }
         }
     }
-    
-    /// SwifterSwift: Return duplicated element from the original array.
-    ///
-    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].getDuplicates() -> [1, 2, 3])
-    ///     ["h", "e", "l", "l", "o"].getDuplicates() -> ["l"])
-    ///
-    /// - Returns: An array of duplicated elements.
-    ///
-    public func duplicatedElements() -> [Element] {
-        var set = Set<Element>()
-        var duplicates = [Element]()
-        for element in self {
-            if !set.insert(element).inserted {
-                duplicates.append(element)
-            }
-        }
-        return duplicates 
-    }
 }
 
