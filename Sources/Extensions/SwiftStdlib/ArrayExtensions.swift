@@ -203,7 +203,10 @@ public extension Array where Element: Equatable {
             }
         }
     }
-    
+}
+
+// MARK: - Methods (Hashable)
+public extension Array where Element: Hashable{
     /// SwifterSwift: Return duplicated element from the original array.
     ///
     ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].getDuplicates() -> [1, 2, 3])
