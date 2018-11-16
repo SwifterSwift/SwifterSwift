@@ -80,21 +80,22 @@ final class FileManagerExtensionsTests: XCTestCase {
         } catch {}
     }
 
-    func testEncode() {
+    func testEncodeJSON() {
         let point = CGPoint(x: 1, y: 2) //CGPoint conforms to Encodable
         do {
             let temporaryDirectoryURL = FileManager.default.temporaryDirectory
             let temporaryFilename = ProcessInfo().globallyUniqueString
             let temporaryFileURL = temporaryDirectoryURL.appendingPathComponent(temporaryFilename)
 
-            XCTAssertNoThrow(try FileManager.default.encode(point, to: temporaryFileURL))
+            XCTAssertTrue(try FileManager.default.encodeJSON(point, to: temporaryFileURL))
             XCTAssert(FileManager.default.fileExists(atPath: temporaryFileURL.path))
 
             let data = FileManager.default.contents(atPath: temporaryFileURL.path)
             XCTAssertNotNil(data)
 
             let decoder = JSONDecoder()
-            XCTAssertNoThrow(try decoder.decode(CGPoint.self, from: data!))
+            let decodedPoint = try decoder.decode(CGPoint.self, from: data!)
+            XCTAssertTrue(point == decodedPoint)
 
             try FileManager.default.removeItem(at: temporaryFileURL)
             XCTAssertFalse(FileManager.default.fileExists(atPath: temporaryFileURL.path))
