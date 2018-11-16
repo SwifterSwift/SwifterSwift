@@ -217,10 +217,10 @@ public extension Array where Element: Hashable {
     public func duplicatedElements() -> [Element] {
         var set = Set<Element>()
         var duplicates = [Element]()
-        for element in self {
-            if !set.insert(element).inserted{
-                if !duplicates.contains(element){
-                    duplicates.append(element)
+        forEach {
+            if !set.insert($0).inserted {
+                if !duplicates.contains($0){
+                    duplicates.append($0)
                 }
             }
         }
