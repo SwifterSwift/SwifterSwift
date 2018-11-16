@@ -203,68 +203,23 @@ public extension Array where Element: Equatable {
             }
         }
     }
-}
-
-public extension Array where Element:Hashable{
     
-    /// SwifterSwift: Return a dictionary which the key is the element and the value is the number of times that the element occours in the array.
-    ///
-    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].countElement(element:2) ->  [1:2,
-    ///                                                              2:2,
-    ///                                                              3:3,
-    ///                                                              4:1,
-    ///                                                              5:1]
-    ///     ["h", "e", "l", "l", "o"].countElement(element:"o") -> ["h":1,
-    ///                                                             "e":1,
-    ///                                                             "l":2,
-    ///                                                             "o":1]
-    ///
-    /// - Parameter element: The element to count
-    /// - Returns: How many time the element occours in the array.
-    ///
-    public func countElement() -> [Element:Int] {
-        var countDic = [Element:Int]()
-        forEach{
-            countDic[$0] = (countDic[$0] ?? 0) + 1
-        }
-        return countDic
-    }
-    
-    
-    /// SwifterSwift: Return array with all duplicated elements.
+    /// SwifterSwift: Return duplicated element from the original array.
     ///
     ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].getDuplicates() -> [1, 2, 3])
     ///     ["h", "e", "l", "l", "o"].getDuplicates() -> ["l"])
     ///
-    /// - Returns: an array of duplicated elements.
+    /// - Returns: An array of duplicated elements.
     ///
-    public func getDuplicates() -> [Element]{
-        var duplicatedElementArr = [Element]()
-        countElement().forEach{
-            if $0.value > 1{
-                duplicatedElementArr.append($0.key)
+    public func duplicatedElements() -> [Element] {
+        var set = Set<Element>()
+        var duplicates = [Element]()
+        for element in self {
+            if !set.insert(element).inserted {
+                duplicates.append(element)
             }
         }
-        return duplicatedElementArr
+        return duplicates
     }
 }
 
-public extension Array where Element:Comparable{
-    // SwifterSwift: Returns the number of times the element occours in the array
-    ///
-    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].countElement(element:2) -> 2)
-    ///     ["h", "e", "l", "l", "o"].countElement(element:"o") -> 1)
-    ///
-    /// - Parameter element: The element to count
-    /// - Returns: How many times the element occours in the array.
-    ///
-    public func countElement(element:Element) -> Int {
-        var count = 0
-        forEach{
-            if $0 == element{
-                count += 1
-            }
-        }
-        return count
-    }
-}
