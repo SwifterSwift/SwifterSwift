@@ -222,7 +222,6 @@ public extension Array where Element: Hashable{
                 duplicates.append(element)
             }
         }
-        return duplicates 
+        return duplicates
     }
 }
-
