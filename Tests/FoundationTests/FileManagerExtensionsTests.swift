@@ -80,23 +80,29 @@ final class FileManagerExtensionsTests: XCTestCase {
         } catch {}
     }
 
-    func testEncodePropertyListEncoder() {
+    func testEncodePlist() {
         let point = CGPoint(x: 1.1, y: 2.2)
         let temporaryDirectoryURL = FileManager.default.temporaryDirectory
         let temporaryFilename = ProcessInfo().globallyUniqueString
         let fileURL = temporaryDirectoryURL.appendingPathComponent(temporaryFilename)
 
-        XCTAssertNoThrow(try FileManager.default.encode(point, to: fileURL));
+        do {
+            try FileManager.default.encodePlist(point, to: fileURL)
 
-        XCTAssert(FileManager.default.fileExists(atPath: fileURL.path))
+            XCTAssert(FileManager.default.fileExists(atPath: fileURL.path))
 
-        let data = FileManager.default.contents(atPath: fileURL.path)
-        XCTAssertNotNil(data)
+            let data = FileManager.default.contents(atPath: fileURL.path)
+            XCTAssertNotNil(data)
 
-        let decoder = PropertyListDecoder()
-        XCTAssertNoThrow(try decoder.decode(CGPoint.self, from: data!))
+            let decoder = PropertyListDecoder()
+            let decodedPoint = try decoder.decode(CGPoint.self, from: data!)
 
-        XCTAssertNoThrow(try FileManager.default.removeItem(at: fileURL))
+            XCTAssert(decodedPoint == point)
+            try FileManager.default.removeItem(at: fileURL)
+        } catch {
+            XCTFail(error.localizedDescription)
+        }
+       
     }
 }
 
