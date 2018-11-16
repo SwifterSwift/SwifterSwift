@@ -225,7 +225,7 @@ public extension Array where Element:Hashable{
     public func countElement() -> [Element:Int] {
         var countDic = [Element:Int]()
         forEach{
-            countDic[$0] = (countDic[$0] ?? 0) + 1
+            countMap[element, default: 0]+=1
         }
         return countDic
     }
