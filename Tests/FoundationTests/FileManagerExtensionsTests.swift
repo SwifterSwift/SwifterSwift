@@ -85,7 +85,6 @@ final class FileManagerExtensionsTests: XCTestCase {
         let temporaryDirectoryURL = FileManager.default.temporaryDirectory
         let temporaryFilename = ProcessInfo().globallyUniqueString
         let fileURL = temporaryDirectoryURL.appendingPathComponent(temporaryFilename)
-
         do {
             try FileManager.default.encodePlist(point, to: fileURL)
 
@@ -102,7 +101,6 @@ final class FileManagerExtensionsTests: XCTestCase {
         } catch {
             XCTFail(error.localizedDescription)
         }
-       
     }
 }
 
