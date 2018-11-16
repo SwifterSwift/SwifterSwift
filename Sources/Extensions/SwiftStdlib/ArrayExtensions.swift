@@ -219,7 +219,7 @@ public extension Array where Element: Equatable {
                 duplicates.append(element)
             }
         }
-        return duplicates
+        return duplicates 
     }
 }
 
