@@ -218,8 +218,10 @@ public extension Array where Element: Hashable{
         var set = Set<Element>()
         var duplicates = [Element]()
         for element in self {
-            if !set.insert(element).inserted {
-                duplicates.append(element)
+            if !set.insert(element).inserted{
+                if !duplicates.contains(element){
+                    duplicates.append(element)
+                }
             }
         }
         return duplicates
