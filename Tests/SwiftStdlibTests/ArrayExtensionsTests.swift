@@ -148,8 +148,8 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates(), [1, 2, 3, 4, 5])
         XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
     }
-    
-    func testDuplicatedElements(){
+
+    func testDuplicatedElements() {
         XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].duplicatedElements(), [1, 2, 3])
         XCTAssertEqual(["h", "e", "l", "l", "o"].duplicatedElements(), ["l"])
     }
