@@ -219,7 +219,7 @@ public extension Array where Element: Hashable {
         var duplicates = [Element]()
         forEach {
             if !set.insert($0).inserted {
-                if !duplicates.contains($0){
+                if !duplicates.contains($0) {
                     duplicates.append($0)
                 }
             }
