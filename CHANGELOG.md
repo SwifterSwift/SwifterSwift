@@ -4,7 +4,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+<<<<<<< HEAD
 - **Sequence**
+=======
+- **Array**
+>>>>>>> c49d4438651ee36f37d84795d1c89c908eef49dd
  - Added `duplicatedElements()` for getting the duplicated elements in a sequence. [#604](https://github.com/SwifterSwift/SwifterSwift/pull/604) by [dylancfe15](https://github.com/dylancfe15)
 - **Date**
  - Added `tomorrow` computed property to get tomorrow's date avoiding calling `adding(_:value:)` function. (Completes PR #578) [#587](https://github.com/SwifterSwift/SwifterSwift/pull/587) by [AlexeiGitH](https://github.com/AlexeiGitH)
