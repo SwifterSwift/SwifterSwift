@@ -4,6 +4,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+- **FileManager**
+- Added `encode(_:using:outputFormat:to:attributes:)` method to save Encodable object to file at provided URL using PropertyListEncoder. [#60x](https://github.com/SwifterSwift/SwifterSwift/pull/60x) by [AlexeiGitH](https://github.com/AlexeiGitH)
 - **Date**
 - Added `tomorrow` computed property to get tomorrow's date avoiding calling `adding(_:value:)` function. (Completes PR #578) [#587](https://github.com/SwifterSwift/SwifterSwift/pull/587) by [AlexeiGitH](https://github.com/AlexeiGitH)
   - `random(in:)` and `random(in:using:)` to generate random dates using the built-in random functions added to Swift 4.2. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576/files) by [guykogus](https://github.com/guykogus)
