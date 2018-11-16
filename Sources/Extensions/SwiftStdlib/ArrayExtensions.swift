@@ -209,8 +209,8 @@ public extension Array where Element: Equatable {
 public extension Array where Element: Hashable{
     /// SwifterSwift: Return duplicated element from the original array.
     ///
-    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].getDuplicates() -> [1, 2, 3])
-    ///     ["h", "e", "l", "l", "o"].getDuplicates() -> ["l"])
+    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].duplicatedElements() -> [1, 2, 3])
+    ///     ["h", "e", "l", "l", "o"].duplicatedElements() -> ["l"])
     ///
     /// - Returns: An array of duplicated elements.
     ///
