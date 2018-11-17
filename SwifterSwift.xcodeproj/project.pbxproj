@@ -458,6 +458,7 @@
 		CAC5EBD02125273100AB27EC /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC5EBBF2125270A00AB27EC /* TestImage.png */; };
 		CAC5EBD12125273100AB27EC /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC5EBBF2125270A00AB27EC /* TestImage.png */; };
 		F895F02E21661794000F05E3 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F895F02D21661794000F05E3 /* FoundationDeprecated.swift */; };
+        CF30948A216AAC7A005609BC /* UIActivityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309489216AAC7A005609BC /* UIActivityExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -653,6 +654,7 @@
 		CAC5EBC42125270A00AB27EC /* UITableViewHeaderFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UITableViewHeaderFooterView.xib; sourceTree = "<group>"; };
 		CAC5EBC52125270A00AB27EC /* big_buck_bunny_720p_1mb.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_buck_bunny_720p_1mb.mp4; sourceTree = "<group>"; };
 		F895F02D21661794000F05E3 /* FoundationDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDeprecated.swift; sourceTree = "<group>"; };
+        CF309489216AAC7A005609BC /* UIActivityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -895,6 +897,7 @@
 				B247BDE520D376EC00842ACC /* UIEdgeInsetsExtensions.swift */,
 				CA1317532106D35E002F1B0D /* UIRefreshControlExtensions.swift */,
 				8D4B424B212972AE002A5923 /* UILayoutPriorityExtensions.swift */,
+				CF309489216AAC7A005609BC /* UIActivityExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -1549,6 +1552,7 @@
 				9D9784DB1FCAE3D200D988E7 /* StringProtocolExtensions.swift in Sources */,
 				07B7F20C1F5EB43C00E6F910 /* BoolExtensions.swift in Sources */,
 				07B7F22F1F5EB45100E6F910 /* CGFloatExtensions.swift in Sources */,
+				CF30948A216AAC7A005609BC /* UIActivityExtensions.swift in Sources */,
 				07B7F1981F5EB42000E6F910 /* UIImageViewExtensions.swift in Sources */,
 				42F53FEC2039C5AC0070DC11 /* UIStackViewExtensions.swift in Sources */,
 				7832C2AF209BB19300224EED /* ComparableExtensions.swift in Sources */,
