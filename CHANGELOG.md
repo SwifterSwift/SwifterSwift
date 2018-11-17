@@ -5,7 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **Date**
-  - `random(in:)` and `random(in:using:)` to generate random dates using the built-in random functions added to Swift 4.2. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576) by [guykogus](https://github.com/guykogus)
+- Added `tomorrow` computed property to get tomorrow's date avoiding calling `adding(_:value:)` function. (Completes PR #578) [#587](https://github.com/SwifterSwift/SwifterSwift/pull/587) by [AlexeiGitH](https://github.com/AlexeiGitH)
+  - `random(in:)` and `random(in:using:)` to generate random dates using the built-in random functions added to Swift 4.2. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576/files) by [guykogus](https://github.com/guykogus)
 - **Dictionary**
   - Added `Dictionary[path:]` subscript for deep fetching/setting nested values. [#574](https://github.com/SwifterSwift/SwifterSwift/pull/573) by [@calebkleveter](https://github.com/calebkleveter)
 - **UIColor**
@@ -20,7 +21,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIActivity**
   - Added `ActivityType` constants for iCloud Drive, WhatsApp, LinkedIn and XING. [#580](https://github.com/SwifterSwift/SwifterSwift/pull/580) by [staffler-xyz](https://github.com/staffler-xyz)
 ### Changed
+- **Examples**:
+  - Replace Examples.md with Examples.playground to let users try some examples out of extensions. [#596](https://github.com/SwifterSwift/SwifterSwift/pull/596) by [maxxx777](https://github.com/maxxx777)
 ### Fixed
+- **Installation**:
+  - Update `podspec` to make the group paths in Pods project of SwifterSwift correct with Cocoapods installation. [#590](https://github.com/SwifterSwift/SwifterSwift/pull/590) by [dklinzh](https://github.com/dklinzh)
 - **UIImage**:
   - `cropped(to:)` fixed size checking. [#575](https://github.com/SwifterSwift/SwifterSwift/pull/575) by [ilyahal](https://github.com/ilyahal)
 ### Deprecated
