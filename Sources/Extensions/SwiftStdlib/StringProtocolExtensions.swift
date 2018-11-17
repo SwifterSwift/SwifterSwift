@@ -8,7 +8,7 @@
 
 import Foundation
 
-public extension StringProtocol where Index == String.Index {
+public extension StringProtocol {
 
     /// SwifterSwift: The longest common suffix.
     ///
@@ -19,8 +19,33 @@ public extension StringProtocol where Index == String.Index {
     ///     - Parameter options: Options for the comparison.
     /// - Returns: The longest common suffix of the receiver and the given String
     public func commonSuffix<T: StringProtocol>(with aString: T, options: String.CompareOptions = []) -> String {
-        let reversedSuffix = String(reversed()).commonPrefix(with: String(aString.reversed()), options: options)
-        return String(reversedSuffix.reversed())
+        guard !isEmpty && !aString.isEmpty else { return "" }
+
+        var idx = endIndex
+        var strIdx = aString.endIndex
+        var result = ""
+
+        let caseInsensitive = options.contains(.caseInsensitive)
+        let literal = options.contains(.literal)
+
+        repeat {
+            formIndex(before: &idx)
+            aString.formIndex(before: &strIdx)
+
+            let char = self[idx]
+            let other = aString[strIdx]
+
+            if char != other {
+                guard caseInsensitive && String(char).lowercased() == String(other).lowercased() else { break }
+            }
+
+            if literal && other.unicodeScalars.count != char.unicodeScalars.count { break }
+
+            result.insert(self[idx], at: result.startIndex)
+
+        } while idx > startIndex && strIdx > aString.startIndex
+        return result
+
     }
 
 }
