@@ -71,9 +71,9 @@ imageView.download(from: URL(string: "https://developer.apple.com/swift/images/s
                    completionHandler: { downloadedImage in
                     downloadedImage
                     PlaygroundPage.current.needsIndefiniteExecution = false
-                    
+
                     imageView.sizeToFit()
-                    
+
                     // Blur image view
                     imageView.blur(withStyle: .light)
 })
