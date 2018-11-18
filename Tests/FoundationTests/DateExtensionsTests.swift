@@ -385,6 +385,15 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertFalse(dateOneYearFromNow.isInCurrentYear)
     }
 
+    func testIsLeapYear() {
+        var date = Date()
+        date.year = 2018
+        XCTAssertEqual(date.isLeapYear, false)
+        
+        date.year = 2000
+        XCTAssertEqual(date.isLeapYear, true)
+    }
+
     func testIso8601String() {
         let date = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
         XCTAssertEqual(date.iso8601String, "1970-01-01T00:08:32.000Z")
