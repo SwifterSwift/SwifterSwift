@@ -18,6 +18,17 @@ public extension UILabel {
         self.text = text
     }
 
+    /// SwifterSwift: Initialize a UILabel with a text and font style.
+    ///
+    /// - Parameters:
+    ///   - text: the label's text.
+    ///   - style: the text style of the label, used to determine which font should be used.
+    public convenience init(text: String, style: UIFont.TextStyle) {
+        self.init()
+        font = UIFont.preferredFont(forTextStyle: style)
+        self.text = text
+    }
+
     /// SwifterSwift: Required height for a label
     public var requiredHeight: CGFloat {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: CGFloat.greatestFiniteMagnitude))
