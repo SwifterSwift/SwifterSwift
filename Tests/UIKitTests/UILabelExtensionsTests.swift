@@ -20,7 +20,7 @@ final class UILabelExtensionsTests: XCTestCase {
     }
 
     func testInitWithTextAndStyle() {
-        let style = UIFont.TextStyle.largeTitle
+        let style = UIFont.TextStyle.headline
         let text = "Hello world"
         let label = UILabel(text: text, style: style)
 
