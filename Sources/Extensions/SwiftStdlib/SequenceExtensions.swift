@@ -196,6 +196,7 @@ public extension Sequence where Element: Hashable {
         }
         return false
     }
+}
 
 // MARK: - Methods (Numeric)
 public extension Sequence where Element: Numeric {
