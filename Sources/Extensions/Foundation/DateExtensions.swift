@@ -344,7 +344,7 @@ public extension Date {
         return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
     }
 
-    /// SwifterSwift: Check if year is a leap year.
+    /// SwifterSwift: Check if the current year is a leap year.
     public var isLeapYear: Bool {
         let year = Calendar.current.component(.year, from: self)
         return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)
