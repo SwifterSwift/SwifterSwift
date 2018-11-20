@@ -344,6 +344,12 @@ public extension Date {
         return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
     }
 
+    /// SwifterSwift: Check if year is a leap year.
+    public var isLeapYear: Bool {
+        let year = Calendar.current.component(.year, from: self)
+        return (year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0)
+    }
+
     /// SwifterSwift: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
     ///
     /// 	Date().iso8601String -> "2017-01-12T14:51:29.574Z"
