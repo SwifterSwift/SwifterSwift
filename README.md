@@ -241,7 +241,7 @@ let package = Package(
 
 SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original Swift API design guidelines.
 
-Check [Examples.md](https://github.com/SwifterSwift/SwifterSwift/tree/master/Examples/Examples.md) for some cool examples!
+Check Examples.playground from the project for some cool examples!
 
 
 
