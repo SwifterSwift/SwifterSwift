@@ -199,14 +199,22 @@ public extension Sequence where Element: Hashable {
 
     /// SwifterSwift: Getting the duplicated elements in a sequence.
     ///
-    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].duplicates() -> [1, 2, 3])
-    ///     ["h", "e", "l", "l", "o"].duplicates() -> ["l"])
+    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].duplicates().sorted() -> [1, 2, 3])
+    ///     ["h", "e", "l", "l", "o"].duplicates().sorted() -> ["l"])
     ///
     /// - Returns: An array of duplicated elements.
     ///
     public func duplicates() -> [Element] {
-        let countedSet = NSCountedSet(array: Array(self))
-        return countedSet.filter { countedSet.count(for: $0) > 1 } as! [Element] // swiftlint:disable:this force_cast
+        var set = Set<Element>()
+        var duplicates = [Element]()
+        forEach {
+            if !set.insert($0).inserted {
+                if !duplicates.contains($0) {
+                    duplicates.append($0)
+                }
+            }
+        }
+        return duplicates
     }
 }
 
