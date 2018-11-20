@@ -206,15 +206,13 @@ public extension Sequence where Element: Hashable {
     ///
     public func duplicates() -> [Element] {
         var set = Set<Element>()
-        var duplicates = [Element]()
+        var duplicates = Set<Element>()
         forEach {
             if !set.insert($0).inserted {
-                if !duplicates.contains($0) {
-                    duplicates.append($0)
-                }
+                duplicates.insert($0)
             }
         }
-        return duplicates
+        return Array(duplicates)
     }
 }
 
