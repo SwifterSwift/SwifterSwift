@@ -127,7 +127,6 @@ final class UIViewControllerExtensionsTests: XCTestCase {
 
         let window = UIWindow()
         window.rootViewController = presentingViewController
-        window.rootViewController = presentingViewController
         window.addSubview(presentingViewController.view)
         RunLoop.current.run(until: Date())
 
@@ -144,7 +143,6 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         let customSize = CGSize(width: 100, height: 100)
 
         let window = UIWindow()
-        window.rootViewController = presentingViewController
         window.rootViewController = presentingViewController
         window.addSubview(presentingViewController.view)
         RunLoop.current.run(until: Date())
@@ -170,7 +168,6 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         let delegate = PopoverDelegate()
 
         let window = UIWindow()
-        window.rootViewController = presentingViewController
         window.rootViewController = presentingViewController
         window.addSubview(presentingViewController.view)
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 5))
