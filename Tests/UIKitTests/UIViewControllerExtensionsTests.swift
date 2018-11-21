@@ -125,6 +125,8 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         let popover = UIViewController()
         let presentingViewController = UIViewController()
 
+        //Putting the view controller in a window and running a RunLoop seems to be the only way to make
+        //the presentedViewController and presentingViewController properties to be set.
         let window = UIWindow()
         window.rootViewController = presentingViewController
         window.addSubview(presentingViewController.view)
@@ -142,6 +144,8 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         let presentingViewController = UIViewController()
         let customSize = CGSize(width: 100, height: 100)
 
+        //Putting the view controller in a window and running a RunLoop seems to be the only way to make
+        //the presentedViewController and presentingViewController properties to be set.
         let window = UIWindow()
         window.rootViewController = presentingViewController
         window.addSubview(presentingViewController.view)
@@ -167,6 +171,8 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         let presentingViewController = UIViewController()
         let delegate = PopoverDelegate()
 
+        //Putting the view controller in a window and running a RunLoop seems to be the only way to make
+        //the presentedViewController and presentingViewController properties to be set.
         let window = UIWindow()
         window.rootViewController = presentingViewController
         window.addSubview(presentingViewController.view)
