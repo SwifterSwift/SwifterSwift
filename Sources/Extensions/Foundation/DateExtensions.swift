@@ -449,14 +449,6 @@ public extension Date {
         return Calendar.current.date(byAdding: .hour, value: 1, to: date)!
     }
 
-    /// SwifterSwift: Time zone used currently by system.
-    ///
-    ///		Date().timeZone -> Europe/Istanbul (current)
-    ///
-    public var timeZone: TimeZone {
-        return Calendar.current.timeZone
-    }
-
     /// SwifterSwift: Yesterday date.
     ///
     ///     let date = Date() // "Oct 3, 2018, 10:57:11"
@@ -464,6 +456,15 @@ public extension Date {
     ///
     public var yesterday: Date {
         return addingTimeInterval(-86400.0)
+    }
+
+    /// SwifterSwift: Tomorrow's date.
+    ///
+    ///     let date = Date() // "Oct 3, 2018, 10:57:11"
+    ///     let tomorrow = date.tomorrow // "Oct 4, 2018, 10:57:11"
+    ///
+    public var tomorrow: Date {
+        return addingTimeInterval(86400.0)
     }
 
     /// SwifterSwift: UNIX timestamp from date.
@@ -937,7 +938,7 @@ public extension Date {
     ///   - nanosecond: Nanosecond (default is current nanosecond).
     public init?(
         calendar: Calendar? = Calendar.current,
-        timeZone: TimeZone? = TimeZone.current,
+        timeZone: TimeZone? = NSTimeZone.default,
         era: Int? = Date().era,
         year: Int? = Date().year,
         month: Int? = Date().month,

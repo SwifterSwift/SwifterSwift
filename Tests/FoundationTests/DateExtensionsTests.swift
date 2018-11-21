@@ -458,10 +458,6 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertEqual(date3.nearestHour, date.adding(.hour, value: 1))
     }
 
-    func testTimezone() {
-        XCTAssertEqual(Date().timeZone, Calendar.current.timeZone)
-    }
-
     func testUnixTimestamp() {
         let date = Date()
         XCTAssertEqual(date.unixTimestamp, date.timeIntervalSince1970)
@@ -860,13 +856,13 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testNewDateFromComponenets() {
-        let date = Date(calendar: Date().calendar, timeZone: Date().timeZone, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
+        let date = Date(calendar: Date().calendar, timeZone: NSTimeZone.default, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
         XCTAssertNotNil(date)
         let date1 = Date(timeIntervalSince1970: date!.timeIntervalSince1970)
 
         XCTAssertEqual(date?.timeIntervalSince1970, date1.timeIntervalSince1970)
 
-        let date2 = Date(calendar: nil, timeZone: Date().timeZone, era: Date().era, year: nil, month: nil, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
+        let date2 = Date(calendar: nil, timeZone: NSTimeZone.default, era: Date().era, year: nil, month: nil, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
         XCTAssertNil(date2)
     }
 
@@ -956,6 +952,11 @@ final class DateExtensionsTests: XCTestCase {
     func testYesterday() {
         let date = Date()
         XCTAssertEqual(date.yesterday.timeIntervalSince(date), -86400.0)
+    }
+
+    func testTomorrow() {
+        let date = Date()
+        XCTAssertEqual(date.tomorrow.timeIntervalSince(date), 86400.0)
     }
 }
 
