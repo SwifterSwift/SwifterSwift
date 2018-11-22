@@ -125,7 +125,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         let popover = UIViewController()
         let presentingViewController = UIViewController()
 
-        //Putting the view controller in a window and running a RunLoop seems to be the only way to make
+        // Putting the view controller in a window and running a RunLoop seems to be the only way to make
         //the presentedViewController and presentingViewController properties to be set.
         let window = UIWindow()
         window.rootViewController = presentingViewController
