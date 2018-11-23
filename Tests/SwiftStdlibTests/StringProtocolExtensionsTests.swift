@@ -20,6 +20,7 @@ final class StringProtocolExtensionsTests: XCTestCase {
         XCTAssertEqual(string1.commonSuffix(with: "It's cold!"), "ld!")
         XCTAssertEqual(string1.commonSuffix(with: "Not Common"), "")
         XCTAssertEqual(string1.commonSuffix(with: "It's colD!"), "!")
+        XCTAssertEqual(string1.commonSuffix(with: "Hello world!"), "Hello world!")
         XCTAssertEqual(string1.commonSuffix(with: "It's colD!", options: .caseInsensitive), "ld!")
         XCTAssertEqual(string1.commonSuffix(with: "It's cold!", options: .literal), "ld!")
 
