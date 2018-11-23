@@ -446,5 +446,19 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableView.self), tableView)
     }
 
+    func testSetDistanceToRightEdge() {
+        let view1 = UIView(frame: CGRect(x: 0, y: 0, width:300, height: 300))
+        let view2 = UIView(frame: CGRect(x: 20, y: 10, width:30, height: 20))
+        view1.addSubview(view2)
+
+        view2.setDistanceToRightEdge(keepWidth: true, distance: 10)
+        XCTAssertEqual(view2.frame.minX, 240)
+        XCTAssertEqual(view2.frame.width, 30)
+
+        view2.setDistanceToRightEdge(keepWidth: false, distance: 10)
+        XCTAssertEqual(view2.frame.minX, 20)
+        XCTAssertEqual(view2.frame.width, 270)
+    }
+
 }
 #endif
