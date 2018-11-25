@@ -454,7 +454,7 @@ final class UIViewExtensionsTests: XCTestCase {
         view1.addSubview(view2)
         view2.setDistanceToRightEdge(keepWidth: true, distance: 10)
         XCTAssertEqual(view2.frame.minX, 260)
-        XCTAssertEqual(view2.frame.width, 20)
+        XCTAssertEqual(view2.frame.width, 30)
 
         view1.addSubview(view3)
         view3.setDistanceToRightEdge(keepWidth: false, distance: 10)
