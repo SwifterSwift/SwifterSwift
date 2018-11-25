@@ -447,9 +447,9 @@ final class UIViewExtensionsTests: XCTestCase {
     }
 
     func testSetDistanceToRightEdge() {
-        let view1 = UIView(frame: CGRect(x: 0, y: 0, width:300, height: 300))
-        let view2 = UIView(frame: CGRect(x: 20, y: 10, width:30, height: 20))
-        let view3 = UIView(frame: CGRect(x: 20, y: 10, width:30, height: 20))
+        let view1 = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        let view2 = UIView(frame: CGRect(x: 20, y: 10, width: 30, height: 20))
+        let view3 = UIView(frame: CGRect(x: 20, y: 10, width: 30, height: 20))
 
         view1.addSubview(view2)
         view2.setDistanceToRightEdge(keepWidth: true, distance: 10)
