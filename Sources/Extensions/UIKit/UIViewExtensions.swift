@@ -579,9 +579,11 @@ public extension UIView {
     public func setDistanceToRightEdge(keepWidth: Bool, distance: CGFloat) {
         if let superview = self.superview {
             if keepWidth {
-                self.frame.origin = CGPoint(x: superview.frame.Width  - distance - self.frame.Width, y: self.frame.origin.y)
+                //Adjust origin
+                self.frame.origin = CGPoint(x: superview.frame.width  - distance - self.frame.width, y: self.frame.origin.y)
             }else{
-                self.frame.size = CGSize(width: superview.frame.Width - distance - self.frame.origin.x, height: self.frame.height)
+                //Adjust size
+                self.frame.size = CGSize(width: superview.frame.width - distance - self.frame.origin.x, height: self.frame.height)
             }
         }
     }
