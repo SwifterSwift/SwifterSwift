@@ -581,7 +581,7 @@ public extension UIView {
             if keepWidth {
                 //Adjust origin
                 self.frame.origin = CGPoint(x: superview.frame.width  - distance - self.frame.width, y: self.frame.origin.y)
-            }else{
+            } else {
                 //Adjust size
                 self.frame.size = CGSize(width: superview.frame.width - distance - self.frame.origin.x, height: self.frame.height)
             }
