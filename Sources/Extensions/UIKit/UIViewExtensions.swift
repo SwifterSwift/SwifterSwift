@@ -572,19 +572,5 @@ public extension UIView {
         return ancestorView(where: { $0 is T }) as? T
     }
 
-    /// SwifterSwift: Adjust UIView frame to meet the distance from the view to the right edge
-    ///
-    /// - Parameter keepWith: to keep the original width or not.
-    /// - Parameter distance: distance between the UIView and the right edge.
-    public func setDistanceToRightEdge(keepWidth: Bool, distance: CGFloat) {
-        if let superview = self.superview {
-            if keepWidth {
-                self.frame.origin = CGPoint(x: superview.frame.Width  - distance - self.frame.Width, y: self.frame.origin.y)
-            }else{
-                self.frame.size = CGSize(width: superview.frame.Width - distance - self.frame.origin.x, height: self.frame.height)
-            }
-        }
-    }
-
 }
 #endif

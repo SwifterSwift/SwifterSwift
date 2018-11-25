@@ -99,7 +99,7 @@ public extension UITableView {
         return cell
     }
 
-    /// SwiferSwift: Dequeue reusable UITableViewCell using class name for indexPath
+    /// SwifterSwift: Dequeue reusable UITableViewCell using class name for indexPath
     ///
     /// - Parameters:
     ///   - name: UITableViewCell type.
@@ -112,7 +112,7 @@ public extension UITableView {
         return cell
     }
 
-    /// SwiferSwift: Dequeue reusable UITableViewHeaderFooterView using class name
+    /// SwifterSwift: Dequeue reusable UITableViewHeaderFooterView using class name
     ///
     /// - Parameter name: UITableViewHeaderFooterView type
     /// - Returns: UITableViewHeaderFooterView object with associated class name.
