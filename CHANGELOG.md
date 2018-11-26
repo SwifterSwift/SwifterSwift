@@ -5,7 +5,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **UIView**
-  - Added `setDistanceToRightEdge()` Adjust frame to meet the distance from a UIView to the right edge. [#610](https://github.com/SwifterSwift/SwifterSwift/pull/610) by [dylancfe15](https://github.com/dylancfe15)
+  - Added `setDistanceToRightEdge()` Adjust frame to meet the distance from a UIView to the right edge. [#612](https://github.com/SwifterSwift/SwifterSwift/pull/612) by [dylancfe15](https://github.com/dylancfe15)
 - **UILabel**
     - Added `init(text:style)` to create a `UILabel` with a text and font style. [#607](https://github.com/SwifterSwift/SwifterSwift/pull/607) by [marcocapano](https://github.com/marcocapano)
 - **UIViewController**
