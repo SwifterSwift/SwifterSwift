@@ -386,6 +386,16 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("Hello This Tests".count(of: "t", caseSensitive: false), 3)
     }
 
+    func testDominantLanguage() {
+        XCTAssertEqual("这是中国人".dominantLanguage(), "zh-Hans")
+        XCTAssertEqual("Das ist deutsch".dominantLanguage(), "de")
+        XCTAssertEqual("이것은 한국어이다".dominantLanguage(), "ko")
+        XCTAssertEqual("これは日本語です".dominantLanguage(), "ja")
+        XCTAssertEqual("This is English".dominantLanguage(), "en")
+        XCTAssertEqual("C'est français".dominantLanguage(), "fr")
+        XCTAssertEqual("中文dda  ".dominantLanguage(), "und")
+    }
+
     func testEnd() {
         XCTAssert("Hello Test".ends(with: "test", caseSensitive: false))
         XCTAssert("Hello Tests".ends(with: "sts"))
