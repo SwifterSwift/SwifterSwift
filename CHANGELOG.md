@@ -26,6 +26,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `rounded(numberOfDecimalPlaces:rule:)` to get the rounded floating number with the specified number of decimal places. [#583](https://github.com/SwifterSwift/SwifterSwift/pull/583) by [jianstm](https://github.com/jianstm)
 - **UIActivity**
   - Added `ActivityType` constants for iCloud Drive, WhatsApp, LinkedIn and XING. [#580](https://github.com/SwifterSwift/SwifterSwift/pull/580) by [staffler-xyz](https://github.com/staffler-xyz)
+- **String**
+    - Added `dominantLanguage() -> String` which returns the *BCP-47 tag* identifying the dominant language of the string, or the tag `und` if a specific language cannot be determined.`
+
 ### Changed
 - **Examples**:
   - Replace Examples.md with Examples.playground to let users try some examples out of extensions. [#596](https://github.com/SwifterSwift/SwifterSwift/pull/596) by [maxxx777](https://github.com/maxxx777)
