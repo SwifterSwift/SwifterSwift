@@ -484,6 +484,22 @@ public extension String {
     }
     #endif
 
+    /// SwifterSwift: Returns the dominant language of `String`
+    ///
+    /// "这是中国人".dominantLanguage() -> "zh-Hans"
+    ///
+    /// "Das ist deutsch".dominantLanguage() -> "de"
+    ///
+    /// "이것은 한국어이다".dominantLanguage() -> "ko"
+    ///
+    /// "中文dda  ".dominantLanguage() -> "und"
+    ///
+    /// - Returns: The BCP-47 tag identifying the dominant language of the string, or the tag "und" if a specific language cannot be determined
+    @available(iOS 11.0, *)
+    public func dominantLanguage() -> String? {
+        return NSLinguisticTagger.dominantLanguage(for: self)
+    }
+
     /// SwifterSwift: The most common character in string.
     ///
     ///		"This is a test, since e is appearing everywhere e should be the common character".mostCommonCharacter() -> "e"
