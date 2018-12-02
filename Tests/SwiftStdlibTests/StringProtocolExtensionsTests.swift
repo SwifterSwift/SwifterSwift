@@ -14,8 +14,8 @@ final class StringProtocolExtensionsTests: XCTestCase {
     func testCommonSuffix() {
         let string1 = "Hello world!"
 
-        XCTAssert("".commonPrefix(with: "It's cold!").isEmpty)
-        XCTAssert(string1.commonPrefix(with: "").isEmpty)
+        XCTAssert("".commonSuffix(with: "It's cold!").isEmpty)
+        XCTAssert(string1.commonSuffix(with: "").isEmpty)
 
         XCTAssertEqual(string1.commonSuffix(with: "It's cold!"), "ld!")
         XCTAssertEqual(string1.commonSuffix(with: "Not Common"), "")

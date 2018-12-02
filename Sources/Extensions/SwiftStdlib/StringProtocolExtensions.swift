@@ -41,7 +41,7 @@ public extension StringProtocol {
 
             if literal && other.unicodeScalars.count != char.unicodeScalars.count { break }
 
-            result.insert(self[idx], at: result.startIndex)
+            result.insert(char, at: result.startIndex)
 
         } while idx > startIndex && strIdx > aString.startIndex
         return result
