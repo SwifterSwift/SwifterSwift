@@ -484,7 +484,7 @@ public extension String {
     }
     #endif
 
-    /// SwifterSwift: Returns the dominant language of `String`
+    /// SwifterSwift: Returns the dominant language of the receiver
     ///
     /// "这是中国人".dominantLanguage() -> "zh-Hans"
     ///
