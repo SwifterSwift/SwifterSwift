@@ -494,8 +494,8 @@ public extension String {
     ///
     /// "中文dda  ".dominantLanguage() -> "und"
     ///
-    /// - Returns: The BCP-47 tag identifying the dominant language of the string, or the tag "und" if a specific language cannot be determined
-    @available(iOS 11.0, *)
+    /// - Returns: The BCP-47 tag identifying the dominant language of the receiver, or the tag "und" if a specific language cannot be determined
+    @available(iOS 11.0, *, macOS 10.13, tvOS 11.0, watchOS 4.0)
     public func dominantLanguage() -> String? {
         return NSLinguisticTagger.dominantLanguage(for: self)
     }
