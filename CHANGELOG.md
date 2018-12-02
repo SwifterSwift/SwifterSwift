@@ -27,7 +27,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIActivity**
   - Added `ActivityType` constants for iCloud Drive, WhatsApp, LinkedIn and XING. [#580](https://github.com/SwifterSwift/SwifterSwift/pull/580) by [staffler-xyz](https://github.com/staffler-xyz)
 - **String**
-    - Added `dominantLanguage() -> String` which returns the *BCP-47 tag* identifying the dominant language of the string, or the tag `und` if a specific language cannot be determined.`
+  - Added `dominantLanguage()` which returns the *BCP-47 tag* identifying the dominant language of the string, or the tag `und` if a specific language cannot be determined.`
 
 ### Changed
 - **Examples**:
