@@ -6,6 +6,12 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **FileManager**
 - Added `encodePlist(_:using:to:attributes:)` method to save Encodable object to file at provided URL using PropertyListEncoder. [#603](https://github.com/SwifterSwift/SwifterSwift/pull/603) by [AlexeiGitH](https://github.com/AlexeiGitH)
+- **UILabel**
+    - Added `init(text:style)` to create a `UILabel` with a text and font style. [#607](https://github.com/SwifterSwift/SwifterSwift/pull/607) by [marcocapano](https://github.com/marcocapano)
+- **UIViewController**
+    - Added `presentPopover(_:sourcePoint:size:delegate:animated:completion:)` method to quickly present a `UIViewController` as a popover. [#593](https://github.com/SwifterSwift/SwifterSwift/pull/593) by [marcocapano](https://github.com/marcocapano)
+- **Sequence**
+  - Added `duplicates()` for getting the duplicated elements in a sequence. [#605](https://github.com/SwifterSwift/SwifterSwift/pull/605) by [dylancfe15](https://github.com/dylancfe15)
 - **Date**
 - Added `tomorrow` computed property to get tomorrow's date avoiding calling `adding(_:value:)` function. (Completes PR #578) [#587](https://github.com/SwifterSwift/SwifterSwift/pull/587) by [AlexeiGitH](https://github.com/AlexeiGitH)
   - `random(in:)` and `random(in:using:)` to generate random dates using the built-in random functions added to Swift 4.2. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576/files) by [guykogus](https://github.com/guykogus)
@@ -20,7 +26,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `subscript[offset:]` to get element with negative offset. [#582](https://github.com/SwifterSwift/SwifterSwift/pull/582) by [jianstm](https://github.com/jianstm)
 - **BinaryFloatingPointExtensions**
   - Added `rounded(numberOfDecimalPlaces:rule:)` to get the rounded floating number with the specified number of decimal places. [#583](https://github.com/SwifterSwift/SwifterSwift/pull/583) by [jianstm](https://github.com/jianstm)
+- **UIActivity**
+  - Added `ActivityType` constants for iCloud Drive, WhatsApp, LinkedIn and XING. [#580](https://github.com/SwifterSwift/SwifterSwift/pull/580) by [staffler-xyz](https://github.com/staffler-xyz)
 ### Changed
+- **Examples**:
+  - Replace Examples.md with Examples.playground to let users try some examples out of extensions. [#596](https://github.com/SwifterSwift/SwifterSwift/pull/596) by [maxxx777](https://github.com/maxxx777)
 ### Fixed
 - **Installation**:
   - Update `podspec` to make the group paths in Pods project of SwifterSwift correct with Cocoapods installation. [#590](https://github.com/SwifterSwift/SwifterSwift/pull/590) by [dklinzh](https://github.com/dklinzh)
