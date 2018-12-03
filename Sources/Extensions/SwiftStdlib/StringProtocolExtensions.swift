@@ -23,29 +23,19 @@ public extension StringProtocol {
 
         var idx = endIndex
         var strIdx = aString.endIndex
-        var result = ""
-
-        let caseInsensitive = options.contains(.caseInsensitive)
-        let literal = options.contains(.literal)
 
         repeat {
             formIndex(before: &idx)
             aString.formIndex(before: &strIdx)
 
-            let char = self[idx]
-            let other = aString[strIdx]
-
-            if char != other {
-                guard caseInsensitive && String(char).lowercased() == String(other).lowercased() else { break }
-            }
-
-            if literal && other.unicodeScalars.count != char.unicodeScalars.count { break }
-
-            result.insert(char, at: result.startIndex)
+            if String(self[idx]).compare(String(aString[strIdx]), options: options) != .orderedSame { break }
 
         } while idx > startIndex && strIdx > aString.startIndex
-        return result
 
+        if idx == startIndex {
+            return String(self)
+        }
+        return String(self[index(after: idx)...])
     }
 
 }

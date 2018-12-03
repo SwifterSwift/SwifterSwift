@@ -28,8 +28,7 @@ final class StringProtocolExtensionsTests: XCTestCase {
         XCTAssertEqual("hue\u{308}hue".commonSuffix(with: "hue\u{E4}hue", options: .literal), "hue")
         XCTAssertEqual("hue\u{308}hue".commonSuffix(with: "hue\u{E4}hUe", options: [.caseInsensitive, .literal]), "hue")
 
-        let string3 = "你好世界"
-        XCTAssert(string1.commonSuffix(with: string3).isEmpty)
+        XCTAssertEqual(string1.commonSuffix(with: "你好世界"), "")
     }
 
 }
