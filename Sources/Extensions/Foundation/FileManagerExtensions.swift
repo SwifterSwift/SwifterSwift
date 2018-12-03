@@ -56,5 +56,19 @@ public extension FileManager {
         return nil
     }
 
+    /// SwifterSwift: Decode Encodable object from file using PropertyListDecoder.
+    ///
+    /// - Parameters:
+    ///   - type: type of the object that is being decoded.
+    ///   - decoder: PropertyListDecoder.
+    ///   - url: URL a file with saved object data.
+    /// - Throws: Throws any errors thrown by JSONDecoder.
+    /// - Returns: An object of specified type. Returns nil if failed to read from URL.
+    public func decodePlist<T: Decodable>(as type: T.Type, using decoder: PropertyListDecoder = PropertyListDecoder(), from url: URL) throws -> T? {
+        guard let data = FileManager.default.contents(atPath: url.path) else {
+            return nil
+        }
+        return try decoder.decode(type, from: data)
+    }
 }
 #endif
