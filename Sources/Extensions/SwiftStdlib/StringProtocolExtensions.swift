@@ -28,19 +28,14 @@ public extension StringProtocol {
             formIndex(before: &idx)
             aString.formIndex(before: &strIdx)
 
-            if String(self[idx]).compare(String(aString[strIdx]), options: options) != .orderedSame { break }
+            if String(self[idx]).compare(String(aString[strIdx]), options: options) != .orderedSame {
+                formIndex(after: &idx)
+                break
+            }
 
         } while idx > startIndex && strIdx > aString.startIndex
 
-        if idx == startIndex {
-            return String(self)
-        }
-
-        if strIdx == aString.startIndex {
-            return String(self[idx...])
-        }
-
-        return String(self[index(after: idx)...])
+        return String(self[idx...])
     }
 
 }
