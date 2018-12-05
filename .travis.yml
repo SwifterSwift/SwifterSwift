@@ -31,4 +31,4 @@ script:
   - xcodebuild clean build -project "$PROJECT" -scheme "$WATCHOS_SCHEME" -destination "$WATCHOS_DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-watchos.json" xcpretty -f `xcpretty-json-formatter`
   - swiftlint lint
   - bundle exec danger --verbose
-  - pod lib lint
+  - pod lib lint --skip-tests

@@ -29,6 +29,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Changed
 - **Examples**:
   - Replace Examples.md with Examples.playground to let users try some examples out of extensions. [#596](https://github.com/SwifterSwift/SwifterSwift/pull/596) by [maxxx777](https://github.com/maxxx777)
+- **StringProtocol**
+  - Removing Index constraint on `commonSuffix` extension and improving performance and tests. [#606](https://github.com/SwifterSwift/SwifterSwift/pull/606) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 ### Fixed
 - **Installation**:
   - Update `podspec` to make the group paths in Pods project of SwifterSwift correct with Cocoapods installation. [#590](https://github.com/SwifterSwift/SwifterSwift/pull/590) by [dklinzh](https://github.com/dklinzh)
