@@ -28,7 +28,7 @@ public extension StringProtocol {
             formIndex(before: &idx)
             aString.formIndex(before: &strIdx)
 
-            if String(self[idx]).compare(String(aString[strIdx]), options: options) != .orderedSame {
+            guard String(self[idx]).compare(String(aString[strIdx]), options: options) == .orderedSame else {
                 formIndex(after: &idx)
                 break
             }
