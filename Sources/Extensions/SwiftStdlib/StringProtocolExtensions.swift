@@ -35,6 +35,11 @@ public extension StringProtocol {
         if idx == startIndex {
             return String(self)
         }
+
+        if strIdx == aString.startIndex {
+            return String(self[idx...])
+        }
+
         return String(self[index(after: idx)...])
     }
 
