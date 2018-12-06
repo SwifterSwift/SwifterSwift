@@ -5,7 +5,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **FileManager**
-- Added `decodePlist(as:using:from:)` method to decode saved Encodable object from file URL using PropertyListDecoder. [#](https://github.com/SwifterSwift/SwifterSwift/pull/*) by [AlexeiGitH](https://github.com/AlexeiGitH)
+- Added `decodePlist(as:using:from:)` method to decode saved Encodable object from file URL using PropertyListDecoder. [#614](https://github.com/SwifterSwift/SwifterSwift/pull/614*) by [AlexeiGitH](https://github.com/AlexeiGitH)
 - **Date**
 - Added `tomorrow` computed property to get tomorrow's date avoiding calling `adding(_:value:)` function. (Completes PR #578) [#587](https://github.com/SwifterSwift/SwifterSwift/pull/587) by [AlexeiGitH](https://github.com/AlexeiGitH)
   - `random(in:)` and `random(in:using:)` to generate random dates using the built-in random functions added to Swift 4.2. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576/files) by [guykogus](https://github.com/guykogus)
