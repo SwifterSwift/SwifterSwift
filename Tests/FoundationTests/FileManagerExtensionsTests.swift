@@ -80,6 +80,21 @@ final class FileManagerExtensionsTests: XCTestCase {
         } catch {}
     }
 
+    func testTemporaryFileDirectory() {
+        do {
+            let fileManager = FileManager.default
+            let tempDirectoryPath = try fileManager.temporaryFileDirectory().path
+            XCTAssertFalse(tempDirectoryPath.isEmpty)
+
+            var isDirectory = ObjCBool(false)
+            XCTAssert(fileManager.fileExists(atPath: tempDirectoryPath, isDirectory: &isDirectory))
+            XCTAssertTrue(isDirectory.boolValue)
+            XCTAssert(try fileManager.contentsOfDirectory(atPath: tempDirectoryPath).isEmpty)
+        } catch {
+            XCTFail("\(error)")
+        }
+    }
+
 }
 
 #endif
