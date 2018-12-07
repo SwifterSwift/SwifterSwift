@@ -95,6 +95,8 @@ final class FileManagerExtensionsTests: XCTestCase {
             XCTAssert(fileManager.createFile(atPath: tempFile.path, contents: Data(), attributes: nil))
             XCTAssertFalse(try fileManager.contentsOfDirectory(atPath: tempDirectory.path).isEmpty)
             XCTAssertNotNil(fileManager.contents(atPath: tempFile.path))
+
+            try fileManager.removeItem(at: tempDirectory)
         } catch {
             XCTFail("\(error)")
         }
