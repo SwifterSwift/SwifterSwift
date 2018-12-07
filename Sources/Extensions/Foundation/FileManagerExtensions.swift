@@ -56,5 +56,28 @@ public extension FileManager {
         return nil
     }
 
+    /// Creates a unique directory for saving temporary files.
+    ///
+    /// The directory can be used to create multiple temporary files used for a common purpose.
+    ///
+    ///     let tempDirectory = try fileManager.createTemporaryDirectory()
+    ///     let tempFile1URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
+    ///     let tempFile2URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
+    ///
+    /// - Returns: A URL to a new directory for saving temporary files.
+    /// - Throws: An error if a temporary directory cannot be found or created.
+    public func createTemporaryDirectory() throws -> URL {
+        let temporaryDirectoryURL: URL
+        if #available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
+            temporaryDirectoryURL = temporaryDirectory
+        } else {
+            temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
+        }
+        return try url(for: .itemReplacementDirectory,
+                       in: .userDomainMask,
+                       appropriateFor: temporaryDirectoryURL,
+                       create: true)
+    }
+
 }
 #endif
