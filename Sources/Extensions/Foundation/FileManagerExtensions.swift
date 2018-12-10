@@ -66,7 +66,7 @@ public extension FileManager {
     /// - Throws: Throws any errors thrown by `PropertyListEncoder`.
     public func encodePlist<T: Encodable>(_ object: T, using encoder: PropertyListEncoder = PropertyListEncoder(), to url: URL, attributes: [FileAttributeKey:Any]? = nil) throws {
         let data = try encoder.encode(object)
-        FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil)
+        createFile(atPath: url.path, contents: data, attributes: attributes)
     }
 }
 #endif
