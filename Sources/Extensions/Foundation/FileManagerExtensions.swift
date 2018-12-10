@@ -63,7 +63,7 @@ public extension FileManager {
     ///   - encoder: PropertyListEncoder.
     ///   - url: URL to save object to.
     ///   - attributes: A dictionary containing the attributes to associate with the new file. You can use these attributes to set the owner and group numbers, file permissions, and modification date. For a list of keys, see FileAttributeKey. Set to nil by default.
-    /// - Throws: Throws any errors thrown by PropertyListEncoder or FileManager.
+    /// - Throws: Throws any errors thrown by `PropertyListEncoder`.
     public func encodePlist<T: Encodable>(_ object: T, using encoder:PropertyListEncoder=PropertyListEncoder(), to url: URL, attributes: [FileAttributeKey:Any]? = nil) throws {
         let data = try encoder.encode(object)
         FileManager.default.createFile(atPath: url.path, contents: data, attributes: nil)
