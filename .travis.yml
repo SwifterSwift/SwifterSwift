@@ -13,7 +13,6 @@ env:
     - WATCHOS_DESTINATION='name=Apple Watch - 42mm'
     - MACOS_DESTINATION='platform=OS X'
 
-
 before_install:
   - bundle install
   - gem install cocoapods --pre
@@ -32,3 +31,7 @@ script:
   - swiftlint lint
   - bundle exec danger --verbose
   - pod lib lint --skip-tests
+
+branches:
+  only: 
+    - master
