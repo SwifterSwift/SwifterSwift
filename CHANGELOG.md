@@ -38,6 +38,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Update `podspec` to make the group paths in Pods project of SwifterSwift correct with Cocoapods installation. [#590](https://github.com/SwifterSwift/SwifterSwift/pull/590) by [dklinzh](https://github.com/dklinzh)
 - **UIImage**:
   - `cropped(to:)` fixed size checking. [#575](https://github.com/SwifterSwift/SwifterSwift/pull/575) by [ilyahal](https://github.com/ilyahal)
+- **NSAttributedString** 
+  - Fixed `attributes` property crash when the string is empty. [#617](https://github.com/SwifterSwift/SwifterSwift/pull/617) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 ### Deprecated
 - **Date**
   - `random(from:upTo:)` in favor of `random(in:)` and `random(in:using:)`. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576) by [guykogus](https://github.com/guykogus)
