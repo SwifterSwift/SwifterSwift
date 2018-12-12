@@ -5,7 +5,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **NSMutableAttributedString**
-  - `applying(colors:substring)` to apply a series of color in the given substring. If the number of colors are less than the lenght of the substring, then round robin fashion is followed to apply the colors.
+  - `applying(colors:substring)` to apply a series of color in the given substring. If the number of colors are less than the lenght of the substring, then round robin fashion is followed to apply the colors. [#619](https://github.com/SwifterSwift/SwifterSwift/pull/619) by [ratulSharker](https://github.com/ratulSharker) 
 - **FileManager**
   - `createTemporaryDirectory()` to create a directory for saving temporary files. [#615](https://github.com/SwifterSwift/SwifterSwift/pull/615) by [guykogus](https://github.com/guykogus)
 - **UILabel**
