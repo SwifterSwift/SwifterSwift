@@ -4,6 +4,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+- **FileManager**
+  - `createTemporaryDirectory()` to create a directory for saving temporary files. [#615](https://github.com/SwifterSwift/SwifterSwift/pull/615) by [guykogus](https://github.com/guykogus)
 - **UILabel**
     - Added `init(text:style)` to create a `UILabel` with a text and font style. [#607](https://github.com/SwifterSwift/SwifterSwift/pull/607) by [marcocapano](https://github.com/marcocapano)
 - **UIViewController**
@@ -32,11 +34,15 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Changed
 - **Examples**:
   - Replace Examples.md with Examples.playground to let users try some examples out of extensions. [#596](https://github.com/SwifterSwift/SwifterSwift/pull/596) by [maxxx777](https://github.com/maxxx777)
+- **StringProtocol**
+  - Removing Index constraint on `commonSuffix` extension and improving performance and tests. [#606](https://github.com/SwifterSwift/SwifterSwift/pull/606) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 ### Fixed
 - **Installation**:
   - Update `podspec` to make the group paths in Pods project of SwifterSwift correct with Cocoapods installation. [#590](https://github.com/SwifterSwift/SwifterSwift/pull/590) by [dklinzh](https://github.com/dklinzh)
 - **UIImage**:
   - `cropped(to:)` fixed size checking. [#575](https://github.com/SwifterSwift/SwifterSwift/pull/575) by [ilyahal](https://github.com/ilyahal)
+- **NSAttributedString** 
+  - Fixed `attributes` property crash when the string is empty. [#617](https://github.com/SwifterSwift/SwifterSwift/pull/617) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 ### Deprecated
 - **Date**
   - `random(from:upTo:)` in favor of `random(in:)` and `random(in:using:)`. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576) by [guykogus](https://github.com/guykogus)
