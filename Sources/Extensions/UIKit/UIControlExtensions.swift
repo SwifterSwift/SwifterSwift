@@ -10,40 +10,37 @@ import UIKit
 import ObjectiveC.runtime
 
 /// SwifterSwift: the key of runtime, add Properties
-private var closure_key: Void?
+private var closureKey: Void?
 
 /// SwifterSwift: self Target
 public class ControlClosureTarget {
-    
-    var _events: UIControl.Event
-    var _closure: ((Any) -> Void)
-    
-    public init(closure: @escaping ((Any) -> Void), for evens: UIControl.Event) {
-        _closure = closure
-        _events = evens
+
+    var targetEvents: UIControl.Event
+    var targetClosure: ((Any) -> Void)
+
+    public init(closure: @escaping ((Any) -> Void), for events: UIControl.Event) {
+        targetClosure = closure
+        targetEvents = events
     }
-    
     @objc func invoke(sender: Any) {
-        _closure(sender)
+        targetClosure(sender)
     }
 }
 
 // MARK: - Properties
 public extension UIControl {
-    
     /// SwifterSwift: all ControlClosureTarget  of UIControl.
     var allControlClosureTargets: [ControlClosureTarget] {
         get {
-            var targets = objc_getAssociatedObject(self, &closure_key) as? [ControlClosureTarget]
+            var targets = objc_getAssociatedObject(self, &closureKey) as? [ControlClosureTarget]
             if targets == nil {
-                
                 targets = [ControlClosureTarget]()
             }
             return targets!
         }
-        
+
         set(newValue) {
-            objc_setAssociatedObject(self, &closure_key, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &closureKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
 }
@@ -57,7 +54,7 @@ public extension UIControl {
         }
         self.allControlClosureTargets.removeAll()
     }
-    
+
     /// SwifterSwift: set target/action for particular event.
     ///
     /// remove old target/action , add new target/action
@@ -77,7 +74,7 @@ public extension UIControl {
         }
         self.addTarget(target, action: action, for: controlEvents)
     }
-    
+
     /// SwifterSwift: add a closure of target/action
     ///
     /// - Parameters:
@@ -88,7 +85,7 @@ public extension UIControl {
         self.addTarget(target, action: #selector(target.invoke(sender:)), for: controlEvents)
         self.allControlClosureTargets.append(target)
     }
-    
+
     /// SwifterSwift: set a closure of target/action
     ///
     /// remove old closure, add new closure
@@ -100,27 +97,26 @@ public extension UIControl {
         self.removeAllClosures(for: controlEvents)
         self.addclosure(for: controlEvents, with: closure)
     }
-    
+
     /// SwifterSwift: remove all closure of target/action
     ///
     /// - Parameter controlEvents: UIControl.Event
     public func removeAllClosures(for controlEvents: UIControl.Event) {
         var removes = [ControlClosureTarget]()
         if controlEvents.isEmpty {return}
-        for target in self.allControlClosureTargets where !target._events.isEmpty {
-            let newEvent = target._events.rawValue & (~controlEvents.rawValue)
+        for target in self.allControlClosureTargets where !target.targetEvents.isEmpty {
+            let newEvent = target.targetEvents.rawValue & (~controlEvents.rawValue)
             if newEvent != 0 {
-                self.removeTarget(target, action: #selector(target.invoke(sender:)), for: target._events)
-                target._events = UIControl.Event(rawValue: newEvent)
-                self.addTarget(target, action: #selector(target.invoke(sender:)), for: target._events)
+                self.removeTarget(target, action: #selector(target.invoke(sender:)), for: target.targetEvents)
+                target.targetEvents = UIControl.Event(rawValue: newEvent)
+                self.addTarget(target, action: #selector(target.invoke(sender:)), for: target.targetEvents)
             } else {
-                self.removeTarget(target, action: #selector(target.invoke(sender:)), for: target._events)
+                self.removeTarget(target, action: #selector(target.invoke(sender:)), for: target.targetEvents)
                 removes.append(target)
             }
         }
-        
+
         for remove in removes.enumerated() {
-            
             if let index = self.allControlClosureTargets.index(where: { element in
                 return element === remove.element
             }) {
