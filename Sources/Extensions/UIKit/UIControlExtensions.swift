@@ -1,9 +1,9 @@
 //
 //  UIControlExtensions.swift
-//  SwiftDemo
+//  SwifterSwift
 //
 //  Created by zeng on 2018/12/28.
-//  Copyright © 2018 Ryze Zeng. All rights reserved.
+//  Copyright © 2018 SwifterSwift
 //
 
 import UIKit
@@ -80,7 +80,7 @@ public extension UIControl {
     /// - Parameters:
     ///   - controlEvents: UIControl.Event
     ///   - closure: do something
-    public func addclosure(for controlEvents: UIControl.Event, with closure: @escaping ((Any) -> Void)) {
+    public func addClosure(for controlEvents: UIControl.Event, with closure: @escaping ((Any) -> Void)) {
         let target = ControlClosureTarget.init(closure: closure, for: controlEvents)
         self.addTarget(target, action: #selector(target.invoke(sender:)), for: controlEvents)
         self.allControlClosureTargets.append(target)
@@ -95,7 +95,7 @@ public extension UIControl {
     ///   - closure: new closure
     public func setClosure(for controlEvents: UIControl.Event, with closure: @escaping ((Any) -> Void)) {
         self.removeAllClosures(for: controlEvents)
-        self.addclosure(for: controlEvents, with: closure)
+        self.addClosure(for: controlEvents, with: closure)
     }
 
     /// SwifterSwift: remove all closure of target/action
