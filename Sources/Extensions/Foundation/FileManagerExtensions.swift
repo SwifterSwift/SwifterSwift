@@ -65,7 +65,7 @@ public extension FileManager {
     /// - Throws: Throws any errors thrown by JSONDecoder.
     /// - Returns: An object of specified type. Returns nil if failed to read from URL.
     public func decodeJSON<T: Decodable>(as type: T.Type, using decoder: JSONDecoder = JSONDecoder(), from url: URL) throws -> T? {
-        guard let data = FileManager.default.contents(atPath: url.path) else {
+        guard let data = contents(atPath: url.path) else {
             return nil
         }
         let model = try decoder.decode(type, from: data)
