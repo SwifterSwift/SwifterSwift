@@ -197,6 +197,23 @@ public extension Sequence where Element: Hashable {
         return false
     }
 
+    /// SwifterSwift: Getting the duplicated elements in a sequence.
+    ///
+    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].duplicates().sorted() -> [1, 2, 3])
+    ///     ["h", "e", "l", "l", "o"].duplicates().sorted() -> ["l"])
+    ///
+    /// - Returns: An array of duplicated elements.
+    ///
+    public func duplicates() -> [Element] {
+        var set = Set<Element>()
+        var duplicates = Set<Element>()
+        forEach {
+            if !set.insert($0).inserted {
+                duplicates.insert($0)
+            }
+        }
+        return Array(duplicates)
+    }
 }
 
 // MARK: - Methods (Numeric)
