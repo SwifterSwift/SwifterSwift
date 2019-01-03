@@ -104,6 +104,8 @@ final class FileManagerExtensionsTests: XCTestCase {
             XCTAssertFalse(fileManager.fileExists(atPath: temporaryFileURL.path))
         } catch {
             XCTFail(error.localizedDescription)
+        }
+    }
 
     func testCreateTemporaryDirectory() {
         do {
