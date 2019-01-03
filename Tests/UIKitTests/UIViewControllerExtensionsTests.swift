@@ -120,5 +120,76 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertNil(childViewController.parent)
     }
 
+    #if os(iOS)
+    func testPresentPopover() {
+        let popover = UIViewController()
+        let presentingViewController = UIViewController()
+
+        // Putting the view controller in a window and running a RunLoop seems to be the only way to make
+        // the presentedViewController and presentingViewController properties to be set.
+        let window = UIWindow()
+        window.rootViewController = presentingViewController
+        window.addSubview(presentingViewController.view)
+        RunLoop.current.run(until: Date())
+
+        presentingViewController.presentPopover(popover, sourcePoint: presentingViewController.view.center, animated: false)
+
+        XCTAssertEqual(presentingViewController.presentedViewController, popover)
+        XCTAssertEqual(popover.presentingViewController, presentingViewController)
+        XCTAssertEqual(popover.modalPresentationStyle, .popover)
+    }
+
+    func testPresentPopoverWithCustomSize() {
+        let popover = UIViewController()
+        let presentingViewController = UIViewController()
+        let customSize = CGSize(width: 100, height: 100)
+
+        // Putting the view controller in a window and running a RunLoop seems to be the only way to make
+        // the presentedViewController and presentingViewController properties to be set.
+        let window = UIWindow()
+        window.rootViewController = presentingViewController
+        window.addSubview(presentingViewController.view)
+        RunLoop.current.run(until: Date())
+
+        presentingViewController.presentPopover(popover, sourcePoint: presentingViewController.view.center, size: customSize)
+
+        XCTAssertEqual(presentingViewController.presentedViewController, popover)
+        XCTAssertEqual(popover.presentingViewController, presentingViewController)
+        XCTAssertEqual(popover.modalPresentationStyle, .popover)
+        XCTAssertEqual(popover.preferredContentSize, customSize)
+    }
+
+    func testPresentPopoverWithDelegate() {
+        // swiftlint:disable:next nesting
+        class PopoverDelegate: NSObject, UIPopoverPresentationControllerDelegate {
+            func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+                return .popover
+            }
+        }
+
+        let popover = UIViewController()
+        let presentingViewController = UIViewController()
+        let delegate = PopoverDelegate()
+
+        // Putting the view controller in a window and running a RunLoop seems to be the only way to make
+        // the presentedViewController and presentingViewController properties to be set.
+        let window = UIWindow()
+        window.rootViewController = presentingViewController
+        window.addSubview(presentingViewController.view)
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 5))
+
+        presentingViewController.presentPopover(popover, sourcePoint: presentingViewController.view.center, delegate: delegate)
+
+        XCTAssertEqual(presentingViewController.presentedViewController, popover)
+        XCTAssertEqual(popover.presentingViewController, presentingViewController)
+        XCTAssertEqual(popover.modalPresentationStyle, .popover)
+
+        let popoverDelegate = popover.popoverPresentationController?.delegate as? PopoverDelegate
+        XCTAssertNotNil(popoverDelegate)
+        XCTAssertEqual(popoverDelegate, delegate)
+    }
+
+    #endif
+
 }
 #endif
