@@ -208,6 +208,10 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
     #if !os(macOS) && !os(tvOS)
     func testAttributes() {
+        let emptyString = NSAttributedString(string: "").bolded.struckthrough.underlined.colored(with: UIColor.blue)
+        let emptyStringAttributes = emptyString.attributes
+        XCTAssert(emptyStringAttributes.isEmpty)
+
         let attrString = NSAttributedString(string: "Test String").bolded.struckthrough.underlined.colored(with: UIColor.blue)
         let attributes = attrString.attributes
 

@@ -6,6 +6,13 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **FileManager**
 - Added `decodePlist(as:using:from:)` method to decode an object from file URL using `PropertyListDecoder`. [#614](https://github.com/SwifterSwift/SwifterSwift/pull/614*) by [AlexeiGitH](https://github.com/AlexeiGitH)
+  - `createTemporaryDirectory()` to create a directory for saving temporary files. [#615](https://github.com/SwifterSwift/SwifterSwift/pull/615) by [guykogus](https://github.com/guykogus)
+- **UILabel**
+    - Added `init(text:style)` to create a `UILabel` with a text and font style. [#607](https://github.com/SwifterSwift/SwifterSwift/pull/607) by [marcocapano](https://github.com/marcocapano)
+- **UIViewController**
+    - Added `presentPopover(_:sourcePoint:size:delegate:animated:completion:)` method to quickly present a `UIViewController` as a popover. [#593](https://github.com/SwifterSwift/SwifterSwift/pull/593) by [marcocapano](https://github.com/marcocapano)
+- **Sequence**
+  - Added `duplicates()` for getting the duplicated elements in a sequence. [#605](https://github.com/SwifterSwift/SwifterSwift/pull/605) by [dylancfe15](https://github.com/dylancfe15)
 - **Date**
 - Added `tomorrow` computed property to get tomorrow's date avoiding calling `adding(_:value:)` function. (Completes PR #578) [#587](https://github.com/SwifterSwift/SwifterSwift/pull/587) by [AlexeiGitH](https://github.com/AlexeiGitH)
   - `random(in:)` and `random(in:using:)` to generate random dates using the built-in random functions added to Swift 4.2. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576/files) by [guykogus](https://github.com/guykogus)
@@ -20,12 +27,20 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `subscript[offset:]` to get element with negative offset. [#582](https://github.com/SwifterSwift/SwifterSwift/pull/582) by [jianstm](https://github.com/jianstm)
 - **BinaryFloatingPointExtensions**
   - Added `rounded(numberOfDecimalPlaces:rule:)` to get the rounded floating number with the specified number of decimal places. [#583](https://github.com/SwifterSwift/SwifterSwift/pull/583) by [jianstm](https://github.com/jianstm)
+- **UIActivity**
+  - Added `ActivityType` constants for iCloud Drive, WhatsApp, LinkedIn and XING. [#580](https://github.com/SwifterSwift/SwifterSwift/pull/580) by [staffler-xyz](https://github.com/staffler-xyz)
 ### Changed
+- **Examples**:
+  - Replace Examples.md with Examples.playground to let users try some examples out of extensions. [#596](https://github.com/SwifterSwift/SwifterSwift/pull/596) by [maxxx777](https://github.com/maxxx777)
+- **StringProtocol**
+  - Removing Index constraint on `commonSuffix` extension and improving performance and tests. [#606](https://github.com/SwifterSwift/SwifterSwift/pull/606) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 ### Fixed
 - **Installation**:
   - Update `podspec` to make the group paths in Pods project of SwifterSwift correct with Cocoapods installation. [#590](https://github.com/SwifterSwift/SwifterSwift/pull/590) by [dklinzh](https://github.com/dklinzh)
 - **UIImage**:
   - `cropped(to:)` fixed size checking. [#575](https://github.com/SwifterSwift/SwifterSwift/pull/575) by [ilyahal](https://github.com/ilyahal)
+- **NSAttributedString** 
+  - Fixed `attributes` property crash when the string is empty. [#617](https://github.com/SwifterSwift/SwifterSwift/pull/617) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 ### Deprecated
 - **Date**
   - `random(from:upTo:)` in favor of `random(in:)` and `random(in:using:)`. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576) by [guykogus](https://github.com/guykogus)

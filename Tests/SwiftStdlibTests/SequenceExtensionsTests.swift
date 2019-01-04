@@ -100,6 +100,11 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertFalse(["a", "b", "c", "d"].containsDuplicates())
     }
 
+    func testDuplicates() {
+        XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].duplicates().sorted(), [1, 2, 3])
+        XCTAssertEqual(["h", "e", "l", "l", "o"].duplicates().sorted(), ["l"])
+    }
+
     func testSum() {
         XCTAssertEqual([1, 2, 3, 4, 5].sum(), 15)
         XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum(), 17)
