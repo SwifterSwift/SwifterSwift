@@ -31,5 +31,17 @@ final class DoubleExtensionsTests: XCTestCase {
         XCTAssertEqual((Double(5.0) ** Double(2.0)), Double(25.0))
         XCTAssertEqual((√Double(25.0)), Double(5.0))
     }
+    
+    func testConvert() {
+        let marathon = 26.2
+        let meters = marathon.convert(from: .miles, to: .meters)
+        XCTAssertEqual(meters, 42_164.708, "Miles to meters conversion is incorrect")
+        let inches = 1.0
+        let centimeters = inches.convert(from: .inches, to: .centimeters)
+        XCTAssertEqual(centimeters, 2.54, "Inches to meters conversion is incorrect")
+        let miles = 1.0
+        let fathoms = miles.convert(from: .miles, to: .fathoms)
+        XCTAssertEqual(fathoms, 879.9978127734033, "Miles to fathoms conversionn is incorrect")
+    }
 
 }

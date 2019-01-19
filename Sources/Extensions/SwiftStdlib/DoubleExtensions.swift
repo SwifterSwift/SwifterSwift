@@ -30,6 +30,16 @@ public extension Double {
     }
     #endif
 
+    /// SwifterSwift: Convert from one unit of length measurement to another
+    ///
+    /// - Parameters:
+    ///   - originalUnit: The original unit of measurement
+    ///   - convertedUnit: The unit of measurement to be outputted
+    /// - Returns: The Double's converted unit of measurement
+    @available(iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+    func convert(from originalUnit: UnitLength, to convertedUnit: UnitLength) -> Double {
+        return Measurement(value: self, unit: originalUnit).converted(to: convertedUnit).value
+    }
 }
 
 // MARK: - Operators
