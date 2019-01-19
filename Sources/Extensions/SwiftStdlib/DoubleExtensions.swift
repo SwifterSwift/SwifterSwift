@@ -36,7 +36,7 @@ public extension Double {
     ///   - originalUnit: The original unit of measurement
     ///   - convertedUnit: The unit of measurement to be outputted
     /// - Returns: The Double's converted unit of measurement
-    @available(iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     func convert(from originalUnit: UnitLength, to convertedUnit: UnitLength) -> Double {
         return Measurement(value: self, unit: originalUnit).converted(to: convertedUnit).value
     }

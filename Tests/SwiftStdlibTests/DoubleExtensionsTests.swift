@@ -32,6 +32,7 @@ final class DoubleExtensionsTests: XCTestCase {
         XCTAssertEqual((√Double(25.0)), Double(5.0))
     }
     
+    @available(OSX 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
     func testConvert() {
         let marathon = 26.2
         let meters = marathon.convert(from: .miles, to: .meters)

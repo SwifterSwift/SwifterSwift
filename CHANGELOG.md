@@ -710,6 +710,8 @@ N/A
 - New **CLLocation** extensions
     - new `midLocation` to find the half-way point along a great circle path between relative to another point.
     - new `bearing` to calculate the bearing relative another location.
+- New **Double** extension
+    - new 'convert(from:to:)' to convert a double from one unit of length to another.
 ### Improvements
 - Fixes on wrong access  levels for some extensions
 - Improve NSAttributedStringExtensions extensions
