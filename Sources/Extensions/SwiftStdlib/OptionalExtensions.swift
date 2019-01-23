@@ -104,6 +104,17 @@ public extension Optional where Wrapped: Collection {
 
 }
 
+// MARK: - Methods (String)
+public extension Optional where Wrapped == String {
+
+    /// SwifterSwift: Check if optional is nil, empty, white space or new line String.
+    public var isNilOrBlank: Bool {
+        guard let string = self else { return true }
+        return string.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+}
+
 // MARK: - Operators
 infix operator ??= : AssignmentPrecedence
 infix operator ?= : AssignmentPrecedence

@@ -105,4 +105,21 @@ final class OptionalExtensionsTests: XCTestCase {
 
     }
 
+    func testIsNilOrBlank() {
+        let nilString: String? = nil
+        XCTAssertTrue(nilString.isNilOrBlank)
+
+        let emptyString: String? = ""
+        XCTAssertTrue(emptyString.isNilOrBlank)
+
+        let whiteSpace: String? = "\n \n"
+        XCTAssertTrue(whiteSpace.isNilOrBlank)
+
+        let newLine: String? = "\n"
+        XCTAssertTrue(newLine.isNilOrBlank)
+
+        let alphabet: String? = "a"
+        XCTAssertFalse(alphabet.isNilOrBlank)
+    }
+
 }
