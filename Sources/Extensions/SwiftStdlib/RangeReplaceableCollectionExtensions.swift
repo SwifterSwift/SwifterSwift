@@ -87,7 +87,11 @@ public extension RangeReplaceableCollection {
     /// - Returns: The first element for which predicate returns true, after removing it. If no elements in the collection satisfy the given predicate, returns `nil`.
     @discardableResult
     mutating func removeFirst(where predicate: (Element) throws -> Bool) rethrows -> Element? {
+        #if swift(<5.0)
         guard let index = try index(where: predicate) else { return nil }
+        #else
+        guard let index = try firstIndex(where: predicate) else { return nil }
+        #endif
         return remove(at: index)
     }
 
