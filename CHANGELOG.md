@@ -4,6 +4,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 # Upcoming release
 
 ### Added
+- **Swift 5.0 / Xcode 10.2**
+  - Added Swift 5.0 support.
 - **FileManager**
   - `createTemporaryDirectory()` to create a directory for saving temporary files. [#615](https://github.com/SwifterSwift/SwifterSwift/pull/615) by [guykogus](https://github.com/guykogus)
 - **UILabel**
