@@ -18,7 +18,7 @@ public extension UIRefreshControl {
     ///   - tableView: UITableView instance, inside which the refresh control is contained.
     ///   - animated: Boolean, indicates that is the content offset changing should be animated or not.
     ///   - sendAction: Boolean, indicates that should it fire sendActions method for valueChanged UIControlEvents
-    public func beginRefreshing(in tableView: UITableView, animated: Bool, sendAction: Bool = false) {
+    func beginRefreshing(in tableView: UITableView, animated: Bool, sendAction: Bool = false) {
         //https://stackoverflow.com/questions/14718850/uirefreshcontrol-beginrefreshing-not-working-when-uitableviewcontroller-is-ins/14719658#14719658
         assert(superview == tableView, "Refresh control does not belong to the receiving table view")
 

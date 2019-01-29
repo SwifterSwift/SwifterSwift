@@ -18,7 +18,7 @@ public extension CGFloat {
     ///   - max: maximum number random number end before.
     /// - Returns: random CGFloat between two CGFloat values.
     @available(*, deprecated: 4.5.0, message: "Use CGFloat.random(in: min...max)")
-    public static func randomBetween(min: CGFloat, max: CGFloat) -> CGFloat {
+    static func randomBetween(min: CGFloat, max: CGFloat) -> CGFloat {
         return CGFloat.random(in: min...max)
     }
 

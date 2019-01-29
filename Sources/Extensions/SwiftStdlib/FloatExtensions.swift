@@ -14,18 +14,18 @@ import CoreGraphics
 public extension Float {
 
     /// SwifterSwift: Int.
-    public var int: Int {
+    var int: Int {
         return Int(self)
     }
 
     /// SwifterSwift: Double.
-    public var double: Double {
+    var double: Double {
         return Double(self)
     }
 
     #if canImport(CoreGraphics)
     /// SwifterSwift: CGFloat.
-    public var cgFloat: CGFloat {
+    var cgFloat: CGFloat {
         return CGFloat(self)
     }
     #endif

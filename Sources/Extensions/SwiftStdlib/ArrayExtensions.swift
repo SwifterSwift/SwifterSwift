@@ -18,7 +18,7 @@ public extension Array {
     ///        ["e", "l", "l", "o"].prepend("h") -> ["h", "e", "l", "l", "o"]
     ///
     /// - Parameter newElement: element to insert.
-    public mutating func prepend(_ newElement: Element) {
+    mutating func prepend(_ newElement: Element) {
         insert(newElement, at: 0)
     }
 
@@ -30,7 +30,7 @@ public extension Array {
     /// - Parameters:
     ///   - index: index of first element.
     ///   - otherIndex: index of other element.
-    public mutating func safeSwap(from index: Index, to otherIndex: Index) {
+    mutating func safeSwap(from index: Index, to otherIndex: Index) {
         guard index != otherIndex else { return }
         guard startIndex..<endIndex ~= index else { return }
         guard startIndex..<endIndex ~= otherIndex else { return }
@@ -45,7 +45,7 @@ public extension Array {
     /// - Returns: self after applying provided condition.
     /// - Throws: provided condition exception.
     @discardableResult
-    public mutating func keep(while condition: (Element) throws -> Bool) rethrows -> [Element] {
+    mutating func keep(while condition: (Element) throws -> Bool) rethrows -> [Element] {
         for (index, element) in lazy.enumerated() where try !condition(element) {
             self = Array(self[startIndex..<index])
             break
@@ -59,7 +59,7 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements up until condition evaluates to false.
-    public func take(while condition: (Element) throws -> Bool) rethrows -> [Element] {
+    func take(while condition: (Element) throws -> Bool) rethrows -> [Element] {
         for (index, element) in lazy.enumerated() where try !condition(element) {
             return Array(self[startIndex..<index])
         }
@@ -72,7 +72,7 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements after the condition evaluates to false.
-    public func skip(while condition: (Element) throws-> Bool) rethrows -> [Element] {
+    func skip(while condition: (Element) throws-> Bool) rethrows -> [Element] {
         for (index, element) in lazy.enumerated() where try !condition(element) {
             return Array(self[index..<endIndex])
         }
@@ -85,7 +85,7 @@ public extension Array {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: Two arrays, the first containing the elements for which the specified condition evaluates to true, the second containing the rest.
-    public func divided(by condition: (Element) throws -> Bool) rethrows -> (matching: [Element], nonMatching: [Element]) {
+    func divided(by condition: (Element) throws -> Bool) rethrows -> (matching: [Element], nonMatching: [Element]) {
         //Inspired by: http://ruby-doc.org/core-2.5.0/Enumerable.html#method-i-partition
         var matching = [Element]()
         var nonMatching = [Element]()
@@ -100,7 +100,7 @@ public extension Array {
     /// - Parameter path: Key path to sort. The key path type must be Comparable.
     /// - Parameter ascending: If order must be ascending.
     /// - Returns: Sorted array based on keyPath.
-    public func sorted<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
+    func sorted<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
         return sorted(by: { (lhs, rhs) -> Bool in
             guard let lhsValue = lhs[keyPath: path], let rhsValue = rhs[keyPath: path] else { return false }
             return ascending ? lhsValue < rhsValue : lhsValue > rhsValue
@@ -112,7 +112,7 @@ public extension Array {
     /// - Parameter path: Key path to sort. The key path type must be Comparable.
     /// - Parameter ascending: If order must be ascending.
     /// - Returns: Sorted array based on keyPath.
-    public func sorted<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
+    func sorted<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
         return sorted(by: { (lhs, rhs) -> Bool in
             return ascending ? lhs[keyPath: path] < rhs[keyPath: path] : lhs[keyPath: path] > rhs[keyPath: path]
         })
@@ -125,7 +125,7 @@ public extension Array {
     ///   - ascending: whether order is ascending or not.
     /// - Returns: self after sorting.
     @discardableResult
-    public mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
+    mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
         self = sorted(by: path, ascending: ascending)
         return self
     }
@@ -137,7 +137,7 @@ public extension Array {
     ///   - ascending: whether order is ascending or not.
     /// - Returns: self after sorting.
     @discardableResult
-    public mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
+    mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
         self = sorted(by: path, ascending: ascending)
         return self
     }
@@ -155,7 +155,7 @@ public extension Array where Element: Equatable {
     /// - Parameter item: item to remove.
     /// - Returns: self after removing all instances of item.
     @discardableResult
-    public mutating func removeAll(_ item: Element) -> [Element] {
+    mutating func removeAll(_ item: Element) -> [Element] {
         removeAll(where: { $0 == item })
         return self
     }
@@ -168,7 +168,7 @@ public extension Array where Element: Equatable {
     /// - Parameter items: items to remove.
     /// - Returns: self after removing all instances of all items in given array.
     @discardableResult
-    public mutating func removeAll(_ items: [Element]) -> [Element] {
+    mutating func removeAll(_ items: [Element]) -> [Element] {
         guard !items.isEmpty else { return self }
         removeAll(where: { items.contains($0) })
         return self
@@ -179,7 +179,7 @@ public extension Array where Element: Equatable {
     ///        [1, 2, 2, 3, 4, 5].removeDuplicates() -> [1, 2, 3, 4, 5]
     ///        ["h", "e", "l", "l", "o"]. removeDuplicates() -> ["h", "e", "l", "o"]
     ///
-    public mutating func removeDuplicates() {
+    mutating func removeDuplicates() {
         // Thanks to https://github.com/sairamkotha for improving the method
         self = reduce(into: [Element]()) {
             if !$0.contains($1) {
@@ -195,7 +195,7 @@ public extension Array where Element: Equatable {
     ///
     /// - Returns: an array of unique elements.
     ///
-    public func withoutDuplicates() -> [Element] {
+    func withoutDuplicates() -> [Element] {
         // Thanks to https://github.com/sairamkotha for improving the method
         return reduce(into: [Element]()) {
             if !$0.contains($1) {

@@ -13,16 +13,16 @@ import UIKit
 public extension UIActivity.ActivityType {
 
     /// SwifterSwift: AddToiCloudDrive
-    public static let addToiCloudDrive = UIActivity.ActivityType("com.apple.CloudDocsUI.AddToiCloudDrive")
+    static let addToiCloudDrive = UIActivity.ActivityType("com.apple.CloudDocsUI.AddToiCloudDrive")
 
     /// SwifterSwift: WhatsApp share extension
-    public static let postToWhatsApp = UIActivity.ActivityType("net.whatsapp.WhatsApp.ShareExtension")
+    static let postToWhatsApp = UIActivity.ActivityType("net.whatsapp.WhatsApp.ShareExtension")
 
     /// SwifterSwift: LinkedIn share extension
-    public static let postToLinkedIn = UIActivity.ActivityType("com.linkedin.LinkedIn.ShareExtension")
+    static let postToLinkedIn = UIActivity.ActivityType("com.linkedin.LinkedIn.ShareExtension")
 
     /// SwifterSwift: XING share extension
-    public static let postToXing = UIActivity.ActivityType("com.xing.XING.Xing-Share")
+    static let postToXing = UIActivity.ActivityType("com.xing.XING.Xing-Share")
 
 }
 #endif

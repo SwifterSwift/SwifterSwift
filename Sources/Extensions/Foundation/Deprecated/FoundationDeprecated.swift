@@ -9,7 +9,7 @@
 #if canImport(Foundation)
 import Foundation
 
-extension Date {
+public extension Date {
 
     /// SwifterSwift: Random date between two dates.
     ///
@@ -23,7 +23,7 @@ extension Date {
     ///   - toDate: maximum date (default is Date.distantFuture)
     /// - Returns: random date between two dates.
     @available(*, deprecated: 4.7.0, message: "Use random(in:) or random(in:using:) instead")
-    public static func random(from fromDate: Date = Date.distantPast, upTo toDate: Date = Date.distantFuture) -> Date {
+    static func random(from fromDate: Date = Date.distantPast, upTo toDate: Date = Date.distantFuture) -> Date {
         guard fromDate != toDate else {
             return fromDate
         }
@@ -41,7 +41,7 @@ extension Date {
     ///        Date().timeZone -> Europe/Istanbul (current)
     ///
     @available(*, deprecated: 4.7.0, message: "`Date` objects are timezone-agnostic. Please use Calendar.current.timeZone instead.")
-    public var timeZone: TimeZone {
+    var timeZone: TimeZone {
         return Calendar.current.timeZone
     }
 

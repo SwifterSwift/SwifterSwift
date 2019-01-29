@@ -18,7 +18,7 @@ public extension BidirectionalCollection {
     ///        arr[offset: -2] -> 4
     ///
     /// - Parameter distance: The distance to offset.
-    public subscript(offset distance: Int) -> Element {
+    subscript(offset distance: Int) -> Element {
         let index = distance >= 0 ? startIndex : endIndex
         return self[indices.index(index, offsetBy: distance)]
     }

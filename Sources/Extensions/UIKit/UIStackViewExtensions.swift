@@ -23,7 +23,7 @@ public extension UIStackView {
     ///   - spacing: The distance in points between the adjacent edges of the stack view’s arranged views.(default: 0.0)
     ///   - alignment: The alignment of the arranged subviews perpendicular to the stack view’s axis. (default: .fill)
     ///   - distribution: The distribution of the arranged views along the stack view’s axis.(default: .fill)
-    public convenience init(arrangedSubviews: [UIView], axis: NSLayoutConstraint.Axis,
+    convenience init(arrangedSubviews: [UIView], axis: NSLayoutConstraint.Axis,
                             spacing: CGFloat = 0.0,
                             alignment: UIStackView.Alignment = .fill,
                             distribution: UIStackView.Distribution = .fill) {
@@ -37,14 +37,14 @@ public extension UIStackView {
     /// SwifterSwift: Adds array of views to the end of the arrangedSubviews array.
     ///
     /// - Parameter views: views array.
-    public func addArrangedSubviews(_ views: [UIView]) {
+    func addArrangedSubviews(_ views: [UIView]) {
         for view in views {
             addArrangedSubview(view)
         }
     }
 
     /// SwifterSwift: Removes all views in stack’s array of arranged subviews.
-    public func removeArrangedSubviews() {
+    func removeArrangedSubviews() {
         for view in arrangedSubviews {
             removeArrangedSubview(view)
         }

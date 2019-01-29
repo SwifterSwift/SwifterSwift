@@ -16,14 +16,14 @@ public extension CGVector {
     /// The range of the angle is -π to π; an angle of 0 points to the right.
     ///
     /// https://en.wikipedia.org/wiki/Atan2
-    public var angle: CGFloat {
+    var angle: CGFloat {
         return atan2(dy, dx)
     }
 
     /// SwifterSwift: The magnitude (or length) of the vector.
     ///
     /// https://en.wikipedia.org/wiki/Euclidean_vector#Length
-    public var magnitude: CGFloat {
+    var magnitude: CGFloat {
         return sqrt((dx * dx) + (dy * dy))
     }
 
@@ -42,7 +42,7 @@ public extension CGVector {
     ///     - angle: The angle of rotation (in radians) counterclockwise from the positive x-axis.
     ///     - magnitude: The lenth of the vector.
     ///
-    public init(angle: CGFloat, magnitude: CGFloat) {
+    init(angle: CGFloat, magnitude: CGFloat) {
         self.init(dx: magnitude * cos(angle), dy: magnitude * sin(angle))
     }
 
@@ -60,7 +60,7 @@ public extension CGVector {
     ///   - vector: The vector to be multiplied
     ///   - scalar: The scale by which the vector will be multiplied
     /// - Returns: The vector with its magnitude scaled
-    public static func * (vector: CGVector, scalar: CGFloat) -> CGVector {
+    static func * (vector: CGVector, scalar: CGFloat) -> CGVector {
         return CGVector(dx: vector.dx * scalar, dy: vector.dy * scalar)
     }
 
@@ -73,7 +73,7 @@ public extension CGVector {
     ///   - scalar: The scalar by which the vector will be multiplied
     ///   - vector: The vector to be multiplied
     /// - Returns: The vector with its magnitude scaled
-    public static func * (scalar: CGFloat, vector: CGVector) -> CGVector {
+    static func * (scalar: CGFloat, vector: CGVector) -> CGVector {
         return CGVector(dx: scalar * vector.dx, dy: scalar * vector.dy)
     }
 
@@ -85,7 +85,7 @@ public extension CGVector {
     /// - Parameters:
     ///   - vector: The vector to be multiplied
     ///   - scalar: The scale by which the vector will be multiplied
-    public static func *= (vector: inout CGVector, scalar: CGFloat) {
+    static func *= (vector: inout CGVector, scalar: CGFloat) {
         // swiftlint:disable next shorthand_operator
         vector = vector * scalar
     }
@@ -98,7 +98,7 @@ public extension CGVector {
     ///
     /// - Parameter vector: The vector to be negated
     /// - Returns: The negated vector
-    public static prefix func - (vector: CGVector) -> CGVector {
+    static prefix func - (vector: CGVector) -> CGVector {
         return CGVector(dx: -vector.dx, dy: -vector.dy)
     }
 

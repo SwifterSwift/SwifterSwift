@@ -21,7 +21,7 @@ public extension Comparable {
     /// - parameter max: Maximum comparable value.
     ///
     /// - returns: `true` if value is between `min` and `max`, `false` otherwise.
-    public func isBetween(_ range: ClosedRange<Self>) -> Bool {
+    func isBetween(_ range: ClosedRange<Self>) -> Bool {
         return range ~= self
     }
 
@@ -36,7 +36,7 @@ public extension Comparable {
     /// - parameter max: Upper bound to limit the value to.
     ///
     /// - returns: A value limited to the range between `min` and `max`.
-    public func clamped(to range: ClosedRange<Self>) -> Self {
+    func clamped(to range: ClosedRange<Self>) -> Self {
         return max(range.lowerBound, min(self, range.upperBound))
     }
 

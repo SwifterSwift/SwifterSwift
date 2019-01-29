@@ -13,7 +13,7 @@ import Foundation
 public extension NSPredicate {
 
     /// SwifterSwift: Returns a new predicate formed by NOT-ing the predicate.
-    public var not: NSCompoundPredicate {
+    var not: NSCompoundPredicate {
         return NSCompoundPredicate(notPredicateWithSubpredicate: self)
     }
 
@@ -26,7 +26,7 @@ public extension NSPredicate {
     ///
     /// - Parameter predicate: NSPredicate
     /// - Returns: NSCompoundPredicate
-    public func and(_ predicate: NSPredicate) -> NSCompoundPredicate {
+    func and(_ predicate: NSPredicate) -> NSCompoundPredicate {
         return NSCompoundPredicate(andPredicateWithSubpredicates: [self, predicate])
     }
 
@@ -34,7 +34,7 @@ public extension NSPredicate {
     ///
     /// - Parameter predicate: NSPredicate
     /// - Returns: NSCompoundPredicate
-    public func or(_ predicate: NSPredicate) -> NSCompoundPredicate {
+    func or(_ predicate: NSPredicate) -> NSCompoundPredicate {
         return NSCompoundPredicate(orPredicateWithSubpredicates: [self, predicate])
     }
 
@@ -46,7 +46,7 @@ public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by NOT-ing the predicate.
     /// - Parameters: rhs: NSPredicate to convert.
     /// - Returns: NSCompoundPredicate
-    static public prefix func ! (rhs: NSPredicate) -> NSCompoundPredicate {
+    static prefix func ! (rhs: NSPredicate) -> NSCompoundPredicate {
         return rhs.not
     }
 
@@ -56,7 +56,7 @@ public extension NSPredicate {
     ///   - lhs: NSPredicate.
     ///   - rhs: NSPredicate.
     /// - Returns: NSCompoundPredicate
-    static public func + (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
+    static func + (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
         return lhs.and(rhs)
     }
 
@@ -66,7 +66,7 @@ public extension NSPredicate {
     ///   - lhs: NSPredicate.
     ///   - rhs: NSPredicate.
     /// - Returns: NSCompoundPredicate
-    static public func | (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
+    static func | (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
         return lhs.or(rhs)
     }
 
@@ -76,7 +76,7 @@ public extension NSPredicate {
     ///   - lhs: NSPredicate.
     ///   - rhs: NSPredicate.
     /// - Returns: NSCompoundPredicate
-    static public func - (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
+    static func - (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
         return lhs + !rhs
     }
 

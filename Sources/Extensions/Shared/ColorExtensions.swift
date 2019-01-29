@@ -27,7 +27,7 @@ import CoreImage
 public extension Color {
 
     /// SwifterSwift: Random color.
-    public static var random: Color {
+    static var random: Color {
         let red = Int.random(in: 0...255)
         let green = Int.random(in: 0...255)
         let blue = Int.random(in: 0...255)
@@ -41,7 +41,7 @@ public extension Color {
     ///		NSColor.green.rgbComponents.green -> 255
     ///		UIColor.blue.rgbComponents.blue -> 255
     ///
-    public var rgbComponents: (red: Int, green: Int, blue: Int) {
+    var rgbComponents: (red: Int, green: Int, blue: Int) {
         var components: [CGFloat] {
             let comps = cgColor.components!
             if comps.count == 4 { return comps }
@@ -60,7 +60,7 @@ public extension Color {
     ///		NSColor.green.rgbComponents.green -> 1.0
     ///		UIColor.blue.rgbComponents.blue -> 1.0
     ///
-    public var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) {
+    var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) {
         var components: [CGFloat] {
             let comps = cgColor.components!
             if comps.count == 4 { return comps }
@@ -74,7 +74,7 @@ public extension Color {
 
     // swiftlint:disable next large_tuple
     /// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
-    public var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
+    var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
         var hue: CGFloat = 0.0
         var saturation: CGFloat = 0.0
         var brightness: CGFloat = 0.0
@@ -85,7 +85,7 @@ public extension Color {
     }
 
     /// SwifterSwift: Hexadecimal value string (read-only).
-    public var hexString: String {
+    var hexString: String {
         let components: [Int] = {
             let comps = cgColor.components!
             let components = comps.count == 4 ? comps : [comps[0], comps[0], comps[0], comps[1]]
@@ -95,7 +95,7 @@ public extension Color {
     }
 
     /// SwifterSwift: Short hexadecimal value string (read-only, if applicable).
-    public var shortHexString: String? {
+    var shortHexString: String? {
         let string = hexString.replacingOccurrences(of: "#", with: "")
         let chrs = Array(string)
         guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5] else { return nil }
@@ -103,7 +103,7 @@ public extension Color {
     }
 
     /// SwifterSwift: Short hexadecimal value string, or full hexadecimal string if not possible (read-only).
-    public var shortHexOrHexString: String {
+    var shortHexOrHexString: String {
         let components: [Int] = {
             let comps = cgColor.components!
             let components = comps.count == 4 ? comps : [comps[0], comps[0], comps[0], comps[1]]
@@ -117,19 +117,19 @@ public extension Color {
     }
 
     /// SwifterSwift: Alpha of Color (read-only).
-    public var alpha: CGFloat {
+    var alpha: CGFloat {
         return cgColor.alpha
     }
 
     #if !os(watchOS)
     /// SwifterSwift: CoreImage.CIColor (read-only)
-    public var coreImageColor: CoreImage.CIColor? {
+    var coreImageColor: CoreImage.CIColor? {
         return CoreImage.CIColor(color: self)
     }
     #endif
 
     /// SwifterSwift: Get UInt representation of a Color (read-only).
-    public var uInt: UInt {
+    var uInt: UInt {
         let comps: [CGFloat] = {
             let comps = cgColor.components!
             return comps.count == 4 ? comps : [comps[0], comps[0], comps[0], comps[1]]
@@ -144,7 +144,7 @@ public extension Color {
     }
 
     /// SwifterSwift: Get color complementary (read-only, if applicable).
-    public var complementary: Color? {
+    var complementary: Color? {
         let colorSpaceRGB = CGColorSpaceCreateDeviceRGB()
         let convertColorToRGBSpace: ((_ color: Color) -> Color?) = { color -> Color? in
             if self.cgColor.colorSpace!.model == CGColorSpaceModel.monochrome {
@@ -181,7 +181,7 @@ public extension Color {
     ///   - color2: second color to blend
     ///   - intensity2: intensity of second color (default is 0.5)
     /// - Returns: Color created by blending first and seond colors.
-    public static func blend(_ color1: Color, intensity1: CGFloat = 0.5, with color2: Color, intensity2: CGFloat = 0.5) -> Color {
+    static func blend(_ color1: Color, intensity1: CGFloat = 0.5, with color2: Color, intensity2: CGFloat = 0.5) -> Color {
         // http://stackoverflow.com/questions/27342715/blend-uicolors-in-swift
 
         let total = intensity1 + intensity2
@@ -228,7 +228,7 @@ public extension Color {
     ///
     /// - Parameter percentage: Percentage by which to lighten the color
     /// - Returns: A lightened color
-    public func lighten(by percentage: CGFloat = 0.2) -> Color {
+    func lighten(by percentage: CGFloat = 0.2) -> Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         getRed(&red, green: &green, blue: &blue, alpha: &alpha)
@@ -245,7 +245,7 @@ public extension Color {
     ///
     /// - Parameter percentage: Percentage by which to darken the color
     /// - Returns: A darkened color
-    public func darken(by percentage: CGFloat = 0.2) -> Color {
+    func darken(by percentage: CGFloat = 0.2) -> Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         getRed(&red, green: &green, blue: &blue, alpha: &alpha)
@@ -267,7 +267,7 @@ public extension Color {
     ///   - green: green component.
     ///   - blue: blue component.
     ///   - transparency: optional transparency value (default is 1).
-    public convenience init?(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
+    convenience init?(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
         guard red >= 0 && red <= 255 else { return nil }
         guard green >= 0 && green <= 255 else { return nil }
         guard blue >= 0 && blue <= 255 else { return nil }
@@ -284,7 +284,7 @@ public extension Color {
     /// - Parameters:
     ///   - hex: hex Int (example: 0xDECEB5).
     ///   - transparency: optional transparency value (default is 1).
-    public convenience init?(hex: Int, transparency: CGFloat = 1) {
+    convenience init?(hex: Int, transparency: CGFloat = 1) {
         var trans = transparency
         if trans < 0 { trans = 0 }
         if trans > 1 { trans = 1 }
@@ -300,7 +300,7 @@ public extension Color {
     /// - Parameters:
     ///   - hexString: hexadecimal string (examples: EDE7F6, 0xEDE7F6, #EDE7F6, #0ff, 0xF0F, ..).
     ///   - transparency: optional transparency value (default is 1).
-    public convenience init?(hexString: String, transparency: CGFloat = 1) {
+    convenience init?(hexString: String, transparency: CGFloat = 1) {
         var string = ""
         if hexString.lowercased().hasPrefix("0x") {
             string =  hexString.replacingOccurrences(of: "0x", with: "")
@@ -331,7 +331,7 @@ public extension Color {
     /// SwifterSwift: Create Color from a complementary of a Color (if applicable).
     ///
     /// - Parameter color: color of which opposite color is desired.
-    public convenience init?(complementaryFor color: Color) {
+    convenience init?(complementaryFor color: Color) {
         let colorSpaceRGB = CGColorSpaceCreateDeviceRGB()
         let convertColorToRGBSpace: ((_ color: Color) -> Color?) = { color -> Color? in
             if color.cgColor.colorSpace!.model == CGColorSpaceModel.monochrome {
@@ -361,7 +361,7 @@ public extension Color {
 public extension Color {
 
     /// SwifterSwift: Brand identity color of popular social media platform.
-    public struct Social {
+    struct Social {
         // https://www.lockedowndesign.com/social-media-colors/
 
         /// red: 59, green: 89, blue: 152
@@ -452,7 +452,7 @@ public extension Color {
 public extension Color {
 
     /// SwifterSwift: Google Material design colors palette.
-    public struct Material {
+    struct Material {
         // https://material.google.com/style/color.html
 
         /// SwifterSwift: color red500
@@ -1287,7 +1287,7 @@ public extension Color {
 public extension Color {
 
     /// SwifterSwift: CSS colors.
-    public struct CSS {
+    struct CSS {
         // http://www.w3schools.com/colors/colors_names.asp
 
         /// SwifterSwift: hex #F0F8FF
@@ -1741,7 +1741,7 @@ public extension Color {
 public extension Color {
 
     /// SwifterSwift: Flat UI colors
-    public struct FlatUI {
+    struct FlatUI {
         // http://flatuicolors.com.
 
         /// SwifterSwift: hex #1ABC9C

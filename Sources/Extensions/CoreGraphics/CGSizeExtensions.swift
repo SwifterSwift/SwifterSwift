@@ -29,7 +29,7 @@ public extension CGSize {
     ///
     /// - Parameter boundingSize: bounding size to fit self to.
     /// - Returns: self fitted into given bounding size
-    public func aspectFit(to boundingSize: CGSize) -> CGSize {
+    func aspectFit(to boundingSize: CGSize) -> CGSize {
         let minRatio = min(boundingSize.width / width, boundingSize.height / height)
         return CGSize(width: width * minRatio, height: height * minRatio)
     }
@@ -43,7 +43,7 @@ public extension CGSize {
     ///
     /// - Parameter boundingSize: bounding size to fill self to.
     /// - Returns: self filled into given bounding size
-    public func aspectFill(to boundingSize: CGSize) -> CGSize {
+    func aspectFill(to boundingSize: CGSize) -> CGSize {
         let minRatio = max(boundingSize.width / width, boundingSize.height / height)
         let aWidth = min(width * minRatio, boundingSize.width)
         let aHeight = min(height * minRatio, boundingSize.height)
@@ -66,7 +66,7 @@ public extension CGSize {
     ///   - lhs: CGSize to add to.
     ///   - rhs: CGSize to add.
     /// - Returns: The result comes from the addition of the two given CGSize struct.
-    public static func + (lhs: CGSize, rhs: CGSize) -> CGSize {
+    static func + (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
     }
 
@@ -80,7 +80,7 @@ public extension CGSize {
     /// - Parameters:
     ///   - lhs: self
     ///   - rhs: CGSize to add.
-    public static func += (lhs: inout CGSize, rhs: CGSize) {
+    static func += (lhs: inout CGSize, rhs: CGSize) {
         lhs.width += rhs.width
         lhs.height += rhs.height
     }
@@ -96,7 +96,7 @@ public extension CGSize {
     ///   - lhs: CGSize to subtract from.
     ///   - rhs: CGSize to subtract.
     /// - Returns: The result comes from the subtract of the two given CGSize struct.
-    public static func - (lhs: CGSize, rhs: CGSize) -> CGSize {
+    static func - (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width - rhs.width, height: lhs.height - rhs.height)
     }
 
@@ -110,7 +110,7 @@ public extension CGSize {
     /// - Parameters:
     ///   - lhs: self
     ///   - rhs: CGSize to subtract.
-    public static func -= (lhs: inout CGSize, rhs: CGSize) {
+    static func -= (lhs: inout CGSize, rhs: CGSize) {
         lhs.width -= rhs.width
         lhs.height -= rhs.height
     }
@@ -126,7 +126,7 @@ public extension CGSize {
     ///   - lhs: CGSize to multiply.
     ///   - rhs: CGSize to multiply with.
     /// - Returns: The result comes from the multiplication of the two given CGSize structs.
-    public static func * (lhs: CGSize, rhs: CGSize) -> CGSize {
+    static func * (lhs: CGSize, rhs: CGSize) -> CGSize {
         return CGSize(width: lhs.width * rhs.width, height: lhs.height * rhs.height)
     }
 
@@ -140,7 +140,7 @@ public extension CGSize {
     ///   - lhs: CGSize to multiply.
     ///   - scalar: scalar value.
     /// - Returns: The result comes from the multiplication of the given CGSize and scalar.
-    public static func * (lhs: CGSize, scalar: CGFloat) -> CGSize {
+    static func * (lhs: CGSize, scalar: CGFloat) -> CGSize {
         return CGSize(width: lhs.width * scalar, height: lhs.height * scalar)
     }
 
@@ -154,7 +154,7 @@ public extension CGSize {
     ///   - scalar: scalar value.
     ///   - rhs: CGSize to multiply.
     /// - Returns: The result comes from the multiplication of the given scalar and CGSize.
-    public static func * (scalar: CGFloat, rhs: CGSize) -> CGSize {
+    static func * (scalar: CGFloat, rhs: CGSize) -> CGSize {
         return CGSize(width: scalar * rhs.width, height: scalar * rhs.height)
     }
 
@@ -168,7 +168,7 @@ public extension CGSize {
     /// - Parameters:
     ///   - lhs: self.
     ///   - rhs: CGSize to multiply.
-    public static func *= (lhs: inout CGSize, rhs: CGSize) {
+    static func *= (lhs: inout CGSize, rhs: CGSize) {
         lhs.width *= rhs.width
         lhs.height *= rhs.height
     }
@@ -182,7 +182,7 @@ public extension CGSize {
     /// - Parameters:
     ///   - lhs: self.
     ///   - scalar: scalar value.
-    public static func *= (lhs: inout CGSize, scalar: CGFloat) {
+    static func *= (lhs: inout CGSize, scalar: CGFloat) {
         lhs.width *= scalar
         lhs.height *= scalar
     }

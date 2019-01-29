@@ -13,12 +13,12 @@ import UIKit
 public extension UIFont {
 
     /// SwifterSwift: Font as bold font
-    public var bold: UIFont {
+    var bold: UIFont {
         return UIFont(descriptor: fontDescriptor.withSymbolicTraits(.traitBold)!, size: 0)
     }
 
     /// SwifterSwift: Font as italic font
-    public var italic: UIFont {
+    var italic: UIFont {
         return UIFont(descriptor: fontDescriptor.withSymbolicTraits(.traitItalic)!, size: 0)
     }
 
@@ -26,7 +26,7 @@ public extension UIFont {
     ///
     ///     UIFont.preferredFont(forTextStyle: .body).monospaced
     ///
-    public var monospaced: UIFont {
+    var monospaced: UIFont {
         let settings = [[UIFontDescriptor.FeatureKey.featureIdentifier: kNumberSpacingType, UIFontDescriptor.FeatureKey.typeIdentifier: kMonospacedNumbersSelector]]
 
         let attributes = [UIFontDescriptor.AttributeName.featureSettings: settings]

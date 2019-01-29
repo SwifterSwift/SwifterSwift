@@ -17,7 +17,7 @@ public extension Character {
     ///
     ///        Character("😀").isEmoji -> true
     ///
-    public var isEmoji: Bool {
+    var isEmoji: Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         let scalarValue = String(self).unicodeScalars.first!.value
         switch scalarValue {
@@ -37,7 +37,7 @@ public extension Character {
     ///        Character("1").isNumber -> true
     ///        Character("a").isNumber -> false
     ///
-    public var isNumber: Bool {
+    var isNumber: Bool {
         return Int(String(self)) != nil
     }
 
@@ -46,7 +46,7 @@ public extension Character {
     ///        Character("4").isLetter -> false
     ///        Character("a").isLetter -> true
     ///
-    public var isLetter: Bool {
+    var isLetter: Bool {
         return String(self).rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
     }
 
@@ -55,7 +55,7 @@ public extension Character {
     ///        Character("a").isLowercased -> true
     ///        Character("A").isLowercased -> false
     ///
-    public var isLowercased: Bool {
+    var isLowercased: Bool {
         return String(self) == String(self).lowercased()
     }
 
@@ -64,7 +64,7 @@ public extension Character {
     ///        Character("a").isUppercased -> false
     ///        Character("A").isUppercased -> true
     ///
-    public var isUppercased: Bool {
+    var isUppercased: Bool {
         return String(self) == String(self).uppercased()
     }
 
@@ -73,7 +73,7 @@ public extension Character {
     ///        Character(" ").isWhiteSpace -> true
     ///        Character("A").isWhiteSpace -> false
     ///
-    public var isWhiteSpace: Bool {
+    var isWhiteSpace: Bool {
         return String(self) == " "
     }
 
@@ -82,7 +82,7 @@ public extension Character {
     ///        Character("1").int -> 1
     ///        Character("A").int -> nil
     ///
-    public var int: Int? {
+    var int: Int? {
         return Int(String(self))
     }
 
@@ -90,7 +90,7 @@ public extension Character {
     ///
     ///        Character("a").string -> "a"
     ///
-    public var string: String {
+    var string: String {
         return String(self)
     }
 
@@ -98,7 +98,7 @@ public extension Character {
     ///
     ///        Character("A").lowercased -> Character("a")
     ///
-    public var lowercased: Character {
+    var lowercased: Character {
         return String(self).lowercased().first!
     }
 
@@ -106,7 +106,7 @@ public extension Character {
     ///
     ///        Character("a").uppercased -> Character("A")
     ///
-    public var uppercased: Character {
+    var uppercased: Character {
         return String(self).uppercased().first!
     }
 
@@ -121,7 +121,7 @@ public extension Character {
     ///    Character.random() -> k
     ///
     /// - Returns: A random character.
-    public static func randomAlphanumeric() -> Character {
+    static func randomAlphanumeric() -> Character {
         return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".randomElement()!
     }
     #endif
@@ -139,7 +139,7 @@ public extension Character {
     ///   - lhs: character to repeat.
     ///   - rhs: number of times to repeat character.
     /// - Returns: string with character repeated n times.
-    public static func * (lhs: Character, rhs: Int) -> String {
+    static func * (lhs: Character, rhs: Int) -> String {
         guard rhs > 0 else { return "" }
         return String(repeating: String(lhs), count: rhs)
     }
@@ -152,7 +152,7 @@ public extension Character {
     ///   - lhs: number of times to repeat character.
     ///   - rhs: character to repeat.
     /// - Returns: string with character repeated n times.
-    public static func * (lhs: Int, rhs: Character) -> String {
+    static func * (lhs: Int, rhs: Character) -> String {
         guard lhs > 0 else { return "" }
         return String(repeating: String(rhs), count: lhs)
     }
