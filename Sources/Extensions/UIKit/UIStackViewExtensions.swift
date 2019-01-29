@@ -24,9 +24,9 @@ public extension UIStackView {
     ///   - alignment: The alignment of the arranged subviews perpendicular to the stack view’s axis. (default: .fill)
     ///   - distribution: The distribution of the arranged views along the stack view’s axis.(default: .fill)
     convenience init(arrangedSubviews: [UIView], axis: NSLayoutConstraint.Axis,
-                            spacing: CGFloat = 0.0,
-                            alignment: UIStackView.Alignment = .fill,
-                            distribution: UIStackView.Distribution = .fill) {
+                     spacing: CGFloat = 0.0,
+                     alignment: UIStackView.Alignment = .fill,
+                     distribution: UIStackView.Distribution = .fill) {
         self.init(arrangedSubviews: arrangedSubviews)
         self.axis = axis
         self.spacing = spacing
