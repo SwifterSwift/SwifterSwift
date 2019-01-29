@@ -22,7 +22,7 @@ public extension Date {
     ///   - fromDate: minimum date (default is Date.distantPast)
     ///   - toDate: maximum date (default is Date.distantFuture)
     /// - Returns: random date between two dates.
-    @available(*, deprecated: 4.7.0, message: "Use random(in:) or random(in:using:) instead")
+    @available(*, deprecated, message: "Use random(in:) or random(in:using:) instead")
     static func random(from fromDate: Date = Date.distantPast, upTo toDate: Date = Date.distantFuture) -> Date {
         guard fromDate != toDate else {
             return fromDate
@@ -40,7 +40,7 @@ public extension Date {
     ///
     ///        Date().timeZone -> Europe/Istanbul (current)
     ///
-    @available(*, deprecated: 4.7.0, message: "`Date` objects are timezone-agnostic. Please use Calendar.current.timeZone instead.")
+    @available(*, deprecated, message: "`Date` objects are timezone-agnostic. Please use Calendar.current.timeZone instead.")
     var timeZone: TimeZone {
         return Calendar.current.timeZone
     }

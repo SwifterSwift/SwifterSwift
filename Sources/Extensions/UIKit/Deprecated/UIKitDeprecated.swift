@@ -12,7 +12,7 @@ import UIKit
 public extension UIStoryboard {
 
     /// SwifterSwift: Get main storyboard for application
-    @available(*, deprecated: 4.3, message: "Use main instead", renamed: "main")
+    @available(*, deprecated, message: "Use main instead", renamed: "main")
     static var mainStoryboard: UIStoryboard? {
         let bundle = Bundle.main
         guard let name = bundle.object(forInfoDictionaryKey: "UIMainStoryboardFile") as? String else { return nil }
