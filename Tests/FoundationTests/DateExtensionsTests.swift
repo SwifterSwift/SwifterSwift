@@ -55,6 +55,8 @@ final class DateExtensionsTests: XCTestCase {
             XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .persian).identifier)
         case .republicOfChina:
             XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .republicOfChina).identifier)
+        @unknown default:
+            break
         }
     }
 
