@@ -68,7 +68,7 @@ public extension Sequence {
         return try filter { return try !condition($0) }
     }
 
-    #if swift(<5.0)
+    #if !swift(>=5.0)
     /// SwifterSwift: Get element count based on condition.
     ///
     ///        [2, 2, 4, 7].count(where: {$0 % 2 == 0}) -> 3

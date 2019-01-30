@@ -32,7 +32,7 @@ public extension Character {
         }
     }
 
-    #if swift(<5.0)
+    #if !swift(>=5.0)
     /// SwifterSwift: Check if character is number.
     ///
     ///        Character("1").isNumber -> true
@@ -43,7 +43,7 @@ public extension Character {
     }
     #endif
 
-    #if swift(<5.0)
+    #if !swift(>=5.0)
     /// SwifterSwift: Check if character is a letter.
     ///
     ///        Character("4").isLetter -> false
