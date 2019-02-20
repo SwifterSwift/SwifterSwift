@@ -225,6 +225,17 @@ public extension UIView {
         }
     }
 
+    /// SwifterSwift: anchorPoint of view.layer
+    public var anchorPoint: CGPoint {
+        get {
+            return layer.anchorPoint
+        }
+        set {
+            let frame = self.frame
+            layer.anchorPoint = newValue
+            self.frame = frame
+        }
+    }
 }
 
 // MARK: - Methods

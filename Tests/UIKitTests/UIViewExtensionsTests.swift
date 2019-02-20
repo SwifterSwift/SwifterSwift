@@ -446,5 +446,16 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableView.self), tableView)
     }
 
+    func testAnchorPoint() {
+        let view = UIView()
+        XCTAssertEqual(view.layer.anchorPoint, view.anchorPoint)
+
+        view.anchorPoint = CGPoint(x: 10, y: 10)
+        XCTAssertEqual(view.layer.anchorPoint, view.anchorPoint)
+
+        view.layer.anchorPoint = CGPoint(x: 20, y: 20)
+        XCTAssertEqual(view.layer.anchorPoint, view.anchorPoint)
+    }
+
 }
 #endif
