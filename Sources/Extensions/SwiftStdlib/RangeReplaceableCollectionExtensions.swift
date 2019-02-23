@@ -102,13 +102,8 @@ extension RangeReplaceableCollection {
     /// - Throws: provided condition exception.
     @discardableResult
     public mutating func keep(while condition: (Element) throws -> Bool) rethrows -> Self {
-        var idx = startIndex
-        for element in self {
-            if try !condition(element) {
-                removeSubrange(idx...)
-                break
-            }
-            formIndex(after: &idx)
+        if let idx = try firstIndex(where: { try !condition($0) }) {
+            removeSubrange(idx...)
         }
         return self
     }
@@ -120,14 +115,7 @@ extension RangeReplaceableCollection {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements up until condition evaluates to false.
     public func take(while condition: (Element) throws -> Bool) rethrows -> Self {
-        var idx = startIndex
-        for element in self {
-            if try !condition(element) {
-                return Self(self[startIndex..<idx])
-            }
-            formIndex(after: &idx)
-        }
-        return self
+        return Self(try prefix(while: condition))
     }
 
     /// SwifterSwift: Skip elements of Array while condition is true.
@@ -137,14 +125,8 @@ extension RangeReplaceableCollection {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements after the condition evaluates to false.
     public func skip(while condition: (Element) throws-> Bool) rethrows -> Self {
-        var idx = startIndex
-        for element in self {
-            if try !condition(element) {
-                return Self(self[idx...])
-            }
-            formIndex(after: &idx)
-        }
-        return Self()
+        guard let idx = try firstIndex(where: { try !condition($0) }) else { return Self() }
+        return Self(self[idx...])
     }
 
 }
