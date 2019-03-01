@@ -131,7 +131,16 @@ public extension UIButton {
             setTitle(newValue, for: .selected)
         }
     }
-
+  
+    /// Localized title
+    @IBInspectable var localizedTitle: String {
+      get {
+        return self.currentTitle ?? ""
+      }
+      set {
+        self.setTitle(NSLocalizedString(newValue, comment: ""), for: .normal)
+      }
+    }
 }
 
 // MARK: - Methods

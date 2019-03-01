@@ -23,4 +23,19 @@ public extension UIBarButtonItem {
     }
 
 }
+
+// MARK: - Properties
+extension UIBarButtonItem {
+  
+    /// Localized title
+    @IBInspectable var localizedTitle: String {
+      get {
+        return self.title ?? ""
+      }
+      set {
+        self.title = NSLocalizedString(newValue, comment: "")
+      }
+    }
+}
+
 #endif

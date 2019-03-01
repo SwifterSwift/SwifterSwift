@@ -415,6 +415,10 @@ public extension String {
     }
     #endif
 
+    /// Localized title
+    var localized: String {
+      return NSLocalizedString(self, comment: "")
+    }
 }
 
 // MARK: - Methods
@@ -1010,6 +1014,23 @@ public extension String {
     public func removingSuffix(_ suffix: String) -> String {
         guard hasSuffix(suffix) else { return self }
         return String(dropLast(suffix.count))
+    }
+  
+    /// Get phone number from string
+    ///
+    /// - Returns: Phone number string after replacing characters
+    func getNumber() -> String? {
+      var text = self
+      
+      text = text.replacingOccurrences(of: "+", with: "")
+      text = text.replacingOccurrences(of: "(", with: "")
+      text = text.replacingOccurrences(of: ")", with: "")
+      text = text.replacingOccurrences(of: " ", with: "")
+      text = text.replacingOccurrences(of: "_", with: "")
+      text = text.replacingOccurrences(of: "-", with: "")
+      text = text.replacingOccurrences(of: "*", with: "")
+      
+      return text
     }
 
 }

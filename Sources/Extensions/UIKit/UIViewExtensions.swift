@@ -149,6 +149,26 @@ public extension UIView {
             layer.shadowOffset = newValue
         }
     }
+  
+    /// Shadow offset of view by X
+    @IBInspectable var shadowOffsetX: CGFloat {
+      get {
+        return layer.shadowOffset.width
+      }
+      set {
+        layer.shadowOffset = CGSize(width: newValue, height: layer.shadowOffset.height)
+      }
+    }
+  
+    /// Shadow offset of view by Y
+    @IBInspectable var shadowOffsetY: CGFloat {
+      get {
+        return layer.shadowOffset.height
+      }
+      set {
+        layer.shadowOffset = CGSize(width: layer.shadowOffset.width, height: newValue)
+      }
+    }
 
     /// SwifterSwift: Shadow opacity of view; also inspectable from Storyboard.
     @IBInspectable public var shadowOpacity: Float {
@@ -571,6 +591,54 @@ public extension UIView {
     public func ancestorView<T: UIView>(withClass name: T.Type) -> T? {
         return ancestorView(where: { $0 is T }) as? T
     }
-
+  
+  
+    /// Inject view to another with setting location constraints
+    ///
+    /// - TODO: Implement another positions
+    /// - Parameters:
+    ///   - view: View in which we insert
+    ///   - position: Position in view (implemented only .center)
+    func inject(to view: UIView, position: UIView.ContentMode) -> Self {
+        switch position {
+        case .center:
+          translatesAutoresizingMaskIntoConstraints = false
+          view.addSubview(self)
+          view.addConstraints([
+            NSLayoutConstraint(item: self,
+                               attribute: .centerX,
+                               relatedBy: .equal,
+                               toItem: view,
+                               attribute: .centerX,
+                               multiplier: 1.0,
+                               constant: 0.0),
+            NSLayoutConstraint(item: self,
+                               attribute: .centerY,
+                               relatedBy: .equal,
+                               toItem: view,
+                               attribute: .centerY,
+                               multiplier: 1.0,
+                               constant: 0.0),
+            NSLayoutConstraint(item: self,
+                               attribute: .width,
+                               relatedBy: .lessThanOrEqual,
+                               toItem: view,
+                               attribute: .width,
+                               multiplier: 1.0,
+                               constant: 0.0),
+            NSLayoutConstraint(item: self,
+                               attribute: .height,
+                               relatedBy: .lessThanOrEqual,
+                               toItem: view,
+                               attribute: .height,
+                               multiplier: 1.0,
+                               constant: 0.0)
+            ])
+        default:
+          fatalError("not implemented yet :(")
+        }
+      
+        return self
+      }
 }
 #endif

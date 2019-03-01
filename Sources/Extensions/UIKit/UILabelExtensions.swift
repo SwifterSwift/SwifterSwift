@@ -41,5 +41,14 @@ public extension UILabel {
         return label.frame.height
     }
 
+    /// Localized title
+    @IBInspectable var localizedText: String {
+      get {
+        return self.text ?? ""
+      }
+      set {
+        self.text = NSLocalizedString(newValue, comment: "")
+      }
+    }
 }
 #endif

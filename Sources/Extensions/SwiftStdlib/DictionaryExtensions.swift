@@ -106,7 +106,20 @@ public extension Dictionary {
     public func compactMapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)?) rethrows -> [K: V] {
         return [K: V](uniqueKeysWithValues: try compactMap(transform))
     }
-
+  
+    /// Dictionary specific map function that returns a dictionary, not an array
+    ///
+    /// - Returns: A dictionary containing the transformed elements of this sequence.
+    func map<K : Hashable, V>(_ transform: ((Key, Value)) -> (K, V)) -> [K : V] {
+      var result = [K : V]()
+      
+      for keyValue in self {
+        let transformed = transform(keyValue)
+        result[transformed.0] = transformed.1
+      }
+      
+      return result
+    }
 }
 
 // MARK: - Methods (Value: Equatable)

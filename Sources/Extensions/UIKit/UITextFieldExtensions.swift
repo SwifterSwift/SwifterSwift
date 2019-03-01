@@ -115,7 +115,16 @@ public extension UITextField {
             iconView.tintColor = newValue
         }
     }
-
+  
+    /// Localized title
+    @IBInspectable var localizedPlaceholder: String {
+      get {
+        return self.placeholder ?? ""
+      }
+      set {
+        self.placeholder = NSLocalizedString(newValue, comment: "")
+      }
+    }
 }
 
 // MARK: - Methods

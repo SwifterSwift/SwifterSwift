@@ -23,4 +23,18 @@ public extension UINavigationItem {
     }
 
 }
+
+// MARK: - Properties
+public extension UINavigationItem {
+  
+    /// Localized title
+    @IBInspectable var localizedTitle: String {
+      get {
+        return self.title ?? ""
+      }
+      set {
+        self.title = NSLocalizedString(newValue, comment: "")
+      }
+    }
+}
 #endif

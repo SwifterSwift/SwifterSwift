@@ -18,6 +18,15 @@ public extension UIViewController {
         return isViewLoaded && view.window != nil
     }
 
+    /// Localized title
+    @IBInspectable var localizedTitle: String {
+      get {
+        return self.title ?? ""
+      }
+      set {
+        self.title = NSLocalizedString(newValue, comment: "")
+      }
+    }
 }
 
 // MARK: - Methods

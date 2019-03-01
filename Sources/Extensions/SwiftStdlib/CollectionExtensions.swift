@@ -185,3 +185,31 @@ public extension Collection where Element: FloatingPoint {
     }
 
 }
+
+extension Collection where Indices.Iterator.Element == Index {
+  
+  /// Subrange of collection's elements.
+  ///
+  /// - Parameter bounds: collection's bounds.
+  /// - Returns: subrange of collection's elements if specified range of indices lies within collection's bounds, otherwise nil.
+  subscript(safe bounds: Range<Index>) -> SubSequence? {
+    guard indices.contains(bounds.lowerBound) else {
+      return nil
+    }
+    
+    if !indices.contains(bounds.upperBound) {
+      return self[bounds.lowerBound..<self.endIndex]
+    }
+    
+    return self[bounds]
+  }
+  
+  /// An element at the specified index
+  ///
+  /// - Parameter index: element index
+  /// - Returns: an element at the specified index if it is within bounds, otherwise nil.
+  subscript(safe index: Int) -> Iterator.Element? {
+    guard let idx = index as? Index else { return nil }
+    return indices.contains(idx) ? self[idx] : nil
+  }
+}
