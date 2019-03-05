@@ -189,7 +189,7 @@ public extension UIImage {
     ///   - blendMode: how to blend the tint
     /// - Returns: UIImage tinted with given color.
     public func tint(_ color: UIColor, blendMode: CGBlendMode) -> UIImage {
-        let drawRect = CGRect(origin: .zero, size: CGSize(width: size.width, height: size.height))
+        let drawRect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer {
             UIGraphicsEndImageContext()
