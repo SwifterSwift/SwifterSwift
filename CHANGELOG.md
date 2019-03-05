@@ -45,6 +45,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `random(from:upTo:)` in favor of `random(in:)` and `random(in:using:)`. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576) by [guykogus](https://github.com/guykogus)
   - `timeZone` should never have been added because `Date`s are timezone-agnostic. This came to my attention during unit testing over daylight savings changes. [#594](https://github.com/SwifterSwift/SwifterSwift/pull/594) by [guykogus](https://github.com/guykogus)
 ### Removed
+  - removed `firstIndex(where: )`, `firstIndex(of:)`, `lastIndex(where: )`, `lastIndex(of:)` which are no longer needed. [#637](https://github.com/SwifterSwift/SwifterSwift/pull/637) by [marcocapano](https://github.com/marcocapano)
 ### Security
 
 ---

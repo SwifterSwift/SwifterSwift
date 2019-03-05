@@ -25,21 +25,6 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertNil(collection[safe: 10])
     }
 
-    func testFirstIndexWhere() {
-        let array = [1, 7, 1, 2, 4, 1, 6]
-        let index = array.firstIndex { $0 % 2 == 0 }
-        XCTAssertEqual(index, 3)
-        XCTAssertNil([Int]().firstIndex { $0 % 2 == 0 })
-    }
-
-    func testLastIndexWhere() {
-        let array = [1, 1, 1, 2, 2, 1, 1, 2, 1]
-        let index = array.lastIndex { $0 % 2 == 0 }
-        XCTAssertEqual(index, 7)
-        XCTAssertNil(array.lastIndex { $0 == 3 })
-        XCTAssertNil([Int]().lastIndex { $0 % 2 == 0 })
-    }
-
     func testIndicesWhere() {
         let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         let indices = array.indices { $0 % 2 == 0 }
@@ -126,18 +111,6 @@ final class CollectionExtensionsTests: XCTestCase {
         slices = array.group(by: 6)
         XCTAssertNotNil(slices)
         XCTAssertEqual(slices?.count, 1)
-    }
-
-    func testFirstIndex() {
-        XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2))
-        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 2), 2)
-        XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].firstIndex(of: 7))
-    }
-
-    func testLastIndex() {
-        XCTAssertNotNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2))
-        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 2), 6)
-        XCTAssertNil([1, 1, 2, 3, 4, 1, 2, 1].lastIndex(of: 7))
     }
 
     func testAverage() {
