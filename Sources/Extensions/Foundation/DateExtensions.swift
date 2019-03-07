@@ -455,7 +455,9 @@ public extension Date {
     ///     let yesterday = date.yesterday // "Oct 2, 2018, 10:57:11"
     ///
     public var yesterday: Date {
-        return addingTimeInterval(-86400.0)
+        let cal = Calendar.current
+        let yesterday = cal.date(byAdding: .day, value: -1, to: self)
+        return yesterday != nil ? yesterday! : Date()
     }
 
     /// SwifterSwift: Tomorrow's date.
