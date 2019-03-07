@@ -56,19 +56,6 @@ public extension FileManager {
         return nil
     }
 
-    /// SwifterSwift: Save Encodable object to a given URL.
-    ///
-    /// - Parameters:
-    ///   - object: Object of type T that conforms to Encodable protocol.
-    ///   - encoder: JSONEncoder.
-    ///   - url: URL to save object to.
-    ///   - attributes: A dictionary containing the attributes to associate with the new file. You can use these attributes to set the owner and group numbers, file permissions, and modification date. For a list of keys, see FileAttributeKey. Set to nil by default.
-    /// - Throws: Throws any errors thrown by JSONEncoder or FileManager.
-    public func encodeJSON<T: Encodable>(_ object: T, using encoder: JSONEncoder = JSONEncoder(), to url: URL, attributes: [FileAttributeKey: Any]? = nil) throws -> Bool {
-        let data = try encoder.encode(object)
-        return createFile(atPath: url.path, contents: data, attributes: attributes)
-    }
-
     /// Creates a unique directory for saving temporary files.
     ///
     /// The directory can be used to create multiple temporary files used for a common purpose.
