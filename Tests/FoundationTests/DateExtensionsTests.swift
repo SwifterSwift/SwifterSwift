@@ -951,7 +951,10 @@ final class DateExtensionsTests: XCTestCase {
 
     func testYesterday() {
         let date = Date()
-        XCTAssertEqual(date.yesterday.timeIntervalSince(date), -86400.0)
+        let cal = Calendar.current
+        let yesterday = date.yesterday
+        let yesterdayCheck = cal.date(byAdding: .day, value: -1, to: date)
+        XCTAssertEqual(yesterday, yesterdayCheck)
     }
 
     func testTomorrow() {
