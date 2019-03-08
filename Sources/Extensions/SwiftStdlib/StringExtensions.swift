@@ -568,8 +568,8 @@ public extension String {
 
     /// SwifterSwift: Safely subscript string with index.
     ///
-    ///        "Hello World!"[safe: 3] -> "l"
-    ///        "Hello World!"[safe: 20] -> nil
+    ///		"Hello World!"[safe: 3] -> "l"
+    ///		"Hello World!"[safe: 20] -> nil
     ///
     /// - Parameter i: index.
     // swiftlint:disable:next identifier_name
@@ -766,9 +766,9 @@ public extension String {
 
     /// SwifterSwift: Slice given string from a start index with length (if applicable).
     ///
-    ///        var str = "Hello World"
-    ///        str.slice(from: 6, length: 5)
-    ///        print(str) // prints "World"
+    ///		var str = "Hello World"
+    ///		str.slice(from: 6, length: 5)
+    ///		print(str) // prints "World"
     ///
     /// - Parameters:
     ///   - i: string index the slicing should start from.
@@ -798,9 +798,9 @@ public extension String {
 
     /// SwifterSwift: Slice given string from a start index (if applicable).
     ///
-    ///        var str = "Hello World"
-    ///        str.slice(at: 6)
-    ///        print(str) // prints "World"
+    ///		var str = "Hello World"
+    ///		str.slice(at: 6)
+    ///		print(str) // prints "World"
     ///
     /// - Parameter i: string index the slicing should start from.
     // swiftlint:disable:next identifier_name
