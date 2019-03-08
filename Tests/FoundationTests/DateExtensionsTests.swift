@@ -12,7 +12,7 @@ import XCTest
 #if canImport(Foundation)
 import Foundation
 
-// swiftlint:disable next type_body_length
+// swiftlint:disable:next type_body_length
 final class DateExtensionsTests: XCTestCase {
 
     override func setUp() {
@@ -20,7 +20,7 @@ final class DateExtensionsTests: XCTestCase {
         NSTimeZone.default = TimeZone(abbreviation: "UTC")!
     }
 
-    // swiftlint:disable next cyclomatic_complexity
+    // swiftlint:disable:next cyclomatic_complexity
     func testCalendar() {
         switch Calendar.current.identifier {
         case .buddhist:
@@ -510,7 +510,7 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertEqual(date8.adding(.year, value: -4), date)
     }
 
-    // swiftlint:disable next function_body_length
+    // swiftlint:disable:next function_body_length
     func testAdd() {
         var date = Date(timeIntervalSince1970: 0)
 
