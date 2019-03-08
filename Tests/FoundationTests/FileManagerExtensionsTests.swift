@@ -96,7 +96,7 @@ final class FileManagerExtensionsTests: XCTestCase {
             XCTAssertNotNil(fileContents)
             
             let decoder = PropertyListDecoder()
-            let decodedPoint = try decoder.decode(CGPoint.self, from: fileContents!)
+            let decodedPoint = try FileManager.default.decodePlist(as: CGPoint.self, using: decoder, from: fileURL)
             
             XCTAssertEqual(decodedPoint, point)
             try FileManager.default.removeItem(at: fileURL)
