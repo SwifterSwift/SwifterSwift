@@ -35,7 +35,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Removing Index constraint on `commonSuffix` extension and improving performance and tests. [#606](https://github.com/SwifterSwift/SwifterSwift/pull/606) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **RangeReplaceableCollection**
   - `Array` extensions `keep(while: )`, `take(while: )` and `skip(while:)` are now `RangeReplaceableCollection` extensions. [#634](https://github.com/SwifterSwift/SwifterSwift/pull/634) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
-  
+- **Date**
+  - Fixed `yesterday` computed property to be calculated using Calendar.date(byAdding:to:) instead of date.addingTimeInterval(-86400) [#641](https://github.com/SwifterSwift/SwifterSwift/pull/641) by [AlexeiGitH](https://github.com/AlexeiGitH).
 ### Fixed
 - **Installation**:
   - Update `podspec` to make the group paths in Pods project of SwifterSwift correct with Cocoapods installation. [#590](https://github.com/SwifterSwift/SwifterSwift/pull/590) by [dklinzh](https://github.com/dklinzh)
