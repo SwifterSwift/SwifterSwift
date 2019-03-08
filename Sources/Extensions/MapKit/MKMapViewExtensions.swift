@@ -9,9 +9,8 @@
 #if canImport(MapKit)
 import MapKit
 
-// MARK: - Initializers
 #if !os(watchOS)
-@available(iOS 3.0, *, tvOS 9.2, *, macOS 10.9)
+@available(tvOS 9.2, *)
 public extension MKMapView {
 
     /// SwifterSwift: Dequeue reusable MKAnnotationView using class type

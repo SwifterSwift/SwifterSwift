@@ -333,6 +333,15 @@
 		278CA0911F9A9679004918BD /* NSImageExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278CA0901F9A9679004918BD /* NSImageExtensionsTests.swift */; };
 		42F53FEC2039C5AC0070DC11 /* UIStackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F53FEB2039C5AC0070DC11 /* UIStackViewExtensions.swift */; };
 		42F53FF02039C7140070DC11 /* UIStackViewExtensionsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F53FEF2039C7140070DC11 /* UIStackViewExtensionsTest.swift */; };
+		664CB982217243D200FC87B4 /* DispatchQueueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtensions.swift; sourceTree = "<group>"; };
+		664CB98921724A9100FC87B4 /* DispatchQueueExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtensionsTests.swift; sourceTree = "<group>"; };
+		664CB983217243D200FC87B4 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB982217243D200FC87B4 /* DispatchQueueExtensions.swift */; };
+		664CB984217243D200FC87B4 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB982217243D200FC87B4 /* DispatchQueueExtensions.swift */; };
+		664CB985217243D200FC87B4 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB982217243D200FC87B4 /* DispatchQueueExtensions.swift */; };
+		664CB986217243D200FC87B4 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB982217243D200FC87B4 /* DispatchQueueExtensions.swift */; };
+		664CB98A21724A9100FC87B4 /* DispatchQueueExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB98921724A9100FC87B4 /* DispatchQueueExtensionsTests.swift */; };
+		664CB98B21724A9100FC87B4 /* DispatchQueueExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB98921724A9100FC87B4 /* DispatchQueueExtensionsTests.swift */; };
+		664CB98C21724A9100FC87B4 /* DispatchQueueExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB98921724A9100FC87B4 /* DispatchQueueExtensionsTests.swift */; };
 		664CB96D2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB96C2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift */; };
 		664CB96E2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB96C2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift */; };
 		664CB96F2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB96C2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift */; };
@@ -347,13 +356,6 @@
 		664CB97B21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB97A21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift */; };
 		664CB97C21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB97A21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift */; };
 		664CB97D21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB97A21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift */; };
-		664CB983217243D200FC87B4 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB982217243D200FC87B4 /* DispatchQueueExtensions.swift */; };
-		664CB984217243D200FC87B4 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB982217243D200FC87B4 /* DispatchQueueExtensions.swift */; };
-		664CB985217243D200FC87B4 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB982217243D200FC87B4 /* DispatchQueueExtensions.swift */; };
-		664CB986217243D200FC87B4 /* DispatchQueueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB982217243D200FC87B4 /* DispatchQueueExtensions.swift */; };
-		664CB98A21724A9100FC87B4 /* DispatchQueueExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB98921724A9100FC87B4 /* DispatchQueueExtensionsTests.swift */; };
-		664CB98B21724A9100FC87B4 /* DispatchQueueExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB98921724A9100FC87B4 /* DispatchQueueExtensionsTests.swift */; };
-		664CB98C21724A9100FC87B4 /* DispatchQueueExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB98921724A9100FC87B4 /* DispatchQueueExtensionsTests.swift */; };
 		70269A2B1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */; };
 		70269A2C1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */; };
 		70269A2D1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */; };
@@ -458,6 +460,7 @@
 		CAC5EBD02125273100AB27EC /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC5EBBF2125270A00AB27EC /* TestImage.png */; };
 		CAC5EBD12125273100AB27EC /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC5EBBF2125270A00AB27EC /* TestImage.png */; };
 		CF30948A216AAC7A005609BC /* UIActivityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309489216AAC7A005609BC /* UIActivityExtensions.swift */; };
+		F895F02E21661794000F05E3 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F895F02D21661794000F05E3 /* FoundationDeprecated.swift */; };
 		D1528D4C222C1B9100E60539 /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D4B222C1B9100E60539 /* MKMapViewExtensions.swift */; };
 		D1528D4D222C1B9100E60539 /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D4B222C1B9100E60539 /* MKMapViewExtensions.swift */; };
 		D1528D4E222C1B9100E60539 /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D4B222C1B9100E60539 /* MKMapViewExtensions.swift */; };
@@ -465,7 +468,6 @@
 		D1528D51222C1BBE00E60539 /* MKMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D50222C1BBE00E60539 /* MKMapViewTests.swift */; };
 		D1528D52222C1BBE00E60539 /* MKMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D50222C1BBE00E60539 /* MKMapViewTests.swift */; };
 		D1528D53222C1BBE00E60539 /* MKMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D50222C1BBE00E60539 /* MKMapViewTests.swift */; };
-		F895F02E21661794000F05E3 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F895F02D21661794000F05E3 /* FoundationDeprecated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -617,8 +619,6 @@
 		664CB971217186E900FC87B4 /* BidirectionalCollectionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalCollectionExtensionsTests.swift; sourceTree = "<group>"; };
 		664CB9752171899800FC87B4 /* BinaryFloatingPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryFloatingPointExtensions.swift; sourceTree = "<group>"; };
 		664CB97A21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryFloatingPointExtensionsTests.swift; sourceTree = "<group>"; };
-		664CB982217243D200FC87B4 /* DispatchQueueExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtensions.swift; sourceTree = "<group>"; };
-		664CB98921724A9100FC87B4 /* DispatchQueueExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueueExtensionsTests.swift; sourceTree = "<group>"; };
 		70269A2A1FB478D100C6C2D0 /* CalendarExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensions.swift; sourceTree = "<group>"; };
 		70269A2F1FB47B0C00C6C2D0 /* CalendarExtensionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarExtensionTest.swift; sourceTree = "<group>"; };
 		734307F72108C2240029CD16 /* CGVectorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGVectorExtensions.swift; sourceTree = "<group>"; };

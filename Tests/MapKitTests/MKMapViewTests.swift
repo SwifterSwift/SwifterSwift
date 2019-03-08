@@ -12,17 +12,20 @@ import XCTest
 #if canImport(MapKit)
 import MapKit
 
-import struct CoreLocation.CLLocationCoordinate2D
-
+#if !os(watchOS)
+@available(tvOS 9.2, *)
 final class MKMapViewTests: XCTestCase {
 
-    func testRegisterAndDequeue() {
-        guard #available(iOS 11.0, *, tvOS 11.0, *, macOS 10.13) else {
-            return
-        }
-
+    func testRegister() {
         let mapView = MKMapView()
-        let annotation = MKPlacemark(coordinate: CLLocationCoordinate2DMake(0, 0))
+
+        mapView.register(annotationViewWithClass: MKPinAnnotationView.self)
+    }
+
+    @available(iOS 11.0, *, tvOS 11.0, *, macOS 10.13)
+    func testRegisterAndDequeue() {
+        let mapView = MKMapView()
+        let annotation = MKPlacemark()
 
         mapView.register(annotationViewWithClass: MKPinAnnotationView.self)
         let annotationView = mapView.dequeueReusableAnnotationView(withClass: MKPinAnnotationView.self)
@@ -32,5 +35,7 @@ final class MKMapViewTests: XCTestCase {
     }
 
 }
+
+#endif
 
 #endif
