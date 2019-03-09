@@ -566,13 +566,13 @@ public extension String {
     }
     #endif
 
-    // swiftlint:disable next identifier_name
     /// SwifterSwift: Safely subscript string with index.
     ///
     ///		"Hello World!"[safe: 3] -> "l"
     ///		"Hello World!"[safe: 20] -> nil
     ///
     /// - Parameter i: index.
+    // swiftlint:disable:next identifier_name
     public subscript(safe i: Int) -> Character? {
         guard i >= 0 && i < count else { return nil }
         return self[index(startIndex, offsetBy: i)]
@@ -746,7 +746,6 @@ public extension String {
         self = String(chars)
     }
 
-    // swiftlint:disable next identifier_name
     /// SwifterSwift: Sliced string from a start index with length.
     ///
     ///        "Hello World".slicing(from: 6, length: 5) -> "World"
@@ -755,6 +754,7 @@ public extension String {
     ///   - i: string index the slicing should start from.
     ///   - length: amount of characters to be sliced after given index.
     /// - Returns: sliced substring of length number of characters (if applicable) (example: "Hello World".slicing(from: 6, length: 5) -> "World")
+    // swiftlint:disable:next identifier_name
     public func slicing(from i: Int, length: Int) -> String? {
         guard length >= 0, i >= 0, i < count  else { return nil }
         guard i.advanced(by: length) <= count else {
@@ -764,7 +764,6 @@ public extension String {
         return self[safe: i..<i.advanced(by: length)]
     }
 
-    // swiftlint:disable next identifier_name
     /// SwifterSwift: Slice given string from a start index with length (if applicable).
     ///
     ///		var str = "Hello World"
@@ -774,6 +773,7 @@ public extension String {
     /// - Parameters:
     ///   - i: string index the slicing should start from.
     ///   - length: amount of characters to be sliced after given index.
+    // swiftlint:disable:next identifier_name
     public mutating func slice(from i: Int, length: Int) {
         if let str = slicing(from: i, length: length) {
             self = String(str)
@@ -796,7 +796,6 @@ public extension String {
         }
     }
 
-    // swiftlint:disable next identifier_name
     /// SwifterSwift: Slice given string from a start index (if applicable).
     ///
     ///		var str = "Hello World"
@@ -804,6 +803,7 @@ public extension String {
     ///		print(str) // prints "World"
     ///
     /// - Parameter i: string index the slicing should start from.
+    // swiftlint:disable:next identifier_name
     public mutating func slice(at i: Int) {
         guard i < count else { return }
         if let str = self[safe: i..<count] {
