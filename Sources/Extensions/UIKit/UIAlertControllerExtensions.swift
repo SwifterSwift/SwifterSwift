@@ -13,7 +13,7 @@ import UIKit
 import AudioToolbox
 #endif
 
-// MARK: - Methodss
+// MARK: - Methods
 public extension UIAlertController {
 
     /// SwifterSwift: Present alert view controller in the current view controller.

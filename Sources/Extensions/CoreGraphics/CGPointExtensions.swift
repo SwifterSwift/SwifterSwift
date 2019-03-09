@@ -80,7 +80,7 @@ public extension CGPoint {
     ///   - lhs: self
     ///   - rhs: CGPoint to add.
     public static func += (lhs: inout CGPoint, rhs: CGPoint) {
-        // swiftlint:disable next shorthand_operator
+        // swiftlint:disable:next shorthand_operator
         lhs = lhs + rhs
     }
 
@@ -110,7 +110,7 @@ public extension CGPoint {
     ///   - lhs: self
     ///   - rhs: CGPoint to subtract.
     public static func -= (lhs: inout CGPoint, rhs: CGPoint) {
-        // swiftlint:disable next shorthand_operator
+        // swiftlint:disable:next shorthand_operator
         lhs = lhs - rhs
     }
 
@@ -139,7 +139,7 @@ public extension CGPoint {
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
     public static func *= (point: inout CGPoint, scalar: CGFloat) {
-        // swiftlint:disable next shorthand_operator
+        // swiftlint:disable:next shorthand_operator
         point = point * scalar
     }
 
