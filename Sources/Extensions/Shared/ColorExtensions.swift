@@ -34,13 +34,13 @@ public extension Color {
         return Color(red: red, green: green, blue: blue)!
     }
 
-    // swiftlint:disable next large_tuple
     /// SwifterSwift: RGB components for a Color (between 0 and 255).
     ///
-    ///		UIColor.red.rgbComponents.red -> 255
-    ///		NSColor.green.rgbComponents.green -> 255
-    ///		UIColor.blue.rgbComponents.blue -> 255
+    ///     UIColor.red.rgbComponents.red -> 255
+    ///     NSColor.green.rgbComponents.green -> 255
+    ///     UIColor.blue.rgbComponents.blue -> 255
     ///
+    // swiftlint:disable:next large_tuple
     public var rgbComponents: (red: Int, green: Int, blue: Int) {
         var components: [CGFloat] {
             let comps = cgColor.components!
@@ -53,13 +53,13 @@ public extension Color {
         return (red: Int(red * 255.0), green: Int(green * 255.0), blue: Int(blue * 255.0))
     }
 
-    // swiftlint:disable next large_tuple
     /// SwifterSwift: RGB components for a Color represented as CGFloat numbers (between 0 and 1)
     ///
-    ///		UIColor.red.rgbComponents.red -> 1.0
-    ///		NSColor.green.rgbComponents.green -> 1.0
-    ///		UIColor.blue.rgbComponents.blue -> 1.0
+    ///     UIColor.red.rgbComponents.red -> 1.0
+    ///     NSColor.green.rgbComponents.green -> 1.0
+    ///     UIColor.blue.rgbComponents.blue -> 1.0
     ///
+    // swiftlint:disable:next large_tuple
     public var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) {
         var components: [CGFloat] {
             let comps = cgColor.components!
@@ -72,8 +72,8 @@ public extension Color {
         return (red: red, green: green, blue: blue)
     }
 
-    // swiftlint:disable next large_tuple
     /// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
+    // swiftlint:disable:next large_tuple
     public var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
         var hue: CGFloat = 0.0
         var saturation: CGFloat = 0.0
@@ -356,7 +356,6 @@ public extension Color {
 
 }
 
-// swiftlint:disable next type_body_length
 // MARK: - Social
 public extension Color {
 
@@ -452,6 +451,7 @@ public extension Color {
 public extension Color {
 
     /// SwifterSwift: Google Material design colors palette.
+    // swiftlint:disable:next type_body_length
     public struct Material {
         // https://material.google.com/style/color.html
 
