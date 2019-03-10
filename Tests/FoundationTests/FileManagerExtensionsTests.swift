@@ -101,7 +101,6 @@ final class FileManagerExtensionsTests: XCTestCase {
             XCTAssertEqual(point, decodedPoint)
 
             try fileManager.removeItem(at: temporaryFileURL)
-            XCTAssertFalse(fileManager.fileExists(atPath: temporaryFileURL.path))
         } catch {
             XCTFail(error.localizedDescription)
         }
