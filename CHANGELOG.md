@@ -48,6 +48,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **NSAttributedString** 
   - Fixed `attributes` property crash when the string is empty. [#617](https://github.com/SwifterSwift/SwifterSwift/pull/617) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **Date**
+  - Fixed `yesterday` computed property to be calculated using Calendar.date(byAdding:to:) instead of date.addingTimeInterval(-86400) [#641](https://github.com/SwifterSwift/SwifterSwift/pull/641) by [AlexeiGitH](https://github.com/AlexeiGitH).
   - Fixed `tomorrow` computed property to be calculated using Calendar.date(byAdding:to:) instead of date.addingTimeInterval(86400) [#642](https://github.com/SwifterSwift/SwifterSwift/pull/642) by [AlexeiGitH](https://github.com/AlexeiGitH).
 ### Deprecated
 - **Date**
