@@ -33,7 +33,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Replace Examples.md with Examples.playground to let users try some examples out of extensions. [#596](https://github.com/SwifterSwift/SwifterSwift/pull/596) by [maxxx777](https://github.com/maxxx777)
 - **StringProtocol**
   - Removing Index constraint on `commonSuffix` extension and improving performance and tests. [#606](https://github.com/SwifterSwift/SwifterSwift/pull/606) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
-  - **Date**
+- **RangeReplaceableCollection**
+  - `Array` extensions `keep(while: )`, `take(while: )` and `skip(while:)` are now `RangeReplaceableCollection` extensions. [#634](https://github.com/SwifterSwift/SwifterSwift/pull/634) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **Date**
   - Fixed `yesterday` computed property to be calculated using Calendar.date(byAdding:to:) instead of date.addingTimeInterval(-86400) [#641](https://github.com/SwifterSwift/SwifterSwift/pull/641) by [AlexeiGitH](https://github.com/AlexeiGitH).
 ### Fixed
 - **Installation**:
