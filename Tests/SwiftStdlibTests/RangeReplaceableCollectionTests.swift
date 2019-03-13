@@ -69,4 +69,37 @@ final class RangeReplaceableCollectionTests: XCTestCase {
         XCTAssertFalse(array.contains(removedElement))
     }
 
+    func testKeepWhile() {
+        var input = [2, 4, 6, 7, 8, 9, 10]
+        input.keep(while: {$0 % 2 == 0 })
+        XCTAssertEqual(input, [2, 4, 6])
+
+        input = [7, 7, 8, 10]
+        input.keep(while: {$0 % 2 == 0 })
+        XCTAssertEqual(input, [Int]())
+    }
+
+    func testTakeWhile() {
+        var input = [2, 4, 6, 7, 8, 9, 10]
+        var output = input.take(while: {$0 % 2 == 0 })
+        XCTAssertEqual(output, [2, 4, 6])
+
+        input = [7, 7, 8, 10]
+        output = input.take(while: {$0 % 2 == 0 })
+        XCTAssertEqual(output, [Int]())
+
+        XCTAssertEqual([].take(while: {$0 % 2 == 0 }), [])
+    }
+
+    func testSkipWhile() {
+        var input = [2, 4, 6, 7, 8, 9, 10]
+        var output = input.skip(while: {$0 % 2 == 0 })
+        XCTAssertEqual(output, [7, 8, 9, 10])
+
+        input = [7, 7, 8, 10]
+        output = input.skip(while: {$0 % 2 == 0 })
+        XCTAssertEqual(output, [7, 7, 8, 10])
+
+        XCTAssertEqual([].skip(while: { $0 % 2 == 0}), [])
+    }
 }

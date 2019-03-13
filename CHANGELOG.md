@@ -35,11 +35,16 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Replace Examples.md with Examples.playground to let users try some examples out of extensions. [#596](https://github.com/SwifterSwift/SwifterSwift/pull/596) by [maxxx777](https://github.com/maxxx777)
 - **StringProtocol**
   - Removing Index constraint on `commonSuffix` extension and improving performance and tests. [#606](https://github.com/SwifterSwift/SwifterSwift/pull/606) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **RangeReplaceableCollection**
+  - `Array` extensions `keep(while: )`, `take(while: )` and `skip(while:)` are now `RangeReplaceableCollection` extensions. [#634](https://github.com/SwifterSwift/SwifterSwift/pull/634) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **Date**
+  - Fixed `yesterday` computed property to be calculated using Calendar.date(byAdding:to:) instead of date.addingTimeInterval(-86400) [#641](https://github.com/SwifterSwift/SwifterSwift/pull/641) by [AlexeiGitH](https://github.com/AlexeiGitH).
 ### Fixed
 - **Installation**:
   - Update `podspec` to make the group paths in Pods project of SwifterSwift correct with Cocoapods installation. [#590](https://github.com/SwifterSwift/SwifterSwift/pull/590) by [dklinzh](https://github.com/dklinzh)
 - **UIImage**:
   - `cropped(to:)` fixed size checking. [#575](https://github.com/SwifterSwift/SwifterSwift/pull/575) by [ilyahal](https://github.com/ilyahal)
+  - `tint(_ color:, blendMode:)` fixing upside-down image. [#639](https://github.com/SwifterSwift/SwifterSwift/pull/639) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **NSAttributedString** 
   - Fixed `attributes` property crash when the string is empty. [#617](https://github.com/SwifterSwift/SwifterSwift/pull/617) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 ### Deprecated
@@ -47,6 +52,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `random(from:upTo:)` in favor of `random(in:)` and `random(in:using:)`. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576) by [guykogus](https://github.com/guykogus)
   - `timeZone` should never have been added because `Date`s are timezone-agnostic. This came to my attention during unit testing over daylight savings changes. [#594](https://github.com/SwifterSwift/SwifterSwift/pull/594) by [guykogus](https://github.com/guykogus)
 ### Removed
+  - removed `firstIndex(where: )`, `firstIndex(of:)`, `lastIndex(where: )`, `lastIndex(of:)` which are no longer needed. [#637](https://github.com/SwifterSwift/SwifterSwift/pull/637) by [marcocapano](https://github.com/marcocapano)
 ### Security
 
 ---
