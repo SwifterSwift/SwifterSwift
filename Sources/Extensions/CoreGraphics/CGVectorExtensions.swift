@@ -86,7 +86,7 @@ public extension CGVector {
     ///   - vector: The vector to be multiplied
     ///   - scalar: The scale by which the vector will be multiplied
     static func *= (vector: inout CGVector, scalar: CGFloat) {
-        // swiftlint:disable next shorthand_operator
+        // swiftlint:disable:next shorthand_operator
         vector = vector * scalar
     }
 

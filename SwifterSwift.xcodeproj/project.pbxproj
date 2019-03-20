@@ -459,6 +459,13 @@
 		CAC5EBD12125273100AB27EC /* TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CAC5EBBF2125270A00AB27EC /* TestImage.png */; };
 		F895F02E21661794000F05E3 /* FoundationDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F895F02D21661794000F05E3 /* FoundationDeprecated.swift */; };
         CF30948A216AAC7A005609BC /* UIActivityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309489216AAC7A005609BC /* UIActivityExtensions.swift */; };
+		D1528D4C222C1B9100E60539 /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D4B222C1B9100E60539 /* MKMapViewExtensions.swift */; };
+		D1528D4D222C1B9100E60539 /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D4B222C1B9100E60539 /* MKMapViewExtensions.swift */; };
+		D1528D4E222C1B9100E60539 /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D4B222C1B9100E60539 /* MKMapViewExtensions.swift */; };
+		D1528D4F222C1B9100E60539 /* MKMapViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D4B222C1B9100E60539 /* MKMapViewExtensions.swift */; };
+		D1528D51222C1BBE00E60539 /* MKMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D50222C1BBE00E60539 /* MKMapViewTests.swift */; };
+		D1528D52222C1BBE00E60539 /* MKMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D50222C1BBE00E60539 /* MKMapViewTests.swift */; };
+		D1528D53222C1BBE00E60539 /* MKMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1528D50222C1BBE00E60539 /* MKMapViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -655,6 +662,8 @@
 		CAC5EBC52125270A00AB27EC /* big_buck_bunny_720p_1mb.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = big_buck_bunny_720p_1mb.mp4; sourceTree = "<group>"; };
 		F895F02D21661794000F05E3 /* FoundationDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoundationDeprecated.swift; sourceTree = "<group>"; };
         CF309489216AAC7A005609BC /* UIActivityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityExtensions.swift; sourceTree = "<group>"; };
+		D1528D4B222C1B9100E60539 /* MKMapViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtensions.swift; sourceTree = "<group>"; };
+		D1528D50222C1BBE00E60539 /* MKMapViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1069,6 +1078,7 @@
 		784C752D2051BD01001C48DD /* MapKit */ = {
 			isa = PBXGroup;
 			children = (
+				D1528D4B222C1B9100E60539 /* MKMapViewExtensions.swift */,
 				784C752E2051BD26001C48DD /* MKPolylineExtensions.swift */,
 			);
 			path = MapKit;
@@ -1077,6 +1087,7 @@
 		784C75322051BDCA001C48DD /* MapKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				D1528D50222C1BBE00E60539 /* MKMapViewTests.swift */,
 				784C75362051BE1D001C48DD /* MKPolylineTests.swift */,
 			);
 			path = MapKitTests;
@@ -1561,6 +1572,7 @@
 				07B7F20E1F5EB43C00E6F910 /* CollectionExtensions.swift in Sources */,
 				07B7F2151F5EB43C00E6F910 /* IntExtensions.swift in Sources */,
 				07B7F2111F5EB43C00E6F910 /* DictionaryExtensions.swift in Sources */,
+				D1528D4C222C1B9100E60539 /* MKMapViewExtensions.swift in Sources */,
 				076AEC891FDB48580077D153 /* UIDatePickerExtensions.swift in Sources */,
 				07B7F2301F5EB45100E6F910 /* CGPointExtensions.swift in Sources */,
 				664CB96D2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */,
@@ -1638,6 +1650,7 @@
 				07B7F2351F5EB45200E6F910 /* CGFloatExtensions.swift in Sources */,
 				07B7F1AE1F5EB42000E6F910 /* UIImageViewExtensions.swift in Sources */,
 				07B7F2381F5EB45200E6F910 /* CLLocationExtensions.swift in Sources */,
+				D1528D4D222C1B9100E60539 /* MKMapViewExtensions.swift in Sources */,
 				07B7F1FC1F5EB43C00E6F910 /* CollectionExtensions.swift in Sources */,
 				07B7F2031F5EB43C00E6F910 /* IntExtensions.swift in Sources */,
 				07B7F1FF1F5EB43C00E6F910 /* DictionaryExtensions.swift in Sources */,
@@ -1740,6 +1753,7 @@
 				07B7F1C31F5EB42200E6F910 /* UIImageExtensions.swift in Sources */,
 				077BA08C1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				B22EB2BB20E9E81C001EAE70 /* RangeReplaceableCollectionExtensions.swift in Sources */,
+				D1528D4E222C1B9100E60539 /* MKMapViewExtensions.swift in Sources */,
 				9D4914851F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
 				07B7F1EF1F5EB43B00E6F910 /* FloatExtensions.swift in Sources */,
 				07B7F1EE1F5EB43B00E6F910 /* DoubleExtensions.swift in Sources */,
@@ -1775,6 +1789,7 @@
 				70269A2D1FB478D100C6C2D0 /* CalendarExtensions.swift in Sources */,
 				07B7F1D61F5EB43B00E6F910 /* BoolExtensions.swift in Sources */,
 				07B7F1DE1F5EB43B00E6F910 /* FloatingPointExtensions.swift in Sources */,
+				D1528D4F222C1B9100E60539 /* MKMapViewExtensions.swift in Sources */,
 				07B7F1DB1F5EB43B00E6F910 /* DictionaryExtensions.swift in Sources */,
 				A9AEB78820283ACD0021AACF /* FileManagerExtensions.swift in Sources */,
 				07B7F1DC1F5EB43B00E6F910 /* DoubleExtensions.swift in Sources */,
@@ -1823,6 +1838,7 @@
 				07C50D321F5EB04700F46E5A /* UILabelExtensionsTests.swift in Sources */,
 				07C50D621F5EB05000F46E5A /* OptionalExtensionsTests.swift in Sources */,
 				07C50D601F5EB05000F46E5A /* IntExtensionsTests.swift in Sources */,
+				D1528D51222C1BBE00E60539 /* MKMapViewTests.swift in Sources */,
 				07C50D631F5EB05000F46E5A /* StringExtensionsTests.swift in Sources */,
 				07C50D5C1F5EB05000F46E5A /* DateExtensionsTests.swift in Sources */,
 				077BA09E1F6BEA4900D9C4AC /* URLRequestExtensionsTests.swift in Sources */,
@@ -1943,6 +1959,7 @@
 				07C50D681F5EB05100F46E5A /* CollectionExtensionsTests.swift in Sources */,
 				B29527B320F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */,
 				664CB97C21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift in Sources */,
+				D1528D52222C1BBE00E60539 /* MKMapViewTests.swift in Sources */,
 				07C50D4B1F5EB04700F46E5A /* UINavigationItemExtensionsTests.swift in Sources */,
 				A94AA78B202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */,
 				078916DF20760DA700AC0665 /* SignedIntegerExtensionsTests.swift in Sources */,
@@ -1993,6 +2010,7 @@
 				664CB98C21724A9100FC87B4 /* DispatchQueueExtensionsTests.swift in Sources */,
 				18C8E5E52074C67000F8AF51 /* SequenceExtensionsTests.swift in Sources */,
 				278CA0911F9A9679004918BD /* NSImageExtensionsTests.swift in Sources */,
+				D1528D53222C1BBE00E60539 /* MKMapViewTests.swift in Sources */,
 				182698AE1F8AB46F0052F21E /* CGColorExtensionsTests.swift in Sources */,
 				077BA0A01F6BEA4A00D9C4AC /* URLRequestExtensionsTests.swift in Sources */,
 				07C50D801F5EB05100F46E5A /* URLExtensionsTests.swift in Sources */,
