@@ -37,48 +37,6 @@ public extension Array {
         swapAt(index, otherIndex)
     }
 
-    /// SwifterSwift: Keep elements of Array while condition is true.
-    ///
-    ///        [0, 2, 4, 7].keep( where: {$0 % 2 == 0}) -> [0, 2, 4]
-    ///
-    /// - Parameter condition: condition to evaluate each element against.
-    /// - Returns: self after applying provided condition.
-    /// - Throws: provided condition exception.
-    @discardableResult
-    public mutating func keep(while condition: (Element) throws -> Bool) rethrows -> [Element] {
-        for (index, element) in lazy.enumerated() where try !condition(element) {
-            self = Array(self[startIndex..<index])
-            break
-        }
-        return self
-    }
-
-    /// SwifterSwift: Take element of Array while condition is true.
-    ///
-    ///        [0, 2, 4, 7, 6, 8].take( where: {$0 % 2 == 0}) -> [0, 2, 4]
-    ///
-    /// - Parameter condition: condition to evaluate each element against.
-    /// - Returns: All elements up until condition evaluates to false.
-    public func take(while condition: (Element) throws -> Bool) rethrows -> [Element] {
-        for (index, element) in lazy.enumerated() where try !condition(element) {
-            return Array(self[startIndex..<index])
-        }
-        return self
-    }
-
-    /// SwifterSwift: Skip elements of Array while condition is true.
-    ///
-    ///        [0, 2, 4, 7, 6, 8].skip( where: {$0 % 2 == 0}) -> [6, 8]
-    ///
-    /// - Parameter condition: condition to evaluate each element against.
-    /// - Returns: All elements after the condition evaluates to false.
-    public func skip(while condition: (Element) throws-> Bool) rethrows -> [Element] {
-        for (index, element) in lazy.enumerated() where try !condition(element) {
-            return Array(self[index..<endIndex])
-        }
-        return [Element]()
-    }
-
     /// SwifterSwift: Separates an array into 2 arrays based on a predicate.
     ///
     ///     [0, 1, 2, 3, 4, 5].divided { $0 % 2 == 0 } -> ( [0, 2, 4], [1, 3, 5] )

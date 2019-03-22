@@ -12,7 +12,7 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-// swiftlint:disable type_body_length, type_body_length
+// swiftlint:disable:next type_body_length
 final class UIViewExtensionsTests: XCTestCase {
 
     func testBorderColor() {

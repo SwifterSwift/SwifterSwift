@@ -45,32 +45,6 @@ public extension Collection {
 // MARK: - Methods (Int)
 public extension Collection where Index == Int {
 
-    /// SwifterSwift: Get the first index where condition is met.
-    ///
-    ///        [1, 7, 1, 2, 4, 1, 6].firstIndex { $0 % 2 == 0 } -> 3
-    ///
-    /// - Parameter condition: condition to evaluate each element against.
-    /// - Returns: first index where the specified condition evaluates to true. (optional)
-    public func firstIndex(where condition: (Element) throws -> Bool) rethrows -> Index? {
-        for (index, value) in lazy.enumerated() where try condition(value) {
-            return index
-        }
-        return nil
-    }
-
-    /// SwifterSwift: Get the last index where condition is met.
-    ///
-    ///     [1, 7, 1, 2, 4, 1, 8].lastIndex { $0 % 2 == 0 } -> 6
-    ///
-    /// - Parameter condition: condition to evaluate each element against.
-    /// - Returns: last index where the specified condition evaluates to true. (optional)
-    public func lastIndex(where condition: (Element) throws -> Bool) rethrows -> Index? {
-        for (index, value) in lazy.enumerated().reversed() where try condition(value) {
-            return index
-        }
-        return nil
-    }
-
     /// SwifterSwift: Get all indices where condition is met.
     ///
     ///     [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
@@ -120,40 +94,6 @@ public extension Collection where Index == Int {
             value += size
         }
         return slices
-    }
-
-}
-
-public extension Collection where Element: Equatable, Index == Int {
-
-    /// SwifterSwift: First index of a given item in an array.
-    ///
-    ///        [1, 2, 2, 3, 4, 2, 5].firstIndex(of: 2) -> 1
-    ///        [1.2, 2.3, 4.5, 3.4, 4.5].firstIndex(of: 6.5) -> nil
-    ///        ["h", "e", "l", "l", "o"].firstIndex(of: "l") -> 2
-    ///
-    /// - Parameter item: item to check.
-    /// - Returns: first index of item in array (if exists).
-    public func firstIndex(of item: Element) -> Index? {
-        for (index, value) in lazy.enumerated() where value == item {
-            return index
-        }
-        return nil
-    }
-
-    /// SwifterSwift: Last index of element in array.
-    ///
-    ///        [1, 2, 2, 3, 4, 2, 5].lastIndex(of: 2) -> 5
-    ///        [1.2, 2.3, 4.5, 3.4, 4.5].lastIndex(of: 6.5) -> nil
-    ///        ["h", "e", "l", "l", "o"].lastIndex(of: "l") -> 3
-    ///
-    /// - Parameter item: item to check.
-    /// - Returns: last index of item in array (if exists).
-    public func lastIndex(of item: Element) -> Index? {
-        for (index, value) in lazy.enumerated().reversed() where value == item {
-            return index
-        }
-        return nil
     }
 
 }
