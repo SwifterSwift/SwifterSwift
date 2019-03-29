@@ -13,7 +13,7 @@ import UIKit
 public extension UIDatePicker {
 
     /// SwifterSwift: Text color of UIDatePicker.
-    public var textColor: UIColor? {
+    var textColor: UIColor? {
         set {
             setValue(newValue, forKeyPath: "textColor")
         }

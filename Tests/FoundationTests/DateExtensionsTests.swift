@@ -12,16 +12,14 @@ import XCTest
 #if canImport(Foundation)
 import Foundation
 
-// swiftlint:disable next type_body_length
-final class DateExtensionsTests: XCTestCase {
+final class DateExtensionsTests: XCTestCase { // swiftlint:disable:this type_body_length
 
     override func setUp() {
         super.setUp()
         NSTimeZone.default = TimeZone(abbreviation: "UTC")!
     }
 
-    // swiftlint:disable next cyclomatic_complexity
-    func testCalendar() {
+    func testCalendar() { // swiftlint:disable:this cyclomatic_complexity
         switch Calendar.current.identifier {
         case .buddhist:
             XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .buddhist).identifier)
@@ -512,8 +510,7 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertEqual(date8.adding(.year, value: -4), date)
     }
 
-    // swiftlint:disable next function_body_length
-    func testAdd() {
+    func testAdd() { // swiftlint:disable:this function_body_length
         var date = Date(timeIntervalSince1970: 0)
 
         date.second = 10

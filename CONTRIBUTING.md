@@ -174,7 +174,7 @@ Use the following template to add documentation for extensions
 ///    [1, 2, 3, 4, 5].sum() -> 15
 ///
 /// - Returns: Sum of the array's elements.
-public func sum() -> Element {
+func sum() -> Element {
     // ...
 }
 
@@ -184,7 +184,7 @@ public func sum() -> Element {
 ///   - component: component type.
 ///   - value: new value of component to change.
 /// - Returns: original date after changing given component to given value.
-public func changing(_ component: Calendar.Component, value: Int) -> Date? {
+func changing(_ component: Calendar.Component, value: Int) -> Date? {
     // ...
 }
 

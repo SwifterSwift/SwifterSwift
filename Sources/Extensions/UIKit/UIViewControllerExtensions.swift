@@ -13,7 +13,7 @@ import UIKit
 public extension UIViewController {
 
     /// SwifterSwift: Check if ViewController is onscreen and not hidden.
-    public var isVisible: Bool {
+    var isVisible: Bool {
         // http://stackoverflow.com/questions/2777438/how-to-tell-if-uiviewcontrollers-view-is-visible
         return isViewLoaded && view.window != nil
     }
@@ -28,19 +28,19 @@ public extension UIViewController {
     /// - Parameters:
     ///   - name: notification name.
     ///   - selector: selector to run with notified.
-    public func addNotificationObserver(name: Notification.Name, selector: Selector) {
+    func addNotificationObserver(name: Notification.Name, selector: Selector) {
         NotificationCenter.default.addObserver(self, selector: selector, name: name, object: nil)
     }
 
     /// SwifterSwift: Unassign as listener to notification.
     ///
     /// - Parameter name: notification name.
-    public func removeNotificationObserver(name: Notification.Name) {
+    func removeNotificationObserver(name: Notification.Name) {
         NotificationCenter.default.removeObserver(self, name: name, object: nil)
     }
 
     /// SwifterSwift: Unassign as listener from all notifications.
-    public func removeNotificationsObserver() {
+    func removeNotificationsObserver() {
         NotificationCenter.default.removeObserver(self)
     }
 
@@ -53,7 +53,7 @@ public extension UIViewController {
     ///   - highlightedButtonIndex: (Optional) index of the button from buttonTitles that should be highlighted. If this parameter is nil no button will be highlighted
     ///   - completion: (Optional) completion block to be invoked when any one of the buttons is tapped. It passes the index of the tapped button as an argument
     /// - Returns: UIAlertController object (discardable).
-    @discardableResult public func showAlert(title: String?, message: String?, buttonTitles: [String]? = nil, highlightedButtonIndex: Int? = nil, completion: ((Int) -> Void)? = nil) -> UIAlertController {
+    @discardableResult func showAlert(title: String?, message: String?, buttonTitles: [String]? = nil, highlightedButtonIndex: Int? = nil, completion: ((Int) -> Void)? = nil) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         var allButtons = buttonTitles ?? [String]()
         if allButtons.count == 0 {
@@ -82,14 +82,14 @@ public extension UIViewController {
     /// - Parameters:
     ///   - child: the view controller to add as a child
     ///   - containerView: the containerView for the child viewcontroller's root view.
-    public func addChildViewController(_ child: UIViewController, toContainerView containerView: UIView) {
+    func addChildViewController(_ child: UIViewController, toContainerView containerView: UIView) {
         addChild(child)
         containerView.addSubview(child.view)
         child.didMove(toParent: self)
     }
 
     /// SwifterSwift: Helper method to remove a UIViewController from its parent.
-    public func removeViewAndControllerFromParentViewController() {
+    func removeViewAndControllerFromParentViewController() {
         guard parent != nil else { return }
 
         willMove(toParent: nil)
@@ -107,7 +107,7 @@ public extension UIViewController {
     ///   - delegate: the popover's presentationController delegate. Default is nil.
     ///   - animated: Pass true to animate the presentation; otherwise, pass false.
     ///   - completion: The block to execute after the presentation finishes. Default is nil.
-    public func presentPopover(_ popoverContent: UIViewController, sourcePoint: CGPoint, size: CGSize? = nil, delegate: UIPopoverPresentationControllerDelegate? = nil, animated: Bool = true, completion: (() -> Void)? = nil) {
+    func presentPopover(_ popoverContent: UIViewController, sourcePoint: CGPoint, size: CGSize? = nil, delegate: UIPopoverPresentationControllerDelegate? = nil, animated: Bool = true, completion: (() -> Void)? = nil) {
         popoverContent.modalPresentationStyle = .popover
 
         if let size = size {

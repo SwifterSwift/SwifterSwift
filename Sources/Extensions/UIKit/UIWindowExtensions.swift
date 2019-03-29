@@ -20,7 +20,7 @@ public extension UIWindow {
     ///   - duration: animation duration in seconds (default is 0.5).
     ///   - options: animation options (default is .transitionFlipFromRight).
     ///   - completion: optional completion handler called after view controller is changed.
-    public func switchRootViewController(
+    func switchRootViewController(
         to viewController: UIViewController,
         animated: Bool = true,
         duration: TimeInterval = 0.5,

@@ -12,8 +12,7 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-// swiftlint:disable type_body_length, type_body_length
-final class UIViewExtensionsTests: XCTestCase {
+final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_body_length
 
     func testBorderColor() {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)

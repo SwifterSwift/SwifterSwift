@@ -14,7 +14,7 @@ public extension DispatchQueue {
 
     /// SwifterSwift: A Boolean value indicating whether the current
     /// dispatch queue is the main queue.
-    public static var isMainQueue: Bool {
+    static var isMainQueue: Bool {
         enum Static {
             static var key: DispatchSpecificKey<Void> = {
                 let key = DispatchSpecificKey<Void>()
@@ -35,7 +35,7 @@ public extension DispatchQueue {
     ///
     /// - Parameter queue: The queue to compare against.
     /// - Returns: `true` if the current queue is the specified queue, otherwise `false`.
-    public static func isCurrent(_ queue: DispatchQueue) -> Bool {
+    static func isCurrent(_ queue: DispatchQueue) -> Bool {
         let key = DispatchSpecificKey<Void>()
 
         queue.setSpecific(key: key, value: ())
@@ -45,4 +45,5 @@ public extension DispatchQueue {
     }
 
 }
+
 #endif

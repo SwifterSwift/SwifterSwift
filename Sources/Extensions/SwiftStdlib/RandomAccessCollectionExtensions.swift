@@ -16,7 +16,7 @@ extension RandomAccessCollection where Element: Equatable {
     ///
     /// - Parameter item: item to check.
     /// - Returns: an array with all indices of the given item.
-    public func indices(of item: Element) -> [Index] {
+    func indices(of item: Element) -> [Index] {
         var indices: [Index] = []
         var idx = startIndex
         while idx < endIndex {

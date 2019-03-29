@@ -17,7 +17,7 @@ public extension UINavigationBar {
     /// - Parameters:
     ///   - font: title font
     ///   - color: title text color (default is .black).
-    public func setTitleFont(_ font: UIFont, color: UIColor = .black) {
+    func setTitleFont(_ font: UIFont, color: UIColor = .black) {
         var attrs = [NSAttributedString.Key: Any]()
         attrs[.font] = font
         attrs[.foregroundColor] = color
@@ -27,7 +27,7 @@ public extension UINavigationBar {
     /// SwifterSwift: Make navigation bar transparent.
     ///
     /// - Parameter tint: tint color (default is .white).
-    public func makeTransparent(withTint tint: UIColor = .white) {
+    func makeTransparent(withTint tint: UIColor = .white) {
         isTranslucent = true
         backgroundColor = .clear
         barTintColor = .clear
@@ -42,7 +42,7 @@ public extension UINavigationBar {
     /// - Parameters:
     ///   - background: backgound color
     ///   - text: text color
-    public func setColors(background: UIColor, text: UIColor) {
+    func setColors(background: UIColor, text: UIColor) {
         isTranslucent = false
         backgroundColor = background
         barTintColor = background

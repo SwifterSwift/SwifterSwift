@@ -14,18 +14,18 @@ import CoreGraphics
 public extension Float {
 
     /// SwifterSwift: Int.
-    public var int: Int {
+    var int: Int {
         return Int(self)
     }
 
     /// SwifterSwift: Double.
-    public var double: Double {
+    var double: Double {
         return Double(self)
     }
 
     #if canImport(CoreGraphics)
     /// SwifterSwift: CGFloat.
-    public var cgFloat: CGFloat {
+    var cgFloat: CGFloat {
         return CGFloat(self)
     }
     #endif
@@ -42,18 +42,17 @@ infix operator ** : PowerPrecedence
 ///   - lhs: base float.
 ///   - rhs: exponent float.
 /// - Returns: exponentiation result (4.4 ** 0.5 = 2.0976176963).
-public func ** (lhs: Float, rhs: Float) -> Float {
+func ** (lhs: Float, rhs: Float) -> Float {
     // http://nshipster.com/swift-operators/
     return pow(lhs, rhs)
 }
 
-// swiftlint:disable next identifier_name
 prefix operator √
 /// SwifterSwift: Square root of float.
 ///
 /// - Parameter float: float value to find square root for
 /// - Returns: square root of given float.
-public prefix func √ (float: Float) -> Float {
+public prefix func √ (float: Float) -> Float { // swiftlint:disable:this identifier_name
     // http://nshipster.com/swift-operators/
     return sqrt(float)
 }

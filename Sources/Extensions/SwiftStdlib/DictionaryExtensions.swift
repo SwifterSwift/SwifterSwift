@@ -21,7 +21,7 @@ public extension Dictionary {
     ///
     /// - Parameter key: key to search for
     /// - Returns: true if key exists in dictionary.
-    public func has(key: Key) -> Bool {
+    func has(key: Key) -> Bool {
         return index(forKey: key) != nil
     }
 
@@ -34,13 +34,13 @@ public extension Dictionary {
     ///        dict.keys.contains("key2") -> false
     ///
     /// - Parameter keys: keys to be removed
-    public mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
+    mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
         keys.forEach { removeValue(forKey: $0) }
     }
 
     #if canImport(Foundation)
     /// SwifterSwift: Remove a value for a random key from the dictionary.
-    @discardableResult public mutating func removeValueForRandomKey() -> Value? {
+    @discardableResult mutating func removeValueForRandomKey() -> Value? {
         guard let randomKey = keys.randomElement() else { return nil }
         return removeValue(forKey: randomKey)
     }
@@ -51,7 +51,7 @@ public extension Dictionary {
     ///
     /// - Parameter prettify: set true to prettify data (default is false).
     /// - Returns: optional JSON Data (if applicable).
-    public func jsonData(prettify: Bool = false) -> Data? {
+    func jsonData(prettify: Bool = false) -> Data? {
         guard JSONSerialization.isValidJSONObject(self) else {
             return nil
         }
@@ -84,7 +84,7 @@ public extension Dictionary {
     ///
     /// - Parameter prettify: set true to prettify string (default is false).
     /// - Returns: optional JSON String (if applicable).
-    public func jsonString(prettify: Bool = false) -> String? {
+    func jsonString(prettify: Bool = false) -> String? {
         guard JSONSerialization.isValidJSONObject(self) else { return nil }
         let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
         guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else { return nil }
@@ -95,7 +95,7 @@ public extension Dictionary {
     /// SwifterSwift: Returns a dictionary containing the results of mapping the given closure over the sequence’s elements.
     /// - Parameter transform: A mapping closure. `transform` accepts an element of this sequence as its parameter and returns a transformed value of the same or of a different type.
     /// - Returns: A dictionary containing the transformed elements of this sequence.
-    public func mapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)) rethrows -> [K: V] {
+    func mapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)) rethrows -> [K: V] {
         return [K: V](uniqueKeysWithValues: try map(transform))
     }
 
@@ -103,7 +103,7 @@ public extension Dictionary {
     /// - Parameter transform: A closure that accepts an element of this sequence as its argument and returns an optional value.
     /// - Returns: A dictionary of the non-`nil` results of calling `transform` with each element of the sequence.
     /// - Complexity: *O(m + n)*, where _m_ is the length of this sequence and _n_ is the length of the result.
-    public func compactMapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)?) rethrows -> [K: V] {
+    func compactMapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)?) rethrows -> [K: V] {
         return [K: V](uniqueKeysWithValues: try compactMap(transform))
     }
 
@@ -121,7 +121,7 @@ public extension Dictionary where Value: Equatable {
     ///
     /// - Parameter value: Value for which keys are to be fetched.
     /// - Returns: An array containing keys that have the given value.
-    public func keys(forValue value: Value) -> [Key] {
+    func keys(forValue value: Value) -> [Key] {
         return keys.filter { self[$0] == value }
     }
 
@@ -136,7 +136,7 @@ public extension Dictionary where Key: StringProtocol {
     ///        dict.lowercaseAllKeys()
     ///        print(dict) // prints "["testkey": "value"]"
     ///
-    public mutating func lowercaseAllKeys() {
+    mutating func lowercaseAllKeys() {
         // http://stackoverflow.com/questions/33180028/extend-dictionary-where-key-is-of-type-string
         for key in keys {
             if let lowercaseKey = String(describing: key).lowercased() as? Key {
@@ -162,7 +162,7 @@ public extension Dictionary {
     /// - Parameter path: An array of keys to the desired value.
     ///
     /// - Returns: The value for the key-path passed in. `nil` if no value is found.
-    public subscript(path path: [Key]) -> Any? {
+    subscript(path path: [Key]) -> Any? {
         get {
             guard !path.isEmpty else { return nil }
             var result: Any? = self
@@ -204,7 +204,7 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: dictionary
     /// - Returns: An dictionary with keys and values from both.
-    public static func + (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
+    static func + (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
         var result = lhs
         rhs.forEach { result[$0] = $1 }
         return result
@@ -223,7 +223,7 @@ public extension Dictionary {
     /// - Parameters:
     ///   - lhs: dictionary
     ///   - rhs: dictionary
-    public static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
+    static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
         rhs.forEach { lhs[$0] = $1}
     }
 
@@ -239,7 +239,7 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
     /// - Returns: a new dictionary with keys removed.
-    public static func - <S: Sequence>(lhs: [Key: Value], keys: S) -> [Key: Value] where S.Element == Key {
+    static func - <S: Sequence>(lhs: [Key: Value], keys: S) -> [Key: Value] where S.Element == Key {
         var result = lhs
         result.removeAll(keys: keys)
         return result
@@ -256,7 +256,7 @@ public extension Dictionary {
     /// - Parameters:
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
-    public static func -= <S: Sequence>(lhs: inout [Key: Value], keys: S) where S.Element == Key {
+    static func -= <S: Sequence>(lhs: inout [Key: Value], keys: S) where S.Element == Key {
         lhs.removeAll(keys: keys)
     }
 

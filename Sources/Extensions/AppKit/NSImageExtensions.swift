@@ -16,7 +16,7 @@ extension NSImage {
     ///
     /// - Parameter toMaxSize: maximum size
     /// - Returns: scaled NSImage
-    public func scaled(toMaxSize: NSSize) -> NSImage {
+    func scaled(toMaxSize: NSSize) -> NSImage {
         var ratio: Float = 0.0
         let imageWidth = Float(size.width)
         let imageHeight = Float(size.height)
@@ -56,7 +56,7 @@ extension NSImage {
     ///   - url: Desired file URL.
     ///   - type: Type of image (default is .jpeg).
     ///   - compressionFactor: used only for JPEG files. The value is a float between 0.0 and 1.0, with 1.0 resulting in no compression and 0.0 resulting in the maximum compression possible.
-    public func write(to url: URL, fileType type: NSBitmapImageRep.FileType = .jpeg, compressionFactor: NSNumber = 1.0) {
+    func write(to url: URL, fileType type: NSBitmapImageRep.FileType = .jpeg, compressionFactor: NSNumber = 1.0) {
         // https://stackoverflow.com/a/45042611/3882644
 
         guard let data = tiffRepresentation else { return }
