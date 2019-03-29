@@ -189,16 +189,16 @@ public extension UIImage {
     ///   - blendMode: how to blend the tint
     /// - Returns: UIImage tinted with given color.
     public func tint(_ color: UIColor, blendMode: CGBlendMode) -> UIImage {
-        let drawRect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
+        let drawRect = CGRect(origin: .zero, size: size)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        defer {
+            UIGraphicsEndImageContext()
+        }
         let context = UIGraphicsGetCurrentContext()
-        context!.clip(to: drawRect, mask: cgImage!)
         color.setFill()
-        UIRectFill(drawRect)
+        context?.fill(drawRect)
         draw(in: drawRect, blendMode: blendMode, alpha: 1.0)
-        let tintedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return tintedImage!
+        return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
     /// SwifterSwift: UIImage with rounded corners

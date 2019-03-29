@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-// swiftlint:disable next type_body_length
+// swiftlint:disable:next type_body_length
 final class StringExtensionsTests: XCTestCase {
 
     var helloWorld = "Hello World!"
@@ -628,7 +628,7 @@ final class StringExtensionsTests: XCTestCase {
     #if !os(tvOS) && !os(watchOS)
     func testBold() {
         let boldString = "hello".bold
-        // swiftlint:disable next legacy_constructor
+        // swiftlint:disable:next legacy_constructor
         let attrs = boldString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, boldString.length))
         XCTAssertNotNil(attrs[NSAttributedString.Key.font])
 
@@ -650,9 +650,8 @@ final class StringExtensionsTests: XCTestCase {
 
     func testUnderline() {
         let underlinedString = "hello".underline
-        // swiftlint:disable legacy_constructor
+        // swiftlint:disable:next legacy_constructor
         let attrs = underlinedString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, underlinedString.length))
-        // swiftlint:enable legacy_constructor
         XCTAssertNotNil(attrs[NSAttributedString.Key.underlineStyle])
         guard let style = attrs[NSAttributedString.Key.underlineStyle] as? Int else {
             XCTFail("Unable to find style in testUnderline")
@@ -663,7 +662,7 @@ final class StringExtensionsTests: XCTestCase {
 
     func testStrikethrough() {
         let strikedthroughString = "hello".strikethrough
-        // swiftlint:disable next legacy_constructor
+        // swiftlint:disable:next legacy_constructor
         let attrs = strikedthroughString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, strikedthroughString.length))
         XCTAssertNotNil(attrs[NSAttributedString.Key.strikethroughStyle])
         guard let style = attrs[NSAttributedString.Key.strikethroughStyle] as? NSNumber else {
@@ -676,7 +675,7 @@ final class StringExtensionsTests: XCTestCase {
     #if os(iOS)
     func testItalic() {
         let italicString = "hello".italic
-        // swiftlint:disable next legacy_constructor
+        // swiftlint:disable:next legacy_constructor
         let attrs = italicString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, italicString.length))
         XCTAssertNotNil(attrs[NSAttributedString.Key.font])
         guard let font = attrs[NSAttributedString.Key.font] as? UIFont else {
@@ -689,7 +688,7 @@ final class StringExtensionsTests: XCTestCase {
 
     func testColored() {
         let coloredString = "hello".colored(with: .orange)
-        // swiftlint:disable next legacy_constructor
+        // swiftlint:disable:next legacy_constructor
         let attrs = coloredString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, coloredString.length))
         XCTAssertNotNil(attrs[NSAttributedString.Key.foregroundColor])
 

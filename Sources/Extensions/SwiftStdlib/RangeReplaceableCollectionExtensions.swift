@@ -6,10 +6,6 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(Foundation)
-import Foundation
-#endif
-
 // MARK: - Initializers
 extension RangeReplaceableCollection {
 
@@ -91,12 +87,46 @@ extension RangeReplaceableCollection {
         return remove(at: index)
     }
 
-    #if canImport(Foundation)
     /// SwifterSwift: Remove a random value from the collection.
     @discardableResult public mutating func removeRandomElement() -> Element? {
         guard let randomIndex = indices.randomElement() else { return nil }
         return remove(at: randomIndex)
     }
-    #endif
+
+    /// SwifterSwift: Keep elements of Array while condition is true.
+    ///
+    ///        [0, 2, 4, 7].keep(while: { $0 % 2 == 0 }) -> [0, 2, 4]
+    ///
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: self after applying provided condition.
+    /// - Throws: provided condition exception.
+    @discardableResult
+    public mutating func keep(while condition: (Element) throws -> Bool) rethrows -> Self {
+        if let idx = try firstIndex(where: { try !condition($0) }) {
+            removeSubrange(idx...)
+        }
+        return self
+    }
+
+    /// SwifterSwift: Take element of Array while condition is true.
+    ///
+    ///        [0, 2, 4, 7, 6, 8].take( where: {$0 % 2 == 0}) -> [0, 2, 4]
+    ///
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: All elements up until condition evaluates to false.
+    public func take(while condition: (Element) throws -> Bool) rethrows -> Self {
+        return Self(try prefix(while: condition))
+    }
+
+    /// SwifterSwift: Skip elements of Array while condition is true.
+    ///
+    ///        [0, 2, 4, 7, 6, 8].skip( where: {$0 % 2 == 0}) -> [6, 8]
+    ///
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: All elements after the condition evaluates to false.
+    public func skip(while condition: (Element) throws-> Bool) rethrows -> Self {
+        guard let idx = try firstIndex(where: { try !condition($0) }) else { return Self() }
+        return Self(self[idx...])
+    }
 
 }
