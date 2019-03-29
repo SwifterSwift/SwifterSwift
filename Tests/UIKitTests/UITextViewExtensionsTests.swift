@@ -75,5 +75,7 @@ final class UITextViewExtensionsTests: XCTestCase {
         // after setting wrap, content size will be equal to bounds
         XCTAssertEqual(textView.bounds.size, textView.contentSize)
     }
+
 }
+
 #endif

@@ -53,4 +53,5 @@ final class DispatchQueueExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

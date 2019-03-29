@@ -50,4 +50,5 @@ public extension UINavigationController {
     }
 
 }
+
 #endif

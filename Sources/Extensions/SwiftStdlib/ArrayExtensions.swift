@@ -6,10 +6,6 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(Foundation)
-import Foundation
-#endif
-
 // MARK: - Methods
 public extension Array {
 

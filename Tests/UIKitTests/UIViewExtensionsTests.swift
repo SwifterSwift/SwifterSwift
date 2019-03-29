@@ -446,4 +446,5 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
     }
 
 }
+
 #endif

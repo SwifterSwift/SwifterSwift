@@ -40,4 +40,5 @@ final class UIWindowExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

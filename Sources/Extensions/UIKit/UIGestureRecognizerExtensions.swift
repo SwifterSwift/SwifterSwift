@@ -18,4 +18,5 @@ public extension UIGestureRecognizer {
     }
 
 }
+
 #endif

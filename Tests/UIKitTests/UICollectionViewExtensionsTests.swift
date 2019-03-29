@@ -92,4 +92,5 @@ extension UICollectionViewExtensionsTests: UICollectionViewDataSource, UICollect
     }
 
 }
+
 #endif

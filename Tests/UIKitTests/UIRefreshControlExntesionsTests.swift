@@ -36,4 +36,5 @@ final class UIRefreshControlExtensionTests: XCTestCase {
     }
 
 }
+
 #endif

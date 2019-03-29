@@ -20,4 +20,5 @@ public extension UISwitch {
     }
 
 }
+
 #endif

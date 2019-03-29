@@ -146,4 +146,5 @@ final class UITextFieldExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

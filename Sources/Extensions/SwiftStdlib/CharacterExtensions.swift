@@ -6,10 +6,6 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(Foundation)
-import Foundation
-#endif
-
 // MARK: - Properties
 public extension Character {
 
@@ -115,7 +111,6 @@ public extension Character {
 // MARK: - Methods
 public extension Character {
 
-    #if canImport(Foundation)
     /// SwifterSwift: Random character.
     ///
     ///    Character.random() -> k
@@ -124,7 +119,6 @@ public extension Character {
     static func randomAlphanumeric() -> Character {
         return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".randomElement()!
     }
-    #endif
 
 }
 

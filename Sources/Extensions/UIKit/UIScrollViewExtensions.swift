@@ -31,5 +31,7 @@ public extension UIScrollView {
         frame = previousFrame
         return UIGraphicsGetImageFromCurrentImageContext()
     }
+
 }
+
 #endif

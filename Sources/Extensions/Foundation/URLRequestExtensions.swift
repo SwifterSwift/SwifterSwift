@@ -21,4 +21,5 @@ public extension URLRequest {
     }
 
 }
+
 #endif

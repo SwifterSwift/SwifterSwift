@@ -41,4 +41,5 @@ final class UIGestureRecognizerExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

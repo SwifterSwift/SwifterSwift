@@ -35,4 +35,5 @@ public extension UIFont {
     }
 
 }
+
 #endif

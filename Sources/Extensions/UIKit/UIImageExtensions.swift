@@ -255,4 +255,5 @@ public extension UIImage {
     }
 
 }
+
 #endif

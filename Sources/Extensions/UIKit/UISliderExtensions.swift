@@ -33,4 +33,5 @@ public extension UISlider {
     }
 
 }
+
 #endif

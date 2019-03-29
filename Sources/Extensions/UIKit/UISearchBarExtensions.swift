@@ -37,4 +37,5 @@ public extension UISearchBar {
     }
 
 }
+
 #endif

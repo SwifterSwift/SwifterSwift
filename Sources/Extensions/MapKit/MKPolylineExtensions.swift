@@ -6,12 +6,10 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(MapKit)
+#if canImport(MapKit) && !os(watchOS)
 import MapKit
 
 // MARK: - Initializers
-#if !os(watchOS)
-
 @available(tvOS 9.2, *)
 public extension MKPolyline {
 
@@ -25,10 +23,6 @@ public extension MKPolyline {
 
 }
 
-#endif
-
-#if !os(watchOS)
-
 // MARK: - Properties
 @available(tvOS 9.2, *)
 public extension MKPolyline {
@@ -41,7 +35,5 @@ public extension MKPolyline {
     }
 
 }
-
-#endif
 
 #endif

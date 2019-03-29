@@ -55,4 +55,5 @@ final class UIFontExtension: XCTestCase {
     }
 
 }
+
 #endif

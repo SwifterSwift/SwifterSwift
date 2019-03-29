@@ -960,11 +960,8 @@ public extension Date {
         components.second = second
         components.nanosecond = nanosecond
 
-        if let date = calendar?.date(from: components) {
-            self = date
-        } else {
-            return nil
-        }
+        guard let date = calendar?.date(from: components) else { return nil }
+        self = date
     }
 
     /// SwifterSwift: Create date object from ISO8601 string.
@@ -978,11 +975,8 @@ public extension Date {
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        if let date = dateFormatter.date(from: iso8601String) {
-            self = date
-        } else {
-            return nil
-        }
+        guard let date = dateFormatter.date(from: iso8601String) else { return nil }
+        self = date
     }
 
     /// SwifterSwift: Create new date object from UNIX timestamp.
@@ -1006,4 +1000,5 @@ public extension Date {
     }
 
 }
+
 #endif

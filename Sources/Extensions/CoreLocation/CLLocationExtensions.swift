@@ -71,4 +71,5 @@ public extension CLLocation {
     }
 
 }
+
 #endif

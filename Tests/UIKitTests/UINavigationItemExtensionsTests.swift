@@ -30,4 +30,5 @@ final class UINavigationItemExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

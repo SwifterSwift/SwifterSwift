@@ -23,4 +23,5 @@ public extension UINavigationItem {
     }
 
 }
+
 #endif

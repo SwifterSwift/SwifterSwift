@@ -6,10 +6,6 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(Foundation)
-import Foundation
-#endif
-
 // MARK: - Initializers
 extension RangeReplaceableCollection {
 
@@ -91,12 +87,10 @@ extension RangeReplaceableCollection {
         return remove(at: index)
     }
 
-    #if canImport(Foundation)
     /// SwifterSwift: Remove a random value from the collection.
     @discardableResult mutating func removeRandomElement() -> Element? {
         guard let randomIndex = indices.randomElement() else { return nil }
         return remove(at: randomIndex)
     }
-    #endif
 
 }

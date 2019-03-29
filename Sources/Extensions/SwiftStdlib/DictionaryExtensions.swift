@@ -38,13 +38,11 @@ public extension Dictionary {
         keys.forEach { removeValue(forKey: $0) }
     }
 
-    #if canImport(Foundation)
     /// SwifterSwift: Remove a value for a random key from the dictionary.
     @discardableResult mutating func removeValueForRandomKey() -> Value? {
         guard let randomKey = keys.randomElement() else { return nil }
         return removeValue(forKey: randomKey)
     }
-    #endif
 
     #if canImport(Foundation)
     /// SwifterSwift: JSON Data from dictionary.

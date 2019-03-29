@@ -44,4 +44,5 @@ public extension UIWindow {
     }
 
 }
+
 #endif

@@ -6,10 +6,6 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-#if canImport(Foundation)
-import Foundation
-#endif
-
 public extension Sequence {
 
     /// SwifterSwift: Check if all elements in collection match a conditon.

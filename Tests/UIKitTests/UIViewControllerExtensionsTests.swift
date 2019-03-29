@@ -188,8 +188,8 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertNotNil(popoverDelegate)
         XCTAssertEqual(popoverDelegate, delegate)
     }
-
     #endif
 
 }
+
 #endif
