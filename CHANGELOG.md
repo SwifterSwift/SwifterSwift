@@ -29,20 +29,28 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `rounded(numberOfDecimalPlaces:rule:)` to get the rounded floating number with the specified number of decimal places. [#583](https://github.com/SwifterSwift/SwifterSwift/pull/583) by [jianstm](https://github.com/jianstm)
 - **UIActivity**
   - Added `ActivityType` constants for iCloud Drive, WhatsApp, LinkedIn and XING. [#580](https://github.com/SwifterSwift/SwifterSwift/pull/580) by [staffler-xyz](https://github.com/staffler-xyz)
+- **MKMapView**
+  - Added 'register(annotationViewWithClass:)`, `dequeueReusableAnnotationView(withClass:)` and `dequeueReusableAnnotationView(withClass:annotation)` methods. [#629](https://github.com/SwifterSwift/SwifterSwift/pull/629) by [staffler-xyz](https://github.com/staffler-xyz)
 ### Changed
 - **Examples**:
   - Replace Examples.md with Examples.playground to let users try some examples out of extensions. [#596](https://github.com/SwifterSwift/SwifterSwift/pull/596) by [maxxx777](https://github.com/maxxx777)
 - **StringProtocol**
   - Removing Index constraint on `commonSuffix` extension and improving performance and tests. [#606](https://github.com/SwifterSwift/SwifterSwift/pull/606) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
-  - **Date**
+- **RangeReplaceableCollection**
+  - `Array` extensions `keep(while: )`, `take(while: )` and `skip(while:)` are now `RangeReplaceableCollection` extensions. [#634](https://github.com/SwifterSwift/SwifterSwift/pull/634) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **Date**
   - Fixed `yesterday` computed property to be calculated using Calendar.date(byAdding:to:) instead of date.addingTimeInterval(-86400) [#641](https://github.com/SwifterSwift/SwifterSwift/pull/641) by [AlexeiGitH](https://github.com/AlexeiGitH).
 ### Fixed
 - **Installation**:
   - Update `podspec` to make the group paths in Pods project of SwifterSwift correct with Cocoapods installation. [#590](https://github.com/SwifterSwift/SwifterSwift/pull/590) by [dklinzh](https://github.com/dklinzh)
 - **UIImage**:
   - `cropped(to:)` fixed size checking. [#575](https://github.com/SwifterSwift/SwifterSwift/pull/575) by [ilyahal](https://github.com/ilyahal)
+  - `tint(_ color:, blendMode:)` fixing upside-down image. [#639](https://github.com/SwifterSwift/SwifterSwift/pull/639) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **NSAttributedString** 
   - Fixed `attributes` property crash when the string is empty. [#617](https://github.com/SwifterSwift/SwifterSwift/pull/617) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- **Date**
+  - Fixed `yesterday` computed property to be calculated using Calendar.date(byAdding:to:) instead of date.addingTimeInterval(-86400) [#641](https://github.com/SwifterSwift/SwifterSwift/pull/641) by [AlexeiGitH](https://github.com/AlexeiGitH).
+  - Fixed `tomorrow` computed property to be calculated using Calendar.date(byAdding:to:) instead of date.addingTimeInterval(86400) [#642](https://github.com/SwifterSwift/SwifterSwift/pull/642) by [AlexeiGitH](https://github.com/AlexeiGitH).
 ### Deprecated
 - **Date**
   - `random(from:upTo:)` in favor of `random(in:)` and `random(in:using:)`. [#576](https://github.com/SwifterSwift/SwifterSwift/pull/576) by [guykogus](https://github.com/guykogus)

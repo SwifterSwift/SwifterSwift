@@ -464,7 +464,7 @@ public extension Date {
     ///     let tomorrow = date.tomorrow // "Oct 4, 2018, 10:57:11"
     ///
     public var tomorrow: Date {
-        return addingTimeInterval(86400.0)
+        return Calendar.current.date(byAdding: .day, value: 1, to: self) ?? Date()
     }
 
     /// SwifterSwift: UNIX timestamp from date.
