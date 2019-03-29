@@ -24,8 +24,7 @@ public extension SignedNumeric {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         formatter.locale = Locale.current
-        // swiftlint:disable next force_cast
-        return formatter.string(from: self as! NSNumber)
+        return formatter.string(from: self as! NSNumber) // swiftlint:disable:this force_cast
     }
     #endif
 

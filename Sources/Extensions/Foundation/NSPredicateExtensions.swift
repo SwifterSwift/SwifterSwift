@@ -81,4 +81,5 @@ public extension NSPredicate {
     }
 
 }
+
 #endif

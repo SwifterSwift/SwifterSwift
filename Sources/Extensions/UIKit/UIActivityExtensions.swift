@@ -25,4 +25,5 @@ public extension UIActivity.ActivityType {
     static let postToXing = UIActivity.ActivityType("com.xing.XING.Xing-Share")
 
 }
+
 #endif

@@ -66,4 +66,5 @@ final class UIStackViewExtensionsTest: XCTestCase {
     }
 
 }
+
 #endif

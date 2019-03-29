@@ -31,4 +31,5 @@ final class UISegmentedControlExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

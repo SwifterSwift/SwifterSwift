@@ -54,4 +54,5 @@ final class UISliderExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

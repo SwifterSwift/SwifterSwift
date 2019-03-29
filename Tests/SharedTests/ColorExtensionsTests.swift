@@ -23,8 +23,7 @@ public typealias Color = UIColor
 import CoreImage
 #endif
 
-// swiftlint:disable next type_body_length
-final class ColorExtensionsTests: XCTestCase {
+final class ColorExtensionsTests: XCTestCase { // swiftlint:disable:this type_body_length
 
     // MARK: - Test properties
     func testCGFloatComponents() {

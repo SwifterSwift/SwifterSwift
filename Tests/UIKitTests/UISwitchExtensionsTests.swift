@@ -23,4 +23,5 @@ final class UISwitchExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

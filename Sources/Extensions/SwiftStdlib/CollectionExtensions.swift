@@ -6,13 +6,14 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(Foundation)
-import Foundation
+#if canImport(Dispatch)
+import Dispatch
 #endif
 
 // MARK: - Methods
 public extension Collection {
 
+    #if canImport(Dispatch)
     /// SwifterSwift: Performs `each` closure for each element of collection in parallel.
     ///
     ///        array.forEachInParallel { item in
@@ -28,6 +29,7 @@ public extension Collection {
             each(self[elementIndex])
         }
     }
+    #endif
 
     /// SwifterSwift: Safe protects the array from out of bounds by use of optional.
     ///

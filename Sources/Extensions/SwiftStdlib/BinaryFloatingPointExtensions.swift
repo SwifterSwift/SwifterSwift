@@ -24,7 +24,7 @@ public extension BinaryFloatingPoint {
     ///   - numberOfDecimalPlaces: The expected number of decimal places.
     ///   - rule: The rounding rule to use.
     /// - Returns: The rounded value.
-    public func rounded(numberOfDecimalPlaces: Int, rule: FloatingPointRoundingRule) -> Self {
+    func rounded(numberOfDecimalPlaces: Int, rule: FloatingPointRoundingRule) -> Self {
         let factor = Self(pow(10.0, Double(max(0, numberOfDecimalPlaces))))
         return (self * factor).rounded(rule) / factor
     }

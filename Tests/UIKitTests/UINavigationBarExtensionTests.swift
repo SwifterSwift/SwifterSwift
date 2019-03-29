@@ -56,4 +56,5 @@ final class UINavigationBarExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

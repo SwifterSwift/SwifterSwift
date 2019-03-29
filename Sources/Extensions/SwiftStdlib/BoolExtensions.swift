@@ -6,10 +6,6 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(Foundation)
-import Foundation
-#endif
-
 // MARK: - Properties
 public extension Bool {
 
@@ -18,7 +14,7 @@ public extension Bool {
     ///        false.int -> 0
     ///        true.int -> 1
     ///
-    public var int: Int {
+    var int: Int {
         return self ? 1 : 0
     }
 
@@ -27,8 +23,8 @@ public extension Bool {
     ///        false.string -> "false"
     ///        true.string -> "true"
     ///
-    public var string: String {
-        return description
+    var string: String {
+        return self ? "true" : "false"
     }
 
 }

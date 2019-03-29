@@ -146,10 +146,9 @@ public extension Int {
         return romanValue
     }
 
-    // swiftlint:disable next identifier_name
     /// SwifterSwift: Rounds to the closest multiple of n
-    func roundToNearest(_ n: Int) -> Int {
-        return n == 0 ? self : Int(round(Double(self) / Double(n))) * n
+    func roundToNearest(_ number: Int) -> Int {
+        return number == 0 ? self : Int(round(Double(self) / Double(number))) * number
     }
 
 }
@@ -164,23 +163,21 @@ infix operator ** : PowerPrecedence
 ///   - lhs: base integer.
 ///   - rhs: exponent integer.
 /// - Returns: exponentiation result (example: 2 ** 3 = 8).
-public func ** (lhs: Int, rhs: Int) -> Double {
+func ** (lhs: Int, rhs: Int) -> Double {
     // http://nshipster.com/swift-operators/
     return pow(Double(lhs), Double(rhs))
 }
 
-// swiftlint:disable next identifier_name
 prefix operator √
 /// SwifterSwift: Square root of integer.
 ///
 /// - Parameter int: integer value to find square root for
 /// - Returns: square root of given integer.
-public prefix func √ (int: Int) -> Double {
+public prefix func √ (int: Int) -> Double { // swiftlint:disable:this identifier_name
     // http://nshipster.com/swift-operators/
     return sqrt(Double(int))
 }
 
-// swiftlint:disable next identifier_name
 infix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
@@ -188,18 +185,17 @@ infix operator ±
 ///   - lhs: integer number.
 ///   - rhs: integer number.
 /// - Returns: tuple of plus-minus operation (example: 2 ± 3 -> (5, -1)).
-public func ± (lhs: Int, rhs: Int) -> (Int, Int) {
+func ± (lhs: Int, rhs: Int) -> (Int, Int) { // swiftlint:disable:this identifier_name
     // http://nshipster.com/swift-operators/
     return (lhs + rhs, lhs - rhs)
 }
 
-// swiftlint:disable next identifier_name
 prefix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
 /// - Parameter int: integer number
 /// - Returns: tuple of plus-minus operation (example: ± 2 -> (2, -2)).
-public prefix func ± (int: Int) -> (Int, Int) {
+public prefix func ± (int: Int) -> (Int, Int) { // swiftlint:disable:this identifier_name
     // http://nshipster.com/swift-operators/
     return 0 ± int
 }

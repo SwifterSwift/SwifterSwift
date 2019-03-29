@@ -272,7 +272,7 @@ public extension SwifterSwift {
     ///   - queue: a queue that completion closure should be executed on (default is DispatchQueue.main).
     ///   - completion: closure to be executed after delay.
     ///   - Returns: DispatchWorkItem task. You can call .cancel() on it to cancel delayed execution.
-    @discardableResult public static func delay(milliseconds: Double, queue: DispatchQueue = .main, completion: @escaping () -> Void) -> DispatchWorkItem {
+    @discardableResult static func delay(milliseconds: Double, queue: DispatchQueue = .main, completion: @escaping () -> Void) -> DispatchWorkItem {
         let task = DispatchWorkItem { completion() }
         queue.asyncAfter(deadline: .now() + (milliseconds/1000), execute: task)
         return task
@@ -284,7 +284,7 @@ public extension SwifterSwift {
     ///   - millisecondsOffset: allow execution of method if it was not called since millisecondsOffset.
     ///   - queue: a queue that action closure should be executed on (default is DispatchQueue.main).
     ///   - action: closure to be executed in a debounced way.
-    public static func debounce(millisecondsDelay: Int, queue: DispatchQueue = .main, action: @escaping (() -> Void)) -> () -> Void {
+    static func debounce(millisecondsDelay: Int, queue: DispatchQueue = .main, action: @escaping (() -> Void)) -> () -> Void {
         // http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
         var lastFireTime = DispatchTime.now()
         let dispatchDelay = DispatchTimeInterval.milliseconds(millisecondsDelay)
@@ -305,12 +305,13 @@ public extension SwifterSwift {
     /// SwifterSwift: Called when user takes a screenshot
     ///
     /// - Parameter action: a closure to run when user takes a screenshot
-    public static func didTakeScreenShot(_ action: @escaping (_ notification: Notification) -> Void) {
+    static func didTakeScreenShot(_ action: @escaping (_ notification: Notification) -> Void) {
         // http://stackoverflow.com/questions/13484516/ios-detection-of-screenshot
-        _ = NotificationCenter.default.addObserver(forName: UIApplication.userDidTakeScreenshotNotification,
-                                                   object: nil,
-                                                   queue: OperationQueue.main) { notification in
-                                                    action(notification)
+        _ = NotificationCenter.default.addObserver(
+            forName: UIApplication.userDidTakeScreenshotNotification,
+            object: nil, queue: OperationQueue.main
+        ) { notification in
+                action(notification)
         }
     }
     #endif
@@ -319,10 +320,11 @@ public extension SwifterSwift {
     ///
     /// - Parameter object: Any object to find its class name.
     /// - Returns: Class name for given object.
-    public static func typeName(for object: Any) -> String {
+    static func typeName(for object: Any) -> String {
         let objectType = type(of: object.self)
         return String.init(describing: objectType)
     }
 
 }
+
 #endif

@@ -30,6 +30,7 @@ extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiter
     public init(integerLiteral value: Int) {
         self.init(rawValue: Float(value))
     }
+
 }
 
 #endif

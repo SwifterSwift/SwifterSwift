@@ -16,9 +16,10 @@ public extension SKNode {
     ///
     ///         mySKNode.descendants() -> [childNodeOne, childNodeTwo]
     ///
-    public func descendants() -> [SKNode] {
+    func descendants() -> [SKNode] {
         return children + children.reduce(into: [SKNode]()) { $0 += $1.descendants() }
     }
 
 }
+
 #endif
