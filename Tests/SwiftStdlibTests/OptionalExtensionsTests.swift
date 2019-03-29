@@ -116,4 +116,39 @@ final class OptionalExtensionsTests: XCTestCase {
         XCTAssertEqual(collection.nonEmpty!, [1, 2, 3])
     }
 
+    func testComparable() {
+        let minusOne: Int? = -1
+        let zero: Int? = 0
+        let one: Int? = 1
+
+        // Int?.some vs Int
+        XCTAssert(minusOne < 0)
+        XCTAssert(zero < 1)
+        XCTAssert(one < 2)
+        XCTAssert(-2 < minusOne)
+        XCTAssert(-1 < zero)
+        XCTAssert(0 < one)
+
+        // Int?.none vs Int
+        XCTAssert(nil < -1)
+        XCTAssert(nil < 0)
+        XCTAssert(nil < 1)
+        XCTAssertFalse(-1 < nil)
+        XCTAssertFalse(0 < nil)
+        XCTAssertFalse(1 < nil)
+
+        // Int?.some vs Int?.some
+        XCTAssert(minusOne < zero)
+        XCTAssert(minusOne < one)
+        XCTAssert(zero < one)
+
+        // Int?.some vs Int?.none
+        XCTAssertFalse(minusOne < nil)
+        XCTAssertFalse(zero < nil)
+        XCTAssertFalse(one < nil)
+        XCTAssert(nil < minusOne)
+        XCTAssert(nil < zero)
+        XCTAssert(nil < one)
+    }
+
 }

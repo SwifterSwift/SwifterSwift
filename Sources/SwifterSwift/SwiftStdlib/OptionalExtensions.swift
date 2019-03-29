@@ -111,6 +111,21 @@ public extension Optional where Wrapped: Collection {
 
 }
 
+// MARK: - Methods (Comparable)
+
+extension Optional: Comparable where Wrapped: Comparable {
+    public static func < (lhs: Optional, rhs: Optional) -> Bool {
+        switch (lhs, rhs) {
+        case (.some(let lhsValue), .some(let rhsValue)):
+            return lhsValue < rhsValue
+        case (_, .none):
+            return false
+        case (.none, _):
+            return true
+        }
+    }
+}
+
 // MARK: - Operators
 infix operator ??= : AssignmentPrecedence
 infix operator ?= : AssignmentPrecedence
