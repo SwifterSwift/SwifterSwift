@@ -204,12 +204,7 @@ public struct SwifterSwift {
     #if os(iOS)
     /// SwifterSwift: Status bar visibility state.
     public static var isStatusBarHidden: Bool {
-        get {
-            return UIApplication.shared.isStatusBarHidden
-        }
-        set {
-            UIApplication.shared.isStatusBarHidden = newValue
-        }
+        return UIApplication.shared.isStatusBarHidden
     }
     #endif
 
@@ -242,14 +237,7 @@ public struct SwifterSwift {
     #if os(iOS)
     /// SwifterSwift: Current status bar style (if applicable).
     public static var statusBarStyle: UIStatusBarStyle? {
-        get {
-            return UIApplication.shared.statusBarStyle
-        }
-        set {
-            if let style = newValue {
-                UIApplication.shared.statusBarStyle = style
-            }
-        }
+        return UIApplication.shared.statusBarStyle
     }
     #endif
 
