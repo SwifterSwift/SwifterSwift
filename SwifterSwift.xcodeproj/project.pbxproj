@@ -1409,7 +1409,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${TRAVIS}\" != \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
 		};
 		07A1C43F224FBFD5003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1427,7 +1427,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${TRAVIS}\" != \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
 		};
 		07A1C440224FBFDD003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1445,7 +1445,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${TRAVIS}\" != \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
 		};
 		07A1C441224FBFE7003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1463,7 +1463,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${TRAVIS}\" != \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
 		};
 		07A1C442224FC02E003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1481,7 +1481,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${TRAVIS}\" != \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
 		};
 		07A1C443224FC034003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1499,7 +1499,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${TRAVIS}\" != \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n\n";
 		};
 		07A1C444224FC043003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1517,7 +1517,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ \"${TRAVIS}\" != \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
