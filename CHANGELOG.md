@@ -25,6 +25,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Swift 5.0 Support**
   - Updated the project to Xcode 10.2
   - Removed unnecessary `public` statements.
+- **UIApplication**:
+  - Added `inferredEnvironment` to get current inferred app environment. by [omaralbeik](https://github.com/omaralbeik)
+  - Added `displayName` to get application name. by [omaralbeik](https://github.com/omaralbeik)
+  - Added `buildNumber` to get application build number. by [omaralbeik](https://github.com/omaralbeik)
+  - Added `version` to get application version number. by [omaralbeik](https://github.com/omaralbeik)
 - **Optional**:
   - Added `nonEmpty` to get the collection only if it is not nill and not empty. by [omaralbeik](https://github.com/omaralbeik)
 - **FileManager**:
@@ -93,8 +98,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Removed
 
+- **SwifterSwift**:
+  - **Breaking Change** Removed `SwifterSwift` by [omaralbeik](https://github.com/omaralbeik).
 - **Collection**:
-- Removed `firstIndex(where: )`, `firstIndex(of:)`, `lastIndex(where: )`, `lastIndex(of:)` which are no longer needed. [#637](https://github.com/SwifterSwift/SwifterSwift/pull/637) by [marcocapano](https://github.com/marcocapano)
+  - **Breaking Change** Removed `firstIndex(where: )`, `firstIndex(of:)`, `lastIndex(where: )`, `lastIndex(of:)` which are no longer needed. [#637](https://github.com/SwifterSwift/SwifterSwift/pull/637) by [marcocapano](https://github.com/marcocapano)
 
 ### CI
 

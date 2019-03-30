@@ -156,6 +156,7 @@ let package = Package(
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIActivityExtensions.swift"><code>UIActivity extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIAlertControllerExtensions.swift"><code>UIAlertController extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIApplicationExtensions.swift"><code>UIApplication extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIBarButtonItemExtensions.swift"><code>UIBarButtonItem extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UIButtonExtensions.swift"><code>UIButton extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/UIKit/UICollectionViewExtensions.swift"><code>UICollectionView extensions</code></a></li>
@@ -242,15 +243,6 @@ let package = Package(
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/Extensions/Dispatch/DispatchQueueExtensions.swift"><code>DispatchQueue extensions</code></a></li>
-</ul>
-</details>
-
-
-<details>
-<summary>Misc. Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/Extensions/SwifterSwift.swift"><code>SwifterSwift</code></a></li>
 </ul>
 </details>
 
