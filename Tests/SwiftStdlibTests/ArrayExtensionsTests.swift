@@ -61,27 +61,31 @@ final class ArrayExtensionsTests: XCTestCase {
     }
 
     func testKeyPathSorted() {
-        let array = [Person(name: "James", age: 32), Person(name: "Wade", age: 36), Person(name: "Rose", age: 29)]
+        let james = Person(name: "James", age: 32)
+        let wade = Person(name: "Wade", age: 36)
+        let rose = Person(name: "Rose", age: nil)
 
-        XCTAssertEqual(array.sorted(by: \Person.name), [Person(name: "James", age: 32), Person(name: "Rose", age: 29), Person(name: "Wade", age: 36)])
-        XCTAssertEqual(array.sorted(by: \Person.name, ascending: false), [Person(name: "Wade", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 32)])
+        let array = [james, wade, rose]
+
+        XCTAssertEqual(array.sorted(by: \.name), [james, rose, wade])
+        XCTAssertEqual(array.sorted(by: \.name, ascending: false), [wade, rose, james])
         // Testing Optional keyPath
-        XCTAssertEqual(array.sorted(by: \Person.age), [Person(name: "Rose", age: 29), Person(name: "James", age: 32), Person(name: "Wade", age: 36)])
-        XCTAssertEqual(array.sorted(by: \Person.age, ascending: false), [Person(name: "Wade", age: 36), Person(name: "James", age: 32), Person(name: "Rose", age: 29)])
+        XCTAssertEqual(array.sorted(by: \.age), [rose, james, wade])
+        XCTAssertEqual(array.sorted(by: \.age, ascending: false), [wade, james, rose])
 
         // Testing Mutating
-        var mutableArray = [Person(name: "James", age: 32), Person(name: "Wade", age: 36), Person(name: "Rose", age: 29)]
+        var mutableArray = [james, wade, rose]
 
-        mutableArray.sort(by: \Person.name)
-        XCTAssertEqual(mutableArray, [Person(name: "James", age: 32), Person(name: "Rose", age: 29), Person(name: "Wade", age: 36)])
+        mutableArray.sort(by: \.name)
+        XCTAssertEqual(mutableArray, [james, rose, wade])
 
         // Testing Mutating Optional keyPath
-        mutableArray.sort(by: \Person.age)
-        XCTAssertEqual(mutableArray, [Person(name: "Rose", age: 29), Person(name: "James", age: 32), Person(name: "Wade", age: 36)])
+        mutableArray.sort(by: \.age)
+        XCTAssertEqual(mutableArray, [rose, james, wade])
 
         // Testing nil path
         let nilArray = [Person(name: "James", age: nil), Person(name: "Wade", age: nil)]
-        XCTAssertEqual(nilArray.sorted(by: \Person.age), [Person(name: "James", age: nil), Person(name: "Wade", age: nil)])
+        XCTAssertEqual(nilArray.sorted(by: \.age), [Person(name: "James", age: nil), Person(name: "Wade", age: nil)])
     }
 
     func testRemoveAll() {
