@@ -96,7 +96,7 @@ final class FileManagerExtensionsTests: XCTestCase {
             let decoder = PropertyListDecoder()
             let decodedPoint = try decoder.decode(CGPoint.self, from: data!)
 
-            XCTAssert(decodedPoint == point)
+            XCTAssertEqual(decodedPoint, point)
             try FileManager.default.removeItem(at: fileURL)
         } catch {
             XCTFail(error.localizedDescription)
