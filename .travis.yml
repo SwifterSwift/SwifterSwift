@@ -16,9 +16,9 @@ env:
 
 before_install:
   - bundle install
-  - gem install cocoapods
   - brew update
   - brew outdated xctool || brew upgrade xctool
+  - brew install swiftlint
 script:
   - set -o pipefail
   - swift --version
@@ -31,4 +31,4 @@ script:
   - xcodebuild clean build -project "$PROJECT" -scheme "$WATCHOS_SCHEME" -destination "$WATCHOS_DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-watchos.json" xcpretty -f `xcpretty-json-formatter`
   - swiftlint lint
   - bundle exec danger --verbose
-  - pod lib lint --skip-tests --allow-warnings
+  - bundle exec pod lib lint --skip-tests --allow-warnings
