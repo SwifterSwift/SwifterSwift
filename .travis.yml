@@ -18,9 +18,10 @@ before_install:
   - bundle install
   - brew update
   - brew outdated xctool || brew upgrade xctool
-  - brew install swiftlint
+
 script:
   - set -o pipefail
+  - rm -rf ~/Library/Developer/Xcode/DerivedData
   - swift --version
   - xcodebuild clean build test -project "$PROJECT" -scheme "$IOS_SCHEME" -destination "$IOS_DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
   - bash <(curl -s https://codecov.io/bash) -cF ios -J 'SwifterSwift'
