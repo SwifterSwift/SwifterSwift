@@ -37,7 +37,7 @@ public extension UIImageView {
                     completionHandler?(nil)
                     return
             }
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [unowned self] in
                 self.image = image
                 completionHandler?(image)
             }

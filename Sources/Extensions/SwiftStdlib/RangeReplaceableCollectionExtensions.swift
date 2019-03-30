@@ -7,7 +7,7 @@
 //
 
 // MARK: - Initializers
-extension RangeReplaceableCollection {
+public extension RangeReplaceableCollection {
 
     /// Creates a new collection of a given size where for each position of the collection the value will be the result
     /// of a call of the given expression.
@@ -19,7 +19,7 @@ extension RangeReplaceableCollection {
     /// - Parameters:
     ///   - expression: The expression to execute for each position of the collection.
     ///   - count: The count of the collection.
-    public init(expression: @autoclosure () throws -> Element, count: Int) rethrows {
+    init(expression: @autoclosure () throws -> Element, count: Int) rethrows {
         self.init()
         if count > 0 { //swiftlint:disable:this empty_count
             reserveCapacity(count)
@@ -32,7 +32,7 @@ extension RangeReplaceableCollection {
 }
 
 // MARK: - Methods
-extension RangeReplaceableCollection {
+public extension RangeReplaceableCollection {
 
     /// SwifterSwift: Returns a new rotated collection by the given places.
     ///
@@ -88,7 +88,8 @@ extension RangeReplaceableCollection {
     }
 
     /// SwifterSwift: Remove a random value from the collection.
-    @discardableResult mutating func removeRandomElement() -> Element? {
+    @discardableResult
+    mutating func removeRandomElement() -> Element? {
         guard let randomIndex = indices.randomElement() else { return nil }
         return remove(at: randomIndex)
     }

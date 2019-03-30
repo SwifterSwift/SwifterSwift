@@ -81,11 +81,19 @@ public extension String {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         for scalar in unicodeScalars {
             switch scalar.value {
-            case 0x3030, 0x00AE, 0x00A9, // Special Characters
-            0x1D000...0x1F77F, // Emoticons
-            0x2100...0x27BF, // Misc symbols and Dingbats
+            case 0x1F600...0x1F64F, // Emoticons
+            0x1F300...0x1F5FF, // Misc Symbols and Pictographs
+            0x1F680...0x1F6FF, // Transport and Map
+            0x1F1E6...0x1F1FF, // Regional country flags
+            0x2600...0x26FF, // Misc symbols
+            0x2700...0x27BF, // Dingbats
+            0xE0020...0xE007F, // Tags
             0xFE00...0xFE0F, // Variation Selectors
-            0x1F900...0x1F9FF: // Supplemental Symbols and Pictographs
+            0x1F900...0x1F9FF, // Supplemental Symbols and Pictographs
+            127000...127600, // Various asian characters
+            65024...65039, // Variation selector
+            9100...9300, // Misc items
+            8400...8447: // Combining Diacritical Marks for Symbols
                 return true
             default:
                 continue
@@ -104,7 +112,6 @@ public extension String {
         return String(first)
     }
 
-    #if canImport(Foundation)
     /// SwifterSwift: Check if string contains one or more letters.
     ///
     ///		"123abc".hasLetters -> true
@@ -113,9 +120,7 @@ public extension String {
     var hasLetters: Bool {
         return rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
     }
-    #endif
 
-    #if canImport(Foundation)
     /// SwifterSwift: Check if string contains one or more numbers.
     ///
     ///		"abcd".hasNumbers -> false
@@ -124,9 +129,7 @@ public extension String {
     var hasNumbers: Bool {
         return rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
     }
-    #endif
 
-    #if canImport(Foundation)
     /// SwifterSwift: Check if string contains only letters.
     ///
     ///		"abc".isAlphabetic -> true
@@ -137,9 +140,7 @@ public extension String {
         let hasNumbers = rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
         return hasLetters && !hasNumbers
     }
-    #endif
 
-    #if canImport(Foundation)
     /// SwifterSwift: Check if string contains at least one letter and one number.
     ///
     ///		// useful for passwords
@@ -152,7 +153,6 @@ public extension String {
         let comps = components(separatedBy: .alphanumerics)
         return comps.joined(separator: "").count == 0 && hasLetters && hasNumbers
     }
-    #endif
 
     #if canImport(Foundation)
     /// SwifterSwift: Check if string is valid email format.
@@ -283,9 +283,9 @@ public extension String {
     var bool: Bool? {
         let selfLowercased = trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         switch selfLowercased {
-        case "true", "1":
+        case "true", "yes", "1":
             return true
-        case "false", "0":
+        case "false", "no", "0":
             return false
         default:
             return nil
@@ -493,7 +493,7 @@ public extension String {
         let mostCommon = withoutSpacesAndNewLines.reduce(into: [Character: Int]()) {
             let count = $0[$1] ?? 0
             $0[$1] = count + 1
-            }.max { $0.1 < $1.1 }?.0
+        }.max { $0.1 < $1.1 }?.key
 
         return mostCommon
     }
@@ -544,7 +544,7 @@ public extension String {
     /// - Returns: The string in slug format.
     func toSlug() -> String {
         let lowercased = self.lowercased()
-        let latinized = lowercased.latinized
+        let latinized = lowercased.folding(options: .diacriticInsensitive, locale: Locale.current)
         let withDashes = latinized.replacingOccurrences(of: " ", with: "-")
 
         let alphanumerics = NSCharacterSet.alphanumerics
@@ -622,7 +622,8 @@ public extension String {
     ///		str.camelize()
     ///		print(str) // prints "someVariableName"
     ///
-    mutating func camelize() {
+    @discardableResult
+    mutating func camelize() -> String {
         let source = lowercased()
         let first = source[..<source.index(after: source.startIndex)]
         if source.contains(" ") {
@@ -630,11 +631,12 @@ public extension String {
             let camel = connected.replacingOccurrences(of: "\n", with: "")
             let rest = String(camel.dropFirst())
             self = first + rest
-            return
+            return self
         }
         let rest = String(source.dropFirst())
 
         self = first + rest
+        return self
     }
 
     /// SwifterSwift: First character of string uppercased(if applicable) while keeping the original string.
@@ -718,8 +720,10 @@ public extension String {
     ///		str.latinize()
     ///		print(str) // prints "Hello World!"
     ///
-    mutating func latinize() {
+    @discardableResult
+    mutating func latinize() -> String {
         self = folding(options: .diacriticInsensitive, locale: Locale.current)
+        return self
     }
     #endif
 
@@ -740,9 +744,11 @@ public extension String {
     }
 
     /// SwifterSwift: Reverse string.
-    mutating func reverse() {
+    @discardableResult
+    mutating func reverse() -> String {
         let chars: [Character] = reversed()
         self = String(chars)
+        return self
     }
 
     /// SwifterSwift: Sliced string from a start index with length.
@@ -771,10 +777,12 @@ public extension String {
     /// - Parameters:
     ///   - i: string index the slicing should start from.
     ///   - length: amount of characters to be sliced after given index.
-    mutating func slice(from index: Int, length: Int) {
+    @discardableResult
+    mutating func slice(from index: Int, length: Int) -> String {
         if let str = slicing(from: index, length: length) {
             self = String(str)
         }
+        return self
     }
 
     /// SwifterSwift: Slice given string from a start index to an end index (if applicable).
@@ -786,11 +794,13 @@ public extension String {
     /// - Parameters:
     ///   - start: string index the slicing should start from.
     ///   - end: string index the slicing should end at.
-    mutating func slice(from start: Int, to end: Int) {
-        guard end >= start else { return }
+    @discardableResult
+    mutating func slice(from start: Int, to end: Int) -> String {
+        guard end >= start else { return self }
         if let str = self[safe: start..<end] {
             self = str
         }
+        return self
     }
 
     /// SwifterSwift: Slice given string from a start index (if applicable).
@@ -800,11 +810,13 @@ public extension String {
     ///		print(str) // prints "World"
     ///
     /// - Parameter index: string index the slicing should start from.
-    mutating func slice(at index: Int) {
-        guard index < count else { return }
+    @discardableResult
+    mutating func slice(at index: Int) -> String {
+        guard index < count else { return self }
         if let str = self[safe: index..<count] {
             self = str
         }
+        return self
     }
 
     /// SwifterSwift: Check if string starts with substring.
@@ -845,8 +857,10 @@ public extension String {
     ///		str.trim()
     ///		print(str) // prints "Hello World"
     ///
-    mutating func trim() {
+    @discardableResult
+    mutating func trim() -> String {
         self = trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        return self
     }
     #endif
 
@@ -859,11 +873,13 @@ public extension String {
     /// - Parameters:
     ///   - toLength: maximum number of characters before cutting.
     ///   - trailing: string to add at the end of truncated string (default is "...").
-    mutating func truncate(toLength length: Int, trailing: String? = "...") {
-        guard length > 0 else { return }
+    @discardableResult
+    mutating func truncate(toLength length: Int, trailing: String? = "...") -> String {
+        guard length > 0 else { return self }
         if count > length {
             self = self[startIndex..<index(startIndex, offsetBy: length)] + (trailing ?? "")
         }
+        return self
     }
 
     /// SwifterSwift: Truncated string (limited to a given number of characters).
@@ -887,10 +903,12 @@ public extension String {
     ///		str.urlDecode()
     ///		print(str) // prints "it's easy to decode strings"
     ///
-    mutating func urlDecode() {
+    @discardableResult
+    mutating func urlDecode() -> String {
         if let decoded = removingPercentEncoding {
             self = decoded
         }
+        return self
     }
     #endif
 
@@ -901,10 +919,12 @@ public extension String {
     ///		str.urlEncode()
     ///		print(str) // prints "it's%20easy%20to%20encode%20strings"
     ///
-    mutating func urlEncode() {
+    @discardableResult
+    mutating func urlEncode() -> String {
         if let encoded = addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) {
             self = encoded
         }
+        return self
     }
     #endif
 
@@ -925,8 +945,10 @@ public extension String {
     ///
     /// - Parameter length: The target length to pad.
     /// - Parameter string: Pad string. Default is " ".
-    mutating func padStart(_ length: Int, with string: String = " ") {
+    @discardableResult
+    mutating func padStart(_ length: Int, with string: String = " ") -> String {
         self = paddingStart(length, with: string)
+        return self
     }
 
     /// SwifterSwift: Returns a string by padding to fit the length parameter size with another string in the start.
@@ -959,8 +981,10 @@ public extension String {
     ///
     /// - Parameter length: The target length to pad.
     /// - Parameter string: Pad string. Default is " ".
-    mutating func padEnd(_ length: Int, with string: String = " ") {
+    @discardableResult
+    mutating func padEnd(_ length: Int, with string: String = " ") -> String {
         self = paddingEnd(length, with: string)
+        return self
     }
 
     /// SwifterSwift: Returns a string by padding to fit the length parameter size with another string in the end.

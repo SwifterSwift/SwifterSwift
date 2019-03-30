@@ -19,7 +19,7 @@ public extension Array {
         insert(newElement, at: 0)
     }
 
-    /// SwifterSwift: Safely Swap values at index positions.
+    /// SwifterSwift: Safely swap values at given index positions.
     ///
     ///        [1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
     ///        ["h", "e", "l", "l", "o"].safeSwap(from: 1, to: 0) -> ["e", "h", "l", "l", "o"]
@@ -34,7 +34,7 @@ public extension Array {
         swapAt(index, otherIndex)
     }
 
-    /// SwifterSwift: Keep elements of Array while condition is true.
+    /// SwifterSwift: Keep elements of array while condition is true.
     ///
     ///        [0, 2, 4, 7].keep( where: {$0 % 2 == 0}) -> [0, 2, 4]
     ///
@@ -50,7 +50,7 @@ public extension Array {
         return self
     }
 
-    /// SwifterSwift: Take element of Array while condition is true.
+    /// SwifterSwift: Take element of array while condition is true.
     ///
     ///        [0, 2, 4, 7, 6, 8].take( where: {$0 % 2 == 0}) -> [0, 2, 4]
     ///
@@ -63,7 +63,7 @@ public extension Array {
         return self
     }
 
-    /// SwifterSwift: Skip elements of Array while condition is true.
+    /// SwifterSwift: Skip elements of array while condition is true.
     ///
     ///        [0, 2, 4, 7, 6, 8].skip( where: {$0 % 2 == 0}) -> [6, 8]
     ///
@@ -76,7 +76,7 @@ public extension Array {
         return [Element]()
     }
 
-    /// SwifterSwift: Separates an array into 2 arrays based on a predicate.
+    /// SwifterSwift: Separates array into 2 arrays based on a given predicate.
     ///
     ///     [0, 1, 2, 3, 4, 5].divided { $0 % 2 == 0 } -> ( [0, 2, 4], [1, 3, 5] )
     ///
@@ -100,7 +100,7 @@ public extension Array {
     func sorted<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
         return sorted(by: { (lhs, rhs) -> Bool in
             guard let lhsValue = lhs[keyPath: path], let rhsValue = rhs[keyPath: path] else { return false }
-            return ascending ? lhsValue < rhsValue : lhsValue > rhsValue
+            return ascending ? (lhsValue < rhsValue) : (lhsValue > rhsValue)
         })
     }
 
@@ -111,7 +111,7 @@ public extension Array {
     /// - Returns: Sorted array based on keyPath.
     func sorted<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
         return sorted(by: { (lhs, rhs) -> Bool in
-            return ascending ? lhs[keyPath: path] < rhs[keyPath: path] : lhs[keyPath: path] > rhs[keyPath: path]
+            return ascending ? (lhs[keyPath: path] < rhs[keyPath: path]) : (lhs[keyPath: path] > rhs[keyPath: path])
         })
     }
 
@@ -176,13 +176,16 @@ public extension Array where Element: Equatable {
     ///        [1, 2, 2, 3, 4, 5].removeDuplicates() -> [1, 2, 3, 4, 5]
     ///        ["h", "e", "l", "l", "o"]. removeDuplicates() -> ["h", "e", "l", "o"]
     ///
-    mutating func removeDuplicates() {
+    /// - Returns: Return array with all duplicate elements removed.
+    @discardableResult
+    mutating func removeDuplicates() -> [Element] {
         // Thanks to https://github.com/sairamkotha for improving the method
         self = reduce(into: [Element]()) {
             if !$0.contains($1) {
                 $0.append($1)
             }
         }
+        return self
     }
 
     /// SwifterSwift: Return array with all duplicate elements removed.

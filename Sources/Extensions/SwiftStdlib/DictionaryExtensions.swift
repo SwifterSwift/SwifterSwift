@@ -39,7 +39,8 @@ public extension Dictionary {
     }
 
     /// SwifterSwift: Remove a value for a random key from the dictionary.
-    @discardableResult mutating func removeValueForRandomKey() -> Value? {
+    @discardableResult
+    mutating func removeValueForRandomKey() -> Value? {
         guard let randomKey = keys.randomElement() else { return nil }
         return removeValue(forKey: randomKey)
     }

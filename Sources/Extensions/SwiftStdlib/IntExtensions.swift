@@ -99,13 +99,10 @@ public extension Int {
     /// - Returns: true or false depending on prime-ness
     func isPrime() -> Bool {
         // To improve speed on latter loop :)
-        if self == 2 {
-            return true
-        }
+        if self == 2 { return true }
 
-        guard self > 1 && self % 2 != 0 else {
-            return false
-        }
+        guard self > 1 && self % 2 != 0 else { return false }
+
         // Explanation: It is enough to check numbers until
         // the square root of that number. If you go up from N by one,
         // other multiplier will go 1 down to get similar result
@@ -124,7 +121,7 @@ public extension Int {
     /// - Returns: The roman numeral string.
     func romanNumeral() -> String? {
         // https://gist.github.com/kumo/a8e1cb1f4b7cff1548c7
-        guard self > 0 else { // there is no roman numerals for 0 or negative numbers
+        guard self > 0 else { // there is no roman numeral for 0 or negative numbers
             return nil
         }
         let romanValues = ["M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
