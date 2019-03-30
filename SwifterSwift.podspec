@@ -65,11 +65,6 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/Extensions/SpriteKit/*.swift'
   end
 
-  # Shared Subspec Extensions
-  s.subspec 'Shared' do |sp|
-    sp.source_files = 'Sources/Extensions/Shared/*.swift'
-  end
-
   # Dispatch Extensions
   s.subspec 'Dispatch' do |sp|
     sp.source_files = 'Sources/Extensions/Dispatch/*.swift'

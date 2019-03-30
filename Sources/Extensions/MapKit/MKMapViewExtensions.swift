@@ -18,7 +18,7 @@ public extension MKMapView {
     /// - Parameters:
     ///   - name: MKAnnotationView type.
     /// - Returns: optional MKAnnotationView object.
-    public func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type) -> T? {
+    func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type) -> T? {
         return dequeueReusableAnnotationView(withIdentifier: String(describing: name)) as? T
     }
 
@@ -26,7 +26,7 @@ public extension MKMapView {
     ///
     /// - Parameter name: MKAnnotationView type.
     @available(iOS 11.0, tvOS 11.0, macOS 10.13, *)
-    public func register<T: MKAnnotationView>(annotationViewWithClass name: T.Type) {
+    func register<T: MKAnnotationView>(annotationViewWithClass name: T.Type) {
         register(T.self, forAnnotationViewWithReuseIdentifier: String(describing: name))
     }
 
@@ -37,7 +37,7 @@ public extension MKMapView {
     ///   - annotation: annotation of the mapView.
     /// - Returns: optional MKAnnotationView object.
     @available(iOS 11.0, tvOS 11.0, macOS 10.13, *)
-    public func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type, for annotation: MKAnnotation) -> T? {
+    func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type, for annotation: MKAnnotation) -> T? {
         guard let annotationView = dequeueReusableAnnotationView(withIdentifier: String(describing: name), for: annotation) as? T else {
             fatalError("Couldn't find MKAnnotationView for \(String(describing: name))")
         }
