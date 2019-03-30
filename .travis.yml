@@ -32,7 +32,3 @@ script:
   - swiftlint lint
   - bundle exec danger --verbose
   - pod lib lint --skip-tests --allow-warnings
-
-branches:
-  only: 
-    - master

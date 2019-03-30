@@ -775,7 +775,7 @@ public extension String {
     ///		print(str) // prints "World"
     ///
     /// - Parameters:
-    ///   - i: string index the slicing should start from.
+    ///   - index: string index the slicing should start from.
     ///   - length: amount of characters to be sliced after given index.
     @discardableResult
     mutating func slice(from index: Int, length: Int) -> String {
