@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(UIKit) && !os(watchOS)
+#if canImport(UIKit) && os(iOS)
 import UIKit
 
 final class UIRefreshControlExtensionTests: XCTestCase {
