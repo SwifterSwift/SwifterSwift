@@ -52,7 +52,8 @@ prefix operator √
 ///
 /// - Parameter float: float value to find square root for
 /// - Returns: square root of given float.
-public prefix func √ (float: Float) -> Float { // swiftlint:disable:this identifier_name
+// swiftlint:disable:next identifier_name
+public prefix func √ (float: Float) -> Float {
     // http://nshipster.com/swift-operators/
     return sqrt(float)
 }

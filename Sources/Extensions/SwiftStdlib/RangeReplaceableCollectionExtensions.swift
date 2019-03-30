@@ -21,7 +21,8 @@ public extension RangeReplaceableCollection {
     ///   - count: The count of the collection.
     init(expression: @autoclosure () throws -> Element, count: Int) rethrows {
         self.init()
-        if count > 0 { //swiftlint:disable:this empty_count
+        //swiftlint:disable:next empty_count
+        if count > 0 {
             reserveCapacity(count)
             while self.count < count {
                 append(try expression())

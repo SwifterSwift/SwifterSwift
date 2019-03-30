@@ -204,7 +204,8 @@ public extension UIView {
     }
 
     /// SwifterSwift: x origin of view.
-    var x: CGFloat { // swiftlint:disable:this identifier_name
+    // swiftlint:disable:next identifier_name
+    var x: CGFloat {
         get {
             return frame.origin.x
         }
@@ -214,7 +215,8 @@ public extension UIView {
     }
 
     /// SwifterSwift: y origin of view.
-    var y: CGFloat { // swiftlint:disable:this identifier_name
+    // swiftlint:disable:next identifier_name
+    var y: CGFloat {
         get {
             return frame.origin.y
         }

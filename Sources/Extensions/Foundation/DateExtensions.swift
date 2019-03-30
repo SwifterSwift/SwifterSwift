@@ -529,7 +529,8 @@ public extension Date {
     ///   - component: component type.
     ///   - value: new value of compnenet to change.
     /// - Returns: original date after changing given component to given value.
-    func changing(_ component: Calendar.Component, value: Int) -> Date? { // swiftlint:disable:this cyclomatic_complexity function_body_length
+    // swiftlint:disable:next cyclomatic_complexity function_body_length
+    func changing(_ component: Calendar.Component, value: Int) -> Date? {
         switch component {
         case .nanosecond:
             let allowedRange = Calendar.current.range(of: .nanosecond, in: .second, for: self)!
@@ -637,7 +638,8 @@ public extension Date {
     ///
     /// - Parameter component: calendar component to get date at the end of.
     /// - Returns: date at the end of calendar component (if applicable).
-    func end(of component: Calendar.Component) -> Date? {  // swiftlint:disable:this function_body_length
+    // swiftlint:disable:next function_body_length
+    func end(of component: Calendar.Component) -> Date? {
         switch component {
         case .second:
             var date = adding(.second, value: 1)

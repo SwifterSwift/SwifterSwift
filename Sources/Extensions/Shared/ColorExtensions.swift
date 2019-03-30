@@ -41,7 +41,8 @@ public extension Color {
     ///     NSColor.green.rgbComponents.green -> 255
     ///     UIColor.blue.rgbComponents.blue -> 255
     ///
-    var rgbComponents: (red: Int, green: Int, blue: Int) { // swiftlint:disable:this large_tuple
+    // swiftlint:disable:next large_tuple
+    var rgbComponents: (red: Int, green: Int, blue: Int) {
         var components: [CGFloat] {
             let comps = cgColor.components!
             if comps.count == 4 { return comps }
@@ -59,7 +60,8 @@ public extension Color {
     ///     NSColor.green.rgbComponents.green -> 1.0
     ///     UIColor.blue.rgbComponents.blue -> 1.0
     ///
-    var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) { // swiftlint:disable:this large_tuple
+    // swiftlint:disable:next large_tuple
+    var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) {
         var components: [CGFloat] {
             let comps = cgColor.components!
             if comps.count == 4 { return comps }
@@ -72,7 +74,8 @@ public extension Color {
     }
 
     /// SwifterSwift: Get components of hue, saturation, and brightness, and alpha (read-only).
-    var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) { // swiftlint:disable:this large_tuple
+    // swiftlint:disable:next large_tuple
+    var hsbaComponents: (hue: CGFloat, saturation: CGFloat, brightness: CGFloat, alpha: CGFloat) {
         var hue: CGFloat = 0.0
         var saturation: CGFloat = 0.0
         var brightness: CGFloat = 0.0
@@ -451,7 +454,8 @@ public extension Color {
 public extension Color {
 
     /// SwifterSwift: Google Material design colors palette.
-    struct Material { // swiftlint:disable:this type_body_length
+    // swiftlint:disable:next type_body_length
+    struct Material {
         // https://material.google.com/style/color.html
 
         private init() {}

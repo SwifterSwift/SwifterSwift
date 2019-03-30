@@ -170,7 +170,8 @@ prefix operator √
 ///
 /// - Parameter int: integer value to find square root for
 /// - Returns: square root of given integer.
-public prefix func √ (int: Int) -> Double { // swiftlint:disable:this identifier_name
+// swiftlint:disable:next identifier_name
+public prefix func √ (int: Int) -> Double {
     // http://nshipster.com/swift-operators/
     return sqrt(Double(int))
 }
@@ -182,7 +183,8 @@ infix operator ±
 ///   - lhs: integer number.
 ///   - rhs: integer number.
 /// - Returns: tuple of plus-minus operation (example: 2 ± 3 -> (5, -1)).
-func ± (lhs: Int, rhs: Int) -> (Int, Int) { // swiftlint:disable:this identifier_name
+// swiftlint:disable:next identifier_name
+func ± (lhs: Int, rhs: Int) -> (Int, Int) {
     // http://nshipster.com/swift-operators/
     return (lhs + rhs, lhs - rhs)
 }
@@ -192,7 +194,8 @@ prefix operator ±
 ///
 /// - Parameter int: integer number
 /// - Returns: tuple of plus-minus operation (example: ± 2 -> (2, -2)).
-public prefix func ± (int: Int) -> (Int, Int) { // swiftlint:disable:this identifier_name
+// swiftlint:disable:next identifier_name
+public prefix func ± (int: Int) -> (Int, Int) {
     // http://nshipster.com/swift-operators/
     return 0 ± int
 }
