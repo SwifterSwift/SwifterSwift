@@ -6,7 +6,7 @@
 //  Copyright © 2019 SwifterSwift
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(macOS)
 import UIKit
 
 public extension UIApplication {
