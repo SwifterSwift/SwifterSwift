@@ -21,6 +21,7 @@ before_install:
 
 script:
   - set -o pipefail
+  - swiftlint version #cheking the version installed
   - swift --version
   - xcodebuild clean build test -project "$PROJECT" -scheme "$IOS_SCHEME" -destination "$IOS_DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
   - bash <(curl -s https://codecov.io/bash) -cF ios -J 'SwifterSwift'
