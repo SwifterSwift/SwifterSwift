@@ -950,12 +950,16 @@ final class DateExtensionsTests: XCTestCase { // swiftlint:disable:this type_bod
 
     func testYesterday() {
         let date = Date()
-        XCTAssertEqual(date.yesterday.timeIntervalSince(date), -86400.0)
+        let yesterday = date.yesterday
+        let yesterdayCheck = Calendar.current.date(byAdding: .day, value: -1, to: date)
+        XCTAssertEqual(yesterday, yesterdayCheck)
     }
 
     func testTomorrow() {
         let date = Date()
-        XCTAssertEqual(date.tomorrow.timeIntervalSince(date), 86400.0)
+        let tomorrow = date.tomorrow
+        let tomorrowCheck = Calendar.current.date(byAdding: .day, value: 1, to: date)
+        XCTAssertEqual(tomorrow, tomorrowCheck)
     }
 }
 

@@ -37,9 +37,9 @@ public extension Color {
 
     /// SwifterSwift: RGB components for a Color (between 0 and 255).
     ///
-    ///		UIColor.red.rgbComponents.red -> 255
-    ///		NSColor.green.rgbComponents.green -> 255
-    ///		UIColor.blue.rgbComponents.blue -> 255
+    ///     UIColor.red.rgbComponents.red -> 255
+    ///     NSColor.green.rgbComponents.green -> 255
+    ///     UIColor.blue.rgbComponents.blue -> 255
     ///
     var rgbComponents: (red: Int, green: Int, blue: Int) { // swiftlint:disable:this large_tuple
         var components: [CGFloat] {
@@ -55,9 +55,9 @@ public extension Color {
 
     /// SwifterSwift: RGB components for a Color represented as CGFloat numbers (between 0 and 1)
     ///
-    ///		UIColor.red.rgbComponents.red -> 1.0
-    ///		NSColor.green.rgbComponents.green -> 1.0
-    ///		UIColor.blue.rgbComponents.blue -> 1.0
+    ///     UIColor.red.rgbComponents.red -> 1.0
+    ///     NSColor.green.rgbComponents.green -> 1.0
+    ///     UIColor.blue.rgbComponents.blue -> 1.0
     ///
     var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) { // swiftlint:disable:this large_tuple
         var components: [CGFloat] {

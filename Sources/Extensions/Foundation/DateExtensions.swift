@@ -630,7 +630,6 @@ public extension Date {
         return Calendar.current.date(from: Calendar.current.dateComponents(components, from: self))
     }
 
-    // swiftlint:disable function_body_length
     /// SwifterSwift: Date at the end of calendar component.
     ///
     /// 	let date = Date() // "Jan 12, 2017, 7:27 PM"
