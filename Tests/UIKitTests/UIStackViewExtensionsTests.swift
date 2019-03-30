@@ -1,5 +1,5 @@
 //
-//  UIStackViewExtensionsTest.swift
+//  UIStackViewExtensionsTests.swift
 //  SwifterSwift
 //
 //  Created by Benjamin Meyer on 2/18/18.

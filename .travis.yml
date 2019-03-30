@@ -16,7 +16,7 @@ env:
 
 before_install:
   - bundle install
-  - gem install cocoapods 
+  - gem install cocoapods
   - brew update
   - brew outdated xctool || brew upgrade xctool
 script:

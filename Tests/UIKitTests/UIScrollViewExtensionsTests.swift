@@ -1,5 +1,5 @@
 //
-//  UIScrollViewExtensionsTest.swift
+//  UIScrollViewExtensionsTests.swift
 //  SwifterSwift
 //
 //  Created by camila oliveira on 22/04/18.

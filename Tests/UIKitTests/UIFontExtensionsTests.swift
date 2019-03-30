@@ -1,5 +1,5 @@
 //
-//  UIFontExtensionsTest.swift
+//  UIFontExtensionsTests.swift
 //  SwifterSwift
 //
 //  Created by Benjamin Meyer on 9/16/17.
