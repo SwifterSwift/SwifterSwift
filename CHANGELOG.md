@@ -99,6 +99,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### CI
 
 - Updated Travis to use the new [`xcode10.2`](https://docs.travis-ci.com/user/reference/osx/#xcode-102) osx_image.
+- Added [Fastlane](https://fastlane.tools/) to automate the releasing process for maintainers.
 
 ---
 
