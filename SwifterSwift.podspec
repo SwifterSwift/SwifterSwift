@@ -35,14 +35,12 @@ Pod::Spec.new do |s|
 
   # UIKit Extensions
   s.subspec 'UIKit' do |sp|
-    sp.dependency 'SwifterSwift/Shared'
-    sp.source_files  = 'Sources/Extensions/UIKit/*.swift'
+    sp.source_files  = 'Sources/Extensions/Shared/*.swift', 'Sources/Extensions/UIKit/*.swift'
   end
 
   # AppKit Extensions
   s.subspec 'AppKit' do |sp|
-    sp.dependency 'SwifterSwift/Shared'
-    sp.source_files  = 'Sources/Extensions/AppKit/*.swift'
+    sp.source_files  = 'Sources/Extensions/Shared/*.swift', 'Sources/Extensions/AppKit/*.swift'
   end
 
   # CoreGraphics Extensions
