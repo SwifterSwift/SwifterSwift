@@ -5,7 +5,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **FileManager**
-- Added `decodeJSON(from:as:using:)'` method to decode a Decodable object previously saved to a file. [#599](https://github.com/SwifterSwift/SwifterSwift/pull/599) by [AlexeiGitH](https://github.com/AlexeiGitH)
+- Added `decodeJSON(as:using:from:)'` method to decode a `Decodable` object previously saved to a file. [#599](https://github.com/SwifterSwift/SwifterSwift/pull/599) by [AlexeiGitH](https://github.com/AlexeiGitH)
   - `createTemporaryDirectory()` to create a directory for saving temporary files. [#615](https://github.com/SwifterSwift/SwifterSwift/pull/615) by [guykogus](https://github.com/guykogus)
 - **UILabel**
     - Added `init(text:style)` to create a `UILabel` with a text and font style. [#607](https://github.com/SwifterSwift/SwifterSwift/pull/607) by [marcocapano](https://github.com/marcocapano)
