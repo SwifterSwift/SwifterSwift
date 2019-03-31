@@ -6,7 +6,7 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(Foundation)
+#if canImport(Foundation) && !os(Linux)
 import Foundation
 
 #if canImport(UIKit)

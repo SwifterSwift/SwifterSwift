@@ -34,6 +34,8 @@ public extension Double {
 
 // MARK: - Operators
 
+#if canImport(Foundation)
+
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator ** : PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
@@ -47,6 +49,10 @@ func ** (lhs: Double, rhs: Double) -> Double {
     return pow(lhs, rhs)
 }
 
+#endif
+
+#if canImport(Foundation)
+
 prefix operator √
 /// SwifterSwift: Square root of double.
 ///
@@ -57,3 +63,5 @@ public prefix func √ (double: Double) -> Double {
     // http://nshipster.com/swift-operators/
     return sqrt(double)
 }
+
+#endif

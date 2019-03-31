@@ -222,7 +222,7 @@ public extension String {
     }
     #endif
 
-    #if canImport(Foundation)
+    #if canImport(Foundation) && !os(Linux)
     /// SwifterSwift: Check if string is a valid Swift number.
     ///
     /// Note:
@@ -1072,6 +1072,8 @@ public extension String {
 
 }
 
+#if !os(Linux)
+
 // MARK: - NSAttributedString
 public extension String {
 
@@ -1133,6 +1135,8 @@ public extension String {
 
 }
 
+#endif
+
 // MARK: - Operators
 public extension String {
 
@@ -1164,7 +1168,7 @@ public extension String {
 
 }
 
-#if canImport(Foundation)
+#if canImport(Foundation) && !os(Linux)
 
 // MARK: - NSString extensions
 public extension String {

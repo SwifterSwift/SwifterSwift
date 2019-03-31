@@ -34,6 +34,8 @@ public extension Float {
 
 // MARK: - Operators
 
+#if canImport(Foundation)
+
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator ** : PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
@@ -47,6 +49,10 @@ func ** (lhs: Float, rhs: Float) -> Float {
     return pow(lhs, rhs)
 }
 
+#endif
+
+#if canImport(Foundation)
+
 prefix operator √
 /// SwifterSwift: Square root of float.
 ///
@@ -57,3 +63,5 @@ public prefix func √ (float: Float) -> Float {
     // http://nshipster.com/swift-operators/
     return sqrt(float)
 }
+
+#endif
