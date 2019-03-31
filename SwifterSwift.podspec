@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   s.requires_arc = true
   s.source = { git: 'https://github.com/SwifterSwift/SwifterSwift.git', tag: s.version.to_s }
-  s.source_files = 'Sources/Extensions/*.swift'
+  s.source_files = 'Sources/Extensions/**/*.swift'
 
   # SwiftStdlib Extensions
   s.subspec 'SwiftStdlib' do |sp|
