@@ -6,8 +6,10 @@
 //  Copyright © 2019 SwifterSwift
 //
 
-#if canImport(UIKit) && !os(macOS)
+#if canImport(UIKit)
 import UIKit
+
+#if os(iOS) || os(tvOS)
 
 public extension UIApplication {
 
@@ -67,5 +69,7 @@ public extension UIApplication {
     }
 
 }
+
+#endif
 
 #endif
