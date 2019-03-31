@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<playground version='6.0' target-platform='ios' display-mode='raw' executeOnSourceChanges='false'>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
     <pages>
         <page name='00-ToC'/>
         <page name='01-SwiftStdlibExtensions'/>
         <page name='02-FoundationExtensions'/>
         <page name='03-UIKitExtensions'/>
         <page name='04-CoreGraphicsExtensions'/>
-        <page name='05-MiscExtensions'/>
-        <page name='06-TryYourself'/>
+        <page name='05-TryYourself'/>
     </pages>
 </playground>

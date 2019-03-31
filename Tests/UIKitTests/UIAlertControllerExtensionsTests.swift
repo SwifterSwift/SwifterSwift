@@ -90,4 +90,5 @@ final class UIAlertControllerExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

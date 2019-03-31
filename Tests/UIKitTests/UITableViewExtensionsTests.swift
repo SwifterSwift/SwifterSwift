@@ -194,4 +194,5 @@ extension UITableViewExtensionsTests: UITableViewDataSource {
     }
 
 }
+
 #endif

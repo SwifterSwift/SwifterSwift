@@ -102,7 +102,18 @@ final class OptionalExtensionsTests: XCTestCase {
 
         let string: String? = "hello World!"
         XCTAssertFalse(string.isNilOrEmpty)
+    }
 
+    func testNonEmpty() {
+        let nilCollection: [Int]? = nil
+        XCTAssertNil(nilCollection.nonEmpty)
+
+        let emptyCollection: [Int]? = []
+        XCTAssertNil(emptyCollection.nonEmpty)
+
+        let collection: [Int]? = [1, 2, 3]
+        XCTAssertNotNil(collection.nonEmpty)
+        XCTAssertEqual(collection.nonEmpty!, [1, 2, 3])
     }
 
 }

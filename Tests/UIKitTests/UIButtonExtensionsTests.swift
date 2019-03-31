@@ -159,4 +159,5 @@ final class UIButtonExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

@@ -30,4 +30,5 @@ final class UIBarButtonExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif

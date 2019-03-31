@@ -36,6 +36,7 @@ final class UILayoutPriorityExtensionsTests: XCTestCase {
         priority = 0
         XCTAssertEqual(UILayoutPriority(rawValue: 0), priority)
     }
+
 }
 
 #endif

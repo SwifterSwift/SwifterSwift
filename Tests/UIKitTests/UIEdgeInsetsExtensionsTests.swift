@@ -188,5 +188,7 @@ final class UIEdgeInsetsExtensionsTests: XCTestCase {
         let negativeExpected = UIEdgeInsets(top: -6, left: -8, bottom: -10, right: -12)
         XCTAssertEqual(negativeInsets, negativeExpected)
     }
+
 }
+
 #endif

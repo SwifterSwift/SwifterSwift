@@ -1,0 +1,89 @@
+fastlane_require 'dotenv'
+default_platform(:ios)
+
+platform :ios do
+
+  desc 'Validate the project is ready for releasing'
+  lane :lint do
+    swiftlint
+    pod_lib_lint(
+      allow_warnings: true
+    )
+  end
+
+  desc 'Release a new version with a `patch` bump_type'
+  lane :patch do
+    release('patch')
+  end
+
+  desc 'Release a new version with a `minor` bump_type'
+  lane :minor do
+    release('minor')
+  end
+
+  desc 'Release a new version with a `major` bump_type'
+  lane :major do
+    release('major')
+  end
+
+  def release(type)
+    branch = ENV['RELEASE_BRANCH']
+    ensure_git_branch(
+      branch: branch
+    )
+    new_changes = sh("git log #{last_git_tag}..HEAD | wc -l").strip!
+    if new_changes == '0'
+      UI.user_error!("No changes since last release: #{last_git_tag}, please add new features and try again!")
+    end
+
+    lint
+
+    podspec = ENV['PODSPEC']
+    sources_path = ENV['SOURCES_PATH']
+
+    version = version_bump_podspec(
+      path: podspec,
+      bump_type: type
+    )
+
+    increment_version_number(
+      version_number: version
+    )
+
+    git_add(
+      path: [podspec, sources_path],
+      shell_escape: false
+    )
+
+    git_commit(
+      path: [podspec, sources_path],
+      message: "release: v#{version}"
+    )
+
+    add_git_tag(
+      tag: "#{version}"
+    )
+
+    push_to_git_remote
+
+    pod_push(
+      path: podspec,
+      allow_warnings: true
+    )
+
+    author = last_git_commit[:author]
+    alert("*#{ENV['NAME']} v#{version} is here 🎉*", { :'Download URL' => ENV['REPO_URL'], :Author => author })
+  end
+
+  def alert(message, payload)
+    payload['Date'] = Time.new.to_s
+    slack(
+      slack_url: ENV['SLACK_URL'],
+      message: message,
+      channel: ENV['SLACK_CHANNEL'],
+      payload: payload,
+      default_payloads: []
+    )
+  end
+
+end

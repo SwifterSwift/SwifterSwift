@@ -9,8 +9,7 @@
  * [Foundation extensions](02-FoundationExtensions)
  * [UIKit extensions](03-UIKitExtensions)
  * [CoreGraphics extensions](04-CoreGraphicsExtensions)
- * [Misc. extensions](05-MiscExtensions)
- * [Try yourself](06-TryYourself)
+ * [Try yourself](05-TryYourself)
 
  **Make sure you build the SwifterSwift project before trying to run the playgrounds.**
  

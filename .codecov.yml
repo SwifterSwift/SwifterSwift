@@ -9,6 +9,6 @@ coverage:
     changes: true
 
   ignore:
-    - "Sources/Extensions/Deprecated/*"
-    - "Sources/Extensions/*/Deprecated/*"
+    - "Sources/SwifterSwift/Deprecated/*"
+    - "Sources/SwifterSwift/*/Deprecated/*"
     - "Tests/**/*"

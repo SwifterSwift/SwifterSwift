@@ -44,4 +44,5 @@ final class UILabelExtensionsTests: XCTestCase {
     }
 
 }
+
 #endif
