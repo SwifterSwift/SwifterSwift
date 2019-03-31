@@ -82,7 +82,7 @@ public extension Int {
         return digits
     }
 
-    #if canImport(Foundation)
+    #if canImport(Foundation) && !os(Linux)
     /// SwifterSwift: Number of digits of integer value.
     var digitsCount: Int {
         guard self != 0 else { return 1 }
@@ -96,7 +96,7 @@ public extension Int {
 // MARK: - Methods
 public extension Int {
 
-    #if canImport(Foundation)
+    #if canImport(Foundation) && !os(Linux)
     /// SwifterSwift: check if given integer prime or not.
     /// Warning: Using big numbers can be computationally expensive!
     /// - Returns: true or false depending on prime-ness
