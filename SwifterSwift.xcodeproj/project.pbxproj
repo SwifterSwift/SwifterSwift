@@ -784,14 +784,14 @@
 		07898B8D1F278E6300558C97 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				07898B941F27904200558C97 /* Extensions */,
+				07898B941F27904200558C97 /* SwifterSwift */,
 				07898B8E1F278E6300558C97 /* Info.plist */,
 				07898B8F1F278E6300558C97 /* SwifterSwift.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
 		};
-		07898B941F27904200558C97 /* Extensions */ = {
+		07898B941F27904200558C97 /* SwifterSwift */ = {
 			isa = PBXGroup;
 			children = (
 				664CB981217243BA00FC87B4 /* Dispatch */,
@@ -805,7 +805,7 @@
 				07D8960C1F5ED84400FC894D /* CoreLocation */,
 				07B7F15C1F5EB41600E6F910 /* AppKit */,
 			);
-			path = Extensions;
+			path = SwifterSwift;
 			sourceTree = "<group>";
 		};
 		07B7F15C1F5EB41600E6F910 /* AppKit */ = {

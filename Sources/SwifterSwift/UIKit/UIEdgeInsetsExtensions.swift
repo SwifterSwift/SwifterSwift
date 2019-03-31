@@ -13,14 +13,14 @@ extension UIEdgeInsets {
     /// SwifterSwift: Return the vertical insets. The vertical insets is composed by top + bottom.
     ///
     var vertical: CGFloat {
-        // Source: https://github.com/MessageKit/MessageKit/blob/master/Sources/Extensions/UIEdgeInsets%2BExtensions.swift
+        // Source: https://github.com/MessageKit/MessageKit/blob/master/Sources/SwifterSwift/UIEdgeInsets%2BExtensions.swift
         return top + bottom
     }
 
     /// SwifterSwift: Return the horizontal insets. The horizontal insets is composed by  left + right.
     ///
     var horizontal: CGFloat {
-        // Source: https://github.com/MessageKit/MessageKit/blob/master/Sources/Extensions/UIEdgeInsets%2BExtensions.swift
+        // Source: https://github.com/MessageKit/MessageKit/blob/master/Sources/SwifterSwift/UIEdgeInsets%2BExtensions.swift
         return left + right
     }
 

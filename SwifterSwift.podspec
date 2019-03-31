@@ -21,51 +21,51 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   s.requires_arc = true
   s.source = { git: 'https://github.com/SwifterSwift/SwifterSwift.git', tag: s.version.to_s }
-  s.source_files = 'Sources/Extensions/**/*.swift'
+  s.source_files = 'Sources/SwifterSwift/**/*.swift'
 
   # SwiftStdlib Extensions
   s.subspec 'SwiftStdlib' do |sp|
-    sp.source_files  = 'Sources/Extensions/SwiftStdlib/*.swift'
+    sp.source_files  = 'Sources/SwifterSwift/SwiftStdlib/*.swift'
   end
 
   # Foundation Extensions
   s.subspec 'Foundation' do |sp|
-    sp.source_files  = 'Sources/Extensions/Foundation/*.swift'
+    sp.source_files  = 'Sources/SwifterSwift/Foundation/*.swift'
   end
 
   # UIKit Extensions
   s.subspec 'UIKit' do |sp|
-    sp.source_files  = 'Sources/Extensions/Shared/*.swift', 'Sources/Extensions/UIKit/*.swift'
+    sp.source_files  = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/UIKit/*.swift'
   end
 
   # AppKit Extensions
   s.subspec 'AppKit' do |sp|
-    sp.source_files  = 'Sources/Extensions/Shared/*.swift', 'Sources/Extensions/AppKit/*.swift'
+    sp.source_files  = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/AppKit/*.swift'
   end
 
   # CoreGraphics Extensions
   s.subspec 'CoreGraphics' do |sp|
-    sp.source_files  = 'Sources/Extensions/CoreGraphics/*.swift'
+    sp.source_files  = 'Sources/SwifterSwift/CoreGraphics/*.swift'
   end
 
   # CoreLocation Extensions
   s.subspec 'CoreLocation' do |sp|
-    sp.source_files  = 'Sources/Extensions/CoreLocation/*.swift'
+    sp.source_files  = 'Sources/SwifterSwift/CoreLocation/*.swift'
   end
 
   # MapKit Extensions
   s.subspec 'MapKit' do |sp|
-    sp.source_files = 'Sources/Extensions/MapKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwift/MapKit/*.swift'
   end
 
   # SpriteKit Extensions
   s.subspec 'SpriteKit' do |sp|
-    sp.source_files = 'Sources/Extensions/SpriteKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwift/SpriteKit/*.swift'
   end
 
   # Dispatch Extensions
   s.subspec 'Dispatch' do |sp|
-    sp.source_files = 'Sources/Extensions/Dispatch/*.swift'
+    sp.source_files = 'Sources/SwifterSwift/Dispatch/*.swift'
   end
 
 end

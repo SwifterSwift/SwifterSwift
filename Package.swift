@@ -6,14 +6,10 @@ import PackageDescription
 let package = Package(
     name: "SwifterSwift",
     products: [
-        .library(
-            name: "SwifterSwift",
-            targets: ["Extensions"])
+        .library(name: "SwifterSwift", targets: ["SwifterSwift"])
     ],
     dependencies: [],
     targets: [
-        .target(
-            name: "SwifterSwift",
-            dependencies: [])
+        .target(name: "SwifterSwift", dependencies: [])
     ]
 )
