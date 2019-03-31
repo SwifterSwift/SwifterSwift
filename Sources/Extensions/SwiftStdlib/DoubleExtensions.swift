@@ -34,7 +34,7 @@ public extension Double {
 
 // MARK: - Operators
 
-#if canImport(Foundation)
+#if canImport(Foundation) && !os(Linux)
 
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator ** : PowerPrecedence
@@ -51,7 +51,7 @@ func ** (lhs: Double, rhs: Double) -> Double {
 
 #endif
 
-#if canImport(Foundation)
+#if canImport(Foundation) && !os(Linux)
 
 prefix operator √
 /// SwifterSwift: Square root of double.

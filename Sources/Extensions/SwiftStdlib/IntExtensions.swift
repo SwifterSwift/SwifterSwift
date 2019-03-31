@@ -147,7 +147,7 @@ public extension Int {
         return romanValue
     }
 
-    #if canImport(Foundation)
+    #if canImport(Foundation) && !os(Linux)
     /// SwifterSwift: Rounds to the closest multiple of n
     func roundToNearest(_ number: Int) -> Int {
         return number == 0 ? self : Int(round(Double(self) / Double(number))) * number
@@ -158,7 +158,7 @@ public extension Int {
 
 // MARK: - Operators
 
-#if canImport(Foundation)
+#if canImport(Foundation) && !os(Linux)
 
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator ** : PowerPrecedence
@@ -175,7 +175,7 @@ func ** (lhs: Int, rhs: Int) -> Double {
 
 #endif
 
-#if canImport(Foundation)
+#if canImport(Foundation) && !os(Linux)
 
 prefix operator √
 /// SwifterSwift: Square root of integer.
