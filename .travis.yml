@@ -33,6 +33,6 @@ script:
   - bundle exec danger --verbose
   - bundle exec pod lib lint --skip-tests --allow-warnings
 
-  branches:
-    only:
-      - master
+branches:
+  only:
+    - master
