@@ -21,6 +21,7 @@ Here you can find the general guidelines for maintaining the Changelog (or addin
 - Entries under each category should be grouped by the type they extend.
 
 ## Types of changes
+
 - **Added** for new features.
 - **Changed** for changes in existing functionality.
 - **Deprecated** for soon-to-be removed features.
@@ -30,7 +31,7 @@ Here you can find the general guidelines for maintaining the Changelog (or addin
 
 ---
 
-## Example:
+## Example
 
 # [v4.1.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/4.1.0)
 

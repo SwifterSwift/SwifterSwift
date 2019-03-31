@@ -6,6 +6,8 @@
 //  Copyright © 2017 SwifterSwift
 //
 
+#if !os(Linux)
+
 #if canImport(UIKit)
 import UIKit
 /// Color
@@ -21,8 +23,6 @@ public typealias Color = NSColor
 #if !os(watchOS)
 import CoreImage
 #endif
-
-#if !os(Linux)
 
 // MARK: - Properties
 public extension Color {

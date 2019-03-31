@@ -455,7 +455,8 @@ public extension UIView {
     }
 
     /// SwifterSwift: Anchor all sides of the view into it's superview.
-    @available(iOS 9, *) func fillToSuperview() {
+    @available(iOS 9, *)
+    func fillToSuperview() {
         // https://videos.letsbuildthatapp.com/
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {

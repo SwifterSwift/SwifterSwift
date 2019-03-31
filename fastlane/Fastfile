@@ -72,7 +72,6 @@ platform :ios do
     )
 
     author = last_git_commit[:author]
-    puts author
     alert("*#{ENV['NAME']} v#{version} is here 🎉*", { :'Download URL' => ENV['REPO_URL'], :Author => author })
   end
 
