@@ -90,8 +90,6 @@ let package = Package(
     ]
 )
 </code></pre>
-
-<p>Note that the <a href="https://swift.org/package-manager">Swift Package Manager</a> is still in early design and development, for more information checkout its <a href="https://github.com/apple/swift-package-manager">GitHub Page</a></p>
 </details>
 
 

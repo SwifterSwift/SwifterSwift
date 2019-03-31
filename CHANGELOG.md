@@ -25,6 +25,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Swift 5.0 Support**
   - Updated the project to Xcode 10.2
   - Removed unnecessary `public` statements.
+- **Linux Support**
+  - Support for Linux running Swift 5.0 using Swift Package Manager.
 - **UIApplication**:
   - Added `inferredEnvironment` to get current inferred app environment. by [omaralbeik](https://github.com/omaralbeik)
   - Added `displayName` to get application name. by [omaralbeik](https://github.com/omaralbeik)
