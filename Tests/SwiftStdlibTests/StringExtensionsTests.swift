@@ -772,6 +772,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(num.spelledOutString(locale: Locale(identifier: "en_US")), "twelve point three two")
     }
 
+    @available(iOS 9.0, macOS 10.11, *)
     func testIntOrdinal() {
         let num = 12
         XCTAssertNotNil(num.ordinalString())

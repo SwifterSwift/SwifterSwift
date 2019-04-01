@@ -10,6 +10,7 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .target(name: "SwifterSwift", dependencies: [])
+        .target(name: "SwifterSwift", dependencies: []),
+        .testTarget(name: "SwifterSwiftTests", dependencies: ["SwifterSwift"], path: "Tests")
     ]
 )
