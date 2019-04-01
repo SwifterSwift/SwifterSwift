@@ -32,10 +32,9 @@ jobs:
         - xcodebuild clean build -project "$PROJECT" -scheme "$WATCHOS_SCHEME" -destination "$WATCHOS_DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-watchos.json" xcpretty -f `xcpretty-json-formatter`
         - bundle exec danger --verbose
         - bundle exec pod lib lint --skip-tests --allow-warnings
-    - &linux
+    - name: Linux 
       env: SWIFT_VERSION=5.0
       os: linux
-      name: Linux 
       language: generic
       dist: trusty
       sudo: false
