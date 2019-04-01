@@ -6,17 +6,15 @@ sudo: required
 dist: trusty
 
 env:
-  - DARWIN
   - LINUX
 
 matrix:
     exclude:
       - os: osx
         env: LINUX
-      - os: linux
-        env: DARWIN
     include:
       - osx_image: xcode10.2
+        name: DARWIN
         os: osx
         env:
           - PROJECT='SwifterSwift.xcodeproj'
