@@ -39,7 +39,7 @@ jobs:
       dist: trusty
       sudo: false
       install: eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
-      script: swift build --parallel
+      script: swift build
 
 branches:
   only:
