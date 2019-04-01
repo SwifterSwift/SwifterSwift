@@ -2,6 +2,6 @@ disabled_rules:
 - line_length
 - file_length
 
-identifier_name:
-  excluded:
-    - XCTestManifests.swift
+excluded:
+  - Tests/*/XCTestManifests.swift
+  - Tests/XCTestManifests.swift
