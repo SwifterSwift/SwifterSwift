@@ -11,6 +11,7 @@ let package = Package(
     dependencies: [],
     targets: [
         .target(name: "SwifterSwift", dependencies: []),
-        .testTarget(name: "SwifterSwiftTests", dependencies: ["SwifterSwift"], path: "Tests")
+        .testTarget(name: "SwifterSwiftStdlibTests", dependencies: ["SwifterSwift"], path: "Tests/SwiftStdlibTests"),
+        .testTarget(name: "SwifterSwiftFoundationTests", dependencies: ["SwifterSwift"], path: "Tests/FoundationTests")
     ]
 )
