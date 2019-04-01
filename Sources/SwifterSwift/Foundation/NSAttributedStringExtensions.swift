@@ -6,7 +6,7 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-#if canImport(Foundation) && !os(Linux)
+#if canImport(Foundation)
 import Foundation
 
 #if canImport(UIKit)
@@ -75,7 +75,9 @@ public extension NSAttributedString {
     func colored(with color: NSColor) -> NSAttributedString {
         return applying(attributes: [.foregroundColor: color])
     }
-    #else
+    #endif
+
+    #if canImport(UIKit)
     /// SwifterSwift: Add color to NSAttributedString.
     ///
     /// - Parameter color: text color.

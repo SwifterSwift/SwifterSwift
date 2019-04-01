@@ -14,7 +14,7 @@ import Foundation
 
 final class NSAttributedStringExtensionsTests: XCTestCase {
 
-    #if !os(macOS) && !os(tvOS)
+    #if os(iOS)
     func testBolded() {
         let string = NSAttributedString(string: "Bolded")
         let out = string.bolded
@@ -29,7 +29,6 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
     #endif
 
-    #if !os(macOS)
     func testUnderlined() {
         let string = NSAttributedString(string: "Underlined")
         let out = string.underlined
@@ -41,9 +40,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
         XCTAssertEqual(filteredAttributes.count, 1)
     }
-    #endif
 
-    #if !os(macOS) && !os(tvOS)
+    #if os(iOS)
     func testItalicized() {
         let string = NSAttributedString(string: "Italicized")
         let out = string.italicized
@@ -69,7 +67,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
     #endif
 
-    #if !os(macOS)
+    #if canImport(UIKit)
     // MARK: - Methods
     func testColored() {
         let string = NSAttributedString(string: "Colored")
@@ -89,7 +87,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
     #endif
 
-    #if !os(macOS) && !os(tvOS)
+    #if canImport(UIKit)
     func testApplyingToRegex() {
         let email = "steve.jobs@apple.com"
         let testString = NSAttributedString(string: "Your email is \(email)!").bolded
