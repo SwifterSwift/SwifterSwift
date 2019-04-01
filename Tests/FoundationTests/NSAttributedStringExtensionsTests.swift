@@ -29,6 +29,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
     #endif
 
+    #if !os(Linux)
     func testUnderlined() {
         let string = NSAttributedString(string: "Underlined")
         let out = string.underlined
@@ -40,6 +41,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
         XCTAssertEqual(filteredAttributes.count, 1)
     }
+    #endif
 
     #if os(iOS)
     func testItalicized() {
@@ -54,7 +56,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
     #endif
 
-    #if !os(macOS)
+    #if !os(macOS) && !os(Linux)
     func testStruckthrough() {
         let string = NSAttributedString(string: "Struck through")
         let out = string.struckthrough
