@@ -47,3 +47,6 @@ docs/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/test_output
+
+## Swift Linux Test Manifest
+**/XCTestManifests.swift
