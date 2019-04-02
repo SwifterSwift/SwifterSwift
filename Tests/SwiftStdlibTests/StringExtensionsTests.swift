@@ -285,7 +285,9 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testLines() {
+        #if !os(Linux)
         XCTAssertEqual("Hello\ntest".lines(), ["Hello", "test"])
+        #endif
     }
 
     func testLocalized() {
