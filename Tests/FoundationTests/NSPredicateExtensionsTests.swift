@@ -18,9 +18,14 @@ final class NSPredicateExtensionsTests: XCTestCase {
         let predicate = NSPredicate(format: "a < 7")
         let notPredicate = predicate.not
         XCTAssert(notPredicate.compoundPredicateType == .not)
+
+        #if os(Linux)
+        XCTAssertEqual(notPredicate.subpredicates, [predicate])
+        #else
         if let subpredicates = notPredicate.subpredicates as? [NSPredicate] {
             XCTAssertEqual(subpredicates, [predicate])
         }
+        #endif
     }
 
     func testAndPredicate() {

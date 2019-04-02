@@ -1172,7 +1172,7 @@ public extension String {
 
 }
 
-#if canImport(Foundation) && !os(Linux)
+#if canImport(Foundation)
 
 // MARK: - NSString extensions
 public extension String {

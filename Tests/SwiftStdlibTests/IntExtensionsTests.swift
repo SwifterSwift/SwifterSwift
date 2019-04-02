@@ -37,9 +37,11 @@ final class IntExtensionsTests: XCTestCase {
         XCTAssertEqual(2.float, Float(2))
     }
 
+    #if canImport(CoreGraphics)
     func testCGFloat() {
         XCTAssertEqual(1.cgFloat, CGFloat(1))
     }
+    #endif
 
     func testKFormatted() {
         XCTAssertEqual(10.kFormatted, "0k")

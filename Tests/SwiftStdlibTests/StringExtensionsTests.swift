@@ -650,6 +650,7 @@ final class StringExtensionsTests: XCTestCase {
     }
     #endif
 
+    #if !os(Linux)
     func testUnderline() {
         let underlinedString = "hello".underline
         // swiftlint:disable:next legacy_constructor
@@ -673,6 +674,7 @@ final class StringExtensionsTests: XCTestCase {
         }
         XCTAssertEqual(style, NSNumber(value: NSUnderlineStyle.single.rawValue as Int))
     }
+    #endif
 
     #if os(iOS)
     func testItalic() {
@@ -700,7 +702,7 @@ final class StringExtensionsTests: XCTestCase {
             return
         }
         XCTAssertEqual(color, NSColor.orange)
-        #else
+        #elseif canImport(UIKit)
         guard let color = attrs[NSAttributedString.Key.foregroundColor] as? UIColor else {
             XCTFail("Unable to find color in testColored")
             return
