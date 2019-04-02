@@ -28,9 +28,14 @@ final class NSPredicateExtensionsTests: XCTestCase {
         let predicate2 = NSPredicate(format: "a > 3")
         let andPredicate = predicate1.and(predicate2)
         XCTAssert(andPredicate.compoundPredicateType == .and)
+
+        #if os(Linux)
+        XCTAssertEqual(andPredicate.subpredicates, [predicate1, predicate2])
+        #else
         if let subpredicates = andPredicate.subpredicates as? [NSPredicate] {
             XCTAssertEqual(subpredicates, [predicate1, predicate2])
         }
+        #endif
     }
 
     func testOrPredicate() {
@@ -38,9 +43,14 @@ final class NSPredicateExtensionsTests: XCTestCase {
         let predicate2 = NSPredicate(format: "a > 3")
         let orPredicate = predicate1.or(predicate2)
         XCTAssert(orPredicate.compoundPredicateType == .or)
+
+        #if os(Linux)
+        XCTAssertEqual(orPredicate.subpredicates, [predicate1, predicate2])
+        #else
         if let subpredicates = orPredicate.subpredicates as? [NSPredicate] {
             XCTAssertEqual(subpredicates, [predicate1, predicate2])
         }
+        #endif
     }
 
     func testOperatorNot() {
@@ -50,6 +60,13 @@ final class NSPredicateExtensionsTests: XCTestCase {
         if let subpredicates = notPredicate.subpredicates as? [NSPredicate] {
             XCTAssertEqual(subpredicates, [predicate])
         }
+        #if os(Linux)
+        XCTAssertEqual(notPredicate.subpredicates, [predicate])
+        #else
+        if let subpredicates = notPredicate.subpredicates as? [NSPredicate] {
+            XCTAssertEqual(subpredicates, [predicate])
+        }
+        #endif
     }
 
     func testOperatorAndPredicate() {
@@ -57,9 +74,14 @@ final class NSPredicateExtensionsTests: XCTestCase {
         let predicate2 = NSPredicate(format: "a > 3")
         let andPredicate = predicate1 + predicate2
         XCTAssert(andPredicate.compoundPredicateType == .and)
+
+        #if os(Linux)
+        XCTAssertEqual(andPredicate.subpredicates, [predicate1, predicate2])
+        #else
         if let subpredicates = andPredicate.subpredicates as? [NSPredicate] {
             XCTAssertEqual(subpredicates, [predicate1, predicate2])
         }
+        #endif
     }
 
     func testOperatorOrPredicate() {
@@ -67,9 +89,14 @@ final class NSPredicateExtensionsTests: XCTestCase {
         let predicate2 = NSPredicate(format: "a > 3")
         let orPredicate = predicate1 | predicate2
         XCTAssert(orPredicate.compoundPredicateType == .or)
+
+        #if os(Linux)
+        XCTAssertEqual(orPredicate.subpredicates, [predicate1, predicate2])
+        #else
         if let subpredicates = orPredicate.subpredicates as? [NSPredicate] {
             XCTAssertEqual(subpredicates, [predicate1, predicate2])
         }
+        #endif
     }
 
     func testOperatorSubPredicate() {
