@@ -43,18 +43,21 @@ public extension NSAttributedString {
     var struckthrough: NSAttributedString {
         return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
     }
-
+    
+    #if !os(Linux)
     /// SwifterSwift: Dictionary of the attributes applied across the whole string
     var attributes: [NSAttributedString.Key: Any] {
         guard self.length > 0 else { return [:] }
         return attributes(at: 0, effectiveRange: nil)
     }
+    #endif
 
 }
 
 // MARK: - Methods
 public extension NSAttributedString {
-
+    
+    #if !os(Linux)
     /// SwifterSwift: Applies given attributes to the new instance of NSAttributedString initialized with self object
     ///
     /// - Parameter attributes: Dictionary of attributes
@@ -66,7 +69,8 @@ public extension NSAttributedString {
 
         return copy
     }
-
+    #endif
+    
     #if os(macOS)
     /// SwifterSwift: Add color to NSAttributedString.
     ///
@@ -87,6 +91,7 @@ public extension NSAttributedString {
     }
     #endif
 
+    #if !os(Linux)
     /// SwifterSwift: Apply attributes to substrings matching a regular expression
     ///
     /// - Parameters:
@@ -105,7 +110,7 @@ public extension NSAttributedString {
 
         return result
     }
-
+    
     /// SwifterSwift: Apply attributes to occurrences of a given string
     ///
     /// - Parameters:
@@ -117,6 +122,7 @@ public extension NSAttributedString {
 
         return applying(attributes: attributes, toRangesMatching: pattern)
     }
+    #endif
 
 }
 
