@@ -158,7 +158,6 @@ public extension Int {
 
 // MARK: - Operators
 
-
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator ** : PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
@@ -171,7 +170,6 @@ func ** (lhs: Int, rhs: Int) -> Double {
     // http://nshipster.com/swift-operators/
     return pow(Double(lhs), Double(rhs))
 }
-
 
 prefix operator √
 /// SwifterSwift: Square root of integer.

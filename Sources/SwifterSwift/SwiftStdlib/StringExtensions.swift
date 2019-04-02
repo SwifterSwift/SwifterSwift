@@ -222,7 +222,7 @@ public extension String {
     }
     #endif
 
-    #if canImport(Foundation) && !os(Linux)
+    #if canImport(Foundation)
     /// SwifterSwift: Check if string is a valid Swift number.
     ///
     /// Note:

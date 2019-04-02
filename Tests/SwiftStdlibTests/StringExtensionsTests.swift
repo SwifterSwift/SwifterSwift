@@ -272,6 +272,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNil("8s".double())
     }
 
+    #if !os(Linux)
     func testCgFloat() {
         XCTAssertNotNil("8".cgFloat())
         XCTAssertEqual("8".cgFloat(), 8)
@@ -281,6 +282,7 @@ final class StringExtensionsTests: XCTestCase {
 
         XCTAssertNil("8s".cgFloat())
     }
+    #endif
 
     func testLines() {
         XCTAssertEqual("Hello\ntest".lines(), ["Hello", "test"])
@@ -625,7 +627,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(String(randomOfLength: 0), "")
     }
 
-    #if !os(tvOS) && !os(watchOS)
+    #if canImport(Foundation) && os(macOS)
     func testBold() {
         let boldString = "hello".bold
         // swiftlint:disable:next legacy_constructor
