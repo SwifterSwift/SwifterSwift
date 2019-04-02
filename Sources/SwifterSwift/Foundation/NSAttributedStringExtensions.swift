@@ -27,10 +27,12 @@ public extension NSAttributedString {
     }
     #endif
 
+    #if !os(Linux)
     /// SwifterSwift: Underlined string.
     var underlined: NSAttributedString {
         return applying(attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
+    #endif
 
     #if os(iOS)
     /// SwifterSwift: Italicized string.
@@ -39,10 +41,12 @@ public extension NSAttributedString {
     }
     #endif
 
+    #if !os(Linux)
     /// SwifterSwift: Struckthrough string.
     var struckthrough: NSAttributedString {
         return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
     }
+    #endif
 
     #if !os(Linux)
     /// SwifterSwift: Dictionary of the attributes applied across the whole string
