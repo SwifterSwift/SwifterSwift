@@ -89,7 +89,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
     #endif
 
-    #if canImport(UIKit)
+    #if canImport(UIKit) && os(iOS)
     func testApplyingToRegex() {
         let email = "steve.jobs@apple.com"
         let testString = NSAttributedString(string: "Your email is \(email)!").bolded
