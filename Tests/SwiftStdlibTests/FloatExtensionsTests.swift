@@ -22,11 +22,12 @@ final class FloatExtensionsTests: XCTestCase {
         XCTAssertEqual(Float(2).double, Double(2))
         XCTAssertEqual(Float(4.3).double, Double(4.3), accuracy: 0.00001)
     }
-    #if canImport(CoreGraphics)
+
     func testCGFloat() {
+        #if canImport(CoreGraphics)
         XCTAssertEqual(Float(4.3).cgFloat, CGFloat(4.3), accuracy: 0.00001)
+        #endif
     }
-    #endif
 
     func testOperators() {
         XCTAssertEqual((Float(5.0) ** Float(2.0)), Float(25.0))

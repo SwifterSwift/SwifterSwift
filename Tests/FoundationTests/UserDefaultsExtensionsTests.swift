@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(Foundation) 
+#if canImport(Foundation)
 import Foundation
 
 final class UserDefaultsExtensionsTests: XCTestCase {
