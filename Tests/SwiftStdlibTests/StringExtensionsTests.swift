@@ -690,26 +690,21 @@ final class StringExtensionsTests: XCTestCase {
     }
     #endif
 
+    #if canImport(Cocoa)
     func testColored() {
         let coloredString = "hello".colored(with: .orange)
         // swiftlint:disable:next legacy_constructor
         let attrs = coloredString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, coloredString.length))
         XCTAssertNotNil(attrs[NSAttributedString.Key.foregroundColor])
 
-        #if os(macOS)
         guard let color = attrs[.foregroundColor] as? NSColor else {
             XCTFail("Unable to find color in testColored")
             return
         }
         XCTAssertEqual(color, NSColor.orange)
-        #elseif canImport(UIKit)
-        guard let color = attrs[NSAttributedString.Key.foregroundColor] as? UIColor else {
-            XCTFail("Unable to find color in testColored")
-            return
-        }
-        XCTAssertEqual(color, UIColor.orange)
-        #endif
+
     }
+    #endif
 
     func testNSString() {
         XCTAssertEqual("Hello".nsString, NSString(string: "Hello"))
