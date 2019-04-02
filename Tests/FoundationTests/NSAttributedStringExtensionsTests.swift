@@ -42,7 +42,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual(filteredAttributes.count, 1)
         #endif
     }
-    
+
     func testItalicized() {
         #if os(iOS)
         let string = NSAttributedString(string: "Italicized")
@@ -68,8 +68,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual(filteredAttributes.count, 1)
         #endif
     }
-    
-    
+
     // MARK: - Methods
     func testColored() {
         #if canImport(UIKit)
@@ -207,9 +206,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual(filteredAttributes.count, 1)
         #endif
     }
-    
 
-    
     func testAttributes() {
         #if os(iOS)
         let emptyString = NSAttributedString(string: "").bolded.struckthrough.underlined.colored(with: UIColor.blue)
@@ -239,7 +236,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual(filteredAttributes.count, 4)
         #endif
     }
-    
+
     // MARK: - Operators
     func testOperators() {
         #if os(iOS)
