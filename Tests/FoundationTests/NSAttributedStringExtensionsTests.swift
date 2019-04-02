@@ -172,7 +172,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
     #endif
 
-    #if !os(macOS) && !os(tvOS)
+    #if os(iOS)
     func testAppending() {
         var string = NSAttributedString(string: "Test").italicized.underlined.struckthrough
         string += NSAttributedString(string: " Appending").bolded
@@ -206,7 +206,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
     #endif
 
-    #if !os(macOS) && !os(tvOS)
+    #if os(iOS)
     func testAttributes() {
         let emptyString = NSAttributedString(string: "").bolded.struckthrough.underlined.colored(with: UIColor.blue)
         let emptyStringAttributes = emptyString.attributes
@@ -237,7 +237,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
     #endif
 
-    #if !os(macOS) && !os(tvOS)
+    #if os(iOS)
     // MARK: - Operators
     func testOperators() {
         var string1 = NSAttributedString(string: "Test").italicized.underlined.struckthrough

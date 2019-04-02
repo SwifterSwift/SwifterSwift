@@ -91,7 +91,7 @@ final class FileManagerExtensionsTests: XCTestCase {
             XCTAssertTrue(isDirectory.boolValue)
             XCTAssert(try fileManager.contentsOfDirectory(atPath: tempDirectory.path).isEmpty)
 
-            let tempFile = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
+            let tempFile = tempDirectory.appendingPathComponent(ProcessInfo.processInfo.globallyUniqueString)
             XCTAssert(fileManager.createFile(atPath: tempFile.path, contents: Data(), attributes: nil))
             XCTAssertFalse(try fileManager.contentsOfDirectory(atPath: tempDirectory.path).isEmpty)
             XCTAssertNotNil(fileManager.contents(atPath: tempFile.path))
