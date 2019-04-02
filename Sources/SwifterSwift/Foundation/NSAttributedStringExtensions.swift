@@ -43,7 +43,7 @@ public extension NSAttributedString {
     var struckthrough: NSAttributedString {
         return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
     }
-    
+
     #if !os(Linux)
     /// SwifterSwift: Dictionary of the attributes applied across the whole string
     var attributes: [NSAttributedString.Key: Any] {
@@ -56,7 +56,7 @@ public extension NSAttributedString {
 
 // MARK: - Methods
 public extension NSAttributedString {
-    
+
     #if !os(Linux)
     /// SwifterSwift: Applies given attributes to the new instance of NSAttributedString initialized with self object
     ///
@@ -70,7 +70,7 @@ public extension NSAttributedString {
         return copy
     }
     #endif
-    
+
     #if os(macOS)
     /// SwifterSwift: Add color to NSAttributedString.
     ///
@@ -110,7 +110,7 @@ public extension NSAttributedString {
 
         return result
     }
-    
+
     /// SwifterSwift: Apply attributes to occurrences of a given string
     ///
     /// - Parameters:
