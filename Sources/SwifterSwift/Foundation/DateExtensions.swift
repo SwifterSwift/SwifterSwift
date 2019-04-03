@@ -15,7 +15,6 @@ import Darwin
 import Glibc
 #endif
 
-
 // MARK: - Enums
 public extension Date {
 
@@ -466,7 +465,7 @@ public extension Date {
     ///     let yesterday = date.yesterday // "Oct 2, 2018, 10:57:11"
     ///
     var yesterday: Date {
-        return addingTimeInterval(-86400.0)
+        return Calendar.current.date(byAdding: .day, value: -1, to: self) ?? Date()
     }
 
     /// SwifterSwift: Tomorrow's date.
@@ -475,7 +474,7 @@ public extension Date {
     ///     let tomorrow = date.tomorrow // "Oct 4, 2018, 10:57:11"
     ///
     var tomorrow: Date {
-        return addingTimeInterval(86400.0)
+        return Calendar.current.date(byAdding: .day, value: 1, to: self) ?? Date()
     }
 
     /// SwifterSwift: UNIX timestamp from date.
