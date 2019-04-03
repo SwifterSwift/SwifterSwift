@@ -75,11 +75,13 @@ final class FileManagerExtensionsTests: XCTestCase {
     }
 
     func testInvalidFile() {
+        #if !os(Linux)
         let filename = "another_test.not_json"
         do {
             let json = try FileManager.default.jsonFromFile(withFilename: filename, at: FileManagerExtensionsTests.self)
             XCTAssertNil(json)
         } catch {}
+        #endif
     }
 
     func testCreateTemporaryDirectory() {
