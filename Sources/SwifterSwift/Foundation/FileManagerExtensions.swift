@@ -44,8 +44,12 @@ public extension FileManager {
 
         // To handle cases that provided filename has an extension
         let name = filename.components(separatedBy: ".")[0]
-        let bundle = bundleClass != nil ? Bundle(for: bundleClass!) : Bundle.main
-
+        var bundle = Bundle.main
+        #if !os(Linux)
+        if let bundleClass = bundleClass {
+           bundle = Bundle(for: bundleClass)
+        }
+        #endif
         if let path = bundle.path(forResource: name, ofType: "json") {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let json = try JSONSerialization.jsonObject(with: data, options: readingOptions)
