@@ -45,6 +45,7 @@ final class FileManagerExtensionsTests: XCTestCase {
     }
 
     func testJSONFromFileWithFilename() {
+        #if !os(Linux)
         do {
             var filename = "test.json"  // With extension
             var json = try FileManager.default.jsonFromFile(withFilename: filename, at: FileManagerExtensionsTests.self)
@@ -70,6 +71,7 @@ final class FileManagerExtensionsTests: XCTestCase {
         } catch {
             XCTFail("Error encountered during opening of file. \(error.localizedDescription)")
         }
+        #endif
     }
 
     func testInvalidFile() {

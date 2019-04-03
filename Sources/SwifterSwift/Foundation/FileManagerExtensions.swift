@@ -36,6 +36,7 @@ public extension FileManager {
     ///   - readingOptions: JSONSerialization reading options.
     /// - Returns: Optional dictionary.
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
+    #if !os(Linux)
     func jsonFromFile(
         withFilename filename: String,
         at bundleClass: AnyClass? = nil,
@@ -44,12 +45,8 @@ public extension FileManager {
 
         // To handle cases that provided filename has an extension
         let name = filename.components(separatedBy: ".")[0]
-        var bundle = Bundle.main
-        #if !os(Linux)
-        if let bundleClass = bundleClass {
-           bundle = Bundle(for: bundleClass)
-        }
-        #endif
+        let bundle = bundleClass != nil ? Bundle(for: bundleClass!) : Bundle.main
+
         if let path = bundle.path(forResource: name, ofType: "json") {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let json = try JSONSerialization.jsonObject(with: data, options: readingOptions)
@@ -59,7 +56,7 @@ public extension FileManager {
 
         return nil
     }
-
+    #endif
     /// Creates a unique directory for saving temporary files.
     ///
     /// The directory can be used to create multiple temporary files used for a common purpose.
@@ -71,6 +68,7 @@ public extension FileManager {
     /// - Returns: A URL to a new directory for saving temporary files.
     /// - Throws: An error if a temporary directory cannot be found or created.
     func createTemporaryDirectory() throws -> URL {
+        #if !os(Linux)
         let temporaryDirectoryURL: URL
         if #available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
             temporaryDirectoryURL = temporaryDirectory
@@ -81,8 +79,15 @@ public extension FileManager {
                        in: .userDomainMask,
                        appropriateFor: temporaryDirectoryURL,
                        create: true)
+        #else
+        let envs = ProcessInfo.processInfo.environment
+        let env = envs["TMPDIR"] ?? envs["TEMP"] ?? envs["TMP"] ?? "/tmp"
+        let dir = "/\(env)/file-temp.XXXXXX"
+        var template = [UInt8](dir.string.utf8).map({ Int8($0) }) + [Int8(0)]
+        guard mkdtemp(&template) != nil else { throw CocoaError.error(.featureUnsupported) }
+        return URL(fileURLWithPath: String(cString: template))
+        #endif
     }
-
 }
 
 #endif
