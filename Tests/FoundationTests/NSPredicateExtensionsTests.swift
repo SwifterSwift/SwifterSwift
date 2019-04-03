@@ -15,7 +15,7 @@ import Foundation
 final class NSPredicateExtensionsTests: XCTestCase {
 
     func testNot() {
-        let predicate = NSPredicate(format: "a < 7")
+        let predicate = NSPredicate(value: true)
         let notPredicate = predicate.not
         XCTAssert(notPredicate.compoundPredicateType == .not)
 
@@ -29,8 +29,8 @@ final class NSPredicateExtensionsTests: XCTestCase {
     }
 
     func testAndPredicate() {
-        let predicate1 = NSPredicate(format: "a < 7")
-        let predicate2 = NSPredicate(format: "a > 3")
+        let predicate1 = NSPredicate(value: true)
+        let predicate2 = NSPredicate(value: false)
         let andPredicate = predicate1.and(predicate2)
         XCTAssert(andPredicate.compoundPredicateType == .and)
 
@@ -44,8 +44,8 @@ final class NSPredicateExtensionsTests: XCTestCase {
     }
 
     func testOrPredicate() {
-        let predicate1 = NSPredicate(format: "a < 7")
-        let predicate2 = NSPredicate(format: "a > 3")
+        let predicate1 = NSPredicate(value: true)
+        let predicate2 = NSPredicate(value: false)
         let orPredicate = predicate1.or(predicate2)
         XCTAssert(orPredicate.compoundPredicateType == .or)
 
@@ -59,7 +59,7 @@ final class NSPredicateExtensionsTests: XCTestCase {
     }
 
     func testOperatorNot() {
-        let predicate = NSPredicate(format: "a < 7")
+        let predicate = NSPredicate(value: false)
         let notPredicate = !predicate
         XCTAssert(notPredicate.compoundPredicateType == .not)
 
@@ -73,8 +73,8 @@ final class NSPredicateExtensionsTests: XCTestCase {
     }
 
     func testOperatorAndPredicate() {
-        let predicate1 = NSPredicate(format: "a < 7")
-        let predicate2 = NSPredicate(format: "a > 3")
+        let predicate1 = NSPredicate(value: false)
+        let predicate2 = NSPredicate(value: true)
         let andPredicate = predicate1 + predicate2
         XCTAssert(andPredicate.compoundPredicateType == .and)
 
@@ -88,8 +88,8 @@ final class NSPredicateExtensionsTests: XCTestCase {
     }
 
     func testOperatorOrPredicate() {
-        let predicate1 = NSPredicate(format: "a < 7")
-        let predicate2 = NSPredicate(format: "a > 3")
+        let predicate1 = NSPredicate(value: true)
+        let predicate2 = NSPredicate(value: false)
         let orPredicate = predicate1 | predicate2
         XCTAssert(orPredicate.compoundPredicateType == .or)
 
@@ -103,8 +103,15 @@ final class NSPredicateExtensionsTests: XCTestCase {
     }
 
     func testOperatorSubPredicate() {
-        let predicate1 = NSPredicate(format: "SELF BETWEEN{1,5}")
-        let predicate2 = NSPredicate(format: "SELF BETWEEN{3,6}")
+        let predicate1 = NSPredicate(block: { value, _ in
+            guard let number = value as? Int else { return false }
+            return 1..<5~=number
+        })
+        let predicate2 = NSPredicate(block: { value, _ in
+            guard let number = value as? Int else { return false }
+            return 3..<6~=number
+        })
+
         let subPredicate = predicate1 - predicate2
         XCTAssert(subPredicate.evaluate(with: 2))
         XCTAssertFalse(subPredicate.evaluate(with: 4))
