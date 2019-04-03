@@ -83,7 +83,7 @@ public extension FileManager {
         let envs = ProcessInfo.processInfo.environment
         let env = envs["TMPDIR"] ?? envs["TEMP"] ?? envs["TMP"] ?? "/tmp"
         let dir = "/\(env)/file-temp.XXXXXX"
-        var template = [UInt8](dir.string.utf8).map({ Int8($0) }) + [Int8(0)]
+        var template = [UInt8](dir.utf8).map({ Int8($0) }) + [Int8(0)]
         guard mkdtemp(&template) != nil else { throw CocoaError.error(.featureUnsupported) }
         return URL(fileURLWithPath: String(cString: template))
         #endif
