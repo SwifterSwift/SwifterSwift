@@ -15,6 +15,7 @@ import Foundation
 final class FileManagerExtensionsTests: XCTestCase {
 
     func testJSONFromFileAtPath() {
+        #if !os(Linux)
         do {
             let bundle = Bundle(for: FileManagerExtensionsTests.self)
             let filePath = bundle.path(forResource: "test", ofType: "json")
@@ -42,6 +43,7 @@ final class FileManagerExtensionsTests: XCTestCase {
         } catch {
             XCTFail("Error encountered during opening of file. \(error.localizedDescription)")
         }
+        #endif
     }
 
     func testJSONFromFileWithFilename() {
