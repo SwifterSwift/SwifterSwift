@@ -40,7 +40,7 @@ jobs:
       sudo: false
       install: eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
       script: 
-        - swift test --parallel
+        - swift test --parallel --verbose
 
 branches:
   only:
