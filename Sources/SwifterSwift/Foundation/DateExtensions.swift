@@ -9,6 +9,13 @@
 #if canImport(Foundation)
 import Foundation
 
+#if os(macOS) || os(iOS)
+import Darwin
+#elseif os(Linux)
+import Glibc
+#endif
+
+
 // MARK: - Enums
 public extension Date {
 
