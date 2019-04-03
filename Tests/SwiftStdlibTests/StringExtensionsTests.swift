@@ -259,7 +259,11 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil("8.23".float(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".float(locale: Locale(identifier: "en_US_POSIX")), Float(8.23))
 
+        #if os(Linux)
+        XCTAssertEqual("8s".float(), 8)
+        #else
         XCTAssertNil("8s".float())
+        #endif
     }
 
     func testDouble() {
@@ -268,8 +272,12 @@ final class StringExtensionsTests: XCTestCase {
 
         XCTAssertNotNil("8.23".double(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".double(locale: Locale(identifier: "en_US_POSIX")), 8.23)
-
+        
+        #if os(Linux)
+        XCTAssertEqual("8s".double(), 8)
+        #else
         XCTAssertNil("8s".double())
+        #endif
     }
 
     func testCgFloat() {
