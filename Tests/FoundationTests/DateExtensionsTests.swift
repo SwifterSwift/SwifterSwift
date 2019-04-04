@@ -369,8 +369,8 @@ final class DateExtensionsTests: XCTestCase {
     func testIsInCurrentWeek() {
         let date = Date()
         XCTAssert(date.isInCurrentWeek)
-//        let dateOneYearFromNow = Calendar.current.date(byAdding: .year, value: 1, to: date) ?? Date()
-//        XCTAssertFalse(dateOneYearFromNow.isInCurrentWeek)
+        let dateOneYearFromNow = Calendar.current.date(byAdding: .year, value: 1, to: date) ?? Date()
+        XCTAssertFalse(dateOneYearFromNow.isInCurrentWeek)
     }
 
     func testIsInCurrentMonth() {
