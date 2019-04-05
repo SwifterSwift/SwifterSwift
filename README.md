@@ -7,6 +7,7 @@
 [![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![SPM compatible](https://img.shields.io/badge/SPM-Compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager/)
+[![Accio supported](https://img.shields.io/badge/Accio-supported-0A7CF5.svg?style=flat)](https://github.com/JamitLabs/Accio)
 [![codecov](https://codecov.io/gh/SwifterSwift/SwifterSwift/branch/master/graph/badge.svg)](https://codecov.io/gh/SwifterSwift/SwifterSwift)
 [![docs](http://swifterswift.com/docs/badge.svg)](http://swifterswift.com/docs)
 [![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
@@ -73,6 +74,22 @@ SwifterSwift is Swift v5.0 compatible starting from v5
 <pre><code class="ogdl language-ogdl">github "SwifterSwift/SwifterSwift" ~&gt; 5.0
 </code></pre>
 </details>
+
+<details>
+<summary>Accio</summary>
+
+<p>Add the following to your Package.swift:</p>
+<pre><code class="swift language-swift">.package(url: "https://github.com/SwifterSwift/SwifterSwift.git", .upToNextMajor(from: "5.0.0")),</code></pre>
+<p>Next, add `SwifterSwift` to your App targets dependencies like so:</p>
+<pre><code class="swift language-swift">.target(
+    name: "App",
+    dependencies: [
+        "SwifterSwift",
+    ]
+),</code></pre>
+<p>Then run `accio update`.</p>
+</details>
+
 
 <details>
 <summary>Swift Package Manager</summary>
