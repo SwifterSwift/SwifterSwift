@@ -26,7 +26,7 @@ final class SCNCapsuleExtensionsTests: XCTestCase {
     }
 
     func testInitWithColor() {
-        let color = UIColor.red
+        let color = Color.red
         let capsule = SCNCapsule(capRadius: 5, height: 20, color: color)
         XCTAssertEqual(capsule.materials[0].diffuse.contents as? Color, color)
     }
@@ -39,7 +39,7 @@ final class SCNCapsuleExtensionsTests: XCTestCase {
     }
 
     func testInitWithDiameterAndColor() {
-        let color = UIColor.red
+        let color = Color.red
         let capsule = SCNCapsule(capDiameter: 10, height: 20, color: color)
         XCTAssertEqual(capsule.boundingSize, SCNVector3(10, 20, 10))
         XCTAssertEqual(capsule.materials[0].diffuse.contents as? Color, color)

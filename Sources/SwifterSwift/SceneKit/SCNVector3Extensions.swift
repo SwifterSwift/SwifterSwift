@@ -6,6 +6,12 @@
 //  Copyright © 2019 SwifterSwift
 //
 
+#if os(OSX)
+public typealias SceneKitFloat = CGFloat
+#else
+public typealias SceneKitFloat = Float
+#endif
+
 #if canImport(SceneKit)
 import SceneKit
 
@@ -24,7 +30,7 @@ public extension SCNVector3 {
     ///
     ///         SCNVector3(2, 3, 6).length -> 7
     ///
-    var length: Float {
+    var length: SceneKitFloat {
         return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
     }
 
@@ -89,7 +95,7 @@ public extension SCNVector3 {
     ///   - vector: SCNVector3 to multiply.
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given SCNVector3 with the scalar.
-    static func * (vector: SCNVector3, scalar: Float) -> SCNVector3 {
+    static func * (vector: SCNVector3, scalar: SceneKitFloat) -> SCNVector3 {
         return SCNVector3(vector.x * scalar, vector.y * scalar, vector.z * scalar)
     }
 
@@ -101,7 +107,7 @@ public extension SCNVector3 {
     ///   - vector: self.
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
-    static func *= (point: inout SCNVector3, scalar: Float) {
+    static func *= (point: inout SCNVector3, scalar: SceneKitFloat) {
         // swiftlint:disable:next shorthand_operator
         point = point * scalar
     }
@@ -114,7 +120,7 @@ public extension SCNVector3 {
     ///   - scalar: scalar value.
     ///   - vector: SCNVector3 to multiply.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
-    static func * (scalar: Float, vector: SCNVector3) -> SCNVector3 {
+    static func * (scalar: SceneKitFloat, vector: SCNVector3) -> SCNVector3 {
         return SCNVector3(vector.x * scalar, vector.y * scalar, vector.z * scalar)
     }
 

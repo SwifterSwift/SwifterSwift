@@ -15,7 +15,7 @@ import SceneKit
 final class SCNMaterialExtensionsTests: XCTestCase {
 
     func testInitWithColor() {
-        let color = UIColor.red
+        let color = Color.red
         let material = SCNMaterial(color: color)
         XCTAssertEqual(material.diffuse.contents as? Color, color)
     }

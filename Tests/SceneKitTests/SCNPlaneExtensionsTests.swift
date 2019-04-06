@@ -26,7 +26,7 @@ final class SCNPlaneExtensionsTests: XCTestCase {
     }
 
     func testInitWithColor() {
-        let color = UIColor.red
+        let color = Color.red
         let plane = SCNPlane(width: 10, height: 20, color: color)
         XCTAssertEqual(plane.materials[0].diffuse.contents as? Color, color)
     }
@@ -39,7 +39,7 @@ final class SCNPlaneExtensionsTests: XCTestCase {
     }
 
     func testInitWithWidthAndColor() {
-        let color = UIColor.red
+        let color = Color.red
         let plane = SCNPlane(width: 10, color: color)
         XCTAssertEqual(plane.boundingSize, SCNVector3(10, 10, 0))
         XCTAssertEqual(plane.materials[0].diffuse.contents as? Color, color)

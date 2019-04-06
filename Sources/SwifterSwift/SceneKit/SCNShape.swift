@@ -6,8 +6,9 @@
 //  Copyright © 2019 SwifterSwift
 //
 
-#if canImport(SceneKit)
+#if canImport(SceneKit) && canImport(UIKit)
 import SceneKit
+import UIKit
 
 // MARK: - Methods
 public extension SCNShape {
