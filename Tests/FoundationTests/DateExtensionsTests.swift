@@ -670,7 +670,7 @@ final class DateExtensionsTests: XCTestCase {
         endOfWeek?.add(.second, value: -1)
         XCTAssertEqual(date.end(of: .weekOfYear), endOfWeek)
         #endif
-        
+
         XCTAssertEqual(date.end(of: .month)?.day, 31)
         XCTAssertEqual(date.end(of: .month)?.hour, 23)
         XCTAssertEqual(date.end(of: .month)?.minute, 59)
