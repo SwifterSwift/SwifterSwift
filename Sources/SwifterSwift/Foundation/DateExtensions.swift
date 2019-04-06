@@ -72,6 +72,7 @@ public extension Date {
         return calendar.component(.era, from: self)
     }
 
+    #if !os(Linux)
     /// SwifterSwift: Quarter.
     ///
     ///		Date().quarter -> 3 // date in third quarter of the year.
@@ -82,6 +83,7 @@ public extension Date {
         let numberOfMonthsInQuarter = numberOfMonths / 4
         return Int(ceil(month/numberOfMonthsInQuarter))
     }
+    #endif
 
     /// SwifterSwift: Week of year.
     ///
@@ -590,6 +592,7 @@ public extension Date {
             return calendar.date(bySetting: component, value: value, of: self)
         }
     }
+    #if !os(Linux)
     // swiftlint:enable cyclomatic_complexity, function_body_length
 
     /// SwifterSwift: Data at the beginning of calendar component.
@@ -634,6 +637,7 @@ public extension Date {
         guard !components.isEmpty else { return nil }
         return calendar.date(from: calendar.dateComponents(components, from: self))
     }
+    #endif
 
     /// SwifterSwift: Date at the end of calendar component.
     ///

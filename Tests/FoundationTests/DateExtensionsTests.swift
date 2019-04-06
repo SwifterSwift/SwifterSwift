@@ -66,6 +66,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testQuarter() {
+        #if !os(Linux)
         let date1 = Date(timeIntervalSince1970: 0)
         XCTAssertEqual(date1.quarter, 1)
 
@@ -77,6 +78,7 @@ final class DateExtensionsTests: XCTestCase {
 
         let date4 = Calendar.current.date(byAdding: .month, value: 11, to: date1)
         XCTAssertEqual(date4?.quarter, 4)
+        #endif
     }
 
     func testWeekOfYear() {
@@ -615,6 +617,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testBeginning() {
+        #if !os(Linux)
         let date = Date()
 
         XCTAssertNotNil(date.beginning(of: .second))
@@ -647,6 +650,7 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertEqual(date.beginning(of: .year)?.day, beginningOfYear?.day)
 
         XCTAssertNil(date.beginning(of: .quarter))
+        #endif
     }
 
     func testEnd() {
