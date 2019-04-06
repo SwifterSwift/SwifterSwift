@@ -15,6 +15,7 @@ import Foundation
 final class FileManagerExtensionsTests: XCTestCase {
 
     func testJSONFromFileAtPath() {
+        #if !os(Linux)
         do {
             let bundle = Bundle(for: FileManagerExtensionsTests.self)
             let filePath = bundle.path(forResource: "test", ofType: "json")
@@ -42,9 +43,11 @@ final class FileManagerExtensionsTests: XCTestCase {
         } catch {
             XCTFail("Error encountered during opening of file. \(error.localizedDescription)")
         }
+        #endif
     }
 
     func testJSONFromFileWithFilename() {
+        #if !os(Linux)
         do {
             var filename = "test.json"  // With extension
             var json = try FileManager.default.jsonFromFile(withFilename: filename, at: FileManagerExtensionsTests.self)
@@ -70,14 +73,17 @@ final class FileManagerExtensionsTests: XCTestCase {
         } catch {
             XCTFail("Error encountered during opening of file. \(error.localizedDescription)")
         }
+        #endif
     }
 
     func testInvalidFile() {
+        #if !os(Linux)
         let filename = "another_test.not_json"
         do {
             let json = try FileManager.default.jsonFromFile(withFilename: filename, at: FileManagerExtensionsTests.self)
             XCTAssertNil(json)
         } catch {}
+        #endif
     }
 
     func testCreateTemporaryDirectory() {
@@ -91,7 +97,7 @@ final class FileManagerExtensionsTests: XCTestCase {
             XCTAssertTrue(isDirectory.boolValue)
             XCTAssert(try fileManager.contentsOfDirectory(atPath: tempDirectory.path).isEmpty)
 
-            let tempFile = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
+            let tempFile = tempDirectory.appendingPathComponent(ProcessInfo.processInfo.globallyUniqueString)
             XCTAssert(fileManager.createFile(atPath: tempFile.path, contents: Data(), attributes: nil))
             XCTAssertFalse(try fileManager.contentsOfDirectory(atPath: tempDirectory.path).isEmpty)
             XCTAssertNotNil(fileManager.contents(atPath: tempFile.path))

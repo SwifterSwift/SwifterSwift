@@ -55,7 +55,7 @@ final class RangeReplaceableCollectionTests: XCTestCase {
         XCTAssertEqual(array, [2, 1, 2, 3])
         XCTAssertEqual(removedElement, 2)
 
-        XCTAssertThrowsError(try array.removeFirst(where: { _ in throw NSError() }))
+        XCTAssertThrowsError(try array.removeFirst(where: { _ in throw NSError(domain: "", code: -1, userInfo: nil) }))
     }
 
     func testRemoveRandomElement() {
