@@ -341,17 +341,17 @@ public extension Date {
 
     /// SwifterSwift: Check if date is within the current week.
     var isInCurrentWeek: Bool {
-        return false //Calendar.current.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
+        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
     }
 
     /// SwifterSwift: Check if date is within the current month.
     var isInCurrentMonth: Bool {
-        return false//Calendar.current.isDate(self, equalTo: Date(), toGranularity: .month)
+        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .month)
     }
 
     /// SwifterSwift: Check if date is within the current year.
     var isInCurrentYear: Bool {
-        return false //Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
+        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
     }
 
     /// SwifterSwift: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
