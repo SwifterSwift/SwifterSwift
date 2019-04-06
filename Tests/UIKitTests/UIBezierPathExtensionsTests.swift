@@ -81,20 +81,18 @@ final class UIBezierPathExtensionsTests: XCTestCase {
 
 fileprivate extension UIBezierPath {
 
+    // Only works for straight lines
     var points: [CGPoint] {
         var points = [CGPoint]()
-        withUnsafeMutablePointer(to: &points) { pointsPointer in
-            cgPath.apply(info: pointsPointer) { userInfo, nextElementPointer in
-                let element = nextElementPointer.pointee
-                var point = CGPoint.zero
-                switch element.type {
-                case .moveToPoint: point = element.points[0]
-                case .addLineToPoint: point = element.points[0]
-                default: break
-                }
-                let elementsPointer = userInfo!.assumingMemoryBound(to: [CGPoint].self)
-                elementsPointer.pointee.append(point)
+        cgPath.applyWithBlock { pointer in
+            let element = pointer.pointee
+            var point = CGPoint.zero
+            switch element.type {
+            case .moveToPoint: point = element.points[0]
+            case .addLineToPoint: point = element.points[0]
+            default: break
             }
+            points.append(point)
         }
         return points
     }
