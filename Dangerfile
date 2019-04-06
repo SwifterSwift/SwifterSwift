@@ -17,6 +17,8 @@ if source_changes_exist && no_changelog_entry
     warn('The source files have been modified. Please consider adding a CHANGELOG entry if necessary.')
 end
 
+# Swiftlint Danger
+swiftlint.config_file = '.swiftlint.yml'
 swiftlint.lint_files
         
 # Checks if pull request is labeled as [WIP]
