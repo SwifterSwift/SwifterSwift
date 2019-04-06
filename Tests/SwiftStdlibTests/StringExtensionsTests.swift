@@ -272,7 +272,7 @@ final class StringExtensionsTests: XCTestCase {
 
         XCTAssertNotNil("8.23".double(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".double(locale: Locale(identifier: "en_US_POSIX")), 8.23)
-        
+
         #if os(Linux)
         XCTAssertEqual("8s".double(), 8)
         #else

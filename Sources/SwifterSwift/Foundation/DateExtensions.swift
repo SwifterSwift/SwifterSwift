@@ -61,7 +61,7 @@ public extension Date {
 
     /// SwifterSwift: User’s current calendar.
     var calendar: Calendar {
-        return Calendar.current
+        return Calendar(identifier: Calendar.current.identifier) // Workaround to segfault on corelibs foundation
     }
 
     /// SwifterSwift: Era.
@@ -69,7 +69,7 @@ public extension Date {
     ///		Date().era -> 1
     ///
     var era: Int {
-        return Calendar.current.component(.era, from: self)
+        return calendar.component(.era, from: self)
     }
 
     /// SwifterSwift: Quarter.
@@ -77,8 +77,8 @@ public extension Date {
     ///		Date().quarter -> 3 // date in third quarter of the year.
     ///
     var quarter: Int {
-        let month = Double(Calendar.current.component(.month, from: self))
-        let numberOfMonths = Double(Calendar.current.monthSymbols.count)
+        let month = Double(calendar.component(.month, from: self))
+        let numberOfMonths = Double(calendar.monthSymbols.count)
         let numberOfMonthsInQuarter = numberOfMonths / 4
         return Int(ceil(month/numberOfMonthsInQuarter))
     }
@@ -88,7 +88,7 @@ public extension Date {
     ///		Date().weekOfYear -> 2 // second week in the year.
     ///
     var weekOfYear: Int {
-        return Calendar.current.component(.weekOfYear, from: self)
+        return calendar.component(.weekOfYear, from: self)
     }
 
     /// SwifterSwift: Week of month.
@@ -96,7 +96,7 @@ public extension Date {
     ///		Date().weekOfMonth -> 3 // date is in third week of the month.
     ///
     var weekOfMonth: Int {
-        return Calendar.current.component(.weekOfMonth, from: self)
+        return calendar.component(.weekOfMonth, from: self)
     }
 
     /// SwifterSwift: Year.
@@ -108,13 +108,13 @@ public extension Date {
     ///
     var year: Int {
         get {
-            return Calendar.current.component(.year, from: self)
+            return calendar.component(.year, from: self)
         }
         set {
             guard newValue > 0 else { return }
-            let currentYear = Calendar.current.component(.year, from: self)
+            let currentYear = calendar.component(.year, from: self)
             let yearsToAdd = newValue - currentYear
-            if let date = Calendar.current.date(byAdding: .year, value: yearsToAdd, to: self) {
+            if let date = calendar.date(byAdding: .year, value: yearsToAdd, to: self) {
                 self = date
             }
         }
@@ -129,15 +129,15 @@ public extension Date {
     ///
     var month: Int {
         get {
-            return Calendar.current.component(.month, from: self)
+            return calendar.component(.month, from: self)
         }
         set {
-            let allowedRange = Calendar.current.range(of: .month, in: .year, for: self)!
+            let allowedRange = calendar.range(of: .month, in: .year, for: self)!
             guard allowedRange.contains(newValue) else { return }
 
-            let currentMonth = Calendar.current.component(.month, from: self)
+            let currentMonth = calendar.component(.month, from: self)
             let monthsToAdd = newValue - currentMonth
-            if let date = Calendar.current.date(byAdding: .month, value: monthsToAdd, to: self) {
+            if let date = calendar.date(byAdding: .month, value: monthsToAdd, to: self) {
                 self = date
             }
         }
@@ -152,15 +152,15 @@ public extension Date {
     ///
     var day: Int {
         get {
-            return Calendar.current.component(.day, from: self)
+            return calendar.component(.day, from: self)
         }
         set {
-            let allowedRange = Calendar.current.range(of: .day, in: .month, for: self)!
+            let allowedRange = calendar.range(of: .day, in: .month, for: self)!
             guard allowedRange.contains(newValue) else { return }
 
-            let currentDay = Calendar.current.component(.day, from: self)
+            let currentDay = calendar.component(.day, from: self)
             let daysToAdd = newValue - currentDay
-            if let date = Calendar.current.date(byAdding: .day, value: daysToAdd, to: self) {
+            if let date = calendar.date(byAdding: .day, value: daysToAdd, to: self) {
                 self = date
             }
         }
@@ -171,7 +171,7 @@ public extension Date {
     /// 	Date().weekday -> 5 // fifth day in the current week.
     ///
     var weekday: Int {
-        return Calendar.current.component(.weekday, from: self)
+        return calendar.component(.weekday, from: self)
     }
 
     /// SwifterSwift: Hour.
@@ -183,15 +183,15 @@ public extension Date {
     ///
     var hour: Int {
         get {
-            return Calendar.current.component(.hour, from: self)
+            return calendar.component(.hour, from: self)
         }
         set {
-            let allowedRange = Calendar.current.range(of: .hour, in: .day, for: self)!
+            let allowedRange = calendar.range(of: .hour, in: .day, for: self)!
             guard allowedRange.contains(newValue) else { return }
 
-            let currentHour = Calendar.current.component(.hour, from: self)
+            let currentHour = calendar.component(.hour, from: self)
             let hoursToAdd = newValue - currentHour
-            if let date = Calendar.current.date(byAdding: .hour, value: hoursToAdd, to: self) {
+            if let date = calendar.date(byAdding: .hour, value: hoursToAdd, to: self) {
                 self = date
             }
         }
@@ -206,15 +206,15 @@ public extension Date {
     ///
     var minute: Int {
         get {
-            return Calendar.current.component(.minute, from: self)
+            return calendar.component(.minute, from: self)
         }
         set {
-            let allowedRange = Calendar.current.range(of: .minute, in: .hour, for: self)!
+            let allowedRange = calendar.range(of: .minute, in: .hour, for: self)!
             guard allowedRange.contains(newValue) else { return }
 
-            let currentMinutes = Calendar.current.component(.minute, from: self)
+            let currentMinutes = calendar.component(.minute, from: self)
             let minutesToAdd = newValue - currentMinutes
-            if let date = Calendar.current.date(byAdding: .minute, value: minutesToAdd, to: self) {
+            if let date = calendar.date(byAdding: .minute, value: minutesToAdd, to: self) {
                 self = date
             }
         }
@@ -229,15 +229,15 @@ public extension Date {
     ///
     var second: Int {
         get {
-            return Calendar.current.component(.second, from: self)
+            return calendar.component(.second, from: self)
         }
         set {
-            let allowedRange = Calendar.current.range(of: .second, in: .minute, for: self)!
+            let allowedRange = calendar.range(of: .second, in: .minute, for: self)!
             guard allowedRange.contains(newValue) else { return }
 
-            let currentSeconds = Calendar.current.component(.second, from: self)
+            let currentSeconds = calendar.component(.second, from: self)
             let secondsToAdd = newValue - currentSeconds
-            if let date = Calendar.current.date(byAdding: .second, value: secondsToAdd, to: self) {
+            if let date = calendar.date(byAdding: .second, value: secondsToAdd, to: self) {
                 self = date
             }
         }
@@ -252,16 +252,16 @@ public extension Date {
     ///
     var nanosecond: Int {
         get {
-            return Calendar.current.component(.nanosecond, from: self)
+            return calendar.component(.nanosecond, from: self)
         }
         set {
-            let allowedRange = Calendar.current.range(of: .nanosecond, in: .second, for: self)!
+            let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
             guard allowedRange.contains(newValue) else { return }
 
-            let currentNanoseconds = Calendar.current.component(.nanosecond, from: self)
+            let currentNanoseconds = calendar.component(.nanosecond, from: self)
             let nanosecondsToAdd = newValue - currentNanoseconds
 
-            if let date = Calendar.current.date(byAdding: .nanosecond, value: nanosecondsToAdd, to: self) {
+            if let date = calendar.date(byAdding: .nanosecond, value: nanosecondsToAdd, to: self) {
                 self = date
             }
         }
@@ -276,14 +276,14 @@ public extension Date {
     ///
     var millisecond: Int {
         get {
-            return Calendar.current.component(.nanosecond, from: self) / 1000000
+            return calendar.component(.nanosecond, from: self) / 1000000
         }
         set {
             let nanoSeconds = newValue * 1000000
-            let allowedRange = Calendar.current.range(of: .nanosecond, in: .second, for: self)!
+            let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
             guard allowedRange.contains(nanoSeconds) else { return }
 
-            if let date = Calendar.current.date(bySetting: .nanosecond, value: nanoSeconds, of: self) {
+            if let date = calendar.date(bySetting: .nanosecond, value: nanoSeconds, of: self) {
                 self = date
             }
         }
@@ -310,7 +310,7 @@ public extension Date {
     /// 	Date().isInToday -> true
     ///
     var isInToday: Bool {
-        return Calendar.current.isDateInToday(self)
+        return calendar.isDateInToday(self)
     }
 
     /// SwifterSwift: Check if date is within yesterday.
@@ -318,7 +318,7 @@ public extension Date {
     /// 	Date().isInYesterday -> false
     ///
     var isInYesterday: Bool {
-        return Calendar.current.isDateInYesterday(self)
+        return calendar.isDateInYesterday(self)
     }
 
     /// SwifterSwift: Check if date is within tomorrow.
@@ -326,32 +326,32 @@ public extension Date {
     /// 	Date().isInTomorrow -> false
     ///
     var isInTomorrow: Bool {
-        return Calendar.current.isDateInTomorrow(self)
+        return calendar.isDateInTomorrow(self)
     }
 
     /// SwifterSwift: Check if date is within a weekend period.
     var isInWeekend: Bool {
-        return Calendar.current.isDateInWeekend(self)
+        return calendar.isDateInWeekend(self)
     }
 
     /// SwifterSwift: Check if date is within a weekday period.
     var isWorkday: Bool {
-        return !Calendar.current.isDateInWeekend(self)
+        return !calendar.isDateInWeekend(self)
     }
 
     /// SwifterSwift: Check if date is within the current week.
     var isInCurrentWeek: Bool {
-        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
+        return calendar.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
     }
 
     /// SwifterSwift: Check if date is within the current month.
     var isInCurrentMonth: Bool {
-        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .month)
+        return calendar.isDate(self, equalTo: Date(), toGranularity: .month)
     }
 
     /// SwifterSwift: Check if date is within the current year.
     var isInCurrentYear: Bool {
-        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
+        return calendar.isDate(self, equalTo: Date(), toGranularity: .year)
     }
 
     /// SwifterSwift: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
@@ -378,12 +378,12 @@ public extension Date {
     /// 	date.nearestFiveMinutes // "5:45 PM"
     ///
     var nearestFiveMinutes: Date {
-        var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
         let min = components.minute!
         components.minute! = min % 5 < 3 ? min - min % 5 : min + 5 - (min % 5)
         components.second = 0
         components.nanosecond = 0
-        return Calendar.current.date(from: components)!
+        return calendar.date(from: components)!
     }
 
     /// SwifterSwift: Nearest ten minutes to date.
@@ -396,12 +396,12 @@ public extension Date {
     /// 	date.nearestTenMinutes // "5:50 PM"
     ///
     var nearestTenMinutes: Date {
-        var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
         let min = components.minute!
         components.minute? = min % 10 < 6 ? min - min % 10 : min + 10 - (min % 10)
         components.second = 0
         components.nanosecond = 0
-        return Calendar.current.date(from: components)!
+        return calendar.date(from: components)!
     }
 
     /// SwifterSwift: Nearest quarter hour to date.
@@ -414,12 +414,12 @@ public extension Date {
     /// 	date.nearestQuarterHour // "5:45 PM"
     ///
     var nearestQuarterHour: Date {
-        var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
         let min = components.minute!
         components.minute! = min % 15 < 8 ? min - min % 15 : min + 15 - (min % 15)
         components.second = 0
         components.nanosecond = 0
-        return Calendar.current.date(from: components)!
+        return calendar.date(from: components)!
     }
 
     /// SwifterSwift: Nearest half hour to date.
@@ -432,12 +432,12 @@ public extension Date {
     /// 	date.nearestHalfHour // "7:00 PM"
     ///
     var nearestHalfHour: Date {
-        var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
         let min = components.minute!
         components.minute! = min % 30 < 15 ? min - min % 30 : min + 30 - (min % 30)
         components.second = 0
         components.nanosecond = 0
-        return Calendar.current.date(from: components)!
+        return calendar.date(from: components)!
     }
 
     /// SwifterSwift: Nearest hour to date.
@@ -449,14 +449,14 @@ public extension Date {
     /// 	date.nearestHour // "7:00 PM"
     ///
     var nearestHour: Date {
-        let min = Calendar.current.component(.minute, from: self)
+        let min = calendar.component(.minute, from: self)
         let components: Set<Calendar.Component> = [.year, .month, .day, .hour]
-        let date = Calendar.current.date(from: Calendar.current.dateComponents(components, from: self))!
+        let date = calendar.date(from: calendar.dateComponents(components, from: self))!
 
         if min < 30 {
             return date
         }
-        return Calendar.current.date(byAdding: .hour, value: 1, to: date)!
+        return calendar.date(byAdding: .hour, value: 1, to: date)!
     }
 
     /// SwifterSwift: Yesterday date.
@@ -465,7 +465,7 @@ public extension Date {
     ///     let yesterday = date.yesterday // "Oct 2, 2018, 10:57:11"
     ///
     var yesterday: Date {
-        return Calendar.current.date(byAdding: .day, value: -1, to: self) ?? Date()
+        return calendar.date(byAdding: .day, value: -1, to: self) ?? Date()
     }
 
     /// SwifterSwift: Tomorrow's date.
@@ -474,7 +474,7 @@ public extension Date {
     ///     let tomorrow = date.tomorrow // "Oct 4, 2018, 10:57:11"
     ///
     var tomorrow: Date {
-        return Calendar.current.date(byAdding: .day, value: 1, to: self) ?? Date()
+        return calendar.date(byAdding: .day, value: 1, to: self) ?? Date()
     }
 
     /// SwifterSwift: UNIX timestamp from date.
@@ -503,7 +503,7 @@ public extension Date {
     ///   - value: multiples of components to add.
     /// - Returns: original date + multiples of component added.
     func adding(_ component: Calendar.Component, value: Int) -> Date {
-        return Calendar.current.date(byAdding: component, value: value, to: self)!
+        return calendar.date(byAdding: component, value: value, to: self)!
     }
 
     /// SwifterSwift: Add calendar component to date.
@@ -518,7 +518,7 @@ public extension Date {
     ///   - component: component type.
     ///   - value: multiples of compnenet to add.
     mutating func add(_ component: Calendar.Component, value: Int) {
-        if let date = Calendar.current.date(byAdding: component, value: value, to: self) {
+        if let date = calendar.date(byAdding: component, value: value, to: self) {
             self = date
         }
     }
@@ -539,55 +539,55 @@ public extension Date {
     func changing(_ component: Calendar.Component, value: Int) -> Date? {
         switch component {
         case .nanosecond:
-            let allowedRange = Calendar.current.range(of: .nanosecond, in: .second, for: self)!
+            let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
             guard allowedRange.contains(value) else { return nil }
-            let currentNanoseconds = Calendar.current.component(.nanosecond, from: self)
+            let currentNanoseconds = calendar.component(.nanosecond, from: self)
             let nanosecondsToAdd = value - currentNanoseconds
-            return Calendar.current.date(byAdding: .nanosecond, value: nanosecondsToAdd, to: self)
+            return calendar.date(byAdding: .nanosecond, value: nanosecondsToAdd, to: self)
 
         case .second:
-            let allowedRange = Calendar.current.range(of: .second, in: .minute, for: self)!
+            let allowedRange = calendar.range(of: .second, in: .minute, for: self)!
             guard allowedRange.contains(value) else { return nil }
-            let currentSeconds = Calendar.current.component(.second, from: self)
+            let currentSeconds = calendar.component(.second, from: self)
             let secondsToAdd = value - currentSeconds
-            return Calendar.current.date(byAdding: .second, value: secondsToAdd, to: self)
+            return calendar.date(byAdding: .second, value: secondsToAdd, to: self)
 
         case .minute:
-            let allowedRange = Calendar.current.range(of: .minute, in: .hour, for: self)!
+            let allowedRange = calendar.range(of: .minute, in: .hour, for: self)!
             guard allowedRange.contains(value) else { return nil }
-            let currentMinutes = Calendar.current.component(.minute, from: self)
+            let currentMinutes = calendar.component(.minute, from: self)
             let minutesToAdd = value - currentMinutes
-            return Calendar.current.date(byAdding: .minute, value: minutesToAdd, to: self)
+            return calendar.date(byAdding: .minute, value: minutesToAdd, to: self)
 
         case .hour:
-            let allowedRange = Calendar.current.range(of: .hour, in: .day, for: self)!
+            let allowedRange = calendar.range(of: .hour, in: .day, for: self)!
             guard allowedRange.contains(value) else { return nil }
-            let currentHour = Calendar.current.component(.hour, from: self)
+            let currentHour = calendar.component(.hour, from: self)
             let hoursToAdd = value - currentHour
-            return Calendar.current.date(byAdding: .hour, value: hoursToAdd, to: self)
+            return calendar.date(byAdding: .hour, value: hoursToAdd, to: self)
 
         case .day:
-            let allowedRange = Calendar.current.range(of: .day, in: .month, for: self)!
+            let allowedRange = calendar.range(of: .day, in: .month, for: self)!
             guard allowedRange.contains(value) else { return nil }
-            let currentDay = Calendar.current.component(.day, from: self)
+            let currentDay = calendar.component(.day, from: self)
             let daysToAdd = value - currentDay
-            return Calendar.current.date(byAdding: .day, value: daysToAdd, to: self)
+            return calendar.date(byAdding: .day, value: daysToAdd, to: self)
 
         case .month:
-            let allowedRange = Calendar.current.range(of: .month, in: .year, for: self)!
+            let allowedRange = calendar.range(of: .month, in: .year, for: self)!
             guard allowedRange.contains(value) else { return nil }
-            let currentMonth = Calendar.current.component(.month, from: self)
+            let currentMonth = calendar.component(.month, from: self)
             let monthsToAdd = value - currentMonth
-            return Calendar.current.date(byAdding: .month, value: monthsToAdd, to: self)
+            return calendar.date(byAdding: .month, value: monthsToAdd, to: self)
 
         case .year:
             guard value > 0 else { return nil }
-            let currentYear = Calendar.current.component(.year, from: self)
+            let currentYear = calendar.component(.year, from: self)
             let yearsToAdd = value - currentYear
-            return Calendar.current.date(byAdding: .year, value: yearsToAdd, to: self)
+            return calendar.date(byAdding: .year, value: yearsToAdd, to: self)
 
         default:
-            return Calendar.current.date(bySetting: component, value: value, of: self)
+            return calendar.date(bySetting: component, value: value, of: self)
         }
     }
     // swiftlint:enable cyclomatic_complexity, function_body_length
@@ -603,7 +603,7 @@ public extension Date {
     /// - Returns: date at the beginning of calendar component (if applicable).
     func beginning(of component: Calendar.Component) -> Date? {
         if component == .day {
-            return Calendar.current.startOfDay(for: self)
+            return calendar.startOfDay(for: self)
         }
 
         var components: Set<Calendar.Component> {
@@ -632,7 +632,7 @@ public extension Date {
         }
 
         guard !components.isEmpty else { return nil }
-        return Calendar.current.date(from: Calendar.current.dateComponents(components, from: self))
+        return calendar.date(from: calendar.dateComponents(components, from: self))
     }
 
     /// SwifterSwift: Date at the end of calendar component.
@@ -649,49 +649,49 @@ public extension Date {
         switch component {
         case .second:
             var date = adding(.second, value: 1)
-            date = Calendar.current.date(from:
-                Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date))!
+            date = calendar.date(from:
+                calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date))!
             date.add(.second, value: -1)
             return date
 
         case .minute:
             var date = adding(.minute, value: 1)
-            let after = Calendar.current.date(from:
-                Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date))!
+            let after = calendar.date(from:
+                calendar.dateComponents([.year, .month, .day, .hour, .minute], from: date))!
             date = after.adding(.second, value: -1)
             return date
 
         case .hour:
             var date = adding(.hour, value: 1)
-            let after = Calendar.current.date(from:
-                Calendar.current.dateComponents([.year, .month, .day, .hour], from: date))!
+            let after = calendar.date(from:
+                calendar.dateComponents([.year, .month, .day, .hour], from: date))!
             date = after.adding(.second, value: -1)
             return date
 
         case .day:
             var date = adding(.day, value: 1)
-            date = Calendar.current.startOfDay(for: date)
+            date = calendar.startOfDay(for: date)
             date.add(.second, value: -1)
             return date
 
         case .weekOfYear, .weekOfMonth:
             var date = self
-            let beginningOfWeek = Calendar.current.date(from:
-                Calendar.current.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))!
+            let beginningOfWeek = calendar.date(from:
+                calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: date))!
             date = beginningOfWeek.adding(.day, value: 7).adding(.second, value: -1)
             return date
 
         case .month:
             var date = adding(.month, value: 1)
-            let after = Calendar.current.date(from:
-                Calendar.current.dateComponents([.year, .month], from: date))!
+            let after = calendar.date(from:
+                calendar.dateComponents([.year, .month], from: date))!
             date = after.adding(.second, value: -1)
             return date
 
         case .year:
             var date = adding(.year, value: 1)
-            let after = Calendar.current.date(from:
-                Calendar.current.dateComponents([.year], from: date))!
+            let after = calendar.date(from:
+                calendar.dateComponents([.year], from: date))!
             date = after.adding(.second, value: -1)
             return date
 
@@ -709,7 +709,7 @@ public extension Date {
     /// - Parameter component: calendar component to check.
     /// - Returns: true if date is in current given calendar component.
     func isInCurrent(_ component: Calendar.Component) -> Bool {
-        return Calendar.current.isDate(self, equalTo: Date(), toGranularity: component)
+        return calendar.isDate(self, equalTo: Date(), toGranularity: component)
     }
 
     /// SwifterSwift: Date string from date.
@@ -878,7 +878,7 @@ public extension Date {
     ///   - date: Date to compare self to.
     /// - Returns: true if the date is within a number of components of another date
     func isWithin(_ value: UInt, _ component: Calendar.Component, of date: Date) -> Bool {
-        let components = Calendar.current.dateComponents([component], from: self, to: date)
+        let components = calendar.dateComponents([component], from: self, to: date)
         let componentValue = components.value(for: component)!
         return abs(componentValue) <= value
     }
