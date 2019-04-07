@@ -20,6 +20,21 @@ import Cocoa
 // MARK: - Methods
 public extension CGSize {
 
+    /// SwifterSwift: Returns the aspect ratio.
+    var aspectRatio: CGFloat {
+        return height == 0 ? 0 : width / height
+    }
+
+    /// SwifterSwift: Returns width or height, whatever is the bigger value.
+    var max: CGFloat {
+        return Swift.max(width, height)
+    }
+
+}
+
+// MARK: - Methods
+public extension CGSize {
+
     /// SwifterSwift: Aspect fit CGSize.
     ///
     ///     let rect = CGSize(width: 120, height: 80)
