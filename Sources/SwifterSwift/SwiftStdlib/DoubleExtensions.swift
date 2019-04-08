@@ -10,6 +10,12 @@
 import CoreGraphics
 #endif
 
+#if os(macOS) || os(iOS)
+import Darwin
+#elseif os(Linux)
+import Glibc
+#endif
+
 // MARK: - Properties
 public extension Double {
 
@@ -34,8 +40,6 @@ public extension Double {
 
 // MARK: - Operators
 
-#if canImport(Foundation) && !os(Linux)
-
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
 infix operator ** : PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
@@ -49,10 +53,6 @@ func ** (lhs: Double, rhs: Double) -> Double {
     return pow(lhs, rhs)
 }
 
-#endif
-
-#if canImport(Foundation) && !os(Linux)
-
 prefix operator √
 /// SwifterSwift: Square root of double.
 ///
@@ -63,5 +63,3 @@ public prefix func √ (double: Double) -> Double {
     // http://nshipster.com/swift-operators/
     return sqrt(double)
 }
-
-#endif

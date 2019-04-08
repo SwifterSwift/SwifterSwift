@@ -17,7 +17,11 @@ if source_changes_exist && no_changelog_entry
     warn('The source files have been modified. Please consider adding a CHANGELOG entry if necessary.')
 end
 
-swiftlint.lint_files
+# Swiftlint Danger
+# Workaround see: https://github.com/ashfurrow/danger-ruby-swiftlint/issues/87
+files_to_lint = (git.modified_files - git.deleted_files) + git.added_files
+files_to_lint.reject! { |f| f.end_with?('XCTestManifests.swift') }
+swiftlint.lint_files(files_to_lint, additional_swiftlint_args: '--no-force-exclude')
         
 # Checks if pull request is labeled as [WIP]
 warn('This pull request is marked as Work in Progress. DO NOT MERGE!') if github.pr_title.include? "[WIP]"
