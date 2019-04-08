@@ -76,22 +76,6 @@ SwifterSwift is Swift v5.0 compatible starting from v5
 </details>
 
 <details>
-<summary>Accio</summary>
-
-<p>Add the following to your Package.swift:</p>
-<pre><code class="swift language-swift">.package(url: "https://github.com/SwifterSwift/SwifterSwift.git", .upToNextMajor(from: "5.0.0")),</code></pre>
-<p>Next, add `SwifterSwift` to your App targets dependencies like so:</p>
-<pre><code class="swift language-swift">.target(
-    name: "App",
-    dependencies: [
-        "SwifterSwift",
-    ]
-),</code></pre>
-<p>Then run `accio update`.</p>
-</details>
-
-
-<details>
 <summary>Swift Package Manager</summary>
 </br>
 <p>You can use <a href="https://swift.org/package-manager">The Swift Package Manager</a> to install <code>SwifterSwift</code> by adding the proper description to your <code>Package.swift</code> file:</p>
@@ -106,6 +90,23 @@ let package = Package(
     ]
 )
 </code></pre>
+
+<p>Next, add <code>SwifterSwift</code> to your targets dependencies like so:</p>
+<pre><code class="swift language-swift">.target(
+    name: "YOUR_TARGET_NAME",
+    dependencies: [
+        "SwifterSwift",
+    ]
+),</code></pre>
+<p>Then run <code>swift package update</code>.</p>
+
+<p>Note that the <a href="https://swift.org/package-manager">Swift Package Manager</a> doesn't support building for iOS/tvOS/macOS/watchOS apps – see Accio in the next section for that.
+</details>
+
+
+<details>
+<summary>Accio</summary>
+<p><a href="https://github.com/JamitLabs/Accio">Accio</a> is a dependency manager based on SwiftPM which can build frameworks for iOS/macOS/tvOS/watchOS. Therefore the integration steps are exactly the same as described above. Once your <code>Package.swift</code> file is configured, you need to run <code>accio update</code> instead of <code>swift package update</code> though.</p>
 </details>
 
 
