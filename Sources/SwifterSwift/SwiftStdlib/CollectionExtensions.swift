@@ -85,16 +85,14 @@ public extension Collection where Index == Int {
     ///
     /// - Parameter size: The size of the slices to be returned.
     /// - Returns: grouped self.
-    func group(by size: Int) -> [[Element]]? {
-        //Inspired by: https://lodash.com/docs/4.17.4#chunk
-        guard size > 0, !isEmpty else { return nil }
-        var value: Int = 0
-        var slices: [[Element]] = []
-        while value < count {
-            slices.append(Array(self[Swift.max(value, startIndex)..<Swift.min(value + size, endIndex)]))
-            value += size
+    func group(by size: Int) -> [[Element]] {
+        if count == 0 || size <= 0 {
+            return []
+        } else if count <= size {
+            return [Array(self)]
+        } else {
+            return [Array(self[0..<size])] + Array(self[size..<endIndex]).group(by: size)
         }
-        return slices
     }
 
 }

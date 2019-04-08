@@ -154,6 +154,27 @@ public extension Sequence {
         return singleElement
     }
 
+    /// SwifterSwift: Remove duplicate elements based on condition.
+    ///
+    ///        [1, 2, 1, 3, 2].withoutDuplicates { $0 } -> [1, 2, 3]
+    ///        [(1, 4), (2, 2), (1, 3), (3, 2), (2, 1)].withoutDuplicates { $0.0 } -> [(1, 4), (2, 2), (3, 2)]
+    ///
+    /// - Parameter condition: conditions to evaluate repeating elements.
+    /// - Returns: Sequence without repeating elements
+    /// - Complexity: O(*n*), where *n* is the length of the sequence.
+    func withoutDuplicates<E: Hashable>(_ condition: (Element) -> E ) -> [Element] {
+        var set = Set<E>()
+        return self.filter {
+            let key = condition($0)
+            if set.contains(key) {
+                return false
+            } else {
+                set.insert(key)
+                return true
+            }
+        }
+    }
+
 }
 
 public extension Sequence where Element: Equatable {
@@ -209,6 +230,17 @@ public extension Sequence where Element: Hashable {
             }
         }
         return Array(duplicates)
+    }
+
+    /// SwifterSwift: Return array with all duplicate elements removed.
+    ///
+    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
+    ///     ["h", "e", "l", "l", "o"].withoutDuplicates() -> ["h", "e", "l", "o"])
+    ///
+    /// - Returns: an array of unique elements.
+    ///
+    func withoutDuplicates() -> [Element] {
+        return withoutDuplicates { $0 }
     }
 }
 
