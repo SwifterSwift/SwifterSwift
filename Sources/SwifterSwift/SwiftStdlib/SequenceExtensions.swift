@@ -162,17 +162,9 @@ public extension Sequence {
     /// - Parameter condition: conditions to evaluate repeating elements.
     /// - Returns: Sequence without repeating elements
     /// - Complexity: O(*n*), where *n* is the length of the sequence.
-    func withoutDuplicates<E: Hashable>(_ condition: (Element) -> E ) -> [Element] {
+    func withoutDuplicates<E: Hashable>(by condition: (Element) -> E ) -> [Element] {
         var set = Set<E>()
-        return self.filter {
-            let key = condition($0)
-            if set.contains(key) {
-                return false
-            } else {
-                set.insert(key)
-                return true
-            }
-        }
+        return filter { set.insert(condition($0)).inserted }
     }
 
 }
@@ -230,17 +222,6 @@ public extension Sequence where Element: Hashable {
             }
         }
         return Array(duplicates)
-    }
-
-    /// SwifterSwift: Return array with all duplicate elements removed.
-    ///
-    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
-    ///     ["h", "e", "l", "l", "o"].withoutDuplicates() -> ["h", "e", "l", "o"])
-    ///
-    /// - Returns: an array of unique elements.
-    ///
-    func withoutDuplicates() -> [Element] {
-        return withoutDuplicates { $0 }
     }
 }
 

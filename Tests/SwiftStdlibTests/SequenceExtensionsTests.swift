@@ -85,6 +85,11 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertThrowsError(try [2].single(where: { _ in throw SequenceTestError.closureThrows }))
     }
 
+    func testWithoutDuplicates() {
+        XCTAssertEqual([1, 2, 1, 3, 2].withoutDuplicates { $0 }, [1, 2, 3])
+        XCTAssertEqual([IndexPath(item: 1, section: 4), IndexPath(item: 2, section: 4), IndexPath(item: 1, section: 3)].withoutDuplicates { $0.item }, [IndexPath(item: 1, section: 4), IndexPath(item: 2, section: 4)])
+    }
+
     func testContains() {
         XCTAssert([Int]().contains([]))
         XCTAssertFalse([Int]().contains([1, 2]))
