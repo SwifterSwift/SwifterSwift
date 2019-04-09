@@ -159,12 +159,12 @@ public extension Sequence {
     ///        [1, 2, 1, 3, 2].withoutDuplicates { $0 } -> [1, 2, 3]
     ///        [(1, 4), (2, 2), (1, 3), (3, 2), (2, 1)].withoutDuplicates { $0.0 } -> [(1, 4), (2, 2), (3, 2)]
     ///
-    /// - Parameter condition: conditions to evaluate repeating elements.
+    /// - Parameter transform: transform to evaluate repeating elements.
     /// - Returns: Sequence without repeating elements
     /// - Complexity: O(*n*), where *n* is the length of the sequence.
-    func withoutDuplicates<E: Hashable>(by condition: (Element) -> E ) -> [Element] {
-        var set = Set<E>()
-        return filter { set.insert(condition($0)).inserted }
+    func withoutDuplicates<T: Hashable>(transform: (Element) throws -> T) rethrows -> [Element] {
+        var set = Set<T>()
+        return try filter { set.insert(try transform($0)).inserted }
     }
 
 }
