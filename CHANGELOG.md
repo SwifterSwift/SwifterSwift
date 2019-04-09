@@ -14,6 +14,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Fixed
 
+- **UIApplication**:
+  - Resolved an issue where `version` would return the wrong Info.plist value.
+  - Resolved an issue where `version` and `displayName` would return nil if localized.
+
 ### Security
 
 ---
