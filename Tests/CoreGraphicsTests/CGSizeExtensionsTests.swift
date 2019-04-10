@@ -38,12 +38,20 @@ final class CGSizeExtensionsTests: XCTestCase {
         XCTAssertEqual(size2.aspectRatio, 2)
     }
 
-    func testMax() {
+    func testMaxDimension() {
         let size1 = CGSize(width: 10, height: 0)
-        XCTAssertEqual(size1.max, 10)
+        XCTAssertEqual(size1.maxDimension, 10)
 
         let size2 = CGSize(width: 20, height: 40)
-        XCTAssertEqual(size2.max, 40)
+        XCTAssertEqual(size2.maxDimension, 40)
+    }
+
+    func testMinDimension() {
+        let size1 = CGSize(width: 10, height: 0)
+        XCTAssertEqual(size1.minDimension, 0)
+
+        let size2 = CGSize(width: 20, height: 40)
+        XCTAssertEqual(size2.minDimension, 20)
     }
 
     func testAdd() {

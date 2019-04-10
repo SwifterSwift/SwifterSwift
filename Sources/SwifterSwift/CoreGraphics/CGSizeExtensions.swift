@@ -26,8 +26,13 @@ public extension CGSize {
     }
 
     /// SwifterSwift: Returns width or height, whatever is the bigger value.
-    var max: CGFloat {
-        return Swift.max(width, height)
+    var maxDimension: CGFloat {
+        return max(width, height)
+    }
+
+    /// SwifterSwift: Returns width or height, whatever is the smaller value.
+    var minDimension: CGFloat {
+        return min(width, height)
     }
 
 }
