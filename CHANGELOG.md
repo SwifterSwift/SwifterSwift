@@ -7,6 +7,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 
 ### Changed
+- **UIApplication**:
+  - - `queryValue(for:)` extension for URL is refactored. [#668](https://github.com/SwifterSwift/SwifterSwift/pull/668) by [LucianoPAlmeida](https://github.com/ratulSharker).
+
 
 ### Deprecated
 
