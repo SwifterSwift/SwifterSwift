@@ -25,12 +25,12 @@ public extension CGSize {
         return height == 0 ? 0 : width / height
     }
 
-    /// SwifterSwift: Returns width or height, whatever is the bigger value.
+    /// SwifterSwift: Returns width or height, whichever is the bigger value.
     var maxDimension: CGFloat {
         return max(width, height)
     }
 
-    /// SwifterSwift: Returns width or height, whatever is the smaller value.
+    /// SwifterSwift: Returns width or height, whichever is the smaller value.
     var minDimension: CGFloat {
         return min(width, height)
     }
