@@ -66,6 +66,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testQuarter() {
+        #if !os(Linux)
         let date1 = Date(timeIntervalSince1970: 0)
         XCTAssertEqual(date1.quarter, 1)
 
@@ -77,6 +78,7 @@ final class DateExtensionsTests: XCTestCase {
 
         let date4 = Calendar.current.date(byAdding: .month, value: 11, to: date1)
         XCTAssertEqual(date4?.quarter, 4)
+        #endif
     }
 
     func testWeekOfYear() {
@@ -369,7 +371,7 @@ final class DateExtensionsTests: XCTestCase {
     func testIsInCurrentWeek() {
         let date = Date()
         XCTAssert(date.isInCurrentWeek)
-        let dateOneYearFromNow = date.adding(.year, value: 1)
+        let dateOneYearFromNow = Calendar.current.date(byAdding: .year, value: 1, to: date) ?? Date()
         XCTAssertFalse(dateOneYearFromNow.isInCurrentWeek)
     }
 
@@ -615,6 +617,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testBeginning() {
+        #if !os(Linux)
         let date = Date()
 
         XCTAssertNotNil(date.beginning(of: .second))
@@ -647,6 +650,7 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertEqual(date.beginning(of: .year)?.day, beginningOfYear?.day)
 
         XCTAssertNil(date.beginning(of: .quarter))
+        #endif
     }
 
     func testEnd() {
@@ -660,10 +664,12 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertEqual(date.end(of: .day)?.minute, 59)
         XCTAssertEqual(date.end(of: .day)?.second, 59)
 
+        #if !os(Linux)
         var endOfWeek = date.beginning(of: .weekOfYear)
         endOfWeek?.add(.day, value: 7)
         endOfWeek?.add(.second, value: -1)
         XCTAssertEqual(date.end(of: .weekOfYear), endOfWeek)
+        #endif
 
         XCTAssertEqual(date.end(of: .month)?.day, 31)
         XCTAssertEqual(date.end(of: .month)?.hour, 23)

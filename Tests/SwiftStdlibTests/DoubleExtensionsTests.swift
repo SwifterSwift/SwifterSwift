@@ -24,7 +24,9 @@ final class DoubleExtensionsTests: XCTestCase {
     }
 
     func testCGFloat() {
+        #if canImport(CoreGraphics)
         XCTAssertEqual(Double(4.3).cgFloat, CGFloat(4.3))
+        #endif
     }
 
     func testOperators() {

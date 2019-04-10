@@ -222,7 +222,7 @@ public extension String {
     }
     #endif
 
-    #if canImport(Foundation) && !os(Linux)
+    #if canImport(Foundation)
     /// SwifterSwift: Check if string is a valid Swift number.
     ///
     /// Note:
@@ -237,7 +237,11 @@ public extension String {
     var isNumeric: Bool {
         let scanner = Scanner(string: self)
         scanner.locale = NSLocale.current
+        #if os(Linux)
+        return scanner.scanDecimal() != nil && scanner.isAtEnd
+        #else
         return scanner.scanDecimal(nil) && scanner.isAtEnd
+        #endif
     }
     #endif
 
@@ -1168,7 +1172,7 @@ public extension String {
 
 }
 
-#if canImport(Foundation) && !os(Linux)
+#if canImport(Foundation)
 
 // MARK: - NSString extensions
 public extension String {
