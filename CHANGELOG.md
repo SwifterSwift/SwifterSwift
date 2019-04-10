@@ -9,6 +9,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
     - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
 
 ### Changed
+- **UIApplication**:
+  - - `queryValue(for:)` extension for URL is refactored. [#668](https://github.com/SwifterSwift/SwifterSwift/pull/668) by [LucianoPAlmeida](https://github.com/ratulSharker).
+
 
 ### Deprecated
 

@@ -70,12 +70,10 @@ public extension URL {
     ///
     /// - Parameter key: The key of a query value.
     func queryValue(for key: String) -> String? {
-        let stringURL = absoluteString
-        guard let items = URLComponents(string: stringURL)?.queryItems else { return nil }
-        for item in items where item.name == key {
-            return item.value
-        }
-        return nil
+        return URLComponents(string: absoluteString)?
+            .queryItems?
+            .first(where: { $0.name == key })?
+            .value
     }
 
     /// SwifterSwift: Returns a new URL by removing all the path components.
