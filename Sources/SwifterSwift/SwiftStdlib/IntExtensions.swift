@@ -164,9 +164,7 @@ public extension Int {
         guard to < self else {
             fatalError("The argument \(to) to down(to:) cannot be greater than the value \(self) it's called on.")
         }
-        for current in (to...self).reversed() {
-            callback(current)
-        }
+        (to...self).reversed().forEach { callback($0) }
     }
 }
 
