@@ -5,8 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
-- **Int**
-  - - Added up(to:) extension for Int, which iterates from current number up to the given number, inclusive, incrementing by one each time.
+- **Comparable**
+  - `up(to:)` which iterates from the receiver up to the given value, inclusive, incrementing by one each time. [#669](https://github.com/SwifterSwift/SwifterSwift/pull/669) by [cHaLkdusT](https://github.com/cHaLkdusT).
 
 ### Changed
 - **UIApplication**:

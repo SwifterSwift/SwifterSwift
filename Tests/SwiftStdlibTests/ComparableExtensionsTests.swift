@@ -29,4 +29,17 @@ final class ComparableExtensionsTests: XCTestCase {
         XCTAssertEqual(0.32.clamped(to: 0.37...0.42), 0.37)
     }
 
+    func testUpTo() {
+        var latestValue = 0
+        2.up(to: 5) { currentValue in
+            latestValue = currentValue
+        }
+        assert(latestValue == 5)
+        
+        1.up(to: 1) { currentValue in
+            latestValue = currentValue
+        }
+        assert(latestValue == 1)
+    }
+    
 }

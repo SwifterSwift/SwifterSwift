@@ -154,19 +154,6 @@ public extension Int {
         return number == 0 ? self : Int(round(Double(self) / Double(number))) * number
     }
 
-    /// Iterates from this number up to the given number, inclusive,
-    /// incrementing by one each time.
-    ///
-    /// - Parameters:
-    ///   - to: another Int to go up to
-    ///   - callback: The closure to call
-    func up(to: Int, callback: (_ current: Int) -> Void) {
-        guard to > self else {
-            fatalError("The argument \(to) to up(to:) cannot be less than the value \(self) it's called on.")
-        }
-        
-        (self...to).forEach { callback($0) }
-    }
 }
 
 // MARK: - Operators

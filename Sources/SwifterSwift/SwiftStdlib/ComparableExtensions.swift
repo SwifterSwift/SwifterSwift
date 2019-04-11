@@ -41,3 +41,21 @@ public extension Comparable {
     }
 
 }
+
+public extension Comparable where Self: Strideable, Self.Stride: SignedInteger {
+    
+    /// Iterates from this number up to the given number, inclusive,
+    /// incrementing by one each time.
+    ///
+    /// - Parameters:
+    ///   - to: another Int to go up to
+    ///   - callback: The closure to call
+    func up(to: Self, callback: (_ current: Self) -> Void) {
+        guard to >= self else {
+            fatalError("The argument \(to) to up(to:) cannot be less than the value \(self) it's called on.")
+        }
+        
+        (self...to).forEach { callback($0) }
+    }
+
+}
