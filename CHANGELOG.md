@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **Int**
+  - - Added up(to:) extension for Int, which iterates from current number up to the given number, inclusive, incrementing by one each time.
 
 ### Changed
 - **UIApplication**:
