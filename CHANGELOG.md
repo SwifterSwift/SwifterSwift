@@ -6,6 +6,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 
+- **CGSize**:
+  - Added `aspectRatio`, `maxDimension`, and `minDimension` properties. [#662](https://github.com/SwifterSwift/SwifterSwift/pull/662) by [vyax](https://github.com/vyax)
 - **SCNBox**:
   - Added `init(width:height:length:)`, `init(sideLength:chamferRadius:)`, `init(width:height:length:chamferRadius:material:)`, `init(sideLength:chamferRadius:material:)`, `init(width:height:length:chamferRadius:color:)`, and `init(sideLength:chamferRadius:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
 - **SCNCapsule**:
