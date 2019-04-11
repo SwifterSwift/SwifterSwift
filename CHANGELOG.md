@@ -5,8 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
-- **Int**
-  - `down(to:)` extension for Int which iterates from this number down to the given number, inclusive, decrementing by one each time.
+- **Comparable**
+- `down(to:)` extension for Int which iterates from this number down to the given number, inclusive, decrementing by one each time. . [#670](https://github.com/SwifterSwift/SwifterSwift/pull/670) by [cHaLkdusT](https://github.com/cHaLkdusT).
 
 ### Changed
 - **UIApplication**:
