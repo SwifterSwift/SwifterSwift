@@ -8,6 +8,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **String**
   - `isPalindrome` computed property of String to check if it is a palindrome
 
+- **CGSize**:
+  - Added `aspectRatio`, `maxDimension`, and `minDimension` properties. [#662](https://github.com/SwifterSwift/SwifterSwift/pull/662) by [vyax](https://github.com/vyax)
+
 ### Changed
 - **UIApplication**:
   - - `queryValue(for:)` extension for URL is refactored. [#668](https://github.com/SwifterSwift/SwifterSwift/pull/668) by [LucianoPAlmeida](https://github.com/ratulSharker).
