@@ -154,21 +154,22 @@ public extension String {
         return comps.joined(separator: "").count == 0 && hasLetters && hasNumbers
     }
 
-    /// SwifterSwift: Check if string is palindrome
+    /// SwifterSwift: Check if string is palindrome.
     ///
     ///     "abcdcba".isPalindrome -> true
     ///     "Mom".isPalindrome -> true
+    ///     "A man a plan a canal, Panama!".isPalindrome -> true
     ///     "Mama".isPalindrome -> false
     ///
     var isPalindrome: Bool {
-        // https://gist.github.com/alimir1/83b94be5fde4ef8b51ba6bf6044e78cd
-        let word = self.lowercased().filter { $0 != " " }
-        for (i, character) in word.enumerated() {
-            if character != Array(word)[word.count-i-1] {
-                return false
-            }
-        }
-        return true
+        let letters = filter { $0.isLetter }
+        
+        guard !letters.isEmpty else { return false }
+        
+        let midIndex = letters.index(letters.startIndex, offsetBy: letters.count / 2)
+        let firstHalf = letters[letters.startIndex..<midIndex]
+        let secondHalf = letters[midIndex..<letters.endIndex].reversed()
+        return !zip(firstHalf, secondHalf).contains(where: { $0.lowercased() != $1.lowercased() })
     }
 
     #if canImport(Foundation)
