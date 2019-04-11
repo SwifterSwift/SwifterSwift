@@ -39,5 +39,22 @@ public extension Comparable {
     func clamped(to range: ClosedRange<Self>) -> Self {
         return max(range.lowerBound, min(self, range.upperBound))
     }
+}
+
+public extension Comparable where Self: Strideable, Self.Stride: SignedInteger {
+
+    /// Iterates from this number down to the given number, inclusive,
+    /// decrementing by one each time.
+    ///
+    /// - Parameters:
+    ///   - to: another Int to go down to
+    ///   - callback: The closure to call
+    func down(to: Self, callback: (_ current: Self) -> Void) {
+        guard to <= self else {
+            fatalError("The argument \(to) to down(to:) cannot be greater than the value \(self) it's called on.")
+        }
+
+        (to...self).reversed().forEach { callback($0) }
+    }
 
 }

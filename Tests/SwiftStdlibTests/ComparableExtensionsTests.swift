@@ -28,5 +28,12 @@ final class ComparableExtensionsTests: XCTestCase {
         XCTAssertEqual("c".clamped(to: "e"..."g"), "e")
         XCTAssertEqual(0.32.clamped(to: 0.37...0.42), 0.37)
     }
-
+    
+    func testDownTo() {
+        var latestValue = 0
+        5.down(to: -2) { currentValue in
+            latestValue = currentValue
+        }
+        assert(latestValue == -2)
+    }
 }
