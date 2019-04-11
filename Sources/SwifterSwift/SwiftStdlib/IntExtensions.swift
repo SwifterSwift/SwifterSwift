@@ -165,9 +165,7 @@ public extension Int {
             fatalError("The argument \(to) to up(to:) cannot be less than the value \(self) it's called on.")
         }
         
-        for current in self...to {
-            callback(current)
-        }
+        (self...to).forEach { callback($0) }
     }
 }
 
