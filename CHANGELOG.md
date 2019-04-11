@@ -6,7 +6,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **String**
-  - - `isPalindrome` computed property of String to check if it is a palindrome
+  - `isPalindrome` computed property of String to check if it is a palindrome
 
 ### Changed
 - **UIApplication**:
