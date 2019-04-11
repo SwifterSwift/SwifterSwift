@@ -154,6 +154,20 @@ public extension Int {
         return number == 0 ? self : Int(round(Double(self) / Double(number))) * number
     }
 
+    /// Iterates from this number down to the given number, inclusive,
+    /// decrementing by one each time.
+    ///
+    /// - Parameters:
+    ///   - to: another Int to go down to
+    ///   - callback: The closure to call
+    func down(to: Int, callback: (_ current: Int) -> Void) {
+        guard to < self else {
+            fatalError("The argument \(to) to down(to:) cannot be greater than the value \(self) it's called on.")
+        }
+        for current in (to...self).reversed() {
+            callback(current)
+        }
+    }
 }
 
 // MARK: - Operators
