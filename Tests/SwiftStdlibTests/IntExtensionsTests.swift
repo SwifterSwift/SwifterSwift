@@ -113,14 +113,6 @@ final class IntExtensionsTests: XCTestCase {
         }
         assert(latestValue == 5)
     }
-  
-    func testDownTo() {
-        var latestValue = 0
-        5.down(to: -2) { currentValue in
-            latestValue = currentValue
-        }
-        assert(latestValue == -2)
-    }
 
     func testOperators() {
         XCTAssertEqual(5 ** 2, 25)
