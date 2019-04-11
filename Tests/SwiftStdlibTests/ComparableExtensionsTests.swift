@@ -35,5 +35,10 @@ final class ComparableExtensionsTests: XCTestCase {
             latestValue = currentValue
         }
         assert(latestValue == -2)
+        
+        1.down(to: 1) { currentValue in
+            latestValue = currentValue
+        }
+        assert(latestValue == 1)
     }
 }
