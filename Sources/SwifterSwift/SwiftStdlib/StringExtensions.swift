@@ -154,6 +154,22 @@ public extension String {
         return comps.joined(separator: "").count == 0 && hasLetters && hasNumbers
     }
 
+    /// SwifterSwift: Check if string is palindrome
+    ///
+    ///     "abcdcba".isPalindrome -> true
+    ///     "Mom".isPalindrome -> true
+    ///     "Mama".isPalindrome -> false
+    ///
+    var isPalindrome: Bool {
+        let word = self.lowercased().filter { $0 != " " }
+        for (i, character) in word.enumerated() {
+            if character != Array(word)[word.count-i-1] {
+                return false
+            }
+        }
+        return true
+    }
+
     #if canImport(Foundation)
     /// SwifterSwift: Check if string is valid email format.
     ///
