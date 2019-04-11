@@ -41,4 +41,5 @@ final class ComparableExtensionsTests: XCTestCase {
         }
         assert(latestValue == 1)
     }
+
 }

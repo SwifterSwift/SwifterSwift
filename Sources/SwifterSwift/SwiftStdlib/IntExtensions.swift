@@ -153,6 +153,7 @@ public extension Int {
     func roundToNearest(_ number: Int) -> Int {
         return number == 0 ? self : Int(round(Double(self) / Double(number))) * number
     }
+
 }
 
 // MARK: - Operators
