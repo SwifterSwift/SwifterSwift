@@ -105,6 +105,22 @@ final class IntExtensionsTests: XCTestCase {
         XCTAssert(63.roundToNearest(25) == 75)
         XCTAssert(42.roundToNearest(0) == 42)
     }
+  
+    func testUpTo() {
+        var latestValue = 0
+        2.up(to: 5) { currentValue in
+            latestValue = currentValue
+        }
+        assert(latestValue == 5)
+    }
+  
+    func testDownTo() {
+        var latestValue = 0
+        5.down(to: -2) { currentValue in
+            latestValue = currentValue
+        }
+        assert(latestValue == -2)
+    }
 
     func testOperators() {
         XCTAssertEqual(5 ** 2, 25)

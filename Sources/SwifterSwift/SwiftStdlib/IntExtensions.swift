@@ -154,16 +154,6 @@ public extension Int {
         return number == 0 ? self : Int(round(Double(self) / Double(number))) * number
     }
 
-    /// Executes the closure this many times, starting from zero.
-    /// The current index is passed to the closure each time.
-    ///
-    /// - Parameter callback: The closure to call a number of times
-    func times(_ callback: (_ currentIndex: Int) -> Void) {
-       for index in 0..<self {
-          callback(index)
-       }
-    }
-
     /// Iterates from this number up to the given number, inclusive,
     /// incrementing by one each time.
     ///
@@ -171,6 +161,10 @@ public extension Int {
     ///   - to: another Int to go up to
     ///   - callback: The closure to call
     func up(to: Int, callback: (_ current: Int) -> Void) {
+        guard to > self else {
+            fatalError("The argument \(to) to up(to:) cannot be less than the value \(self) it's called on.")
+        }
+        
         for current in self...to {
             callback(current)
         }
@@ -183,6 +177,9 @@ public extension Int {
     ///   - to: another Int to go down to
     ///   - callback: The closure to call
     func down(to: Int, callback: (_ current: Int) -> Void) {
+        guard to < self else {
+            fatalError("The argument \(to) to down(to:) cannot be greater than the value \(self) it's called on.")
+        }
         for current in (to...self).reversed() {
             callback(current)
         }
