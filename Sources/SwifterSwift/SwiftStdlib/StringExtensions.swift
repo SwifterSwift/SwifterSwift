@@ -161,6 +161,7 @@ public extension String {
     ///     "Mama".isPalindrome -> false
     ///
     var isPalindrome: Bool {
+        // https://gist.github.com/alimir1/83b94be5fde4ef8b51ba6bf6044e78cd
         let word = self.lowercased().filter { $0 != " " }
         for (i, character) in word.enumerated() {
             if character != Array(word)[word.count-i-1] {
