@@ -154,6 +154,24 @@ public extension String {
         return comps.joined(separator: "").count == 0 && hasLetters && hasNumbers
     }
 
+    /// SwifterSwift: Check if string is palindrome.
+    ///
+    ///     "abcdcba".isPalindrome -> true
+    ///     "Mom".isPalindrome -> true
+    ///     "A man a plan a canal, Panama!".isPalindrome -> true
+    ///     "Mama".isPalindrome -> false
+    ///
+    var isPalindrome: Bool {
+        let letters = filter { $0.isLetter }
+        
+        guard !letters.isEmpty else { return false }
+        
+        let midIndex = letters.index(letters.startIndex, offsetBy: letters.count / 2)
+        let firstHalf = letters[letters.startIndex..<midIndex]
+        let secondHalf = letters[midIndex..<letters.endIndex].reversed()
+        return !zip(firstHalf, secondHalf).contains(where: { $0.lowercased() != $1.lowercased() })
+    }
+
     #if canImport(Foundation)
     /// SwifterSwift: Check if string is valid email format.
     ///
