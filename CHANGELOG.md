@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **String**
+  - `isPalindrome` computed property of String to check if it is a palindrome. [#671](https://github.com/SwifterSwift/SwifterSwift/pull/671) by [cHaLkdusT](https://github.com/cHaLkdusT).
 
 - **CGSize**:
   - Added `aspectRatio`, `maxDimension`, and `minDimension` properties. [#662](https://github.com/SwifterSwift/SwifterSwift/pull/662) by [vyax](https://github.com/vyax)
