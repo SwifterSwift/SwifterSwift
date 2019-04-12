@@ -74,6 +74,14 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertFalse("abc".isAlphaNumeric)
     }
 
+    func testIsPalindrome() {
+        XCTAssert("abcdcba".isPalindrome)
+        XCTAssert("Mom".isPalindrome)
+        XCTAssert("A man a plan a canal, Panama!".isPalindrome)
+        XCTAssertFalse("Mama".isPalindrome)
+        XCTAssertFalse("".isPalindrome)
+    }
+
     func testisValidEmail() {
         // https://blogs.msdn.microsoft.com/testing123/2009/02/06/email-address-test-cases/
 
