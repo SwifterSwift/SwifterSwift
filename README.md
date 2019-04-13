@@ -62,6 +62,9 @@ SwifterSwift is Swift v5.0 compatible starting from v5
 <h4>- Integrate SpriteKit extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/SpriteKit'</code></pre>
 
+<h4>- Integrate SceneKit extensions only:</h4>
+<pre><code class="ruby language-ruby">pod 'SwifterSwift/SceneKit'</code></pre>
+
 <h4>- Integrate Dispatch extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/Dispatch'</code></pre>
 </details>
@@ -250,6 +253,23 @@ let package = Package(
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SpriteKit/SKNodeExtensions.swift"><code>SKNode extensions</code></a></li>
+</ul>
+</details>
+
+<details>
+<summary>SceneKit Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNBoxExtensions.swift"><code>SCNBox extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNCone.swift"><code>SCNCone extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNCapsule.swift"><code>SCNCapsule extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNCylinderExtensions.swift"><code>SCNCylinder extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNGeometryExtensions.swift"><code>SCNGeometry extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNMaterialExtensions.swift"><code>SCNMaterial extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNPlaneExtensions.swift"><code>SCNPlane extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNShape.swift"><code>SCNShape extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNSphereExtensions.swift"><code>SCNSphere extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNVector3Extensions.swift"><code>SCNVector3 extensions</code></a></li>
 </ul>
 </details>
 
