@@ -154,6 +154,19 @@ public extension Sequence {
         return singleElement
     }
 
+    /// SwifterSwift: Remove duplicate elements based on condition.
+    ///
+    ///        [1, 2, 1, 3, 2].withoutDuplicates { $0 } -> [1, 2, 3]
+    ///        [(1, 4), (2, 2), (1, 3), (3, 2), (2, 1)].withoutDuplicates { $0.0 } -> [(1, 4), (2, 2), (3, 2)]
+    ///
+    /// - Parameter transform: A closure that should return the value to be evaluated for repeating elements.
+    /// - Returns: Sequence without repeating elements
+    /// - Complexity: O(*n*), where *n* is the length of the sequence.
+    func withoutDuplicates<T: Hashable>(transform: (Element) throws -> T) rethrows -> [Element] {
+        var set = Set<T>()
+        return try filter { set.insert(try transform($0)).inserted }
+    }
+
 }
 
 public extension Sequence where Element: Equatable {
