@@ -163,31 +163,31 @@ public extension Array where Element: Equatable {
     }
 }
 
-extension Array where Element: Hashable {
+extension Array where Element: Equatable {
     
-    public func filtered<E: Equatable>(duplication path: KeyPath<Element, E>) -> [Element] {
-        return reduce(into: [Element]()) { (result, e) in
-            let contains = result.contains { $0[keyPath: path] == e[keyPath: path] }
-            result += contains ? [] : [e]
+    public func withoutDuplicates<E: Equatable>(by keyPath: KeyPath<Element, E>) -> [Element] {
+        return reduce(into: [Element]()) { (result, element) in
+            let contains = result.contains { $0[keyPath: keyPath] == element[keyPath: keyPath] }
+            result += contains ? [] : [element]
         }
     }
     
-    public func filtered<E: Equatable>(duplication closure: (Element) throws -> E) rethrows -> [Element] {
-        return try reduce(into: [Element]()) { (result, e) in
-            let contains = try result.contains { try closure($0) == closure(e) }
-            result += contains ? [] : [e]
+    public func withoutDuplicates<E: Equatable>(by property: (Element) throws -> E) rethrows -> [Element] {
+        return try reduce(into: [Element]()) { (result, element) in
+            let contains = try result.contains { try property($0) == property(element) }
+            result += contains ? [] : [element]
         }
     }
     
     @discardableResult
-    public mutating func filter<E: Equatable>(duplication path: KeyPath<Element, E>) -> [Element] {
-        self = filtered(duplication: path)
+    public mutating func withoutDuplicated<E: Equatable>(by keyPath: KeyPath<Element, E>) -> [Element] {
+        self = withoutDuplicates(by: keyPath)
         return self
     }
     
     @discardableResult
-    public mutating func filter<E: Equatable>(duplication closure: (Element) throws -> E) rethrows -> [Element] {
-        self = try filtered(duplication: closure)
+    public mutating func withoutDuplicated<E: Equatable>(by property: (Element) throws -> E) rethrows -> [Element] {
+        self = try withoutDuplicates(by: property)
         return self
     }
 }

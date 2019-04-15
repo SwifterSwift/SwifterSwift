@@ -114,5 +114,54 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates(), [1, 2, 3, 4, 5])
         XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
     }
+    
+    func testWithoutDuplicatesByKeyPath() {
+        var array1 = [Person(name: "James", age: 32),
+                     Person(name: "Wade", age: 36),
+                     Person(name: "Wade", age: 36),
+                     Person(name: "Rose", age: 29),
+                     Person(name: "Rose", age: 29),
+                     Person(name: "Rose", age: 29)]
+        
+        let array2 = [Person(name: "James", age: 32),
+                      Person(name: "Wade", age: 36),
+                      Person(name: "Wade", age: 36),
+                      Person(name: "Rose", age: 29),
+                      Person(name: "Rose", age: 29),
+                      Person(name: "Rose", age: 29)]
+        
+        let result = [Person(name: "James", age: 32),
+                     Person(name: "Wade", age: 36),
+                     Person(name: "Rose", age: 29)]
+        
+        
+        array1.withoutDuplicated(by: \.age)
+        XCTAssertEqual(array1, result)
+        XCTAssertEqual(array2.withoutDuplicates(by: \.age), result)
+    }
+
+    func testWithoutDuplicatesBProperty() {
+        var array1 = [Person(name: "James", age: 32),
+                      Person(name: "Wade", age: 36),
+                      Person(name: "Wade", age: 36),
+                      Person(name: "Rose", age: 29),
+                      Person(name: "Rose", age: 29),
+                      Person(name: "Rose", age: 29)]
+        
+        let array2 = [Person(name: "James", age: 32),
+                      Person(name: "Wade", age: 36),
+                      Person(name: "Wade", age: 36),
+                      Person(name: "Rose", age: 29),
+                      Person(name: "Rose", age: 29),
+                      Person(name: "Rose", age: 29)]
+        
+        let result = [Person(name: "James", age: 32),
+                      Person(name: "Wade", age: 36),
+                      Person(name: "Rose", age: 29)]
+        
+        array1.withoutDuplicated { $0.age }
+        XCTAssertEqual(array1, result)
+        XCTAssertEqual(array2.withoutDuplicates{ $0.age }, result)
+    }
 
 }
