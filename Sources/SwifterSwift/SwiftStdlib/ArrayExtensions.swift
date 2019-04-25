@@ -165,30 +165,26 @@ public extension Array where Element: Equatable {
 
 extension Array where Element: Equatable {
     
-    public func withoutDuplicates<E: Equatable>(by keyPath: KeyPath<Element, E>) -> [Element] {
+    public func withoutDuplicated<E: Equatable>(by keyPath: KeyPath<Element, E>) -> [Element] {
         return reduce(into: [Element]()) { (result, element) in
             let contains = result.contains { $0[keyPath: keyPath] == element[keyPath: keyPath] }
             result += contains ? [] : [element]
         }
     }
     
-    public func withoutDuplicates<E: Equatable>(by property: (Element) throws -> E) rethrows -> [Element] {
+    public func withoutDuplicated<E: Equatable>(by property: (Element) throws -> E) rethrows -> [Element] {
         return try reduce(into: [Element]()) { (result, element) in
             let contains = try result.contains { try property($0) == property(element) }
             result += contains ? [] : [element]
         }
     }
     
-    @discardableResult
-    public mutating func withoutDuplicated<E: Equatable>(by keyPath: KeyPath<Element, E>) -> [Element] {
-        self = withoutDuplicates(by: keyPath)
-        return self
+    public mutating func withoutDuplicates<E: Equatable>(by keyPath: KeyPath<Element, E>) {
+        self = withoutDuplicated(by: keyPath)
     }
     
-    @discardableResult
-    public mutating func withoutDuplicated<E: Equatable>(by property: (Element) throws -> E) rethrows -> [Element] {
-        self = try withoutDuplicates(by: property)
-        return self
+    public mutating func withoutDuplicates<E: Equatable>(by property: (Element) throws -> E) rethrows {
+        self = try withoutDuplicated(by: property)
     }
 }
 
