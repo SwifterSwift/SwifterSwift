@@ -42,6 +42,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Deprecated
 
 ### Removed
+- **Character**:
+- **Breaking Change** Removed  `var isLowercased: -> Bool`, `var isUppercased: -> Bool` in favor of `var isLowercase: -> Bool`, `var isUppercase: -> Bool` in stdlib. [#675](https://github.com/SwifterSwift/SwifterSwift/pull/675) by [ShreeramBhat](https://github.com/ShreeramBhat)
+- Removed `var isLetter: -> Bool` ,  `var isWhiteSpace: -> Bool` in favor of `var isLetter: -> Bool`, `var isWhiteSpace: -> Bool` in stdlib. [#675](https://github.com/SwifterSwift/SwifterSwift/pull/675) by [ShreeramBhat](https://github.com/ShreeramBhat)
 
 ### Fixed
 
