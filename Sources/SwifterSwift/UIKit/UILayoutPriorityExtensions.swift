@@ -9,7 +9,7 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
-public extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
+extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
 
     // MARK: - Initializers
 
@@ -18,7 +18,7 @@ public extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByInteg
     ///     constraint.priority = 0.5
     ///
     /// - Parameter value: The float value of the constraint
-    init(floatLiteral value: Float) {
+    public init(floatLiteral value: Float) {
         self.init(rawValue: value)
     }
 
@@ -27,7 +27,7 @@ public extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByInteg
     ///     constraint.priority = 5
     ///
     /// - Parameter value: The integer value of the constraint
-    init(integerLiteral value: Int) {
+    public init(integerLiteral value: Int) {
         self.init(rawValue: Float(value))
     }
 
