@@ -38,7 +38,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIApplication**:
   - - `queryValue(for:)` extension for URL is refactored. [#668](https://github.com/SwifterSwift/SwifterSwift/pull/668) by [LucianoPAlmeida](https://github.com/ratulSharker).
 
-
 ### Deprecated
 
 ### Removed
@@ -48,7 +47,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIApplication**:
   - Resolved an issue where `version` would return the wrong Info.plist value.
   - Resolved an issue where `version` and `displayName` would return nil if localized.
-
+- **UIImage**:
+  - The size of rect can equal to the size of UIImage when using `cropped(to:)` to crop UIImage. [#679](https://github.com/SwifterSwift/SwifterSwift/pull/679) by [dirtmelon](https://github.com/dirtmelon).
+  
 ### Security
 
 ---
