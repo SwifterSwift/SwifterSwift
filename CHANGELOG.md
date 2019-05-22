@@ -37,7 +37,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Changed
 - **UIApplication**:
   - - `queryValue(for:)` extension for URL is refactored. [#668](https://github.com/SwifterSwift/SwifterSwift/pull/668) by [LucianoPAlmeida](https://github.com/ratulSharker).
-
+- **UIImage**:
+  - The size of rect can equal to the size of UIImage when using `cropped(to:)` to crop UIImage. [#679](https://github.com/SwifterSwift/SwifterSwift/pull/679) by [dirtmelon](https://github.com/dirtmelon).
 
 ### Deprecated
 
