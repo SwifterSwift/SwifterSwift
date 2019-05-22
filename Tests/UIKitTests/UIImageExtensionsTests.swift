@@ -53,6 +53,12 @@ final class UIImageExtensionsTests: XCTestCase {
         cropped = image.cropped(to: CGRect(x: 0, y: 0, width: 10, height: 10))
         let small = UIImage(color: .black, size: CGSize(width: 10, height: 10))
         XCTAssertEqual(cropped.bytesSize, small.bytesSize)
+
+        let equalHeight = image.cropped(to: CGRect(x: 0, y: 0, width: 18, height: 20))
+        XCTAssertNotEqual(image, equalHeight)
+
+        let equalWidth = image.cropped(to: CGRect(x: 0, y: 0, width: 20, height: 18))
+        XCTAssertNotEqual(image, equalWidth)
     }
 
     func testScaledToHeight() {
