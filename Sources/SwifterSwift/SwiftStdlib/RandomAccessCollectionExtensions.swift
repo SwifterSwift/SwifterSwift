@@ -6,7 +6,7 @@
 //  Copyright © 2018 SwifterSwift
 //
 
-extension RandomAccessCollection where Element: Equatable {
+public extension RandomAccessCollection where Element: Equatable {
 
     /// SwifterSwift: All indices of specified item.
     ///
