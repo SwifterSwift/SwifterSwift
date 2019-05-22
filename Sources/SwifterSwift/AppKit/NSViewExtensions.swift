@@ -133,7 +133,7 @@ public extension NSView {
 }
 
 // MARK: - Methods
-extension NSView {
+public extension NSView {
 
     /// SwifterSwift: Add array of subviews to view.
     ///

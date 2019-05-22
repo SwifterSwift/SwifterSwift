@@ -31,7 +31,7 @@ jobs:
         - bash <(curl -s https://codecov.io/bash) -cF osx -J 'SwifterSwift'
         - xcodebuild clean build -project "$PROJECT" -scheme "$WATCHOS_SCHEME" -destination "$WATCHOS_DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-watchos.json" xcpretty -f `xcpretty-json-formatter`
         - bundle exec danger --verbose
-        - bundle exec pod lib lint --skip-tests --allow-warnings
+        # - bundle exec pod lib lint --skip-tests --allow-warnings --verbose
     - name: Linux 
       env: SWIFT_VERSION=5.0
       os: linux
