@@ -10,8 +10,8 @@ import XCTest
 @testable import SwifterSwift
 final class UIColorExtensionTest: XCTestCase {
     func testRGB() {
-        let color = UIColor(r: 255, g: 255, b: 255, a: 1)
+        let color = UIColor(red: 255, green: 255, blue: 255, alpha: 1)
         let viewController = UIViewController()
-        ViewController.view.backgroundColor = color
+        viewController.view.backgroundColor = color
     }
 }

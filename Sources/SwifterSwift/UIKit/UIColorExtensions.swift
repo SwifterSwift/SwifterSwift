@@ -18,8 +18,8 @@ extension UIColor {
     ///   - r: Red Value.
     ///   - b: Blue Value.
     ///   - g: Green Value.
-    public convenience init?(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
-        self.init(red: r/255, green: g/255, blue: b/255, alpha: a)
+    public convenience init?(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+        self.init(red: red/255, green: green/255, blue: blue/255, alpha: alpha)
     }
 
 }
