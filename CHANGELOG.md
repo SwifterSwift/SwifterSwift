@@ -44,8 +44,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Deprecated
 
 ### Removed
-- **Character**:
-  - Removed `isNumber`, `isLetter`, `isLowercased`, `isUppercased`, `isWhiteSpace`, `lowercased`, and `uppercased` in favor of the Swift Standard Library versions found in the new versions of Swift. [#673](https://github.com/SwifterSwift/SwifterSwift/issues/673) by [ChristopherAaronBrown](https://github.com/ChristopherAaronBrown)
 
 ### Fixed
 
