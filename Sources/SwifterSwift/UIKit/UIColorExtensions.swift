@@ -10,14 +10,15 @@ import Foundation
 import UIKit
 
 extension UIColor {
-    /// SwifterSwift: Simple UIColor init.
+    /// SwifterSwift: Simple  UIColor init.
     ///
     ///    loginButton.color = UIColor(r: 255, g: 0, b: 70, a: 1)
     ///
     /// - Parameters:
-    ///   - r: Red Value.
-    ///   - b: Blue Value.
-    ///   - g: Green Value.
+    ///   - red: Red Value.
+    ///   - blue: Blue Value.
+    ///   - green: Green Value.
+    ///   -alpha: Alpha Value.
     public convenience init?(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
         self.init(red: red/255, green: green/255, blue: blue/255, alpha: alpha)
     }
