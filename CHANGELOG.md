@@ -6,7 +6,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **UIColor**:
-    -You can now init UIColor with `UIColor(red: 255, green: 255, blue: 255, alpha: 1)`. That means no dividing!
+    - You can now init UIColor with `UIColor(red: 255, green: 255, blue: 255, alpha: 1)`. That means no dividing!
 - **Sequence**:
     - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
 - **String**
