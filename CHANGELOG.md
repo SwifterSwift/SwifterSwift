@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **Int**:
+	- Added `fahrenheitToCelsius` and `celsiusToFahrenheit` to convert an integer from one unit to the other. [#678](https://github.com/SwifterSwift/SwifterSwift/pull/678) by [ChristopherAaronBrown](https://github.com/ChristopherAaronBrown)
 - **Sequence**:
     - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
 - **String**

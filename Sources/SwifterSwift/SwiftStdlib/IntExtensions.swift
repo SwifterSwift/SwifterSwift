@@ -34,6 +34,16 @@ public extension Int {
         return Double(self) * 180 / Double.pi
     }
 
+    /// SwifterSwift: Celsius value of Fahrenheit input
+    var fahrenheitToCelsius: Double {
+        return (Double(self) - 32) * (5.0 / 9.0)
+    }
+
+    /// SwifterSwift: Fahrenheit value of Celsius input
+    var celsiusToFahrenheit: Double {
+        return Double(self) * (9.0 / 5.0) + 32
+    }
+
     /// SwifterSwift: UInt.
     var uInt: UInt {
         return UInt(self)

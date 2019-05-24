@@ -23,6 +23,14 @@ final class IntExtensionsTests: XCTestCase {
         XCTAssertEqual(Int(3.radiansToDegrees), 171)
     }
 
+    func testFahrenheitToCelsius() {
+        XCTAssertEqual(41.fahrenheitToCelsius, 5.0)
+    }
+
+    func testCelsiusToFahrenheit() {
+        XCTAssertEqual(4.celsiusToFahrenheit, 39.2)
+    }
+
     func testUInt() {
         XCTAssertEqual(Int(10).uInt, UInt(10))
     }
