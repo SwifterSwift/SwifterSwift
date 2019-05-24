@@ -163,9 +163,7 @@ public extension String {
     ///
     var isPalindrome: Bool {
         let letters = filter { $0.isLetter }
-        
         guard !letters.isEmpty else { return false }
-        
         let midIndex = letters.index(letters.startIndex, offsetBy: letters.count / 2)
         let firstHalf = letters[letters.startIndex..<midIndex]
         let secondHalf = letters[midIndex..<letters.endIndex].reversed()
