@@ -113,15 +113,6 @@ extension NSAttributedStringExtensionsTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__NSAttributedStringExtensionsTests = [
-        ("testAppending", testAppending),
-        ("testApplyingToOccurrences", testApplyingToOccurrences),
-        ("testApplyingToRegex", testApplyingToRegex),
-        ("testAttributes", testAttributes),
-        ("testBolded", testBolded),
-        ("testColored", testColored),
-        ("testItalicized", testItalicized),
-        ("testOperators", testOperators),
-        ("testStruckthrough", testStruckthrough),
         ("testUnderlined", testUnderlined),
     ]
 }

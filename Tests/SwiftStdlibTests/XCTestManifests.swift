@@ -52,9 +52,16 @@ extension CharacterExtensionsTests {
     static let __allTests__CharacterExtensionsTests = [
         ("testInt", testInt),
         ("testIsEmoji", testIsEmoji),
+        ("testIsLetter", testIsLetter),
+        ("testIsLowercased", testIsLowercased),
+        ("testIsNumber", testIsNumber),
+        ("testIsUpercased", testIsUpercased),
+        ("testIsWhiteSpace", testIsWhiteSpace),
+        ("testLowercased", testLowercased),
         ("testOperators", testOperators),
         ("testRandom", testRandom),
         ("testString", testString),
+        ("testUppercased", testUppercased),
     ]
 }
 
@@ -226,7 +233,6 @@ extension SequenceExtensionsTests {
         ("testRejectWhere", testRejectWhere),
         ("testSingle", testSingle),
         ("testSum", testSum),
-        ("testWithoutDuplicates", testWithoutDuplicates),
     ]
 }
 
@@ -297,8 +303,6 @@ extension StringExtensionsTests {
         ("testIsAlphaNumeric", testIsAlphaNumeric),
         ("testIsDigits", testIsDigits),
         ("testIsNumeric", testIsNumeric),
-        ("testIsPalindrome", testIsPalindrome),
-        ("testIsSpelledCorrectly", testIsSpelledCorrectly),
         ("testisValidEmail", testisValidEmail),
         ("testIsValidFileURL", testIsValidFileURL),
         ("testIsValidHttpsUrl", testIsValidHttpsUrl),
@@ -306,7 +310,6 @@ extension StringExtensionsTests {
         ("testIsValidSchemedUrl", testIsValidSchemedUrl),
         ("testIsValidUrl", testIsValidUrl),
         ("testIsWhiteSpaces", testIsWhiteSpaces),
-        ("testItalic", testItalic),
         ("testLastCharacter", testLastCharacter),
         ("testLastDeletingLastPathComponent", testLastDeletingLastPathComponent),
         ("testLastDeletingPathExtension", testLastDeletingPathExtension),
