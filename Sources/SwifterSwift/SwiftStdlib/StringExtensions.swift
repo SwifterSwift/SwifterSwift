@@ -1052,6 +1052,23 @@ public extension String {
         return String(dropLast(suffix.count))
     }
 
+    /// SwifterSwift: Decode to `Decodable` with specified encoding (default: utf8).
+    ///
+    ///     struct Foo: Decodable { let foo: String }
+    ///     "{\"foo\": \"bar\"}".decode(to: Foo.self) -> Decodable object
+    ///     "{\"foo\": \"bar\"}".decode(to: Foo.self, encoding: .utf8) -> Decodable object with utf8 (encoding obviously specified)
+    ///
+    /// - Parameters:
+    ///   - to: Decodable type.
+    ///   - encoding: String encoding (default: utf8).
+    /// - Returns: Optional Decodable object (return nil unless applicable).
+    /// - Throws: Throws any errors thrown by Data creation.
+    func decode<T: Decodable>(to type: T.Type, encoding: String.Encoding = .utf8) throws -> T? {
+        guard let data = self.data(using: encoding) else { return nil }
+        let decodable = try JSONDecoder().decode(type, from: data)
+        return decodable
+    }
+
 }
 
 // MARK: - Initializers

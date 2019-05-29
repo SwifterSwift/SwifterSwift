@@ -797,4 +797,17 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(num.ordinalString(), "12th")
     }
 
+    /// Stub
+    private struct DecodableStruct: Decodable {
+        let string: String
+    }
+
+    func testDecode() {
+        guard let actual = try? "{\"string\": \"test\"}".decode(to: DecodableStruct.self) else {
+            return XCTFail("Failed to decode.")
+        }
+        let expected = DecodableStruct(string: "test")
+        XCTAssertEqual(actual.string, expected.string)
+    }
+
 }

@@ -9,6 +9,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
     - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
 - **String**
   - `isPalindrome` computed property of String to check if it is a palindrome. [#671](https://github.com/SwifterSwift/SwifterSwift/pull/671) by [cHaLkdusT](https://github.com/cHaLkdusT).
+  - Added `decode(to:encoding:)` to decode self (String) to Decodable object directly. [#683](https://github.com/SwifterSwift/SwifterSwift/pull/683) by [zeero](https://github.com/zeero)
 
 - **CGSize**:
   - Added `aspectRatio`, `maxDimension`, and `minDimension` properties. [#662](https://github.com/SwifterSwift/SwifterSwift/pull/662) by [vyax](https://github.com/vyax)
