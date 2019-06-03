@@ -115,5 +115,47 @@ final class OptionalExtensionsTests: XCTestCase {
         XCTAssertNotNil(collection.nonEmpty)
         XCTAssertEqual(collection.nonEmpty!, [1, 2, 3])
     }
+    
+    func testIsNilOrZero() {
+        let nilInteger: Int? = nil
+        XCTAssertTrue(nilInteger.isNilOrZero)
+        
+        let zeroInteger: Int? = 0
+        XCTAssertTrue(zeroInteger.isNilOrZero)
+        
+        let integer: Int? = 1
+        XCTAssertFalse(integer.isNilOrZero)
+        
+        let nilFloating: Double? = nil
+        XCTAssertTrue(nilFloating.isNilOrZero)
+        
+        let zeroFloating: Double? = 0
+        XCTAssertTrue(zeroFloating.isNilOrZero)
+        
+        let floating: Double? = 1.11
+        XCTAssertFalse(floating.isNilOrZero)
+    }
+    
+    func testNonZero() {
+        let nilInteger: Int? = nil
+        XCTAssertNil(nilInteger.nonZero)
+        
+        let zeroInteger: Int? = 0
+        XCTAssertNil(zeroInteger.nonZero)
+        
+        let integer: Int? = 1
+        XCTAssertNotNil(integer.nonZero)
+        XCTAssertEqual(integer.nonZero!, 1)
+        
+        let nilFloating: Double? = nil
+        XCTAssertNil(nilFloating.nonZero)
+        
+        let zeroFloating: Double? = 0
+        XCTAssertNil(zeroFloating.nonZero)
+        
+        let floating: Double? = 1.11
+        XCTAssertNotNil(floating.nonZero)
+        XCTAssertEqual(floating.nonZero!, 1.11)
+    }
 
 }
