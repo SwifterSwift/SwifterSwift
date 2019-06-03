@@ -6,7 +6,6 @@
 //  Copyright © 2019 SwifterSwift
 //
 
-import Foundation
 
 // MARK: - Properties
 public extension BinaryInteger {
