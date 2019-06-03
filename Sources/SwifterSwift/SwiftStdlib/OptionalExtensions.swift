@@ -111,11 +111,9 @@ public extension Optional where Wrapped: Collection {
 
 }
 
-#if canImport(Foundation)
 // MARK: - Methods (BinaryFloatingPoint)
 public extension Optional where Wrapped: BinaryFloatingPoint {
     
-    #if canImport(Foundation)
     /// SwifterSwift: Check if optional is nil or zero float.
     var isNilOrZero: Bool {
         guard let float = self else { return true }
@@ -128,13 +126,11 @@ public extension Optional where Wrapped: BinaryFloatingPoint {
         guard !float.isZero else { return nil }
         return float
     }
-    #endif
 }
 
 // MARK: - Methods (BinaryInteger)
 public extension Optional where Wrapped: BinaryInteger {
     
-    #if canImport(Foundation)
     /// SwifterSwift: Check if optional is nil or zero integer.
     var isNilOrZero: Bool {
         guard let integer = self else { return true }
@@ -147,9 +143,7 @@ public extension Optional where Wrapped: BinaryInteger {
         guard !integer.isZero else { return nil }
         return integer
     }
-    #endif
 }
-#endif
 
 // MARK: - Operators
 infix operator ??= : AssignmentPrecedence

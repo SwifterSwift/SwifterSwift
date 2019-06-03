@@ -6,13 +6,11 @@
 //  Copyright © 2019 SwifterSwift
 //
 
-#if canImport(Foundation)
 import Foundation
 
 // MARK: - Properties
 public extension BinaryInteger {
     
-    #if canImport(Foundation)
     /// SwifterSwift: Return true if 1, or other if false.
     ///
     ///        0.isZero -> true
@@ -22,7 +20,4 @@ public extension BinaryInteger {
     var isZero: Bool {
         return self == 0
     }
-    #endif
 }
-
-#endif
