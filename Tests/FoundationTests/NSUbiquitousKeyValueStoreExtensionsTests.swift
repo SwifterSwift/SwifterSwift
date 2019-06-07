@@ -1,9 +1,9 @@
 //
-//  UserDefaultsExtensionsTests.swift
+//  NSUbiquitousKeyValueStoreExtensions.swift
 //  SwifterSwift
 //
-//  Created by Omar Albeik on 9/6/17.
-//  Copyright © 2016 SwifterSwift
+//  Created by Joseph Canale on 6/7/19.
+//  Copyright © 2017 SwifterSwift
 //
 
 import XCTest
