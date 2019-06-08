@@ -133,6 +133,15 @@ public extension Sequence {
         })
     }
 
+    /// SwifterSwift: Removes items that are not castable to the required type. You can also use this function to remove nils.
+    ///
+    ///     [1, nil, 3, nil, 5].casted as [Int] -> [1, 3, 5]
+    ///
+    /// - Returns: A filtered array with all elements casted to T
+    func casted<T>() -> [T] {
+        return compactMap { $0 as? T }
+    }
+
     /// SwifterSwift: Get the only element based on a condition.
     ///
     ///     [].single(where: {_ in true}) -> nil

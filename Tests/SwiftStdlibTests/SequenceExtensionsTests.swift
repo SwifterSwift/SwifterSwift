@@ -76,6 +76,13 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(["2", "4"], result)
     }
 
+    func testCasted() {
+        let input = [1, nil, 3, nil, 5]
+        let result: [Int] = input.casted()
+        XCTAssertEqual(result.count, 3)
+        XCTAssertEqual([1, 3, 5], result)
+    }
+
     func testSingle() {
         XCTAssertNil([].single(where: { _ in true }))
         XCTAssertEqual([4].single(where: { _ in true }), 4)
