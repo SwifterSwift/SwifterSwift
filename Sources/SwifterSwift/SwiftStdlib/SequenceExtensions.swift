@@ -133,7 +133,7 @@ public extension Sequence {
         })
     }
 
-    /// SwifterSwift: Removes items that are not castable to the required type. You can also use this function to remove nils.
+    /// SwifterSwift: Removes items that are not convertible to the required type. You can also use this function to remove nils.
     ///
     ///     [1, nil, 3, nil, 5].casted as [Int] -> [1, 3, 5]
     ///
