@@ -10,7 +10,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
     -Added `subscript(key)`, 
         `float(forKey:)`,
         `date(forKey:)`,
-        `object(:with:usingDecoder)`,
+        `object(_:with:usingDecoder)`,
         `set(object:forKey:usingEncoder)` [#686](https://github.com/SwifterSwift/SwifterSwift/pull/686) by [jlcanale](https://github.com/jlcanale)
 
 - **Sequence**:

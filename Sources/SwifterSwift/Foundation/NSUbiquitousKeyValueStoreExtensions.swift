@@ -26,7 +26,7 @@ public extension NSUbiquitousKeyValueStore {
 
     /// SwifterSwift: Float from NSUbiquitousKeyValueStore.
     ///
-    /// - Parameter forKey: key to find float for.
+    /// - Parameter key: key to find float for.
     /// - Returns: Float object for key (if exists).
     func float(forKey key: String) -> Float? {
         return object(forKey: key) as? Float
@@ -34,7 +34,7 @@ public extension NSUbiquitousKeyValueStore {
 
     /// SwifterSwift: Date from NSUbiquitousKeyValueStore.
     ///
-    /// - Parameter forKey: key to find date for.
+    /// - Parameter key: key to find date for.
     /// - Returns: Date object for key (if exists).
     func date(forKey key: String) -> Date? {
         return object(forKey: key) as? Date
@@ -58,7 +58,7 @@ public extension NSUbiquitousKeyValueStore {
     ///   - object: Codable object to store.
     ///   - key: Identifier of the object.
     ///   - encoder: Custom JSONEncoder instance. Defaults to `JSONEncoder()`.
-    func set<T: Codable>(object: T, forKey key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()) {
+    func set<T: Codable>(_ object: T, forKey key: String, usingEncoder encoder: JSONEncoder = JSONEncoder()) {
         let data = try? encoder.encode(object)
         set(data, forKey: key)
     }

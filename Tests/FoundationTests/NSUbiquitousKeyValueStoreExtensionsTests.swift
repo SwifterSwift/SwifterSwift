@@ -14,7 +14,7 @@ import Foundation
 
 final class NSUbiquitousKeyValueStoreExtensionsTests: XCTestCase {
 
-    private struct TestObject: Codable {
+    private struct TestObject: Codable, Equatable {
         var itemId: Int
     }
 
@@ -45,7 +45,7 @@ final class NSUbiquitousKeyValueStoreExtensionsTests: XCTestCase {
     func testDate() {
         #if !os(Linux)
         let key = "dateTestKey"
-        let date: Date = Date()
+        let date = Date()
         NSUbiquitousKeyValueStore.default.set(date, forKey: key)
         XCTAssertNotNil(NSUbiquitousKeyValueStore.default.date(forKey: key))
         XCTAssertEqual(NSUbiquitousKeyValueStore.default.date(forKey: key)!, date)
@@ -55,7 +55,7 @@ final class NSUbiquitousKeyValueStoreExtensionsTests: XCTestCase {
     func testGetCodableObject() {
         #if !os(Linux)
         let key = "codableTestKey"
-        let codable: TestObject = TestObject(itemId: 1)
+        let codable = TestObject(itemId: 1)
         NSUbiquitousKeyValueStore.default.set(object: codable, forKey: key)
         let retrievedCodable = NSUbiquitousKeyValueStore.default.object(TestObject.self, with: key)
         XCTAssertNotNil(retrievedCodable)
@@ -65,7 +65,7 @@ final class NSUbiquitousKeyValueStoreExtensionsTests: XCTestCase {
     func testSetCodableObject() {
         #if !os(Linux)
         let key = "codableTestKey"
-        let codable: TestObject = TestObject(itemId: 1)
+        let codable = TestObject(itemId: 1)
         NSUbiquitousKeyValueStore.default.set(object: codable, forKey: key)
         let retrievedCodable = NSUbiquitousKeyValueStore.default.object(TestObject.self, with: key)
         XCTAssertNotNil(retrievedCodable)
