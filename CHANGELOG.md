@@ -11,7 +11,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
         `float(forKey:)`,
         `date(forKey:)`,
         `object(:with:usingDecoder)`,
-        `set(object:forKey:usingEncoder)`
+        `set(object:forKey:usingEncoder)` [#686](https://github.com/SwifterSwift/SwifterSwift/pull/686) by [jlcanale](https://github.com/jlcanale)
 
 - **Sequence**:
     - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
