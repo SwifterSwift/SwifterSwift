@@ -68,7 +68,7 @@ final class NSUbiquitousKeyValueStoreExtensionsTests: XCTestCase {
         let codable = TestObject(itemId: 1)
         NSUbiquitousKeyValueStore.default.set(object: codable, forKey: key)
         let retrievedCodable = NSUbiquitousKeyValueStore.default.object(TestObject.self, with: key)
-        XCTAssertNotNil(retrievedCodable)
+        XCTAssertEqual(codable, retrievedCodable)
         #endif
     }
 
