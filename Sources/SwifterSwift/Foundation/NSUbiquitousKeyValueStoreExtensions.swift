@@ -28,8 +28,8 @@ public extension NSUbiquitousKeyValueStore {
     ///
     /// - Parameter key: key to find float for.
     /// - Returns: Float object for key (if exists).
-    func float(forKey key: String) -> Float? {
-        return object(forKey: key) as? Float
+    func float(forKey key: String) -> Float {
+        return Float(double(forKey: key))
     }
 
     /// SwifterSwift: Date from NSUbiquitousKeyValueStore.

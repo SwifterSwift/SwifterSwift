@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(Foundation)
+#if canImport(Foundation) && !os(Linux) && !os(watchOS)
 import Foundation
 
 final class NSUbiquitousKeyValueStoreExtensionsTests: XCTestCase {
@@ -19,7 +19,6 @@ final class NSUbiquitousKeyValueStoreExtensionsTests: XCTestCase {
     }
 
     func testSubscript() {
-        #if !os(Linux)
         let key = "testKey"
         NSUbiquitousKeyValueStore.default.set(true, forKey: key)
         XCTAssertNotNil(NSUbiquitousKeyValueStore.default[key])
@@ -29,47 +28,38 @@ final class NSUbiquitousKeyValueStoreExtensionsTests: XCTestCase {
         NSUbiquitousKeyValueStore.default[key] = false
         XCTAssertNotNil(NSUbiquitousKeyValueStore.default[key])
         XCTAssertFalse(NSUbiquitousKeyValueStore.default[key] as? Bool ?? false)
-        #endif
     }
 
     func testFloat() {
-        #if !os(Linux)
         let key = "floatTestKey"
         let number: Float = 10.0
         NSUbiquitousKeyValueStore.default.set(number, forKey: key)
         XCTAssertNotNil(NSUbiquitousKeyValueStore.default.float(forKey: key))
-        XCTAssertEqual(NSUbiquitousKeyValueStore.default.float(forKey: key)!, number)
-        #endif
+        XCTAssertEqual(NSUbiquitousKeyValueStore.default.float(forKey: key), number)
     }
 
     func testDate() {
-        #if !os(Linux)
         let key = "dateTestKey"
         let date = Date()
         NSUbiquitousKeyValueStore.default.set(date, forKey: key)
         XCTAssertNotNil(NSUbiquitousKeyValueStore.default.date(forKey: key))
         XCTAssertEqual(NSUbiquitousKeyValueStore.default.date(forKey: key)!, date)
-        #endif
     }
 
     func testGetCodableObject() {
-        #if !os(Linux)
         let key = "codableTestKey"
         let codable = TestObject(itemId: 1)
-        NSUbiquitousKeyValueStore.default.set(object: codable, forKey: key)
+        NSUbiquitousKeyValueStore.default.set(codable, forKey: key)
         let retrievedCodable = NSUbiquitousKeyValueStore.default.object(TestObject.self, with: key)
         XCTAssertNotNil(retrievedCodable)
-        #endif
     }
 
     func testSetCodableObject() {
-        #if !os(Linux)
         let key = "codableTestKey"
         let codable = TestObject(itemId: 1)
-        NSUbiquitousKeyValueStore.default.set(object: codable, forKey: key)
+        NSUbiquitousKeyValueStore.default.set(codable, forKey: key)
         let retrievedCodable = NSUbiquitousKeyValueStore.default.object(TestObject.self, with: key)
         XCTAssertEqual(codable, retrievedCodable)
-        #endif
     }
 
 }
