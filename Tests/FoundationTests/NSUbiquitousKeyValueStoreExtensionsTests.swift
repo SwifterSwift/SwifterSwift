@@ -30,14 +30,6 @@ final class NSUbiquitousKeyValueStoreExtensionsTests: XCTestCase {
         XCTAssertFalse(NSUbiquitousKeyValueStore.default[key] as? Bool ?? false)
     }
 
-    func testFloat() {
-        let key = "floatTestKey"
-        let number: Float = 10.0
-        NSUbiquitousKeyValueStore.default.set(number, forKey: key)
-        XCTAssertNotNil(NSUbiquitousKeyValueStore.default.float(forKey: key))
-        XCTAssertEqual(NSUbiquitousKeyValueStore.default.float(forKey: key), number)
-    }
-
     func testDate() {
         let key = "dateTestKey"
         let date = Date()
