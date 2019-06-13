@@ -7,7 +7,7 @@
 //
 
 import Foundation
-#if canImport(Foundation) && !os(Linux)
+#if canImport(Foundation) && !os(Linux) && !os(watchOS)
 
 // MARK: - Methods
 public extension NSUbiquitousKeyValueStore {
