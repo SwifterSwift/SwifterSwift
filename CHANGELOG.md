@@ -42,11 +42,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Removed
 - **Character**:
-  - `isNumber` is replaced by `isNumber` from Swift's Standard Library. [#687](https://github.com/SwifterSwift/SwifterSwift/pull/687) by [RomanPodymov](https://github.com/RomanPodymov).
-  - `isLetter` is replaced by `isLetter` from Swift's Standard Library. [#687](https://github.com/SwifterSwift/SwifterSwift/pull/687) by [RomanPodymov](https://github.com/RomanPodymov).
-  - `isLowercased` is replaced by `isLowercase` from Swift's Standard Library. [#687](https://github.com/SwifterSwift/SwifterSwift/pull/687) by [RomanPodymov](https://github.com/RomanPodymov).
-  - `isUppercased` is replaced by `isUppercase` from Swift's Standard Library. [#687](https://github.com/SwifterSwift/SwifterSwift/pull/687) by [RomanPodymov](https://github.com/RomanPodymov).
-  - `isWhiteSpace` is replaced by `isWhitespace` from Swift's Standard Library. [#687](https://github.com/SwifterSwift/SwifterSwift/pull/687) by [RomanPodymov](https://github.com/RomanPodymov).
+  - `isNumber` is replaced by `isNumber` from Swift's Standard Library. [#689](https://github.com/SwifterSwift/SwifterSwift/pull/689) by [RomanPodymov](https://github.com/RomanPodymov).
+  - `isLetter` is replaced by `isLetter` from Swift's Standard Library. [#689](https://github.com/SwifterSwift/SwifterSwift/pull/689) by [RomanPodymov](https://github.com/RomanPodymov).
+  - `isLowercased` is replaced by `isLowercase` from Swift's Standard Library. [#689](https://github.com/SwifterSwift/SwifterSwift/pull/689) by [RomanPodymov](https://github.com/RomanPodymov).
+  - `isUppercased` is replaced by `isUppercase` from Swift's Standard Library. [#689](https://github.com/SwifterSwift/SwifterSwift/pull/689) by [RomanPodymov](https://github.com/RomanPodymov).
+  - `isWhiteSpace` is replaced by `isWhitespace` from Swift's Standard Library. [#689](https://github.com/SwifterSwift/SwifterSwift/pull/689) by [RomanPodymov](https://github.com/RomanPodymov).
 
 ### Fixed
 
