@@ -36,51 +36,6 @@ public extension Character {
         }
     }
 
-    /// SwifterSwift: Check if character is number.
-    ///
-    ///        Character("1").isNumber -> true
-    ///        Character("a").isNumber -> false
-    ///
-    var isNumber: Bool {
-        return Int(String(self)) != nil
-    }
-
-    /// SwifterSwift: Check if character is a letter.
-    ///
-    ///        Character("4").isLetter -> false
-    ///        Character("a").isLetter -> true
-    ///
-    var isLetter: Bool {
-        return String(self).rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
-    }
-
-    /// SwifterSwift: Check if character is lowercased.
-    ///
-    ///        Character("a").isLowercased -> true
-    ///        Character("A").isLowercased -> false
-    ///
-    var isLowercased: Bool {
-        return String(self) == String(self).lowercased()
-    }
-
-    /// SwifterSwift: Check if character is uppercased.
-    ///
-    ///        Character("a").isUppercased -> false
-    ///        Character("A").isUppercased -> true
-    ///
-    var isUppercased: Bool {
-        return String(self) == String(self).uppercased()
-    }
-
-    /// SwifterSwift: Check if character is white space.
-    ///
-    ///        Character(" ").isWhiteSpace -> true
-    ///        Character("A").isWhiteSpace -> false
-    ///
-    var isWhiteSpace: Bool {
-        return String(self) == " "
-    }
-
     /// SwifterSwift: Integer from character (if applicable).
     ///
     ///        Character("1").int -> 1
