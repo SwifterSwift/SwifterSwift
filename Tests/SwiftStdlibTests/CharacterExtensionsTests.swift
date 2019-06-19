@@ -24,33 +24,6 @@ final class CharacterExtensionsTests: XCTestCase {
         XCTAssertFalse(Character("j").isEmoji)
     }
 
-    func testIsNumber() {
-        XCTAssert(Character("1").isNumber)
-        XCTAssertFalse(Character("s").isNumber)
-    }
-
-    func testIsLetter() {
-        XCTAssertTrue(Character("a").isLetter)
-        XCTAssertTrue(Character("B").isLetter)
-        XCTAssertFalse(Character("3").isLetter)
-        XCTAssertFalse(Character("-").isLetter)
-    }
-
-    func testIsLowercased() {
-        XCTAssert(Character("s").isLowercased)
-        XCTAssertFalse(Character("S").isLowercased)
-    }
-
-    func testIsUpercased() {
-        XCTAssert(Character("S").isUppercased)
-        XCTAssertFalse(Character("s").isUppercased)
-    }
-
-    func testIsWhiteSpace() {
-        XCTAssertTrue(Character(" ").isWhiteSpace)
-        XCTAssertFalse(Character("-").isWhiteSpace)
-    }
-
     func testInt() {
         XCTAssertNotNil(Character("1").int)
         XCTAssertEqual(Character("1").int, 1)
