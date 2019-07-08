@@ -47,6 +47,9 @@ SwifterSwift is Swift v5.0 compatible starting from v5
 <h4>- Integrate Foundation extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/Foundation'</code></pre>
 
+<h4>- Integrate UIKit extensions only:</h4>
+<pre><code class="ruby language-ruby">pod 'SwifterSwift/UIKit'</code></pre>
+
 <h4>- Integrate AppKit extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/AppKit'</code></pre>
 
