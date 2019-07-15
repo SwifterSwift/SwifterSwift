@@ -146,6 +146,18 @@ public extension UICollectionView {
 
         register(UINib(nibName: identifier, bundle: bundle), forCellWithReuseIdentifier: identifier)
     }
+    
+    /// SwifterSwift: Safely scroll to possibly invalid IndexPath
+    ///
+    /// - Parameters:
+    ///   - indexPath: Target IndexPath to scroll to
+    ///   - scrollPosition: Scroll position
+    ///   - animated: Whether to animate or not
+    func safeScrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
+        guard indexPath.section < numberOfSections else { return }
+        guard indexPath.row < numberOfItems(inSection: indexPath.section) else { return }
+        scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
+    }
 
 }
 
