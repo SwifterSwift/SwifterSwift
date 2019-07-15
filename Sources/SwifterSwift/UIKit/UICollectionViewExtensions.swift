@@ -146,6 +146,14 @@ public extension UICollectionView {
 
         register(UINib(nibName: identifier, bundle: bundle), forCellWithReuseIdentifier: identifier)
     }
+    
+    /// SwifterSwift: Check whether IndexPath is valid within the CollectionView
+    ///
+    /// - Parameter indexPath: An IndexPath to check
+    /// - Returns: Boolean value for valid or invalid IndexPath
+    func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
+        return indexPath.section < numberOfSections && indexPath.row < numberOfItems(inSection: indexPath.section)
+    }
 
 }
 

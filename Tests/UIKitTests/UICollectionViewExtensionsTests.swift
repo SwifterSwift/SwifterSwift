@@ -75,6 +75,18 @@ final class UICollectionViewExtensionsTests: XCTestCase {
     }
     #endif
 
+    
+    func testIsValidIndexPath() {
+        let zeroIndexPath = IndexPath(item: 0, section: 0)
+        let invalidIndexPath = IndexPath(item: 0, section: 3)
+        let validIndexPath = IndexPath(item: 4, section: 0)
+        
+        XCTAssertFalse(emptyCollectionView.isValidIndexPath(zeroIndexPath))
+        
+        XCTAssertTrue(collectionView.isValidIndexPath(zeroIndexPath))
+        XCTAssertTrue(collectionView.isValidIndexPath(validIndexPath))
+        XCTAssertFalse(collectionView.isValidIndexPath(invalidIndexPath))
+    }
 }
 
 extension UICollectionViewExtensionsTests: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
