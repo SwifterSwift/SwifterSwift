@@ -33,6 +33,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **SCNVector3**:
   - Added `absolute` property to calculate the vector's components as absolute values. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
   - Added `length` property to calculate the vector's length. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+- **UICollectionView**:
+  - Added `safeScrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool)` method to safely scroll UITableView to the given IndexPath. [#number](https://github.com/SwifterSwift/SwifterSwift/pull/number) by [emilrb](https://github.com/emilrb)
+  
 
 ### Changed
 - **UIApplication**:
