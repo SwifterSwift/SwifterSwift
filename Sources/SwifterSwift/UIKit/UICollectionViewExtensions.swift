@@ -156,7 +156,6 @@ public extension UICollectionView {
             indexPath.item >= 0 &&
             indexPath.section < numberOfSections &&
             indexPath.item < numberOfItems(inSection: indexPath.section)
-
     }
 
 }
