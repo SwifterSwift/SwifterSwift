@@ -178,7 +178,10 @@ public extension UITableView {
     /// - Parameter indexPath: An IndexPath to check
     /// - Returns: Boolean value for valid or invalid IndexPath
     func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
-        return indexPath.section < numberOfSections && indexPath.row < numberOfRows(inSection: indexPath.section)
+        return indexPath.section >= 0 &&
+            indexPath.row >= 0 &&
+            indexPath.section < numberOfSections &&
+            indexPath.row < numberOfRows(inSection: indexPath.section)
     }
 
     /// SwifterSwift: Safely scroll to possibly invalid IndexPath
