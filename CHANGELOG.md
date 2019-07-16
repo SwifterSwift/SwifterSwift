@@ -51,6 +51,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Resolved an issue where `version` and `displayName` would return nil if localized.
 - **UIImage**:
   - The size of rect can equal to the size of UIImage when using `cropped(to:)` to crop UIImage. [#679](https://github.com/SwifterSwift/SwifterSwift/pull/679) by [dirtmelon](https://github.com/dirtmelon).
+- **UITableView**:
+  - `isValidIndexPath(_:)` will now return `false` for IndexPaths with a negative row or section. [#696](https://github.com/SwifterSwift/SwifterSwift/pull/696) by [emilrb](https://github.com/emilrb).
   
 ### Security
 
