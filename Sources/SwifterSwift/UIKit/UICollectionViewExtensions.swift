@@ -152,11 +152,11 @@ public extension UICollectionView {
     /// - Parameter indexPath: An IndexPath to check
     /// - Returns: Boolean value for valid or invalid IndexPath
     func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
-        return indexPath.section >= 0
-            && indexPath.item >= 0
-            && indexPath.section < numberOfSections
-            && indexPath.item < numberOfItems(inSection: indexPath.section)
-        
+        return indexPath.section >= 0 &&
+            indexPath.item >= 0 &&
+            indexPath.section < numberOfSections &&
+            indexPath.item < numberOfItems(inSection: indexPath.section)
+
     }
 
 }
