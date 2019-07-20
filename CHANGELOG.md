@@ -34,6 +34,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `absolute` property to calculate the vector's components as absolute values. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
   - Added `length` property to calculate the vector's length. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
 - **UICollectionView**:
+  - Added `isValidIndexPath(_:)` method to check whether given IndexPath is valid within UICollectionView. [#695](https://github.com/SwifterSwift/SwifterSwift/pull/695) by [emilrb](https://github.com/emilrb).
   - Added `safeScrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool)` method to safely scroll UITableView to the given IndexPath. [#number](https://github.com/SwifterSwift/SwifterSwift/pull/number) by [emilrb](https://github.com/emilrb)
   
 
@@ -54,6 +55,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Resolved an issue where `version` and `displayName` would return nil if localized.
 - **UIImage**:
   - The size of rect can equal to the size of UIImage when using `cropped(to:)` to crop UIImage. [#679](https://github.com/SwifterSwift/SwifterSwift/pull/679) by [dirtmelon](https://github.com/dirtmelon).
+- **UITableView**:
+  - `isValidIndexPath(_:)` will now return `false` for IndexPaths with a negative row or section. [#696](https://github.com/SwifterSwift/SwifterSwift/pull/696) by [emilrb](https://github.com/emilrb).
   
 ### Security
 
