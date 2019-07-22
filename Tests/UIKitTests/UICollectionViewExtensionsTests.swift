@@ -105,7 +105,7 @@ final class UICollectionViewExtensionsTests: XCTestCase {
 
         let bottomOffset = CGPoint(x: 0, y: flowLayoutCollectionView.collectionViewLayout.collectionViewContentSize.height - flowLayoutCollectionView.bounds.size.height)
 
-        flowLayoutCollectionView.contentOffset = .init(x: 0, y: 30)
+        flowLayoutCollectionView.contentOffset = CGPoint(x: 0, y: 30)
         XCTAssertNotEqual(flowLayoutCollectionView.contentOffset, bottomOffset)
 
         flowLayoutCollectionView.safeScrollToItem(at: validIndexPathBottom, at: .bottom, animated: false)
