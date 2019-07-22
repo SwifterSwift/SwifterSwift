@@ -157,7 +157,7 @@ public extension UICollectionView {
         guard indexPath.item >= 0 &&
             indexPath.section >= 0 &&
             indexPath.section < numberOfSections &&
-            indexPath.row < numberOfItems(inSection: indexPath.section) else {
+            indexPath.item < numberOfItems(inSection: indexPath.section) else {
                 return
         }
         scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
