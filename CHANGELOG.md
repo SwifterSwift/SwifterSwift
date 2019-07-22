@@ -35,6 +35,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `length` property to calculate the vector's length. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
 - **UICollectionView**:
   - Added `isValidIndexPath(_:)` method to check whether given IndexPath is valid within UICollectionView. [#695](https://github.com/SwifterSwift/SwifterSwift/pull/695) by [emilrb](https://github.com/emilrb).
+  - Added `safeScrollToItem(at:at:animated:)` method to safely scroll UICollectionView to the given IndexPath. [#698](https://github.com/SwifterSwift/SwifterSwift/pull/698) by [emilrb](https://github.com/emilrb)
+  
 
 ### Changed
 - **UIApplication**:
