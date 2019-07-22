@@ -109,11 +109,8 @@ final class UICollectionViewExtensionsTests: XCTestCase {
         XCTAssertNotEqual(flowLayoutCollectionView.contentOffset, bottomOffset)
 
         flowLayoutCollectionView.safeScrollToItem(at: validIndexPathBottom, at: .bottom, animated: false)
-        #if os(tvOS)
-        XCTAssertEqual(bottomOffset.y, flowLayoutCollectionView.contentOffset.y, accuracy: 2.0)
-        #else
-        XCTAssertEqual(bottomOffset.y, flowLayoutCollectionView.contentOffset.y, accuracy: 2.0)
-        #endif
+
+        XCTAssertEqual(bottomOffset.y, flowLayoutCollectionView.contentOffset.y)
 
         let invalidIndexPath = IndexPath(row: 213, section: 21)
         flowLayoutCollectionView.contentOffset = .zero
