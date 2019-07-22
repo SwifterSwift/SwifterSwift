@@ -154,7 +154,7 @@ public extension UICollectionView {
     ///   - scrollPosition: Scroll position
     ///   - animated: Whether to animate or not
     func safeScrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
-        guard indexPath.row >= 0 &&
+        guard indexPath.item >= 0 &&
             indexPath.section >= 0 &&
             indexPath.section < numberOfSections &&
             indexPath.row < numberOfItems(inSection: indexPath.section) else {
