@@ -26,12 +26,15 @@ final class UITableViewExtensionsTests: XCTestCase {
     }
 
     func testIndexPathForLastRow() {
+        XCTAssertNotNil(tableView.indexPathForLastRow)
         XCTAssertEqual(tableView.indexPathForLastRow, IndexPath(row: 7, section: 1))
+        XCTAssertNil(emptyTableView.indexPathForLastRow)
+        XCTAssertNil(emptyTableView.indexPathForLastRow(inSection: 0))
     }
 
     func testLastSection() {
         XCTAssertEqual(tableView.lastSection, 1)
-        XCTAssertEqual(emptyTableView.lastSection, 0)
+        XCTAssertNil(emptyTableView.lastSection)
     }
 
     func testNumberOfRows() {
@@ -41,6 +44,7 @@ final class UITableViewExtensionsTests: XCTestCase {
 
     func testIndexPathForLastRowInSection() {
         XCTAssertNil(tableView.indexPathForLastRow(inSection: -1))
+        XCTAssertNil(emptyTableView.indexPathForLastRow(inSection: -1))
         XCTAssertEqual(tableView.indexPathForLastRow(inSection: 0), IndexPath(row: 4, section: 0))
         XCTAssertEqual(UITableView().indexPathForLastRow(inSection: 0), IndexPath(row: 0, section: 0))
     }
@@ -102,8 +106,12 @@ final class UITableViewExtensionsTests: XCTestCase {
     func testIsValidIndexPath() {
         let validIndexPath = IndexPath(row: 0, section: 0)
         XCTAssertTrue(tableView.isValidIndexPath(validIndexPath))
+
         let invalidIndexPath = IndexPath(row: 10, section: 0)
         XCTAssertFalse(tableView.isValidIndexPath(invalidIndexPath))
+
+        let negativeIndexPath = IndexPath(row: -1, section: 0)
+        XCTAssertFalse(tableView.isValidIndexPath(negativeIndexPath))
     }
 
     func testSafeScrollToIndexPath() {
