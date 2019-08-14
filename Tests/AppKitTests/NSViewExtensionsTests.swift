@@ -124,6 +124,16 @@ final class NSViewExtensionsTests: XCTestCase {
         XCTAssertEqual(view.subviews.count, 0)
     }
 
+    func testBackgroundColor() {
+        let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        let view = NSView(frame: frame)
+        view.backgroundColor = nil
+        XCTAssertNil(view.layer?.backgroundColor)
+
+        view.backgroundColor = NSColor.red
+        XCTAssertNotNil(view.layer?.backgroundColor)
+        XCTAssertEqual(view.backgroundColor, NSColor.red)
+    }
 }
 
 #endif
