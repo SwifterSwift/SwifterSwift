@@ -102,7 +102,7 @@ public extension NSView {
         }
     }
 
-    /// SwifterSwift: Set and get background color of NSView
+    /// SwifterSwift: Background color of the view; also inspectable from Storyboard.
     @IBInspectable public var backgroundColor: NSColor? {
         get {
             if let colorRef = layer?.backgroundColor {
