@@ -104,10 +104,37 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(arr, [])
     }
 
+    func testRemoveDuplicatesUsingComparator() {
+        var array = [1, -1, 2, -4, 3, 3, 3, 4, -5]
+        array.removeDuplicates { abs($0) == abs($1) }
+        XCTAssertEqual(array, [1, 2, -4, 3, -5])
+    }
+
+    func testRemoveDuplicatesUsingKeyPath() {
+        var array = [Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72), Person(name: "Rose", age: 56)]
+        array.removeDuplicates(keyPath: \.name)
+        let arrayWithoutDuplicates = [Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
+        XCTAssertEqual(array.count, arrayWithoutDuplicates.count)
+        XCTAssertTrue(zip(array, arrayWithoutDuplicates).any { $0 == $1})
+    }
+
     func testRemoveDuplicates() {
         var array = [1, 1, 2, 2, 3, 3, 3, 4, 5]
         array.removeDuplicates()
         XCTAssertEqual(array, [1, 2, 3, 4, 5])
+    }
+
+    func testWithoutDuplicatesUsingComparator() {
+        XCTAssertEqual([1, -1, 2, -4, 3, 3, 3, 4, -5].withoutDuplicates { abs($0) == abs($1) }, [1, 2, -4, 3, -5])
+        XCTAssertEqual(["H", "e", "l", "L", "o"].withoutDuplicates { $0.capitalized == $1.capitalized }, ["H", "e", "l", "o"])
+    }
+
+    func testWithoutDuplicatesUsingKeyPath() {
+        let array = [Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72), Person(name: "Rose", age: 56)]
+        let arrayWithoutDuplicates = array.withoutDuplicates(keyPath: \.name)
+        let arrayWithoutDuplicatesPrepared = [Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
+        XCTAssertEqual(arrayWithoutDuplicates.count, arrayWithoutDuplicatesPrepared.count)
+        XCTAssertTrue(zip(arrayWithoutDuplicates, arrayWithoutDuplicatesPrepared).any { $0 == $1})
     }
 
     func testWithoutDuplicates() {
