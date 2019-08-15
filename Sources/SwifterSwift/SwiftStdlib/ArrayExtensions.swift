@@ -99,7 +99,7 @@ public extension Array {
 
     /// SwifterSwift: Remove all duplicate elements from Array.
     ///
-    ///        [4, 2, -2, 3, -4, 5].removeDuplicates { abs($0) == abs($1) } -> [1, 2, 3, 4, 5]
+    ///        [1, -1, 2, -4, 3, 3, 3, 4, -5].removeDuplicates { abs($0) == abs($1) } -> [1, 2, -4, 3, -5]
     ///
     /// - Parameters:
     ///   - comparator: Returns true if 2 elements of array are equal.
@@ -123,7 +123,7 @@ public extension Array {
 
     /// SwifterSwift: Return array with all duplicate elements removed.
     ///
-    ///     [4, 2, -2, 3, -4, 5].withoutDuplicates { abs($0) == abs($1) } -> [1, 2, 3, 4, 5]
+    ///     [1, -1, 2, -4, 3, 3, 3, 4, -5].withoutDuplicates { abs($0) == abs($1) } -> [1, 2, -4, 3, -5]
     ///
     /// - Parameters:
     ///   - comparator: Returns true if 2 elements of array are equal.
