@@ -105,28 +105,44 @@ final class ArrayExtensionsTests: XCTestCase {
     }
 
     func testRemoveDuplicatesUsingComparator() {
-        var array = [1, -1, 2, -4, 3, 3, 3, 4, -5]
-        array.removeDuplicates { abs($0) == abs($1) }
-        XCTAssertEqual(array, [1, 2, -4, 3, -5])
+        var arrayHashable = [1, -1, 2, -4, 3, 3, 3, 4, -5]
+        arrayHashable.removeDuplicates { abs($0) == abs($1) }
+        XCTAssertEqual(Set(arrayHashable), Set([1, 2, -4, 3, -5]))
+        var arrayEquatable = [Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72), Person(name: "Rose", age: 56)]
+        arrayEquatable.removeDuplicates { $0.name == $1.name }
+        let arrayEquatableWithoutDuplicates = [Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
+        XCTAssertEqual(arrayEquatable.count, arrayEquatableWithoutDuplicates.count)
+        XCTAssertTrue(zip(arrayEquatable, arrayEquatableWithoutDuplicates).any { $0 == $1})
     }
 
     func testRemoveDuplicatesUsingKeyPath() {
-        var array = [Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72), Person(name: "Rose", age: 56)]
-        array.removeDuplicates(keyPath: \.name)
-        let arrayWithoutDuplicates = [Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
-        XCTAssertEqual(array.count, arrayWithoutDuplicates.count)
-        XCTAssertTrue(zip(array, arrayWithoutDuplicates).any { $0 == $1})
+        var arrayEquatable = [Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72), Person(name: "Rose", age: 56)]
+        arrayEquatable.removeDuplicates(keyPath: \.name)
+        let arrayEquatableWithoutDuplicates = [Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
+        XCTAssertEqual(arrayEquatable.count, arrayEquatableWithoutDuplicates.count)
+        XCTAssertTrue(zip(arrayEquatable, arrayEquatableWithoutDuplicates).any { $0 == $1})
     }
 
     func testRemoveDuplicates() {
-        var array = [1, 1, 2, 2, 3, 3, 3, 4, 5]
-        array.removeDuplicates()
-        XCTAssertEqual(array, [1, 2, 3, 4, 5])
+        var arrayHashable = [1, 1, 2, 2, 3, 3, 3, 4, 5]
+        arrayHashable.removeDuplicates()
+        XCTAssertEqual(Set(arrayHashable), Set([1, 2, 3, 4, 5]))
+        var arrayEquatable = [Person(name: "James", age: 32), Person(name: "James", age: 32), Person(name: "Rose", age: 29), Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
+        arrayEquatable.removeDuplicates()
+        let arrayEquatableWithoutDuplicates = [Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
+        XCTAssertEqual(arrayEquatable.count, arrayEquatableWithoutDuplicates.count)
+        XCTAssertTrue(zip(arrayEquatable, arrayEquatableWithoutDuplicates).any { $0 == $1})
     }
 
     func testWithoutDuplicatesUsingComparator() {
-        XCTAssertEqual([1, -1, 2, -4, 3, 3, 3, 4, -5].withoutDuplicates { abs($0) == abs($1) }, [1, 2, -4, 3, -5])
-        XCTAssertEqual(["H", "e", "l", "L", "o"].withoutDuplicates { $0.capitalized == $1.capitalized }, ["H", "e", "l", "o"])
+        let arrayHashableWithoutDuplicates = [1, -1, 2, -4, 3, 3, 3, 4, -5].withoutDuplicates { abs($0) == abs($1) }
+        XCTAssertEqual(Set(arrayHashableWithoutDuplicates), Set([1, 2, -4, 3, -5]))
+        let stringArrayHashableWithoutDuplicates = ["H", "e", "l", "L", "o"].withoutDuplicates { $0.capitalized == $1.capitalized }
+        XCTAssertEqual(Set(stringArrayHashableWithoutDuplicates), Set(["H", "e", "l", "o"]))
+        let arrayEquatableWithoutDuplicates = [Person(name: "James", age: 32), Person(name: "James", age: 32), Person(name: "Rose", age: 29), Person(name: "James", age: 32), Person(name: "Rose", age: 29)].withoutDuplicates { $0.name == $1.name }
+        let arrayEquatableWithoutDuplicatesPrepared = [Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
+        XCTAssertEqual(arrayEquatableWithoutDuplicates.count, arrayEquatableWithoutDuplicatesPrepared.count)
+        XCTAssertTrue(zip(arrayEquatableWithoutDuplicates, arrayEquatableWithoutDuplicatesPrepared).any { $0 == $1})
     }
 
     func testWithoutDuplicatesUsingKeyPath() {
@@ -138,8 +154,14 @@ final class ArrayExtensionsTests: XCTestCase {
     }
 
     func testWithoutDuplicates() {
-        XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates(), [1, 2, 3, 4, 5])
-        XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
+        let arrayHashableWithoutDuplicates = [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates()
+        XCTAssertEqual(Set(arrayHashableWithoutDuplicates), Set([1, 2, 3, 4, 5]))
+        let stringArrayHashableWithoutDuplicates = ["h", "e", "l", "l", "o"].withoutDuplicates()
+        XCTAssertEqual(Set(stringArrayHashableWithoutDuplicates), Set(["h", "e", "l", "o"]))
+        let arrayEquatableWithoutDuplicates = [Person(name: "James", age: 32), Person(name: "James", age: 32), Person(name: "Rose", age: 29), Person(name: "James", age: 32), Person(name: "Rose", age: 29)].withoutDuplicates()
+        let arrayEquatableWithoutDuplicatesPrepared = [Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
+        XCTAssertEqual(arrayEquatableWithoutDuplicates.count, arrayEquatableWithoutDuplicatesPrepared.count)
+        XCTAssertTrue(zip(arrayEquatableWithoutDuplicates, arrayEquatableWithoutDuplicatesPrepared).any { $0 == $1})
     }
 
 }
