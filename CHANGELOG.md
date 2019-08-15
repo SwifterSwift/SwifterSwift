@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **Array**:
+    - Added `removeDuplicates(by:)`, `removeDuplicates(keyPath:)`, `withoutDuplicates(by:)`, `withoutDuplicates(keyPath:)` for remove duplicate elements based on comparator or key path. [#703](https://github.com/SwifterSwift/SwifterSwift/pull/703) by [RomanPodymov](https://github.com/RomanPodymov)
 - **Sequence**:
     - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
 - **String**
