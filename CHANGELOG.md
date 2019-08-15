@@ -6,7 +6,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **Array**:
-    - Added `removeDuplicates(by:)`, `removeDuplicates(keyPath:)`, `withoutDuplicates(by:)`, `withoutDuplicates(keyPath:)` for remove duplicate elements based on comparator or key path. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
+    - Added `removeDuplicates(by:)`, `removeDuplicates(keyPath:)`, `withoutDuplicates(by:)`, `withoutDuplicates(keyPath:)` for remove duplicate elements based on comparator or key path. Different implementations for `Element: Equatable` and `Element: Hashable`. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
 - **Sequence**:
     - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
 - **String**
