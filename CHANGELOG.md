@@ -6,7 +6,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **Array**:
-    - Added `removeDuplicates(by:)`, `removeDuplicates(keyPath:)`, `withoutDuplicates(by:)`, `withoutDuplicates(keyPath:)` for remove duplicate elements based on comparator or key path. Different implementations for `Element: Equatable` and `Element: Hashable`. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
+    - Added `removeDuplicates(by:)`, `removeDuplicates(keyPath:)`, `withoutDuplicates(by:)`, `withoutDuplicates(keyPath:)` for remove duplicate elements based on comparator or key path. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
+    - Added `removeDuplicates()`, `withoutDuplicates()` where `Element: Hashable` for remove duplicate elements. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
 - **Sequence**:
     - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
 - **String**
@@ -45,7 +46,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Changed
 - **Array**:
-  - - `removeDuplicates` and `withoutDuplicates` are implemented based on `removeDuplicates(by:)` and `withoutDuplicates(by:)`. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
+  - - `removeDuplicates` and `withoutDuplicates` where `Element: Equatable` are implemented based on `removeDuplicates(by:)` and `withoutDuplicates(by:)`. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
 - **UIApplication**:
   - - `queryValue(for:)` extension for URL is refactored. [#668](https://github.com/SwifterSwift/SwifterSwift/pull/668) by [LucianoPAlmeida](https://github.com/ratulSharker).
 
