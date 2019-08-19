@@ -202,34 +202,3 @@ public extension Array where Element: Equatable {
     }
 
 }
-
-// MARK: - Methods (Hashable)
-public extension Array where Element: Hashable {
-
-    /// SwifterSwift: Remove all duplicate elements from Array.
-    ///
-    ///        [1, 2, 2, 3, 4, 5].removeDuplicates() -> [1, 2, 3, 4, 5]
-    ///        ["h", "e", "l", "l", "o"]. removeDuplicates() -> ["h", "e", "l", "o"]
-    ///
-    /// - Returns: Return array with all duplicate elements removed.
-    @discardableResult
-    mutating func removeDuplicates() -> [Element] {
-        // Thanks to https://github.com/LucianoPAlmeida for improving the method
-        var set: Set<Element> = []
-        removeAll(where: { !set.insert($0).inserted }) // Since it makes a partition based removal is more optimized.
-        return self
-    }
-
-    /// SwifterSwift: Return array with all duplicate elements removed.
-    ///
-    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
-    ///     ["h", "e", "l", "l", "o"].withoutDuplicates() -> ["h", "e", "l", "o"])
-    ///
-    /// - Returns: an array of unique elements.
-    ///
-    func withoutDuplicates() -> [Element] {
-        // Thanks to https://github.com/LucianoPAlmeida for improving the method
-        var set: Set<Element> = []
-        return filter { set.insert($0).inserted }
-    }
-}
