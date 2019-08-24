@@ -32,7 +32,7 @@ public extension Collection {
 
     /// Splits all items into two lists based on the where condition.
     /// The first list contains all items matching the condition.
-    /// The second list contains those that dont'.
+    /// The second list contains those that don't.
     ///
     ///        let (minors, adults) = people.split { $0.age < 18 }
     ///
