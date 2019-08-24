@@ -30,31 +30,6 @@ public extension Collection {
     }
     #endif
 
-    /// Splits all items into two lists based on the where condition.
-    /// The first list contains all items matching the condition.
-    /// The second list contains those that don't.
-    ///
-    ///        let (minors, adults) = people.split { $0.age < 18 }
-    ///
-    ///        let (odd, even) = [1, 2, 3, 4, 5, 6].split { $0 % 2 == 1}
-    ///
-    /// - Parameter condition: closure condition
-    /// - Returns: A tuple of passed and failed items
-    func split(where condition: (Element) -> Bool) -> (passed: [Element], failed: [Element]) {
-        var passed = ContiguousArray<Element>()
-        var failed = ContiguousArray<Element>()
-
-        var iterator = self.makeIterator()
-        while let element = iterator.next() {
-            if condition(element) {
-                passed.append(element)
-            } else {
-                failed.append(element)
-            }
-        }
-        return (Array(passed), Array(failed))
-    }
-
     /// SwifterSwift: Safe protects the array from out of bounds by use of optional.
     ///
     ///        let arr = [1, 2, 3, 4, 5]
