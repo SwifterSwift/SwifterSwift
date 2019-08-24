@@ -167,6 +167,27 @@ public extension Sequence {
         return try filter { set.insert(try transform($0)).inserted }
     }
 
+    /// SwifterSwift: Separates all items into 2 lists based on a given predicate.
+    /// The first list contains all items for which the specified condition evaluates to true.
+    /// The second list contains those that don't.
+    ///
+    ///     let (even, odd) = [0, 1, 2, 3, 4, 5].divided { $0 % 2 == 0 }
+    ///     let (minors, adults) = people.divided { $0.age < 18 }
+    ///
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: A tuple of matched and non-matched items
+    func divided(by condition: (Element) throws -> Bool) rethrows -> (matching: [Element], nonMatching: [Element]) {
+        //Inspired by: http://ruby-doc.org/core-2.5.0/Enumerable.html#method-i-partition
+        var matching = ContiguousArray<Element>()
+        var nonMatching = ContiguousArray<Element>()
+
+        var iterator = self.makeIterator()
+        while let element = iterator.next() {
+            try condition(element) ? matching.append(element) : nonMatching.append(element)
+        }
+        return (Array(matching), Array(nonMatching))
+    }
+
 }
 
 public extension Sequence where Element: Equatable {
