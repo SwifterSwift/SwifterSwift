@@ -18,7 +18,7 @@ final class CollectionExtensionsTests: XCTestCase {
             XCTAssert(collection.contains(item))
         }
     }
-  
+
     func testSafeSubscript() {
         XCTAssertNotNil(collection[safe: 2])
         XCTAssertEqual(collection[safe: 2], 3)
