@@ -95,7 +95,7 @@ final class SequenceExtensionsTests: XCTestCase {
         let (even, odd) = input.divided { $0 % 2 == 0 }
         XCTAssertEqual(even, [0, 2, 4])
         XCTAssertEqual(odd, [1, 3, 5])
-        
+
         // Parameter names + indexes
         let tuple = input.divided { $0 % 2 == 0 }
         XCTAssertEqual(tuple.matching, [0, 2, 4])

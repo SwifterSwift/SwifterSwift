@@ -180,7 +180,7 @@ public extension Sequence {
         //Inspired by: http://ruby-doc.org/core-2.5.0/Enumerable.html#method-i-partition
         var matching = ContiguousArray<Element>()
         var nonMatching = ContiguousArray<Element>()
-        
+
         var iterator = self.makeIterator()
         while let element = iterator.next() {
             try condition(element) ? matching.append(element) : nonMatching.append(element)
