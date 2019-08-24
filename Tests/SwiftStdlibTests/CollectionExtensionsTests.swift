@@ -19,6 +19,12 @@ final class CollectionExtensionsTests: XCTestCase {
         }
     }
 
+    func testSplit() {
+        let (odd, even) = [1, 2, 3, 4, 5, 6].split { $0 % 2 == 1 }
+        XCTAssertEqual(odd, [1, 3, 5])
+        XCTAssertEqual(even, [2, 4, 6])
+    }
+  
     func testSafeSubscript() {
         XCTAssertNotNil(collection[safe: 2])
         XCTAssertEqual(collection[safe: 2], 3)
