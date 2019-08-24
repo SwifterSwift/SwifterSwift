@@ -34,22 +34,6 @@ public extension Array {
         swapAt(index, otherIndex)
     }
 
-    /// SwifterSwift: Separates array into 2 arrays based on a given predicate.
-    ///
-    ///     [0, 1, 2, 3, 4, 5].divided { $0 % 2 == 0 } -> ( [0, 2, 4], [1, 3, 5] )
-    ///
-    /// - Parameter condition: condition to evaluate each element against.
-    /// - Returns: Two arrays, the first containing the elements for which the specified condition evaluates to true, the second containing the rest.
-    func divided(by condition: (Element) throws -> Bool) rethrows -> (matching: [Element], nonMatching: [Element]) {
-        //Inspired by: http://ruby-doc.org/core-2.5.0/Enumerable.html#method-i-partition
-        var matching = [Element]()
-        var nonMatching = [Element]()
-        for element in self {
-            try condition(element) ? matching.append(element) : nonMatching.append(element)
-        }
-        return (matching, nonMatching)
-    }
-
     /// SwifterSwift: Returns a sorted array based on an optional keypath.
     ///
     /// - Parameter path: Key path to sort. The key path type must be Comparable.

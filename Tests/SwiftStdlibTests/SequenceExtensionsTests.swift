@@ -90,6 +90,20 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual([[1, 4], [2, 2], [1, 3], [3, 2], [2, 1]].withoutDuplicates { $0[0] }, [[1, 4], [2, 2], [3, 2]])
     }
 
+    func testDivided() {
+        let input = [0, 1, 2, 3, 4, 5]
+        let (even, odd) = input.divided { $0 % 2 == 0 }
+        XCTAssertEqual(even, [0, 2, 4])
+        XCTAssertEqual(odd, [1, 3, 5])
+
+        // Parameter names + indexes
+        let tuple = input.divided { $0 % 2 == 0 }
+        XCTAssertEqual(tuple.matching, [0, 2, 4])
+        XCTAssertEqual(tuple.0, [0, 2, 4])
+        XCTAssertEqual(tuple.nonMatching, [1, 3, 5])
+        XCTAssertEqual(tuple.1, [1, 3, 5])
+    }
+
     func testContains() {
         XCTAssert([Int]().contains([]))
         XCTAssertFalse([Int]().contains([1, 2]))

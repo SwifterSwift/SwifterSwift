@@ -6,7 +6,6 @@ extension ArrayExtensionsTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__ArrayExtensionsTests = [
-        ("testDivided", testDivided),
         ("testKeyPathSorted", testKeyPathSorted),
         ("testPrepend", testPrepend),
         ("testRemoveAll", testRemoveAll),
@@ -219,6 +218,7 @@ extension SequenceExtensionsTests {
         ("testContains", testContains),
         ("testContainsDuplicates", testContainsDuplicates),
         ("testCountWhere", testCountWhere),
+        ("testDivided", testDivided),
         ("testDuplicates", testDuplicates),
         ("testFilteredMap", testFilteredMap),
         ("testForEachReversed", testForEachReversed),

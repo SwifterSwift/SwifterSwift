@@ -39,7 +39,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UICollectionView**:
   - Added `isValidIndexPath(_:)` method to check whether given IndexPath is valid within UICollectionView. [#695](https://github.com/SwifterSwift/SwifterSwift/pull/695) by [emilrb](https://github.com/emilrb).
   - Added `safeScrollToItem(at:at:animated:)` method to safely scroll UICollectionView to the given IndexPath. [#698](https://github.com/SwifterSwift/SwifterSwift/pull/698) by [emilrb](https://github.com/emilrb)
-  
+ - **Sequence**:
+  - Moved `divided(by:)` ArrayExtensions to SequenceExtensions. This function separates all items into 2 lists based on a given predicate. [#706](https://github.com/SwifterSwift/SwifterSwift/pull/706) by [cHaLkdusT](https://github.com/cHaLkdusT) 
 
 - **UIBezierPath**:
   - Added `init(from:to:)`, `init(points:)`, `init(polygonWithPoints:)`, `init(ovalOf:centered:)` and `init(rectOf:centered:)` convenience initializers. [#659](https://github.com/SwifterSwift/SwifterSwift/pull/659) by [vyax](https://github.com/vyax)
@@ -49,12 +50,16 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - - `removeDuplicates` and `withoutDuplicates` where `Element: Equatable` are implemented based on `removeDuplicates(by:)` and `withoutDuplicates(by:)`. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
 - **UIApplication**:
   - - `queryValue(for:)` extension for URL is refactored. [#668](https://github.com/SwifterSwift/SwifterSwift/pull/668) by [LucianoPAlmeida](https://github.com/ratulSharker).
+- **Sequence**:
+  - `sum()` extension for Sequence is refactored. [#707](https://github.com/SwifterSwift/SwifterSwift/pull/707) by [cHaLkdusT](https://github.com/cHaLkdusT).
 
 ### Deprecated
 
 ### Removed
 - **Character**:
   - Removed `isNumber`, `isLetter`, `isLowercased`, `isUppercased` and `isWhiteSpace` because the same properties are defined in the Swift standard library. [#689](https://github.com/SwifterSwift/SwifterSwift/pull/689) by [RomanPodymov](https://github.com/RomanPodymov).
+- **Array**:
+  - Removed `divided(by:)` function from ArrayExtensions [#706](https://github.com/SwifterSwift/SwifterSwift/pull/706) by [cHaLkdusT](https://github.com/cHaLkdusT)
 
 ### Fixed
 
