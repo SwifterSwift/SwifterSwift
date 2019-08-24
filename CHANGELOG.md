@@ -40,6 +40,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 - **UIBezierPath**:
   - Added `init(from:to:)`, `init(points:)`, `init(polygonWithPoints:)`, `init(ovalOf:centered:)` and `init(rectOf:centered:)` convenience initializers. [#659](https://github.com/SwifterSwift/SwifterSwift/pull/659) by [vyax](https://github.com/vyax)
+- **Collection**:
+  - Added `split(where:)` method to split all items into two lists based on the where condition. [#706](https://github.com/SwifterSwift/SwifterSwift/pull/706) by [cHaLkdusT](https://github.com/cHaLkdusT)
 
 ### Changed
 - **UIApplication**:
