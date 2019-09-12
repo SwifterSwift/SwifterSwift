@@ -164,7 +164,7 @@ public extension Array where Element: Hashable {
     ///
     /// - Parameter path: Key path to compare, must be Equatable.
     /// - Returns: a set of unique elements.
-    func withoutDuplicates<E: Equatable>(keyPath path: KeyPath<Element, E>) -> Set<Element> {
+    func withoutDuplicatesUnordered<E: Equatable>(keyPath path: KeyPath<Element, E>) -> Set<Element> {
         return reduce(into: Set<Element>()) { (result, element) in
             if !result.contains { $0[keyPath: path] == element[keyPath: path] } {
                 result.insert(element)
