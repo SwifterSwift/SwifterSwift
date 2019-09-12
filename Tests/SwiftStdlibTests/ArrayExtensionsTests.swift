@@ -8,18 +8,10 @@
 import XCTest
 @testable import SwifterSwift
 
-private struct Person {
+private struct Person: Equatable, Hashable {
     var name: String
     var age: Int?
 }
-
-extension Person: Equatable {
-    static func == (lhs: Person, rhs: Person) -> Bool {
-        return lhs.name == rhs.name && lhs.age == rhs.age
-    }
-}
-
-extension Person: Hashable { }
 
 final class ArrayExtensionsTests: XCTestCase {
 
