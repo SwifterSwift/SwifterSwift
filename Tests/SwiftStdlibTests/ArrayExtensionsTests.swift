@@ -8,15 +8,18 @@
 import XCTest
 @testable import SwifterSwift
 
-private struct Person: Equatable {
+private struct Person {
     var name: String
     var age: Int?
+}
 
+extension Person: Equatable {
     static func == (lhs: Person, rhs: Person) -> Bool {
         return lhs.name == rhs.name && lhs.age == rhs.age
     }
-
 }
+
+extension Person: Hashable { }
 
 final class ArrayExtensionsTests: XCTestCase {
 
@@ -101,4 +104,11 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
     }
 
+    func testWithoutDuplicatesUsingKeyPath() {
+        let array = [Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72), Person(name: "Rose", age: 56)]
+        let arrayWithoutDuplicates = array.withoutDuplicates(keyPath: \.name)
+        let setWithoutDuplicatesPrepared = Set([Person(name: "James", age: 32), Person(name: "Rose", age: 29)])
+        XCTAssertEqual(arrayWithoutDuplicates.count, setWithoutDuplicatesPrepared.count)
+        XCTAssertEqual(arrayWithoutDuplicates, setWithoutDuplicatesPrepared)
+    }
 }
