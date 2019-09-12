@@ -98,8 +98,8 @@ final class ArrayExtensionsTests: XCTestCase {
 
     func testWithoutDuplicatesUsingKeyPath() {
         let array = [Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72), Person(name: "Rose", age: 56)]
-        let setWithoutDuplicates: Set<Person> = array.withoutDuplicates(keyPath: \.name)
-        let arrayWithoutDuplicates: [Person] = array.withoutDuplicates(keyPath: \.name)
+        let setWithoutDuplicates = array.withoutDuplicatesUnordered(keyPath: \.name)
+        let arrayWithoutDuplicates = array.withoutDuplicates(keyPath: \.name)
         let arrayWithoutDuplicatesPrepared = [Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
         let setWithoutDuplicatesPrepared = Set(arrayWithoutDuplicatesPrepared)
         XCTAssertEqual(setWithoutDuplicates.count, setWithoutDuplicatesPrepared.count)
