@@ -5,9 +5,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
-- **Array**:
-    - Added `removeDuplicates(by:)`, `removeDuplicates(keyPath:)`, `withoutDuplicates(by:)`, `withoutDuplicates(keyPath:)` for remove duplicate elements based on comparator or key path. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
-    - Added `removeDuplicates()`, `withoutDuplicates()` where `Element: Hashable` for remove duplicate elements. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
 - **Sequence**:
     - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
 - **String**
@@ -46,8 +43,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `init(from:to:)`, `init(points:)`, `init(polygonWithPoints:)`, `init(ovalOf:centered:)` and `init(rectOf:centered:)` convenience initializers. [#659](https://github.com/SwifterSwift/SwifterSwift/pull/659) by [vyax](https://github.com/vyax)
 
 ### Changed
-- **Array**:
-  - - `removeDuplicates` and `withoutDuplicates` where `Element: Equatable` are implemented based on `removeDuplicates(by:)` and `withoutDuplicates(by:)`. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
 - **UIApplication**:
   - - `queryValue(for:)` extension for URL is refactored. [#668](https://github.com/SwifterSwift/SwifterSwift/pull/668) by [LucianoPAlmeida](https://github.com/ratulSharker).
 - **Sequence**:
