@@ -11,11 +11,17 @@ import XCTest
 private struct Person: Equatable {
     var name: String
     var age: Int?
+    var location: Location?
 
-    static func == (lhs: Person, rhs: Person) -> Bool {
-        return lhs.name == rhs.name && lhs.age == rhs.age
+    init(name: String, age: Int?, location: Location? = nil) {
+        self.name = name
+        self.age = age
+        self.location = location
     }
+}
 
+private struct Location: Equatable {
+    let city: String
 }
 
 final class ArrayExtensionsTests: XCTestCase {
@@ -101,4 +107,13 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
     }
 
+    func testWithoutDuplicatesUsingKeyPath() {
+        let array = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72, location: Location(city: "Moscow")), Person(name: "Rose", age: 56), Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
+        let arrayWithoutDuplicatesHashable = array.withoutDuplicates(keyPath: \.name)
+        let arrayWithoutDuplicatesHashablePrepared = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
+        XCTAssertEqual(arrayWithoutDuplicatesHashable, arrayWithoutDuplicatesHashablePrepared)
+        let arrayWithoutDuplicatesNHashable = array.withoutDuplicates(keyPath: \.location)
+        let arrayWithoutDuplicatesNHashablePrepared = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "James", age: 72, location: Location(city: "Moscow")), Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
+        XCTAssertEqual(arrayWithoutDuplicatesNHashable, arrayWithoutDuplicatesNHashablePrepared)
+    }
 }
