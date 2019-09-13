@@ -11,9 +11,9 @@ import XCTest
 private struct Person: Equatable, Hashable {
     var name: String
     var age: Int?
-    var location: Location
+    var location: Location?
 
-    init(name: String, age: Int?, location: Location = Location(city: "New York")) {
+    init(name: String, age: Int?, location: Location? = nil) {
         self.name = name
         self.age = age
         self.location = location
