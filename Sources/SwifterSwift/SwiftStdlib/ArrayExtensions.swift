@@ -1,105 +1,158 @@
 //
-//  ArrayExtensionsTests.swift
+//  ArrayExtensions.swift
 //  SwifterSwift
 //
-//  Created by Omar Albeik on 8/26/16.
+//  Created by Omar Albeik on 8/5/16.
 //  Copyright © 2016 SwifterSwift
 //
-import XCTest
-@testable import SwifterSwift
 
-private struct Person: Equatable, Hashable {
-    var name: String
-    var age: Int?
+// MARK: - Methods
+public extension Array {
+
+    /// SwifterSwift: Insert an element at the beginning of array.
+    ///
+    ///        [2, 3, 4, 5].prepend(1) -> [1, 2, 3, 4, 5]
+    ///        ["e", "l", "l", "o"].prepend("h") -> ["h", "e", "l", "l", "o"]
+    ///
+    /// - Parameter newElement: element to insert.
+    mutating func prepend(_ newElement: Element) {
+        insert(newElement, at: 0)
+    }
+
+    /// SwifterSwift: Safely swap values at given index positions.
+    ///
+    ///        [1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
+    ///        ["h", "e", "l", "l", "o"].safeSwap(from: 1, to: 0) -> ["e", "h", "l", "l", "o"]
+    ///
+    /// - Parameters:
+    ///   - index: index of first element.
+    ///   - otherIndex: index of other element.
+    mutating func safeSwap(from index: Index, to otherIndex: Index) {
+        guard index != otherIndex else { return }
+        guard startIndex..<endIndex ~= index else { return }
+        guard startIndex..<endIndex ~= otherIndex else { return }
+        swapAt(index, otherIndex)
+    }
+
+    /// SwifterSwift: Returns a sorted array based on an optional keypath.
+    ///
+    /// - Parameter path: Key path to sort. The key path type must be Comparable.
+    /// - Parameter ascending: If order must be ascending.
+    /// - Returns: Sorted array based on keyPath.
+    func sorted<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
+        return sorted(by: { (lhs, rhs) -> Bool in
+            guard let lhsValue = lhs[keyPath: path], let rhsValue = rhs[keyPath: path] else { return false }
+            return ascending ? (lhsValue < rhsValue) : (lhsValue > rhsValue)
+        })
+    }
+
+    /// SwifterSwift: Returns a sorted array based on a keypath.
+    ///
+    /// - Parameter path: Key path to sort. The key path type must be Comparable.
+    /// - Parameter ascending: If order must be ascending.
+    /// - Returns: Sorted array based on keyPath.
+    func sorted<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
+        return sorted(by: { (lhs, rhs) -> Bool in
+            return ascending ? (lhs[keyPath: path] < rhs[keyPath: path]) : (lhs[keyPath: path] > rhs[keyPath: path])
+        })
+    }
+
+    /// SwifterSwift: Sort the array based on an optional keypath.
+    ///
+    /// - Parameters:
+    ///   - path: Key path to sort, must be Comparable.
+    ///   - ascending: whether order is ascending or not.
+    /// - Returns: self after sorting.
+    @discardableResult
+    mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
+        self = sorted(by: path, ascending: ascending)
+        return self
+    }
+
+    /// SwifterSwift: Sort the array based on a keypath.
+    ///
+    /// - Parameters:
+    ///   - path: Key path to sort, must be Comparable.
+    ///   - ascending: whether order is ascending or not.
+    /// - Returns: self after sorting.
+    @discardableResult
+    mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
+        self = sorted(by: path, ascending: ascending)
+        return self
+    }
+
 }
 
-final class ArrayExtensionsTests: XCTestCase {
+// MARK: - Methods (Equatable)
+public extension Array where Element: Equatable {
 
-    func testPrepend() {
-        var arr = [2, 3, 4, 5]
-        arr.prepend(1)
-        XCTAssertEqual(arr, [1, 2, 3, 4, 5])
+    /// SwifterSwift: Remove all instances of an item from array.
+    ///
+    ///        [1, 2, 2, 3, 4, 5].removeAll(2) -> [1, 3, 4, 5]
+    ///        ["h", "e", "l", "l", "o"].removeAll("l") -> ["h", "e", "o"]
+    ///
+    /// - Parameter item: item to remove.
+    /// - Returns: self after removing all instances of item.
+    @discardableResult
+    mutating func removeAll(_ item: Element) -> [Element] {
+        removeAll(where: { $0 == item })
+        return self
     }
 
-    func testSafeSwap() {
-        var array: [Int] = [1, 2, 3, 4, 5]
-        array.safeSwap(from: 3, to: 0)
-        XCTAssertEqual(array[3], 1)
-        XCTAssertEqual(array[0], 4)
-
-        var newArray = array
-        newArray.safeSwap(from: 1, to: 1)
-        XCTAssertEqual(newArray, array)
-
-        newArray = array
-        newArray.safeSwap(from: 1, to: 12)
-        XCTAssertEqual(newArray, array)
-
-        let emptyArray: [Int] = []
-        var swappedEmptyArray = emptyArray
-        swappedEmptyArray.safeSwap(from: 1, to: 3)
-        XCTAssertEqual(swappedEmptyArray, emptyArray)
+    /// SwifterSwift: Remove all instances contained in items parameter from array.
+    ///
+    ///        [1, 2, 2, 3, 4, 5].removeAll([2,5]) -> [1, 3, 4]
+    ///        ["h", "e", "l", "l", "o"].removeAll(["l", "h"]) -> ["e", "o"]
+    ///
+    /// - Parameter items: items to remove.
+    /// - Returns: self after removing all instances of all items in given array.
+    @discardableResult
+    mutating func removeAll(_ items: [Element]) -> [Element] {
+        guard !items.isEmpty else { return self }
+        removeAll(where: { items.contains($0) })
+        return self
     }
 
-    func testKeyPathSorted() {
-        let array = [Person(name: "James", age: 32), Person(name: "Wade", age: 36), Person(name: "Rose", age: 29)]
-
-        XCTAssertEqual(array.sorted(by: \Person.name), [Person(name: "James", age: 32), Person(name: "Rose", age: 29), Person(name: "Wade", age: 36)])
-        XCTAssertEqual(array.sorted(by: \Person.name, ascending: false), [Person(name: "Wade", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 32)])
-        // Testing Optional keyPath
-        XCTAssertEqual(array.sorted(by: \Person.age), [Person(name: "Rose", age: 29), Person(name: "James", age: 32), Person(name: "Wade", age: 36)])
-        XCTAssertEqual(array.sorted(by: \Person.age, ascending: false), [Person(name: "Wade", age: 36), Person(name: "James", age: 32), Person(name: "Rose", age: 29)])
-
-        // Testing Mutating
-        var mutableArray = [Person(name: "James", age: 32), Person(name: "Wade", age: 36), Person(name: "Rose", age: 29)]
-
-        mutableArray.sort(by: \Person.name)
-        XCTAssertEqual(mutableArray, [Person(name: "James", age: 32), Person(name: "Rose", age: 29), Person(name: "Wade", age: 36)])
-
-        // Testing Mutating Optional keyPath
-        mutableArray.sort(by: \Person.age)
-        XCTAssertEqual(mutableArray, [Person(name: "Rose", age: 29), Person(name: "James", age: 32), Person(name: "Wade", age: 36)])
-
-        // Testing nil path
-        let nilArray = [Person(name: "James", age: nil), Person(name: "Wade", age: nil)]
-        XCTAssertEqual(nilArray.sorted(by: \Person.age), [Person(name: "James", age: nil), Person(name: "Wade", age: nil)])
+    /// SwifterSwift: Remove all duplicate elements from Array.
+    ///
+    ///        [1, 2, 2, 3, 4, 5].removeDuplicates() -> [1, 2, 3, 4, 5]
+    ///        ["h", "e", "l", "l", "o"]. removeDuplicates() -> ["h", "e", "l", "o"]
+    ///
+    /// - Returns: Return array with all duplicate elements removed.
+    @discardableResult
+    mutating func removeDuplicates() -> [Element] {
+        // Thanks to https://github.com/sairamkotha for improving the method
+        self = reduce(into: [Element]()) {
+            if !$0.contains($1) {
+                $0.append($1)
+            }
+        }
+        return self
     }
 
-    func testRemoveAll() {
-        var arr = [0, 1, 2, 0, 3, 4, 5, 0, 0]
-        arr.removeAll(0)
-        XCTAssertEqual(arr, [1, 2, 3, 4, 5])
-        arr = []
-        arr.removeAll(0)
-        XCTAssertEqual(arr, [])
+    /// SwifterSwift: Return array with all duplicate elements removed.
+    ///
+    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
+    ///     ["h", "e", "l", "l", "o"].withoutDuplicates() -> ["h", "e", "l", "o"])
+    ///
+    /// - Returns: an array of unique elements.
+    ///
+    func withoutDuplicates() -> [Element] {
+        // Thanks to https://github.com/sairamkotha for improving the method
+        return reduce(into: [Element]()) {
+            if !$0.contains($1) {
+                $0.append($1)
+            }
+        }
     }
 
-    func testRemoveAllItems() {
-        var arr = [0, 1, 2, 2, 0, 3, 4, 5, 0, 0]
-        arr.removeAll([0, 2])
-        XCTAssertEqual(arr, [1, 3, 4, 5])
-        arr.removeAll([])
-        XCTAssertEqual(arr, [1, 3, 4, 5])
-        arr = []
-        arr.removeAll([])
-        XCTAssertEqual(arr, [])
-    }
-
-    func testRemoveDuplicates() {
-        var array = [1, 1, 2, 2, 3, 3, 3, 4, 5]
-        array.removeDuplicates()
-        XCTAssertEqual(array, [1, 2, 3, 4, 5])
-    }
-
-    func testWithoutDuplicates() {
-        XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates(), [1, 2, 3, 4, 5])
-        XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
-    }
-
-    func testWithoutDuplicatesUsingKeyPath() {
-        let array = [Person(name: "Wade", age: 20), Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72), Person(name: "Rose", age: 56), Person(name: "Wade", age: 22)]
-        let arrayWithoutDuplicates = array.withoutDuplicates(keyPath: \.name)
-        let arrayWithoutDuplicatesPrepared = [Person(name: "Wade", age: 20), Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
-        XCTAssertEqual(arrayWithoutDuplicates, arrayWithoutDuplicatesPrepared)
+    /// SwifterSwift: Returns a set with all duplicate elements removed using KeyPath to compare.
+    ///
+    /// - Parameter path: Key path to compare, the value must be Hashable.
+    /// - Returns: a set of unique elements.
+    func withoutDuplicates<E: Hashable>(keyPath path: KeyPath<Element, E>) -> [Element] {
+        var set: Set<E> = []
+        // since set don't allow duplications it never adds two equal key path values, and filter by that and maintaining the check O(1)
+        return filter { set.insert($0[keyPath: path]).inserted }
     }
 }
