@@ -117,8 +117,8 @@ final class ArrayExtensionsTests: XCTestCase {
         let arrayWithoutDuplicatesHashable = array.withoutDuplicates(keyPath: \.name)
         let arrayWithoutDuplicatesHashablePrepared = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
         XCTAssertEqual(arrayWithoutDuplicatesHashable, arrayWithoutDuplicatesHashablePrepared)
-        let arrayWithoutDuplicatesNotHashable = array.withoutDuplicates(keyPath: \.location)
-        let arrayWithoutDuplicatesNotHashablePrepared = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "James", age: 72, location: Location(city: "Moscow")), Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
-        XCTAssertEqual(arrayWithoutDuplicatesNotHashable, arrayWithoutDuplicatesNotHashablePrepared)
+        let arrayWithoutDuplicatesNHashable = array.withoutDuplicates(keyPath: \.location)
+        let arrayWithoutDuplicatesNHashablePrepared = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "James", age: 72, location: Location(city: "Moscow")), Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
+        XCTAssertEqual(arrayWithoutDuplicatesNHashable, arrayWithoutDuplicatesNHashablePrepared)
     }
 }
