@@ -11,6 +11,22 @@ import XCTest
 private struct Person: Equatable, Hashable {
     var name: String
     var age: Int?
+    var location: Location
+
+    init(name: String, age: Int?, location: Location = Location(city: "New York")) {
+        self.name = name
+        self.age = age
+        self.location = location
+    }
+
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(age)
+    }
+}
+
+private struct Location: Equatable {
+    var city: String
 }
 
 final class ArrayExtensionsTests: XCTestCase {
@@ -97,9 +113,12 @@ final class ArrayExtensionsTests: XCTestCase {
     }
 
     func testWithoutDuplicatesUsingKeyPath() {
-        let array = [Person(name: "Wade", age: 20), Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72), Person(name: "Rose", age: 56), Person(name: "Wade", age: 22)]
-        let arrayWithoutDuplicates = array.withoutDuplicates(keyPath: \.name)
-        let arrayWithoutDuplicatesPrepared = [Person(name: "Wade", age: 20), Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
-        XCTAssertEqual(arrayWithoutDuplicates, arrayWithoutDuplicatesPrepared)
+        let array = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72, location: Location(city: "Moscow")), Person(name: "Rose", age: 56), Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
+        let arrayWithoutDuplicatesHashable = array.withoutDuplicates(keyPath: \.name)
+        let arrayWithoutDuplicatesHashablePrepared = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
+        XCTAssertEqual(arrayWithoutDuplicatesHashable, arrayWithoutDuplicatesHashablePrepared)
+        let arrayWithoutDuplicatesNotHashable = array.withoutDuplicates(keyPath: \.location)
+        let arrayWithoutDuplicatesNotHashablePrepared = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "James", age: 72, location: Location(city: "Moscow")), Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
+        XCTAssertEqual(arrayWithoutDuplicatesNotHashable, arrayWithoutDuplicatesNotHashablePrepared)
     }
 }
