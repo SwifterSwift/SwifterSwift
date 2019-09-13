@@ -151,7 +151,7 @@ public extension Array where Element: Equatable {
     /// - Parameter path: Key path to compare, the value must be Hashable.
     /// - Returns: a set of unique elements.
     func withoutDuplicates<E: Hashable>(keyPath path: KeyPath<Element, E>) -> [Element] {
-        var set: Set<E> = []
+        var set = Set<E>()
         // since set don't allow duplications it never adds two equal key path values, and filter by that and maintaining the check O(1)
         return filter { set.insert($0[keyPath: path]).inserted }
     }
