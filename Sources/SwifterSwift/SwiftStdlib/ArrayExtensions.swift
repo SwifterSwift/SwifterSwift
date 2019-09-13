@@ -146,7 +146,7 @@ public extension Array where Element: Equatable {
         }
     }
 
-    /// SwifterSwift: Returns a set with all duplicate elements removed using KeyPath to compare.
+    /// SwifterSwift: Returns an array with all duplicate elements removed using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Hashable.
     /// - Returns: an array of unique elements.
