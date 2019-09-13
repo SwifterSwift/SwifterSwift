@@ -26,7 +26,7 @@ private struct Person: Equatable, Hashable {
 }
 
 private struct Location: Equatable {
-    var city: String
+    let city: String
 }
 
 final class ArrayExtensionsTests: XCTestCase {
