@@ -149,7 +149,7 @@ public extension Array where Element: Equatable {
     /// SwifterSwift: Returns a set with all duplicate elements removed using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Hashable.
-    /// - Returns: a set of unique elements.
+    /// - Returns: an array of unique elements.
     func withoutDuplicates<E: Hashable>(keyPath path: KeyPath<Element, E>) -> [Element] {
         var set = Set<E>()
         return filter { set.insert($0[keyPath: path]).inserted }
