@@ -8,7 +8,7 @@
 import XCTest
 @testable import SwifterSwift
 
-private struct Person: Equatable, Hashable {
+private struct Person: Equatable {
     var name: String
     var age: Int?
     var location: Location?
@@ -17,11 +17,6 @@ private struct Person: Equatable, Hashable {
         self.name = name
         self.age = age
         self.location = location
-    }
-
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
-        hasher.combine(age)
     }
 }
 
