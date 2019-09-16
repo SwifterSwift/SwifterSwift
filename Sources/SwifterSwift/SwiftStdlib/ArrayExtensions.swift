@@ -122,11 +122,7 @@ public extension Array where Element: Equatable {
     @discardableResult
     mutating func removeDuplicates() -> [Element] {
         // Thanks to https://github.com/sairamkotha for improving the method
-        self = reduce(into: [Element]()) {
-            if !$0.contains($1) {
-                $0.append($1)
-            }
-        }
+        self = withoutDuplicates()
         return self
     }
 
@@ -146,6 +142,16 @@ public extension Array where Element: Equatable {
         }
     }
 
+    /// SwifterSwift: Remove all duplicate elements from Array using KeyPath to compare.
+    ///
+    /// - Parameter path: Key path to compare, the value must be Equatable.
+    /// - Returns: an array of unique elements.
+    @discardableResult
+    mutating func removeDuplicates<E: Equatable>(keyPath path: KeyPath<Element, E>) -> [Element] {
+        self = withoutDuplicates(keyPath: path)
+        return self
+    }
+    
     /// SwifterSwift: Returns an array with all duplicate elements removed using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Equatable.
@@ -158,6 +164,16 @@ public extension Array where Element: Equatable {
         }
     }
 
+    /// SwifterSwift: Remove all duplicate elements from Array using KeyPath to compare.
+    ///
+    /// - Parameter path: Key path to compare, the value must be Hashable.
+    /// - Returns: an array of unique elements.
+    @discardableResult
+    mutating func removeDuplicates<E: Hashable>(keyPath path: KeyPath<Element, E>) -> [Element] {
+        self = withoutDuplicates(keyPath: path)
+        return self
+    }
+    
     /// SwifterSwift: Returns an array with all duplicate elements removed using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Hashable.
