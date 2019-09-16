@@ -151,7 +151,7 @@ public extension Array where Element: Equatable {
         self = withoutDuplicates(keyPath: path)
         return self
     }
-    
+
     /// SwifterSwift: Returns an array with all duplicate elements removed using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Equatable.
@@ -173,7 +173,7 @@ public extension Array where Element: Equatable {
         self = withoutDuplicates(keyPath: path)
         return self
     }
-    
+
     /// SwifterSwift: Returns an array with all duplicate elements removed using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Hashable.
