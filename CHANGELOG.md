@@ -6,6 +6,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **Array**:
+    - Added `removeDuplicates(keyPath:)` for filtering duplicate elements based on key path. [#711](https://github.com/SwifterSwift/SwifterSwift/pull/711) by [RomanPodymov](https://github.com/RomanPodymov).
     - Added `withoutDuplicates(keyPath:)` for filtering duplicate elements based on key path. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
 - **Sequence**:
     - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
@@ -49,6 +50,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - - `queryValue(for:)` extension for URL is refactored. [#668](https://github.com/SwifterSwift/SwifterSwift/pull/668) by [LucianoPAlmeida](https://github.com/ratulSharker).
 - **Sequence**:
   - `sum()` extension for Sequence is refactored. [#707](https://github.com/SwifterSwift/SwifterSwift/pull/707) by [cHaLkdusT](https://github.com/cHaLkdusT).
+- **Array**:
+  - `removeDuplicates()` is refactored using `withoutDuplicates()` [#711](https://github.com/SwifterSwift/SwifterSwift/pull/711) by [RomanPodymov](https://github.com/RomanPodymov).
 
 ### Deprecated
 
