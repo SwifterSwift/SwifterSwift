@@ -133,13 +133,13 @@ final class SequenceExtensionsTests: XCTestCase {
         let array = ["James", "Wade", "Bryant"]
         XCTAssertEqual(array.sorted(by: \String.count, with: <), ["Wade", "James", "Bryant"])
         XCTAssertEqual(array.sorted(by: \String.count, with: >), ["Bryant", "James", "Wade"])
-      
+
         // Testing optional keyPath
         let optionalCompare = { (char1: Character?, char2: Character?) -> Bool in
             guard let char1 = char1, let char2 = char2 else { return false }
             return char1 < char2
         }
-        
+
         let array2 = ["James", "Wade", "Bryant", ""]
         XCTAssertEqual(array2.sorted(by: \String.first, with: optionalCompare), ["Bryant", "James", "Wade", ""])
     }

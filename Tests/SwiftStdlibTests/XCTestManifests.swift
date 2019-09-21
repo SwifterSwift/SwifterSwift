@@ -6,13 +6,13 @@ extension ArrayExtensionsTests {
     //   `swift test --generate-linuxmain`
     // to regenerate.
     static let __allTests__ArrayExtensionsTests = [
-        ("testKeyPathSorted", testKeyPathSorted),
         ("testPrepend", testPrepend),
         ("testRemoveAll", testRemoveAll),
         ("testRemoveAllItems", testRemoveAllItems),
         ("testRemoveDuplicates", testRemoveDuplicates),
         ("testSafeSwap", testSafeSwap),
         ("testWithoutDuplicates", testWithoutDuplicates),
+        ("testWithoutDuplicatesUsingKeyPath", testWithoutDuplicatesUsingKeyPath),
     ]
 }
 
