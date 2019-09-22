@@ -40,9 +40,10 @@ final class UIImageExtensionsTests: XCTestCase {
     func testCompressed() {
         let bundle = Bundle.init(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let originalSize = image.kilobytesSize
         let compressedImage = image.compressed(quality: 0.2)
         XCTAssertNotNil(compressedImage)
-        XCTAssertEqual(compressedImage!.kilobytesSize, 54)
+        XCTAssertLessThan(compressedImage!.kilobytesSize, originalSize)
         XCTAssertNil(UIImage().compressed())
     }
 
