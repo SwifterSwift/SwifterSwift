@@ -202,7 +202,7 @@ public extension Sequence {
     /// - Parameter path: Key path to sort. The key path type must be Comparable.
     /// - Returns: The sorted array.
     func sorted<T: Comparable>(by keyPath: KeyPath<Element, T>) -> [Element] {
-        return sorted { $0[keyPath: keyPath] > $1[keyPath: keyPath] }
+        return sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
     }
 }
 

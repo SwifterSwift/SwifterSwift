@@ -21,7 +21,7 @@ final class MutableCollectionTests: XCTestCase {
 
         // Comparable version
         array.sort(by: \String.count)
-        XCTAssertEqual(array, ["Bryant", "James", "Wade"])
+        XCTAssertEqual(array, ["Wade", "James", "Bryant"])
 
         // Testing optional keyPath
         let optionalCompare = { (char1: Character?, char2: Character?) -> Bool in

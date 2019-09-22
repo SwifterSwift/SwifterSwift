@@ -19,6 +19,6 @@ public extension MutableCollection where Self: RandomAccessCollection {
     ///
     /// - Parameter path: Key path to sort. The key path type must be Comparable.
     mutating func sort<T: Comparable>(by keyPath: KeyPath<Element, T>) {
-        sort { $0[keyPath: keyPath] > $1[keyPath: keyPath] }
+        sort { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
     }
 }
