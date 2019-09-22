@@ -9,6 +9,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
     - Added `withoutDuplicates(keyPath:)` for filtering duplicate elements based on key path. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
 - **Sequence**:
     - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
+    - Added `sorted(by:with:)` to return sorted array from a `Sequence` with by a given keyPath using a compare function. [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+- **MutableCollection**:
+    - Added `sort(by:with:)` to sort a `Collection` with by a given keyPath using a compare function. [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - **String**
   - `isPalindrome` computed property of String to check if it is a palindrome. [#671](https://github.com/SwifterSwift/SwifterSwift/pull/671) by [cHaLkdusT](https://github.com/cHaLkdusT).
 
@@ -51,6 +54,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `sum()` extension for Sequence is refactored. [#707](https://github.com/SwifterSwift/SwifterSwift/pull/707) by [cHaLkdusT](https://github.com/cHaLkdusT).
 
 ### Deprecated
+- **Array**:
+    - Deprecated `sorted(by:, ascending)` and `sort(by:ascending)` in favor of `sorted(by:with:)` and `sort(by:with:)` [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 ### Removed
 - **Character**:
