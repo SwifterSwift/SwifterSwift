@@ -196,6 +196,14 @@ public extension Sequence {
     func sorted<T>(by keyPath: KeyPath<Element, T>, with compare: (T, T) -> Bool) -> [Element] {
         return sorted { compare($0[keyPath: keyPath], $1[keyPath: keyPath]) }
     }
+
+    /// SwifterSwift: Return a sorted array  based on a keypath and a compare function.
+    ///
+    /// - Parameter path: Key path to sort. The key path type must be Comparable.
+    /// - Returns: The sorted array.
+    func sorted<T: Comparable>(by keyPath: KeyPath<Element, T>) -> [Element] {
+        return sorted { $0[keyPath: keyPath] > $1[keyPath: keyPath] }
+    }
 }
 
 public extension Sequence where Element: Equatable {

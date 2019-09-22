@@ -23,7 +23,7 @@ extension Array {
     /// - Parameter ascending: If order must be ascending.
     /// - Returns: Sorted array based on keyPath.
     @available(*, deprecated, message: "Use sorted(by:with:) instead.")
-    func sorted<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
+    func sorted<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool) -> [Element] {
         if ascending {
             return sorted(by: path, with: optionalCompareAscending)
         }
@@ -36,7 +36,7 @@ extension Array {
     /// - Parameter ascending: If order must be ascending.
     /// - Returns: Sorted array based on keyPath.
     @available(*, deprecated, message: "Use sorted(by:with:) instead.")
-    func sorted<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
+    func sorted<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool) -> [Element] {
         if ascending {
             return sorted(by: path, with: <)
         }
@@ -51,7 +51,7 @@ extension Array {
     /// - Returns: self after sorting.
     @available(*, deprecated, message: "Use sort(by:with:) instead.")
     @discardableResult
-    mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool = true) -> [Element] {
+    mutating func sort<T: Comparable>(by path: KeyPath<Element, T?>, ascending: Bool) -> [Element] {
         if ascending {
             sort(by: path, with: optionalCompareAscending)
         } else {
@@ -68,7 +68,7 @@ extension Array {
     /// - Returns: self after sorting.
     @available(*, deprecated, message: "Use sort(by:with:) instead.")
     @discardableResult
-    mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool = true) -> [Element] {
+    mutating func sort<T: Comparable>(by path: KeyPath<Element, T>, ascending: Bool) -> [Element] {
         if ascending {
             sort(by: path, with: <)
         } else {
