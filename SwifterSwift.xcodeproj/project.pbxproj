@@ -398,6 +398,11 @@
 		9D4914891F8515D100F3868F /* NSPredicateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */; };
 		9D49148A1F8515D100F3868F /* NSPredicateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */; };
 		9D49148B1F8515D100F3868F /* NSPredicateExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */; };
+		9D806A362258AC0D008E500A /* UIBezierPathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A352258AC0D008E500A /* UIBezierPathExtensions.swift */; };
+		9D806A372258AE09008E500A /* UIBezierPathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A352258AC0D008E500A /* UIBezierPathExtensions.swift */; };
+		9D806A382258AE0A008E500A /* UIBezierPathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A352258AC0D008E500A /* UIBezierPathExtensions.swift */; };
+		9D806A3D2258AED2008E500A /* UIBezierPathExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A392258AE1D008E500A /* UIBezierPathExtensionsTests.swift */; };
+		9D806A3E2258AED4008E500A /* UIBezierPathExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A392258AE1D008E500A /* UIBezierPathExtensionsTests.swift */; };
 		9D806A412258B931008E500A /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A402258B931008E500A /* SCNVector3Extensions.swift */; };
 		9D806A422258B931008E500A /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A402258B931008E500A /* SCNVector3Extensions.swift */; };
 		9D806A432258B931008E500A /* SCNVector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A402258B931008E500A /* SCNVector3Extensions.swift */; };
@@ -466,11 +471,6 @@
 		9D806AA32258FF98008E500A /* SCNPlaneExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806AA22258FF98008E500A /* SCNPlaneExtensionsTests.swift */; };
 		9D806AA42258FF98008E500A /* SCNPlaneExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806AA22258FF98008E500A /* SCNPlaneExtensionsTests.swift */; };
 		9D806AA52258FF98008E500A /* SCNPlaneExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806AA22258FF98008E500A /* SCNPlaneExtensionsTests.swift */; };
-		9D806A362258AC0D008E500A /* UIBezierPathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A352258AC0D008E500A /* UIBezierPathExtensions.swift */; };
-		9D806A372258AE09008E500A /* UIBezierPathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A352258AC0D008E500A /* UIBezierPathExtensions.swift */; };
-		9D806A382258AE0A008E500A /* UIBezierPathExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A352258AC0D008E500A /* UIBezierPathExtensions.swift */; };
-		9D806A3D2258AED2008E500A /* UIBezierPathExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A392258AE1D008E500A /* UIBezierPathExtensionsTests.swift */; };
-		9D806A3E2258AED4008E500A /* UIBezierPathExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A392258AE1D008E500A /* UIBezierPathExtensionsTests.swift */; };
 		9D9784DB1FCAE3D200D988E7 /* StringProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */; };
 		9D9784DC1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */; };
 		9D9784DD1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */; };
@@ -701,6 +701,8 @@
 		90693554208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtensionsTests.swift; sourceTree = "<group>"; };
 		9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensions.swift; sourceTree = "<group>"; };
 		9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensionsTests.swift; sourceTree = "<group>"; };
+		9D806A352258AC0D008E500A /* UIBezierPathExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensions.swift; sourceTree = "<group>"; };
+		9D806A392258AE1D008E500A /* UIBezierPathExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensionsTests.swift; sourceTree = "<group>"; };
 		9D806A402258B931008E500A /* SCNVector3Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3Extensions.swift; sourceTree = "<group>"; };
 		9D806A462258B9BB008E500A /* SCNVector3ExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3ExtensionsTests.swift; sourceTree = "<group>"; };
 		9D806A4A2258CFA6008E500A /* SCNSphereExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNSphereExtensions.swift; sourceTree = "<group>"; };
@@ -721,8 +723,6 @@
 		9D806A9A2258FE9D008E500A /* SCNShapeExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNShapeExtensionsTests.swift; sourceTree = "<group>"; };
 		9D806A9E2258FF1A008E500A /* SCNSphereExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNSphereExtensionsTests.swift; sourceTree = "<group>"; };
 		9D806AA22258FF98008E500A /* SCNPlaneExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNPlaneExtensionsTests.swift; sourceTree = "<group>"; };
-		9D806A352258AC0D008E500A /* UIBezierPathExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensions.swift; sourceTree = "<group>"; };
-		9D806A392258AE1D008E500A /* UIBezierPathExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensionsTests.swift; sourceTree = "<group>"; };
 		9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExtensions.swift; sourceTree = "<group>"; };
 		9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExtensionsTests.swift; sourceTree = "<group>"; };
 		A94AA78620280F9100E229A5 /* FileManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
@@ -2369,6 +2369,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 5.1.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-iOS";
@@ -2439,6 +2440,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 5.1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-iOS";
 				PRODUCT_NAME = SwifterSwift;
@@ -2513,6 +2515,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 5.1.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-tvOS";
@@ -2583,6 +2586,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 5.1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-tvOS";
 				PRODUCT_NAME = SwifterSwift;
@@ -2659,6 +2663,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 5.1.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-watchOS";
@@ -2730,6 +2735,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 5.1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-watchOS";
 				PRODUCT_NAME = SwifterSwift;
@@ -2807,6 +2813,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 5.1.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-macOS";
@@ -2877,6 +2884,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MARKETING_VERSION = 5.1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-macOS";
 				PRODUCT_NAME = SwifterSwift;

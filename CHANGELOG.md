@@ -5,61 +5,98 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+---
+
+## [v5.1.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/5.1.0)
+
+### Added
+
 - **Array**:
-    - Added `withoutDuplicates(keyPath:)` for filtering duplicate elements based on key path. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
+  - Added `withoutDuplicates(keyPath:)` for filtering duplicate elements based on key path. [#704](https://github.com/SwifterSwift/SwifterSwift/pull/704) by [RomanPodymov](https://github.com/RomanPodymov).
+
 - **Sequence**:
-    - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
-    - Added `sorted(by:with:)` to return sorted array from a `Sequence` with by a given keyPath using a compare function. [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - Added `withoutDuplicates(transform:)` for remove duplicate elements based on condition in a sequence. [#666](https://github.com/SwifterSwift/SwifterSwift/pull/666) by [saucym](https://github.com/saucym)
+  - Added `sorted(by:with:)` to return sorted array from a `Sequence` with by a given keyPath using a compare function. [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+
 - **MutableCollection**:
-    - Added `sort(by:with:)` to sort a `Collection` with by a given keyPath using a compare function. [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - Added `sort(by:with:)` to sort a `Collection` with by a given keyPath using a compare function. [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+
 - **String**
   - `isPalindrome` computed property of String to check if it is a palindrome. [#671](https://github.com/SwifterSwift/SwifterSwift/pull/671) by [cHaLkdusT](https://github.com/cHaLkdusT).
 
 - **CGSize**:
   - Added `aspectRatio`, `maxDimension`, and `minDimension` properties. [#662](https://github.com/SwifterSwift/SwifterSwift/pull/662) by [vyax](https://github.com/vyax)
+
 - **SCNBox**:
   - Added `init(width:height:length:)`, `init(sideLength:chamferRadius:)`, `init(width:height:length:chamferRadius:material:)`, `init(sideLength:chamferRadius:material:)`, `init(width:height:length:chamferRadius:color:)`, and `init(sideLength:chamferRadius:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+
 - **SCNCapsule**:
   - Added `init(capDiameter:height)`, `init(capRadius:height:material:)`, `init(capDiameter:height:material:)`, `init(capRadius:height:color:)`, and `init(capDiameter:height:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+
 - **SCNCone**:
   - Added `init(topDiameter:bottomDiameter:height)`, `init(topRadius:bottomRadius:height:material:)`, `init(topDiameter:bottomDiameter:height:material:)`, `init(topRadius:bottomRadius:height:color:)`, and `init(topDiameter:bottomDiameter:height:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+
 - **SCNCylinder**:
   - Added `init(diameter:height)`, `init(radius:height:material:)`, `init(diameter:height:material:)`, `init(radius:height:color:)`, and `init(diameter:height:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+
 - **SCNGeometry**:
   - Added `boundingSize` property to get the size of the geometry's bounding box. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+
 - **SCNMaterial**:
   - Added `init(color:)` convenience initializer. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+
 - **SCNPlane**:
   - Added `init(width:)`, `init(width:height:material:)`, `init(width:material:)`, `init(width:height:color:)`, and `init(width:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+
 - **SCNShape**:
   - Added `init(path:extrusionDepth:material:)` and `init(path:extrusionDepth:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+
 - **SCNSphere**:
   - Added `init(diameter:)`, `init(radius:material:)`, `init(radius:color:)`, `init(diameter:material:)`, and `init(diameter:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+
 - **SCNVector3**:
   - Added `absolute` property to calculate the vector's components as absolute values. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
   - Added `length` property to calculate the vector's length. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+
 - **UICollectionView**:
   - Added `isValidIndexPath(_:)` method to check whether given IndexPath is valid within UICollectionView. [#695](https://github.com/SwifterSwift/SwifterSwift/pull/695) by [emilrb](https://github.com/emilrb).
   - Added `safeScrollToItem(at:at:animated:)` method to safely scroll UICollectionView to the given IndexPath. [#698](https://github.com/SwifterSwift/SwifterSwift/pull/698) by [emilrb](https://github.com/emilrb)
- - **Sequence**:
+
+- **Sequence**:
   - Moved `divided(by:)` ArrayExtensions to SequenceExtensions. This function separates all items into 2 lists based on a given predicate. [#706](https://github.com/SwifterSwift/SwifterSwift/pull/706) by [cHaLkdusT](https://github.com/cHaLkdusT) 
 
 - **UIBezierPath**:
   - Added `init(from:to:)`, `init(points:)`, `init(polygonWithPoints:)`, `init(ovalOf:centered:)` and `init(rectOf:centered:)` convenience initializers. [#659](https://github.com/SwifterSwift/SwifterSwift/pull/659) by [vyax](https://github.com/vyax)
 
 ### Changed
+
 - **UIApplication**:
-  - - `queryValue(for:)` extension for URL is refactored. [#668](https://github.com/SwifterSwift/SwifterSwift/pull/668) by [LucianoPAlmeida](https://github.com/ratulSharker).
+  - Refactored `queryValue(for:)` extension for URL. [#668](https://github.com/SwifterSwift/SwifterSwift/pull/668) by [LucianoPAlmeida](https://github.com/ratulSharker).
+
 - **Sequence**:
   - `sum()` extension for Sequence is refactored. [#707](https://github.com/SwifterSwift/SwifterSwift/pull/707) by [cHaLkdusT](https://github.com/cHaLkdusT).
 
 ### Deprecated
+
 - **Array**:
-    - Deprecated `sorted(by:, ascending)` and `sort(by:ascending)` in favor of `sorted(by:with:)` and `sort(by:with:)` [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - Deprecated `sorted(by:, ascending)` and `sort(by:ascending)` in favor of `sorted(by:with:)` and `sort(by:with:)` [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 ### Removed
+
 - **Character**:
   - Removed `isNumber`, `isLetter`, `isLowercased`, `isUppercased` and `isWhiteSpace` because the same properties are defined in the Swift standard library. [#689](https://github.com/SwifterSwift/SwifterSwift/pull/689) by [RomanPodymov](https://github.com/RomanPodymov).
+
 - **Array**:
   - Removed `divided(by:)` function from ArrayExtensions [#706](https://github.com/SwifterSwift/SwifterSwift/pull/706) by [cHaLkdusT](https://github.com/cHaLkdusT)
 
@@ -68,13 +105,13 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIApplication**:
   - Resolved an issue where `version` would return the wrong Info.plist value.
   - Resolved an issue where `version` and `displayName` would return nil if localized.
+
 - **UIImage**:
   - The size of rect can equal to the size of UIImage when using `cropped(to:)` to crop UIImage. [#679](https://github.com/SwifterSwift/SwifterSwift/pull/679) by [dirtmelon](https://github.com/dirtmelon).
   - `scaled(toHeight:opaque:)` and `scaled(toWidth:opaque:)` will now keep the original scale of UIImage. [#703](https://github.com/SwifterSwift/SwifterSwift/pull/703) by [ShannonChou](https://github.com/shannonchou)
+
 - **UITableView**:
   - `isValidIndexPath(_:)` will now return `false` for IndexPaths with a negative row or section. [#696](https://github.com/SwifterSwift/SwifterSwift/pull/696) by [emilrb](https://github.com/emilrb).
-  
-### Security
 
 ---
 
@@ -173,7 +210,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **Date**
-    - Added `yesterday` computed property to quickly get yesterday's date to avoid calling `adding(_:value:)` function. [#578](https://github.com/SwifterSwift/SwifterSwift/pull/578) by [AlexeiGitH](https://github.com/AlexeiGitH)
+  - Added `yesterday` computed property to quickly get yesterday's date to avoid calling `adding(_:value:)` function. [#578](https://github.com/SwifterSwift/SwifterSwift/pull/578) by [AlexeiGitH](https://github.com/AlexeiGitH)
 - **UIView**
   - Added `ancestorView(where:)` and `ancestorView(withClass:)` to search for a view in the superviews. [#560](https://github.com/SwifterSwift/SwifterSwift/pull/560) by [overovermind](https://github.com/overovermind)
 ### Fixed
@@ -771,27 +808,27 @@ N/A
 - Documentation should be greatly improved and up to date now that we are using [Jazzy](https://github.com/realm/jazzy) to auto-generate docs! :tada: [#198](https://github.com/SwifterSwift/SwifterSwift/pull/198) by [@omaralbeik](https://github.com/omaralbeik)
 
 - SwifterSwift now supports subspecs to offer more control over imported extensions: [#198](https://github.com/SwifterSwift/SwifterSwift/pull/198) by [@omaralbeik](https://github.com/omaralbeik)
-    - SwifterSwift/Foundation
-    - SwifterSwift/UIKit
-    - SwifterSwift/Cocoa
+  - SwifterSwift/Foundation
+  - SwifterSwift/UIKit
+  - SwifterSwift/Cocoa
 
 - `Array` extensions now have throwing signatures. [#170](https://github.com/SwifterSwift/SwifterSwift/pull/170) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 - New **Array** extensions
-    - added `groupByKey` to group the elements of the array by key in a dictionary. [#181](https://github.com/SwifterSwift/SwifterSwift/pull/181) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-    - added `forEach(slice:body:)` to iterate by specified slice size and call a closure. [#194](https://github.com/SwifterSwift/SwifterSwift/pull/194) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `groupByKey` to group the elements of the array by key in a dictionary. [#181](https://github.com/SwifterSwift/SwifterSwift/pull/181) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `forEach(slice:body:)` to iterate by specified slice size and call a closure. [#194](https://github.com/SwifterSwift/SwifterSwift/pull/194) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - New **Dictionary** extensions
-    - add `count(where:)` to count dictionary elements where the condition returns true. [#193](https://github.com/SwifterSwift/SwifterSwift/pull/193) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - add `count(where:)` to count dictionary elements where the condition returns true. [#193](https://github.com/SwifterSwift/SwifterSwift/pull/193) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 - New **String** extensions
-    - added `isValidFileUrl` to check if a String is a valid file URL. [#175](https://github.com/SwifterSwift/SwifterSwift/pull/175) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-    - added `hasUniqueCharacters()` method to check if string only contains unique characters. [#195](https://github.com/SwifterSwift/SwifterSwift/pull/195) by [@FrankKair](https://github.com/FrankKair)
+  - added `isValidFileUrl` to check if a String is a valid file URL. [#175](https://github.com/SwifterSwift/SwifterSwift/pull/175) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `hasUniqueCharacters()` method to check if string only contains unique characters. [#195](https://github.com/SwifterSwift/SwifterSwift/pull/195) by [@FrankKair](https://github.com/FrankKair)
 
 - New **Data** extensions
-    - added `bytes` to return data as an array of bytes. [#171](https://github.com/SwifterSwift/SwifterSwift/pull/171) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - added `bytes` to return data as an array of bytes. [#171](https://github.com/SwifterSwift/SwifterSwift/pull/171) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 - New **UITextField** extensions
-    - added `addPaddingLeft` extension to add padding to a UITextField. [#185](https://github.com/SwifterSwift/SwifterSwift/pull/185) by [@SD10](https://github.com/SD10)
+  - added `addPaddingLeft` extension to add padding to a UITextField. [#185](https://github.com/SwifterSwift/SwifterSwift/pull/185) by [@SD10](https://github.com/SD10)
 
 ### Bugfixes
 - Fixes asynchronous `iOS`/`tvOS`/`watchOS` unit tests causing crashes. [#191](https://github.com/SwifterSwift/SwifterSwift/pull/191) by [@LucianoPAlmeida](https://github.com/LucianoPAlmeida)
@@ -799,38 +836,38 @@ N/A
 # v1.6.4
 
 - New **Array** extensions
-    - added `removeAll` passing an array of items.
-    - added `swap` and `safeSwap` extensions to swap to elements in an array.
-    - new `firstIndex` and `lastIndex` that returns the (first or last) index where the condition is true.
-    - new `indexes` extension that return indexes where the condition is true.
-    - new `all` and `none` that checks if (all or none) of array elements match condition.
-    - new `last` extension to find the last element that matches condition.
-    - new `reject` extension to filter elements that **not** matches condition.
-    - new `count` extension to count elements that match condition.
-    - new `forEachReversed` extension to iterate over an array in reverse order.
-    - new `accumulate` extension to reduces an array while returning each interim combination.
-    - new `forEach` with condition to a filtered interaction over the array.
-    - new `keep` extension to keep all elements that in order are until the condition is false.
-    - new `take` extension that returns all elements that in order are until the condition is false.
-    - new `skip` extension that returns all elements that in order are after the condition is false.
-    - new `filtered: map` extension to perform a map and filter operation in just one iteration.
+  - added `removeAll` passing an array of items.
+  - added `swap` and `safeSwap` extensions to swap to elements in an array.
+  - new `firstIndex` and `lastIndex` that returns the (first or last) index where the condition is true.
+  - new `indexes` extension that return indexes where the condition is true.
+  - new `all` and `none` that checks if (all or none) of array elements match condition.
+  - new `last` extension to find the last element that matches condition.
+  - new `reject` extension to filter elements that **not** matches condition.
+  - new `count` extension to count elements that match condition.
+  - new `forEachReversed` extension to iterate over an array in reverse order.
+  - new `accumulate` extension to reduces an array while returning each interim combination.
+  - new `forEach` with condition to a filtered interaction over the array.
+  - new `keep` extension to keep all elements that in order are until the condition is false.
+  - new `take` extension that returns all elements that in order are until the condition is false.
+  - new `skip` extension that returns all elements that in order are after the condition is false.
+  - new `filtered: map` extension to perform a map and filter operation in just one iteration.
 - New **Character** extensions
-    - added isLetter & isWhiteSpace extensions
-    - new lowercased extension to lower case the character
-    - new uppercased extension to upper case the character
+  - added isLetter & isWhiteSpace extensions
+  - new lowercased extension to lower case the character
+  - new uppercased extension to upper case the character
 - New **Date** extensions
-    - new `isInWeekday` extension to check if the date is within a weekday period
+  - new `isInWeekday` extension to check if the date is within a weekday period
 - New **Dictionary** extensions
-    - new `removeAll` extension to remove the values for all keys in an array.
-    - new + operator to merge to dictionaries in a new one and += to merge one dictionary into another.
-    - new - operator to get a new dictionary with the values for all keys in an array removed and -= to remove the values for all keys in an array.
+  - new `removeAll` extension to remove the values for all keys in an array.
+  - new + operator to merge to dictionaries in a new one and += to merge one dictionary into another.
+  - new - operator to get a new dictionary with the values for all keys in an array removed and -= to remove the values for all keys in an array.
 - New **String** extensions
-    - new `matches` extension to check if the string matches a regex pattern.
+  - new `matches` extension to check if the string matches a regex pattern.
 - New **Locale** extensions
-    - new posix property extension to convenience create the "en_US_POSIX" locale.
+  - new posix property extension to convenience create the "en_US_POSIX" locale.
 - New **CLLocation** extensions
-    - new `midLocation` to find the half-way point along a great circle path between relative to another point.
-    - new `bearing` to calculate the bearing relative another location.
+  - new `midLocation` to find the half-way point along a great circle path between relative to another point.
+  - new `bearing` to calculate the bearing relative another location.
 ### Improvements
 - Fixes on wrong access  levels for some extensions
 - Improve NSAttributedStringExtensions extensions
@@ -848,23 +885,23 @@ Areas affected are:
 
 **Foundation**
 
-    - ArrayExtensions tests
-    - CharacterExtensions tests
-    - DateExtensions tests
-    - DictionaryExtensions tests
-    - StringExtensions tests
-    - LocaleExtensions tests
+  - ArrayExtensions tests
+  - CharacterExtensions tests
+  - DateExtensions tests
+  - DictionaryExtensions tests
+  - StringExtensions tests
+  - LocaleExtensions tests
 
 **UIKit**
 
-    - UIColorExtensions tests
-    - UIButtonExtensions tests
+  - UIColorExtensions tests
+  - UIButtonExtensions tests
 
 **Cocoa**
 
-    - CGSizeExtensions tests
-    - CGPointExtensions tests
-    - CLLocationExtensions tests
+  - CGSizeExtensions tests
+  - CGPointExtensions tests
+  - CLLocationExtensions tests
 
 ---
 
@@ -872,59 +909,59 @@ Areas affected are:
 # v1.6.3
 
 - New **Character** extensions
-    - new * operator (repeat character n amount of times)
-    - added isLowercased & isUppercased extensions
+  - new * operator (repeat character n amount of times)
+  - added isLowercased & isUppercased extensions
 
 - New **UICollectionView** extensions
-    - new extensions to register/dequeue cells using UICollectionViewCell class as identifier
-    - new extensions to register/dequeue reusable views using UICollectionReusableView class as identifier
+  - new extensions to register/dequeue cells using UICollectionViewCell class as identifier
+  - new extensions to register/dequeue reusable views using UICollectionReusableView class as identifier
 
 - New **UITableView** extensions
-    - new extensions to register/dequeue cells using UITableViewCell class as identifier
-    - new extensions to register/dequeue header/footer views using UITableViewHeaderFooterView as identifier
+  - new extensions to register/dequeue cells using UITableViewCell class as identifier
+  - new extensions to register/dequeue header/footer views using UITableViewHeaderFooterView as identifier
 
 - New **UIStoryboard** extensions
-    - added extension to `instantiateViewController` with class as identifier
-    - added extension get `mainStoryboard`
+  - added extension to `instantiateViewController` with class as identifier
+  - added extension get `mainStoryboard`
 
 - New **UIView** extensions
-    - added quick getter and setter for frame’s X and Y values
+  - added quick getter and setter for frame’s X and Y values
 
 - New **Array** extensions
-    - added `safeSwap` method as a fail-safe way to swap to elements in an array
+  - added `safeSwap` method as a fail-safe way to swap to elements in an array
 
 - New **NSView** extensions
-    - `borderColor` (IBInspectable)
-    - `borderWidth` (IBInspectable)
-    - `cornerRadius` (IBInspectable)
-    - `height`
-    - `shadowColor` (IBInspectable)
-    - `shadowOffset` (IBInspectable)
-    - `shadowOpacity` (IBInspectable)
-    - `shadowRadius` (IBInspectable)
-    - `size`
-    - `width`
-    - `addSubviews(subviews:)`
-    - `removeSubviews()`
+  - `borderColor` (IBInspectable)
+  - `borderWidth` (IBInspectable)
+  - `cornerRadius` (IBInspectable)
+  - `height`
+  - `shadowColor` (IBInspectable)
+  - `shadowOffset` (IBInspectable)
+  - `shadowOpacity` (IBInspectable)
+  - `shadowRadius` (IBInspectable)
+  - `size`
+  - `width`
+  - `addSubviews(subviews:)`
+  - `removeSubviews()`
 
 - New **Optional** extensions
-    - `unwrapped(or:)` unwrap an optional or provide default value
-    - `run(block:)` block to run if optional unwrapped is not nil
+  - `unwrapped(or:)` unwrap an optional or provide default value
+  - `run(block:)` block to run if optional unwrapped is not nil
 
 ### Improvements
 - Improve UIImageView extensions
-    - fixes infinite recursive call in `blurred()` method
-    - removes superfluous error from `download(url:)` method completion block
+  - fixes infinite recursive call in `blurred()` method
+  - removes superfluous error from `download(url:)` method completion block
 
 - Replace deprecated `M_PI` with `.pi`
 
 - Fixes wrong implementation of -= `CGPoint` operator
 
 - Improve Array extensions
-    - properties with O(n) or higher complexity have been changed to methods
-    - reduced shuffle method complexity by using Fisher-Yates algorithm and is now completely random
-    - `removeDuplicates` renamed to `duplicatesRemoved.`
-    - remove generic constraint on `firstIndex(of:)` and `lastIndex(of:)`
+  - properties with O(n) or higher complexity have been changed to methods
+  - reduced shuffle method complexity by using Fisher-Yates algorithm and is now completely random
+  - `removeDuplicates` renamed to `duplicatesRemoved.`
+  - remove generic constraint on `firstIndex(of:)` and `lastIndex(of:)`
 
 - Improve String extensions
 - Improve Date extensions
@@ -937,43 +974,43 @@ Areas affected are:
 
 **Foundation**
 
-    - CharacterExtensions tests
-    - StringExtensions tests
-    - ArrayExtensions tests
-    - IntExtensions tests
-    - DateExtensions tests
-    - DataExtensions tests
-    - DoubleExtensions tests
-    - FloatExtensions tests
-    - CGFloatExtensions tests
-    - CGPointExtensions tests
+  - CharacterExtensions tests
+  - StringExtensions tests
+  - ArrayExtensions tests
+  - IntExtensions tests
+  - DateExtensions tests
+  - DataExtensions tests
+  - DoubleExtensions tests
+  - FloatExtensions tests
+  - CGFloatExtensions tests
+  - CGPointExtensions tests
 
 
 **UIKit**
 
-    - UIColorExtensions tests
-    - UIAlertControllerExtensions tests
-    - UIBarButtonItemExtensions tests
-    - UIButtonExtensions tests
-    - UITextViewExtensions tests
-    - UISegmentedControlExtensions tests
-    - UINavigationControllerExtensions tests
-    - UINavigationBarExtensions tests
-    - UINavigationItemExtensions tests
-    - UISliderExtensions tests
-    - UITableViewExtensions tests
-    - UICollectionViewExtensions tests
-    - UIViewControllerExtensions tests
-    - UIStoryboardExtensions tests
-    - UITextFieldExtensions tests
-    - UIViewExtensions tests
-    - UIImageExtensions tests
+  - UIColorExtensions tests
+  - UIAlertControllerExtensions tests
+  - UIBarButtonItemExtensions tests
+  - UIButtonExtensions tests
+  - UITextViewExtensions tests
+  - UISegmentedControlExtensions tests
+  - UINavigationControllerExtensions tests
+  - UINavigationBarExtensions tests
+  - UINavigationItemExtensions tests
+  - UISliderExtensions tests
+  - UITableViewExtensions tests
+  - UICollectionViewExtensions tests
+  - UIViewControllerExtensions tests
+  - UIStoryboardExtensions tests
+  - UITextFieldExtensions tests
+  - UIViewExtensions tests
+  - UIImageExtensions tests
 
 
 **Cocoa**
 
-    - NSColorExtensions tests
-    - NSViewExtensions tests
+  - NSColorExtensions tests
+  - NSViewExtensions tests
 
 ---
 
@@ -1248,9 +1285,9 @@ Here are some changes:
 - Updated some properties and methods names to follow [Swift API Design Guidelines](https://developer.apple.com/videos/play/wwdc2016/403/).
 - Added default values to methods parameters (where possible).
 - All units documentation has been re-written in Xcode,
-    - Now you see "**SwifterSwift:** " at the beginning of description to know the source of the extension while writing your code.
-    - All method parameters and return types have been documented in Xcode as well.
-    - All extensions documentation has been re-written in [Wiki](https://github.com/omaralbeik/SwifterSwift/wiki), separating properties from methods in different tables.
+  - Now you see "**SwifterSwift:** " at the beginning of description to know the source of the extension while writing your code.
+  - All method parameters and return types have been documented in Xcode as well.
+  - All extensions documentation has been re-written in [Wiki](https://github.com/omaralbeik/SwifterSwift/wiki), separating properties from methods in different tables.
 - All extensions files re-organized in separate extensions based on type (properties, methods, initializers, ..)
 - Fixed some bugs where some extensions were not public.
 - New section explaining how to add new extensions in [Contributing Guidelines](https://github.com/omaralbeik/SwifterSwift/blob/master/CONTRIBUTING.md)
@@ -1263,12 +1300,12 @@ Here are some changes:
 ### New Extensions:
 
 - **UIColorExtensions**:
-    - **struct material**: get [Google material palette colors](https://material.google.com/style/color.html) with ease
+  - **struct material**: get [Google material palette colors](https://material.google.com/style/color.html) with ease
 
 ### Updated Extensions:
 
 - **UIColorExtensions**:
-    - struct socialColors -> **struct social**
+  - struct socialColors -> **struct social**
 
 ---
 
@@ -1277,82 +1314,82 @@ Here are some changes:
 ### New Extensions:
 
 - **ConvenienceExtensions**:
-    - **func string(forKey: String)**: Get a string from UserDefaults
-    - **func integer(forKey: String)**: Get an integer from UserDefaults
-    - **func double(forKey: String)**: Get a double from UserDefaults
-    - **func float(forKey: String)**: Get a float from UserDefaults
-    - **func data(forKey: String)**: Get a data from UserDefaults
-    - **func bool(forKey: String)**: Get a bool from UserDefaults
-    - **func array(forKey: String)**: Get an array from UserDefaults
-    - **func dictionary(forKey: String)**: Get a dictionary from UserDefaults
+  - **func string(forKey: String)**: Get a string from UserDefaults
+  - **func integer(forKey: String)**: Get an integer from UserDefaults
+  - **func double(forKey: String)**: Get a double from UserDefaults
+  - **func float(forKey: String)**: Get a float from UserDefaults
+  - **func data(forKey: String)**: Get a data from UserDefaults
+  - **func bool(forKey: String)**: Get a bool from UserDefaults
+  - **func array(forKey: String)**: Get an array from UserDefaults
+  - **func dictionary(forKey: String)**: Get a dictionary from UserDefaults
 
 - **StringExtensions**:
-    - **func toDate(withFormat format: String)**: Return Date value from string of date format (if applicable).
-    - **var toURL**: Return URL from string (if applicable).
+  - **func toDate(withFormat format: String)**: Return Date value from string of date format (if applicable).
+  - **var toURL**: Return URL from string (if applicable).
 
 - **UIAlertControllerExtensions**:
-    - **addAction(title, style, isEnabled, handler)**: Add an action to Alert.
-    - **addTextField(text, placeholder, editingChangedTarget, editingChangedSelector)**: Add a text field to Alert.
+  - **addAction(title, style, isEnabled, handler)**: Add an action to Alert.
+  - **addTextField(text, placeholder, editingChangedTarget, editingChangedSelector)**: Add a text field to Alert.
 
 - **UINavigationBarExtensions**:
-    - **func setColors(background, text)**: Set Navigation Bar background and text colors.
+  - **func setColors(background, text)**: Set Navigation Bar background and text colors.
 
 
 ### Updated Extensions:
 
 - **ConvenienceExtensions**:
-    - var deviceHeight -> **var screenHeight**
-    - var deviceWidth -> **var screenWidth**
+  - var deviceHeight -> **var screenHeight**
+  - var deviceWidth -> **var screenWidth**
 
 - **ArrayExtensions**:
-    - func removeAll(item: Element) -> **func removeAll(_ item: Element))**
+  - func removeAll(item: Element) -> **func removeAll(_ item: Element))**
 
 - **DateExtensions**:
-    - func add(component: Calendar.Component, value: Int) -> **add(_ component: Calendar.Component, value: Int)**
-    - func adding(component: Calendar.Component, value: Int) -> **adding(_ component: Calendar.Component, value: Int)**
-    - func changing(component: Calendar.Component, value: Int) -> **changing(_ component: Calendar.Component, value: Int)**
-    - func isIn(current: Calendar.Component) -> **isInCurrent(_ component: Calendar.Component)**
+  - func add(component: Calendar.Component, value: Int) -> **add(_ component: Calendar.Component, value: Int)**
+  - func adding(component: Calendar.Component, value: Int) -> **adding(_ component: Calendar.Component, value: Int)**
+  - func changing(component: Calendar.Component, value: Int) -> **changing(_ component: Calendar.Component, value: Int)**
+  - func isIn(current: Calendar.Component) -> **isInCurrent(_ component: Calendar.Component)**
 
 - **StringExtensions**:
-    - func contain(string: String, caseSensitive: Bool) -> **func contain(_ string: String, caseSensitive: Bool)**
-    - func lines() -> **var lines**
-    - static func random(of length: Int) -> **static func random(ofLength: Int)**
-    - func replace(string: String, with: String) -> **func replace(_ substring: String, with: String)**
-    - func truncate(to length: Int, trailing: String?) -> **func truncate(toLength: Int, trailing: String?)**
-    - func truncated(to length: Int, trailing: String? = "...") -> **func truncated(to length: Int, trailing: String?)**
+  - func contain(string: String, caseSensitive: Bool) -> **func contain(_ string: String, caseSensitive: Bool)**
+  - func lines() -> **var lines**
+  - static func random(of length: Int) -> **static func random(ofLength: Int)**
+  - func replace(string: String, with: String) -> **func replace(_ substring: String, with: String)**
+  - func truncate(to length: Int, trailing: String?) -> **func truncate(toLength: Int, trailing: String?)**
+  - func truncated(to length: Int, trailing: String? = "...") -> **func truncated(to length: Int, trailing: String?)**
 
 - **UIButtonExtensions**:
-    - func imageForAllStates(image: UIImage) -> **func setImageForAllStates(_ image: UIImage)**
-    - func titleColorForAllStates(color: UIColor) -> **func setTitleColorForAllStates(_ color: UIColor)**
-    - func titleForAllStates(title: String) -> **func setTitleForAllStates(_ title: String)**
+  - func imageForAllStates(image: UIImage) -> **func setImageForAllStates(_ image: UIImage)**
+  - func titleColorForAllStates(color: UIColor) -> **func setTitleColorForAllStates(_ color: UIColor)**
+  - func titleForAllStates(title: String) -> **func setTitleForAllStates(_ title: String)**
 
 
 - **UIColorExtensions**:
-    - init(netHex:Int) -> **init(hex:Int, transparency: CGFloat = 1)**
+  - init(netHex:Int) -> **init(hex:Int, transparency: CGFloat = 1)**
 
 - **UIImageExtensions**:
-    - func scaledToHeight(height: CGFloat, with orientation: UIImageOrientation?) -> **scaled(toHeight: CGFloat, with orientation: UIImageOrientation?)**
-    - func scaledToWidth(width: CGFloat, with orientation: UIImageOrientation?) -> **scaled(toWidth: CGFloat, with orientation: UIImageOrientation?)**
+  - func scaledToHeight(height: CGFloat, with orientation: UIImageOrientation?) -> **scaled(toHeight: CGFloat, with orientation: UIImageOrientation?)**
+  - func scaledToWidth(width: CGFloat, with orientation: UIImageOrientation?) -> **scaled(toWidth: CGFloat, with orientation: UIImageOrientation?)**
 
 - **UIImageViewExtensions**:
-    - func download(fromUrl: String?, contentMode: UIViewContentMode, placeHolder: UIImage?)) -> **download(from: URL?, contentMode: UIViewContentMode, placeHolder: UIImage?, completionHandler: ((UIImage?, Error?) -> Void)?)**
+  - func download(fromUrl: String?, contentMode: UIViewContentMode, placeHolder: UIImage?)) -> **download(from: URL?, contentMode: UIViewContentMode, placeHolder: UIImage?, completionHandler: ((UIImage?, Error?) -> Void)?)**
 
 - **UISliderExtensions**:
-    - func setValue(value: Float, animated: Bool, duration: TimeInterval, completion: (() -> Void)? = nil) -> **func setValue(_ value: Float, animated: Bool, duration: TimeInterval, completion: (() -> Void)?)**
+  - func setValue(value: Float, animated: Bool, duration: TimeInterval, completion: (() -> Void)? = nil) -> **func setValue(_ value: Float, animated: Bool, duration: TimeInterval, completion: (() -> Void)?)**
 
 - **UITableViewExtensions**:
-    - var totalRows -> **var numberOfRows**
+  - var totalRows -> **var numberOfRows**
 
 - **UITextFieldExtensions**:
-    - func setPlaceHolderTextColor(color: UIColor) -> **func setPlaceHolderTextColor(_ color: UIColor)**
+  - func setPlaceHolderTextColor(color: UIColor) -> **func setPlaceHolderTextColor(_ color: UIColor)**
 
 - **UIViewExtensions**:
-    - func loadFromNibNamed(nibNamed: String, bundle : Bundle?) -> **func loadFromNib(named: String, bundle : Bundle?)**
+  - func loadFromNibNamed(nibNamed: String, bundle : Bundle?) -> **func loadFromNib(named: String, bundle : Bundle?)**
 
 ### Removed Extensions:
 
 - **StringExtensions**:
-     - var locale
+   - var locale
 
 ---
 

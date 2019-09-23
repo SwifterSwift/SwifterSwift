@@ -7,8 +7,10 @@
 //
 
 #if os(OSX)
+/// SwifterSwift: CGFloat.
 public typealias SceneKitFloat = CGFloat
 #else
+/// SwifterSwift: Float.
 public typealias SceneKitFloat = Float
 #endif
 
@@ -107,9 +109,9 @@ public extension SCNVector3 {
     ///   - vector: self.
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
-    static func *= (point: inout SCNVector3, scalar: SceneKitFloat) {
+    static func *= (vector: inout SCNVector3, scalar: SceneKitFloat) {
         // swiftlint:disable:next shorthand_operator
-        point = point * scalar
+        vector = vector * scalar
     }
 
     /// SwifterSwift: Multiply a scalar with a SCNVector3

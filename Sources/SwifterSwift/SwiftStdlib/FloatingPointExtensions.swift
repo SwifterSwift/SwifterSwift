@@ -56,6 +56,7 @@ public extension FloatingPoint {
 
 // MARK: - Operators
 
+// swiftlint:disable identifier_name
 infix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
@@ -63,19 +64,20 @@ infix operator ±
 ///   - lhs: number
 ///   - rhs: number
 /// - Returns: tuple of plus-minus operation ( 2.5 ± 1.5 -> (4, 1)).
-// swiftlint:disable:next identifier_name
 func ± <T: FloatingPoint> (lhs: T, rhs: T) -> (T, T) {
     // http://nshipster.com/swift-operators/
     return (lhs + rhs, lhs - rhs)
 }
+// swiftlint:enable identifier_name
 
+// swiftlint:disable identifier_name
 prefix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
 /// - Parameter int: number
 /// - Returns: tuple of plus-minus operation (± 2.5 -> (2.5, -2.5)).
-// swiftlint:disable:next identifier_name
 public prefix func ± <T: FloatingPoint> (number: T) -> (T, T) {
     // http://nshipster.com/swift-operators/
     return 0 ± number
 }
+// swiftlint:enable identifier_name

@@ -31,12 +31,7 @@ final class UITextViewExtensionsTests: XCTestCase {
         let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
         textView.text = text
         textView.scrollToBottom()
-        XCTAssertNotEqual(textView.contentOffset.y, 0.0)
-        #if os(iOS)
-        XCTAssertEqual(textView.contentOffset.y, 87.0)
-        #elseif os(tvOS)
-        XCTAssertEqual(textView.contentOffset.y, 3370.0)
-        #endif
+        XCTAssertGreaterThan(textView.contentOffset.y, 0.0)
 
         textView.scrollToTop()
         XCTAssertNotEqual(textView.contentOffset.y, 0.0)
