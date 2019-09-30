@@ -96,7 +96,13 @@ public extension Collection where Index == Int {
         }
         return slices
     }
-
+    
+    func grouped(by step: Int) -> [[Element]]? {
+        guard step > 0, !isEmpty else { return nil }
+        return stride(from: 0, to: endIndex, by: step).map {
+            Array(self[$0 ... ($0 + (Swift.min(endIndex - $0, step) - 1))])
+        }
+    }
 }
 
 // MARK: - Methods (Integer)
