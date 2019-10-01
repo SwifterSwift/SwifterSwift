@@ -22,7 +22,7 @@ public extension SCNVector3 {
 
     /// SwifterSwift: Returns the absolute values of the vector's components.
     ///
-    ///         SCNVector3(2, -3, -6).abs -> SCNVector3(2, 3, 6)
+    ///     SCNVector3(2, -3, -6).abs -> SCNVector3(2, 3, 6)
     ///
     var absolute: SCNVector3 {
         return SCNVector3(abs(x), abs(y), abs(z))
@@ -30,7 +30,7 @@ public extension SCNVector3 {
 
     /// SwifterSwift: Returns the length of the vector.
     ///
-    ///         SCNVector3(2, 3, 6).length -> 7
+    ///     SCNVector3(2, 3, 6).length -> 7
     ///
     var length: SceneKitFloat {
         return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))

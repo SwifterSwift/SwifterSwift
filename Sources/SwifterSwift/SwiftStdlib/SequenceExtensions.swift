@@ -232,6 +232,9 @@ public extension Sequence where Element: Hashable {
 
     /// SwifterSwift: Check whether a sequence contains duplicates.
     ///
+    ///     ["a", "b", "b", "c"].containsDuplicates() -> true
+    ///     ["a", "b", "c", "d"].containsDuplicates() -> false
+    ///
     /// - Returns: true if the receiver contains duplicates.
     func containsDuplicates() -> Bool {
         var set = Set<Element>()

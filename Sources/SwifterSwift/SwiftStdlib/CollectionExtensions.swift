@@ -104,9 +104,12 @@ public extension Collection where Element == IntegerLiteralType, Index == Int {
 
     /// SwifterSwift: Average of all elements in array.
     ///
+    ///        [1, 2, 3, 4, 5].average() -> 3
+    ///        [1, 2, 3, 4, 5, 6].average() -> 3.5
+    ///
+    /// - Note: See StackOverflow: [Making my function calculate average of array Swift](http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift)
     /// - Returns: the average of the array's elements.
     func average() -> Double {
-        // http://stackoverflow.com/questions/28288148/making-my-function-calculate-average-of-array-swift
         return isEmpty ? 0 : Double(reduce(0, +)) / Double(count)
     }
 
@@ -117,7 +120,7 @@ public extension Collection where Element: FloatingPoint {
 
     /// SwifterSwift: Average of all elements in array.
     ///
-    ///        [1.2, 2.3, 4.5, 3.4, 4.5].average() = 3.18
+    ///        [1.2, 2.3, 4.5, 3.4, 4.5].average() -> 3.18
     ///
     /// - Returns: average of the array's elements.
     func average() -> Element {

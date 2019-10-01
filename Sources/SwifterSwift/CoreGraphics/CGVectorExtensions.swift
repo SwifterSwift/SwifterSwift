@@ -34,10 +34,9 @@ public extension CGVector {
 
     /// SwifterSwift: Creates a vector with the given magnitude and angle.
     ///
-    /// https://www.grc.nasa.gov/WWW/K-12/airplane/vectpart.html
-    ///
     ///     let vector = CGVector(angle: .pi, magnitude: 1)
     ///
+    /// - Note: https://www.grc.nasa.gov/WWW/K-12/airplane/vectpart.html
     /// - Parameters:
     ///     - angle: The angle of rotation (in radians) counterclockwise from the positive x-axis.
     ///     - magnitude: The lenth of the vector.

@@ -14,7 +14,7 @@ public extension SKNode {
 
     /// SwifterSwift: Return an array of all SKNode descendants
     ///
-    ///         mySKNode.descendants() -> [childNodeOne, childNodeTwo]
+    ///     mySKNode.descendants() -> [childNodeOne, childNodeTwo]
     ///
     func descendants() -> [SKNode] {
         return children + children.reduce(into: [SKNode]()) { $0 += $1.descendants() }

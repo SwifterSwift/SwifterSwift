@@ -118,6 +118,7 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertEqual([Double]().average(), 0)
 
         XCTAssertEqual([1, 2, 3, 4, 5].average(), 3)
+        XCTAssertEqual([1, 2, 3, 4, 5, 6].average(), 3.5)
         XCTAssertEqual([Int]().average(), 0)
     }
 

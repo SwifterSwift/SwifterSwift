@@ -56,7 +56,7 @@ public extension URL {
     ///		var url = URL(string: "https://google.com")!
     ///		let param = ["q": "Swifter Swift"]
     ///		url.appendQueryParameters(params)
-    ///		print(url) // prints "https://google.com?q=Swifter%20Swift"
+    ///		print(url) -> prints "https://google.com?q=Swifter%20Swift"
     ///
     /// - Parameter parameters: parameters dictionary.
     mutating func appendQueryParameters(_ parameters: [String: String]) {
@@ -65,8 +65,8 @@ public extension URL {
 
     /// SwifterSwift: Get value of a query key.
     ///
-    ///    var url = URL(string: "https://google.com?code=12345")!
-    ///    queryValue(for: "code") -> "12345"
+    ///     var url = URL(string: "https://google.com?code=12345")!
+    ///     queryValue(for: "code") -> "12345"
     ///
     /// - Parameter key: The key of a query value.
     func queryValue(for key: String) -> String? {
@@ -79,7 +79,7 @@ public extension URL {
     /// SwifterSwift: Returns a new URL by removing all the path components.
     ///
     ///     let url = URL(string: "https://domain.com/path/other")!
-    ///     print(url.deletingAllPathComponents()) // prints "https://domain.com/"
+    ///     print(url.deletingAllPathComponents()) -> prints "https://domain.com/"
     ///
     /// - Returns: URL with all path components removed.
     func deletingAllPathComponents() -> URL {
@@ -92,9 +92,9 @@ public extension URL {
 
     /// SwifterSwift: Remove all the path components from the URL.
     ///
-    ///        var url = URL(string: "https://domain.com/path/other")!
-    ///        url.deleteAllPathComponents()
-    ///        print(url) // prints "https://domain.com/"
+    ///     var url = URL(string: "https://domain.com/path/other")!
+    ///     url.deleteAllPathComponents()
+    ///     print(url) -> prints "https://domain.com/"
     mutating func deleteAllPathComponents() {
         for _ in 0..<pathComponents.count - 1 {
             deleteLastPathComponent()
@@ -103,8 +103,8 @@ public extension URL {
 
     /// SwifterSwift: Generates new URL that does not have scheme.
     ///
-    ///        let url = URL(string: "https://domain.com")!
-    ///        print(url.droppedScheme()) // prints "domain.com"
+    ///     let url = URL(string: "https://domain.com")!
+    ///     print(url.droppedScheme()) -> prints "domain.com"
     func droppedScheme() -> URL? {
         if let scheme = scheme {
             let droppedScheme = String(absoluteString.dropFirst(scheme.count + 3))

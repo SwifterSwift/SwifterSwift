@@ -64,6 +64,8 @@ public extension SignedInteger {
 
     /// SwifterSwift: Greatest common divisor of integer value and n.
     ///
+    ///     8.gcd(of: 20) -> 4
+    ///
     /// - Parameter number: integer value to find gcd with.
     /// - Returns: greatest common divisor of self and n.
     func gcd(of number: Self) -> Self {
@@ -71,6 +73,8 @@ public extension SignedInteger {
     }
 
     /// SwifterSwift: Least common multiple of integer and n.
+    ///
+    ///     4.lcm(of: 3) -> 12
     ///
     /// - Parameter number: integer value to find lcm with.
     /// - Returns: least common multiple of self and n.
@@ -81,7 +85,7 @@ public extension SignedInteger {
     #if canImport(Foundation)
     /// SwifterSwift: Ordinal representation of an integer.
     ///
-    ///        print((12).ordinalString()) // prints "12th"
+    ///     print((12).ordinalString()) -> prints "12th"
     ///
     /// - Parameter locale: locale, default is .current.
     /// - Returns: string ordinal representation of number in specified locale language. E.g. input 92, output in "en": "92nd".

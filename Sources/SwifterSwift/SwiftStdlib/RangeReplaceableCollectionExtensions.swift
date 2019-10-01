@@ -13,8 +13,7 @@ public extension RangeReplaceableCollection {
     /// of a call of the given expression.
     ///
     ///     let values = Array(expression: "Value", count: 3)
-    ///     print(values)
-    ///     // Prints "["Value", "Value", "Value"]"
+    ///     print(values) -> prints "["Value", "Value", "Value"]"
     ///
     /// - Parameters:
     ///   - expression: The expression to execute for each position of the collection.

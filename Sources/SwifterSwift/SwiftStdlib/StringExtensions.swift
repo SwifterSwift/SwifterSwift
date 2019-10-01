@@ -28,7 +28,7 @@ public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: String decoded from base64 (if applicable).
     ///
-    ///		"SGVsbG8gV29ybGQh".base64Decoded = Optional("Hello World!")
+    ///		"SGVsbG8gV29ybGQh".base64Decoded -> Optional("Hello World!")
     ///
     var base64Decoded: String? {
         // https://github.com/Reza-Rg/Base64-Swift-Extension/blob/master/Base64.swift
@@ -369,7 +369,7 @@ public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: URL from string (if applicable).
     ///
-    ///		"https://google.com".url -> URL(string: "https://google.com")
+    ///		"https://google.com".url -> Optional(URL)
     ///		"not url".url -> nil
     ///
     var url: URL? {
@@ -640,7 +640,7 @@ public extension String {
     ///
     ///		var str = "sOme vaRiabLe Name"
     ///		str.camelize()
-    ///		print(str) // prints "someVariableName"
+    ///		print(str) -> prints "someVariableName"
     ///
     @discardableResult
     mutating func camelize() -> String {
@@ -738,7 +738,7 @@ public extension String {
     ///
     ///		var str = "Hèllö Wórld!"
     ///		str.latinize()
-    ///		print(str) // prints "Hello World!"
+    ///		print(str) -> prints "Hello World!"
     ///
     @discardableResult
     mutating func latinize() -> String {
@@ -792,7 +792,7 @@ public extension String {
     ///
     ///		var str = "Hello World"
     ///		str.slice(from: 6, length: 5)
-    ///		print(str) // prints "World"
+    ///		print(str) -> prints "World"
     ///
     /// - Parameters:
     ///   - index: string index the slicing should start from.
@@ -809,7 +809,7 @@ public extension String {
     ///
     ///		var str = "Hello World"
     ///		str.slice(from: 6, to: 11)
-    ///		print(str) // prints "World"
+    ///		print(str) -> prints "World"
     ///
     /// - Parameters:
     ///   - start: string index the slicing should start from.
@@ -827,7 +827,7 @@ public extension String {
     ///
     ///		var str = "Hello World"
     ///		str.slice(at: 6)
-    ///		print(str) // prints "World"
+    ///		print(str) -> prints "World"
     ///
     /// - Parameter index: string index the slicing should start from.
     @discardableResult
@@ -875,7 +875,7 @@ public extension String {
     ///
     ///		var str = "  \n Hello World \n\n\n"
     ///		str.trim()
-    ///		print(str) // prints "Hello World"
+    ///		print(str) -> prints "Hello World"
     ///
     @discardableResult
     mutating func trim() -> String {
@@ -888,7 +888,7 @@ public extension String {
     ///
     ///		var str = "This is a very long sentence"
     ///		str.truncate(toLength: 14)
-    ///		print(str) // prints "This is a very..."
+    ///		print(str) -> prints "This is a very..."
     ///
     /// - Parameters:
     ///   - toLength: maximum number of characters before cutting.
@@ -921,7 +921,7 @@ public extension String {
     ///
     ///		var str = "it's%20easy%20to%20decode%20strings"
     ///		str.urlDecode()
-    ///		print(str) // prints "it's easy to decode strings"
+    ///		print(str) -> prints "it's easy to decode strings"
     ///
     @discardableResult
     mutating func urlDecode() -> String {
@@ -937,7 +937,7 @@ public extension String {
     ///
     ///		var str = "it's easy to encode strings"
     ///		str.urlEncode()
-    ///		print(str) // prints "it's%20easy%20to%20encode%20strings"
+    ///		print(str) -> prints "it's%20easy%20to%20encode%20strings"
     ///
     @discardableResult
     mutating func urlEncode() -> String {
@@ -960,8 +960,8 @@ public extension String {
 
     /// SwifterSwift: Pad string to fit the length parameter size with another string in the start.
     ///
-    ///   "hue".padStart(10) -> "       hue"
-    ///   "hue".padStart(10, with: "br") -> "brbrbrbhue"
+    ///     "hue".padStart(10) -> "       hue"
+    ///     "hue".padStart(10, with: "br") -> "brbrbrbhue"
     ///
     /// - Parameter length: The target length to pad.
     /// - Parameter string: Pad string. Default is " ".
@@ -973,8 +973,8 @@ public extension String {
 
     /// SwifterSwift: Returns a string by padding to fit the length parameter size with another string in the start.
     ///
-    ///   "hue".paddingStart(10) -> "       hue"
-    ///   "hue".paddingStart(10, with: "br") -> "brbrbrbhue"
+    ///     "hue".paddingStart(10) -> "       hue"
+    ///     "hue".paddingStart(10, with: "br") -> "brbrbrbhue"
     ///
     /// - Parameter length: The target length to pad.
     /// - Parameter string: Pad string. Default is " ".
@@ -996,8 +996,8 @@ public extension String {
 
     /// SwifterSwift: Pad string to fit the length parameter size with another string in the start.
     ///
-    ///   "hue".padEnd(10) -> "hue       "
-    ///   "hue".padEnd(10, with: "br") -> "huebrbrbrb"
+    ///     "hue".padEnd(10) -> "hue       "
+    ///     "hue".padEnd(10, with: "br") -> "huebrbrbrb"
     ///
     /// - Parameter length: The target length to pad.
     /// - Parameter string: Pad string. Default is " ".
@@ -1009,8 +1009,8 @@ public extension String {
 
     /// SwifterSwift: Returns a string by padding to fit the length parameter size with another string in the end.
     ///
-    ///   "hue".paddingEnd(10) -> "hue       "
-    ///   "hue".paddingEnd(10, with: "br") -> "huebrbrbrb"
+    ///     "hue".paddingEnd(10) -> "hue       "
+    ///     "hue".paddingEnd(10, with: "br") -> "huebrbrbrb"
     ///
     /// - Parameter length: The target length to pad.
     /// - Parameter string: Pad string. Default is " ".
@@ -1032,7 +1032,7 @@ public extension String {
 
     /// SwifterSwift: Removes given prefix from the string.
     ///
-    ///   "Hello, World!".removingPrefix("Hello, ") -> "World!"
+    ///     "Hello, World!".removingPrefix("Hello, ") -> "World!"
     ///
     /// - Parameter prefix: Prefix to remove from the string.
     /// - Returns: The string after prefix removing.
@@ -1043,7 +1043,7 @@ public extension String {
 
     /// SwifterSwift: Removes given suffix from the string.
     ///
-    ///   "Hello, World!".removingSuffix(", World!") -> "Hello"
+    ///     "Hello, World!".removingSuffix(", World!") -> "Hello"
     ///
     /// - Parameter suffix: Suffix to remove from the string.
     /// - Returns: The string after suffix removing.
@@ -1162,7 +1162,7 @@ public extension String {
 
     /// SwifterSwift: Repeat string multiple times.
     ///
-    ///        'bar' * 3 -> "barbarbar"
+    ///     'bar' * 3 -> "barbarbar"
     ///
     /// - Parameters:
     ///   - lhs: string to repeat.
@@ -1175,7 +1175,7 @@ public extension String {
 
     /// SwifterSwift: Repeat string multiple times.
     ///
-    ///        3 * 'bar' -> "barbarbar"
+    ///     3 * 'bar' -> "barbarbar"
     ///
     /// - Parameters:
     ///   - lhs: number of times to repeat character.

@@ -133,7 +133,7 @@ public extension Dictionary where Key: StringProtocol {
     ///
     ///        var dict = ["tEstKeY": "value"]
     ///        dict.lowercaseAllKeys()
-    ///        print(dict) // prints "["testkey": "value"]"
+    ///        print(dict) -> prints "["testkey": "value"]"
     ///
     mutating func lowercaseAllKeys() {
         // http://stackoverflow.com/questions/33180028/extend-dictionary-where-key-is-of-type-string
