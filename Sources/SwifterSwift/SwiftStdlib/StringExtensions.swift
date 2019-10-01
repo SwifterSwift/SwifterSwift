@@ -1225,7 +1225,7 @@ public extension String {
 
     /// SwifterSwift: NSString appendingPathComponent(str: String)
     ///
-    /// - Note: This method only works with file paths (not, for example, string representations of URLs.
+    /// - Note: This method only works with file paths (not, for example, string representations of URLs).
     ///   See NSString [appendingPathComponent(_:)](https://developer.apple.com/documentation/foundation/nsstring/1417069-appendingpathcomponent)
     /// - Parameter str: the path component to append to the receiver.
     /// - Returns: a new string made by appending aString to the receiver, preceded if necessary by a path separator.
