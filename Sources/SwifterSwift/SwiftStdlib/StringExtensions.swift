@@ -604,7 +604,7 @@ public extension String {
 
         while let range = returnValue.range(of: search), count < maxReplacements {
             returnValue.replaceSubrange(range, with: replacement)
-             count += 1
+            count += 1
         }
 
         return returnValue
