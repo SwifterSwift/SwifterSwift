@@ -1082,6 +1082,17 @@ public extension String {
         return String(dropLast(suffix.count))
     }
 
+    // https://www.hackingwithswift.com/articles/141/8-useful-swift-extensions
+    /// SwifterSwift: Adds prefix to the string.
+    ///
+    ///     "www.apple.com".withPrefix("https://") -> "https://www.apple.com"
+    ///
+    /// - Parameter prefix: Prefix to add to the string.
+    /// - Returns: The string with the prefix prepended.
+    func withPrefix(_ prefix: String) -> String {
+        if self.hasPrefix(prefix) { return self }
+        return "\(prefix)\(self)"
+    }
 }
 
 // MARK: - Initializers
