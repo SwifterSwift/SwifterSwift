@@ -336,6 +336,7 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testReplacingOccurrences() {
+        XCTAssertEqual("I swift swift".replacingOccurrences(of: "swift", with: "love", count: 0), "I swift swift")
         XCTAssertEqual("I swift swift".replacingOccurrences(of: "swift", with: "love", count: 1), "I love swift")
         XCTAssertEqual("I swift swift".replacingOccurrences(of: "swift", with: "love", count: 5), "I love love")
         XCTAssertEqual("I swift swift".replacingOccurrences(of: "swift", with: "love", count: -1), "I swift swift")
