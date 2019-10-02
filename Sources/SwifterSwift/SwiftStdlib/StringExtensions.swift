@@ -603,7 +603,7 @@ public extension String {
         var returnValue = self
 
         while let range = returnValue.range(of: search), count < maxReplacements {
-             returnValue = returnValue.replacingCharacters(in: range, with: replacement)
+            returnValue.replaceSubrange(range, with: replacement)
              count += 1
         }
 
