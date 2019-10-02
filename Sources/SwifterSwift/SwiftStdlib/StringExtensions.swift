@@ -602,14 +602,9 @@ public extension String {
         var count = 0
         var returnValue = self
 
-        while let range = returnValue.range(of: search) {
-            returnValue = returnValue.replacingCharacters(in: range, with: replacement)
-            count += 1
-
-            // exit as soon as we've made all replacements
-            if count == maxReplacements {
-                return returnValue
-            }
+        while let range = returnValue.range(of: search), count < maxReplacements {
+             returnValue = returnValue.replacingCharacters(in: range, with: replacement)
+             count += 1
         }
 
         return returnValue
