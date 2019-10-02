@@ -8,8 +8,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Array**:
     - Added `element(at:)` for safely accessing elements without using subscript syntax. [#717](https://github.com/SwifterSwift/SwifterSwift/pull/717) by [Zach Frew](https://github.com/zmfrew).
 
-Added element(at:) for safely accessing elements without using subscript syntax. #717 by Zach Frew.
-
 ### Changed
 
 ### Deprecated
