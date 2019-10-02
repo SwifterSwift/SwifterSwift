@@ -8,8 +8,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **String**:
     - Added `withPrefix(_ prefix)`, which provides a method to add a prefix to a string. If the string already has that prefix, it simply returns the original string. [#720](https://github.com/SwifterSwift/SwifterSwift/pull/720) by [Zach Frew](https://github.com/zmfrew).
 
-Added `withPrefix(_ prefix)`, which provides a method to add a prefix to a string. If the string already has that prefix, it simply returns the original string.
-
 ### Changed
 
 ### Deprecated
