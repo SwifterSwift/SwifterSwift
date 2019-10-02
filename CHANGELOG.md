@@ -5,6 +5,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **Collection**:
+     - Added `isNotEmpty` to avoid double negatives when checking if a collection is not empty. [#718](https://github.com/SwifterSwift/SwifterSwift/pull/718) by [Zach Frew](https://github.com/zmfrew).
+
+Added `isNotEmpty` to avoid double negatives when checking if a collection is not empty. #718 by Zach Frew.
 
 ### Changed
 
