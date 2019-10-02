@@ -13,6 +13,16 @@ final class CollectionExtensionsTests: XCTestCase {
 
     let collection = [1, 2, 3, 4, 5]
 
+    func testIsNotEmpty() {
+        let emptyCollection1: [String] = []
+        let emptyCollection2: [String: Any] = [:]
+        let emptyCollection3: Set<String> = Set([])
+        XCTAssertTrue(collection.isNotEmpty)
+        XCTAssertFalse(emptyCollection1.isNotEmpty)
+        XCTAssertFalse(emptyCollection2.isNotEmpty)
+        XCTAssertFalse(emptyCollection3.isNotEmpty)
+    }
+
     func testForEachInParallel() {
         collection.forEachInParallel { item in
             XCTAssert(collection.contains(item))
