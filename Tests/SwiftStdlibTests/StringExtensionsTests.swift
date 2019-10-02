@@ -335,6 +335,14 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("Swift is amazing".toSlug(), "swift-is-amazing")
     }
 
+    func testReplacingOccurrences() {
+        XCTAssertEqual("I swift swift".replacingOccurrences(of: "swift", with: "love", count: 1), "I love swift")
+        XCTAssertEqual("I swift swift".replacingOccurrences(of: "swift", with: "love", count: 5), "I love love")
+        XCTAssertEqual("I swift swift".replacingOccurrences(of: "swift", with: "love", count: -1), "I swift swift")
+        XCTAssertEqual("I swift swift swift".replacingOccurrences(of: "swift", with: "love", count: 1), "I love swift swift")
+        XCTAssertEqual("I swift swift".replacingOccurrences(of: "swift", with: "love", count: 2), "I love love")
+    }
+
     func testSubscript() {
         let str = "Hello world!"
         XCTAssertEqual(str[safe: 1], "e")
