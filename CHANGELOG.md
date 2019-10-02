@@ -5,6 +5,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **String**:
+    - Added `replacingOccurrences(of search:, with replacement:, count maxReplacements:)`, which allows for replacing a string within a string with specific text a specified amount of times. [#719](https://github.com/SwifterSwift/SwifterSwift/pull/719) by [Zach Frew](https://github.com/zmfrew).
+
+Added `replacingOccurrences(of search:, with replacement:, count maxReplacements:)`, which allows for replacing a string within a string with specific text a specified amount of times. #719 by Zach Frew.
 
 ### Changed
 
