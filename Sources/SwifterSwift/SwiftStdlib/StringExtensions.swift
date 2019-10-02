@@ -586,36 +586,6 @@ public extension String {
     }
     #endif
 
-    #if canImport(Foundation)
-    // https://www.hackingwithswift.com/articles/141/8-useful-swift-extensions
-    /// SwifterSwift: Replaces a set number of occurrences of a string with replacement text.
-    ///
-    ///        "I swift swift".replacingOccurrences(of: "swift", with: "love", count: 1) -> "I love swift."
-    /// - Parameters:
-    ///     - search: the string to be replaced
-    ///     - replacement: the replacement string
-    ///     - maxReplacements: the maximum number of times to replace the string, which must be greater than 0
-    /// - Returns: The new string with the replacement text swapped the specified amount of times.
-    func replacingOccurrences(of search: String, with replacement: String, count maxReplacements: Int) -> String {
-        guard maxReplacements > 0 else { return self }
-
-        var count = 0
-        var returnValue = self
-
-        while let range = returnValue.range(of: search) {
-            returnValue = returnValue.replacingCharacters(in: range, with: replacement)
-            count += 1
-
-            // exit as soon as we've made all replacements
-            if count == maxReplacements {
-                return returnValue
-            }
-        }
-
-        return returnValue
-    }
-    #endif
-
     /// SwifterSwift: Safely subscript string with index.
     ///
     ///		"Hello World!"[safe: 3] -> "l"
