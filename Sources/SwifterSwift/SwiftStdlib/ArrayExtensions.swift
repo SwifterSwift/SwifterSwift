@@ -9,6 +9,19 @@
 // MARK: - Methods
 public extension Array {
 
+    /// SwifterSwift: Safely accesses elements in the array and protects from out of bounds exceptions.
+    ///
+    ///        let arr = [1, 2, 3, 4, 5]
+    ///        arr.element(at: 2) -> 3
+    ///        arr.element(at: 6) -> nil
+    ///
+    /// - Parameter index: index of element to access.
+    /// - Returns: element at the given index or nil if the index out of bounds.
+    func element(at index: Int) -> Element? {
+        guard index >= 0 && index < self.count else { return nil }
+        return self[index]
+    }
+
     /// SwifterSwift: Insert an element at the beginning of array.
     ///
     ///        [2, 3, 4, 5].prepend(1) -> [1, 2, 3, 4, 5]

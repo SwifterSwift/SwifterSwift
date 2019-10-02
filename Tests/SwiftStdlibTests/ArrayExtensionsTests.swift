@@ -26,6 +26,15 @@ private struct Location: Equatable {
 
 final class ArrayExtensionsTests: XCTestCase {
 
+    func testElement() {
+        let arr = [1, 2, 3, 4, 5]
+        XCTAssertEqual(arr.element(at: 0), 1)
+        XCTAssertEqual(arr.element(at: -0), 1)
+        XCTAssertEqual(arr.element(at: 4), 5)
+        XCTAssertNil(arr.element(at: 5))
+        XCTAssertNil(arr.element(at: -1))
+    }
+
     func testPrepend() {
         var arr = [2, 3, 4, 5]
         arr.prepend(1)
