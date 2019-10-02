@@ -13,6 +13,10 @@ import Dispatch
 // MARK: - Methods
 public extension Collection {
 
+    var isNotEmpty: Bool {
+        return !self.isEmpty
+    }
+    
     #if canImport(Dispatch)
     /// SwifterSwift: Performs `each` closure for each element of collection in parallel.
     ///
