@@ -1060,7 +1060,7 @@ public extension String {
     /// - Parameter prefix: Prefix to add to the string.
     /// - Returns: The string with the prefix prepended.
     func withPrefix(_ prefix: String) -> String {
-        if hasPrefix(prefix) { return self }
+        guard !hasPrefix(prefix) else { return self }
         return prefix + self
     }
 }
