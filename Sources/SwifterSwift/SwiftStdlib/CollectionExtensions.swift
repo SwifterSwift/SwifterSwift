@@ -10,18 +10,20 @@
 import Dispatch
 #endif
 
-// MARK: - Methods
+// MARK: - Properties
 public extension Collection {
-    
+
     /// SwifterSwift: Check if the given collection is not empty.
     ///
     ///     [1, 2, 3, 4, 5].isNotEmpty -> True
     ///     [].isNotEmpty -> False
     ///
     /// - Returns: true if the collection is not empty and false if the collection is empty
-    var isNotEmpty: Bool {
-        return !self.isEmpty
-    }
+    var isNotEmpty: Bool { !self.isEmpty }
+}
+
+// MARK: - Methods
+public extension Collection {
 
     #if canImport(Dispatch)
     /// SwifterSwift: Performs `each` closure for each element of collection in parallel.
