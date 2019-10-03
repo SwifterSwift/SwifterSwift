@@ -627,6 +627,11 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(inputStr.removingSuffix(", World!"), "Hello")
     }
 
+    func testWithPrefix() {
+        XCTAssertEqual("www.apple.com".withPrefix("https://"), "https://www.apple.com")
+        XCTAssertEqual("https://www.apple.com".withPrefix("https://"), "https://www.apple.com")
+    }
+
     func testInitFromBase64() {
         XCTAssertNotNil(String(base64: "SGVsbG8gV29ybGQh"))
         XCTAssertEqual(String(base64: "SGVsbG8gV29ybGQh"), "Hello World!")
