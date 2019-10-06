@@ -44,7 +44,24 @@ public extension MKMapView {
 
         return annotationView
     }
-
+    
+    /// SwifterSwift: Zooms in on multiple mapView coordinates.
+    ///
+    /// - Parameters:
+    ///   - coordinates: Gets the array of type CLLocationCoordinate2D.
+    ///   - meter: Takes the type of Double zoom.
+    ///   - insets: Gives space to the CGFloat type screen.
+    ///   - animated: The animation control takes the Boolean value.
+    @available(iOS 9.0, *)
+    func multipleCoordinateZoom(for coordinates: [CLLocationCoordinate2D], meter: Double, insets: CGFloat, animated: Bool) {
+        if coordinates.count == 1 {
+            let coordinateRegion = MKCoordinateRegion(center: coordinates.first!, latitudinalMeters: meter, longitudinalMeters: meter)
+            self.setRegion(coordinateRegion, animated: true)
+        } else {
+            let mkPolygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
+            self.setVisibleMapRect(mkPolygon.boundingMapRect, edgePadding: UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets), animated: animated)
+        }
+    }
 }
 #endif
 
