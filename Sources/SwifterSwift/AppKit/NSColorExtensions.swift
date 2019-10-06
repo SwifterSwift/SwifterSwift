@@ -6,6 +6,7 @@
 //  Copyright © 2019 SwifterSwift
 //
 
+#if canImport(Cocoa)
 import Cocoa
 
 public extension NSColor {
@@ -21,3 +22,5 @@ public extension NSColor {
     }
 
 }
+
+#endif
