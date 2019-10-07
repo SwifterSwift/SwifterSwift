@@ -59,7 +59,8 @@ public extension MKMapView {
             self.setRegion(coordinateRegion, animated: true)
         } else {
             let mkPolygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
-            self.setVisibleMapRect(mkPolygon.boundingMapRect, edgePadding: UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets), animated: animated)
+            let edgePadding = UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets)
+            self.setVisibleMapRect(mkPolygon.boundingMapRect, edgePadding: edgePadding, animated: animated)
         }
     }
 }
