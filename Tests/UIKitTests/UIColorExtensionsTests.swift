@@ -9,6 +9,9 @@
 import XCTest
 @testable import SwifterSwift
 
+#if canImport(UIKit)
+import UIKit
+
 final class UIColorExtensionsTests: XCTestCase {
 
     @available(iOS 13.0, tvOS 13.0, *)
@@ -21,3 +24,5 @@ final class UIColorExtensionsTests: XCTestCase {
     }
 
 }
+
+#endif

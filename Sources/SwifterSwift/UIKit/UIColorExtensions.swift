@@ -6,6 +6,7 @@
 //  Copyright © 2019 SwifterSwift
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension UIColor {
@@ -21,3 +22,5 @@ public extension UIColor {
     }
 
 }
+
+#endif
