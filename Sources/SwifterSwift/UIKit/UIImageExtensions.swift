@@ -201,6 +201,7 @@ public extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
+    #if !os(watchOS)
     /// SwifterSwift: UImage with background color
     ///
     /// - Parameters:
@@ -226,6 +227,7 @@ public extension UIImage {
 
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
+    #endif
 
     /// SwifterSwift: UIImage with rounded corners
     ///
