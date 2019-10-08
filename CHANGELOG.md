@@ -7,6 +7,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **String**:
     - Added `withPrefix(_:)`, which provides a method to add a prefix to a string. If the string already has that prefix, it simply returns the original string. [#720](https://github.com/SwifterSwift/SwifterSwift/pull/720) by [Zach Frew](https://github.com/zmfrew).
+- **UIImage**:
+    - Added `withBackgroundColor(_:)` to specify a background color for a partially transparent image. [#721](https://github.com/SwifterSwift/SwifterSwift/pull/721) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 ### Changed
 
@@ -38,38 +40,38 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `isPalindrome` computed property of String to check if it is a palindrome. [#671](https://github.com/SwifterSwift/SwifterSwift/pull/671) by [cHaLkdusT](https://github.com/cHaLkdusT).
 
 - **CGSize**:
-  - Added `aspectRatio`, `maxDimension`, and `minDimension` properties. [#662](https://github.com/SwifterSwift/SwifterSwift/pull/662) by [vyax](https://github.com/vyax)
+  - Added `aspectRatio`, `maxDimension`, and `minDimension` properties. [#662](https://github.com/SwifterSwift/SwifterSwift/pull/662) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 - **SCNBox**:
-  - Added `init(width:height:length:)`, `init(sideLength:chamferRadius:)`, `init(width:height:length:chamferRadius:material:)`, `init(sideLength:chamferRadius:material:)`, `init(width:height:length:chamferRadius:color:)`, and `init(sideLength:chamferRadius:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+  - Added `init(width:height:length:)`, `init(sideLength:chamferRadius:)`, `init(width:height:length:chamferRadius:material:)`, `init(sideLength:chamferRadius:material:)`, `init(width:height:length:chamferRadius:color:)`, and `init(sideLength:chamferRadius:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 - **SCNCapsule**:
-  - Added `init(capDiameter:height)`, `init(capRadius:height:material:)`, `init(capDiameter:height:material:)`, `init(capRadius:height:color:)`, and `init(capDiameter:height:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+  - Added `init(capDiameter:height)`, `init(capRadius:height:material:)`, `init(capDiameter:height:material:)`, `init(capRadius:height:color:)`, and `init(capDiameter:height:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 - **SCNCone**:
-  - Added `init(topDiameter:bottomDiameter:height)`, `init(topRadius:bottomRadius:height:material:)`, `init(topDiameter:bottomDiameter:height:material:)`, `init(topRadius:bottomRadius:height:color:)`, and `init(topDiameter:bottomDiameter:height:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+  - Added `init(topDiameter:bottomDiameter:height)`, `init(topRadius:bottomRadius:height:material:)`, `init(topDiameter:bottomDiameter:height:material:)`, `init(topRadius:bottomRadius:height:color:)`, and `init(topDiameter:bottomDiameter:height:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 - **SCNCylinder**:
-  - Added `init(diameter:height)`, `init(radius:height:material:)`, `init(diameter:height:material:)`, `init(radius:height:color:)`, and `init(diameter:height:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+  - Added `init(diameter:height)`, `init(radius:height:material:)`, `init(diameter:height:material:)`, `init(radius:height:color:)`, and `init(diameter:height:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [MaxHaertwig](https://github.com/maxhaertwig)
 
 - **SCNGeometry**:
-  - Added `boundingSize` property to get the size of the geometry's bounding box. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+  - Added `boundingSize` property to get the size of the geometry's bounding box. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 - **SCNMaterial**:
-  - Added `init(color:)` convenience initializer. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+  - Added `init(color:)` convenience initializer. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 - **SCNPlane**:
-  - Added `init(width:)`, `init(width:height:material:)`, `init(width:material:)`, `init(width:height:color:)`, and `init(width:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+  - Added `init(width:)`, `init(width:height:material:)`, `init(width:material:)`, `init(width:height:color:)`, and `init(width:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 - **SCNShape**:
-  - Added `init(path:extrusionDepth:material:)` and `init(path:extrusionDepth:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+  - Added `init(path:extrusionDepth:material:)` and `init(path:extrusionDepth:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 - **SCNSphere**:
-  - Added `init(diameter:)`, `init(radius:material:)`, `init(radius:color:)`, `init(diameter:material:)`, and `init(diameter:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+  - Added `init(diameter:)`, `init(radius:material:)`, `init(radius:color:)`, `init(diameter:material:)`, and `init(diameter:color:)` convenience initializers. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 - **SCNVector3**:
-  - Added `absolute` property to calculate the vector's components as absolute values. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
-  - Added `length` property to calculate the vector's length. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [vyax](https://github.com/vyax)
+  - Added `absolute` property to calculate the vector's components as absolute values. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [MaxHaertwig](https://github.com/maxhaertwig).
+  - Added `length` property to calculate the vector's length. [#660](https://github.com/SwifterSwift/SwifterSwift/pull/660) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 - **UICollectionView**:
   - Added `isValidIndexPath(_:)` method to check whether given IndexPath is valid within UICollectionView. [#695](https://github.com/SwifterSwift/SwifterSwift/pull/695) by [emilrb](https://github.com/emilrb).
@@ -79,7 +81,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Moved `divided(by:)` ArrayExtensions to SequenceExtensions. This function separates all items into 2 lists based on a given predicate. [#706](https://github.com/SwifterSwift/SwifterSwift/pull/706) by [cHaLkdusT](https://github.com/cHaLkdusT) 
 
 - **UIBezierPath**:
-  - Added `init(from:to:)`, `init(points:)`, `init(polygonWithPoints:)`, `init(ovalOf:centered:)` and `init(rectOf:centered:)` convenience initializers. [#659](https://github.com/SwifterSwift/SwifterSwift/pull/659) by [vyax](https://github.com/vyax)
+  - Added `init(from:to:)`, `init(points:)`, `init(polygonWithPoints:)`, `init(ovalOf:centered:)` and `init(rectOf:centered:)` convenience initializers. [#659](https://github.com/SwifterSwift/SwifterSwift/pull/659) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 ### Changed
 
@@ -158,7 +160,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIActivity**:
   - Added `ActivityType` constants for iCloud Drive, WhatsApp, LinkedIn and XING. [#580](https://github.com/SwifterSwift/SwifterSwift/pull/580) by [staffler-xyz](https://github.com/staffler-xyz)
 - **MKMapView**
-  - Added 'register(annotationViewWithClass:)`, `dequeueReusableAnnotationView(withClass:)` and `dequeueReusableAnnotationView(withClass:annotation)` methods. [#629](https://github.com/SwifterSwift/SwifterSwift/pull/629) by [staffler-xyz](https://github.com/staffler-xyz)
+  - Added `register(annotationViewWithClass:)`, `dequeueReusableAnnotationView(withClass:)` and `dequeueReusableAnnotationView(withClass:annotation)` methods. [#629](https://github.com/SwifterSwift/SwifterSwift/pull/629) by [staffler-xyz](https://github.com/staffler-xyz)
 
 ### Changed
 
@@ -232,12 +234,12 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 -**UIRefreshControl**:
   - `beginRefresh(in tableView:, animated:, sendAction:)` UIRefreshControl extension to begin refresh programatically. [#525](https://github.com/SwifterSwift/SwifterSwift/pull/525) by [ratulSharker](https://github.com/ratulSharker)
 - **Dictionary**:
-  - Added `removeValueForRandomKey()` to remove a value for a random key from a dictionary. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [vyax](https://github.com/vyax).
+  - Added `removeValueForRandomKey()` to remove a value for a random key from a dictionary. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [MaxHaertwig](https://github.com/maxhaertwig).
   - Added `mapKeysAndValues(_:)` to map a `Dictionary` into a `Dictionary` with different (or same) `Key` and `Value` types. [#546](https://github.com/SwifterSwift/SwifterSwift/pull/546) by [guykogus](https://github.com/guykogus)
   - Added `compactMapKeysAndValues(_:)` to map a `Dictionary` into a `Dictionary`, excluding `nil` results, with different (or same) `Key` and `Value` types. [#546](https://github.com/SwifterSwift/SwifterSwift/pull/546) by [guykogus](https://github.com/guykogus)
   - Added `keys(forValue:)` which returns an array of all keys that have the given value in dictionary. [#561](https://github.com/SwifterSwift/SwifterSwift/pull/561) by [mauliksharma](https://github.com/mauliksharma).
 - **RangeReplaceableCollection**:
-  - Added `removeRandomElement()` to remove a random element from a collection. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [vyax](https://github.com/vyax).
+  - Added `removeRandomElement()` to remove a random element from a collection. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **UIView**
   - Added `addGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to add multiple gesture recognizers to a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
   - Added `removeGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to remove multiple gesture recognizers from a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
@@ -328,7 +330,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIWindow**:
   - Added `switchRootViewController` method to switch root view controller with animation. [#494](https://github.com/SwifterSwift/SwifterSwift/pull/494) by [omaralbeik](https://github.com/omaralbeik).
 - **Sequence**
-  - Added `containsDuplicates()` to check whether a sequence contains duplicates. [#496](https://github.com/SwifterSwift/SwifterSwift/pull/496) by [@vyax](https://github.com/vyax).
+  - Added `containsDuplicates()` to check whether a sequence contains duplicates. [#496](https://github.com/SwifterSwift/SwifterSwift/pull/496) by [MaxHaertwig](https://github.com/maxhaertwig).
   - Added `single(where:)` to get the only element of a sequence that matches a given condition. [#483](https://github.com/SwifterSwift/SwifterSwift/pull/483) by [andlang](https://github.com/andlang).
 - **UIStackView**:
   - Added `addArrangedSubviews(_ views: )` to add an array of views to the end of the arrangedSubviews array. [#501](https://github.com/SwifterSwift/SwifterSwift/pull/501) by [omaralbeik](https://github.com/omaralbeik).
@@ -346,10 +348,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIView**:
   - **Breaking Change** `firstResponder` UIView extension is now a function and supports recursive find in the view hierarchy. [#447](https://github.com/SwifterSwift/SwifterSwift/pull/447) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **UIImage**:
-  - `scaled(toWidth:, opaque:, with orientation:)` and `scaled(toHeight:, opaque:, with orientation:)` now have an optional parameter for opaqueness. [#446](https://github.com/SwifterSwift/SwifterSwift/pull/446) by [vyax](https://github.com/vyax)
+  - `scaled(toWidth:, opaque:, with orientation:)` and `scaled(toHeight:, opaque:, with orientation:)` now have an optional parameter for opaqueness. [#446](https://github.com/SwifterSwift/SwifterSwift/pull/446) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **Array/Collection/Sequence**
-  - The conformance of `sum()`, `last(where:)`, `reject(where:)`, `count(where:)`, `forEachReversed()`, `forEach(where:, body:)`, `accumulate(initial:, next:)`, `filtered(_:, map:)` and `contains(_:)` has been changed from Array to Sequence [#470](https://github.com/SwifterSwift/SwifterSwift/pull/470) by [vyax](https://github.com/vyax)
-  - The conformance of `average()`, `firstIndex(where:)`, `lastIndex(where:)`, `indices(where:)`, `forEach(slice:, body:)`, `group(by:)`, `firstIndex(of:)` and `lastIndex(of:)` has been changed from Array to Collection [#470](https://github.com/SwifterSwift/SwifterSwift/pull/470) by [vyax](https://github.com/vyax)
+  - The conformance of `sum()`, `last(where:)`, `reject(where:)`, `count(where:)`, `forEachReversed()`, `forEach(where:, body:)`, `accumulate(initial:, next:)`, `filtered(_:, map:)` and `contains(_:)` has been changed from Array to Sequence [#470](https://github.com/SwifterSwift/SwifterSwift/pull/470) by [MaxHaertwig](https://github.com/maxhaertwig).
+  - The conformance of `average()`, `firstIndex(where:)`, `lastIndex(where:)`, `indices(where:)`, `forEach(slice:, body:)`, `group(by:)`, `firstIndex(of:)` and `lastIndex(of:)` has been changed from Array to Collection [#470](https://github.com/SwifterSwift/SwifterSwift/pull/470) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **Dictionary**
   - The `removeAll(keys:)` changed its paramenter keys to a generic `Sequence` instead of an `Array`. [#482](https://github.com/SwifterSwift/SwifterSwift/pull/482) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 
@@ -361,7 +363,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Fixed
 - **UIImage**:
-  - `scaled(toWidth:, with orientation:)` and `scaled(toHeight:, with orientation:)` were ignoring an image's scale. [#446](https://github.com/SwifterSwift/SwifterSwift/pull/446) by [vyax](https://github.com/vyax)
+  - `scaled(toWidth:, with orientation:)` and `scaled(toHeight:, with orientation:)` were ignoring an image's scale. [#446](https://github.com/SwifterSwift/SwifterSwift/pull/446) by [MaxHaertwig](https://github.com/maxhaertwig).
   - `init(color:size:)` fixed to ensure that `UIGraphicsEndImageContext` is always called after `UIGraphicsBeginImageContextWithOptions(_:_:_)` [#507](https://github.com/SwifterSwift/SwifterSwift/pull/507) by [guykogus](https://github.com/guykogus)
 
 ---
@@ -430,20 +432,20 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Array**
   - added `divided(by:)` to separate an array into 2 arrays based on a predicate. [#367](https://github.com/SwifterSwift/SwifterSwift/pull/367) by [@neoneye](https://github.com/neoneye).
 - **Int**
-  - added `roundToNearest(n:)` to round an integer to the closest multiple of a given n. [#381](https://github.com/SwifterSwift/SwifterSwift/pull/381) by [@vyax](https://github.com/vyax).
+  - added `roundToNearest(n:)` to round an integer to the closest multiple of a given n. [#381](https://github.com/SwifterSwift/SwifterSwift/pull/381) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **FileManager**
   - added `jsonFromFile(atPath path:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance with a provided path. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).
   - added `jsonFromFile(withFilename filename:, at bundleClass:, readingOptions:)` to open a JSON file and serialize its content to a [String, Any]? instance given a filename. [#390](https://github.com/SwifterSwift/SwifterSwift/pull/390) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **Int**
   - added a more performant and memory efficient `digits` property to return array of integers. [#393](https://github.com/SwifterSwift/SwifterSwift/pull/393) by [FrankKair](https://github.com/FrankKair).
 - **StringProtocol**
-  - added `commonSuffix(with:, options:)` to get the longest common suffix of the receiver and a given string. [#379](https://github.com/SwifterSwift/SwifterSwift/pull/379) by [@vyax](https://github.com/vyax).
+  - added `commonSuffix(with:, options:)` to get the longest common suffix of the receiver and a given string. [#379](https://github.com/SwifterSwift/SwifterSwift/pull/379) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **UICollectionView**
   - added `register(nibWithCellClass:, at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **UIFont**
-  - added `bold` and `italic` to UIFont. [#382](https://github.com/SwifterSwift/SwifterSwift/pull/382) by [@vyax](https://github.com/vyax).
+  - added `bold` and `italic` to UIFont. [#382](https://github.com/SwifterSwift/SwifterSwift/pull/382) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **UIImage**
-  - added `withRoundedCorners(radius:)` to round the corners of an image. The parameter radius is optional, the resulting image will be round if it is unspecified. [#380](https://github.com/SwifterSwift/SwifterSwift/pull/380) by [@vyax](https://github.com/vyax).
+  - added `withRoundedCorners(radius:)` to round the corners of an image. The parameter radius is optional, the resulting image will be round if it is unspecified. [#380](https://github.com/SwifterSwift/SwifterSwift/pull/380) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **UITableView**
   - added `register(nibWithCellClass:, at bundleClass:)` method to be able to register a cell with custom nib just by its class name. [#386](https://github.com/SwifterSwift/SwifterSwift/pull/386) by [jason-ingenuity](https://github.com/jason-ingenuity).
 - **URL**
@@ -579,16 +581,16 @@ N/A
   - `blend` now support NSColor as well.
   - Corrected some typos in README. [#263](https://github.com/SwifterSwift/SwifterSwift/pull/263) by [nick3399](https://github.com/nick3399).
 - New **String** extensions
-  - Add `localized(comment:)` to returns a localized string, with an optional comment for translators. [#269](https://github.com/SwifterSwift/SwifterSwift/pull/269) by [Vyax](https://github.com/Vyax).
+  - Add `localized(comment:)` to returns a localized string, with an optional comment for translators. [#269](https://github.com/SwifterSwift/SwifterSwift/pull/269) by [MaxHaertwig](https://github.com/maxhaertwig).
 - New **NSPredicate** extensions
   - Add `not` to returns a new predicate formed by NOT-ing the predicate.
   - Add `and(_ predicate: NSPredicate)` to returns a new predicate formed by AND-ing the argument to the predicate.
   - Add `or(_ predicate: NSPredicate)` to returns a new predicate formed by OR-ing the argument to the predicate.
-    [#273](https://github.com/SwifterSwift/SwifterSwift/pull/273) by [Vyax](https://github.com/Vyax).
+    [#273](https://github.com/SwifterSwift/SwifterSwift/pull/273) by [MaxHaertwig](https://github.com/maxhaertwig).
 - New **UILabel** extensions
-  - Add `convenience init(text: String?)` to initialize a UILabel with text. [#271](https://github.com/SwifterSwift/SwifterSwift/pull/271) by [Vyax](https://github.com/Vyax).
+  - Add `convenience init(text: String?)` to initialize a UILabel with text. [#271](https://github.com/SwifterSwift/SwifterSwift/pull/271) by [MaxHaertwig](https://github.com/maxhaertwig).
 - New **Bool** extensions
-  - Add `random` to returns a random boolean value. [#272](https://github.com/SwifterSwift/SwifterSwift/pull/272) by [Vyax](https://github.com/Vyax).
+  - Add `random` to returns a random boolean value. [#272](https://github.com/SwifterSwift/SwifterSwift/pull/272) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **Continuous Integration**
   - Add macOS tests to travis-ci.
   - Add calls to `swiftlint` and `pod lib lint` in Travis [#264](https://github.com/SwifterSwift/SwifterSwift/pull/264) by [calebkleveter](https://github.com/calebkleveter).

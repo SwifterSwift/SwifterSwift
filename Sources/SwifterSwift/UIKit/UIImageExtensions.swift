@@ -201,6 +201,34 @@ public extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
+    #if !os(watchOS)
+    /// SwifterSwift: UImage with background color
+    ///
+    /// - Parameters:
+    ///   - backgroundColor: Color to use as background color
+    /// - Returns: UIImage with a background color that is visible where alpha < 1
+    func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage {
+        if #available(iOS 10.0, tvOS 10.0, *) {
+            let format = UIGraphicsImageRendererFormat()
+            format.scale = scale
+            return UIGraphicsImageRenderer(size: size, format: format).image { context in
+                backgroundColor.setFill()
+                context.fill(context.format.bounds)
+                draw(at: .zero)
+            }
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        defer { UIGraphicsEndImageContext() }
+
+        backgroundColor.setFill()
+        UIRectFill(CGRect(origin: .zero, size: size))
+        draw(at: .zero)
+
+        return UIGraphicsGetImageFromCurrentImageContext()!
+    }
+    #endif
+
     /// SwifterSwift: UIImage with rounded corners
     ///
     /// - Parameters:
