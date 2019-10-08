@@ -206,21 +206,25 @@ public extension UIImage {
     /// - Parameters:
     ///   - backgroundColor: Color to use as background color
     /// - Returns: UIImage with a background color that is visible where alpha < 1
-    func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage? {
-        let rect = CGRect(origin: .zero, size: size)
-        UIGraphicsBeginImageContextWithOptions(rect.size, false, scale)
-        guard let context = UIGraphicsGetCurrentContext() else {return nil}
-
-        backgroundColor.setFill()
-        UIRectFill(rect)
-
-        context.translateBy(x: 0, y: size.height)
-        context.scaleBy(x: 1, y: -1)
-        context.draw(cgImage!, in: rect)
-
+    func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage {
+        if #available(iOS 10.0, *) {
+            let format = UIGraphicsImageRendererFormat()
+            format.scale = scale
+            return UIGraphicsImageRenderer(size: size, format: format).image { context in
+                backgroundColor.setFill()
+                context.fill(context.format.bounds)
+                draw(at: .zero)
+            }
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer { UIGraphicsEndImageContext() }
 
-        return UIGraphicsGetImageFromCurrentImageContext()
+        backgroundColor.setFill()
+        UIRectFill(CGRect(origin: .zero, size: size))
+        draw(at: .zero)
+
+        return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
     /// SwifterSwift: UIImage with rounded corners
