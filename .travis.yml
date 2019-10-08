@@ -1,6 +1,6 @@
 os: osx
 language: swift
-osx_image: xcode10.2
+osx_image: xcode11
 
 jobs:
   include:
@@ -11,7 +11,7 @@ jobs:
         - TVOS_SCHEME='SwifterSwift-tvOS'
         - WATCHOS_SCHEME='SwifterSwift-watchOS'
         - MACOS_SCHEME='SwifterSwift-macOS'
-        - IOS_DESTINATION='platform=iOS Simulator,name=iPhone X'
+        - IOS_DESTINATION='platform=iOS Simulator,name=iPhone 11'
         - TVOS_DESTINATION='platform=tvOS Simulator,name=Apple TV 4K (at 1080p)'
         - WATCHOS_DESTINATION='name=Apple Watch - 42mm'
         - MACOS_DESTINATION='platform=OS X'

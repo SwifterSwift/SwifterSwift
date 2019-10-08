@@ -15,7 +15,7 @@ public extension FileManager {
     ///
     /// - Parameters:
     ///   - path: JSON file path.
-    ///   - options: JSONSerialization reading options.
+    ///   - readingOptions: JSONSerialization reading options.
     /// - Returns: Optional dictionary.
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
     func jsonFromFile(
@@ -28,6 +28,7 @@ public extension FileManager {
         return json as? [String: Any]
     }
 
+    #if !os(Linux)
     /// SwifterSwift: Read from a JSON file with a given filename.
     ///
     /// - Parameters:
@@ -36,7 +37,6 @@ public extension FileManager {
     ///   - readingOptions: JSONSerialization reading options.
     /// - Returns: Optional dictionary.
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
-    #if !os(Linux)
     func jsonFromFile(
         withFilename filename: String,
         at bundleClass: AnyClass? = nil,
@@ -57,7 +57,8 @@ public extension FileManager {
         return nil
     }
     #endif
-    /// Creates a unique directory for saving temporary files.
+
+    /// SwifterSwift: Creates a unique directory for saving temporary files.
     ///
     /// The directory can be used to create multiple temporary files used for a common purpose.
     ///

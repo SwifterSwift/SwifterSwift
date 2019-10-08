@@ -40,9 +40,10 @@ final class UIImageExtensionsTests: XCTestCase {
     func testCompressed() {
         let bundle = Bundle.init(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let originalSize = image.kilobytesSize
         let compressedImage = image.compressed(quality: 0.2)
         XCTAssertNotNil(compressedImage)
-        XCTAssertEqual(compressedImage!.kilobytesSize, 54)
+        XCTAssertLessThan(compressedImage!.kilobytesSize, originalSize)
         XCTAssertNil(UIImage().compressed())
     }
 
@@ -127,6 +128,15 @@ final class UIImageExtensionsTests: XCTestCase {
         let tintedImage = baseImage.tint(.black, blendMode: .overlay)
         let testImage = UIImage(color: .black, size: CGSize(width: 20, height: 20))
         XCTAssertEqual(testImage.bytesSize, tintedImage.bytesSize)
+    }
+
+    func testWithBackgroundColor() {
+        let size = CGSize(width: 1, height: 1)
+        let clearImage = UIImage(color: .clear, size: size)
+        let imageWithBackgroundColor = clearImage.withBackgroundColor(.black)
+        XCTAssertNotNil(imageWithBackgroundColor)
+        let blackImage = UIImage(color: .black, size: size)
+        XCTAssertEqual(imageWithBackgroundColor.pngData(), blackImage.pngData())
     }
 
     func testWithCornerRadius() {

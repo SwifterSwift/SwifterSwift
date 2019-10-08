@@ -525,19 +525,19 @@ public extension Date {
         }
     }
 
+    // swiftlint:disable cyclomatic_complexity function_body_length
     /// SwifterSwift: Date by changing value of calendar component.
     ///
-    /// 	let date = Date() // "Jan 12, 2017, 7:07 PM"
-    /// 	let date2 = date.changing(.minute, value: 10) // "Jan 12, 2017, 6:10 PM"
-    /// 	let date3 = date.changing(.day, value: 4) // "Jan 4, 2017, 7:07 PM"
-    /// 	let date4 = date.changing(.month, value: 2) // "Feb 12, 2017, 7:07 PM"
-    /// 	let date5 = date.changing(.year, value: 2000) // "Jan 12, 2000, 7:07 PM"
+    ///     let date = Date() // "Jan 12, 2017, 7:07 PM"
+    ///     let date2 = date.changing(.minute, value: 10) // "Jan 12, 2017, 6:10 PM"
+    ///     let date3 = date.changing(.day, value: 4) // "Jan 4, 2017, 7:07 PM"
+    ///     let date4 = date.changing(.month, value: 2) // "Feb 12, 2017, 7:07 PM"
+    ///     let date5 = date.changing(.year, value: 2000) // "Jan 12, 2000, 7:07 PM"
     ///
     /// - Parameters:
     ///   - component: component type.
     ///   - value: new value of compnenet to change.
     /// - Returns: original date after changing given component to given value.
-    // swiftlint:disable:next cyclomatic_complexity function_body_length
     func changing(_ component: Calendar.Component, value: Int) -> Date? {
         switch component {
         case .nanosecond:
@@ -639,16 +639,16 @@ public extension Date {
     }
     #endif
 
+    // swiftlint:disable function_body_length
     /// SwifterSwift: Date at the end of calendar component.
     ///
-    /// 	let date = Date() // "Jan 12, 2017, 7:27 PM"
-    /// 	let date2 = date.end(of: .day) // "Jan 12, 2017, 11:59 PM"
-    /// 	let date3 = date.end(of: .month) // "Jan 31, 2017, 11:59 PM"
-    /// 	let date4 = date.end(of: .year) // "Dec 31, 2017, 11:59 PM"
+    ///     let date = Date() // "Jan 12, 2017, 7:27 PM"
+    ///     let date2 = date.end(of: .day) // "Jan 12, 2017, 11:59 PM"
+    ///     let date3 = date.end(of: .month) // "Jan 31, 2017, 11:59 PM"
+    ///     let date4 = date.end(of: .year) // "Dec 31, 2017, 11:59 PM"
     ///
     /// - Parameter component: calendar component to get date at the end of.
     /// - Returns: date at the end of calendar component (if applicable).
-    // swiftlint:disable:next function_body_length
     func end(of component: Calendar.Component) -> Date? {
         switch component {
         case .second:

@@ -16,7 +16,9 @@ final class UIDatePickerExtensionsTests: XCTestCase {
 
     func testTextColor() {
         let datePicker = UIDatePicker()
-        XCTAssertNil(datePicker.textColor)
+        if let color = datePicker.textColor {
+            XCTAssertNotEqual(color, .red)
+        }
 
         datePicker.textColor = .red
         XCTAssertEqual(datePicker.textColor, .red)

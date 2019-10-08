@@ -33,6 +33,7 @@ playground.xcworkspace
 
 ## Swift Package Manager
 .build/
+.swiftpm/
 
 ## CocoaPods
 Pods/
@@ -47,4 +48,3 @@ docs/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/test_output
-

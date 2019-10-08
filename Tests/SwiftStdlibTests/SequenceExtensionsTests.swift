@@ -129,4 +129,22 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum(), 17)
     }
 
+    func testKeyPathSorted() {
+        let array = ["James", "Wade", "Bryant"]
+        XCTAssertEqual(array.sorted(by: \String.count, with: <), ["Wade", "James", "Bryant"])
+        XCTAssertEqual(array.sorted(by: \String.count, with: >), ["Bryant", "James", "Wade"])
+
+        // Comparable version
+        XCTAssertEqual(array.sorted(by: \String.count), ["Wade", "James", "Bryant"])
+
+        // Testing optional keyPath
+        let optionalCompare = { (char1: Character?, char2: Character?) -> Bool in
+            guard let char1 = char1, let char2 = char2 else { return false }
+            return char1 < char2
+        }
+
+        let array2 = ["James", "Wade", "Bryant", ""]
+        XCTAssertEqual(array2.sorted(by: \String.first, with: optionalCompare), ["Bryant", "James", "Wade", ""])
+    }
+
 }
