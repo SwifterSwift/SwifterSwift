@@ -207,7 +207,7 @@ public extension UIImage {
     ///   - backgroundColor: Color to use as background color
     /// - Returns: UIImage with a background color that is visible where alpha < 1
     func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage {
-        if #available(iOS 10.0, *) {
+        if #available(iOS 10.0, tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
             format.scale = scale
             return UIGraphicsImageRenderer(size: size, format: format).image { context in
