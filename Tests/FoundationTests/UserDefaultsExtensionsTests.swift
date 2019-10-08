@@ -45,7 +45,7 @@ final class UserDefaultsExtensionsTests: XCTestCase {
     func testDate() {
         #if !os(Linux)
         let key = "dateTestKey"
-        let date: Date = Date()
+        let date = Date()
         UserDefaults.standard.set(date, forKey: key)
         XCTAssertNotNil(UserDefaults.standard.date(forKey: key))
         XCTAssertEqual(UserDefaults.standard.date(forKey: key)!, date)
@@ -55,7 +55,7 @@ final class UserDefaultsExtensionsTests: XCTestCase {
     func testGetCodableObject() {
         #if !os(Linux)
         let key = "codableTestKey"
-        let codable: TestObject = TestObject(itemId: 1)
+        let codable = TestObject(itemId: 1)
         UserDefaults.standard.set(object: codable, forKey: key)
         let retrievedCodable = UserDefaults.standard.object(TestObject.self, with: key)
         XCTAssertNotNil(retrievedCodable)
@@ -65,7 +65,7 @@ final class UserDefaultsExtensionsTests: XCTestCase {
     func testSetCodableObject() {
         #if !os(Linux)
         let key = "codableTestKey"
-        let codable: TestObject = TestObject(itemId: 1)
+        let codable = TestObject(itemId: 1)
         UserDefaults.standard.set(object: codable, forKey: key)
         let retrievedCodable = UserDefaults.standard.object(TestObject.self, with: key)
         XCTAssertNotNil(retrievedCodable)

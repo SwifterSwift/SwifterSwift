@@ -60,8 +60,7 @@ final class UITextViewExtensionsTests: XCTestCase {
         // calling the wrap extension method
         textView.wrapToContent()
 
-        // setting the frame
-        //
+        // Setting the frame:
         // This is important to set the frame after calling the wrapToContent, otherwise
         // boundingRect can give you fractional value, and method call `sizeToFit` inside the
         // wrapToContent would change to the fractional value instead of the ceil value.

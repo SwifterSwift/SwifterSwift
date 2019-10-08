@@ -217,7 +217,7 @@ public extension UIImage {
                 draw(at: .zero)
             }
         }
-        
+
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer { UIGraphicsEndImageContext() }
 
