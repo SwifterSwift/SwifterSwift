@@ -580,6 +580,34 @@ public extension UIView {
         return ancestorView(where: { $0 is T }) as? T
     }
 
+    /// SwifterSwift: Apply gradient to view.
+    ///
+    /// - Parameters:
+    ///   - colors: An array of colors defining the color of each gradient stop
+    ///   - locations: An array of NSNumber defining the location of each
+    ///                gradient stop as a value in the range [0,1]. The values must be
+    ///                monotonically increasing. If a nil array is given, the stops are
+    ///                assumed to spread uniformly across the [0,1] range. When rendered,
+    ///                the colors are mapped to the output colorspace before being
+    ///                interpolated. (default is nil)
+    ///   - startPoint: start point corresponds to the first gradient stop (I.e. [0,0] is the bottom-corner of the layer, [1,1] is the top-right corner.)
+    ///   - endPoint: end point corresponds to the last gradient stop
+    func applyGradient(colors: [UIColor], locations: [NSNumber]? = nil, startPoint: CGPoint, endPoint: CGPoint) {
+        let gradientLayer = CAGradientLayer()
+
+        gradientLayer.colors =  colors.map({
+            $0.cgColor
+        })
+
+        gradientLayer.locations = locations
+        gradientLayer.startPoint = startPoint
+        gradientLayer.endPoint = endPoint
+
+        gradientLayer.frame = bounds
+
+        layer.insertSublayer(gradientLayer, at: 0)
+    }
+
 }
 
 #endif
