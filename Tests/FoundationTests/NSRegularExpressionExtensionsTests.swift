@@ -74,6 +74,9 @@ final class NSRegularExpressionExtensionsTests: XCTestCase {
         XCTAssertEqual(range?.lowerBound, string.startIndex)
         XCTAssertEqual(range?.upperBound, string.index(string.startIndex, offsetBy: searchString.count))
         XCTAssertEqual(String(string[range!]), searchString)
+
+        let foo = "foo"
+        XCTAssertNil(regularExpression.rangeOfFirstMatch(in: foo, options: [], range: foo.startIndex..<foo.endIndex))
     }
 
     func testStringByReplacingMatches() {
