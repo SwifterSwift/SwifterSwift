@@ -56,7 +56,7 @@ public extension MKMapView {
     func multipleCoordinateZoom(for coordinates: [CLLocationCoordinate2D], meter: Double, insets: CGFloat, animated: Bool) {
         if coordinates.count == 1 {
             let coordinateRegion = MKCoordinateRegion(center: coordinates.first!, latitudinalMeters: meter, longitudinalMeters: meter)
-            self.setRegion(coordinateRegion, animated: true)
+            setRegion(coordinateRegion, animated: true)
         } else {
             let mkPolygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
             let edgePadding = UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets)
