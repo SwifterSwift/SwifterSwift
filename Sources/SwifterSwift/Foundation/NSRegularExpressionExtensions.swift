@@ -10,6 +10,7 @@
 import Foundation
 
 public extension NSRegularExpression {
+
     /// Enumerates the string allowing the Block to handle each regular expression match.
     ///
     /// - Parameters:
@@ -139,6 +140,7 @@ public extension NSRegularExpression {
         string = mutableString.copy() as! String // swiftlint:disable:this force_cast
         return matches
     }
+
 }
 
 #endif
