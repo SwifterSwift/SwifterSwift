@@ -23,7 +23,7 @@ final class NSRegularExpressionExtensionsTests: XCTestCase {
         regularExpression.enumerateMatches(in: string,
                                            options: [],
                                            range: string.startIndex..<string.endIndex) { (result, _, _) in
-                                            XCTAssertEqual(String(string[Range(result!.range, in: string)!]), searchString)
+                                            XCTAssertEqual(String(self.string[Range(result!.range, in: self.string)!]), self.searchString)
                                             count += 1
         }
         XCTAssertEqual(count, expectedMatches)
@@ -33,7 +33,7 @@ final class NSRegularExpressionExtensionsTests: XCTestCase {
         regularExpression.enumerateMatches(in: string,
                                            options: [],
                                            range: string.startIndex..<string.endIndex) { (result, _, stop) in
-                                            XCTAssertEqual(String(string[Range(result!.range, in: string)!]), searchString)
+                                            XCTAssertEqual(String(self.string[Range(result!.range, in: self.string)!]), self.searchString)
                                             count += 1
                                             stop = count >= max
         }
