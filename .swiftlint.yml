@@ -27,11 +27,6 @@ custom_rules:
     regex: '(\t+| +)//\n'
     message: "Remove useless comment lines or use /* format */"
     severity: warning
-  invalid_mark_format:
-    name: "Invalid MARK Format"
-    regex: '(?m-s)(\/\/[\s]*?MARK(?!(\:[\s]{1}\-[\s]{1}){1}))'
-    message: "Use format: MARK: - Your Info"
-    severity: warning
   get_prefixed_function:
     name: "Get prefixed function"
     regex: '(?-smxi)(func get[A-Z0-9][\w]+?(\())'
