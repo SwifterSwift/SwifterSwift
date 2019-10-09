@@ -29,6 +29,12 @@ final class UIBarButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(barButton.action, selector)
     }
 
+    func testFixedSpace() {
+        let width: CGFloat = 120
+        let barButtonItem = UIBarButtonItem.fixedSpace(width: width)
+        XCTAssertEqual(barButtonItem.width, width)
+    }
+
 }
 
 #endif
