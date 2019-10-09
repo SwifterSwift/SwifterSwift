@@ -60,7 +60,7 @@ public extension MKMapView {
         } else {
             let mkPolygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
             let edgePadding = UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets)
-            self.setVisibleMapRect(mkPolygon.boundingMapRect, edgePadding: edgePadding, animated: animated)
+            setVisibleMapRect(mkPolygon.boundingMapRect, edgePadding: edgePadding, animated: animated)
         }
     }
 }
