@@ -25,6 +25,22 @@ public extension NSRegularExpression {
     ///     The current state of the matching progress. See `NSRegularExpression.MatchingFlags` for the possible values.
     ///   - stop:
     ///     A reference to a Boolean value. The Block can set the value to true to stop further processing of the array. The stop argument is an out-only argument. You should only ever set this Boolean to true within the Block.
+    #if os(Linux)
+    func enumerateMatches(in string: String,
+                          options: MatchingOptions = [],
+                          range: Range<String.Index>,
+                          using block: @escaping (_ result: NSTextCheckingResult?, _ flags: MatchingFlags, _ stop: inout Bool) -> Void) {
+        enumerateMatches(in: string,
+                         options: options,
+                         range: NSRange(range, in: string)) { result, flags, stop in
+                            var shouldStop = false
+                            block(result, flags, &shouldStop)
+                            if shouldStop {
+                                stop.pointee = true
+                            }
+        }
+    }
+    #else
     func enumerateMatches(in string: String,
                           options: MatchingOptions = [],
                           range: Range<String.Index>,
@@ -39,6 +55,7 @@ public extension NSRegularExpression {
                             }
         }
     }
+    #endif
 
     /// Returns an array containing all the matches of the regular expression in the string.
     ///
