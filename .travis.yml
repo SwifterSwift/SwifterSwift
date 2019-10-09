@@ -1,6 +1,6 @@
 os: osx
 language: swift
-osx_image: xcode11
+osx_image: xcode11.1
 
 jobs:
   include:

@@ -257,7 +257,11 @@ public extension Date {
             return calendar.component(.nanosecond, from: self)
         }
         set {
+            #if targetEnvironment(macCatalyst)
+            let allowedRange = 0..<1000000000
+            #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
+            #endif
             guard allowedRange.contains(newValue) else { return }
 
             let currentNanoseconds = calendar.component(.nanosecond, from: self)
@@ -282,7 +286,11 @@ public extension Date {
         }
         set {
             let nanoSeconds = newValue * 1000000
+            #if targetEnvironment(macCatalyst)
+            let allowedRange = 0..<1000000000
+            #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
+            #endif
             guard allowedRange.contains(nanoSeconds) else { return }
 
             if let date = calendar.date(bySetting: .nanosecond, value: nanoSeconds, of: self) {
@@ -541,7 +549,11 @@ public extension Date {
     func changing(_ component: Calendar.Component, value: Int) -> Date? {
         switch component {
         case .nanosecond:
+            #if targetEnvironment(macCatalyst)
+            let allowedRange = 0..<1000000000
+            #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
+            #endif
             guard allowedRange.contains(value) else { return nil }
             let currentNanoseconds = calendar.component(.nanosecond, from: self)
             let nanosecondsToAdd = value - currentNanoseconds
