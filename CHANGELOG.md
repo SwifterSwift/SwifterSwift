@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **Color**:
+    - Added `init(light:dark:)` to create an NSColor/UIColor with different variations for light and dark mode. Only available in iOS/tvOS 13.0, macOS 10.15. [#722](https://github.com/SwifterSwift/SwifterSwift/pull/722) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **String**:
   - Added `withPrefix(_:)`, which provides a method to add a prefix to a string. If the string already has that prefix, it simply returns the original string. [#720](https://github.com/SwifterSwift/SwifterSwift/pull/720) by [Zach Frew](https://github.com/zmfrew).
 - **NSRegularExpression**:

@@ -1,0 +1,26 @@
+//
+//  NSColorExtensions.swift
+//  SwifterSwift
+//
+//  Created by Max Haertwig on 10/06/19.
+//  Copyright © 2019 SwifterSwift
+//
+
+#if canImport(Cocoa)
+import Cocoa
+
+public extension NSColor {
+
+    /// SwifterSwift: Create an NSColor with different colors for light and dark mode.
+    ///
+    /// - Parameters:
+    ///     - light: Color to use in light/unspecified mode.
+    ///     - dark: Color to use in dark mode.
+    @available(OSX 10.15, *)
+    convenience init(light: NSColor, dark: NSColor) {
+        self.init(name: nil, dynamicProvider: { $0.name == .darkAqua ? dark : light })
+    }
+
+}
+
+#endif
