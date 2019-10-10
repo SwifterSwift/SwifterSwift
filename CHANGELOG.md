@@ -10,7 +10,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **NSRegularExpression**:
   - Added `enumerateMatches(in:options:range:using:)`, `matches(in:options:range:)`, `numberOfMatches(in:options:range:)`, `firstMatch(in:options:range:)`, `rangeOfFirstMatch(in:options:range:)`, `stringByReplacingMatches(in:options:range:withTemplate:)`, `replaceMatches(in:options:range:withTemplate:)`, which use `String` and `String.Range` in place of `NSString` and `NSRange` to make the calls Swifter. [#727](https://github.com/SwifterSwift/SwifterSwift/pull/727) by [guykogus](https://github.com/guykogus).
 - **String**:
-    - Added `withPrefix(_:)`, which provides a method to add a prefix to a string. If the string already has that prefix, it simply returns the original string. [#720](https://github.com/SwifterSwift/SwifterSwift/pull/720) by [Zach Frew](https://github.com/zmfrew).
+  - Added `withPrefix(_:)`, which provides a method to add a prefix to a string. If the string already has that prefix, it simply returns the original string. [#720](https://github.com/SwifterSwift/SwifterSwift/pull/720) by [Zach Frew](https://github.com/zmfrew).
 - **UIBarButtonItem**:
     - Added `flexibleSpace` and `fixedSpace(width:)` extensions to UIBarButtonItem to simplify the creation of spacers. [#728](https://github.com/SwifterSwift/SwifterSwift/pull/728) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **UIImage**:
