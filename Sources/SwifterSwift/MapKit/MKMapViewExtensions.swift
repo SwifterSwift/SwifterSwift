@@ -49,9 +49,9 @@ public extension MKMapView {
     ///
     /// - Parameters:
     ///   - coordinates: Gets the array of type CLLocationCoordinate2D.
-    ///   - meter: Takes the type of Double zoom.
-    ///   - edgePadding: Gives space to the CGFloat type screen.
-    ///   - animated: The animation control takes the Boolean value.
+    ///   - meter: If arrays have a single item, they take the value of meters (Double). The map zooms in at the given meters.
+    ///   - edgePadding: The amount of additional space (measured in screen points) to make visible around the specified rectangle
+    ///   - animated: The animation control takes the Boolean value. Enter the true value for zooming with the animation.
     func multipleCoordinateZoom(for coordinates: [CLLocationCoordinate2D], meter: Double, edgePadding: UIEdgeInsets, animated: Bool) {
         guard !coordinates.isEmpty else { return }
         
