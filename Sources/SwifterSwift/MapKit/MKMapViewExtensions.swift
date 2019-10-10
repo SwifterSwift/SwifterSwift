@@ -52,7 +52,6 @@ public extension MKMapView {
     ///   - meter: Takes the type of Double zoom.
     ///   - insets: Gives space to the CGFloat type screen.
     ///   - animated: The animation control takes the Boolean value.
-    @available(iOS 9.0, *)
     func multipleCoordinateZoom(for coordinates: [CLLocationCoordinate2D], meter: Double, insets: CGFloat, animated: Bool) {
         if coordinates.count == 1 {
             let coordinateRegion = MKCoordinateRegion(center: coordinates.first!, latitudinalMeters: meter, longitudinalMeters: meter)
