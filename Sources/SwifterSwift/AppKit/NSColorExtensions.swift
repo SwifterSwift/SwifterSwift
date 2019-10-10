@@ -9,7 +9,7 @@
 #if canImport(Cocoa)
 import Cocoa
 
-@objc public extension NSColor {
+public extension NSColor {
 
     /// SwifterSwift: Create an NSColor with different colors for light and dark mode.
     ///
