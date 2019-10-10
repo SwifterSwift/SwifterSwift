@@ -15,7 +15,10 @@ import UIKit
 final class UIBarButtonExtensionsTests: XCTestCase {
 
     func testFlexibleSpace() {
-        XCTAssertEqual(UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), UIBarButtonItem.flexibleSpace)
+        let space1 = UIBarButtonItem.flexibleSpace
+        let space2 = UIBarButtonItem.flexibleSpace
+        // Make sure two different instances are created
+        XCTAssert(space1 !== space2)
     }
 
     func testSelector() {}
