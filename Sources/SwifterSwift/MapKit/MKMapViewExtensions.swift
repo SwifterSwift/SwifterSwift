@@ -50,9 +50,9 @@ public extension MKMapView {
     /// - Parameters:
     ///   - coordinates: Gets the array of type CLLocationCoordinate2D.
     ///   - meter: Takes the type of Double zoom.
-    ///   - insets: Gives space to the CGFloat type screen.
+    ///   - edgePadding: Gives space to the CGFloat type screen.
     ///   - animated: The animation control takes the Boolean value.
-    func multipleCoordinateZoom(for coordinates: [CLLocationCoordinate2D], meter: Double, insets: CGFloat, animated: Bool) {
+    func multipleCoordinateZoom(for coordinates: [CLLocationCoordinate2D], meter: Double, edgePadding: UIEdgeInsets, animated: Bool) {
         guard !coordinates.isEmpty else { return }
         
         if coordinates.count == 1 {
@@ -60,7 +60,6 @@ public extension MKMapView {
             setRegion(coordinateRegion, animated: true)
         } else {
             let mkPolygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
-            let edgePadding = UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets)
             setVisibleMapRect(mkPolygon.boundingMapRect, edgePadding: edgePadding, animated: animated)
         }
     }
