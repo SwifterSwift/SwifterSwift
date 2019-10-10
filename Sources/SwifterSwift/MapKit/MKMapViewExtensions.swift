@@ -53,6 +53,8 @@ public extension MKMapView {
     ///   - insets: Gives space to the CGFloat type screen.
     ///   - animated: The animation control takes the Boolean value.
     func multipleCoordinateZoom(for coordinates: [CLLocationCoordinate2D], meter: Double, insets: CGFloat, animated: Bool) {
+        guard !coordinates.isEmpty else { return }
+        
         if coordinates.count == 1 {
             let coordinateRegion = MKCoordinateRegion(center: coordinates.first!, latitudinalMeters: meter, longitudinalMeters: meter)
             setRegion(coordinateRegion, animated: true)
