@@ -130,6 +130,15 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertEqual(testImage.bytesSize, tintedImage.bytesSize)
     }
 
+    func testWithBackgroundColor() {
+        let size = CGSize(width: 1, height: 1)
+        let clearImage = UIImage(color: .clear, size: size)
+        let imageWithBackgroundColor = clearImage.withBackgroundColor(.black)
+        XCTAssertNotNil(imageWithBackgroundColor)
+        let blackImage = UIImage(color: .black, size: size)
+        XCTAssertEqual(imageWithBackgroundColor.pngData(), blackImage.pngData())
+    }
+
     func testWithCornerRadius() {
         let image = UIImage(color: .black, size: CGSize(width: 20, height: 20))
         XCTAssertNotNil(image.withRoundedCorners())
