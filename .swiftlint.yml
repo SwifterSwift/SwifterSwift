@@ -24,7 +24,7 @@ custom_rules:
       - doccomment.field
   empty_commented_line:
     name: "Empty Commented Out Line"
-    regex: '(\t+| +)//\n'
+    regex: '(\t+| +)//$'
     message: "Remove useless comment lines or use /* format */"
     severity: warning
   get_prefixed_function:
