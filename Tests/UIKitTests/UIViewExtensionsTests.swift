@@ -446,22 +446,6 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableView.self), tableView)
     }
 
-    func testApplyGradient() {
-        let colors: [UIColor] = [.red, .blue, .orange, .yellow]
-        let view = UIView(frame: .zero)
-        var gradientLayer: CAGradientLayer?
-
-        gradientLayer = view.layer.sublayers?.first as? CAGradientLayer
-        XCTAssertNil(gradientLayer)
-        XCTAssertNotEqual(gradientLayer?.colors?.count, colors.count)
-
-        view.applyGradient(colors: colors, locations: nil, startPoint: CGPoint(x: 0.0, y: 0.5), endPoint: CGPoint(x: 1.0, y: 0.5))
-
-        gradientLayer = view.layer.sublayers?.first as? CAGradientLayer
-        XCTAssertNotNil(gradientLayer)
-        XCTAssertEqual(gradientLayer?.colors?.count, colors.count)
-    }
-
 }
 
 #endif
