@@ -35,7 +35,17 @@ final class MKMapViewTests: XCTestCase {
         let annotationViewWithAnnotation = mapView.dequeueReusableAnnotationView(withClass: MKPinAnnotationView.self, for: annotation)
         XCTAssertNotNil(annotationViewWithAnnotation)
     }
-
+    
+    func testWithEmptyItemArray() {
+        let mapView = MKMapView()
+        
+        let meter = 500.0
+        let emptyItemArray: [CLLocationCoordinate2D] = []
+        let edgePadding: UIEdgeInsets = .init(top: 50, left: 50, bottom: 50, right: 50)
+        
+        let emptyItemInMapView: Void = mapView.zoom(coordinates: emptyItemArray, meter: meter, edgePadding: edgePadding, animated: true)
+        XCTAssertNotNil(emptyItemInMapView)
+    }
 }
 
 #endif
