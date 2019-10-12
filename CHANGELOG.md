@@ -5,9 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
-
 - **MKMapView**:
-	-   Added `zoom(coordinates: [CLLocationCoordinate2D], meter: Double, edgePadding: UIEdgeInsets, animated: Bool)` method to zoom multiple mapView coordinates. [#723]([https://github.com/SwifterSwift/SwifterSwift/pull/723](https://github.com/SwifterSwift/SwifterSwift/pull/723)) by [Mustafa GUNES](https://github.com/mustafagunes).
+	-   Added `zoom(to coordinates: [CLLocationCoordinate2D], meter: Double, edgePadding: UIEdgeInsets, animated: Bool)` method to zoom multiple mapView coordinates. [#723]([https://github.com/SwifterSwift/SwifterSwift/pull/723](https://github.com/SwifterSwift/SwifterSwift/pull/723)) by [Mustafa GUNES](https://github.com/mustafagunes).
 - **Color**:
     - Added `init(light:dark:)` to create an NSColor/UIColor with different variations for light and dark mode. Only available in iOS/tvOS 13.0, macOS 10.15. [#722](https://github.com/SwifterSwift/SwifterSwift/pull/722) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **String**:

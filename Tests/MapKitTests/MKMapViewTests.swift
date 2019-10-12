@@ -43,7 +43,8 @@ final class MKMapViewTests: XCTestCase {
         let emptyItemArray: [CLLocationCoordinate2D] = []
         let edgePadding: UIEdgeInsets = .init(top: 50, left: 50, bottom: 50, right: 50)
         
-        let emptyItemInMapView: Void = mapView.zoom(coordinates: emptyItemArray, meter: meter, edgePadding: edgePadding, animated: true)
+        let emptyItemInMapView: Void = mapView.zoom(to: emptyItemArray, meter: meter, edgePadding: edgePadding, animated: true)
+        
         XCTAssertNotNil(emptyItemInMapView)
     }
     
@@ -54,7 +55,7 @@ final class MKMapViewTests: XCTestCase {
         let oneItemArray: [CLLocationCoordinate2D] = [.init(latitude: 36.9751, longitude: 38.4243)]
         let edgePadding: UIEdgeInsets = .init(top: 50, left: 50, bottom: 50, right: 50)
         
-        let oneItemInMapView: Void = mapView.zoom(coordinates: oneItemArray, meter: meter, edgePadding: edgePadding, animated: true)
+        let oneItemInMapView: Void = mapView.zoom(to: oneItemArray, meter: meter, edgePadding: edgePadding, animated: true)
         XCTAssertNotNil(oneItemInMapView)
     }
     
@@ -67,7 +68,7 @@ final class MKMapViewTests: XCTestCase {
                                                         .init(latitude: 37.06622, longitude: 37.38332),
                                                         .init(latitude: 41.00527, longitude: 28.97696)]
         
-        let multiItemInMapView: Void = mapView.zoom(coordinates: multiItemArray, meter: meter, edgePadding: edgePadding, animated: true)
+        let multiItemInMapView: Void = mapView.zoom(to: multiItemArray, meter: meter, edgePadding: edgePadding, animated: true)
         XCTAssertNotNil(multiItemInMapView)
     }
 }
