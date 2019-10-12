@@ -487,6 +487,20 @@ public extension Date {
         return timeIntervalSince1970
     }
 
+    /// SwifterSwift: Current day in a year
+    var dayInYear: Int {
+        return calendar.ordinality(of: .day, in: .year, for: self)!
+    }
+    
+    /// SwifterSwift: How many days in a year
+    var numberOfDaysInYear: Int {
+        return (calendar.range(of: .day, in: .year, for: self)!.upperBound) - 1
+    }
+    
+    /// SwifterSwift: How many days are left in a year
+    var numberOfDaysLeftInYear: Int {
+        return numberOfDaysInYear - dayInYear
+    }
 }
 
 // MARK: - Methods
