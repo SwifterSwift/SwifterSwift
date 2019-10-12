@@ -971,7 +971,21 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertEqual(tomorrow, tomorrowCheck)
     }
 
-    func testSetDayLeftInAYear() {
+    func testDayInYear() {
+        let date = Date()
+        let dayInYear = date.dayInYear
+        let dayInYearCheck = Calendar.current.ordinality(of: .day, in: .year, for: date)!
+        XCTAssertEqual(dayInYear, dayInYearCheck)
+    }
+
+    func testNumberOfDaysInYear() {
+        let date = Date()
+        let numberOfDaysInYear = date.numberOfDaysInYear
+        let numberOfDaysInYearCheck = (Calendar.current.range(of: .day, in: .year, for: date)!.upperBound) - 1
+        XCTAssertEqual(numberOfDaysInYear, numberOfDaysInYearCheck)
+    }
+
+    func testnNmberOfDaysLeftInYear() {
         let date = Date()
         let dayLeftInAYear = date.numberOfDaysLeftInYear
 
