@@ -491,12 +491,12 @@ public extension Date {
     var dayInYear: Int {
         return calendar.ordinality(of: .day, in: .year, for: self)!
     }
-    
+
     /// SwifterSwift: How many days in a year
     var numberOfDaysInYear: Int {
         return (calendar.range(of: .day, in: .year, for: self)!.upperBound) - 1
     }
-    
+
     /// SwifterSwift: How many days are left in a year
     var numberOfDaysLeftInYear: Int {
         return numberOfDaysInYear - dayInYear
