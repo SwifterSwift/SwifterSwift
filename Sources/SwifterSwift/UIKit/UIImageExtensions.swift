@@ -182,6 +182,7 @@ public extension UIImage {
         return newImage
     }
 
+    #if !os(watchOS)
     /// SwifterSwift: UIImage tinted with color
     ///
     /// - Parameters:
@@ -215,7 +216,6 @@ public extension UIImage {
         }
     }
 
-    #if !os(watchOS)
     /// SwifterSwift: UImage with background color
     ///
     /// - Parameters:
