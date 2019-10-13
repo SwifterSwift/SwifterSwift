@@ -159,6 +159,7 @@ public extension UIImage {
         return newImage
     }
 
+    #if !os(watchOS)
     /// SwifterSwift: UIImage filled with color
     ///
     /// - Parameter color: color to fill image with.
@@ -191,6 +192,7 @@ public extension UIImage {
             return newImage
         }
     }
+    #endif
 
     /// SwifterSwift: UIImage tinted with color
     ///
