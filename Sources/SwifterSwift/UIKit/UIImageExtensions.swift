@@ -164,22 +164,32 @@ public extension UIImage {
     /// - Parameter color: color to fill image with.
     /// - Returns: UIImage filled with given color.
     func filled(withColor color: UIColor) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        color.setFill()
-        guard let context = UIGraphicsGetCurrentContext() else { return self }
+        if #available(iOS 10, tvOS 10, *) {
+            let format = UIGraphicsImageRendererFormat()
+            format.scale = scale
+            let renderer = UIGraphicsImageRenderer(size: size, format: format)
+            return renderer.image { (context) in
+                color.setFill()
+                context.fill(CGRect(origin: .zero, size: size))
+            }
+        } else {
+            UIGraphicsBeginImageContextWithOptions(size, false, scale)
+            color.setFill()
+            guard let context = UIGraphicsGetCurrentContext() else { return self }
 
-        context.translateBy(x: 0, y: size.height)
-        context.scaleBy(x: 1.0, y: -1.0)
-        context.setBlendMode(CGBlendMode.normal)
+            context.translateBy(x: 0, y: size.height)
+            context.scaleBy(x: 1.0, y: -1.0)
+            context.setBlendMode(CGBlendMode.normal)
 
-        let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        guard let mask = cgImage else { return self }
-        context.clip(to: rect, mask: mask)
-        context.fill(rect)
+            let rect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+            guard let mask = cgImage else { return self }
+            context.clip(to: rect, mask: mask)
+            context.fill(rect)
 
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return newImage
+            let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            return newImage
+        }
     }
 
     /// SwifterSwift: UIImage tinted with color
