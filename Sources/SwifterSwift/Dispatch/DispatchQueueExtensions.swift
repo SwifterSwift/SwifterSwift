@@ -12,8 +12,7 @@ import Dispatch
 // MARK: - Properties
 public extension DispatchQueue {
 
-    /// SwifterSwift: A Boolean value indicating whether the current
-    /// dispatch queue is the main queue.
+    /// SwifterSwift: A Boolean value indicating whether the current dispatch queue is the main queue.
     static var isMainQueue: Bool {
         enum Static {
             static var key: DispatchSpecificKey<Void> = {
@@ -30,8 +29,7 @@ public extension DispatchQueue {
 // MARK: - Methods
 public extension DispatchQueue {
 
-    /// SwifterSwift: Returns a Boolean value indicating whether the current
-    /// dispatch queue is the specified queue.
+    /// SwifterSwift: Returns a Boolean value indicating whether the current dispatch queue is the specified queue.
     ///
     /// - Parameter queue: The queue to compare against.
     /// - Returns: `true` if the current queue is the specified queue, otherwise `false`.

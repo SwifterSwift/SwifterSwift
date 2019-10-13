@@ -298,6 +298,22 @@ final class UIViewExtensionsTests: XCTestCase {
         waitForExpectations(timeout: 0.5, handler: nil)
     }
 
+    func testScale() {
+        let frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+        let view1 = UIView(frame: frame)
+        let view2 = UIView(frame: frame)
+        let view3 = UIView(frame: frame)
+        let scale = CGPoint(x: 0.5, y: 2.0)
+
+        view1.transform = view2.transform.scaledBy(x: scale.x, y: scale.y)
+
+        view2.scale(by: scale)
+        view3.scale(by: scale, animated: true, duration: 0)
+
+        XCTAssertEqual(view1.transform, view2.transform)
+        XCTAssertEqual(view1.transform, view3.transform)
+    }
+
     func testRemoveSubviews() {
         let view = UIView()
         view.addSubviews([UIView(), UIView()])

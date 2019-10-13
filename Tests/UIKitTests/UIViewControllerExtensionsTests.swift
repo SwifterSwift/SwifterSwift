@@ -72,7 +72,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertEqual(alertController.preferredStyle, .alert)
         XCTAssertEqual(alertController.title, title)
         XCTAssertEqual(alertController.message, message)
-        //check whether the buttons are added in the same order
+        // check whether the buttons are added in the same order
         for action in 0..<alertController.actions.count {
             XCTAssertEqual(alertController.actions[action].title, actionButtons[action])
         }

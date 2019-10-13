@@ -239,11 +239,7 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Check if string is a valid Swift number.
-    ///
-    /// Note:
-    /// In North America, "." is the decimal separator,
-    /// while in many parts of Europe "," is used,
+    /// SwifterSwift: Check if string is a valid Swift number. Note: In North America, "." is the decimal separator, while in many parts of Europe "," is used,
     ///
     ///		"123".isNumeric -> true
     ///     "1.3".isNumeric -> true (en_US)
@@ -441,7 +437,7 @@ public extension String {
 public extension String {
 
     #if canImport(Foundation)
-    /// Float value from string (if applicable).
+    /// SwifterSwift: Float value from string (if applicable).
     ///
     /// - Parameter locale: Locale (default is Locale.current)
     /// - Returns: Optional Float value from given string.
@@ -454,7 +450,7 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// Double value from string (if applicable).
+    /// SwifterSwift: Double value from string (if applicable).
     ///
     /// - Parameter locale: Locale (default is Locale.current)
     /// - Returns: Optional Double value from given string.
@@ -467,7 +463,7 @@ public extension String {
     #endif
 
     #if canImport(CoreGraphics) && canImport(Foundation)
-    /// CGFloat value from string (if applicable).
+    /// SwifterSwift: CGFloat value from string (if applicable).
     ///
     /// - Parameter locale: Locale (default is Locale.current)
     /// - Returns: Optional CGFloat value from given string.

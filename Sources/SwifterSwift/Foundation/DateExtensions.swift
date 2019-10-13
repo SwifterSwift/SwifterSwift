@@ -25,13 +25,13 @@ public extension Date {
     /// - full: Full day name.
     enum DayNameStyle {
 
-        /// 3 letter day abbreviation of day name.
+        /// SwifterSwift: 3 letter day abbreviation of day name.
         case threeLetters
 
-        /// 1 letter day abbreviation of day name.
+        /// SwifterSwift: 1 letter day abbreviation of day name.
         case oneLetter
 
-        /// Full day name.
+        /// SwifterSwift: Full day name.
         case full
 
     }
@@ -43,13 +43,13 @@ public extension Date {
     /// - full: Full month name.
     enum MonthNameStyle {
 
-        /// 3 letter month abbreviation of month name.
+        /// SwifterSwift: 3 letter month abbreviation of month name.
         case threeLetters
 
-        /// 1 letter month abbreviation of month name.
+        /// SwifterSwift: 1 letter month abbreviation of month name.
         case oneLetter
 
-        /// Full month name.
+        /// SwifterSwift: Full month name.
         case full
 
     }
