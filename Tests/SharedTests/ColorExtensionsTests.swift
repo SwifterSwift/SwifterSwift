@@ -77,7 +77,7 @@ final class ColorExtensionsTests: XCTestCase {
     }
 
     func testAlpha() {
-        var color: Color = Color.red
+        var color = Color.red
         XCTAssertEqual(color.alpha, 1.0)
 
         color = Color.white.withAlphaComponent(0.5)

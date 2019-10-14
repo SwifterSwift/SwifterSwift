@@ -62,8 +62,8 @@ public extension Collection where Index == Int {
 
     /// SwifterSwift: Calls the given closure with an array of size of the parameter slice.
     ///
-    ///     [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> //print: [0, 2], [4, 7]
-    ///     [0, 2, 4, 7, 6].forEach(slice: 2) { print($0) } -> //print: [0, 2], [4, 7], [6]
+    ///     [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7]
+    ///     [0, 2, 4, 7, 6].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7], [6]
     ///
     /// - Parameters:
     ///   - slice: size of array in each interation.
@@ -86,7 +86,7 @@ public extension Collection where Index == Int {
     /// - Parameter size: The size of the slices to be returned.
     /// - Returns: grouped self.
     func group(by size: Int) -> [[Element]]? {
-        //Inspired by: https://lodash.com/docs/4.17.4#chunk
+        // Inspired by: https://lodash.com/docs/4.17.4#chunk
         guard size > 0, !isEmpty else { return nil }
         var value: Int = 0
         var slices: [[Element]] = []

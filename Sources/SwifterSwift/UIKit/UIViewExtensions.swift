@@ -17,10 +17,10 @@ public extension UIView {
     /// - horizontal: Shake left and right.
     /// - vertical: Shake up and down.
     enum ShakeDirection {
-        /// Shake left and right.
+        /// SwifterSwift: Shake left and right.
         case horizontal
 
-        /// Shake up and down.
+        /// SwifterSwift: Shake up and down.
         case vertical
     }
 
@@ -29,10 +29,10 @@ public extension UIView {
     /// - degrees: degrees.
     /// - radians: radians.
     enum AngleUnit {
-        /// degrees.
+        /// SwifterSwift: degrees.
         case degrees
 
-        /// radians.
+        /// SwifterSwift: radians.
         case radians
     }
 
@@ -43,16 +43,16 @@ public extension UIView {
     /// - easeOut: easeOut animation.
     /// - easeInOut: easeInOut animation.
     enum ShakeAnimationType {
-        /// linear animation.
+        /// SwifterSwift: linear animation.
         case linear
 
-        /// easeIn animation.
+        /// SwifterSwift: easeIn animation.
         case easeIn
 
-        /// easeOut animation.
+        /// SwifterSwift: easeOut animation.
         case easeOut
 
-        /// easeInOut animation.
+        /// SwifterSwift: easeInOut animation.
         case easeInOut
     }
 
@@ -333,11 +333,7 @@ public extension UIView {
         gestureRecognizers?.forEach(removeGestureRecognizer)
     }
 
-    /// SwifterSwift: Attaches gesture recognizers to the view.
-    ///
-    /// Attaching gesture recognizers to a view defines the scope of the represented
-    /// gesture, causing it to receive touches hit-tested to that view and all of its
-    /// subviews. The view establishes a strong reference to the gesture recognizers.
+    /// SwifterSwift: Attaches gesture recognizers to the view. Attaching gesture recognizers to a view defines the scope of the represented gesture, causing it to receive touches hit-tested to that view and all of its subviews. The view establishes a strong reference to the gesture recognizers.
     ///
     /// - Parameter gestureRecognizers: The array of gesture recognizers to be added to the view.
     func addGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {
@@ -346,9 +342,7 @@ public extension UIView {
         }
     }
 
-    /// SwifterSwift: Detaches gesture recognizers from the receiving view.
-    ///
-    /// This method releases gestureRecognizers in addition to detaching them from the view.
+    /// SwifterSwift: Detaches gesture recognizers from the receiving view. This method releases gestureRecognizers in addition to detaching them from the view.
     ///
     /// - Parameter gestureRecognizers: The array of gesture recognizers to be removed from the view.
     func removeGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {

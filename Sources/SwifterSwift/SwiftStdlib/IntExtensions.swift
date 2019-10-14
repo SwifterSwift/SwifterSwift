@@ -100,8 +100,7 @@ public extension Int {
 // MARK: - Methods
 public extension Int {
 
-    /// SwifterSwift: check if given integer prime or not.
-    /// Warning: Using big numbers can be computationally expensive!
+    /// SwifterSwift: check if given integer prime or not. Warning: Using big numbers can be computationally expensive!
     /// - Returns: true or false depending on prime-ness
     func isPrime() -> Bool {
         // To improve speed on latter loop :)
@@ -122,7 +121,7 @@ public extension Int {
 
     /// SwifterSwift: Roman numeral string from integer (if applicable).
     ///
-    ///10.romanNumeral() -> "X"
+    ///     10.romanNumeral() -> "X"
     ///
     /// - Returns: The roman numeral string.
     func romanNumeral() -> String? {

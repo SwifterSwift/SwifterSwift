@@ -1,3 +1,38 @@
+custom_rules:
+  missing_swifterswift_prefix:
+    included: ".*\\.swift"
+    excluded: ".*Tests\\.swift"
+    name: "Missing SwifterSwift: prefix"
+    regex: "///\\s(?!SwifterSwift:\\s)\\w+[^\\n]*$"
+    match_kinds:
+      - doccomment
+    message: "Doc string should always start with the SwifterSwift: prefix"
+    severity: warning
+  unnecessary_type:
+    name: "Unnecessary Type"
+    regex: '(?sm)[ \ta-zA-Z0-9]?(?:let|var){1} [ \ta-zA-Z0-9]+?:[ \t]+?([a-zA-Z0-9]+?)[\t ]+?=[\t ]?\1'
+    message: "Type Definition Not Needed"
+    severity: warning
+  comments_space:
+    name: "Space After Comment"
+    regex: '(//\w+|///\w+)'
+    message: "There should be a space between the start of a comment and the first character."
+    severity: warning
+    match_kinds:
+      - comment
+      - doccomment
+      - doccomment.field
+  empty_commented_line:
+    name: "Empty Commented Out Line"
+    regex: '(\t+| +)//$'
+    message: "Remove useless comment lines or use /* format */"
+    severity: warning
+  get_prefixed_function:
+    name: "Get prefixed function"
+    regex: '(?-smxi)(func get[A-Z0-9][\w]+?(\())'
+    message: "You should not prefix your functions with the word get."
+    severity: warning
+
 disabled_rules:
 - line_length
 - file_length
