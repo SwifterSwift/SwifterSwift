@@ -14,10 +14,19 @@ import XCTest
 final class CAGradientLayerExtensionsTests: XCTestCase {
 
     func testInitWithGradientAttributes() {
-        let gradientLayer = CAGradientLayer(colors: [.red, .blue, .orange, .yellow], locations: nil, startPoint: CGPoint(x: 0.0, y: 0.5), endPoint: CGPoint(x: 1.0, y: 0.5), type: .axial)
+        let colors: [UIColor] = [.red, .blue, .orange, .yellow]
+        let locations: [CGFloat]? = nil
+        let startPoint = CGPoint(x: 0.0, y: 0.5)
+        let endPoint = CGPoint(x: 1.0, y: 0.5)
+        let gradientLayerType: CAGradientLayerType = .axial
 
-        XCTAssertEqual(gradientLayer.startPoint, CGPoint(x: 0.0, y: 0.5))
-        XCTAssertEqual(gradientLayer.colors?.count, 4)
+        let gradientLayer = CAGradientLayer(colors: colors, locations: locations, startPoint: startPoint, endPoint: endPoint, type: gradientLayerType)
+
+        XCTAssertEqual(gradientLayer.colors?.count, colors.count)
+        XCTAssertEqual(gradientLayer.locations as? [CGFloat], locations)
+        XCTAssertEqual(gradientLayer.startPoint, startPoint)
+        XCTAssertEqual(gradientLayer.endPoint, endPoint)
+        XCTAssertEqual(gradientLayer.type, gradientLayerType)
     }
 
 }
