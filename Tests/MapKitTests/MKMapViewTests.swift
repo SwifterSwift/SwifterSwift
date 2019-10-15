@@ -65,7 +65,9 @@ final class MKMapViewTests: XCTestCase {
         let edgePadding: UIEdgeInsets = .init(top: 50, left: 50, bottom: 50, right: 50)
         let multiItemArray: [CLLocationCoordinate2D] = [.init(latitude: 36.9751, longitude: 38.4243),
                                                         .init(latitude: 37.06622, longitude: 37.38332),
-                                                        .init(latitude: 41.00527, longitude: 28.97696)]
+        let multiItemArray = [CLLocationCoordinate2D(latitude: 36.9751, longitude: 38.4243),
+                                            CLLocationCoordinate2D(latitude: 37.06622, longitude: 37.38332),
+                                            CLLocationCoordinate2D(latitude: 41.00527, longitude: 28.97696)]
 
         let multiItemInMapView: Void = mapView.zoom(to: multiItemArray, meter: meter, edgePadding: edgePadding, animated: true)
         XCTAssertNotNil(multiItemInMapView)
