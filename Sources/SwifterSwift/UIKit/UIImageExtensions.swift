@@ -170,7 +170,7 @@ public extension UIImage {
             let format = UIGraphicsImageRendererFormat()
             format.scale = scale
             let renderer = UIGraphicsImageRenderer(size: size, format: format)
-            return renderer.image { (context) in
+            return renderer.image { context in
                 color.setFill()
                 context.fill(CGRect(origin: .zero, size: size))
             }
