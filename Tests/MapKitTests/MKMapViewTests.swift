@@ -38,7 +38,6 @@ final class MKMapViewTests: XCTestCase {
     
     func testWithEmptyItemArray() {
         let mapView = MKMapView()
-        
         let meter = 500.0
         let emptyItemArray = [CLLocationCoordinate2D]()
         let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
@@ -49,7 +48,6 @@ final class MKMapViewTests: XCTestCase {
     
     func testWithOneItemArray() {
         let mapView = MKMapView()
-        
         let meter = 500.0
         let oneItemArray = [CLLocationCoordinate2D(latitude: 36.9751, longitude: 38.4243)]
         let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
@@ -60,16 +58,13 @@ final class MKMapViewTests: XCTestCase {
     
     func testWithMultiItemArray() {
         let mapView = MKMapView()
-        
         let meter = 500.0
         let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
-        let multiItemArray: [CLLocationCoordinate2D] = [.init(latitude: 36.9751, longitude: 38.4243),
-                                                        .init(latitude: 37.06622, longitude: 37.38332),
         let multiItemArray = [CLLocationCoordinate2D(latitude: 36.9751, longitude: 38.4243),
-                                            CLLocationCoordinate2D(latitude: 37.06622, longitude: 37.38332),
-                                            CLLocationCoordinate2D(latitude: 41.00527, longitude: 28.97696)]
-
+                              CLLocationCoordinate2D(latitude: 37.06622, longitude: 37.38332),
+                              CLLocationCoordinate2D(latitude: 41.00527, longitude: 28.97696)]
         let multiItemInMapView: Void = mapView.zoom(to: multiItemArray, meter: meter, edgePadding: edgePadding, animated: true)
+        
         XCTAssertNotNil(multiItemInMapView)
     }
 }
