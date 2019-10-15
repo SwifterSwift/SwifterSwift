@@ -203,17 +203,15 @@ public extension Sequence {
         return sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
     }
 
-    /// SwifterSwift: Sum of a `Numeric` property of each `Element` in a `Sequence`.
+    /// SwifterSwift: Sum of a `AdditiveArithmetic` property of each `Element` in a `Sequence`.
     ///
     ///     ["James", "Wade", "Bryant"].sum(for: \.count) -> 15
     ///
-    /// - Parameter keyPath: Key path of the `Numeric` property.
-    /// - Returns: The sum of the `Numeric` propertys at `keyPath`.
-    func sum<T: Numeric>(for keyPath: KeyPath<Element, T>) -> T {
-        // Implementation from: https://swiftbysundell.com/articles/reducers-in-swift/
-        return reduce(0) { sum, element in
-            sum + element[keyPath: keyPath]
-        }
+    /// - Parameter keyPath: Key path of the `AdditiveArithmetic` property.
+    /// - Returns: The sum of the `AdditiveArithmetic` propertys at `keyPath`.
+    func sum<T: AdditiveArithmetic>(for keyPath: KeyPath<Element, T>) -> T {
+        // Inspired by: https://swiftbysundell.com/articles/reducers-in-swift/
+        return reduce(.zero) { $0 + $1[keyPath: keyPath] }
     }
 }
 
