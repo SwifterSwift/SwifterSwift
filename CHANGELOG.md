@@ -13,6 +13,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `enumerateMatches(in:options:range:using:)`, `matches(in:options:range:)`, `numberOfMatches(in:options:range:)`, `firstMatch(in:options:range:)`, `rangeOfFirstMatch(in:options:range:)`, `stringByReplacingMatches(in:options:range:withTemplate:)`, `replaceMatches(in:options:range:withTemplate:)`, which use `String` and `String.Range` in place of `NSString` and `NSRange` to make the calls Swifter. [#727](https://github.com/SwifterSwift/SwifterSwift/pull/727) by [guykogus](https://github.com/guykogus).
 - **UIImage**:
   - Added `withBackgroundColor(_:)` to specify a background color for a partially transparent image. [#721](https://github.com/SwifterSwift/SwifterSwift/pull/721) by [MaxHaertwig](https://github.com/maxhaertwig).
+- **CAGradientLayer**:
+  - Added `init(colors:locations:startPoint:endPoint:type:)` convenience initializer. [#726](https://github.com/SwifterSwift/SwifterSwift/pull/726) by [JayMehta97](https://github.com/JayMehta97).
 
 ### Changed
 
