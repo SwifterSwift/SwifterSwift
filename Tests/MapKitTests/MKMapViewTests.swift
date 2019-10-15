@@ -62,7 +62,7 @@ final class MKMapViewTests: XCTestCase {
         let mapView = MKMapView()
         
         let meter = 500.0
-        let edgePadding: UIEdgeInsets = .init(top: 50, left: 50, bottom: 50, right: 50)
+        let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         let multiItemArray: [CLLocationCoordinate2D] = [.init(latitude: 36.9751, longitude: 38.4243),
                                                         .init(latitude: 37.06622, longitude: 37.38332),
         let multiItemArray = [CLLocationCoordinate2D(latitude: 36.9751, longitude: 38.4243),
