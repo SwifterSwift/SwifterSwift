@@ -52,7 +52,7 @@ final class MKMapViewTests: XCTestCase {
         
         let meter = 500.0
         let oneItemArray = [CLLocationCoordinate2D(latitude: 36.9751, longitude: 38.4243)]
-        let edgePadding: UIEdgeInsets = .init(top: 50, left: 50, bottom: 50, right: 50)
+        let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         let oneItemInMapView: Void = mapView.zoom(to: oneItemArray, meter: meter, edgePadding: edgePadding, animated: true)
         
         XCTAssertNotNil(oneItemInMapView)
