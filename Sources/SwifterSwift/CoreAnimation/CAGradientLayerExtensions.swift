@@ -6,7 +6,7 @@
 //  Copyright © 2019 SwifterSwift
 //
 
-#if !os(watchOS)
+#if !os(watchOS) && !os(Linux)
 
 extension CAGradientLayer {
 

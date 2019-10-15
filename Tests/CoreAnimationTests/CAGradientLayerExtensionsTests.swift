@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if !os(watchOS)
+#if !os(watchOS) && !os(Linux)
 
 final class CAGradientLayerExtensionsTests: XCTestCase {
 
