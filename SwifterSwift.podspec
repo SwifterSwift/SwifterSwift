@@ -53,6 +53,11 @@ Pod::Spec.new do |s|
     sp.source_files  = 'Sources/SwifterSwift/CoreLocation/*.swift'
   end
 
+  # CoreAnimation Extensions
+  s.subspec 'CoreAnimation' do |sp|
+    sp.source_files  = 'Sources/SwifterSwift/CoreAnimation/*.swift'
+  end
+
   # MapKit Extensions
   s.subspec 'MapKit' do |sp|
     sp.source_files = 'Sources/SwifterSwift/MapKit/*.swift'
