@@ -98,6 +98,23 @@ public extension Array where Element: Equatable {
         }
     }
 
+    /// SwifterSwift: Remove all duplicate elements removed using KeyPath to compare.
+    ///
+    /// - Parameter path: Key path to compare, the value must be Equatable.
+    /// - Returns: an array of unique elements.
+    @discardableResult
+    mutating func removeDuplicates<E: Equatable>(keyPath path: KeyPath<Element, E>) -> [Element] {
+        var items = [Element]()
+        removeAll { (element) -> Bool in
+            if !items.contains{ $0[keyPath: path] == element[keyPath: path] } {
+                items.append(element)
+                return false
+            }
+            return true
+        }
+        return self
+    }
+
     /// SwifterSwift: Returns an array with all duplicate elements removed using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Equatable.
@@ -108,6 +125,19 @@ public extension Array where Element: Equatable {
                 result.append(element)
             }
         }
+    }
+
+    /// SwifterSwift: Remove all duplicate elements removed using KeyPath to compare.
+    ///
+    /// - Parameter path: Key path to compare, the value must be Hashable.
+    /// - Returns: an array of unique elements.
+    @discardableResult
+    mutating func removeDuplicates<E: Hashable>(keyPath path: KeyPath<Element, E>) -> [Element] {
+        var set = Set<E>()
+        removeAll {
+            set.insert($0[keyPath: path]).inserted == false
+        }
+        return self
     }
 
     /// SwifterSwift: Returns an array with all duplicate elements removed using KeyPath to compare.
