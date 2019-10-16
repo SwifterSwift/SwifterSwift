@@ -241,7 +241,11 @@
 		07C50D491F5EB04700F46E5A /* UINavigationBarExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D161F5EB03200F46E5A /* UINavigationBarExtensionTests.swift */; };
 		07C50D4A1F5EB04700F46E5A /* UINavigationControllerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D171F5EB03200F46E5A /* UINavigationControllerExtensionsTests.swift */; };
 		07C50D4B1F5EB04700F46E5A /* UINavigationItemExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D181F5EB03200F46E5A /* UINavigationItemExtensionsTests.swift */; };
+		07C50D4C1F5EB04700F46E5A /* UISearchBarExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D191F5EB03200F46E5A /* UISearchBarExtensionsTests.swift */; };
 		07C50D4D1F5EB04700F46E5A /* UISegmentedControlExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D1A1F5EB03200F46E5A /* UISegmentedControlExtensionsTests.swift */; };
+		07C50D4E1F5EB04700F46E5A /* UISliderExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D1B1F5EB03200F46E5A /* UISliderExtensionsTests.swift */; };
+		07C50D4F1F5EB04700F46E5A /* UIStoryboardExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D1C1F5EB03200F46E5A /* UIStoryboardExtensionsTests.swift */; };
+		07C50D501F5EB04700F46E5A /* UISwitchExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D1D1F5EB03200F46E5A /* UISwitchExtensionsTests.swift */; };
 		07C50D511F5EB04700F46E5A /* UITabBarExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D1E1F5EB03200F46E5A /* UITabBarExtensionsTests.swift */; };
 		07C50D521F5EB04700F46E5A /* UITableViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D1F1F5EB03200F46E5A /* UITableViewExtensionsTests.swift */; };
 		07C50D531F5EB04700F46E5A /* UITextFieldExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C50D201F5EB03200F46E5A /* UITextFieldExtensionsTests.swift */; };
@@ -2124,6 +2128,7 @@
 				07C50D521F5EB04700F46E5A /* UITableViewExtensionsTests.swift in Sources */,
 				078916DB2076077000AC0665 /* FloatingPointExtensionsTests.swift in Sources */,
 				F8C1AE75225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */,
+				07C50D4E1F5EB04700F46E5A /* UISliderExtensionsTests.swift in Sources */,
 				07C50D451F5EB04700F46E5A /* ColorExtensionsTests.swift in Sources */,
 				784C75382051BE1D001C48DD /* MKPolylineTests.swift in Sources */,
 				07C50D491F5EB04700F46E5A /* UINavigationBarExtensionTests.swift in Sources */,
@@ -2145,9 +2150,11 @@
 				9DC29CF52349E80F00F5CAAD /* UIColorExtensionsTests.swift in Sources */,
 				07C50D661F5EB05100F46E5A /* BoolExtensionsTests.swift in Sources */,
 				07FE50461F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */,
+				07C50D4F1F5EB04700F46E5A /* UIStoryboardExtensionsTests.swift in Sources */,
 				734307FD2108C85D0029CD16 /* CGVectorExtensionsTests.swift in Sources */,
 				9D806A7F2258F41B008E500A /* SCNMaterialExtensionsTests.swift in Sources */,
 				9D9784E51FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */,
+				07C50D4C1F5EB04700F46E5A /* UISearchBarExtensionsTests.swift in Sources */,
 				8D4B4250212972E7002A5923 /* UILayoutPriorityExtensionsTests.swift in Sources */,
 				07C50D871F5EB06000F46E5A /* CGFloatExtensionsTests.swift in Sources */,
 				9D806AA42258FF98008E500A /* SCNPlaneExtensionsTests.swift in Sources */,
@@ -2156,6 +2163,7 @@
 				07C50D541F5EB04700F46E5A /* UITextViewExtensionsTests.swift in Sources */,
 				074EAF201F7BA74700C74636 /* UIFontExtensionsTests.swift in Sources */,
 				07C50D461F5EB04700F46E5A /* UIImageExtensionsTests.swift in Sources */,
+				07C50D501F5EB04700F46E5A /* UISwitchExtensionsTests.swift in Sources */,
 				07C50D4A1F5EB04700F46E5A /* UINavigationControllerExtensionsTests.swift in Sources */,
 				9D806A3E2258AED4008E500A /* UIBezierPathExtensionsTests.swift in Sources */,
 				07C50D681F5EB05100F46E5A /* CollectionExtensionsTests.swift in Sources */,
