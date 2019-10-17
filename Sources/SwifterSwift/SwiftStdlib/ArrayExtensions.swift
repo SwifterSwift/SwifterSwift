@@ -106,7 +106,7 @@ public extension Array where Element: Equatable {
     mutating func removeDuplicates<E: Equatable>(keyPath path: KeyPath<Element, E>) -> [Element] {
         var items = [Element]()
         removeAll { element -> Bool in
-            if !items.contains { $0[keyPath: path] == element[keyPath: path] } {
+            guard (items.contains { $0[keyPath: path] == element[keyPath: path] }) else {
                 items.append(element)
                 return false
             }
@@ -134,9 +134,7 @@ public extension Array where Element: Equatable {
     @discardableResult
     mutating func removeDuplicates<E: Hashable>(keyPath path: KeyPath<Element, E>) -> [Element] {
         var set = Set<E>()
-        removeAll {
-            set.insert($0[keyPath: path]).inserted == false
-        }
+        removeAll { !set.insert($0[keyPath: path]).inserted }
         return self
     }
 
