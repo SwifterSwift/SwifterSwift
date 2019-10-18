@@ -195,7 +195,6 @@ public extension UIImage {
         return newImage
     }
 
-    #if !os(watchOS)
     /// SwifterSwift: UIImage tinted with color
     ///
     /// - Parameters:
@@ -204,6 +203,8 @@ public extension UIImage {
     /// - Returns: UIImage tinted with given color.
     func tint(_ color: UIColor, blendMode: CGBlendMode, alpha: CGFloat = 1.0) -> UIImage {
         let drawRect = CGRect(origin: .zero, size: size)
+
+        #if !os(watchOS)
         if #available(iOS 10.0, tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
             format.scale = scale
@@ -213,6 +214,7 @@ public extension UIImage {
                 draw(in: drawRect, blendMode: blendMode, alpha: alpha)
             }
         }
+        #endif
 
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer {
@@ -231,6 +233,8 @@ public extension UIImage {
     ///   - backgroundColor: Color to use as background color
     /// - Returns: UIImage with a background color that is visible where alpha < 1
     func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage {
+
+        #if !os(watchOS)
         if #available(iOS 10.0, tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
             format.scale = scale
@@ -240,6 +244,7 @@ public extension UIImage {
                 draw(at: .zero)
             }
         }
+        #endif
 
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer { UIGraphicsEndImageContext() }
@@ -250,7 +255,6 @@ public extension UIImage {
 
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
-    #endif
 
     /// SwifterSwift: UIImage with rounded corners
     ///
