@@ -29,9 +29,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Removed
 
-- **UIImage**:
-  - Removed watchOS support for `tint(_:blendMode:)` because UIGraphicsImageRenderer is not available. [#731](https://github.com/SwifterSwift/SwifterSwift/pull/731) by [FraDeliro](https://github.com/FraDeliro).
-
 ### Fixed
 
 ### Security
