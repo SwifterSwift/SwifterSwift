@@ -22,6 +22,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIImage**:
   - Implemented `filled(withColor:)` using `UIGraphicsImageRenderer` when available. [#733](https://github.com/SwifterSwift/SwifterSwift/pull/733)
 
+- **UIImage**:
+  - Refactored `tint(_:blendMode:)` using UIGraphicsImageRenderer if available. [#731](https://github.com/SwifterSwift/SwifterSwift/pull/731) by [FraDeliro](https://github.com/FraDeliro).
+
 ### Deprecated
 
 ### Removed
