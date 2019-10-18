@@ -242,6 +242,14 @@ let package = Package(
 </details>
 
 <details>
+<summary>CoreAnimation Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreAnimation/CAGradientLayerExtensions.swift"><code>CAGradientLayer extensions</code></a></li>
+</ul>
+</details>
+
+<details>
 <summary>MapKit Extensions</summary>
 </br>
 <ul>

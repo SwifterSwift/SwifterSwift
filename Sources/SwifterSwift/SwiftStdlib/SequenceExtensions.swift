@@ -202,6 +202,17 @@ public extension Sequence {
     func sorted<T: Comparable>(by keyPath: KeyPath<Element, T>) -> [Element] {
         return sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
     }
+
+    /// SwifterSwift: Sum of a `AdditiveArithmetic` property of each `Element` in a `Sequence`.
+    ///
+    ///     ["James", "Wade", "Bryant"].sum(for: \.count) -> 15
+    ///
+    /// - Parameter keyPath: Key path of the `AdditiveArithmetic` property.
+    /// - Returns: The sum of the `AdditiveArithmetic` propertys at `keyPath`.
+    func sum<T: AdditiveArithmetic>(for keyPath: KeyPath<Element, T>) -> T {
+        // Inspired by: https://swiftbysundell.com/articles/reducers-in-swift/
+        return reduce(.zero) { $0 + $1[keyPath: keyPath] }
+    }
 }
 
 public extension Sequence where Element: Equatable {

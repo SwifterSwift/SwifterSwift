@@ -129,6 +129,11 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum(), 17)
     }
 
+    func testKeyPathSum() {
+        XCTAssertEqual(["James", "Wade", "Bryant"].sum(for: \.count), 15)
+        XCTAssertEqual(["a", "b", "c", "d"].sum(for: \.count), 4)
+    }
+
     func testKeyPathSorted() {
         let array = ["James", "Wade", "Bryant"]
         XCTAssertEqual(array.sorted(by: \String.count, with: <), ["Wade", "James", "Bryant"])
