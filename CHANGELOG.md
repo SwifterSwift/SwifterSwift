@@ -17,6 +17,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `init(colors:locations:startPoint:endPoint:type:)` convenience initializer. [#726](https://github.com/SwifterSwift/SwifterSwift/pull/726) by [JayMehta97](https://github.com/JayMehta97).
 - **Sequence**:
   - Added `sum(for:)` to sum up an `AdditiveArithmetic` property, referenced by `KeyPath`, of all elements in a sequence. [#736](https://github.com/SwifterSwift/SwifterSwift/pull/736) by [Moritz Sternemann](https://github.com/moritzsternemann).
+- **Thread**:
+  - Added `mainThreadCompletion<T>(_: result:)`, which provides a method to execute a completion block on main thread. [#738](https://github.com/SwifterSwift/SwifterSwift/pull/738) by [Francesco Deliro](https://github.com/FraDeliro).
 
 ### Changed
 - **UIImage**:
