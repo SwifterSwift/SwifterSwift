@@ -212,17 +212,17 @@ public extension UIImage {
                 context.fill(drawRect)
                 draw(in: drawRect, blendMode: blendMode, alpha: alpha)
             }
-        } else {
-            UIGraphicsBeginImageContextWithOptions(size, false, scale)
-            defer {
-                UIGraphicsEndImageContext()
-            }
-            let context = UIGraphicsGetCurrentContext()
-            color.setFill()
-            context?.fill(drawRect)
-            draw(in: drawRect, blendMode: blendMode, alpha: alpha)
-            return UIGraphicsGetImageFromCurrentImageContext()!
         }
+
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        defer {
+            UIGraphicsEndImageContext()
+        }
+        let context = UIGraphicsGetCurrentContext()
+        color.setFill()
+        context?.fill(drawRect)
+        draw(in: drawRect, blendMode: blendMode, alpha: alpha)
+        return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
     /// SwifterSwift: UImage with background color
