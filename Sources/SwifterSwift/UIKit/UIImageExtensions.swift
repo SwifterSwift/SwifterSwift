@@ -189,19 +189,15 @@ public extension UIImage {
     ///   - color: color to tint image with.
     ///   - blendMode: how to blend the tint
     /// - Returns: UIImage tinted with given color.
-    func tint(_ color: UIColor, blendMode: CGBlendMode) -> UIImage {
+    func tint(_ color: UIColor, blendMode: CGBlendMode, alpha: CGFloat = 1.0) -> UIImage {
         let drawRect = CGRect(origin: .zero, size: size)
         if #available(iOS 10.0, tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
             format.scale = scale
-            let renderer = UIGraphicsImageRenderer(
-                size: size,
-                format: format
-            )
-            return renderer.image { context in
+            return UIGraphicsImageRenderer(size: size, format: format).image { context in
                 color.setFill()
                 context.fill(drawRect)
-                draw(in: drawRect, blendMode: blendMode, alpha: 1.0)
+                draw(in: drawRect, blendMode: blendMode, alpha: alpha)
             }
         } else {
             UIGraphicsBeginImageContextWithOptions(size, false, scale)
@@ -211,7 +207,7 @@ public extension UIImage {
             let context = UIGraphicsGetCurrentContext()
             color.setFill()
             context?.fill(drawRect)
-            draw(in: drawRect, blendMode: blendMode, alpha: 1.0)
+            draw(in: drawRect, blendMode: blendMode, alpha: alpha)
             return UIGraphicsGetImageFromCurrentImageContext()!
         }
     }
