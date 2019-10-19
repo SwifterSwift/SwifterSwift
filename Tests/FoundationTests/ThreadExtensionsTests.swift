@@ -31,7 +31,9 @@ final class ThreadExtensionsTests: XCTestCase {
             }
         }
 
-        Thread.mainThreadCompletion(completion, result: .success(""))
+        DispatchQueue.global(qos: .background).async {
+            Thread.mainThreadCompletion(completion, result: .success(""))
+        }
     }
 
     func testMainThreadCompletionFailure() {
@@ -45,7 +47,9 @@ final class ThreadExtensionsTests: XCTestCase {
             }
         }
 
-        Thread.mainThreadCompletion(completion, result: .failure(TestError.error))
+        DispatchQueue.global(qos: .background).async {
+            Thread.mainThreadCompletion(completion, result: .failure(TestError.error))
+        }
     }
 
 }
