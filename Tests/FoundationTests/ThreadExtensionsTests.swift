@@ -31,12 +31,40 @@ final class ThreadExtensionsTests: XCTestCase {
             }
         }
 
+        Thread.mainThreadCompletion(completion, result: .success(""))
+    }
+
+    func testMainThreadCompletionCalledFromBackgroundQueueSuccessful() {
+        let completion: StringCompletion = { result in
+            switch result {
+            case .success(let text):
+                XCTAssertTrue(text.isEmpty)
+                XCTAssertTrue(Thread.isMainThread)
+            case .failure(let error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+
         DispatchQueue.global(qos: .background).async {
             Thread.mainThreadCompletion(completion, result: .success(""))
         }
     }
 
     func testMainThreadCompletionFailure() {
+        let completion: StringCompletion = { result in
+            switch result {
+            case .success:
+                XCTFail("result should fail")
+            case .failure(let error):
+                XCTAssertTrue(error is TestError)
+                XCTAssertTrue(Thread.isMainThread)
+            }
+        }
+
+        Thread.mainThreadCompletion(completion, result: .failure(TestError.error))
+    }
+
+    func testMainThreadCompletionCalledFromBackgroundQueueFailure() {
         let completion: StringCompletion = { result in
             switch result {
             case .success:
