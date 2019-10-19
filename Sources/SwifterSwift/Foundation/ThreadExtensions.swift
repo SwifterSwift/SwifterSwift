@@ -20,7 +20,7 @@ public extension Thread {
         _ completion: @escaping (Result<T, Error>) -> Void,
         result: Result<T, Error>
     ) {
-        if current == main {
+        if isMainThread {
             completion(result)
         } else {
             DispatchQueue.main.async {
