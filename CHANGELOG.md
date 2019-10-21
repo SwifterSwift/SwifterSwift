@@ -15,8 +15,17 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `flexibleSpace` and `fixedSpace(width:)` extensions to UIBarButtonItem to simplify the creation of spacers. [#728](https://github.com/SwifterSwift/SwifterSwift/pull/728) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **UIImage**:
   - Added `withBackgroundColor(_:)` to specify a background color for a partially transparent image. [#721](https://github.com/SwifterSwift/SwifterSwift/pull/721) by [MaxHaertwig](https://github.com/maxhaertwig).
+- **CAGradientLayer**:
+  - Added `init(colors:locations:startPoint:endPoint:type:)` convenience initializer. [#726](https://github.com/SwifterSwift/SwifterSwift/pull/726) by [JayMehta97](https://github.com/JayMehta97).
+- **Sequence**:
+  - Added `sum(for:)` to sum up an `AdditiveArithmetic` property, referenced by `KeyPath`, of all elements in a sequence. [#736](https://github.com/SwifterSwift/SwifterSwift/pull/736) by [Moritz Sternemann](https://github.com/moritzsternemann).
 
 ### Changed
+- **UIImage**:
+  - Implemented `filled(withColor:)` using `UIGraphicsImageRenderer` when available. [#733](https://github.com/SwifterSwift/SwifterSwift/pull/733)
+
+- **UIImage**:
+  - Refactored `tint(_:blendMode:)` using UIGraphicsImageRenderer if available. [#731](https://github.com/SwifterSwift/SwifterSwift/pull/731) by [FraDeliro](https://github.com/FraDeliro).
 
 ### Deprecated
 

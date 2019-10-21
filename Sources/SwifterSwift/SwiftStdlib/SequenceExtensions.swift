@@ -80,7 +80,7 @@ public extension Sequence {
 
     /// SwifterSwift: Iterate over a collection in reverse order. (right to left)
     ///
-    ///        [0, 2, 4, 7].forEachReversed({ print($0)}) -> //Order of print: 7,4,2,0
+    ///        [0, 2, 4, 7].forEachReversed({ print($0)}) -> // Order of print: 7,4,2,0
     ///
     /// - Parameter body: a closure that takes an element of the array as a parameter.
     func forEachReversed(_ body: (Element) throws -> Void) rethrows {
@@ -89,7 +89,7 @@ public extension Sequence {
 
     /// SwifterSwift: Calls the given closure with each element where condition is true.
     ///
-    ///        [0, 2, 4, 7].forEach(where: {$0 % 2 == 0}, body: { print($0)}) -> //print: 0, 2, 4
+    ///        [0, 2, 4, 7].forEach(where: {$0 % 2 == 0}, body: { print($0)}) -> // print: 0, 2, 4
     ///
     /// - Parameters:
     ///   - condition: condition to evaluate each element against.
@@ -167,9 +167,7 @@ public extension Sequence {
         return try filter { set.insert(try transform($0)).inserted }
     }
 
-    /// SwifterSwift: Separates all items into 2 lists based on a given predicate.
-    /// The first list contains all items for which the specified condition evaluates to true.
-    /// The second list contains those that don't.
+    /// SwifterSwift: Separates all items into 2 lists based on a given predicate. The first list contains all items for which the specified condition evaluates to true. The second list contains those that don't.
     ///
     ///     let (even, odd) = [0, 1, 2, 3, 4, 5].divided { $0 % 2 == 0 }
     ///     let (minors, adults) = people.divided { $0.age < 18 }
@@ -177,7 +175,7 @@ public extension Sequence {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: A tuple of matched and non-matched items
     func divided(by condition: (Element) throws -> Bool) rethrows -> (matching: [Element], nonMatching: [Element]) {
-        //Inspired by: http://ruby-doc.org/core-2.5.0/Enumerable.html#method-i-partition
+        // Inspired by: http://ruby-doc.org/core-2.5.0/Enumerable.html#method-i-partition
         var matching = ContiguousArray<Element>()
         var nonMatching = ContiguousArray<Element>()
 
@@ -203,6 +201,17 @@ public extension Sequence {
     /// - Returns: The sorted array.
     func sorted<T: Comparable>(by keyPath: KeyPath<Element, T>) -> [Element] {
         return sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
+    }
+
+    /// SwifterSwift: Sum of a `AdditiveArithmetic` property of each `Element` in a `Sequence`.
+    ///
+    ///     ["James", "Wade", "Bryant"].sum(for: \.count) -> 15
+    ///
+    /// - Parameter keyPath: Key path of the `AdditiveArithmetic` property.
+    /// - Returns: The sum of the `AdditiveArithmetic` propertys at `keyPath`.
+    func sum<T: AdditiveArithmetic>(for keyPath: KeyPath<Element, T>) -> T {
+        // Inspired by: https://swiftbysundell.com/articles/reducers-in-swift/
+        return reduce(.zero) { $0 + $1[keyPath: keyPath] }
     }
 }
 
