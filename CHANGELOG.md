@@ -6,11 +6,13 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **Color**:
-    - Added `init(light:dark:)` to create an NSColor/UIColor with different variations for light and dark mode. Only available in iOS/tvOS 13.0, macOS 10.15. [#722](https://github.com/SwifterSwift/SwifterSwift/pull/722) by [MaxHaertwig](https://github.com/maxhaertwig).
+  - Added `init(light:dark:)` to create an NSColor/UIColor with different variations for light and dark mode. Only available in iOS/tvOS 13.0, macOS 10.15. [#722](https://github.com/SwifterSwift/SwifterSwift/pull/722) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **String**:
   - Added `withPrefix(_:)`, which provides a method to add a prefix to a string. If the string already has that prefix, it simply returns the original string. [#720](https://github.com/SwifterSwift/SwifterSwift/pull/720) by [Zach Frew](https://github.com/zmfrew).
 - **NSRegularExpression**:
   - Added `enumerateMatches(in:options:range:using:)`, `matches(in:options:range:)`, `numberOfMatches(in:options:range:)`, `firstMatch(in:options:range:)`, `rangeOfFirstMatch(in:options:range:)`, `stringByReplacingMatches(in:options:range:withTemplate:)`, `replaceMatches(in:options:range:withTemplate:)`, which use `String` and `String.Range` in place of `NSString` and `NSRange` to make the calls Swifter. [#727](https://github.com/SwifterSwift/SwifterSwift/pull/727) by [guykogus](https://github.com/guykogus).
+- **UIBarButtonItem**:
+  - Added `flexibleSpace` and `fixedSpace(width:)` extensions to UIBarButtonItem to simplify the creation of spacers. [#728](https://github.com/SwifterSwift/SwifterSwift/pull/728) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **UIImage**:
   - Added `withBackgroundColor(_:)` to specify a background color for a partially transparent image. [#721](https://github.com/SwifterSwift/SwifterSwift/pull/721) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **CAGradientLayer**:
