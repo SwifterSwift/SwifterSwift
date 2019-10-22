@@ -6,8 +6,10 @@
 //  Copyright © 2019 SwifterSwift
 //
 
-import UIKit
-
+/**
+ These structs used to test ArrayExtensions and RangeReplaceableCollection.
+ Feel free to use it for your needs.
+ */
 struct Person: Equatable {
     var name: String
     var age: Int?
