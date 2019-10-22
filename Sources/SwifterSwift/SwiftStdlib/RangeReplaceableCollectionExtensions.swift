@@ -130,4 +130,25 @@ public extension RangeReplaceableCollection {
         return Self(self[idx...])
     }
 
+    /// SwifterSwift: Remove all duplicate elements using KeyPath to compare.
+    ///
+    /// - Parameter path: Key path to compare, the value must be Equatable.
+    mutating func removeDuplicates<E: Equatable>(keyPath path: KeyPath<Element, E>) {
+        var items = [Element]()
+        removeAll { element -> Bool in
+            guard items.contains(where: { $0[keyPath: path] == element[keyPath: path] }) else {
+                items.append(element)
+                return false
+            }
+            return true
+        }
+    }
+
+    /// SwifterSwift: Remove all duplicate elements using KeyPath to compare.
+    ///
+    /// - Parameter path: Key path to compare, the value must be Hashable.
+    mutating func removeDuplicates<E: Hashable>(keyPath path: KeyPath<Element, E>) {
+        var set = Set<E>()
+        removeAll { !set.insert($0[keyPath: path]).inserted }
+    }
 }

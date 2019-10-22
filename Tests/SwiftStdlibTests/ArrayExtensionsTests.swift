@@ -8,7 +8,7 @@
 import XCTest
 @testable import SwifterSwift
 
-private struct Person: Equatable {
+struct Person: Equatable {
     var name: String
     var age: Int?
     var location: Location?
@@ -20,7 +20,7 @@ private struct Person: Equatable {
     }
 }
 
-private struct Location: Equatable {
+struct Location: Equatable {
     let city: String
 }
 
@@ -91,19 +91,5 @@ final class ArrayExtensionsTests: XCTestCase {
         let arrayWithoutDuplicatesNHashable = array.withoutDuplicates(keyPath: \.location)
         let arrayWithoutDuplicatesNHashablePrepared = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "James", age: 72, location: Location(city: "Moscow")), Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
         XCTAssertEqual(arrayWithoutDuplicatesNHashable, arrayWithoutDuplicatesNHashablePrepared)
-    }
-
-    func testRemoveDuplicatesUsingKeyPathHashable() {
-        var array = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72, location: Location(city: "Moscow")), Person(name: "Rose", age: 56), Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
-        let arrayWithoutDuplicatesPrepared = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "Rose", age: 29)]
-        array.removeDuplicates(keyPath: \.name)
-        XCTAssertEqual(array, arrayWithoutDuplicatesPrepared)
-    }
-
-    func testRemoveDuplicatesUsingKeyPathEquatable() {
-        var array = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "James", age: 36), Person(name: "Rose", age: 29), Person(name: "James", age: 72, location: Location(city: "Moscow")), Person(name: "Rose", age: 56), Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
-        let arrayWithoutDuplicatesNHashablePrepared = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "James", age: 72, location: Location(city: "Moscow")), Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
-        array.removeDuplicates(keyPath: \.location)
-        XCTAssertEqual(array, arrayWithoutDuplicatesNHashablePrepared)
     }
 }
