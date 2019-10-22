@@ -4,7 +4,7 @@ osx_image: xcode11
 
 jobs:
   include:
-    - name: Darwin 
+    - name: Darwin
       env:
         - PROJECT='SwifterSwift.xcodeproj'
         - IOS_SCHEME='SwifterSwift-iOS'
@@ -13,7 +13,7 @@ jobs:
         - MACOS_SCHEME='SwifterSwift-macOS'
         - IOS_DESTINATION='platform=iOS Simulator,name=iPhone 11'
         - TVOS_DESTINATION='platform=tvOS Simulator,name=Apple TV 4K (at 1080p)'
-        - WATCHOS_DESTINATION='name=Apple Watch - 42mm'
+        - WATCHOS_DESTINATION='name=Apple Watch Series 5 - 40mm'
         - MACOS_DESTINATION='platform=OS X'
       before_install:
         - bundle install
@@ -31,8 +31,27 @@ jobs:
         - bash <(curl -s https://codecov.io/bash) -cF osx -J 'SwifterSwift'
         - xcodebuild clean build -project "$PROJECT" -scheme "$WATCHOS_SCHEME" -destination "$WATCHOS_DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-watchos.json" xcpretty -f `xcpretty-json-formatter`
         - bundle exec danger --verbose
-        # - bundle exec pod lib lint --skip-tests --allow-warnings --verbose
-    - name: Linux 
+    - name: Cocoapods iOS
+      before_install:
+        - bundle install
+      script:
+        - bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=ios
+    - name: Cocoapods macOS
+      before_install:
+        - bundle install
+      script:
+        - bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=macos
+    - name: Cocoapods tvOS
+      before_install:
+        - bundle install
+      script:
+        - bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=tvos
+    - name: Cocoapods watchOS
+      before_install:
+        - bundle install
+      script:
+        - bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=watchos
+    - name: Linux
       env: SWIFT_VERSION=5.0
       os: linux
       language: generic
