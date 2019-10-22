@@ -8,22 +8,6 @@
 import XCTest
 @testable import SwifterSwift
 
-struct Person: Equatable {
-    var name: String
-    var age: Int?
-    var location: Location?
-
-    init(name: String, age: Int?, location: Location? = nil) {
-        self.name = name
-        self.age = age
-        self.location = location
-    }
-}
-
-struct Location: Equatable {
-    let city: String
-}
-
 final class ArrayExtensionsTests: XCTestCase {
 
     func testPrepend() {
