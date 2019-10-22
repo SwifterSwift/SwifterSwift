@@ -128,7 +128,7 @@ final class UIImageExtensionsTests: XCTestCase {
         let image = UIImage(base64String: base64String)
         XCTAssertNotNil(image)
 
-        let size: CGSize = CGSize(width: 5, height: 5)
+        let size = CGSize(width: 5, height: 5)
         XCTAssertEqual(image?.size, size)
 
         XCTAssertEqual(image?.bytesSize, 787)
