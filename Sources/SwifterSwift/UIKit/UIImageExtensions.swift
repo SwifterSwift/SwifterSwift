@@ -312,9 +312,9 @@ public extension UIImage {
     /// SwifterSwift: Create a new image from a base 64 string.
     ///
     /// - Parameters:
-    ///   - string: a base 64 string, representing the image
-    convenience init?(base64String string: String) {
-        guard let data = Data(base64Encoded: string, options: .ignoreUnknownCharacters) else { return nil }
+    ///   - base64String: a base-64 `String`, representing the image
+    convenience init?(base64String: String) {
+        guard let data = Data(base64Encoded: base64String) else { return nil }
         self.init(data: data)
     }
 

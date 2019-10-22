@@ -124,9 +124,14 @@ final class UIImageExtensionsTests: XCTestCase {
     }
 
     func testBase64() {
-        let base64Str = "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAE0lEQVR42mP8v5JhEwMaYKSBIADNAwvIr8dhZAAAAABJRU5ErkJggg=="
-        let img = UIImage(base64String: base64Str)
-        XCTAssertNotNil(img)
+        let base64String = "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAE0lEQVR42mP8v5JhEwMaYKSBIADNAwvIr8dhZAAAAABJRU5ErkJggg=="
+        let image = UIImage(base64String: base64String)
+        XCTAssertNotNil(image)
+
+        let size: CGSize = CGSize(width: 5, height: 5)
+        XCTAssertEqual(image?.size, size)
+
+        XCTAssertEqual(image?.bytesSize, 787)
     }
 
     func testTinted() {
