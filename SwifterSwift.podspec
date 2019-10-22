@@ -55,7 +55,7 @@ Pod::Spec.new do |s|
 
   # CoreAnimation Extensions
   s.subspec 'CoreAnimation' do |sp|
-    sp.source_files  = 'Sources/SwifterSwift/CoreAnimation/*.swift'
+    sp.source_files  = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/CoreAnimation/*.swift'
   end
 
   # MapKit Extensions

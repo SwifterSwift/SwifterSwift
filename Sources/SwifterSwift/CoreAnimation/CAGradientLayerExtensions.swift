@@ -6,7 +6,8 @@
 //  Copyright © 2019 SwifterSwift
 //
 
-#if !os(watchOS) && !os(Linux)
+#if !os(watchOS) && !os(Linux) && canImport(QuartzCore)
+import QuartzCore
 
 extension CAGradientLayer {
 
