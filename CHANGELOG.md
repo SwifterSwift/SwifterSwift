@@ -15,6 +15,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `flexibleSpace` and `fixedSpace(width:)` extensions to UIBarButtonItem to simplify the creation of spacers. [#728](https://github.com/SwifterSwift/SwifterSwift/pull/728) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **UIImage**:
   - Added `withBackgroundColor(_:)` to specify a background color for a partially transparent image. [#721](https://github.com/SwifterSwift/SwifterSwift/pull/721) by [MaxHaertwig](https://github.com/maxhaertwig).
+  - Added `init?(base64String:)` to create a `UIImage` from a base-64 `String`. [#741](https://github.com/SwifterSwift/SwifterSwift/issues/741) by [@thisIsTheFoxe](https://github.com/thisisthefoxe)
 - **CAGradientLayer**:
   - Added `init(colors:locations:startPoint:endPoint:type:)` convenience initializer. [#726](https://github.com/SwifterSwift/SwifterSwift/pull/726) by [JayMehta97](https://github.com/JayMehta97).
 - **Sequence**:
