@@ -37,6 +37,11 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertEqual(image.template, image.withRenderingMode(.alwaysTemplate))
     }
 
+    func testBase64String() {
+        let image = UIImage(color: .blue, size: CGSize(width: 1, height: 1))
+        XCTAssertEqual(image.base64String, "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAAD5Ip3+AAAADUlEQVQIHWNgYPj/HwADAgH/p+FUpQAAAABJRU5ErkJggg==")
+    }
+
     func testCompressed() {
         let bundle = Bundle.init(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!

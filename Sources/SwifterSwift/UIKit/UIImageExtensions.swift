@@ -32,6 +32,11 @@ public extension UIImage {
         return withRenderingMode(.alwaysTemplate)
     }
 
+    /// SwifterSwift: Base 64 encoded PNG data of the image.
+    var base64String: String? {
+        return pngData()?.base64EncodedString()
+    }
+
 }
 
 // MARK: - Methods
