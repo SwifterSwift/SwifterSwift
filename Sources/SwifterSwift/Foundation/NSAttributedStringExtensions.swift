@@ -13,7 +13,7 @@ import Foundation
 import UIKit
 #endif
 
-#if canImport(Cocoa)
+#if canImport(Cocoa) && !targetEnvironment(macCatalyst)
 import Cocoa
 #endif
 

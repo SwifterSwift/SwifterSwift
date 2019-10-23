@@ -6,7 +6,7 @@
 //  Copyright © 2017 SwifterSwift
 //
 
-#if canImport(Cocoa)
+#if canImport(Cocoa) && !targetEnvironment(macCatalyst)
 import Cocoa
 
 // MARK: - Properties

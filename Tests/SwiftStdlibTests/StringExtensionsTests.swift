@@ -716,7 +716,7 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testColored() {
-        #if canImport(Cocoa)
+        #if canImport(Cocoa) && !targetEnvironment(macCatalyst)
         let coloredString = "hello".colored(with: .orange)
         // swiftlint:disable:next legacy_constructor
         let attrs = coloredString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, coloredString.length))

@@ -6,7 +6,7 @@
 //  Copyright © 2019 SwifterSwift
 //
 
-#if canImport(Cocoa)
+#if canImport(Cocoa) && !targetEnvironment(macCatalyst)
 import Cocoa
 
 public extension NSColor {
