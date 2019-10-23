@@ -123,6 +123,17 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertEqual(emptyImage, filledImage)
     }
 
+    func testBase64() {
+        let base64String = "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAE0lEQVR42mP8v5JhEwMaYKSBIADNAwvIr8dhZAAAAABJRU5ErkJggg=="
+        let image = UIImage(base64String: base64String)
+        XCTAssertNotNil(image)
+
+        let size = CGSize(width: 5, height: 5)
+        XCTAssertEqual(image?.size, size)
+
+        XCTAssertEqual(image?.bytesSize, 787)
+    }
+
     func testTinted() {
         let baseImage = UIImage(color: .white, size: CGSize(width: 20, height: 20))
         let tintedImage = baseImage.tint(.black, blendMode: .overlay)
