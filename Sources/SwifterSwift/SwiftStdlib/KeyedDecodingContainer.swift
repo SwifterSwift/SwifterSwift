@@ -25,7 +25,7 @@ public extension KeyedDecodingContainer where Key: CodingKey {
             }
         }
     }
-    
+
     /// SwifterSwift: Try to decode a Bool as Int then String before decoding as Bool if present.
     ///
     /// - Parameter key: Key.

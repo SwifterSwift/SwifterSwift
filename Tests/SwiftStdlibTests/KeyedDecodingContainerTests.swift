@@ -13,12 +13,12 @@ import XCTest
 private struct Video: Decodable {
     var isPlaying: Bool
     var isFullScreen: Bool?
-    
+
     enum CodingKeys: String, CodingKey {
         case isPlaying
         case isFullScreen
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         isPlaying = try container.decodeBoolAsIntOrString(forKey: .isPlaying)
@@ -28,11 +28,11 @@ private struct Video: Decodable {
 
 private enum ElementToTest: Decodable {
     case video(Video)
-    
+
     enum CodingKeys: String, CodingKey {
         case data
     }
-    
+
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self = .video(try container.decode(Video.self, forKey: .data))
@@ -40,7 +40,7 @@ private enum ElementToTest: Decodable {
 }
 
 final class KeyedDecodingContainerTests: XCTestCase {
-    
+
     private let isPlayingAndIsFullScreenAsInt = Data("""
     {
       "data" : {
@@ -49,7 +49,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
       }
     }
     """.utf8)
-    
+
     private let isPlayingAndIsFullScreenAsString = Data("""
     {
       "data" : {
@@ -58,7 +58,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
       }
     }
     """.utf8)
-    
+
     private let isPlayingAndIsFullScreenAsBool = Data("""
     {
       "data" : {
@@ -67,7 +67,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
       }
     }
     """.utf8)
-    
+
     private let isPlayingAsIntAndIsFullScreenNotPresent = Data("""
     {
       "data" : {
@@ -75,8 +75,8 @@ final class KeyedDecodingContainerTests: XCTestCase {
       }
     }
     """.utf8)
-    
-    private let isPlayingAsIntAndIsFullScreenTypeMismatch = Data("""
+
+    private let isPlayingAndIsFullScreenTypeMismatch = Data("""
     {
       "data" : {
         "isPlaying" : [0],
@@ -84,11 +84,10 @@ final class KeyedDecodingContainerTests: XCTestCase {
       }
     }
     """.utf8)
-    
-    
+
     func testDecodeBoolAsIntOrStringDataAsIntSuccessful() {
         let result = try? JSONDecoder().decode(ElementToTest.self, from: isPlayingAndIsFullScreenAsInt)
-        
+
         if case .video(let video) = result {
             XCTAssertTrue(video.isPlaying)
             XCTAssertNotNil(video.isFullScreen)
@@ -97,10 +96,10 @@ final class KeyedDecodingContainerTests: XCTestCase {
             XCTFail("Expected to decode Video but found a \(String(describing: result)) instead")
         }
     }
-    
+
     func testDecodeBoolAsIntOrStringDataAsStringSuccessful() {
         let result = try? JSONDecoder().decode(ElementToTest.self, from: isPlayingAndIsFullScreenAsString)
-        
+
         if case .video(let video) = result {
             XCTAssertTrue(video.isPlaying)
             XCTAssertNotNil(video.isFullScreen)
@@ -109,7 +108,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
             XCTFail("Expected to decode Video but found a \(String(describing: result)) instead")
         }
     }
-    
+
     func testDecodeBoolAsIntOrStringDataAsBoolSuccessful() {
         let result = try? JSONDecoder().decode(ElementToTest.self, from: isPlayingAndIsFullScreenAsBool)
         
@@ -121,7 +120,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
             XCTFail("Expected to decode Video but found a \(String(describing: result)) instead")
         }
     }
-    
+
     func testDecodeBoolAsIntOrStringIfPresentSuccessful() {
         let result = try? JSONDecoder().decode(ElementToTest.self, from: isPlayingAsIntAndIsFullScreenNotPresent)
         
@@ -132,9 +131,9 @@ final class KeyedDecodingContainerTests: XCTestCase {
             XCTFail("Expected to decode Video but found a \(String(describing: result)) instead")
         }
     }
-    
+
     func testDecodeBoolAsIntOrStringThrowsError() {
-        XCTAssertThrowsError(try JSONDecoder().decode(ElementToTest.self, from: isPlayingAsIntAndIsFullScreenTypeMismatch))
+        XCTAssertThrowsError(try JSONDecoder().decode(ElementToTest.self, from: isPlayingAndIsFullScreenTypeMismatch))
     }
-    
+
 }
