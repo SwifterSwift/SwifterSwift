@@ -153,8 +153,13 @@ final class SequenceExtensionsTests: XCTestCase {
     }
 
     func testKeyPathGrouped() {
-        let array = ["James", "Wade", "Bryant", "John"]
-        XCTAssertEqual(array.grouped(by: \String.count), [6: ["Bryant"], 5: ["James"], 4: ["Wade", "John"]])
+        let array1 = ["James", "Wade", "Bryant", "John"]
+        let array2 = ["James", "Wade", "Bryant", "John", "", ""]
+        let array3: [String] = []
+        XCTAssertEqual(array1.grouped(by: \String.count), [6: ["Bryant"], 5: ["James"], 4: ["Wade", "John"]])
+        XCTAssertEqual(array1.grouped(by: \String.first), [Optional("B"): ["Bryant"], Optional("J"): ["James", "John"], Optional("W"): ["Wade"]])
+        XCTAssertEqual(array2.grouped(by: \String.count), [6: ["Bryant"], 5: ["James"], 4: ["Wade", "John"], 0: ["", ""]])
+        XCTAssertEqual(array3.grouped(by: \String.count), [:])
     }
 
 }
