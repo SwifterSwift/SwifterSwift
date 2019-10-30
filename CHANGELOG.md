@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **Sequence**:
+  - Added `grouped(by:)` to group up a sequence by a hashable `KeyPath`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
 - **RangeReplaceableCollection**:
   - Added `removeDuplicates(keyPath:)` for removing duplicate elements based on key path. [#737](https://github.com/SwifterSwift/SwifterSwift/pull/737) by [Ilya Glushchuk](https://github.com/iglushchuk).
 - **Color**:
@@ -29,6 +31,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 - **UIImage**:
   - Refactored `tint(_:blendMode:)` using UIGraphicsImageRenderer if available. [#731](https://github.com/SwifterSwift/SwifterSwift/pull/731) by [FraDeliro](https://github.com/FraDeliro).
+
+- **Sequence**:
+  - Corrected documentation for `sorted(by:with:)` and `sorted(by:)`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
 
 ### Deprecated
 

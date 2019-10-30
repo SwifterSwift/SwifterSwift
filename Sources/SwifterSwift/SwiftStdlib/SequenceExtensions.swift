@@ -185,17 +185,26 @@ public extension Sequence {
         }
         return (Array(matching), Array(nonMatching))
     }
+    
+    /// SwifterSwift: Return a map grouped on a keypath value.
+    ///
+    /// - Parameter by: Key path to group by.  Must be Hashable.
+    /// - Returns: Dictionary of arrays using the keypath value as the key.
+    func grouped<T: Hashable>(by keyPath: KeyPath<Element, T>) -> [T: [Element]] {
+        // https://twitter.com/johnsundell/status/1106886417756704768?lang=en
+        return .init(grouping: self, by: { $0[keyPath: keyPath] })
+    }
 
     /// SwifterSwift: Return a sorted array  based on a keypath and a compare function.
     ///
-    /// - Parameter path: Key path to sort. The key path type must be Comparable.
+    /// - Parameter path: Key path to sort.
     /// - Parameter compare: Comparation function that will determine the ordering.
     /// - Returns: The sorted array.
     func sorted<T>(by keyPath: KeyPath<Element, T>, with compare: (T, T) -> Bool) -> [Element] {
         return sorted { compare($0[keyPath: keyPath], $1[keyPath: keyPath]) }
     }
 
-    /// SwifterSwift: Return a sorted array  based on a keypath and a compare function.
+    /// SwifterSwift: Return a sorted array  based on a keypath.
     ///
     /// - Parameter path: Key path to sort. The key path type must be Comparable.
     /// - Returns: The sorted array.
