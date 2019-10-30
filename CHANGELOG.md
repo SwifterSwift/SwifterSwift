@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **ArrayExtensions**:
+- Added big-O documentation to existing array extension functions. Created more efficient implementations of some functions by using the Hashable protocol and leveraging Sets: `removeAll(_ :)`, `removeDuplicates()`, `withoutDuplicates()`. [#749](https://github.com/SwifterSwift/SwifterSwift/pull/749) by [Joe Soultanis](https://github.com/jpsoultanis).
 - **RangeReplaceableCollection**:
   - Added `removeDuplicates(keyPath:)` for removing duplicate elements based on key path. [#737](https://github.com/SwifterSwift/SwifterSwift/pull/737) by [Ilya Glushchuk](https://github.com/iglushchuk).
 - **Color**:
