@@ -23,8 +23,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Sequence**:
   - Added `sum(for:)` to sum up an `AdditiveArithmetic` property, referenced by `KeyPath`, of all elements in a sequence. [#736](https://github.com/SwifterSwift/SwifterSwift/pull/736) by [Moritz Sternemann](https://github.com/moritzsternemann).
 - **KeyedDecodingContainer**:
-  - Added `decodeBoolAsIntOrString(key:)` to try to decode a Bool as Int then String before decoding as Bool. by [FraDeliro](https://github.com/FraDeliro).
-  - Added `decodeBoolAsIntOrStringIfPresent(key:)` to try to decode a Bool as Int then String before decoding as Bool if present. by [FraDeliro](https://github.com/FraDeliro).
+  - Added `decodeBoolAsIntOrString(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as Bool. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
+  - Added `decodeBoolAsIntOrStringIfPresent(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as `Bool` if present. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
 
 
 ### Changed
@@ -100,7 +100,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `safeScrollToItem(at:at:animated:)` method to safely scroll UICollectionView to the given IndexPath. [#698](https://github.com/SwifterSwift/SwifterSwift/pull/698) by [emilrb](https://github.com/emilrb)
 
 - **Sequence**:
-  - Moved `divided(by:)` ArrayExtensions to SequenceExtensions. This function separates all items into 2 lists based on a given predicate. [#706](https://github.com/SwifterSwift/SwifterSwift/pull/706) by [cHaLkdusT](https://github.com/cHaLkdusT)
+  - Moved `divided(by:)` ArrayExtensions to SequenceExtensions. This function separates all items into 2 lists based on a given predicate. [#706](https://github.com/SwifterSwift/SwifterSwift/pull/706) by [cHaLkdusT](https://github.com/cHaLkdusT) 
 
 - **UIBezierPath**:
   - Added `init(from:to:)`, `init(points:)`, `init(polygonWithPoints:)`, `init(ovalOf:centered:)` and `init(rectOf:centered:)` convenience initializers. [#659](https://github.com/SwifterSwift/SwifterSwift/pull/659) by [MaxHaertwig](https://github.com/maxhaertwig).
@@ -266,7 +266,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `addGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to add multiple gesture recognizers to a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
   - Added `removeGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to remove multiple gesture recognizers from a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
 - **UIViewController**
-  - Added `addChildViewController(_:toContainerView)` to easily add child view controllers. Accepts a `UIViewController` and a `UIView` to add the child's view to.
+  - Added `addChildViewController(_:toContainerView)` to easily add child view controllers. Accepts a `UIViewController` and a `UIView` to add the child's view to. 
   - Added `removeViewAndControllerFromParentViewController()` to remove a `UIViewController` from its parent.
 - **NSView**
   - Added `backgroundColor` which allows to change backgroundColor of NSView [#702](https://github.com/SwifterSwift/SwifterSwift/pull/702) by [RomanPodymov](https://github.com/RomanPodymov)
@@ -345,7 +345,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UITableView**:
   - Added `isValidIndexPath(_:)` method to check whether given IndexPath is valid within UITableView. [#441](https://github.com/SwifterSwift/SwifterSwift/pull/441) by [setoelkahfi](https://github.com/setoelkahfi).
   - Added `safeScrollToRow(at:at:animated:)` method to safely scroll UITableView to the given IndexPath. [#445](https://github.com/SwifterSwift/SwifterSwift/pull/445) by [setoelkahfi](https://github.com/setoelkahfi).
-  - Fixed  `lastSection`,  and `indexPathForLastRow`  and  `indexPathForLastRow(inSection: 0)`  methods to get last section, get the lastIndexPath for section 0 if exists and get the lastIndexPath for a given section respectively .
+  - Fixed  `lastSection`,  and `indexPathForLastRow`  and  `indexPathForLastRow(inSection: 0)`  methods to get last section, get the lastIndexPath for section 0 if exists and get the lastIndexPath for a given section respectively . 
         [#694](https://github.com/SwifterSwift/SwifterSwift/pull/694) by [mohshin-shah](https://github.com/mohshin-shah).
 - **Optional**:
   - Added `isNilOrEmpty` property to check whether an optional is nil or empty collection.
