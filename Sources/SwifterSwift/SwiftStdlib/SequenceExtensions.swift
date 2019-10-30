@@ -185,7 +185,7 @@ public extension Sequence {
         }
         return (Array(matching), Array(nonMatching))
     }
-    
+
     /// SwifterSwift: Return a map grouped on a keypath value.
     ///
     /// - Parameter by: Key path to group by.  Must be Hashable.
