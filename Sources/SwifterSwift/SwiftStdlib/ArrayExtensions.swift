@@ -9,7 +9,7 @@
 // MARK: - Methods
 public extension Array {
 
-    /// SwifterSwift: Insert an element at the beginning of array.
+    /// SwifterSwift: Insert an element at the beginning of array. Complexity: O(n)
     ///
     ///        [2, 3, 4, 5].prepend(1) -> [1, 2, 3, 4, 5]
     ///        ["e", "l", "l", "o"].prepend("h") -> ["h", "e", "l", "l", "o"]
@@ -19,7 +19,7 @@ public extension Array {
         insert(newElement, at: 0)
     }
 
-    /// SwifterSwift: Safely swap values at given index positions.
+    /// SwifterSwift: Safely swap values at given index positions. Complexity: O(1)
     ///
     ///        [1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
     ///        ["h", "e", "l", "l", "o"].safeSwap(from: 1, to: 0) -> ["e", "h", "l", "l", "o"]
@@ -34,11 +34,62 @@ public extension Array {
         swapAt(index, otherIndex)
     }
 }
+// MARK: - Methods (Hashable)
+public extension Array where Element: Hashable {
+    /// SwifterSwift: Remove all instances contained in items parameter from array. Complexity: O(n)
+    ///
+    ///        [1, 2, 2, 3, 4, 5].removeAll([2,5]) -> [1, 3, 4]
+    ///        ["h", "e", "l", "l", "o"].removeAll(["l", "h"]) -> ["e", "o"]
+    ///
+    /// - Parameter items: unique items to remove.
+    /// - Returns: self after removing all instances of all items in given array.
+    @discardableResult
+    mutating func removeAll(_ items: Set<Element>) -> [Element] {
+        guard !items.isEmpty else { return self }
+        removeAll(where: { items.contains($0) })
+        return self
+    }
+    
+    /// SwifterSwift: Remove all duplicate elements from Array, maintaining order. Complexity: O(n)
+    ///
+    ///        [1, 2, 2, 3, 4, 5].removeDuplicates() -> [1, 2, 3, 4, 5]
+    ///        ["h", "e", "l", "l", "o"]. removeDuplicates() -> ["h", "e", "l", "o"]
+    ///
+    /// - Returns: Return array with all duplicate elements removed.
+    @discardableResult
+    mutating func removeDuplicates() -> [Element] {
+        var foundElements = Set<Element>()
+        self = reduce(into: [Element]()) {
+            if !foundElements.contains($1) {
+                foundElements.insert($1)
+                $0.append($1)
+            }
+        }
+        return self
+    }
+    
+    /// SwifterSwift: Return array with all duplicate elements removed. Complexity: O(n)
+    ///
+    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
+    ///     ["h", "e", "l", "l", "o"].withoutDuplicates() -> ["h", "e", "l", "o"])
+    ///
+    /// - Returns: an array of unique elements.
+    ///
+    func withoutDuplicates() -> [Element] {
+        var foundElements = Set<Element>()
+        return reduce(into: [Element]()) {
+            if !foundElements.contains($1) {
+                foundElements.insert($1)
+                $0.append($1)
+            }
+        }
+    }
+}
 
 // MARK: - Methods (Equatable)
 public extension Array where Element: Equatable {
 
-    /// SwifterSwift: Remove all instances of an item from array.
+    /// SwifterSwift: Remove all instances of an item from array. Complexity: O(n)
     ///
     ///        [1, 2, 2, 3, 4, 5].removeAll(2) -> [1, 3, 4, 5]
     ///        ["h", "e", "l", "l", "o"].removeAll("l") -> ["h", "e", "o"]
@@ -51,7 +102,7 @@ public extension Array where Element: Equatable {
         return self
     }
 
-    /// SwifterSwift: Remove all instances contained in items parameter from array.
+    /// SwifterSwift: Remove all instances contained in items parameter from array, maintaining order. Complexity: O(n*m)
     ///
     ///        [1, 2, 2, 3, 4, 5].removeAll([2,5]) -> [1, 3, 4]
     ///        ["h", "e", "l", "l", "o"].removeAll(["l", "h"]) -> ["e", "o"]
@@ -65,7 +116,7 @@ public extension Array where Element: Equatable {
         return self
     }
 
-    /// SwifterSwift: Remove all duplicate elements from Array.
+    /// SwifterSwift: Remove all duplicate elements from Array, maintaining order. Complexity: O(n^2)
     ///
     ///        [1, 2, 2, 3, 4, 5].removeDuplicates() -> [1, 2, 3, 4, 5]
     ///        ["h", "e", "l", "l", "o"]. removeDuplicates() -> ["h", "e", "l", "o"]
@@ -82,7 +133,7 @@ public extension Array where Element: Equatable {
         return self
     }
 
-    /// SwifterSwift: Return array with all duplicate elements removed.
+    /// SwifterSwift: Return array with all duplicate elements removed. Complexity: O(n^2)
     ///
     ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
     ///     ["h", "e", "l", "l", "o"].withoutDuplicates() -> ["h", "e", "l", "o"])

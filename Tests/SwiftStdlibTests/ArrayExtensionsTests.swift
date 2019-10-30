@@ -55,6 +55,17 @@ final class ArrayExtensionsTests: XCTestCase {
         arr.removeAll([])
         XCTAssertEqual(arr, [])
     }
+    
+    func testRemoveAllItemsSet() {
+        var arr = [0, 1, 2, 2, 0, 3, 4, 5, 0, 0]
+        arr.removeAll(Set([0, 2]))
+        XCTAssertEqual(arr, [1, 3, 4, 5])
+        arr.removeAll(Set([]))
+        XCTAssertEqual(arr, [1, 3, 4, 5])
+        arr = []
+        arr.removeAll(Set([]))
+        XCTAssertEqual(arr, [])
+    }
 
     func testRemoveDuplicates() {
         var array = [1, 1, 2, 2, 3, 3, 3, 4, 5]
