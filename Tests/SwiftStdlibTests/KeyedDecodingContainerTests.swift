@@ -111,7 +111,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
 
     func testDecodeBoolAsIntOrStringDataAsBoolSuccessful() {
         let result = try? JSONDecoder().decode(ElementToTest.self, from: isPlayingAndIsFullScreenAsBool)
-        
+
         if case .video(let video) = result {
             XCTAssertTrue(video.isPlaying)
             XCTAssertNotNil(video.isFullScreen)
@@ -123,7 +123,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
 
     func testDecodeBoolAsIntOrStringIfPresentSuccessful() {
         let result = try? JSONDecoder().decode(ElementToTest.self, from: isPlayingAsIntAndIsFullScreenNotPresent)
-        
+
         if case .video(let video) = result {
             XCTAssertFalse(video.isPlaying)
             XCTAssertNil(video.isFullScreen)
