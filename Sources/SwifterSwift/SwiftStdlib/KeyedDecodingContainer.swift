@@ -12,20 +12,20 @@ public extension KeyedDecodingContainer where Key: CodingKey {
     /// - Parameter key: Key.
     /// - Returns: Decoded Bool value.
     /// - Throws: Decoding error.
-  func decodeBoolAsIntOrString(forKey key: K) throws -> Bool {
-    if let intValue = try? decode(Int.self, forKey: key) {
-      return (intValue as NSNumber).boolValue
-    } else if let stringValue = try? decode(String.self, forKey: key) {
-      return (stringValue as NSString).boolValue
-    } else {
-      do {
-        return try decode(Bool.self, forKey: key)
-      } catch {
-        throw error
-      }
+    func decodeBoolAsIntOrString(forKey key: K) throws -> Bool {
+        if let intValue = try? decode(Int.self, forKey: key) {
+            return (intValue as NSNumber).boolValue
+        } else if let stringValue = try? decode(String.self, forKey: key) {
+            return (stringValue as NSString).boolValue
+        } else {
+            do {
+                return try decode(Bool.self, forKey: key)
+            } catch {
+                throw error
+            }
+        }
     }
-  }
-
+    
     /// SwifterSwift: Try to decode a Bool as Int then String before decoding as Bool if present.
     ///
     /// - Parameter key: Key.
@@ -33,15 +33,15 @@ public extension KeyedDecodingContainer where Key: CodingKey {
     /// - Throws: Decoding error.
     func decodeBoolAsIntOrStringIfPresent(forKey key: K) throws -> Bool? {
         if let intValue = try? decodeIfPresent(Int.self, forKey: key) {
-          return (intValue as NSNumber).boolValue
+            return (intValue as NSNumber).boolValue
         } else if let stringValue = try? decodeIfPresent(String.self, forKey: key) {
-          return (stringValue as NSString).boolValue
+            return (stringValue as NSString).boolValue
         } else {
-          do {
-            return try decodeIfPresent(Bool.self, forKey: key)
-          } catch {
-            throw error
-          }
-      }
+            do {
+                return try decodeIfPresent(Bool.self, forKey: key)
+            } catch {
+                throw error
+            }
+        }
     }
 }
