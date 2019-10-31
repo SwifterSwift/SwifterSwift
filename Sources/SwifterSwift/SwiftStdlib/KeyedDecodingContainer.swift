@@ -6,6 +6,10 @@
 //  Copyright © 2019 SwifterSwift
 //
 
+#if canImport(Foundation)
+import Foundation
+#endif
+
 public extension KeyedDecodingContainer where Key: CodingKey {
     /// SwifterSwift: Try to decode a Bool as Int then String before decoding as Bool.
     ///
