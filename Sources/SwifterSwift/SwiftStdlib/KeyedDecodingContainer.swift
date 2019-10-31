@@ -6,11 +6,9 @@
 //  Copyright © 2019 SwifterSwift
 //
 
-#if canImport(Foundation)
-import Foundation
-#endif
-
 public extension KeyedDecodingContainer where Key: CodingKey {
+
+    #if canImport(Foundation)
     /// SwifterSwift: Try to decode a Bool as Int then String before decoding as Bool.
     ///
     /// - Parameter key: Key.
@@ -25,7 +23,9 @@ public extension KeyedDecodingContainer where Key: CodingKey {
             return try decode(Bool.self, forKey: key)
         }
     }
+    #endif
 
+    #if canImport(Foundation)
     /// SwifterSwift: Try to decode a Bool as Int then String before decoding as Bool if present.
     ///
     /// - Parameter key: Key.
@@ -40,4 +40,6 @@ public extension KeyedDecodingContainer where Key: CodingKey {
             return try decodeIfPresent(Bool.self, forKey: key)
         }
     }
+    #endif
+
 }
