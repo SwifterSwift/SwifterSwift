@@ -14,8 +14,8 @@ import Foundation
 import UIKit
 #endif
 
-#if canImport(Cocoa)
-import Cocoa
+#if canImport(AppKit)
+import AppKit
 #endif
 
 #if canImport(CoreGraphics)
@@ -1108,7 +1108,7 @@ public extension String {
     private typealias Font = UIFont
     #endif
 
-    #if canImport(Cocoa) && !targetEnvironment(macCatalyst)
+    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
     private typealias Font = NSFont
     #endif
 
@@ -1150,7 +1150,7 @@ public extension String {
     }
     #endif
 
-    #if canImport(Cocoa) && !targetEnvironment(macCatalyst)
+    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
     /// SwifterSwift: Add color to string.
     ///
     /// - Parameter color: text color.

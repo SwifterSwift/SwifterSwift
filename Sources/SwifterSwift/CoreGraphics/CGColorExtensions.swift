@@ -13,8 +13,8 @@ import CoreGraphics
 import UIKit
 #endif
 
-#if canImport(Cocoa)
-import Cocoa
+#if canImport(AppKit)
+import AppKit
 #endif
 
 // MARK: - Properties
@@ -27,7 +27,7 @@ public extension CGColor {
     }
     #endif
 
-    #if canImport(Cocoa) && !targetEnvironment(macCatalyst)
+    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
     /// SwifterSwift: NSColor.
     var nsColor: NSColor? {
         return NSColor(cgColor: self)

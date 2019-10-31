@@ -13,8 +13,8 @@ import Foundation
 import UIKit
 #endif
 
-#if canImport(Cocoa)
-import Cocoa
+#if canImport(AppKit)
+import AppKit
 #endif
 
 // MARK: - Properties
