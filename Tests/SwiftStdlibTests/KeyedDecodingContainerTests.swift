@@ -26,69 +26,19 @@ private struct Video: Decodable {
     }
 }
 
-private enum ElementToTest: Decodable {
-    case video(Video)
-
-    enum CodingKeys: String, CodingKey {
-        case data
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self = .video(try container.decode(Video.self, forKey: .data))
-    }
-}
-
 final class KeyedDecodingContainerTests: XCTestCase {
 
-    private let isPlayingAndIsFullScreenAsInt = Data("""
-    {
-      "data" : {
-        "isPlaying" : 1,
-        "isFullScreen" : 0
-      }
-    }
-    """.utf8)
-
-    private let isPlayingAndIsFullScreenAsString = Data("""
-    {
-      "data" : {
-        "isPlaying" : "true",
-        "isFullScreen" : "false"
-      }
-    }
-    """.utf8)
-
-    private let isPlayingAndIsFullScreenAsBool = Data("""
-    {
-      "data" : {
-        "isPlaying" : true,
-        "isFullScreen" : false
-      }
-    }
-    """.utf8)
-
-    private let isPlayingAsIntAndIsFullScreenNotPresent = Data("""
-    {
-      "data" : {
-        "isPlaying" : 0
-      }
-    }
-    """.utf8)
-
-    private let isPlayingAndIsFullScreenTypeMismatch = Data("""
-    {
-      "data" : {
-        "isPlaying" : [0],
-        "isFullScreen" : ["false"]
-      }
-    }
-    """.utf8)
+    private let isPlayingAndIsFullScreenAsInt = #"{"isPlaying": 1, "isFullScreen": 0}"#
+    private let isPlayingAndIsFullScreenAsString = #"{"isPlaying": "true", "isFullScreen": "false"}"#
+    private let isPlayingAndIsFullScreenAsBool = #"{"isPlaying": true, "isFullScreen": false}"#
+    private let isPlayingAsIntAndIsFullScreenNotPresent = #"{"isPlaying": 0}"#
+    private let isPlayingAndIsFullScreenTypeMismatch = #"{"isPlaying": [1], "isFullScreen": ["true"]}"#
 
     func testDecodeBoolAsIntOrStringDataAsIntSuccessful() {
-        let result = try? JSONDecoder().decode(ElementToTest.self, from: isPlayingAndIsFullScreenAsInt)
+        let data = mockJsonData(from: isPlayingAndIsFullScreenAsInt)
+        let result = try? JSONDecoder().decode(Video.self, from: data)
 
-        if case .video(let video) = result {
+        if let video = result {
             XCTAssertTrue(video.isPlaying)
             XCTAssertNotNil(video.isFullScreen)
             XCTAssertFalse(video.isFullScreen!)
@@ -98,9 +48,10 @@ final class KeyedDecodingContainerTests: XCTestCase {
     }
 
     func testDecodeBoolAsIntOrStringDataAsStringSuccessful() {
-        let result = try? JSONDecoder().decode(ElementToTest.self, from: isPlayingAndIsFullScreenAsString)
+        let data = mockJsonData(from: isPlayingAndIsFullScreenAsString)
+        let result = try? JSONDecoder().decode(Video.self, from: data)
 
-        if case .video(let video) = result {
+        if let video = result {
             XCTAssertTrue(video.isPlaying)
             XCTAssertNotNil(video.isFullScreen)
             XCTAssertFalse(video.isFullScreen!)
@@ -110,9 +61,10 @@ final class KeyedDecodingContainerTests: XCTestCase {
     }
 
     func testDecodeBoolAsIntOrStringDataAsBoolSuccessful() {
-        let result = try? JSONDecoder().decode(ElementToTest.self, from: isPlayingAndIsFullScreenAsBool)
+        let data = mockJsonData(from: isPlayingAndIsFullScreenAsBool)
+        let result = try? JSONDecoder().decode(Video.self, from: data)
 
-        if case .video(let video) = result {
+        if let video = result {
             XCTAssertTrue(video.isPlaying)
             XCTAssertNotNil(video.isFullScreen)
             XCTAssertFalse(video.isFullScreen!)
@@ -122,9 +74,10 @@ final class KeyedDecodingContainerTests: XCTestCase {
     }
 
     func testDecodeBoolAsIntOrStringIfPresentSuccessful() {
-        let result = try? JSONDecoder().decode(ElementToTest.self, from: isPlayingAsIntAndIsFullScreenNotPresent)
+        let data = mockJsonData(from: isPlayingAsIntAndIsFullScreenNotPresent)
+        let result = try? JSONDecoder().decode(Video.self, from: data)
 
-        if case .video(let video) = result {
+        if let video = result {
             XCTAssertFalse(video.isPlaying)
             XCTAssertNil(video.isFullScreen)
         } else {
@@ -133,7 +86,12 @@ final class KeyedDecodingContainerTests: XCTestCase {
     }
 
     func testDecodeBoolAsIntOrStringThrowsError() {
-        XCTAssertThrowsError(try JSONDecoder().decode(ElementToTest.self, from: isPlayingAndIsFullScreenTypeMismatch))
+        let data = mockJsonData(from: isPlayingAndIsFullScreenTypeMismatch)
+        XCTAssertThrowsError(try JSONDecoder().decode(Video.self, from: data))
+    }
+  
+    private func mockJsonData(from json: String) -> Data {
+        return Data(json.utf8)
     }
 
 }
