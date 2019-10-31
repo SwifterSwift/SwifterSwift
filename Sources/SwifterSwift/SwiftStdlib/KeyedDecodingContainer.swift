@@ -22,11 +22,7 @@ public extension KeyedDecodingContainer where Key: CodingKey {
         } else if let stringValue = try? decode(String.self, forKey: key) {
             return (stringValue as NSString).boolValue
         } else {
-            do {
-                return try decode(Bool.self, forKey: key)
-            } catch {
-                throw error
-            }
+            return try decode(Bool.self, forKey: key)
         }
     }
 
@@ -41,11 +37,7 @@ public extension KeyedDecodingContainer where Key: CodingKey {
         } else if let stringValue = try? decodeIfPresent(String.self, forKey: key) {
             return (stringValue as NSString).boolValue
         } else {
-            do {
-                return try decodeIfPresent(Bool.self, forKey: key)
-            } catch {
-                throw error
-            }
+            return try decodeIfPresent(Bool.self, forKey: key)
         }
     }
 }
