@@ -9,15 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(UIKit) || canImport(Cocoa)
-
-#if os(macOS)
-import Cocoa
-public typealias Color = NSColor
-#else
-import UIKit
-public typealias Color = UIColor
-#endif
+#if canImport(AppKit) || canImport(UIKit)
 
 #if !os(watchOS)
 import CoreImage

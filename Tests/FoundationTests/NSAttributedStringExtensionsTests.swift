@@ -71,20 +71,20 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
     // MARK: - Methods
     func testColored() {
-        #if canImport(UIKit)
+        #if canImport(AppKit) || canImport(UIKit)
         let string = NSAttributedString(string: "Colored")
         var out = string.colored(with: .red)
         var attributes = out.attributes(at: 0, effectiveRange: nil)
         let filteredAttributes = attributes.filter { (key, value) -> Bool in
-            return (key == NSAttributedString.Key.foregroundColor && (value as? UIColor) == .red)
+            return (key == NSAttributedString.Key.foregroundColor && (value as? Color) == .red)
         }
 
         XCTAssertEqual(filteredAttributes.count, 1)
 
         out = out.colored(with: .blue)
         attributes = out.attributes(at: 0, effectiveRange: nil)
-        XCTAssertEqual(attributes[NSAttributedString.Key.foregroundColor] as? UIColor, UIColor.blue)
-        XCTAssertNotEqual(attributes[NSAttributedString.Key.foregroundColor] as? UIColor, .red)
+        XCTAssertEqual(attributes[NSAttributedString.Key.foregroundColor] as? Color, .blue)
+        XCTAssertNotEqual(attributes[NSAttributedString.Key.foregroundColor] as? Color, .red)
         #endif
     }
 
