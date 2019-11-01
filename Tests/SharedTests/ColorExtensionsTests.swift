@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(UIKit) || canImport(AppKit)
+#if canImport(AppKit) || canImport(UIKit)
 
 #if !os(watchOS)
 import CoreImage
