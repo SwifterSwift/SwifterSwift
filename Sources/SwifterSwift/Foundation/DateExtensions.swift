@@ -552,7 +552,8 @@ public extension Date {
         switch component {
         case .nanosecond:
             #if targetEnvironment(macCatalyst)
-            let allowedRange = 0..<1000000000
+            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a second
+            let allowedRange = 0..<1_000_000_000
             #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
             #endif
