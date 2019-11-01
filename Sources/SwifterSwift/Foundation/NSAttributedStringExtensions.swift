@@ -13,8 +13,8 @@ import Foundation
 import UIKit
 #endif
 
-#if canImport(Cocoa)
-import Cocoa
+#if canImport(AppKit)
+import AppKit
 #endif
 
 // MARK: - Properties
@@ -75,22 +75,12 @@ public extension NSAttributedString {
     }
     #endif
 
-    #if os(macOS)
+    #if canImport(AppKit) || canImport(UIKit)
     /// SwifterSwift: Add color to NSAttributedString.
     ///
     /// - Parameter color: text color.
     /// - Returns: a NSAttributedString colored with given color.
-    func colored(with color: NSColor) -> NSAttributedString {
-        return applying(attributes: [.foregroundColor: color])
-    }
-    #endif
-
-    #if canImport(UIKit)
-    /// SwifterSwift: Add color to NSAttributedString.
-    ///
-    /// - Parameter color: text color.
-    /// - Returns: a NSAttributedString colored with given color.
-    func colored(with color: UIColor) -> NSAttributedString {
+    func colored(with color: Color) -> NSAttributedString {
         return applying(attributes: [.foregroundColor: color])
     }
     #endif

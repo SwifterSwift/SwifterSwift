@@ -25,12 +25,12 @@ Pod::Spec.new do |s|
 
   # SwiftStdlib Extensions
   s.subspec 'SwiftStdlib' do |sp|
-    sp.source_files  = 'Sources/SwifterSwift/SwiftStdlib/*.swift'
+    sp.source_files  = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/SwiftStdlib/*.swift'
   end
 
   # Foundation Extensions
   s.subspec 'Foundation' do |sp|
-    sp.source_files  = 'Sources/SwifterSwift/Foundation/*.swift'
+    sp.source_files  = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/Foundation/*.swift'
   end
 
   # UIKit Extensions
