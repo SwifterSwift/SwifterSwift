@@ -258,7 +258,8 @@ public extension Date {
         }
         set {
             #if targetEnvironment(macCatalyst)
-            let allowedRange = 0..<1000000000
+            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a second
+            let allowedRange = 0..<1_000_000_000
             #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
             #endif
@@ -282,12 +283,13 @@ public extension Date {
     ///
     var millisecond: Int {
         get {
-            return calendar.component(.nanosecond, from: self) / 1000000
+            return calendar.component(.nanosecond, from: self) / 1_000_000
         }
         set {
-            let nanoSeconds = newValue * 1000000
+            let nanoSeconds = newValue * 1_000_000
             #if targetEnvironment(macCatalyst)
-            let allowedRange = 0..<1000000000
+            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a second
+            let allowedRange = 0..<1_000_000_000
             #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
             #endif
