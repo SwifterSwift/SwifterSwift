@@ -192,7 +192,7 @@ public extension Sequence {
     /// - Returns: Dictionary of arrays using the keypath value as the key.
     func grouped<T: Hashable>(by keyPath: KeyPath<Element, T>) -> [T: [Element]] {
         // https://twitter.com/johnsundell/status/1106886417756704768?lang=en
-        return .init(grouping: self, by: { $0[keyPath: keyPath] })
+        return Dictionary(grouping: self, by: { $0[keyPath: keyPath] })
     }
 
     /// SwifterSwift: Return a sorted array  based on a keypath and a compare function.

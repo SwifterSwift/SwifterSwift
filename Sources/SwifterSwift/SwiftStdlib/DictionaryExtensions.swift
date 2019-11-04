@@ -16,10 +16,10 @@ public extension Dictionary {
     /// SwifterSwift: Creates a Dictionary from a given sequence grouped by a given Keypath
     ///
     /// - Parameters:
-    ///   - grouping: Sequence being grouped
-    ///   - by: The Keypath to group by.
+    ///   - sequence: Sequence being grouped
+    ///   - keypath: The Keypath to group by.
     init<S: Sequence>(grouping sequence: S, by keyPath: KeyPath<S.Element, Key>) where Value == [S.Element] {
-      self.init(grouping: sequence, by: { $0[keyPath: keyPath] })
+       self.init(grouping: sequence, by: { $0[keyPath: keyPath] })
     }
 
     /// SwifterSwift: Check if key exists in dictionary.
