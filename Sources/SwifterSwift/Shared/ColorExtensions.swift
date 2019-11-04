@@ -14,7 +14,7 @@ import UIKit
 public typealias Color = UIColor
 #endif
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 /// SwifterSwift: Color
 public typealias Color = NSColor

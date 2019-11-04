@@ -57,7 +57,6 @@ final class UIViewControllerExtensionsTests: XCTestCase {
 
     func testShowAlert() {
         let viewController = UIViewController()
-        UIApplication.shared.keyWindow?.rootViewController = viewController
         let title = "test title"
         let message = "test message"
         let actionButtons = ["OK", "Cancel"]

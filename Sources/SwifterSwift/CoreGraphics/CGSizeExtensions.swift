@@ -9,14 +9,6 @@
 #if canImport(CoreGraphics)
 import CoreGraphics
 
-#if canImport(UIKit)
-import UIKit
-#endif
-
-#if canImport(Cocoa)
-import Cocoa
-#endif
-
 // MARK: - Methods
 public extension CGSize {
 
