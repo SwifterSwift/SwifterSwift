@@ -186,15 +186,6 @@ public extension Sequence {
         return (Array(matching), Array(nonMatching))
     }
 
-    /// SwifterSwift: Return a map grouped on a keypath value.
-    ///
-    /// - Parameter by: Key path to group by.  Must be Hashable.
-    /// - Returns: Dictionary of arrays using the keypath value as the key.
-    func grouped<T: Hashable>(by keyPath: KeyPath<Element, T>) -> [T: [Element]] {
-        // https://twitter.com/johnsundell/status/1106886417756704768?lang=en
-        return Dictionary(grouping: self, by: { $0[keyPath: keyPath] })
-    }
-
     /// SwifterSwift: Return a sorted array  based on a keypath and a compare function.
     ///
     /// - Parameter path: Key path to sort.
