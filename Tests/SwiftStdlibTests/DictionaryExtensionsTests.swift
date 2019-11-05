@@ -152,4 +152,15 @@ final class DictionaryExtensionsTests: XCTestCase {
         XCTAssertEqual(words, ["0": .zero, "1": .one, "2": .two])
     }
 
+    func testInitGroupedByKeyPath() {
+        let array1 = ["James", "Wade", "Bryant", "John"]
+        let array2 = ["James", "Wade", "Bryant", "John", "", ""]
+        let array3: [String] = []
+
+        XCTAssertEqual(Dictionary(grouping: array1, by: \String.count), [6: ["Bryant"], 5: ["James"], 4: ["Wade", "John"]])
+        XCTAssertEqual(Dictionary(grouping: array1, by: \String.first), [Optional("B"): ["Bryant"], Optional("J"): ["James", "John"], Optional("W"): ["Wade"]])
+        XCTAssertEqual(Dictionary(grouping: array2, by: \String.count), [6: ["Bryant"], 5: ["James"], 4: ["Wade", "John"], 0: ["", ""]])
+        XCTAssertEqual(Dictionary(grouping: array3, by: \String.count), [:])
+    }
+
 }
