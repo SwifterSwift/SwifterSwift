@@ -138,7 +138,6 @@ final class UIImageExtensionsTests: XCTestCase {
 
         let scaledImage = UIImage(base64String: base64String, scale: scale)
         XCTAssertEqual(scaledImage?.size, scaledSize)
-
     }
 
     func testURL() {
@@ -155,7 +154,6 @@ final class UIImageExtensionsTests: XCTestCase {
         let scaledImage = try? UIImage(url: swifterSwiftLogo, scale: scale)
         XCTAssertNotNil(scaledImage)
         XCTAssertEqual(scaledImage?.size, scaledSize)
-
     }
 
     func testTinted() {

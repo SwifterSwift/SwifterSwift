@@ -318,11 +318,11 @@ public extension UIImage {
         guard let data = Data(base64Encoded: base64String) else { return nil }
         self.init(data: data, scale: scale)
     }
-    
+
     /// SwifterSwift: Create a new image from a URL
     ///
     /// - Parameters:
-    ///   - url: a `URL`, representing the image
+    ///   - url: a `URL`, representing the image location
     ///   - scale: The scale factor to assume when interpreting the image data created from the URL. Applying a scale factor of 1.0 results in an image whose size matches the pixel-based dimensions of the image. Applying a different scale factor changes the size of the image as reported by the `size` property.
     convenience init?(url: URL, scale: CGFloat = 1.0) throws {
         let data = try Data(contentsOf: url)
