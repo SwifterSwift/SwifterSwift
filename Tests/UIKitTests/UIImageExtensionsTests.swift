@@ -133,7 +133,7 @@ final class UIImageExtensionsTests: XCTestCase {
 
         XCTAssertEqual(image?.bytesSize, 787)
 
-        let scale: CGFloat = 5.0
+        let scale = CGFloat(5.0)
         let scaledSize = CGSize(width: size.width / scale, height: size.height / scale)
 
         let scaledImage = UIImage(base64String: base64String, scale: scale)
