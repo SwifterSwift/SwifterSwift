@@ -19,7 +19,7 @@ public extension UIImage {
 
     /// SwifterSwift: Size in kilo bytes of UIImage
     var kilobytesSize: Int {
-        return bytesSize / 1024
+        return (jpegData(compressionQuality: 1)?.count ?? 0) / 1024
     }
 
     /// SwifterSwift: UIImage with .alwaysOriginal rendering mode.
@@ -313,9 +313,20 @@ public extension UIImage {
     ///
     /// - Parameters:
     ///   - base64String: a base-64 `String`, representing the image
-    convenience init?(base64String: String) {
+    ///   - scale: The scale factor to assume when interpreting the image data created from the base-64 string. Applying a scale factor of 1.0 results in an image whose size matches the pixel-based dimensions of the image. Applying a different scale factor changes the size of the image as reported by the `size` property.
+    convenience init?(base64String: String, scale: CGFloat = 1.0) {
         guard let data = Data(base64Encoded: base64String) else { return nil }
-        self.init(data: data)
+        self.init(data: data, scale: scale)
+    }
+    
+    /// SwifterSwift: Create a new image from a URL
+    ///
+    /// - Parameters:
+    ///   - url: a `URL`, representing the image
+    ///   - scale: The scale factor to assume when interpreting the image data created from the URL. Applying a scale factor of 1.0 results in an image whose size matches the pixel-based dimensions of the image. Applying a different scale factor changes the size of the image as reported by the `size` property.
+    convenience init?(url: URL, scale: CGFloat = 1.0) throws {
+        let data = try Data(contentsOf: url)
+        self.init(data: data, scale: scale)
     }
 
 }
