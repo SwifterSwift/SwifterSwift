@@ -320,7 +320,10 @@ public extension UIImage {
     }
 
     /// SwifterSwift: Create a new image from a URL
-    ///
+    /// - Important:
+    /// Use this method to convert data:// URLs to NSData objects. You can also use it to read short files synchronously. If you need to read potentially large files, initialize an InputStream with inputStreamWithURL:, then read the file incrementally.
+    /// Don't use this synchronous initializer to request network-based URLs. For network-based URLs, this method can block the current thread for tens of seconds on a slow network, resulting in a poor user experience, and in iOS, may cause your app to be terminated.
+    /// Instead, for non-file URLs, consider using the `dataTask(with:completionHandler:)` method of the URLSession class or a library such as `AlamofireImage`, `Kingfisher`, `SDWebImage`, or others.
     /// - Parameters:
     ///   - url: a `URL`, representing the image location
     ///   - scale: The scale factor to assume when interpreting the image data created from the URL. Applying a scale factor of 1.0 results in an image whose size matches the pixel-based dimensions of the image. Applying a different scale factor changes the size of the image as reported by the `size` property.
