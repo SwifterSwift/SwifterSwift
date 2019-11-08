@@ -154,6 +154,22 @@ final class UIImageExtensionsTests: XCTestCase {
         let scaledImage = try? UIImage(url: swifterSwiftLogo, scale: scale)
         XCTAssertNotNil(scaledImage)
         XCTAssertEqual(scaledImage?.size, scaledSize)
+
+        guard let throwingURL = URL(string: "SwifterSwift://fakeurl/image1") else {
+            XCTAssert(false, "Fake URL cannot be made")
+            return
+        }
+
+        do {
+            _ = try UIImage(url: throwingURL)
+        } catch {
+            XCTAssert(true)
+        }
+
+        let nilImage = try? UIImage(url: throwingURL)
+
+        XCTAssertNil(nilImage)
+
     }
 
     func testTinted() {
