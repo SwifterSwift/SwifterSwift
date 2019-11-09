@@ -170,7 +170,6 @@ final class UIImageExtensionsTests: XCTestCase {
         let nilImage = try? UIImage(url: throwingURL)
 
         XCTAssertNil(nilImage)
-
     }
 
     func testTinted() {
