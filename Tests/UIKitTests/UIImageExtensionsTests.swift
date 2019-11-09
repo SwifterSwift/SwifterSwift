@@ -161,15 +161,7 @@ final class UIImageExtensionsTests: XCTestCase {
             return
         }
 
-        do {
-            _ = try UIImage(url: throwingURL)
-        } catch {
-            XCTAssert(true)
-        }
-
-        let nilImage = try? UIImage(url: throwingURL)
-
-        XCTAssertNil(nilImage)
+        XCTAssertThrowsError(try UIImage(url: throwingURL))
     }
 
     func testTinted() {
