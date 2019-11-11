@@ -132,6 +132,36 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertEqual(image?.size, size)
 
         XCTAssertEqual(image?.bytesSize, 787)
+
+        let scale = CGFloat(5.0)
+        let scaledSize = CGSize(width: size.width / scale, height: size.height / scale)
+
+        let scaledImage = UIImage(base64String: base64String, scale: scale)
+        XCTAssertEqual(scaledImage?.size, scaledSize)
+    }
+
+    func testURL() {
+        let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+        guard let swifterSwiftLogo = bundle.url(forResource: "TestImage", withExtension: "png") else { XCTAssert(false, "Swifter Swift Test Image not available, or url is no longer valid."); return}
+        let image = try? UIImage(url: swifterSwiftLogo)
+        XCTAssertNotNil(image)
+
+        let size = CGSize(width: 1000, height: 232)
+        XCTAssertEqual(image?.size, size)
+
+        let scale: CGFloat = 5.0
+        let scaledSize = CGSize(width: size.width / scale, height: size.height / scale)
+
+        let scaledImage = try? UIImage(url: swifterSwiftLogo, scale: scale)
+        XCTAssertNotNil(scaledImage)
+        XCTAssertEqual(scaledImage?.size, scaledSize)
+
+        guard let throwingURL = URL(string: "SwifterSwift://fakeurl/image1") else {
+            XCTAssert(false, "Fake URL cannot be made")
+            return
+        }
+
+        XCTAssertThrowsError(try UIImage(url: throwingURL))
     }
 
     func testTinted() {
