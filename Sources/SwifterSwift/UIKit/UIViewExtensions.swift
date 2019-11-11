@@ -9,55 +9,6 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-// MARK: - enums
-public extension UIView {
-
-    /// SwifterSwift: Shake directions of a view.
-    ///
-    /// - horizontal: Shake left and right.
-    /// - vertical: Shake up and down.
-    enum ShakeDirection {
-        /// SwifterSwift: Shake left and right.
-        case horizontal
-
-        /// SwifterSwift: Shake up and down.
-        case vertical
-    }
-
-    /// SwifterSwift: Angle units.
-    ///
-    /// - degrees: degrees.
-    /// - radians: radians.
-    enum AngleUnit {
-        /// SwifterSwift: degrees.
-        case degrees
-
-        /// SwifterSwift: radians.
-        case radians
-    }
-
-    /// SwifterSwift: Shake animations types.
-    ///
-    /// - linear: linear animation.
-    /// - easeIn: easeIn animation.
-    /// - easeOut: easeOut animation.
-    /// - easeInOut: easeInOut animation.
-    enum ShakeAnimationType {
-        /// SwifterSwift: linear animation.
-        case linear
-
-        /// SwifterSwift: easeIn animation.
-        case easeIn
-
-        /// SwifterSwift: easeOut animation.
-        case easeOut
-
-        /// SwifterSwift: easeInOut animation.
-        case easeInOut
-    }
-
-}
-
 // MARK: - Properties
 public extension UIView {
 
@@ -351,35 +302,61 @@ public extension UIView {
         }
     }
 
-    /// SwifterSwift: Rotate view by angle on relative axis.
+    /// SwifterSwift: Rotate view by radians on relative axis.
     ///
     /// - Parameters:
-    ///   - angle: angle to rotate view by.
-    ///   - type: type of the rotation angle.
-    ///   - animated: set true to animate rotation (default is true).
-    ///   - duration: animation duration in seconds (default is 1 second).
-    ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func rotate(byAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
-        let angleWithType = (type == .degrees) ? .pi * angle / 180.0 : angle
-        let aDuration = animated ? duration : 0
-        UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
-            self.transform = self.transform.rotated(by: angleWithType)
-        }, completion: completion)
-    }
-
-    /// SwifterSwift: Rotate view to angle on fixed axis.
-    ///
-    /// - Parameters:
-    ///   - angle: angle to rotate view to.
-    ///   - type: type of the rotation angle.
+    ///   - radian: radians to rotate view by.
     ///   - animated: set true to animate rotation (default is false).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
-        let angleWithType = (type == .degrees) ? .pi * angle / 180.0 : angle
+    func rotate(byRadian radian: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+        let aDuration = animated ? duration : 0
+        UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
+            self.transform = self.transform.rotated(by: radian)
+        }, completion: completion)
+    }
+
+    /// SwifterSwift: Rotate view by degrees on relative axis.
+    ///
+    /// - Parameters:
+    ///   - degree: degrees to rotate view by.
+    ///   - animated: set true to animate rotation (default is false).
+    ///   - duration: animation duration in seconds (default is 1 second).
+    ///   - completion: optional completion handler to run with animation finishes (default is nil).
+    func rotate(byDegree degree: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+        let radian = .pi * degree / 180.0
+        let aDuration = animated ? duration : 0
+        UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
+            self.transform = self.transform.rotated(by: radian)
+        }, completion: completion)
+    }
+
+    /// SwifterSwift: Rotate view to given radian on fixed axis.
+    ///
+    /// - Parameters:
+    ///   - radian: radian to rotate view to.
+    ///   - animated: set true to animate rotation (default is false).
+    ///   - duration: animation duration in seconds (default is 1 second).
+    ///   - completion: optional completion handler to run with animation finishes (default is nil).
+    func rotate(toRadian radian: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, animations: {
-            self.transform = self.transform.concatenating(CGAffineTransform(rotationAngle: angleWithType))
+            self.transform = self.transform.concatenating(CGAffineTransform(rotationAngle: radian))
+        }, completion: completion)
+    }
+
+    /// SwifterSwift: Rotate view to given degrees on fixed axis.
+    ///
+    /// - Parameters:
+    ///   - degree: degree to rotate view to.
+    ///   - animated: set true to animate rotation (default is false).
+    ///   - duration: animation duration in seconds (default is 1 second).
+    ///   - completion: optional completion handler to run with animation finishes (default is nil).
+    func rotate(toDegree degree: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+        let radian = .pi * degree / 180.0
+        let aDuration = animated ? duration : 0
+        UIView.animate(withDuration: aDuration, animations: {
+            self.transform = self.transform.concatenating(CGAffineTransform(rotationAngle: radian))
         }, completion: completion)
     }
 
@@ -401,32 +378,33 @@ public extension UIView {
         }
     }
 
-    /// SwifterSwift: Shake view.
+    /// SwifterSwift: Shake view vertically
     ///
     /// - Parameters:
-    ///   - direction: shake direction (horizontal or vertical), (default is .horizontal)
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - animationType: shake animation type (default is .easeOut).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut, completion:(() -> Void)? = nil) {
+    func verticalShake(duration: TimeInterval = 1, animationType: CAMediaTimingFunctionName = .easeOut, completion:(() -> Void)? = nil) {
         CATransaction.begin()
-        let animation: CAKeyframeAnimation
-        switch direction {
-        case .horizontal:
-            animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        case .vertical:
-            animation = CAKeyframeAnimation(keyPath: "transform.translation.y")
-        }
-        switch animationType {
-        case .linear:
-            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        case .easeIn:
-            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeIn)
-        case .easeOut:
-            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-        case .easeInOut:
-            animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        }
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.y")
+        animation.timingFunction = CAMediaTimingFunction(name: animationType)
+        CATransaction.setCompletionBlock(completion)
+        animation.duration = duration
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        layer.add(animation, forKey: "shake")
+        CATransaction.commit()
+    }
+
+    /// SwifterSwift: Shake view vertically horizontally
+    ///
+    /// - Parameters:
+    ///   - duration: animation duration in seconds (default is 1 second).
+    ///   - animationType: shake animation type (default is .easeOut).
+    ///   - completion: optional completion handler to run with animation finishes (default is nil).
+    func horizontalShake(duration: TimeInterval = 1, animationType: CAMediaTimingFunctionName = .easeOut, completion:(() -> Void)? = nil) {
+        CATransaction.begin()
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: animationType)
         CATransaction.setCompletionBlock(completion)
         animation.duration = duration
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]

@@ -25,14 +25,16 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `init(colors:locations:startPoint:endPoint:type:)` convenience initializer. [#726](https://github.com/SwifterSwift/SwifterSwift/pull/726) by [JayMehta97](https://github.com/JayMehta97).
 - **Sequence**:
   - Added `sum(for:)` to sum up an `AdditiveArithmetic` property, referenced by `KeyPath`, of all elements in a sequence. [#736](https://github.com/SwifterSwift/SwifterSwift/pull/736) by [Moritz Sternemann](https://github.com/moritzsternemann).
+- **UIView**
+  - Added `verticalShake(duration:animationType:completion:)` and `horizontalShake(duration:animationType:completion:)` functions to UIView extensions [#756](https://github.com/SwifterSwift/SwifterSwift/pull/756) by [mmdock](https://github.com/mmdock)
+  - Added `rotate(toRadian:animated:duration:completion)`, and `rotate(toDegree:animated:duration:completion)` functions to UIView extensions [#756](https://github.com/SwifterSwift/SwifterSwift/pull/756) by [mmdock](https://github.com/mmdock)
+  - Added `rotate(byRadian:animated:duration:completion)`, and `rotate(byDegree:animated:duration:completion)` functions to UIView extensions [#756](https://github.com/SwifterSwift/SwifterSwift/pull/756) by [mmdock](https://github.com/mmdock)
 
 ### Changed
 - **UIImage**:
   - Implemented `filled(withColor:)` using `UIGraphicsImageRenderer` when available. [#733](https://github.com/SwifterSwift/SwifterSwift/pull/733)
   - Updated `kilobytesSize` to be computed independently from `bytesSize` [#753](https://github.com/SwifterSwift/SwifterSwift/pull/753) by [mmdock](https://github.com/mmdock)
   - Updated `init?(base64String:)` to take in a `scale` factor paramater. [#753](https://github.com/SwifterSwift/SwifterSwift/pull/753) by [mmdock](https://github.com/mmdock)
-  
-- **UIImage**:
   - Refactored `tint(_:blendMode:)` using UIGraphicsImageRenderer if available. [#731](https://github.com/SwifterSwift/SwifterSwift/pull/731) by [FraDeliro](https://github.com/FraDeliro).
 
 - **Sequence**:
@@ -41,6 +43,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Deprecated
 
 ### Removed
+- **UIView**
+  - Removed enums `ShakeDirection`, `AngleUnit`, `ShakeAnimationType` and their dependent functions.  [#756](https://github.com/SwifterSwift/SwifterSwift/pull/756) by [mmdock](https://github.com/mmdock)
 
 ### Fixed
 
