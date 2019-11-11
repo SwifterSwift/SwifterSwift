@@ -18,7 +18,7 @@ public extension KeyedDecodingContainer {
     /// - Parameter key: Key.
     /// - Returns: Decoded Bool value.
     /// - Throws: Decoding error.
-    func decodeBoolAsIntOrString(forKey key: K) throws -> Bool {
+    func decodeBoolAsIntOrString(forKey key: Key) throws -> Bool {
         if let intValue = try? decode(Int.self, forKey: key) {
             return (intValue as NSNumber).boolValue
         } else if let stringValue = try? decode(String.self, forKey: key) {
