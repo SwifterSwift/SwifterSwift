@@ -27,6 +27,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `sum(for:)` to sum up an `AdditiveArithmetic` property, referenced by `KeyPath`, of all elements in a sequence. [#736](https://github.com/SwifterSwift/SwifterSwift/pull/736) by [Moritz Sternemann](https://github.com/moritzsternemann).
 
 ### Changed
+- **Collection**:
+  - Refactored `group(by:)` to be generic for all `Collection`s, not only `where Index == Int`. [#758](https://github.com/SwifterSwift/SwifterSwift/pull/758) by [guykogus](https://github.com/guykogus)
 - **UIImage**:
   - Implemented `filled(withColor:)` using `UIGraphicsImageRenderer` when available. [#733](https://github.com/SwifterSwift/SwifterSwift/pull/733)
   - Updated `kilobytesSize` to be computed independently from `bytesSize` [#753](https://github.com/SwifterSwift/SwifterSwift/pull/753) by [mmdock](https://github.com/mmdock)
