@@ -309,10 +309,11 @@ public extension UIView {
     ///   - animated: set true to animate rotation (default is false).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func rotate(byRadian radian: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    @available(iOS, deprecated:10.0, message:"Use rotate(byAngle:animated:duration:completion)")
+    func rotate(byRadians radians: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
-            self.transform = self.transform.rotated(by: radian)
+            self.transform = self.transform.rotated(by: radians)
         }, completion: completion)
     }
 
@@ -323,11 +324,28 @@ public extension UIView {
     ///   - animated: set true to animate rotation (default is false).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func rotate(byDegree degree: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
-        let radian = .pi * degree / 180.0
+    @available(iOS, deprecated:10.0, message:"Use rotate(byAngle:animated:duration:completion)")
+    func rotate(byDegrees degrees: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+        let radian = .pi * degrees / 180.0
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
             self.transform = self.transform.rotated(by: radian)
+        }, completion: completion)
+    }
+
+    /// SwifterSwift: Rotate view by Measurement<UnitAngle> on relative axis.
+    ///
+    /// - Parameters:
+    ///   - angle: angle to rotate view by.
+    ///   - animated: set true to animate rotation (default is false).
+    ///   - duration: animation duration in seconds (default is 1 second).
+    ///   - completion: optional completion handler to run with animation finishes (default is nil).
+    @available(iOS 10.0, *)
+    func rotate(byAngle angle: Measurement<UnitAngle>, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+        let radians = angle.converted(to: .radians)
+        let aDuration = animated ? duration : 0
+        UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
+            self.transform = self.transform.rotated(by: CGFloat(radians.value))
         }, completion: completion)
     }
 
@@ -338,10 +356,11 @@ public extension UIView {
     ///   - animated: set true to animate rotation (default is false).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func rotate(toRadian radian: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    @available(iOS, deprecated:10.0, message:"Use rotate(toAngle:animated:duration:completion)")
+    func rotate(toRadians radians: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, animations: {
-            self.transform = self.transform.concatenating(CGAffineTransform(rotationAngle: radian))
+            self.transform = self.transform.concatenating(CGAffineTransform(rotationAngle: radians))
         }, completion: completion)
     }
 
@@ -352,11 +371,28 @@ public extension UIView {
     ///   - animated: set true to animate rotation (default is false).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func rotate(toDegree degree: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
-        let radian = .pi * degree / 180.0
+    @available(iOS, deprecated:10.0, message:"Use rotate(toAngle:animated:duration:completion)")
+    func rotate(toDegrees degrees: CGFloat, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+        let radians = .pi * degrees / 180.0
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, animations: {
-            self.transform = self.transform.concatenating(CGAffineTransform(rotationAngle: radian))
+            self.transform = self.transform.concatenating(CGAffineTransform(rotationAngle: radians))
+        }, completion: completion)
+    }
+
+    /// SwifterSwift: Rotate view to given angle on fixed axis.
+    ///
+    /// - Parameters:
+    ///   - angle: angle to rotate view to.
+    ///   - animated: set true to animate rotation (default is false).
+    ///   - duration: animation duration in seconds (default is 1 second).
+    ///   - completion: optional completion handler to run with animation finishes (default is nil).
+    @available(iOS 10, *)
+    func rotate(toAngle angle: Measurement<UnitAngle>, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+        let radians = angle.converted(to: .radians)
+        let aDuration = animated ? duration : 0
+        UIView.animate(withDuration: aDuration, animations: {
+            self.transform = self.transform.concatenating(CGAffineTransform(rotationAngle: CGFloat(radians.value)))
         }, completion: completion)
     }
 
@@ -391,7 +427,7 @@ public extension UIView {
         CATransaction.setCompletionBlock(completion)
         animation.duration = duration
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-        layer.add(animation, forKey: "shake")
+        layer.add(animation, forKey: "verticalShake")
         CATransaction.commit()
     }
 
@@ -408,7 +444,7 @@ public extension UIView {
         CATransaction.setCompletionBlock(completion)
         animation.duration = duration
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-        layer.add(animation, forKey: "shake")
+        layer.add(animation, forKey: "horizontalShake")
         CATransaction.commit()
     }
 

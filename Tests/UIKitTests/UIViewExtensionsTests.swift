@@ -255,12 +255,12 @@ final class UIViewExtensionsTests: XCTestCase {
     func testRotateByRadians() {
         let view1 = UIView()
         let transform1 = CGAffineTransform(rotationAngle: 2)
-        view1.rotate(byRadian: 2, animated: false, duration: 0, completion: nil)
+        view1.rotate(byRadians: 2, animated: false, duration: 0, completion: nil)
         XCTAssertEqual(view1.transform, transform1)
 
         let view2 = UIView()
         let transform2 = CGAffineTransform(rotationAngle: CGFloat(90).degreesToRadians)
-        view2.rotate(byRadian: CGFloat(90).degreesToRadians, animated: false, duration: 0, completion: nil)
+        view2.rotate(byRadians: CGFloat(90).degreesToRadians, animated: false, duration: 0, completion: nil)
         XCTAssertEqual(view2.transform, transform2)
 
         let rotateExpectation = expectation(description: "view rotated")
@@ -268,7 +268,7 @@ final class UIViewExtensionsTests: XCTestCase {
         let view3 = UIView()
         let transform3 = CGAffineTransform(rotationAngle: 2)
 
-        view3.rotate(byRadian: 2, animated: true, duration: 0.5) { _ in
+        view3.rotate(byRadians: 2, animated: true, duration: 0.5) { _ in
             rotateExpectation.fulfill()
         }
         XCTAssertEqual(view3.transform, transform3)
@@ -278,12 +278,12 @@ final class UIViewExtensionsTests: XCTestCase {
     func testRotateByDegrees() {
         let view1 = UIView()
         let transform1 = CGAffineTransform(rotationAngle: 2)
-        view1.rotate(byDegree: CGFloat(2).radiansToDegrees, animated: false, duration: 0, completion: nil)
+        view1.rotate(byDegrees: CGFloat(2).radiansToDegrees, animated: false, duration: 0, completion: nil)
         XCTAssertEqual(view1.transform, transform1)
 
         let view2 = UIView()
         let transform2 = CGAffineTransform(rotationAngle: CGFloat(90).degreesToRadians)
-        view2.rotate(byDegree: 90, animated: false, duration: 0, completion: nil)
+        view2.rotate(byDegrees: 90, animated: false, duration: 0, completion: nil)
         XCTAssertEqual(view2.transform, transform2)
 
         let rotateExpectation = expectation(description: "view rotated")
@@ -291,7 +291,7 @@ final class UIViewExtensionsTests: XCTestCase {
         let view3 = UIView()
         let transform3 = CGAffineTransform(rotationAngle: 2)
 
-        view3.rotate(byDegree: CGFloat(2).radiansToDegrees, animated: true, duration: 0.5) { _ in
+        view3.rotate(byDegrees: CGFloat(2).radiansToDegrees, animated: true, duration: 0.5) { _ in
             rotateExpectation.fulfill()
         }
         XCTAssertEqual(view3.transform, transform3)
@@ -301,12 +301,12 @@ final class UIViewExtensionsTests: XCTestCase {
     func testRotateToDegree() {
         let view1 = UIView()
         let transform1 = CGAffineTransform(rotationAngle: 2)
-        view1.rotate(toDegree: CGFloat(2).radiansToDegrees, animated: false, duration: 0, completion: nil)
+        view1.rotate(toDegrees: CGFloat(2).radiansToDegrees, animated: false, duration: 0, completion: nil)
         XCTAssertEqual(view1.transform, transform1)
 
         let view2 = UIView()
         let transform2 = CGAffineTransform(rotationAngle: CGFloat(90).degreesToRadians)
-        view2.rotate(toDegree: 90, animated: false, duration: 0, completion: nil)
+        view2.rotate(toDegrees: 90, animated: false, duration: 0, completion: nil)
         XCTAssertEqual(view2.transform, transform2)
 
         let rotateExpectation = expectation(description: "view rotated")
@@ -314,7 +314,7 @@ final class UIViewExtensionsTests: XCTestCase {
         let view3 = UIView()
         let transform3 = CGAffineTransform(rotationAngle: 2)
 
-        view3.rotate(toDegree: CGFloat(2).radiansToDegrees, animated: true, duration: 0.5) { _ in
+        view3.rotate(toDegrees: CGFloat(2).radiansToDegrees, animated: true, duration: 0.5) { _ in
             rotateExpectation.fulfill()
         }
         XCTAssertEqual(view3.transform, transform3)
@@ -324,12 +324,12 @@ final class UIViewExtensionsTests: XCTestCase {
     func testRotateToRadian() {
         let view1 = UIView()
         let transform1 = CGAffineTransform(rotationAngle: 2)
-        view1.rotate(toRadian: 2, animated: false, duration: 0, completion: nil)
+        view1.rotate(toRadians: 2, animated: false, duration: 0, completion: nil)
         XCTAssertEqual(view1.transform, transform1)
 
         let view2 = UIView()
         let transform2 = CGAffineTransform(rotationAngle: CGFloat(90).degreesToRadians)
-        view2.rotate(toRadian: CGFloat(90).degreesToRadians, animated: false, duration: 0, completion: nil)
+        view2.rotate(toRadians: CGFloat(90).degreesToRadians, animated: false, duration: 0, completion: nil)
         XCTAssertEqual(view2.transform, transform2)
 
         let rotateExpectation = expectation(description: "view rotated")
@@ -337,7 +337,7 @@ final class UIViewExtensionsTests: XCTestCase {
         let view3 = UIView()
         let transform3 = CGAffineTransform(rotationAngle: 2)
 
-        view3.rotate(toRadian: 2, animated: true, duration: 0.5) { _ in
+        view3.rotate(toRadians: 2, animated: true, duration: 0.5) { _ in
             rotateExpectation.fulfill()
         }
         XCTAssertEqual(view3.transform, transform3)
@@ -364,16 +364,30 @@ final class UIViewExtensionsTests: XCTestCase {
         let view = UIView()
         view.horizontalShake(animationType: .easeIn)
         let currentAnimation = view.layer.animation(forKey: view.layer.animationKeys()?.first ?? "")
-
         XCTAssertEqual(currentAnimation?.timingFunction, CAMediaTimingFunction(name: .easeIn))
+
+        let shakeExpectation = expectation(description: "view shaked horizontally")
+
+        let view2 = UIView()
+        view2.horizontalShake(duration: 0.5, animationType: .easeOut, completion: {
+            shakeExpectation.fulfill()
+        })
+        waitForExpectations(timeout: 0.5, handler: nil)
     }
 
     func testVerticalShake() {
         let view = UIView()
         view.verticalShake(animationType: .linear)
         let currentAnimation = view.layer.animation(forKey: view.layer.animationKeys()?.first ?? "")
-
         XCTAssertEqual(currentAnimation?.timingFunction, CAMediaTimingFunction(name: .linear))
+
+        let shakeExpectation = expectation(description: "view shaked vertically")
+
+        let view2 = UIView()
+        view2.verticalShake(duration: 0.5, animationType: .easeOut, completion: {
+            shakeExpectation.fulfill()
+        })
+        waitForExpectations(timeout: 0.5, handler: nil)
     }
 
     func testRemoveSubviews() {
