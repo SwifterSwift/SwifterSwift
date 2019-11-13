@@ -1,0 +1,157 @@
+name: SwifterSwift
+options:
+  generateEmptyDirectories: true
+fileGroups:
+  - Examples
+configFiles:
+  Debug: Configs/Project-Debug.xcconfig
+  Release: Configs/Project-Release.xcconfig
+targets:
+  SwifterSwift-iOS:
+    type: framework
+    platform: [iOS]
+    platformSuffix: ""
+    scheme:
+      testTargets:
+        - SwifterSwift-iOSTests
+    configFiles:
+      Debug: Configs/SwifterSwift-iOS-Debug.xcconfig
+      Release: Configs/SwifterSwift-iOS-Release.xcconfig
+    settings:
+      PRODUCT_NAME: SwifterSwift
+    sources:
+      - path: Sources
+        excludes:
+          - "SwifterSwift/AppKit/*"
+  SwifterSwift-tvOS:
+    type: framework
+    platform: [tvOS]
+    platformSuffix: ""
+    scheme:
+      testTargets:
+        - SwifterSwift-tvOSTests
+    configFiles:
+      Debug: Configs/SwifterSwift-tvOS-Debug.xcconfig
+      Release: Configs/SwifterSwift-tvOS-Release.xcconfig
+    settings:
+      PRODUCT_NAME: SwifterSwift
+    sources:
+      - path: Sources
+        excludes:
+          - "SwifterSwift/UIKit/UIGestureRecognizerExtensions.swift"
+          - "SwifterSwift/UIKit/UISearchBarExtensions.swift"
+          - "SwifterSwift/UIKit/UIDatePickerExtensions.swift"
+          - "SwifterSwift/UIKit/UIStackViewExtensions.swift"
+          - "SwifterSwift/UIKit/UIScrollViewExtensions.swift"
+          - "SwifterSwift/UIKit/UIWindowExtensions.swift"
+          - "SwifterSwift/UIKit/UIRefreshControlExtensions.swift"
+          - "SwifterSwift/UIKit/UIActivityExtensions.swift"
+          - "SwifterSwift/CoreAnimation/CAGradientLayerExtensions.swift"
+          - "SwifterSwift/AppKit/*"
+  SwifterSwift-watchOS:
+    type: framework
+    platform: [watchOS]
+    platformSuffix: ""
+    configFiles:
+      Debug: Configs/SwifterSwift-watchOS-Debug.xcconfig
+      Release: Configs/SwifterSwift-watchOS-Release.xcconfig
+    settings:
+      PRODUCT_NAME: SwifterSwift
+    sources:
+      - path: Sources
+        excludes:
+          - "SwifterSwift/MapKit/MKMapViewExtensions.swift"
+          - "SwifterSwift/UIKit/UIColorExtensions.swift"
+          - "SwifterSwift/UIKit/UIGestureRecognizerExtensions.swift"
+          - "SwifterSwift/UIKit/UISearchBarExtensions.swift"
+          - "SwifterSwift/UIKit/UIDatePickerExtensions.swift"
+          - "SwifterSwift/UIKit/UIStackViewExtensions.swift"
+          - "SwifterSwift/UIKit/UIScrollViewExtensions.swift"
+          - "SwifterSwift/UIKit/UIWindowExtensions.swift"
+          - "SwifterSwift/UIKit/UIEdgeInsetsExtensions.swift"
+          - "SwifterSwift/UIKit/UIRefreshControlExtensions.swift"
+          - "SwifterSwift/UIKit/UILayoutPriorityExtensions.swift"
+          - "SwifterSwift/UIKit/UIActivityExtensions.swift"
+          - "SwifterSwift/CoreAnimation/CAGradientLayerExtensions.swift"
+          - "SwifterSwift/AppKit/*"
+  SwifterSwift-macOS:
+    type: framework
+    platform: [macOS]
+    platformSuffix: ""
+    scheme:
+      testTargets:
+        - SwifterSwift-macOSTests
+    configFiles:
+      Debug: Configs/SwifterSwift-macOS-Debug.xcconfig
+      Release: Configs/SwifterSwift-macOS-Release.xcconfig
+    settings:
+      PRODUCT_NAME: SwifterSwift
+    sources:
+      - path: Sources
+        excludes:
+          - "SwifterSwift/SceneKit/SCNShape.swift"
+          - "SwifterSwift/UIKit/*"
+          - "SwifterSwift/CoreAnimation/CAGradientLayerExtensions.swift"
+  SwifterSwift-iOSTests:
+    type: bundle.unit-test
+    platform: [iOS]
+    platformSuffix: ""
+    dependencies:
+      - target: SwifterSwift-iOS
+    configFiles:
+      Debug: Configs/SwifterSwift-iOSTests-Debug.xcconfig
+      Release: Configs/SwifterSwift-iOSTests-Release.xcconfig
+    sources:
+      - path: Tests
+        excludes:
+          - "LinuxMain.swift"
+          - "**/XCTestManifests.swift"
+          - "AppKitTests/*"
+  SwifterSwift-tvOSTests:
+    type: bundle.unit-test
+    platform: [tvOS]
+    platformSuffix: ""
+    dependencies:
+      - target: SwifterSwift-tvOS
+    configFiles:
+      Debug: Configs/SwifterSwift-tvOSTests-Debug.xcconfig
+      Release: Configs/SwifterSwift-tvOSTests-Release.xcconfig
+    sources:
+      - path: Tests
+        excludes:
+          - "LinuxMain.swift"
+          - "**/XCTestManifests.swift"
+          - "AppKitTests/*"
+          - "CoreAnimationTests/CAGradientLayerExtensionsTests.swift"
+          - "ResourcesTests/TestStoryboard.storyboard"
+          - "ResourcesTests/UICollectionViewCell.xib"
+          - "ResourcesTests/UITableViewCell.xib"
+          - "ResourcesTests/UITableViewHeaderFooterView.xib"
+          - "UIKitTests/UIDatePickerExtensionsTests.swift"
+          - "UIKitTests/UIStackViewExtensionsTests.swift"
+          - "UIKitTests/UIScrollViewExtensionsTests.swift"
+          - "UIKitTests/UIGestureRecognizerExtensionsTests.swift"
+          - "UIKitTests/UIWindowExtensionsTests.swift"
+          - "UIKitTests/UIRefreshControlExntesionsTests.swift"
+  SwifterSwift-macOSTests:
+    type: bundle.unit-test
+    platform: [macOS]
+    platformSuffix: ""
+    dependencies:
+      - target: SwifterSwift-macOS
+    configFiles:
+      Debug: Configs/SwifterSwift-macOSTests-Debug.xcconfig
+      Release: Configs/SwifterSwift-macOSTests-Release.xcconfig
+    sources:
+      - path: Tests
+        excludes:
+          - "LinuxMain.swift"
+          - "**/XCTestManifests.swift"
+          - "CoreAnimationTests/CAGradientLayerExtensionsTests.swift"
+          - "ResourcesTests/big_buck_bunny_720p_1mb.mp4"
+          - "ResourcesTests/TestStoryboard.storyboard"
+          - "ResourcesTests/UICollectionViewCell.xib"
+          - "ResourcesTests/UITableViewCell.xib"
+          - "ResourcesTests/UITableViewHeaderFooterView.xib"
+          - "SceneKitTests/SCNShapeExtensionsTests.swift"
+          - "UIKitTests/*"
