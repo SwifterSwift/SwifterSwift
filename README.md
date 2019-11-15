@@ -109,12 +109,10 @@ let package = Package(
 <p>Note that the <a href="https://swift.org/package-manager">Swift Package Manager</a> doesn't support building for iOS/tvOS/macOS/watchOS apps – see Accio in the next section for that.
 </details>
 
-
 <details>
 <summary>Accio</summary>
 <p><a href="https://github.com/JamitLabs/Accio">Accio</a> is a dependency manager based on SwiftPM which can build frameworks for iOS/macOS/tvOS/watchOS. Therefore the integration steps are exactly the same as described above. Once your <code>Package.swift</code> file is configured, you need to run <code>accio update</code> instead of <code>swift package update</code> though.</p>
 </details>
-
 
 <details>
 <summary>Manually</summary>
@@ -151,7 +149,6 @@ let package = Package(
 </ul>
 </details>
 
-
 <details>
 <summary>Foundation Extensions</summary>
 </br>
@@ -168,7 +165,6 @@ let package = Package(
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/UserDefaultsExtensions.swift"><code>UserDefaults extensions</code></a></li>
 </ul>
 </details>
-
 
 <details>
 <summary>UIKit Extensions</summary>
@@ -209,7 +205,6 @@ let package = Package(
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIWindowExtensions.swift"><code>UIWindow extensions</code></a></li>
 </ul>
 </details>
-
 
 <details>
 <summary>AppKit Extensions</summary>
@@ -295,7 +290,7 @@ let package = Package(
 
 SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original Swift API design guidelines.
 
-Check Examples.playground from the project for some cool examples!
+Check Examples.playground from the project for some cool examples! We use [XcodeGen](https://github.com/yonaskolb/XcodeGen) to generate project file.
 
 ## Documentation
 
