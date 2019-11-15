@@ -1,5 +1,6 @@
 ## Xcode
 .DS_Store
+SwifterSwift.xcodeproj
 
 ## Build generated
 build/
