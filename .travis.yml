@@ -19,7 +19,7 @@ jobs:
         - bundle install
         - brew update
         - brew outdated xctool || brew upgrade xctool
-        - brew outdated xcodegen || brew upgrade xcodegen
+        - brew install xcodegen
       script:
         - set -o pipefail
         - swiftlint version #cheking the version installed
@@ -36,28 +36,28 @@ jobs:
     - name: Cocoapods iOS
       before_install:
         - bundle install
-        - brew outdated xcodegen || brew upgrade xcodegen
+        - brew install xcodegen
       script:
         - xcodegen
         - bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=ios
     - name: Cocoapods macOS
       before_install:
         - bundle install
-        - brew outdated xcodegen || brew upgrade xcodegen
+        - brew install xcodegen
       script:
         - xcodegen
         - bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=macos
     - name: Cocoapods tvOS
       before_install:
         - bundle install
-        - brew outdated xcodegen || brew upgrade xcodegen
+        - brew install xcodegen
       script:
         - xcodegen
         - bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=tvos
     - name: Cocoapods watchOS
       before_install:
         - bundle install
-        - brew outdated xcodegen || brew upgrade xcodegen
+        - brew install xcodegen
       script:
         - xcodegen
         - bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=watchos
