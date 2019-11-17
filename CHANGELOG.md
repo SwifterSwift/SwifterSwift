@@ -47,6 +47,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Fixed
 
+- Fixed build error occurring when building AppKit extensions for macCatalyst. [#762](https://github.com/SwifterSwift/SwifterSwift/pull/762) by [MaxHaertwig](https://github.com/maxhaertwig).
+
 ### Security
 
 ---
