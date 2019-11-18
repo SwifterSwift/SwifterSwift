@@ -24,7 +24,7 @@ public extension MutableCollection where Self: RandomAccessCollection {
 }
 
 public extension MutableCollection {
-    /// SwifterSwift: Assign to an given value to a field of all elements of the collection
+    /// SwifterSwift: Assign a given value to a field `keyPath` of all elements in the collection.
     ///
     /// - Parameter value: The new value of the field
     /// - Parameter keyPath: The actual field of the element
