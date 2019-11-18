@@ -281,6 +281,21 @@ public extension UIImage {
         return image
     }
 
+    /// SwifterSwift: Base 64 encoded PNG data of the image.
+    ///
+    /// - returns: Base 64 encoded PNG data of the image as a String.
+    func pngBase64String() -> String? {
+        return pngData()?.base64EncodedString()
+    }
+
+    /// SwifterSwift: Base 64 encoded JPEG data of the image.
+    ///
+    /// - parameter compressionQuality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality).
+    /// - returns: Base 64 encoded JPEG data of the image as a String.
+    func jpegBase64String(compressionQuality: CGFloat) -> String? {
+        return jpegData(compressionQuality: compressionQuality)?.base64EncodedString()
+    }
+
 }
 
 // MARK: - Initializers
