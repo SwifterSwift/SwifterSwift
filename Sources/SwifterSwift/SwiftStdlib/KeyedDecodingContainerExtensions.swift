@@ -10,7 +10,7 @@
 import Foundation
 #endif
 
-public extension KeyedDecodingContainer where Key: CodingKey {
+public extension KeyedDecodingContainer {
 
     #if canImport(Foundation)
     /// SwifterSwift: Try to decode a Bool as Int then String before decoding as Bool.
@@ -18,7 +18,7 @@ public extension KeyedDecodingContainer where Key: CodingKey {
     /// - Parameter key: Key.
     /// - Returns: Decoded Bool value.
     /// - Throws: Decoding error.
-    func decodeBoolAsIntOrString(forKey key: K) throws -> Bool {
+    func decodeBoolAsIntOrString(forKey key: Key) throws -> Bool {
         if let intValue = try? decode(Int.self, forKey: key) {
             return (intValue as NSNumber).boolValue
         } else if let stringValue = try? decode(String.self, forKey: key) {
@@ -35,7 +35,7 @@ public extension KeyedDecodingContainer where Key: CodingKey {
     /// - Parameter key: Key.
     /// - Returns: Decoded Bool value.
     /// - Throws: Decoding error.
-    func decodeBoolAsIntOrStringIfPresent(forKey key: K) throws -> Bool? {
+    func decodeBoolAsIntOrStringIfPresent(forKey key: Key) throws -> Bool? {
         if let intValue = try? decodeIfPresent(Int.self, forKey: key) {
             return (intValue as NSNumber).boolValue
         } else if let stringValue = try? decodeIfPresent(String.self, forKey: key) {

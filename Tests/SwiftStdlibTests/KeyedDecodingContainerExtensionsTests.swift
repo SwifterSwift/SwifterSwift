@@ -14,7 +14,7 @@ private struct Video: Decodable {
     let isPlaying: Bool
     let isFullScreen: Bool?
 
-    enum CodingKeys: CodingKey {
+    private enum CodingKeys: CodingKey {
         case isPlaying
         case isFullScreen
     }

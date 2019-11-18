@@ -6,8 +6,8 @@
 //  Copyright © 2017 SwifterSwift
 //
 
-#if canImport(Cocoa)
-import Cocoa
+#if canImport(AppKit)
+import AppKit
 
 // MARK: - Properties
 public extension NSView {

@@ -13,6 +13,15 @@ import Foundation
 // MARK: - Methods
 public extension Dictionary {
 
+    /// SwifterSwift: Creates a Dictionary from a given sequence grouped by a given key path.
+    ///
+    /// - Parameters:
+    ///   - sequence: Sequence being grouped
+    ///   - keypath: The key path to group by.
+    init<S: Sequence>(grouping sequence: S, by keyPath: KeyPath<S.Element, Key>) where Value == [S.Element] {
+       self.init(grouping: sequence, by: { $0[keyPath: keyPath] })
+    }
+
     /// SwifterSwift: Check if key exists in dictionary.
     ///
     ///        let dict: [String: Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
