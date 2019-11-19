@@ -36,10 +36,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Implemented `filled(withColor:)` using `UIGraphicsImageRenderer` when available. [#733](https://github.com/SwifterSwift/SwifterSwift/pull/733)
   - Updated `kilobytesSize` to be computed independently from `bytesSize` [#753](https://github.com/SwifterSwift/SwifterSwift/pull/753) by [mmdock](https://github.com/mmdock)
   - Updated `init?(base64String:)` to take in a `scale` factor paramater. [#753](https://github.com/SwifterSwift/SwifterSwift/pull/753) by [mmdock](https://github.com/mmdock)
-  
 - **UIImage**:
   - Refactored `tint(_:blendMode:)` using UIGraphicsImageRenderer if available. [#731](https://github.com/SwifterSwift/SwifterSwift/pull/731) by [FraDeliro](https://github.com/FraDeliro).
-
 - **Sequence**:
   - Corrected documentation for `sorted(by:with:)` and `sorted(by:)`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
 
@@ -48,6 +46,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Removed
 
 ### Fixed
+- Fixed build error occurring when building AppKit extensions for macCatalyst. [#762](https://github.com/SwifterSwift/SwifterSwift/pull/762) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 ### Security
 
