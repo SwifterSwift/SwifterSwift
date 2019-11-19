@@ -26,6 +26,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `init(colors:locations:startPoint:endPoint:type:)` convenience initializer. [#726](https://github.com/SwifterSwift/SwifterSwift/pull/726) by [JayMehta97](https://github.com/JayMehta97).
 - **Sequence**:
   - Added `sum(for:)` to sum up an `AdditiveArithmetic` property, referenced by `KeyPath`, of all elements in a sequence. [#736](https://github.com/SwifterSwift/SwifterSwift/pull/736) by [Moritz Sternemann](https://github.com/moritzsternemann).
+- **MutableCollection**:
+  - Added `assignToAll(value:keyPath:)` to assign given value to field `keyPath` of every element in the collection. [#759](https://github.com/SwifterSwift/SwifterSwift/issues/759) by [cyber-gh](https://github.com/cyber-gh).
 
 ### Changed
 - **Collection**:
