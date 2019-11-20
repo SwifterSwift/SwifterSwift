@@ -152,4 +152,11 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(array2.sorted(by: \String.first, with: optionalCompare), ["Bryant", "James", "Wade", ""])
     }
 
+    func testMapByKeyPath() {
+        let array1 = [Person(name: "John", age: 30, location: Location(city: "Boston")), Person(name: "Jan", age: 22, location: Location(city: "Prague")), Person(name: "Roman", age: 26, location: Location(city: "Moscow"))]
+        XCTAssertEqual(array1.map(by: \.name), ["John", "Jan", "Roman"])
+
+        let array2 = [Person(name: "Daniel", age: 45, location: Location(city: "Pittsburgh")), Person(name: "Michael", age: nil, location: Location(city: "Dresden")), Person(name: "Pierre", age: 20, location: Location(city: "Paris"))]
+        XCTAssertEqual(array2.map(by: \.age), [45, nil, 20])
+    }
 }
