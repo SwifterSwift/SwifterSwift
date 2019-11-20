@@ -213,6 +213,14 @@ public extension Sequence {
         // Inspired by: https://swiftbysundell.com/articles/reducers-in-swift/
         return reduce(.zero) { $0 + $1[keyPath: keyPath] }
     }
+
+    /// SwifterSwift: Returns an array containing the results of mapping the given key path over the sequence’s elements.
+    ///
+    /// - Parameter keyPath: Key path to map.
+    /// - Returns: An array containing the results of mapping.
+    func map<T>(by keyPath: KeyPath<Element, T>) -> [T] {
+        return map { $0[keyPath: keyPath] }
+    }
 }
 
 public extension Sequence where Element: Equatable {
