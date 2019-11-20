@@ -34,10 +34,10 @@ public extension UITextView {
 
     /// SwifterSwift: Wrap to the content (Text / Attributed Text).
     func wrapToContent() {
-        contentInset = UIEdgeInsets.zero
-        scrollIndicatorInsets = UIEdgeInsets.zero
-        contentOffset = CGPoint.zero
-        textContainerInset = UIEdgeInsets.zero
+        contentInset = .zero
+        scrollIndicatorInsets = .zero
+        contentOffset = .zero
+        textContainerInset = .zero
         textContainer.lineFragmentPadding = 0
         sizeToFit()
     }

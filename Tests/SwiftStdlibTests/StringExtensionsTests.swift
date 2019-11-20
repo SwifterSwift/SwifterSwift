@@ -267,7 +267,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil("8.23".float(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".float(locale: Locale(identifier: "en_US_POSIX")), Float(8.23))
 
-        #if os(Linux)
+        #if os(Linux) || targetEnvironment(macCatalyst)
         XCTAssertEqual("8s".float(), 8)
         #else
         XCTAssertNil("8s".float())
@@ -281,7 +281,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil("8.23".double(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".double(locale: Locale(identifier: "en_US_POSIX")), 8.23)
 
-        #if os(Linux)
+        #if os(Linux) || targetEnvironment(macCatalyst)
         XCTAssertEqual("8s".double(), 8)
         #else
         XCTAssertNil("8s".double())
@@ -296,7 +296,11 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX")), CGFloat(8.23))
 
+        #if targetEnvironment(macCatalyst)
+        XCTAssertEqual("8s".cgFloat(), 8)
+        #else
         XCTAssertNil("8s".cgFloat())
+        #endif
         #endif
     }
 
@@ -716,17 +720,17 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testColored() {
-        #if canImport(Cocoa)
+        #if canImport(AppKit) || canImport(UIKit)
         let coloredString = "hello".colored(with: .orange)
         // swiftlint:disable:next legacy_constructor
         let attrs = coloredString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, coloredString.length))
         XCTAssertNotNil(attrs[NSAttributedString.Key.foregroundColor])
 
-        guard let color = attrs[.foregroundColor] as? NSColor else {
+        guard let color = attrs[.foregroundColor] as? Color else {
             XCTFail("Unable to find color in testColored")
             return
         }
-        XCTAssertEqual(color, NSColor.orange)
+        XCTAssertEqual(color, .orange)
         #endif
     }
 
