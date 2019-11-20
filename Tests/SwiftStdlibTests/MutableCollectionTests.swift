@@ -33,4 +33,17 @@ final class MutableCollectionTests: XCTestCase {
         array2.sort(by: \String.first, with: optionalCompare)
         XCTAssertEqual(array2, ["Bryant", "James", "Wade", ""])
     }
+
+    func testAssignToAll() {
+        var collection: [TestStruct] = [1, 2, 3, 4, 5]
+        collection.assignToAll(value: 0, by: \.testField)
+        let expectedCollection: [TestStruct] = [0, 0, 0, 0, 0]
+        XCTAssertEqual(collection, expectedCollection)
+
+        // check with an empty collection
+        var initialEmptyCollection: [TestStruct] = []
+        initialEmptyCollection.assignToAll(value: 5, by: \.testField)
+        let expectedEmptyCollection: [TestStruct] = []
+        XCTAssertEqual(initialEmptyCollection, expectedEmptyCollection)
+    }
 }

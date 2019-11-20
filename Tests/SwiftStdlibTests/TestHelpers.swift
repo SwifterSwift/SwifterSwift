@@ -25,3 +25,12 @@ struct Person: Equatable {
 struct Location: Equatable {
     let city: String
 }
+
+struct TestStruct: ExpressibleByIntegerLiteral, Equatable {
+    var testField: Int = 0
+    typealias IntegerLiteralType = Int
+
+    init(integerLiteral value: Int) {
+        self.testField = value
+    }
+}

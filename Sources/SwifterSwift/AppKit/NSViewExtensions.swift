@@ -6,7 +6,7 @@
 //  Copyright © 2017 SwifterSwift
 //
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 
 // MARK: - Properties
