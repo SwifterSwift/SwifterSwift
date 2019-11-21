@@ -29,6 +29,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `map(by:)` to map the sequence elements by a given key path. [#763](https://github.com/SwifterSwift/SwifterSwift/pull/763) by [Roman Podymov](https://github.com/RomanPodymov).
 - **MutableCollection**:
   - Added `assignToAll(value:keyPath:)` to assign given value to field `keyPath` of every element in the collection. [#759](https://github.com/SwifterSwift/SwifterSwift/issues/759) by [cyber-gh](https://github.com/cyber-gh).
+- **KeyedDecodingContainer**:
+  - Added `decodeBoolAsIntOrString(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as Bool. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
+  - Added `decodeBoolAsIntOrStringIfPresent(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as `Bool` if present. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
 
 ### Changed
 - **Collection**:
