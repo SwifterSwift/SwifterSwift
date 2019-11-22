@@ -1,5 +1,5 @@
 //
-//  KeyedDecodingContainerTests.swift
+//  KeyedDecodingContainerExtensionsTests.swift
 //  SwifterSwift
 //
 //  Created by Francesco Deliro on 23/10/2019.
@@ -31,7 +31,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
     func testDecodeBoolAsIntOrStringDataAsIntSuccessful() {
         let isPlayingAndIsFullScreenAsInt = #"{"isPlaying": 1, "isFullScreen": 0}"#
         let data = mockJsonData(from: isPlayingAndIsFullScreenAsInt)
-        let video = try! JSONDecoder().decode(Video.self, from: data)
+        let video = try! JSONDecoder().decode(Video.self, from: data) // swiftlint:disable:this force_try
         XCTAssertTrue(video.isPlaying)
         XCTAssertEqual(video.isFullScreen, false)
     }
@@ -39,7 +39,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
     func testDecodeBoolAsIntOrStringDataAsStringSuccessful() {
         let isPlayingAndIsFullScreenAsString = #"{"isPlaying": "true", "isFullScreen": "false"}"#
         let data = mockJsonData(from: isPlayingAndIsFullScreenAsString)
-        let video = try! JSONDecoder().decode(Video.self, from: data)
+        let video = try! JSONDecoder().decode(Video.self, from: data) // swiftlint:disable:this force_try
         XCTAssertTrue(video.isPlaying)
         XCTAssertEqual(video.isFullScreen, false)
     }
@@ -47,7 +47,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
     func testDecodeBoolAsIntOrStringDataAsBoolSuccessful() {
         let isPlayingAndIsFullScreenAsBool = #"{"isPlaying": true, "isFullScreen": false}"#
         let data = mockJsonData(from: isPlayingAndIsFullScreenAsBool)
-        let video = try! JSONDecoder().decode(Video.self, from: data)
+        let video = try! JSONDecoder().decode(Video.self, from: data) // swiftlint:disable:this force_try
         XCTAssertTrue(video.isPlaying)
         XCTAssertEqual(video.isFullScreen, false)
     }
@@ -55,7 +55,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
     func testDecodeBoolAsIntOrStringIfPresentSuccessful() {
         let isPlayingAsIntAndIsFullScreenNotPresent = #"{"isPlaying": 0}"#
         let data = mockJsonData(from: isPlayingAsIntAndIsFullScreenNotPresent)
-        let video = try! JSONDecoder().decode(Video.self, from: data)
+        let video = try! JSONDecoder().decode(Video.self, from: data) // swiftlint:disable:this force_try
         XCTAssertFalse(video.isPlaying)
         XCTAssertNil(video.isFullScreen)
     }
@@ -65,7 +65,7 @@ final class KeyedDecodingContainerTests: XCTestCase {
         let data = mockJsonData(from: isPlayingAndIsFullScreenTypeMismatch)
         XCTAssertThrowsError(try JSONDecoder().decode(Video.self, from: data))
     }
-  
+
     private func mockJsonData(from json: String) -> Data {
         return Data(json.utf8)
     }
