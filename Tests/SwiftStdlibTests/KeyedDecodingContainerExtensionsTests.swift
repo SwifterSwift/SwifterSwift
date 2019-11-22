@@ -34,7 +34,6 @@ final class KeyedDecodingContainerTests: XCTestCase {
         let video = try! JSONDecoder().decode(Video.self, from: data) // swiftlint:disable:this force_try
         XCTAssertTrue(video.isPlaying)
         XCTAssertEqual(video.isFullScreen, false)
-
     }
 
     func testDecodeBoolAsIntOrStringDataAsStringSuccessful() {
@@ -43,7 +42,6 @@ final class KeyedDecodingContainerTests: XCTestCase {
         let video = try! JSONDecoder().decode(Video.self, from: data) // swiftlint:disable:this force_try
         XCTAssertTrue(video.isPlaying)
         XCTAssertEqual(video.isFullScreen, false)
-
     }
 
     func testDecodeBoolAsIntOrStringDataAsBoolSuccessful() {
@@ -52,7 +50,6 @@ final class KeyedDecodingContainerTests: XCTestCase {
         let video = try! JSONDecoder().decode(Video.self, from: data) // swiftlint:disable:this force_try
         XCTAssertTrue(video.isPlaying)
         XCTAssertEqual(video.isFullScreen, false)
-
     }
 
     func testDecodeBoolAsIntOrStringIfPresentSuccessful() {
