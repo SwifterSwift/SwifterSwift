@@ -33,7 +33,6 @@ jobs:
         - bundle exec danger --verbose
     - name: Swiftlint
       script:
-        - cd ${TRAVIS_BUILD_DIR}
         - swiftlint
     - name: Cocoapods iOS
       before_install:
