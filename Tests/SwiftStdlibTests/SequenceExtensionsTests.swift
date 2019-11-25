@@ -129,6 +129,11 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum(), 17)
     }
 
+    func testKeyPathSum() {
+        XCTAssertEqual(["James", "Wade", "Bryant"].sum(for: \.count), 15)
+        XCTAssertEqual(["a", "b", "c", "d"].sum(for: \.count), 4)
+    }
+
     func testKeyPathSorted() {
         let array = ["James", "Wade", "Bryant"]
         XCTAssertEqual(array.sorted(by: \String.count, with: <), ["Wade", "James", "Bryant"])
@@ -147,4 +152,19 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(array2.sorted(by: \String.first, with: optionalCompare), ["Bryant", "James", "Wade", ""])
     }
 
+    func testMapByKeyPath() {
+        let array1 = [Person(name: "John", age: 30, location: Location(city: "Boston")), Person(name: "Jan", age: 22, location: Location(city: "Prague")), Person(name: "Roman", age: 26, location: Location(city: "Moscow"))]
+        XCTAssertEqual(array1.map(by: \.name), ["John", "Jan", "Roman"])
+
+        let array2 = [Person(name: "Daniel", age: 45, location: Location(city: "Pittsburgh")), Person(name: "Michael", age: nil, location: Location(city: "Dresden")), Person(name: "Pierre", age: 20, location: Location(city: "Paris"))]
+        XCTAssertEqual(array2.map(by: \.age), [45, nil, 20])
+    }
+
+    func testCompactMapByKeyPath() {
+        let array1 = [Person(name: "John", age: 30, location: Location(city: "Boston")), Person(name: "Jan", age: 22, location: nil), Person(name: "Roman", age: 26, location: Location(city: "Moscow"))]
+        XCTAssertEqual(array1.compactMap(by: \.location), [Location(city: "Boston"), Location(city: "Moscow")])
+
+        let array2 = [Person(name: "Daniel", age: 45, location: Location(city: "Pittsburgh")), Person(name: "Michael", age: nil, location: Location(city: "Dresden")), Person(name: "Pierre", age: 20, location: Location(city: "Paris"))]
+        XCTAssertEqual(array2.compactMap(by: \.age), [45, 20])
+    }
 }

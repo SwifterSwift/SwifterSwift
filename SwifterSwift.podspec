@@ -25,12 +25,12 @@ Pod::Spec.new do |s|
 
   # SwiftStdlib Extensions
   s.subspec 'SwiftStdlib' do |sp|
-    sp.source_files  = 'Sources/SwifterSwift/SwiftStdlib/*.swift'
+    sp.source_files  = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/SwiftStdlib/*.swift'
   end
 
   # Foundation Extensions
   s.subspec 'Foundation' do |sp|
-    sp.source_files  = 'Sources/SwifterSwift/Foundation/*.swift'
+    sp.source_files  = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/Foundation/*.swift'
   end
 
   # UIKit Extensions
@@ -51,6 +51,11 @@ Pod::Spec.new do |s|
   # CoreLocation Extensions
   s.subspec 'CoreLocation' do |sp|
     sp.source_files  = 'Sources/SwifterSwift/CoreLocation/*.swift'
+  end
+
+  # CoreAnimation Extensions
+  s.subspec 'CoreAnimation' do |sp|
+    sp.source_files  = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/CoreAnimation/*.swift'
   end
 
   # MapKit Extensions

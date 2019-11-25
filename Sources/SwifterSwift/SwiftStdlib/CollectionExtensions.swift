@@ -41,6 +41,26 @@ public extension Collection {
         return indices.contains(index) ? self[index] : nil
     }
 
+    /// SwifterSwift: Returns an array of slices of length "size" from the array. If array can't be split evenly, the final slice will be the remaining elements.
+    ///
+    ///     [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
+    ///     [0, 2, 4, 7, 6].group(by: 2) -> [[0, 2], [4, 7], [6]]
+    ///
+    /// - Parameter size: The size of the slices to be returned.
+    /// - Returns: grouped self.
+    func group(by size: Int) -> [[Element]]? {
+        // Inspired by: https://lodash.com/docs/4.17.4#chunk
+        guard size > 0, !isEmpty else { return nil }
+        var start = startIndex
+        var slices = [[Element]]()
+        while start != endIndex {
+            let end = index(start, offsetBy: size, limitedBy: endIndex) ?? endIndex
+            slices.append(Array(self[start..<end]))
+            start = end
+        }
+        return slices
+    }
+
 }
 
 // MARK: - Methods (Int)
@@ -62,8 +82,8 @@ public extension Collection where Index == Int {
 
     /// SwifterSwift: Calls the given closure with an array of size of the parameter slice.
     ///
-    ///     [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> //print: [0, 2], [4, 7]
-    ///     [0, 2, 4, 7, 6].forEach(slice: 2) { print($0) } -> //print: [0, 2], [4, 7], [6]
+    ///     [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7]
+    ///     [0, 2, 4, 7, 6].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7], [6]
     ///
     /// - Parameters:
     ///   - slice: size of array in each interation.
@@ -76,25 +96,6 @@ public extension Collection where Index == Int {
             try body(Array(self[Swift.max(value, startIndex)..<Swift.min(value + slice, endIndex)]))
             value += slice
         }
-    }
-
-    /// SwifterSwift: Returns an array of slices of length "size" from the array. If array can't be split evenly, the final slice will be the remaining elements.
-    ///
-    ///     [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
-    ///     [0, 2, 4, 7, 6].group(by: 2) -> [[0, 2], [4, 7], [6]]
-    ///
-    /// - Parameter size: The size of the slices to be returned.
-    /// - Returns: grouped self.
-    func group(by size: Int) -> [[Element]]? {
-        //Inspired by: https://lodash.com/docs/4.17.4#chunk
-        guard size > 0, !isEmpty else { return nil }
-        var value: Int = 0
-        var slices: [[Element]] = []
-        while value < count {
-            slices.append(Array(self[Swift.max(value, startIndex)..<Swift.min(value + size, endIndex)]))
-            value += size
-        }
-        return slices
     }
 
 }

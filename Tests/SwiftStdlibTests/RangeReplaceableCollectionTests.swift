@@ -102,4 +102,39 @@ final class RangeReplaceableCollectionTests: XCTestCase {
 
         XCTAssertEqual([].skip(while: { $0 % 2 == 0}), [])
     }
+
+    func testRemoveDuplicatesUsingKeyPathHashable() {
+        var input = [Person(name: "Wade", age: 20, location: Location(city: "London")),
+                     Person(name: "James", age: 32),
+                     Person(name: "James", age: 36),
+                     Person(name: "Rose", age: 29),
+                     Person(name: "James", age: 72, location: Location(city: "Moscow")),
+                     Person(name: "Rose", age: 56),
+                     Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
+
+        let expectedResult = [Person(name: "Wade", age: 20, location: Location(city: "London")),
+                              Person(name: "James", age: 32),
+                              Person(name: "Rose", age: 29)]
+
+        input.removeDuplicates(keyPath: \.name)
+        XCTAssertEqual(input, expectedResult)
+    }
+
+    func testRemoveDuplicatesUsingKeyPathEquatable() {
+        var input = [Person(name: "Wade", age: 20, location: Location(city: "London")),
+                     Person(name: "James", age: 32),
+                     Person(name: "James", age: 36),
+                     Person(name: "Rose", age: 29),
+                     Person(name: "James", age: 72, location: Location(city: "Moscow")),
+                     Person(name: "Rose", age: 56),
+                     Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
+
+        let expectedResult = [Person(name: "Wade", age: 20, location: Location(city: "London")),
+                              Person(name: "James", age: 32),
+                              Person(name: "James", age: 72, location: Location(city: "Moscow")),
+                              Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
+
+        input.removeDuplicates(keyPath: \.location)
+        XCTAssertEqual(input, expectedResult)
+    }
 }

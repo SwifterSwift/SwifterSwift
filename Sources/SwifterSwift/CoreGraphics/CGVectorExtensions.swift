@@ -12,8 +12,7 @@ import CoreGraphics
 // MARK: - Properties
 public extension CGVector {
 
-    /// SwifterSwift: The angle of rotation (in radians) of the vector.
-    /// The range of the angle is -π to π; an angle of 0 points to the right.
+    /// SwifterSwift: The angle of rotation (in radians) of the vector. The range of the angle is -π to π; an angle of 0 points to the right.
     ///
     /// https://en.wikipedia.org/wiki/Atan2
     var angle: CGFloat {
@@ -34,8 +33,6 @@ public extension CGVector {
 
     /// SwifterSwift: Creates a vector with the given magnitude and angle.
     ///
-    /// https://www.grc.nasa.gov/WWW/K-12/airplane/vectpart.html
-    ///
     ///     let vector = CGVector(angle: .pi, magnitude: 1)
     ///
     /// - Parameters:
@@ -43,6 +40,7 @@ public extension CGVector {
     ///     - magnitude: The lenth of the vector.
     ///
     init(angle: CGFloat, magnitude: CGFloat) {
+        // https://www.grc.nasa.gov/WWW/K-12/airplane/vectpart.html
         self.init(dx: magnitude * cos(angle), dy: magnitude * sin(angle))
     }
 
@@ -90,8 +88,7 @@ public extension CGVector {
         vector = vector * scalar
     }
 
-    /// SwifterSwift: Negates the vector. The direction is reversed, but magnitude
-    /// remains the same.
+    /// SwifterSwift: Negates the vector. The direction is reversed, but magnitude remains the same.
     ///
     ///     let vector = CGVector(dx: 1, dy: 1)
     ///     let reversedVector = -vector

@@ -11,6 +11,7 @@ import UIKit
 
 public extension UIColor {
 
+    #if !os(watchOS)
     /// SwifterSwift: Create a UIColor with different colors for light and dark mode.
     ///
     /// - Parameters:
@@ -20,6 +21,7 @@ public extension UIColor {
     convenience init(light: UIColor, dark: UIColor) {
         self.init(dynamicProvider: { $0.userInterfaceStyle == .dark ? dark : light })
     }
+    #endif
 
 }
 

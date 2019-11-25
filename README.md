@@ -11,7 +11,7 @@
 [![codecov](https://codecov.io/gh/SwifterSwift/SwifterSwift/branch/master/graph/badge.svg)](https://codecov.io/gh/SwifterSwift/SwifterSwift)
 [![docs](http://swifterswift.com/docs/badge.svg)](http://swifterswift.com/docs)
 [![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
-[![Xcode](https://img.shields.io/badge/Xcode-11-blue.svg)](https://developer.apple.com/xcode)
+[![Xcode](https://img.shields.io/badge/Xcode-11.2-blue.svg)](https://developer.apple.com/xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Slack Channel](https://slackin-ppvrggbpgn.now.sh/badge.svg)](https://slackin-ppvrggbpgn.now.sh/)
 
@@ -238,6 +238,14 @@ let package = Package(
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreLocation/CLLocationExtensions.swift"><code>CLLocation extensions</code></a></li>
+</ul>
+</details>
+
+<details>
+<summary>CoreAnimation Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreAnimation/CAGradientLayerExtensions.swift"><code>CAGradientLayer extensions</code></a></li>
 </ul>
 </details>
 

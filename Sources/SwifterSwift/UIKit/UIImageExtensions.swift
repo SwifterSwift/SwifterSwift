@@ -19,7 +19,7 @@ public extension UIImage {
 
     /// SwifterSwift: Size in kilo bytes of UIImage
     var kilobytesSize: Int {
-        return bytesSize / 1024
+        return (jpegData(compressionQuality: 1)?.count ?? 0) / 1024
     }
 
     /// SwifterSwift: UIImage with .alwaysOriginal rendering mode.
@@ -42,7 +42,7 @@ public extension UIImage {
     /// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
     /// - Returns: optional UIImage (if applicable).
     func compressed(quality: CGFloat = 0.5) -> UIImage? {
-        guard let data = compressedData(quality: quality) else { return nil }
+        guard let data = jpegData(compressionQuality: quality) else { return nil }
         return UIImage(data: data)
     }
 
@@ -164,6 +164,19 @@ public extension UIImage {
     /// - Parameter color: color to fill image with.
     /// - Returns: UIImage filled with given color.
     func filled(withColor color: UIColor) -> UIImage {
+
+        #if !os(watchOS)
+        if #available(iOS 10, tvOS 10, *) {
+            let format = UIGraphicsImageRendererFormat()
+            format.scale = scale
+            let renderer = UIGraphicsImageRenderer(size: size, format: format)
+            return renderer.image { context in
+                color.setFill()
+                context.fill(CGRect(origin: .zero, size: size))
+            }
+        }
+        #endif
+
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         color.setFill()
         guard let context = UIGraphicsGetCurrentContext() else { return self }
@@ -188,8 +201,21 @@ public extension UIImage {
     ///   - color: color to tint image with.
     ///   - blendMode: how to blend the tint
     /// - Returns: UIImage tinted with given color.
-    func tint(_ color: UIColor, blendMode: CGBlendMode) -> UIImage {
-        let drawRect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
+    func tint(_ color: UIColor, blendMode: CGBlendMode, alpha: CGFloat = 1.0) -> UIImage {
+        let drawRect = CGRect(origin: .zero, size: size)
+
+        #if !os(watchOS)
+        if #available(iOS 10.0, tvOS 10.0, *) {
+            let format = UIGraphicsImageRendererFormat()
+            format.scale = scale
+            return UIGraphicsImageRenderer(size: size, format: format).image { context in
+                color.setFill()
+                context.fill(drawRect)
+                draw(in: drawRect, blendMode: blendMode, alpha: alpha)
+            }
+        }
+        #endif
+
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer {
             UIGraphicsEndImageContext()
@@ -197,17 +223,18 @@ public extension UIImage {
         let context = UIGraphicsGetCurrentContext()
         color.setFill()
         context?.fill(drawRect)
-        draw(in: drawRect, blendMode: blendMode, alpha: 1.0)
+        draw(in: drawRect, blendMode: blendMode, alpha: alpha)
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
-    #if !os(watchOS)
     /// SwifterSwift: UImage with background color
     ///
     /// - Parameters:
     ///   - backgroundColor: Color to use as background color
     /// - Returns: UIImage with a background color that is visible where alpha < 1
     func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage {
+
+        #if !os(watchOS)
         if #available(iOS 10.0, tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
             format.scale = scale
@@ -217,7 +244,8 @@ public extension UIImage {
                 draw(at: .zero)
             }
         }
-        
+        #endif
+
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer { UIGraphicsEndImageContext() }
 
@@ -227,7 +255,6 @@ public extension UIImage {
 
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
-    #endif
 
     /// SwifterSwift: UIImage with rounded corners
     ///
@@ -252,6 +279,21 @@ public extension UIImage {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return image
+    }
+
+    /// SwifterSwift: Base 64 encoded PNG data of the image.
+    ///
+    /// - returns: Base 64 encoded PNG data of the image as a String.
+    func pngBase64String() -> String? {
+        return pngData()?.base64EncodedString()
+    }
+
+    /// SwifterSwift: Base 64 encoded JPEG data of the image.
+    ///
+    /// - parameter compressionQuality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality).
+    /// - returns: Base 64 encoded JPEG data of the image as a String.
+    func jpegBase64String(compressionQuality: CGFloat) -> String? {
+        return jpegData(compressionQuality: compressionQuality)?.base64EncodedString()
     }
 
 }
@@ -280,6 +322,30 @@ public extension UIImage {
         }
 
         self.init(cgImage: aCgImage)
+    }
+
+    /// SwifterSwift: Create a new image from a base 64 string.
+    ///
+    /// - Parameters:
+    ///   - base64String: a base-64 `String`, representing the image
+    ///   - scale: The scale factor to assume when interpreting the image data created from the base-64 string. Applying a scale factor of 1.0 results in an image whose size matches the pixel-based dimensions of the image. Applying a different scale factor changes the size of the image as reported by the `size` property.
+    convenience init?(base64String: String, scale: CGFloat = 1.0) {
+        guard let data = Data(base64Encoded: base64String) else { return nil }
+        self.init(data: data, scale: scale)
+    }
+
+    /// SwifterSwift: Create a new image from a URL
+    ///
+    /// - Important:
+    ///   Use this method to convert data:// URLs to UIImage objects.
+    ///   Don't use this synchronous initializer to request network-based URLs. For network-based URLs, this method can block the current thread for tens of seconds on a slow network, resulting in a poor user experience, and in iOS, may cause your app to be terminated.
+    ///   Instead, for non-file URLs, consider using this in an asynchronous way, using `dataTask(with:completionHandler:)` method of the URLSession class or a library such as `AlamofireImage`, `Kingfisher`, `SDWebImage`, or others to perform asynchronous network image loading.
+    /// - Parameters:
+    ///   - url: a `URL`, representing the image location
+    ///   - scale: The scale factor to assume when interpreting the image data created from the URL. Applying a scale factor of 1.0 results in an image whose size matches the pixel-based dimensions of the image. Applying a different scale factor changes the size of the image as reported by the `size` property.
+    convenience init?(url: URL, scale: CGFloat = 1.0) throws {
+        let data = try Data(contentsOf: url)
+        self.init(data: data, scale: scale)
     }
 
 }

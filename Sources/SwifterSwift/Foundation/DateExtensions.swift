@@ -25,13 +25,13 @@ public extension Date {
     /// - full: Full day name.
     enum DayNameStyle {
 
-        /// 3 letter day abbreviation of day name.
+        /// SwifterSwift: 3 letter day abbreviation of day name.
         case threeLetters
 
-        /// 1 letter day abbreviation of day name.
+        /// SwifterSwift: 1 letter day abbreviation of day name.
         case oneLetter
 
-        /// Full day name.
+        /// SwifterSwift: Full day name.
         case full
 
     }
@@ -43,13 +43,13 @@ public extension Date {
     /// - full: Full month name.
     enum MonthNameStyle {
 
-        /// 3 letter month abbreviation of month name.
+        /// SwifterSwift: 3 letter month abbreviation of month name.
         case threeLetters
 
-        /// 1 letter month abbreviation of month name.
+        /// SwifterSwift: 1 letter month abbreviation of month name.
         case oneLetter
 
-        /// Full month name.
+        /// SwifterSwift: Full month name.
         case full
 
     }
@@ -257,7 +257,12 @@ public extension Date {
             return calendar.component(.nanosecond, from: self)
         }
         set {
+            #if targetEnvironment(macCatalyst)
+            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a second
+            let allowedRange = 0..<1_000_000_000
+            #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
+            #endif
             guard allowedRange.contains(newValue) else { return }
 
             let currentNanoseconds = calendar.component(.nanosecond, from: self)
@@ -278,11 +283,16 @@ public extension Date {
     ///
     var millisecond: Int {
         get {
-            return calendar.component(.nanosecond, from: self) / 1000000
+            return calendar.component(.nanosecond, from: self) / 1_000_000
         }
         set {
-            let nanoSeconds = newValue * 1000000
+            let nanoSeconds = newValue * 1_000_000
+            #if targetEnvironment(macCatalyst)
+            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a second
+            let allowedRange = 0..<1_000_000_000
+            #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
+            #endif
             guard allowedRange.contains(nanoSeconds) else { return }
 
             if let date = calendar.date(bySetting: .nanosecond, value: nanoSeconds, of: self) {
@@ -541,7 +551,12 @@ public extension Date {
     func changing(_ component: Calendar.Component, value: Int) -> Date? {
         switch component {
         case .nanosecond:
+            #if targetEnvironment(macCatalyst)
+            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a second
+            let allowedRange = 0..<1_000_000_000
+            #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
+            #endif
             guard allowedRange.contains(value) else { return nil }
             let currentNanoseconds = calendar.component(.nanosecond, from: self)
             let nanosecondsToAdd = value - currentNanoseconds
