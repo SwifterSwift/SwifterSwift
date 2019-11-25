@@ -221,6 +221,14 @@ public extension Sequence {
     func map<T>(by keyPath: KeyPath<Element, T>) -> [T] {
         return map { $0[keyPath: keyPath] }
     }
+
+    /// SwifterSwift: Returns an array containing the non-nil results of mapping the given key path over the sequence’s elements.
+    ///
+    /// - Parameter keyPath: Key path to map.
+    /// - Returns: An array containing the non-nil results of mapping.
+    func compactMap<T>(by keyPath: KeyPath<Element, T?>) -> [T] {
+        return compactMap { $0[keyPath: keyPath] }
+    }
 }
 
 public extension Sequence where Element: Equatable {
