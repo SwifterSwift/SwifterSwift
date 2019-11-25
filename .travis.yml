@@ -31,6 +31,9 @@ jobs:
         - bash <(curl -s https://codecov.io/bash) -cF osx -J 'SwifterSwift'
         - xcodebuild clean build -project "$PROJECT" -scheme "$WATCHOS_SCHEME" -destination "$WATCHOS_DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-watchos.json" xcpretty -f `xcpretty-json-formatter`
         - bundle exec danger --verbose
+    - name: Swiftlint
+      script:
+        - swiftlint
     - name: Cocoapods iOS
       before_install:
         - bundle install
