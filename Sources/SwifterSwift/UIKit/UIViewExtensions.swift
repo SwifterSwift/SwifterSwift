@@ -227,6 +227,66 @@ public extension UIView {
     }
     // swiftlint:enable identifier_name
 
+    /// SwifterSwift: centerX of view.
+    var centerX: CGFloat {
+        get {
+            return frame.origin.x + frame.size.width / 2
+        }
+        set {
+            x = newValue - size.width / 2
+        }
+    }
+    
+    /// SwifterSwift: centerY of view.
+    var centerY: CGFloat {
+        get {
+            return frame.origin.y + frame.size.height / 2
+        }
+        set {
+            y = newValue - size.height / 2
+        }
+    }
+    
+    /// SwifterSwift: left of view.
+    var left: CGFloat {
+        get {
+            frame.origin.x
+        }
+        set {
+            x = newValue
+        }
+    }
+    
+    /// SwifterSwift: top of view.
+    var top: CGFloat {
+        get {
+            frame.origin.y
+        }
+        set {
+            y = newValue
+        }
+    }
+    
+    /// SwifterSwift: right of view.
+    var right: CGFloat {
+        get {
+            frame.origin.x + frame.size.width
+        }
+        set {
+            x = newValue - size.width
+        }
+    }
+    
+    /// SwifterSwift: bottom of view.
+    var bottom: CGFloat {
+        get {
+            frame.origin.y + frame.size.height
+        }
+        set {
+            y = newValue - size.height
+        }
+    }
+    
 }
 
 // MARK: - Methods
