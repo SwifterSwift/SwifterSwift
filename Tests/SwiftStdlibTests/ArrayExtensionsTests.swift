@@ -37,18 +37,18 @@ final class ArrayExtensionsTests: XCTestCase {
     }
 
     func testSortedLike() {
-        let expected1 = [1, 2, 3, 4, 5]
+        let order1 = [1, 2, 3, 4, 5]
         let candidate1 = [2, 5, 3, 1, 4]
-        XCTAssertEqual(candidate1.sorted(like: expected1, keyPath: \.self), expected1)
+        XCTAssertEqual(candidate1.sorted(like: order1, keyPath: \.self), order1)
 
         let candidate2 = [2, 5, 3, 6, 1, 4]
-        XCTAssertEqual(candidate2.sorted(like: expected1, keyPath: \.self), [1, 2, 3, 4, 5, 6])
+        XCTAssertEqual(candidate2.sorted(like: order1, keyPath: \.self), [1, 2, 3, 4, 5, 6])
 
         // swiftlint:disable:next nesting
         struct TestStruct { let prop: String }
-        let case3 = ["1", "2", "3", "4", "5"]
+        let order3 = ["1", "2", "3", "4", "5"]
         let candidate3 = [TestStruct(prop: "3"), TestStruct(prop: "2"), TestStruct(prop: "2"), TestStruct(prop: "1"), TestStruct(prop: "3")]
-        XCTAssertEqual(candidate3.sorted(like: case3, keyPath: \.prop).map { $0.prop }, ["1", "2", "2", "3", "3"])
+        XCTAssertEqual(candidate3.sorted(like: order3, keyPath: \.prop).map { $0.prop }, ["1", "2", "2", "3", "3"])
     }
 
     func testRemoveAll() {
