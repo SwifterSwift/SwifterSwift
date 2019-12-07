@@ -547,6 +547,9 @@
 		CF30948A216AAC7A005609BC /* UIActivityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF309489216AAC7A005609BC /* UIActivityExtensions.swift */; };
 		E5E5EB3A2350EED400B04C42 /* CAGradientLayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5EB392350EED400B04C42 /* CAGradientLayerExtensions.swift */; };
 		E5E5EB3D2350F40200B04C42 /* CAGradientLayerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5EB3C2350F40200B04C42 /* CAGradientLayerExtensionsTests.swift */; };
+		F43D4B95239C5FF6008CB1B7 /* MKMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D4B93239C5F87008CB1B7 /* MKMapViewTests.swift */; };
+		F43D4B96239C5FF7008CB1B7 /* MKMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D4B93239C5F87008CB1B7 /* MKMapViewTests.swift */; };
+		F43D4B97239C5FF7008CB1B7 /* MKMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43D4B93239C5F87008CB1B7 /* MKMapViewTests.swift */; };
 		F8C1AE6F225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */; };
 		F8C1AE70225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */; };
 		F8C1AE71225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */; };
@@ -780,6 +783,7 @@
 		CF309489216AAC7A005609BC /* UIActivityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityExtensions.swift; sourceTree = "<group>"; };
 		E5E5EB392350EED400B04C42 /* CAGradientLayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtensions.swift; sourceTree = "<group>"; };
 		E5E5EB3C2350F40200B04C42 /* CAGradientLayerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtensionsTests.swift; sourceTree = "<group>"; };
+		F43D4B93239C5F87008CB1B7 /* MKMapViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewTests.swift; sourceTree = "<group>"; };
 		F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegularExpressionExtensions.swift; sourceTree = "<group>"; };
 		F8C1AE73225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegularExpressionExtensionsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1210,6 +1214,7 @@
 		784C75322051BDCA001C48DD /* MapKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				F43D4B93239C5F87008CB1B7 /* MKMapViewTests.swift */,
 				784C75362051BE1D001C48DD /* MKPolylineTests.swift */,
 			);
 			path = MapKitTests;
@@ -2133,6 +2138,7 @@
 				9D806A972258FD81008E500A /* SCNCylinderExtensionsTests.swift in Sources */,
 				07C50D8D1F5EB06000F46E5A /* CGPointExtensionsTests.swift in Sources */,
 				C7E027C92360958B00F1061E /* KeyedDecodingContainerExtensionsTests.swift in Sources */,
+				F43D4B95239C5FF6008CB1B7 /* MKMapViewTests.swift in Sources */,
 				B29527B220F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */,
 				07C50D3F1F5EB04700F46E5A /* UIViewControllerExtensionsTests.swift in Sources */,
 				07C50D3D1F5EB04700F46E5A /* UITextFieldExtensionsTests.swift in Sources */,
@@ -2190,6 +2196,7 @@
 				9D49148A1F8515D100F3868F /* NSPredicateExtensionsTests.swift in Sources */,
 				07C50D651F5EB05100F46E5A /* ArrayExtensionsTests.swift in Sources */,
 				2141A353235F37C100218109 /* TestHelpers.swift in Sources */,
+				F43D4B96239C5FF7008CB1B7 /* MKMapViewTests.swift in Sources */,
 				07C50D6D1F5EB05100F46E5A /* FloatExtensionsTests.swift in Sources */,
 				07C50D4D1F5EB04700F46E5A /* UISegmentedControlExtensionsTests.swift in Sources */,
 				07C50D891F5EB06000F46E5A /* CGSizeExtensionsTests.swift in Sources */,
@@ -2298,6 +2305,7 @@
 				9D806A992258FD81008E500A /* SCNCylinderExtensionsTests.swift in Sources */,
 				07FE50471F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */,
 				A94AA78C202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */,
+				F43D4B97239C5FF7008CB1B7 /* MKMapViewTests.swift in Sources */,
 				B29527B420F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */,
 				9D806AA12258FF1A008E500A /* SCNSphereExtensionsTests.swift in Sources */,
 				9D806A8D2258F892008E500A /* SCNGeometryExtensionsTests.swift in Sources */,
