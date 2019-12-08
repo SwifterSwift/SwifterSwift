@@ -32,7 +32,7 @@ final class MKMapViewTests: XCTestCase {
         let annotation = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
 
         mapView.register(annotationViewWithClass: MKPinAnnotationView.self)
-        let annotationViewWithAnnotation = try! mapView.dequeueReusableAnnotationView(withClass: MKPinAnnotationView.self, for: annotation)
+        let annotationViewWithAnnotation = mapView.dequeueReusableAnnotationView(withClass: MKPinAnnotationView.self, for: annotation)
         XCTAssertNotNil(annotationViewWithAnnotation)
     }
 
