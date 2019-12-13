@@ -14,11 +14,13 @@ struct Person: Equatable {
     var name: String
     var age: Int?
     var location: Location?
+    var isStudent: Bool
 
-    init(name: String, age: Int?, location: Location? = nil) {
+    init(name: String, age: Int?, location: Location? = nil, isStudent: Bool = false) {
         self.name = name
         self.age = age
         self.location = location
+        self.isStudent = isStudent
     }
 }
 

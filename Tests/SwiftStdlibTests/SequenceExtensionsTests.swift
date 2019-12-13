@@ -167,4 +167,9 @@ final class SequenceExtensionsTests: XCTestCase {
         let array2 = [Person(name: "Daniel", age: 45, location: Location(city: "Pittsburgh")), Person(name: "Michael", age: nil, location: Location(city: "Dresden")), Person(name: "Pierre", age: 20, location: Location(city: "Paris"))]
         XCTAssertEqual(array2.compactMap(by: \.age), [45, 20])
     }
+
+    func testFilterByKeyPath() {
+        let array1 = [Person(name: "Iveta", age: 20, location: Location(city: "Prague"), isStudent: true), Person(name: "Victor", age: 44, location: Location(city: "Dallas"), isStudent: false), Person(name: "Lukasz", age: 62, location: nil), Person(name: "Anna", age: 18, location: Location(city: "Minsk"), isStudent: true)]
+        XCTAssertEqual(array1.filter(by: \.isStudent), [Person(name: "Iveta", age: 20, location: Location(city: "Prague"), isStudent: true), Person(name: "Anna", age: 18, location: Location(city: "Minsk"), isStudent: true)])
+    }
 }

@@ -30,6 +30,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `sum(for:)` to sum up an `AdditiveArithmetic` property, referenced by `KeyPath`, of all elements in a sequence. [#736](https://github.com/SwifterSwift/SwifterSwift/pull/736) by [Moritz Sternemann](https://github.com/moritzsternemann).
   - Added `map(by:)` to map the sequence elements by a given key path. [#763](https://github.com/SwifterSwift/SwifterSwift/pull/763) by [Roman Podymov](https://github.com/RomanPodymov).
   - Added `compactMap(by:)` to map the sequence elements by a given key path to the non-nil elements array. [#766](https://github.com/SwifterSwift/SwifterSwift/pull/766) by [Roman Podymov](https://github.com/RomanPodymov).
+  - Added `filter(by:)` to filter the sequence elements by a given boolean key path. [#771](https://github.com/SwifterSwift/SwifterSwift/pull/771) by [Roman Podymov](https://github.com/RomanPodymov).
 - **MutableCollection**:
   - Added `assignToAll(value:keyPath:)` to assign given value to field `keyPath` of every element in the collection. [#759](https://github.com/SwifterSwift/SwifterSwift/issues/759) by [cyber-gh](https://github.com/cyber-gh).
 - **KeyedDecodingContainer**:
