@@ -68,6 +68,9 @@ SwifterSwift is Swift v5.0+ compatible starting from v5
 <h4>- Integrate SceneKit extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/SceneKit'</code></pre>
 
+<h4>- Integrate StoreKit extensions only:</h4>
+<pre><code class="ruby language-ruby">pod 'SwifterSwift/StoreKit'</code></pre>
+
 <h4>- Integrate Dispatch extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/Dispatch'</code></pre>
 </details>
@@ -280,6 +283,14 @@ let package = Package(
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNShape.swift"><code>SCNShape extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNSphereExtensions.swift"><code>SCNSphere extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNVector3Extensions.swift"><code>SCNVector3 extensions</code></a></li>
+</ul>
+</details>
+
+<details>
+<summary>StoreKit Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/StoreKit/SKProductExtensions.swift"><code>SKProduct extensions</code></a></li>
 </ul>
 </details>
 
