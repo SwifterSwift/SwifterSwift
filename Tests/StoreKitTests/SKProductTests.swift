@@ -12,14 +12,14 @@ import XCTest
 #if canImport(StoreKit)
 import StoreKit
 
-fileprivate extension SKProduct {
+public extension SKProduct {
 
     /// Creates a mocked `SKProduct`.
     /// - Parameters:
     ///   - identifier: Product identifier.
     ///   - price: Product price.
     ///   - priceLocale: Product price locale.
-    convenience init(identifier: String, price: String, priceLocale: Locale) {
+    fileprivate convenience init(identifier: String, price: String, priceLocale: Locale) {
         self.init()
         self.setValue(identifier, forKey: "productIdentifier")
         self.setValue(NSDecimalNumber(string: price), forKey: "price")
