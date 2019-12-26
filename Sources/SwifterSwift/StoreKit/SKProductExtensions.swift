@@ -11,12 +11,17 @@ import StoreKit
 
 public extension SKProduct {
 
+    private static let priceFormatter: NumberFormatter = {
+        let priceFormatter = NumberFormatter()
+        priceFormatter.numberStyle = .currency
+        return priceFormatter
+    }()
+
     /// SwifterSwift: Localized price of SKProduct
     var localizedPrice: String? {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.locale = self.priceLocale
-        return formatter.string(from: self.price)
+        let formatter = SKProduct.priceFormatter
+        formatter.locale = priceLocale
+        return formatter.string(from: price)
     }
 
 }
