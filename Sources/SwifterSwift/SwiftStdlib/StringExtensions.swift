@@ -954,6 +954,22 @@ public extension String {
     }
     #endif
 
+    #if canImport(Foundation)
+    /// SwifterSwift: Verify if string matches the regex pattern and return corresponding parts of string.
+    ///
+    /// - Parameter pattern: Pattern to verify.
+    /// - Returns: Matching pattern parts of string.
+    /// - Throws: Throws any errors thrown by creation of invalid pattern.
+    func matchings(pattern: String) throws -> [String] {
+        let regex = try NSRegularExpression(pattern: pattern)
+        let results = regex.matches(in: self, range: NSRange(startIndex..., in: self))
+        return results.compactMap { textCheckingResult -> String? in
+            guard let stringRange = Range(textCheckingResult.range, in: self) else { return nil }
+            return String(self[stringRange])
+        }
+    }
+    #endif
+
     /// SwifterSwift: Pad string to fit the length parameter size with another string in the start.
     ///
     ///   "hue".padStart(10) -> "       hue"

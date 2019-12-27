@@ -540,6 +540,13 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertTrue("email@mail.com".matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"))
     }
 
+    func testMatchings() {
+        XCTAssertFalse(try "123".matchings(pattern: "\\d{3}").isEmpty)
+        XCTAssertTrue(try "dasda".matchings(pattern: "\\d{3}").isEmpty)
+        XCTAssertTrue(try "notanemail.com".matchings(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").isEmpty)
+        XCTAssertFalse(try "email@mail.com".matchings(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").isEmpty)
+    }
+
     func testPadStart() {
         var str: String = "str"
         str.padStart(10)
