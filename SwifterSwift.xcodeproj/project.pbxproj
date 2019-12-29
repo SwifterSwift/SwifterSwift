@@ -374,6 +374,8 @@
 		748B191F23B4F4FA0030FABB /* SKProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748B191E23B4F4FA0030FABB /* SKProductTests.swift */; };
 		748B192023B4F4FA0030FABB /* SKProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748B191E23B4F4FA0030FABB /* SKProductTests.swift */; };
 		748B192123B4F4FA0030FABB /* SKProductTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748B191E23B4F4FA0030FABB /* SKProductTests.swift */; };
+		74932D1523B8CEB700A56D81 /* SKProductExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748B191923B4F4C20030FABB /* SKProductExtensions.swift */; };
+		74932D1623B8CEB800A56D81 /* SKProductExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748B191923B4F4C20030FABB /* SKProductExtensions.swift */; };
 		752AC7A020BC975E00659E76 /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC79F20BC975E00659E76 /* SKNodeExtensions.swift */; };
 		752AC7A520BC9FF500659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */; };
 		752AC7A620BCA04100659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */; };
@@ -1876,6 +1878,7 @@
 				9D806A6B2258DC3E008E500A /* SCNShape.swift in Sources */,
 				07B7F2381F5EB45200E6F910 /* CLLocationExtensions.swift in Sources */,
 				07B7F1FC1F5EB43C00E6F910 /* CollectionExtensions.swift in Sources */,
+				74932D1623B8CEB800A56D81 /* SKProductExtensions.swift in Sources */,
 				07B7F2031F5EB43C00E6F910 /* IntExtensions.swift in Sources */,
 				9D806A702258DE23008E500A /* SCNCylinderExtensions.swift in Sources */,
 				07B7F1FF1F5EB43C00E6F910 /* DictionaryExtensions.swift in Sources */,
@@ -2064,6 +2067,7 @@
 				1875A8FA20BDE50D00A6D258 /* SKNodeExtensions.swift in Sources */,
 				9D806A682258D75A008E500A /* SCNBoxExtensions.swift in Sources */,
 				278CA08D1F9A9232004918BD /* NSImageExtensions.swift in Sources */,
+				74932D1523B8CEB700A56D81 /* SKProductExtensions.swift in Sources */,
 				9D806A4E2258CFF8008E500A /* SCNSphereExtensions.swift in Sources */,
 				07B7F1E21F5EB43B00E6F910 /* SignedIntegerExtensions.swift in Sources */,
 				07B7F1E51F5EB43B00E6F910 /* URLExtensions.swift in Sources */,
