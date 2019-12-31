@@ -41,10 +41,9 @@ final class MKMapViewTests: XCTestCase {
         let meter = 500.0
         let emptyItemArray = [CLLocationCoordinate2D]()
         let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
-        
-        let emptyItemInMapView: Void = mapView.zoom(to: emptyItemArray, meter: meter, edgePadding: edgePadding, animated: true)
+        mapView.zoom(to: emptyItemArray, meter: meter, edgePadding: edgePadding, animated: true)
 
-        XCTAssertNotNil(emptyItemInMapView)
+        XCTAssert(true)
     }
     
     func testWithOneItemArray() {
@@ -54,8 +53,8 @@ final class MKMapViewTests: XCTestCase {
         let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         mapView.zoom(to: oneItemArray, meter: meter, edgePadding: edgePadding, animated: true)
         
-        let itemLocation = CLLocationCoordinate2D(latitude: 36.9751, longitude: 38.4243)
-        XCTAssertEqual(mapView.visibleMapRect.contains(MKMapPoint(itemLocation)), true)
+        let firstPoint = MKMapPoint(oneItemArray.first!)
+        XCTAssertEqual(mapView.visibleMapRect.contains(firstPoint), true)
     }
     
     func testWithMultiItemArray() {
@@ -67,8 +66,8 @@ final class MKMapViewTests: XCTestCase {
                               CLLocationCoordinate2D(latitude: 41.00527, longitude: 28.97696)]
         mapView.zoom(to: multiItemArray, meter: meter, edgePadding: edgePadding, animated: true)
         
-        let secondItemLocation = CLLocationCoordinate2D(latitude: 37.06622, longitude: 37.38332)
-        XCTAssertEqual(mapView.visibleMapRect.contains(MKMapPoint(secondItemLocation)), true)
+        let lastPoint = MKMapPoint(multiItemArray.last!)
+        XCTAssertEqual(mapView.visibleMapRect.contains(lastPoint), true)
     }
 }
 
