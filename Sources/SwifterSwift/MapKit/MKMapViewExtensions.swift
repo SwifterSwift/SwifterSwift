@@ -9,6 +9,12 @@
 #if canImport(MapKit)
 import MapKit
 
+#if canImport(UIKit)
+import UIKit
+#elseif os(macOS)
+import Foundation
+#endif
+
 #if !os(watchOS)
 @available(tvOS 9.2, *)
 public extension MKMapView {
