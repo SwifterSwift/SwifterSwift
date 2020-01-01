@@ -64,7 +64,7 @@ jobs:
     strategy:
       matrix:
         platform: ['ios', 'macos', 'tvos', 'watchos']
-        xcode: ['/Applications/Xcode_11.1.app/Contents/Developer']
+        xcode: ['/Applications/Xcode_11.3.app/Contents/Developer']
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
