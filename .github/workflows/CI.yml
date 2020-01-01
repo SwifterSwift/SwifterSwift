@@ -48,6 +48,8 @@ jobs:
 
     - name: Danger Swift
       run: bundle exec danger --verbose
+      env:
+        DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }} 
       
   Swiftlint:
     runs-on: [macos]
