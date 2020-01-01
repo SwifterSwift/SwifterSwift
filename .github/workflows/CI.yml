@@ -17,8 +17,6 @@ jobs:
         xcode: ['/Applications/Xcode_11.1.app/Contents/Developer']
     steps:
     - uses: actions/checkout@v1
-    - name: GitHub Action for Homebrew
-      uses: artemnovichkov/action-homebrew@0.1.0
     - name: Bundle Install
       run: bundle install
     - name: Brew Upgrade
