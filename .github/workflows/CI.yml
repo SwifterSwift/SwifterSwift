@@ -47,7 +47,8 @@ jobs:
           DEVELOPER_DIR: ${{ matrix.xcode }}
 
     - name: Danger Swift
-      uses: danger/swift@2.0.3
+      run: bundle exec danger --verbose
+      
   Swiftlint:
     runs-on: [macos]
     name: SwiftLint
