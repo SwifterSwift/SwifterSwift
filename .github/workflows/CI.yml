@@ -23,6 +23,7 @@ jobs:
       run: |
         brew update
         brew outdated xctool || brew upgrade xctool
+        brew install swiftlint
     - name: Test iOS
       run: |
         xcodebuild clean build test -project SwifterSwift.xcodeproj -scheme SwifterSwift-iOS -destination 'platform=iOS Simulator,name=iPhone 11' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
