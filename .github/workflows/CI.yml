@@ -74,6 +74,7 @@ jobs:
     runs-on: [ubuntu-latest] 
     container: swift:latest
     steps:
+      - uses: actions/checkout@v1
       - name: Linux
         run: swift test --parallel
         env:
