@@ -50,8 +50,8 @@ jobs:
           DEVELOPER_DIR: ${{ matrix.xcode }}
           SCHEME: SwifterSwift-tvOS
           DESTINATION: platform=tvOS Simulator,name=Apple TV 4K (at 1080p)
-    - name: Test WatchOS
-      run: xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-watchos.json" xcpretty -f `xcpretty-json-formatter`
+    - name: Build WatchOS
+      run: xcodebuild clean build -project $PROJECT -scheme $SCHEME -destination "$DESTINATION"
       env:
           DEVELOPER_DIR: ${{ matrix.xcode }}
           SCHEME: SwifterSwift-watchOS
