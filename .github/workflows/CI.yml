@@ -70,12 +70,11 @@ jobs:
     - name: CocoaPods ${{ matrix.platform }}
       run: bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=${{ matrix.platform }} 
       
-  Linux: 
-    runs-on: [linux]
+  Linux:
+    runs-on: [ubuntu-latest] 
+    container: swift:latest
     steps:
       - name: Linux
-        run: |
-          eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
-          swift test --parallel
+        run: swift test --parallel
         env:
           SWIFT_VERSION: 5.0
