@@ -17,7 +17,6 @@ jobs:
         xcode: ['/Applications/Xcode_11.3.app/Contents/Developer']
     env:
       PROJECT: SwifterSwift.xcodeproj
-    
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -61,7 +60,7 @@ jobs:
     - name: Danger Swift
       run: bundle exec danger --verbose
       env:       
-          DANGER_GITHUB_API_TOKEN: b737ca1b7ec932666785eeb57fcc95d8dcb46974
+          DANGER_GITHUB_API_TOKEN: 58d944787c2ca5a6a660312a4af03f1fc8f6b626
       
   Swiftlint:
     runs-on: [macos]
