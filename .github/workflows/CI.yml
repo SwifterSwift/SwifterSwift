@@ -59,8 +59,8 @@ jobs:
   
     - name: Danger Swift
       run: bundle exec danger --verbose
-      env:       
-          DANGER_GITHUB_API_TOKEN: 58d944787c2ca5a6a660312a4af03f1fc8f6b626
+      env:    
+          DANGER_GITHUB_API_TOKEN: f6fdb87dedbaf5149fe34e6f03ae108fcf2584f8
       
   Swiftlint:
     runs-on: [macos]
