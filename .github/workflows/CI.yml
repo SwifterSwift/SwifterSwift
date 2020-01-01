@@ -42,7 +42,7 @@ jobs:
       env:
           DEVELOPER_DIR: ${{ matrix.xcode }}
     - name: Test WatchOS
-      run: xcodebuild clean build test -project SwifterSwift.xcodeproj -scheme SwifterSwift-watchOS -destination 'name=Apple Watch Series 5 - 40mm' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
+      run: xcodebuild clean build test -project SwifterSwift.xcodeproj -scheme SwifterSwift-watchOS -destination 'name=Apple Watch Series 5 - 40mm' | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-watchos.json" xcpretty -f `xcpretty-json-formatter`
       env:
           DEVELOPER_DIR: ${{ matrix.xcode }}
 
