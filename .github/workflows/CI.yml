@@ -14,7 +14,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        xcode: ['/Applications/Xcode_11.1.app/Contents/Developer']
+        xcode: ['/Applications/Xcode_11.3.app/Contents/Developer']
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
