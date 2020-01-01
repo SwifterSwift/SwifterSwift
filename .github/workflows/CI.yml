@@ -1,0 +1,48 @@
+name: SwifterSwift
+
+on: 
+  push:
+    branches: 
+      - master
+  pull_request:
+    branches: 
+      - master
+
+jobs:
+  Darwin:
+    name: Darwin
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        destination: ['platform=iOS Simulator,name=iPhone 11', 'platform=OS X', 'platform=tvOS Simulator,name=Apple TV 4K (at 1080p)', 'name=Apple Watch Series 5 - 40mm']
+        scheme: ['SwifterSwift-iOS', 'SwifterSwift-macOS', 'SwifterSwift-tvOS', 'SwifterSwift-watchOS']
+        platform: ['ios', 'macos', 'tvos']
+        xcode: ['/Applications/Xcode_11.1.app/Contents/Developer']
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: GitHub Action for Homebrew
+      uses: artemnovichkov/action-homebrew@0.1.0
+    - name: Bundle Install
+      run: bundle install
+    - name: Brew Upgrade
+      run: |
+        brew update
+        brew outdated xctool || brew upgrade xctool
+    - name: Test ${{ matrix.scheme }}
+      run: |
+        xcodebuild clean build test -project SwifterSwift.xcodeproj -scheme ${{ matrix.scheme }} -destination ${{ matrix.destination }} | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-${{ matrix.platform }}.json" xcpretty -f `xcpretty-json-formatter`
+        bash <(curl -s https://codecov.io/bash) -cF ${{ matrix.platform }} -J 'SwifterSwift'
+      env:
+          DEVELOPER_DIR: ${{ matrix.xcode }}
+    - name: Danger Swift
+      uses: danger/swift@2.0.3
+  Swiftlint:
+    runs-on: [macos]
+    name: SwiftLint
+    steps: 
+      - name: GitHub Action for SwiftLint
+        uses: norio-nomura/action-swiftlint@3.0.1
+  Linux: 
+    runs-on: [ubuntu-latest]
+    
