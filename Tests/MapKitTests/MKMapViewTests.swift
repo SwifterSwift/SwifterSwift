@@ -39,11 +39,11 @@ final class MKMapViewTests: XCTestCase {
     func testWithEmptyItemArray() {
         let mapView = MKMapView()
         let meter = 500.0
-        let emptyItemArray = [CLLocationCoordinate2D]()
         let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
-        mapView.zoom(to: emptyItemArray, meter: meter, edgePadding: edgePadding, animated: true)
-
-        XCTAssert(true)
+        let previous = mapView.visibleMapRect
+        mapView.zoom(to: [], meter: meter, edgePadding: edgePadding, animated: true)
+        
+        XCTAssertEqual(mapView.visibleMapRect.contains(previous), true)
     }
     
     func testWithOneItemArray() {

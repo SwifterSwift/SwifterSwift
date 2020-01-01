@@ -9,6 +9,9 @@
 #if canImport(MapKit)
 import MapKit
 
+#if canImport(UIKit)
+import UIKit
+
 #if !os(watchOS)
 @available(tvOS 9.2, *)
 public extension MKMapView {
@@ -64,6 +67,8 @@ public extension MKMapView {
         }
     }
 }
+#endif
+
 #endif
 
 #endif
