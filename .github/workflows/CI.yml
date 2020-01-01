@@ -45,4 +45,7 @@ jobs:
         uses: norio-nomura/action-swiftlint@3.0.1
   Linux: 
     runs-on: [ubuntu-latest]
+    steps:
+      - name: Linux
+        run: ls # TODO
     
