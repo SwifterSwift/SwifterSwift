@@ -53,7 +53,9 @@ jobs:
     name: SwiftLint
     steps: 
       - name: SwiftLint
-        run: swiftlint
+        run: |
+          brew install swiftlint
+          swiftlint
   CocoaPods:
     name: CocoaPods
     runs-on: macos-latest
@@ -69,7 +71,7 @@ jobs:
       run: bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=${{ matrix.platform }} 
       
   Linux: 
-    runs-on: [ubuntu-latest]
+    runs-on: [linux]
     steps:
       - name: Linux
         run: |
