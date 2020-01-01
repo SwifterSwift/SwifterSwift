@@ -53,6 +53,7 @@ jobs:
     runs-on: [macos]
     name: SwiftLint
     steps: 
+      - uses: actions/checkout@v1
       - name: SwiftLint
         run: |
           brew install swiftlint
