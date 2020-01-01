@@ -74,7 +74,7 @@ jobs:
       
   Linux:
     runs-on: [ubuntu-16.04] 
-    container: swift:latest
+    container: swift:5.0.3
     steps:
       - uses: actions/checkout@v1
       - name: Linux
