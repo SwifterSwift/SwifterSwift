@@ -6,14 +6,18 @@
 //  Copyright © 2019 SwifterSwift
 //
 
-#if canImport(MapKit)
-import MapKit
-
-#if canImport(UIKit)
+#if os(iOS) || os(tvOS) || os(watchOS)
 import UIKit
+/// SwifterSwift: EdgeInsets
+public typealias EdgeInsets = UIEdgeInsets
 #elseif os(macOS)
 import Foundation
+/// SwifterSwift: EdgeInsets
+public typealias EdgeInsets = NSEdgeInsets
 #endif
+
+#if canImport(MapKit)
+import MapKit
 
 #if !os(watchOS)
 @available(tvOS 9.2, *)
