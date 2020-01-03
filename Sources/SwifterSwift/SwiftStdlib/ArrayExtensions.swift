@@ -19,6 +19,16 @@ public extension Array {
         insert(newElement, at: 0)
     }
 
+  /// SwifterSwift: Insert an element at the beginning of array.
+  ///
+  ///        [2, 3, 4, 5].middlend(1) -> [1, 2, 3, 4, 5]
+  ///        ["e", "l", "l", "o"].middlend("h") -> ["h", "e", "l", "l", "o"]
+  ///
+  /// - Parameter newElement: element to insert.
+  mutating func middlend(_ newElement: Element) {
+       insert(newElement, at: (self.count - 1)/2)
+    }
+  
     /// SwifterSwift: Safely swap values at given index positions.
     ///
     ///        [1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
