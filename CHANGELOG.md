@@ -5,6 +5,12 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **Array**:
+  - Added `sorted(like:keyPath:)` to sort an array like another array based on a key path. [#772](https://github.com/SwifterSwift/SwifterSwift/pull/772) by [MaxHaertwig](https://github.com/maxhaertwig).
+- **Dictionary**:
+  - Added `init(grouping:by:)` to initialize a dictionary by grouping sequence from a hashable `KeyPath`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
+- **RangeReplaceableCollection**:
+  - Added `removeDuplicates(keyPath:)` for removing duplicate elements based on key path. [#737](https://github.com/SwifterSwift/SwifterSwift/pull/737) by [Ilya Glushchuk](https://github.com/iglushchuk).
 - **Color**:
   - Added `init(light:dark:)` to create an NSColor/UIColor with different variations for light and dark mode. Only available in iOS/tvOS 13.0, macOS 10.15. [#722](https://github.com/SwifterSwift/SwifterSwift/pull/722) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **String**:
@@ -16,23 +22,41 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIImage**:
   - Added `withBackgroundColor(_:)` to specify a background color for a partially transparent image. [#721](https://github.com/SwifterSwift/SwifterSwift/pull/721) by [MaxHaertwig](https://github.com/maxhaertwig).
   - Added `init?(base64String:)` to create a `UIImage` from a base-64 `String`. [#741](https://github.com/SwifterSwift/SwifterSwift/issues/741) by [@thisIsTheFoxe](https://github.com/thisisthefoxe)
+  - Added `pngBase64String()`, `jpegBase64String(compressionQuality:)` which return a Base 64 `String` representation of the `UIImage`s PNG or JPEG data. [#747](https://github.com/SwifterSwift/SwifterSwift/pull/747) by [Moritz Sternemann](https://github.com/moritzsternemann).
+  - Added `init?(url:scale:)` to initialize a `UIImage` with a given url and scale factor. [#753](https://github.com/SwifterSwift/SwifterSwift/pull/753) by [mmdock](https://github.com/mmdock)
 - **CAGradientLayer**:
   - Added `init(colors:locations:startPoint:endPoint:type:)` convenience initializer. [#726](https://github.com/SwifterSwift/SwifterSwift/pull/726) by [JayMehta97](https://github.com/JayMehta97).
 - **Sequence**:
   - Added `sum(for:)` to sum up an `AdditiveArithmetic` property, referenced by `KeyPath`, of all elements in a sequence. [#736](https://github.com/SwifterSwift/SwifterSwift/pull/736) by [Moritz Sternemann](https://github.com/moritzsternemann).
+  - Added `map(by:)` to map the sequence elements by a given key path. [#763](https://github.com/SwifterSwift/SwifterSwift/pull/763) by [Roman Podymov](https://github.com/RomanPodymov).
+  - Added `compactMap(by:)` to map the sequence elements by a given key path to the non-nil elements array. [#766](https://github.com/SwifterSwift/SwifterSwift/pull/766) by [Roman Podymov](https://github.com/RomanPodymov).
+  - Added `filter(by:)` to filter the sequence elements by a given boolean key path. [#771](https://github.com/SwifterSwift/SwifterSwift/pull/771) by [Roman Podymov](https://github.com/RomanPodymov).
+- **MutableCollection**:
+  - Added `assignToAll(value:keyPath:)` to assign given value to field `keyPath` of every element in the collection. [#759](https://github.com/SwifterSwift/SwifterSwift/issues/759) by [cyber-gh](https://github.com/cyber-gh).
+- **KeyedDecodingContainer**:
+  - Added `decodeBoolAsIntOrString(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as Bool. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
+  - Added `decodeBoolAsIntOrStringIfPresent(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as `Bool` if present. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
+- **SKProduct**:
+  - Added `localizedPrice` to get localized price of product. [#781](https://github.com/SwifterSwift/SwifterSwift/pull/781) by [strawb3rryx7](https://github.com/strawb3rryx7).
 
 ### Changed
+- **Collection**:
+  - Refactored `group(by:)` to be generic for all `Collection`s, not only `where Index == Int`. [#758](https://github.com/SwifterSwift/SwifterSwift/pull/758) by [guykogus](https://github.com/guykogus)
 - **UIImage**:
   - Implemented `filled(withColor:)` using `UIGraphicsImageRenderer` when available. [#733](https://github.com/SwifterSwift/SwifterSwift/pull/733)
-
+  - Updated `kilobytesSize` to be computed independently from `bytesSize` [#753](https://github.com/SwifterSwift/SwifterSwift/pull/753) by [mmdock](https://github.com/mmdock)
+  - Updated `init?(base64String:)` to take in a `scale` factor paramater. [#753](https://github.com/SwifterSwift/SwifterSwift/pull/753) by [mmdock](https://github.com/mmdock)
 - **UIImage**:
   - Refactored `tint(_:blendMode:)` using UIGraphicsImageRenderer if available. [#731](https://github.com/SwifterSwift/SwifterSwift/pull/731) by [FraDeliro](https://github.com/FraDeliro).
+- **Sequence**:
+  - Corrected documentation for `sorted(by:with:)` and `sorted(by:)`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
 
 ### Deprecated
 
 ### Removed
 
 ### Fixed
+- Fixed build error occurring when building AppKit extensions for macCatalyst. [#762](https://github.com/SwifterSwift/SwifterSwift/pull/762) by [MaxHaertwig](https://github.com/maxhaertwig).
 
 ### Security
 

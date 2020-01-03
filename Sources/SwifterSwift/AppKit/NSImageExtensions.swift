@@ -6,8 +6,8 @@
 //  Copyright © 2017 SwifterSwift
 //
 
-#if canImport(Cocoa)
-import Cocoa
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
 
 // MARK: - Methods
 public extension NSImage {

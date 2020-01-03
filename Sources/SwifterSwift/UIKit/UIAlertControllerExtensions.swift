@@ -23,7 +23,12 @@ public extension UIAlertController {
     ///   - vibrate: set true to vibrate the device while presenting the alert (default is false).
     ///   - completion: an optional completion handler to be called after presenting alert controller (default is nil).
     func show(animated: Bool = true, vibrate: Bool = false, completion: (() -> Void)? = nil) {
-        UIApplication.shared.keyWindow?.rootViewController?.present(self, animated: animated, completion: completion)
+        #if targetEnvironment(macCatalyst)
+        let window = UIApplication.shared.windows.last
+        #else
+        let window = UIApplication.shared.keyWindow
+        #endif
+        window?.rootViewController?.present(self, animated: animated, completion: completion)
         if vibrate {
             #if canImport(AudioToolbox)
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)

@@ -188,14 +188,14 @@ public extension Sequence {
 
     /// SwifterSwift: Return a sorted array  based on a keypath and a compare function.
     ///
-    /// - Parameter path: Key path to sort. The key path type must be Comparable.
+    /// - Parameter path: Key path to sort.
     /// - Parameter compare: Comparation function that will determine the ordering.
     /// - Returns: The sorted array.
     func sorted<T>(by keyPath: KeyPath<Element, T>, with compare: (T, T) -> Bool) -> [Element] {
         return sorted { compare($0[keyPath: keyPath], $1[keyPath: keyPath]) }
     }
 
-    /// SwifterSwift: Return a sorted array  based on a keypath and a compare function.
+    /// SwifterSwift: Return a sorted array  based on a keypath.
     ///
     /// - Parameter path: Key path to sort. The key path type must be Comparable.
     /// - Returns: The sorted array.
@@ -212,6 +212,30 @@ public extension Sequence {
     func sum<T: AdditiveArithmetic>(for keyPath: KeyPath<Element, T>) -> T {
         // Inspired by: https://swiftbysundell.com/articles/reducers-in-swift/
         return reduce(.zero) { $0 + $1[keyPath: keyPath] }
+    }
+
+    /// SwifterSwift: Returns an array containing the results of mapping the given key path over the sequence’s elements.
+    ///
+    /// - Parameter keyPath: Key path to map.
+    /// - Returns: An array containing the results of mapping.
+    func map<T>(by keyPath: KeyPath<Element, T>) -> [T] {
+        return map { $0[keyPath: keyPath] }
+    }
+
+    /// SwifterSwift: Returns an array containing the non-nil results of mapping the given key path over the sequence’s elements.
+    ///
+    /// - Parameter keyPath: Key path to map.
+    /// - Returns: An array containing the non-nil results of mapping.
+    func compactMap<T>(by keyPath: KeyPath<Element, T?>) -> [T] {
+        return compactMap { $0[keyPath: keyPath] }
+    }
+
+    /// SwifterSwift: Returns an array containing the results of filtering the sequence’s elements by a boolean key path.
+    ///
+    /// - Parameter keyPath: Boolean key path. If it's value is `true` the element will be added to result.
+    /// - Returns: An array containing filtered elements.
+    func filter(by keyPath: KeyPath<Element, Bool>) -> [Element] {
+        return filter { $0[keyPath: keyPath] }
     }
 }
 
