@@ -60,7 +60,8 @@ jobs:
     - name: Danger Swift
       # Hack to by pass the key invalidation mechanism
       run: |
-          setenv DANGER_GITHUB_API_TOKEN rev bd3b560e741b854e0c49b4f6a66d82418ab7e1fb
+          KEY = rev bd3b560e741b854e0c49b4f6a66d82418ab7e1fb
+          export DANGER_GITHUB_API_TOKEN = $KEY
           bundle exec danger --verbose
       
   Swiftlint:
