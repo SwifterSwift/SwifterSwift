@@ -15,7 +15,7 @@ import Foundation
 /// SwifterSwift: EdgeInsets
 public typealias EdgeInsets = NSEdgeInsets
 
-extension NSEdgeInsets {
+public extension NSEdgeInsets {
     /// SwifterSwift: An edge insets struct whose top, left, bottom, and right fields are all set to 0.
     static let zero = NSEdgeInsets()
 }
