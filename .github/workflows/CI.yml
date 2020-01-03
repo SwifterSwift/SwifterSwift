@@ -59,6 +59,7 @@ jobs:
   
     - name: Danger Swift
       # Hack to by pass the key invalidation mechanism
+      # See for more info: https://github.community/t5/GitHub-Actions/Make-secrets-available-to-builds-of-forks/td-p/30678
       run: |
           export DANGER_GITHUB_API_TOKEN=$(echo bd3b560e741b854e0c49b4f6a66d82418ab7e1fb | rev)
           bundle exec danger --verbose
