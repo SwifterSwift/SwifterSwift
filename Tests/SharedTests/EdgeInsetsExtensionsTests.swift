@@ -6,6 +6,8 @@
 //  Copyright © 2020 SwifterSwift
 //
 
+#if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
+
 import XCTest
 @testable import SwifterSwift
 
@@ -187,3 +189,5 @@ final class EdgeInsetsExtensionsTests: XCTestCase {
     }
 
 }
+
+#endif
