@@ -40,6 +40,8 @@ extension NSEdgeInsets: Equatable {
 // swiftlint:enable missing_swifterswift_prefix
 #endif
 
+#if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
+
 // MARK: - Properties
 public extension EdgeInsets {
     /// SwifterSwift: Return the vertical insets. The vertical insets is composed by top + bottom.
@@ -161,3 +163,5 @@ public extension EdgeInsets {
     }
 
 }
+
+#endif
