@@ -571,6 +571,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `isInWeekday` has been renamed to `isWorkday`. [#313](https://github.com/SwifterSwift/SwifterSwift/pull/313) by [kaphacius](https://github.com/kaphacius).
 
 ### Enhancements
+- New **Image** test
+  - added missing test fot `compressedData(quality:)`
 - New **String** extensions
   - added `padStart(length: with:)` and `padEnd(length: with:)` to pad the string to a length on the start or end.
   - added `paddingStart(length: with:)` and `paddingEnd(length: with:)` to return a padding string to a length on the start or end. [#300](https://github.com/SwifterSwift/SwifterSwift/pull/300) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
