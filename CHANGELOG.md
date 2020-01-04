@@ -9,6 +9,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Unified `UIEdgeInsets` and `NSEdgeInsets` into a single typealias, `EdgeInsets`, similar to what we do with `UIColor` and `NSColor`. For the tests to function it was required to add the static `zero` property to `NSEdgeInsets` and to make it conform to `Equatable`. [#785](https://github.com/SwifterSwift/SwifterSwift/pull/785) by [guykogus](https://github.com/guykogus)
 - **Array**:
   - Added `sorted(like:keyPath:)` to sort an array like another array based on a key path. [#772](https://github.com/SwifterSwift/SwifterSwift/pull/772) by [MaxHaertwig](https://github.com/maxhaertwig).
+- **MKMapView**:
+    -  Added `zoom(to:meter:edgePadding:animated:)` method to zoom multiple `MKMapView` coordinates. [#723](https://github.com/SwifterSwift/SwifterSwift/pull/723) by [Mustafa GUNES](https://github.com/mustafagunes).
 - **Dictionary**:
   - Added `init(grouping:by:)` to initialize a dictionary by grouping sequence from a hashable `KeyPath`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
 - **RangeReplaceableCollection**:
