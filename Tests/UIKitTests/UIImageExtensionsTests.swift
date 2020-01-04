@@ -47,6 +47,16 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertNil(UIImage().compressed())
     }
 
+    func testCompressedData() {
+        let bundle = Bundle(for: UIImageExtensionsTests.self)
+        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let originalSize = image.bytesSize
+        let compressedImageData = image.compressedData(quality: 0.2)
+        XCTAssertNotNil(compressedImageData)
+        XCTAssertLessThan(compressedImageData!.count, originalSize)
+        XCTAssertNil(UIImage().compressedData())
+    }
+
     func testCropped() {
         let image = UIImage(color: .black, size: CGSize(width: 20, height: 20))
         var cropped = image.cropped(to: CGRect(x: 0, y: 0, width: 40, height: 40))
