@@ -39,35 +39,36 @@ final class MKMapViewTests: XCTestCase {
     func testWithEmptyItemArray() {
         let mapView = MKMapView()
         let meter = 500.0
-        let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+        let edgePadding = EdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         let previous = mapView.visibleMapRect
         mapView.zoom(to: [], meter: meter, edgePadding: edgePadding, animated: true)
         
-        XCTAssertEqual(mapView.visibleMapRect.contains(previous), true)
+        XCTAssert(mapView.visibleMapRect.contains(previous))
     }
     
     func testWithOneItemArray() {
         let mapView = MKMapView()
         let meter = 500.0
         let oneItemArray = [CLLocationCoordinate2D(latitude: 36.9751, longitude: 38.4243)]
-        let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+        let edgePadding = EdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         mapView.zoom(to: oneItemArray, meter: meter, edgePadding: edgePadding, animated: true)
         
         let firstPoint = MKMapPoint(oneItemArray.first!)
-        XCTAssertEqual(mapView.visibleMapRect.contains(firstPoint), true)
+        XCTAssert(mapView.visibleMapRect.contains(firstPoint))
     }
     
     func testWithMultiItemArray() {
         let mapView = MKMapView()
         let meter = 500.0
-        let edgePadding = UIEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+        let edgePadding = EdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         let multiItemArray = [CLLocationCoordinate2D(latitude: 36.9751, longitude: 38.4243),
                               CLLocationCoordinate2D(latitude: 37.06622, longitude: 37.38332),
                               CLLocationCoordinate2D(latitude: 41.00527, longitude: 28.97696)]
         mapView.zoom(to: multiItemArray, meter: meter, edgePadding: edgePadding, animated: true)
         
-        let lastPoint = MKMapPoint(multiItemArray.last!)
-        XCTAssertEqual(mapView.visibleMapRect.contains(lastPoint), true)
+        multiItemArray.forEach { (location) in
+            XCTAssert(mapView.visibleMapRect.contains(MKMapPoint(location)))
+        }
     }
 }
 
