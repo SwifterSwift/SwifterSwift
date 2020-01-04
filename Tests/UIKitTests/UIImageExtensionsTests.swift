@@ -47,7 +47,7 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertNil(UIImage().compressed())
     }
 
-        func testCompressedData() {
+    func testCompressedData() {
         let bundle = Bundle(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
         let originalSize = image.bytesSize
