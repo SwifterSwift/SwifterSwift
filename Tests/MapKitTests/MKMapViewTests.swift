@@ -66,7 +66,7 @@ final class MKMapViewTests: XCTestCase {
                               CLLocationCoordinate2D(latitude: 41.00527, longitude: 28.97696)]
         mapView.zoom(to: multiItemArray, meter: meter, edgePadding: edgePadding, animated: true)
         
-        multiItemArray.forEach { (location) in
+        for location in multiItemArray {
             XCTAssert(mapView.visibleMapRect.contains(MKMapPoint(location)))
         }
     }
