@@ -44,7 +44,7 @@ public extension MKMapView {
 
         return annotationView
     }
-    
+
     /// SwifterSwift: Zooms in on multiple mapView coordinates.
     ///
     /// - Parameters:
@@ -54,7 +54,7 @@ public extension MKMapView {
     ///   - animated: The animation control takes the Boolean value. Enter the true value for zooming with the animation.
     func zoom(to coordinates: [CLLocationCoordinate2D], meter: Double, edgePadding: EdgeInsets, animated: Bool) {
         guard !coordinates.isEmpty else { return }
-        
+
         if coordinates.count == 1 {
             let coordinateRegion = MKCoordinateRegion(center: coordinates.first!, latitudinalMeters: meter, longitudinalMeters: meter)
             setRegion(coordinateRegion, animated: true)
@@ -64,6 +64,7 @@ public extension MKMapView {
         }
     }
 }
+
 #endif
 
 #endif
