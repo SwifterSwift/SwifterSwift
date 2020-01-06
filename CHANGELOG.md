@@ -9,6 +9,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Unified `UIEdgeInsets` and `NSEdgeInsets` into a single typealias, `EdgeInsets`, similar to what we do with `UIColor` and `NSColor`. For the tests to function it was required to add the static `zero` property to `NSEdgeInsets` and to make it conform to `Equatable`. [#785](https://github.com/SwifterSwift/SwifterSwift/pull/785) by [guykogus](https://github.com/guykogus)
 - **Array**:
   - Added `sorted(like:keyPath:)` to sort an array like another array based on a key path. [#772](https://github.com/SwifterSwift/SwifterSwift/pull/772) by [MaxHaertwig](https://github.com/maxhaertwig).
+- **MKMapView**:
+    -  Added `zoom(to:meter:edgePadding:animated:)` method to zoom multiple `MKMapView` coordinates. [#723](https://github.com/SwifterSwift/SwifterSwift/pull/723) by [Mustafa GUNES](https://github.com/mustafagunes).
 - **Dictionary**:
   - Added `init(grouping:by:)` to initialize a dictionary by grouping sequence from a hashable `KeyPath`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
 - **RangeReplaceableCollection**:
@@ -22,6 +24,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIBarButtonItem**:
   - Added `flexibleSpace` and `fixedSpace(width:)` extensions to UIBarButtonItem to simplify the creation of spacers. [#728](https://github.com/SwifterSwift/SwifterSwift/pull/728) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **UIImage**:
+  - Added missing test for `compressedData(quality:)`. [#786](https://github.com/SwifterSwift/SwifterSwift/pull/786) by [thisIsTheFoxe](https://github.com/thisisthefoxe)
   - Added `withBackgroundColor(_:)` to specify a background color for a partially transparent image. [#721](https://github.com/SwifterSwift/SwifterSwift/pull/721) by [MaxHaertwig](https://github.com/maxhaertwig).
   - Added `init?(base64String:)` to create a `UIImage` from a base-64 `String`. [#741](https://github.com/SwifterSwift/SwifterSwift/issues/741) by [@thisIsTheFoxe](https://github.com/thisisthefoxe)
   - Added `pngBase64String()`, `jpegBase64String(compressionQuality:)` which return a Base 64 `String` representation of the `UIImage`s PNG or JPEG data. [#747](https://github.com/SwifterSwift/SwifterSwift/pull/747) by [Moritz Sternemann](https://github.com/moritzsternemann).
