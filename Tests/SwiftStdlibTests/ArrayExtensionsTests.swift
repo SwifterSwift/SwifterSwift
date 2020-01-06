@@ -15,7 +15,21 @@ final class ArrayExtensionsTests: XCTestCase {
         arr.prepend(1)
         XCTAssertEqual(arr, [1, 2, 3, 4, 5])
     }
-
+  
+    func testInsertInMiddle() {
+      var array = [1, 2, 3, 4]
+      array.insertInMiddle(5)
+      XCTAssertEqual(array, [1, 2, 5, 3, 4])
+      
+      array = [1, 2, 3, 4, 5]
+      array.insertInMiddle(6)
+      XCTAssertEqual(array, [1, 2, 6, 3, 4, 5])
+      
+      array = []
+      array.insertInMiddle(9)
+      XCTAssertEqual(array, [9])
+    }
+  
     func testSafeSwap() {
         var array: [Int] = [1, 2, 3, 4, 5]
         array.safeSwap(from: 3, to: 0)

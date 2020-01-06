@@ -19,21 +19,17 @@ public extension Array {
         insert(newElement, at: 0)
     }
 
-  /// SwifterSwift: Insert an element at the middle of array.
+  /// SwifterSwift: Insert an element in the middle of the collection.
   ///
-  ///        [1, 2, 3, 4].middlend(5) -> [1, 2, 5, 3 , 4]
-  ///       [1, 2, 3, 4, 5].middlend(6) -> [1, 2, 6, 3 , 4, 5]
-
+  ///       [1, 2, 3, 4].insertInMiddle(5) -> [1, 2, 5, 3 , 4]
+  ///       [1, 2, 3, 4, 5].insertInMiddle(6) -> [1, 2, 6, 3 , 4, 5]
+  ///
   /// - Parameter newElement: element to insert.
-  mutating func middlend(_ newElement: Element) {
-    if self.count % 2 == 0 {
-      insert(newElement, at: (self.count/2))
-    }else {
-      let index = (self.count + 1)/2
-      insert(newElement, at: index - 1)
-    }
+  mutating func insertInMiddle(_ newElement: Element) {
+      let middleIndex = index(startIndex, offsetBy: distance(from: startIndex, to: endIndex) / 2)
+      insert(newElement, at: middleIndex)
   }
-    
+
   /// SwifterSwift: Safely swap values at given index positions.
     ///
     ///        [1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
