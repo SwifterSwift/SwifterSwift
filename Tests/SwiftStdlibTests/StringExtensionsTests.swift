@@ -541,10 +541,12 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testMatchings() {
-        XCTAssertFalse(try "123".matchings(pattern: "\\d{3}").isEmpty)
-        XCTAssertTrue(try "dasda".matchings(pattern: "\\d{3}").isEmpty)
-        XCTAssertTrue(try "notanemail.com".matchings(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").isEmpty)
-        XCTAssertFalse(try "email@mail.com".matchings(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").isEmpty)
+        XCTAssertFalse(try "123".matchings(for: "\\d{3}").isEmpty)
+        XCTAssertTrue(try "dasda".matchings(for: "\\d{3}").isEmpty)
+        XCTAssertTrue(try "notanemail.com".matchings(for: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").isEmpty)
+        XCTAssertFalse(try "email@mail.com".matchings(for: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}").isEmpty)
+        XCTAssertThrowsError(try "123".matchings(for: "\\d{somebadexpr}"))
+        XCTAssertThrowsError(try "dasda".matchings(for: "&(*^80f8s6"))
     }
 
     func testPadStart() {

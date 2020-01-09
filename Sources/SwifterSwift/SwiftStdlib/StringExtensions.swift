@@ -960,7 +960,7 @@ public extension String {
     /// - Parameter pattern: Pattern to verify.
     /// - Returns: Matching pattern parts of string.
     /// - Throws: Throws any errors thrown by creation of invalid pattern.
-    func matchings(pattern: String) throws -> [String] {
+    func matchings(for pattern: String) throws -> [String] {
         let regex = try NSRegularExpression(pattern: pattern)
         let results = regex.matches(in: self, range: NSRange(startIndex..., in: self))
         return results.compactMap { textCheckingResult -> String? in
