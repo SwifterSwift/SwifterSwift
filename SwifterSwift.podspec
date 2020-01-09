@@ -60,7 +60,7 @@ Pod::Spec.new do |s|
 
   # MapKit Extensions
   s.subspec 'MapKit' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/MapKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/MapKit/*.swift'
   end
 
   # SpriteKit Extensions
@@ -70,6 +70,11 @@ Pod::Spec.new do |s|
 
   s.subspec 'SceneKit' do |sp|
     sp.source_files  =  'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/SceneKit/*.swift'
+  end
+
+  # StoreKit Extensions
+  s.subspec 'StoreKit' do |sp|
+    sp.source_files = 'Sources/SwifterSwift/StoreKit/*.swift'
   end
 
   # Dispatch Extensions
