@@ -6,11 +6,10 @@
 //  Copyright © 2020 SwifterSwift
 //
 
-#if canImport(CoreLocation) && (targetEnvironment(macCatalyst) || os(iOS))
+#if canImport(CoreLocation)
 import CoreLocation
 
 // MARK: - Properties
-@available(iOS 8.0, *)
 public extension CLVisit {
 
     /// SwifterSwift: Retrieves a visit's location.
