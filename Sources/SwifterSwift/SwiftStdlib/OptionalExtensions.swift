@@ -40,6 +40,21 @@ public extension Optional {
         return wrapped
     }
 
+    /// SwifterSwift: Gets the wrapped value of an optional. If the optional is `nil`, calls Never-returning closure.
+    ///
+    ///        let foo: String? = nil
+    ///        foo.or { preconditionFailute() } -> Throws preconditionFailure with default description
+    ///
+    ///        let bar: String? = "bar"
+    ///        bar.or { fatalError("Error description") } -> Throws fatal error with custom description
+    ///
+    /// - Parameter neverExpression: The Never returning closure to call if the optional is `nil`.
+    /// - Returns: The value wrapped by the optional.
+    func or(_ neverExpression: () -> Never) -> Wrapped {
+        guard let wrapped = self else { neverExpression() }
+        return wrapped
+    }
+
     /// SwifterSwift: Runs a block to Wrapped if not nil
     ///
     ///		let foo: String? = nil
