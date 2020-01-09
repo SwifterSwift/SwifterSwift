@@ -90,11 +90,42 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
     func testApplyingToRegex() {
         #if canImport(UIKit) && os(iOS)
-        let email = "steve.jobs@apple.com"
+        let email = "sTeVe.jObS@apple.com"
         let testString = NSAttributedString(string: "Your email is \(email)!").bolded
         let attributes: [NSAttributedString.Key: Any] = [.underlineStyle: NSUnderlineStyle.single.rawValue, .foregroundColor: UIColor.blue]
-        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let casePattern = "Steve\\.Jobs"
+        let stringRange = NSRange(0..<testString.length)
 
+        // Apply case insensitive option for success attributes applying
+        let caseInsensitiveAttrString = testString.applying(attributes: attributes, toRangesMatching: casePattern, options: [.caseInsensitive])
+        var caseInsensitiveUnderlineIndicator: Int?
+        var caseInsensitiveTextColor: UIColor?
+        caseInsensitiveAttrString.enumerateAttribute(.underlineStyle, in: stringRange) { value, range, stop in
+            guard let value = value as? Int else { return }
+            // Save found values and stop enumeration
+            caseInsensitiveUnderlineIndicator = value
+            caseInsensitiveTextColor = caseInsensitiveAttrString.attribute(.foregroundColor, at: range.location, effectiveRange: nil) as? UIColor
+            stop.pointee = true
+        }
+        XCTAssertEqual(caseInsensitiveUnderlineIndicator, 1)
+        XCTAssertEqual(caseInsensitiveTextColor, .blue)
+
+        // Apply no options for failure attributes applying
+        let caseSensitiveAttrString = testString.applying(attributes: attributes, toRangesMatching: casePattern)
+        var caseSensitiveUnderlineIndicator: Int?
+        var caseSensitiveTextColor: UIColor?
+        caseSensitiveAttrString.enumerateAttribute(.underlineStyle, in: stringRange) { value, range, stop in
+            guard let value = value as? Int else { return }
+            // Save found values and stop enumeration
+            caseSensitiveUnderlineIndicator = value
+            caseSensitiveTextColor = caseInsensitiveAttrString.attribute(.foregroundColor, at: range.location, effectiveRange: nil) as? UIColor
+            stop.pointee = true
+        }
+        XCTAssertNotEqual(caseSensitiveUnderlineIndicator, 1)
+        XCTAssertNotEqual(caseSensitiveTextColor, .blue)
+
+        // Default case
+        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let attrTestString = testString.applying(attributes: attributes, toRangesMatching: pattern)
 
         let attrAtBeginning = attrTestString.attributes(at: 0, effectiveRange: nil)
@@ -102,7 +133,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
         var passed = false
         // iterate through each range of attributes
-        attrTestString.enumerateAttributes(in: NSRange(0..<attrTestString.length), options: .longestEffectiveRangeNotRequired) { attrs, range, _ in
+        attrTestString.enumerateAttributes(in: stringRange, options: .longestEffectiveRangeNotRequired) { attrs, range, _ in
 
             let emailFromRange = attrTestString.attributedSubstring(from: range).string
 
