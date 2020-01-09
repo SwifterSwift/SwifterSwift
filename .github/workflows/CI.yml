@@ -1,0 +1,96 @@
+name: SwifterSwift
+
+on: 
+  push:
+    branches: 
+      - master
+  pull_request:
+    branches: 
+      - master
+
+jobs:
+  Darwin:
+    name: Darwin
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        xcode: ['/Applications/Xcode_11.3.app/Contents/Developer']
+    env:
+      PROJECT: SwifterSwift.xcodeproj
+    steps:
+    - uses: actions/checkout@v1
+    - name: Bundle Install
+      run: bundle install
+    - name: Brew Upgrade
+      run: |
+        brew update
+        brew outdated xctool || brew upgrade xctool
+        brew install swiftlint
+    - name: Test iOS
+      run: |
+        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
+        bash <(curl -s https://codecov.io/bash) -cF ios -J 'SwifterSwift'
+      env:
+          DEVELOPER_DIR: ${{ matrix.xcode }}
+          SCHEME: SwifterSwift-iOS
+          DESTINATION: platform=iOS Simulator,name=iPhone 11
+    - name: Test MacOS
+      run: |
+        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-macos.json" xcpretty -f `xcpretty-json-formatter`
+        bash <(curl -s https://codecov.io/bash) -cF macos -J 'SwifterSwift'
+      env:
+          DEVELOPER_DIR: ${{ matrix.xcode }}
+          SCHEME: SwifterSwift-macOS
+          DESTINATION: platform=OS X
+    - name: Test TVOS
+      run: |
+        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-tvos.json" xcpretty -f `xcpretty-json-formatter`
+        bash <(curl -s https://codecov.io/bash) -cF tvos -J 'SwifterSwift'
+      env:
+          DEVELOPER_DIR: ${{ matrix.xcode }}
+          SCHEME: SwifterSwift-tvOS
+          DESTINATION: platform=tvOS Simulator,name=Apple TV 4K (at 1080p)
+    - name: Build WatchOS
+      run: xcodebuild clean build -project $PROJECT -scheme $SCHEME -destination "$DESTINATION"
+      env:
+          DEVELOPER_DIR: ${{ matrix.xcode }}
+          SCHEME: SwifterSwift-watchOS
+          DESTINATION: name=Apple Watch Series 5 - 40mm
+  
+    - name: Danger Swift
+      # Hack to by pass the key invalidation mechanism
+      # See for more info: https://github.community/t5/GitHub-Actions/Make-secrets-available-to-builds-of-forks/td-p/30678
+      run: |
+          export DANGER_GITHUB_API_TOKEN=$(echo bd3b560e741b854e0c49b4f6a66d82418ab7e1fb | rev)
+          bundle exec danger --verbose
+      
+  Swiftlint:
+    runs-on: [macos]
+    name: SwiftLint
+    steps: 
+      - uses: actions/checkout@v1
+      - name: SwiftLint
+        run: |
+          brew install swiftlint
+          swiftlint
+  CocoaPods:
+    name: CocoaPods
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        platform: ['ios', 'macos', 'tvos', 'watchos']
+        xcode: ['/Applications/Xcode_11.3.app/Contents/Developer']
+    steps:
+    - uses: actions/checkout@v1
+    - name: Bundle Install
+      run: bundle install
+    - name: CocoaPods ${{ matrix.platform }}
+      run: bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=${{ matrix.platform }} 
+      
+  Linux:
+    runs-on: [ubuntu-16.04] 
+    container: swift:5.0.3
+    steps:
+      - uses: actions/checkout@v1
+      - name: Linux
+        run: swift test --parallel
