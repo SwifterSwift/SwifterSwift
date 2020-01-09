@@ -9,7 +9,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(CoreLocation) && targetEnvironment(macCatalyst)
+#if canImport(CoreLocation) && (targetEnvironment(macCatalyst) || os(iOS))
 import CoreLocation
 
 final class CLVisitExtensionsTests: XCTestCase {

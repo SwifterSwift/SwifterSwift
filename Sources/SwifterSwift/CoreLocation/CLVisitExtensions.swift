@@ -6,7 +6,7 @@
 //  Copyright © 2020 SwifterSwift
 //
 
-#if canImport(CoreLocation) && targetEnvironment(macCatalyst)
+#if canImport(CoreLocation) && (targetEnvironment(macCatalyst) || os(iOS))
 import CoreLocation
 
 // MARK: - Properties
