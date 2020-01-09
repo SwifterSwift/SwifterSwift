@@ -20,7 +20,7 @@ public extension URLRequest {
         self.init(url: url)
     }
 
-    /// cURL command representation of this URL request.
+    /// SwifterSwift: cURL command representation of this URL request.
     var curlString: String {
 
         guard let url = url else { return "" }
