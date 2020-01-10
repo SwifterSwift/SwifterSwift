@@ -43,7 +43,7 @@ public extension Optional {
     /// SwifterSwift: Gets the wrapped value of an optional. If the optional is `nil`, calls Never-returning closure.
     ///
     ///        let foo: String? = nil
-    ///        foo.or { preconditionFailute() } -> Throws preconditionFailure with default description
+    ///        foo.or { preconditionFailure() } -> Throws preconditionFailure with default description
     ///
     ///        let bar: String? = "bar"
     ///        bar.or { fatalError("Error description") } -> Throws fatal error with custom description
