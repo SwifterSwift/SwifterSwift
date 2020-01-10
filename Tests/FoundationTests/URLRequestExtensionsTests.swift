@@ -14,9 +14,6 @@ import Foundation
 
 final class URLRequestExtensionsTests: XCTestCase {
 
-    private let insightNASAcURL = "curl https://api.nasa.gov/insight_weather/?api_key=mxbd8VDIy5CheCbrYgknXVH6X9ElpQaHMhne2YXP&feedtype=json&ver=1.0"
-    private let planetaryNASAcURL = "curl https://api.nasa.gov/planetary/apod?api_key=mxbd8VDIy5CheCbrYgknXVH6X9ElpQaHMhne2YXP&date=2020-01-09&hd=true"
-
     func testInitFromURLString() {
         let urlString = "https://www.w3schools.com/"
         let request1 = URLRequest(url: URL(string: urlString)!)
@@ -29,6 +26,10 @@ final class URLRequestExtensionsTests: XCTestCase {
     }
 
     func testCUrlSring() {
+        let insightNASAcURL =
+            "curl https://api.nasa.gov/insight_weather/?api_key=mxbd8VDIy5CheCbrYgknXVH6X9ElpQaHMhne2YXP&feedtype=json&ver=1.0"
+        let planetaryNASAcURL =
+            "curl https://api.nasa.gov/planetary/apod?api_key=mxbd8VDIy5CheCbrYgknXVH6X9ElpQaHMhne2YXP&date=2020-01-09&hd=true"
         var components = URLComponents(string: "https://api.nasa.gov")
         let apiKey = "mxbd8VDIy5CheCbrYgknXVH6X9ElpQaHMhne2YXP"
 
