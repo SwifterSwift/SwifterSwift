@@ -103,6 +103,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
 
     private func caseSensitiveRegexTest(_ stringToTest: NSAttributedString, attributes: [NSAttributedString.Key: Any], pattern: String) {
+        #if canImport(UIKit) && os(iOS)
         let stringRange = NSRange(0..<stringToTest.length)
 
         // Apply case insensitive option for success attributes applying
@@ -132,9 +133,11 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         }
         XCTAssertNotEqual(caseSensitiveUnderlineIndicator, 1)
         XCTAssertNotEqual(caseSensitiveTextColor, .blue)
+        #endif
     }
 
     private func commonRegexTest(stringToTest: NSAttributedString, attributes: [NSAttributedString.Key: Any], _ email: String) {
+        #if canImport(UIKit) && os(iOS)
         let stringRange = NSRange(0..<stringToTest.length)
         let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let attrTestString = stringToTest.applying(attributes: attributes, toRangesMatching: pattern)
@@ -170,6 +173,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
             XCTAssert(passed)
         }
+        #endif
     }
 
     func testApplyingToOccurrences() {
