@@ -41,6 +41,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **KeyedDecodingContainer**:
   - Added `decodeBoolAsIntOrString(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as Bool. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
   - Added `decodeBoolAsIntOrStringIfPresent(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as `Bool` if present. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
+- **Locale**:
+  - Added `is12HourTimeFormat` to indicate if locale has 12h format. [#793](https://github.com/SwifterSwift/SwifterSwift/pull/793) by [DimaZava](https://github.com/DimaZava). 
 - **URLRequest**:
   - Added `curlString` property to get a cURL command representation of this URL request. [#790](https://github.com/SwifterSwift/SwifterSwift/pull/790) by [DimaZava](https://github.com/DimaZava).
 - **SKProduct**:
