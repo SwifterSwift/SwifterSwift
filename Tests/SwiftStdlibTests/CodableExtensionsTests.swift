@@ -1,5 +1,5 @@
 //
-//  CodableExtensionsTests.swift
+//  DecodableExtensionsTests.swift
 //  SwifterSwift
 //
 //  Created by Mustafa GUNES on 16.01.2020.
@@ -7,34 +7,35 @@
 //
 
 import XCTest
-
 @testable import SwifterSwift
 
-private struct City: Codable {
-    var cityId: Int
+// swiftlint:disable identifier_name
+private struct City: Decodable {
+    var id: Int
     var name: String
-    var photoUrl: String
+    var url: String
 
     private enum CodingKeys: String, CodingKey {
-        case cityId = "id"
+        case id
         case name
-        case photoUrl = "photo_url"
+        case url = "photo_url"
     }
 }
+// swiftlint:enable identifier_name
 
-final class CodableExtensionsTests: XCTestCase {
+final class DecodableExtensionsTests: XCTestCase {
 
     private var mockJsonData: Data {
         return #"{"id": 1, "name": "Şanlıurfa", "photo_url": "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg"}"#.data(using: .utf8)!
     }
 
     func testDecodeModel() {
-        do {
-            let city = try City.decode(mockJsonData)
-            XCTAssertEqual(city?.cityId, 1)
-            XCTAssertEqual(city?.name, "Şanlıurfa")
-        } catch {
+        guard let city = City.init(from: mockJsonData) else {
             XCTAssert(false, "Could not parse model")
+            return
         }
+        XCTAssertEqual(city.id, 1)
+        XCTAssertEqual(city.name, "Şanlıurfa")
+        XCTAssertEqual(city.url, "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg")
     }
 }

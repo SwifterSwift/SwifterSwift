@@ -13,19 +13,13 @@ import Foundation
 public extension Decodable {
 
     #if canImport(Foundation)
-    /// SwifterSwift: Parsing the model in Codable type
-    /// - Parameter data: Data.
-    /// - Returns: Decoded self model value.
-    /// - Throws: Decoding error.
-    static func decode(_ data: Data) throws -> Self? {
-        let decoder = JSONDecoder()
-        decoder.dataDecodingStrategy = .deferredToData
-        do {
-            let parsed = try decoder.decode(self, from: data)
-            return parsed
-        } catch {
-            return nil
-        }
+    /// SwifterSwift: Parsing the model in Decodable type
+    /// - Parameters:
+    ///   - data: Data.
+    ///   - decoder: JSONDecoder. Initialized by default
+    init?(from data: Data, using decoder: JSONDecoder = .init()) {
+        guard let parsed = try? decoder.decode(Self.self, from: data) else { return nil }
+        self = parsed
     }
     #endif
 }

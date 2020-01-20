@@ -927,8 +927,8 @@
 				664CB971217186E900FC87B4 /* BidirectionalCollectionExtensionsTests.swift */,
 				B2A0DAC42336DCE5002B0BC5 /* MutableCollectionTests.swift */,
 				C7E027C82360958B00F1061E /* KeyedDecodingContainerExtensionsTests.swift */,
-				2141A351235F379600218109 /* TestHelpers.swift */,
 				D951E8AE23D04E4600F2CD0B /* CodableExtensionsTests.swift */,
+				2141A351235F379600218109 /* TestHelpers.swift */,
 			);
 			path = SwiftStdlibTests;
 			sourceTree = "<group>";
