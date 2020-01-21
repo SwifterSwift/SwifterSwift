@@ -7,6 +7,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **Decodable**:
   - Added `init?(data:decoder:)` to decode `Decodable` (Codable) type models. [#797](https://github.com/SwifterSwift/SwifterSwift/pull/797) by [Mustafa GUNES](https://github.com/mustafagunes).
+- **CLVisit**:
+  - Created `CLVisit Extension` and added `location` property. [#792](https://github.com/SwifterSwift/SwifterSwift/pull/792) by [trevorphillips](https://github.com/trevorphillips)
 - **EdgeInsets**:
   - Unified `UIEdgeInsets` and `NSEdgeInsets` into a single typealias, `EdgeInsets`, similar to what we do with `UIColor` and `NSColor`. For the tests to function it was required to add the static `zero` property to `NSEdgeInsets` and to make it conform to `Equatable`. [#785](https://github.com/SwifterSwift/SwifterSwift/pull/785) by [guykogus](https://github.com/guykogus)
 - **Array**:
@@ -61,6 +63,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Refactored `tint(_:blendMode:)` using UIGraphicsImageRenderer if available. [#731](https://github.com/SwifterSwift/SwifterSwift/pull/731) by [FraDeliro](https://github.com/FraDeliro).
 - **Sequence**:
   - Corrected documentation for `sorted(by:with:)` and `sorted(by:)`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
+- **NSAttributedString**:
+  - Update `applying(attributes: [NSAttributedString.Key : Any], toRangesMatching pattern: String)` to respond `applying(attributes: [NSAttributedString.Key : Any], toRangesMatching pattern: String, options: NSRegularExpression.Options = [])` signature to support regular expression options.  [#791](https://github.com/SwifterSwift/SwifterSwift/pull/791) by [DimaZava](https://github.com/DimaZava)
+  
 
 ### Deprecated
 
