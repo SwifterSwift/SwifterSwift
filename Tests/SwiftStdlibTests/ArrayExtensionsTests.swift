@@ -5,6 +5,11 @@
 //  Created by Omar Albeik on 8/26/16.
 //  Copyright © 2016 SwifterSwift
 //
+
+#if canImport(CoreLocation)
+import CoreLocation
+#endif
+
 import XCTest
 @testable import SwifterSwift
 
@@ -90,5 +95,21 @@ final class ArrayExtensionsTests: XCTestCase {
         let arrayWithoutDuplicatesNHashable = array.withoutDuplicates(keyPath: \.location)
         let arrayWithoutDuplicatesNHashablePrepared = [Person(name: "Wade", age: 20, location: Location(city: "London")), Person(name: "James", age: 32), Person(name: "James", age: 72, location: Location(city: "Moscow")), Person(name: "Wade", age: 22, location: Location(city: "Prague"))]
         XCTAssertEqual(arrayWithoutDuplicatesNHashable, arrayWithoutDuplicatesNHashablePrepared)
+    }
+
+    func testDistance() {
+        #if canImport(CoreLocation)
+        let locations = [
+            CLLocation(latitude: 41.0, longitude: -111.0),
+            CLLocation(latitude: 41.0, longitude: -112.0),
+            CLLocation(latitude: 41.0, longitude: -113.0)
+        ]
+
+        XCTAssertEqual(locations.distance(unit: .meter), 168270.37022814364)
+        XCTAssertEqual(locations.distance(unit: .kilometer), 168.27037022814363)
+        XCTAssertEqual(locations.distance(unit: .feet), 552068.1437931221)
+        XCTAssertEqual(locations.distance(unit: .yard), 184022.7145977074)
+        XCTAssertEqual(locations.distance(unit: .mile), 104.55862044573779)
+        #endif
     }
 }
