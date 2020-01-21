@@ -173,11 +173,12 @@ public extension Array where Element: Equatable {
 }
 
 // MARK: - Methods (CLLocation)
-extension Array where Element: CLLocation {
+public extension Array where Element: CLLocation {
 
     /// SwifterSwift: Calculates the sum of distances between each location in the array based on the curvature of the earth.
     ///
-    /// - Returns: the distance in the specified unit.
+    /// - Parameter unit: The unit of length to return the distance in.
+    /// - Returns: A double of the distance in the specified unit.
     func distance(unit: DistanceUnit) -> Double {
         var distance = 0.0
 
