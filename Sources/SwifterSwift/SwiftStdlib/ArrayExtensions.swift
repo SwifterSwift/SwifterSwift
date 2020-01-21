@@ -6,6 +6,40 @@
 //  Copyright © 2016 SwifterSwift
 //
 
+#if canImport(CoreLocation)
+import CoreLocation
+#endif
+
+// MARK: - Enums
+public extension Array where Element: CLLocation {
+
+    /// SwifterSwift: Distance unit.
+    ///
+    /// - meter: Unit of length - meter.
+    /// - kilometer: Unit of length - kilometer.
+    /// - feet: Unit of length - feet.
+    /// - yard: Unit of length - yard.
+    /// - mile: Unit of length - mile.
+    enum DistanceUnit {
+
+        /// SwifterSwift: Unit of length - meter.
+        case meter
+
+        /// SwifterSwift: Unit of length - kilometer.
+        case kilometer
+
+        /// SwifterSwift: Unit of length - feet.
+        case feet
+
+        /// SwifterSwift: Unit of length - yard.
+        case yard
+
+        /// SwifterSwift: Unit of length - mile.
+        case mile
+
+    }
+}
+
 // MARK: - Methods
 public extension Array {
 
@@ -135,5 +169,36 @@ public extension Array where Element: Equatable {
     func withoutDuplicates<E: Hashable>(keyPath path: KeyPath<Element, E>) -> [Element] {
         var set = Set<E>()
         return filter { set.insert($0[keyPath: path]).inserted }
+    }
+}
+
+// MARK: - Methods (CLLocation)
+public extension Array where Element: CLLocation {
+
+    /// SwifterSwift: Calculates the sum of distances between each location in the array based on the curvature of the earth.
+    ///
+    /// - Parameter unit: The unit of length to return the distance in.
+    /// - Returns: A double of the distance in the specified unit.
+    func distance(unit: DistanceUnit) -> Double {
+        var distance = 0.0
+
+        for (index, location) in self.enumerated() {
+            if location == self.last { break }
+            distance += location.distance(from: self[index + 1])
+        }
+
+        switch unit {
+
+        case .meter:
+            return distance
+        case .kilometer:
+            return distance / 1000.0
+        case .feet:
+            return distance / 0.3048
+        case .yard:
+            return distance / 0.9144
+        case .mile:
+            return distance / 1609.34
+        }
     }
 }
