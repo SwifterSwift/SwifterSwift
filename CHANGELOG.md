@@ -10,7 +10,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **EdgeInsets**:
   - Unified `UIEdgeInsets` and `NSEdgeInsets` into a single typealias, `EdgeInsets`, similar to what we do with `UIColor` and `NSColor`. For the tests to function it was required to add the static `zero` property to `NSEdgeInsets` and to make it conform to `Equatable`. [#785](https://github.com/SwifterSwift/SwifterSwift/pull/785) by [guykogus](https://github.com/guykogus)
 - **Array**:
-  - Added `extension Array where Element: CLLocation` and added `DistanceUnit` enum and `distance` function. [#](https://github.com/SwifterSwift/SwifterSwift/pull/792) by [trevorphillips](https://github.com/trevorphillips)
+  - Added `extension Array where Element: CLLocation` and added `DistanceUnit` enum and `distance(unit:)` function. [#799](https://github.com/SwifterSwift/SwifterSwift/pull/799) by [trevorphillips](https://github.com/trevorphillips)
   - Added `sorted(like:keyPath:)` to sort an array like another array based on a key path. [#772](https://github.com/SwifterSwift/SwifterSwift/pull/772) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **MKMapView**:
     -  Added `zoom(to:meter:edgePadding:animated:)` method to zoom multiple `MKMapView` coordinates. [#723](https://github.com/SwifterSwift/SwifterSwift/pull/723) by [Mustafa GUNES](https://github.com/mustafagunes).
