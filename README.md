@@ -241,6 +241,7 @@ let package = Package(
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreLocation/CLLocationExtensions.swift"><code>CLLocation extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreLocation/CLVisitExtensions.swift"><code>CLVisit extensions</code></a></li>
 </ul>
 </details>
 
