@@ -8,10 +8,6 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(CoreLocation)
-import CoreLocation
-#endif
-
 final class ArrayExtensionsTests: XCTestCase {
 
     func testPrepend() {
