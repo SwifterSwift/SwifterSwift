@@ -17,10 +17,11 @@ public extension Array where Element: CLLocation {
     /// - Parameter unit: The unit of length to return the distance in.
     /// - Returns: The distance in the specified unit.
     @available(iOS 10.0, tvOS 10.0, macOS 10.12, watchOS 3.0, *)
-    func distance(unit: UnitLength) -> Measurement<UnitLength> {
-        let distance = self.enumerated().reduce(0.0) {
-            if $1.1 == self.last { return $0 }
-            return $0 + $1.1.distance(from: self[$1.0 + 1])
+    func distance(unitLength unit: UnitLength) -> Measurement<UnitLength> {
+        let distance = self.enumerated().reduce(0.0) { (sum, position) in
+            let (index, location) = position
+            if location == self.last { return sum }
+            return sum + location.distance(from: self[index + 1])
         }
         return Measurement(value: distance, unit: UnitLength.meters).converted(to: unit)
     }
