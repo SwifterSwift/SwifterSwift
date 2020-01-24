@@ -16,7 +16,7 @@ public extension Array where Element: CLLocation {
     ///
     /// - Parameter unit: The unit of length to return the distance in.
     /// - Returns: The distance in the specified unit.
-    @available(iOS 10.0, *)
+    @available(iOS 10.0, tvOS 10.0, macOS 10.12, watchOS 3.0, *)
     func distance(unit: UnitLength) -> Measurement<UnitLength> {
         let distance = self.enumerated().reduce(0.0) {
             if $1.1 == self.last { return $0 }
