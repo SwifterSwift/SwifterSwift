@@ -10,6 +10,11 @@
  These structs used to test ArrayExtensions and RangeReplaceableCollection.
  Feel free to use it for your needs.
  */
+struct SimplePerson: Equatable {
+    let forename, surname: String
+    let age: Int
+}
+
 struct Person: Equatable {
     var name: String
     var age: Int?
