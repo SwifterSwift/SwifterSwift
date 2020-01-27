@@ -28,7 +28,7 @@ final class DecodableExtensionsTests: XCTestCase {
     }
 
     func testDecodeModel() {
-        guard let city = City.init(from: mockJsonData) else {
+        guard let city = City(from: mockJsonData) else {
             XCTAssert(false, "Could not parse model")
             return
         }
@@ -39,6 +39,6 @@ final class DecodableExtensionsTests: XCTestCase {
     }
 
     func testDecodeModelInvalidData() {
-        XCTAssertNil(City.init(from: invalidMockJsonData))
+        XCTAssertNil(City(from: invalidMockJsonData))
     }
 }
