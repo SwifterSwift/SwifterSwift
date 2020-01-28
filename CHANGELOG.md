@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **Decodable**:
+  - Added `init?(data:decoder:)` to decode `Decodable` (Codable) type models. [#797](https://github.com/SwifterSwift/SwifterSwift/pull/797) by [Mustafa GUNES](https://github.com/mustafagunes).
 - **CLVisit**:
   - Created `CLVisit Extension` and added `location` property. [#792](https://github.com/SwifterSwift/SwifterSwift/pull/792) by [trevorphillips](https://github.com/trevorphillips)
 - **EdgeInsets**:
