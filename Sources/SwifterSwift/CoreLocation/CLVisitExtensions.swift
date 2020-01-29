@@ -10,7 +10,6 @@
 import CoreLocation
 
 // MARK: - Properties
-@available(iOS 8.0, *)
 public extension CLVisit {
 
     /// SwifterSwift: Retrieves a visit's location.
