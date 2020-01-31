@@ -79,6 +79,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Fixed
 - Fixed build error occurring when building AppKit extensions for macCatalyst. [#762](https://github.com/SwifterSwift/SwifterSwift/pull/762) by [MaxHaertwig](https://github.com/maxhaertwig).
+- Fixed `String.base64Decoded` making it a safe decode by including padding on the string. [#801](https://github.com/SwifterSwift/SwifterSwift/pull/801) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 
 ### Security
 
