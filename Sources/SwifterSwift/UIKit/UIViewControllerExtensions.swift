@@ -69,9 +69,7 @@ public extension UIViewController {
             alertController.addAction(action)
             // Check which button to highlight
             if let highlightedButtonIndex = highlightedButtonIndex, index == highlightedButtonIndex {
-                if #available(iOS 9.0, *) {
-                    alertController.preferredAction = action
-                }
+                alertController.preferredAction = action
             }
         }
         present(alertController, animated: true, completion: nil)

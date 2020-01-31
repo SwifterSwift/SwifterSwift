@@ -31,9 +31,17 @@ public extension String {
     ///		"SGVsbG8gV29ybGQh".base64Decoded = Optional("Hello World!")
     ///
     var base64Decoded: String? {
-        // https://github.com/Reza-Rg/Base64-Swift-Extension/blob/master/Base64.swift
-        guard let decodedData = Data(base64Encoded: self) else { return nil }
-        return String(data: decodedData, encoding: .utf8)
+        let remainder = count % 4
+
+        var padding = ""
+        if remainder > 0 {
+            padding = String(repeating: "=", count: 4 - remainder)
+        }
+
+        guard let data = Data(base64Encoded: self + padding,
+                              options: .ignoreUnknownCharacters) else { return nil }
+
+        return String(data: data, encoding: .utf8)
     }
     #endif
 

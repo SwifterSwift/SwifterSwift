@@ -152,6 +152,36 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(array2.sorted(by: \String.first, with: optionalCompare), ["Bryant", "James", "Wade", ""])
     }
 
+    func testSortedByTwoKeyPaths() {
+        let people = [
+            SimplePerson(forename: "Tom", surname: "James", age: 32),
+            SimplePerson(forename: "Angeline", surname: "Wade", age: 57),
+            SimplePerson(forename: "Max", surname: "James", age: 34)
+        ]
+        let expectedResult = [
+            SimplePerson(forename: "Tom", surname: "James", age: 32),
+            SimplePerson(forename: "Max", surname: "James", age: 34),
+            SimplePerson(forename: "Angeline", surname: "Wade", age: 57)
+        ]
+        XCTAssertEqual(people.sorted(by: \.surname, and: \.age), expectedResult)
+    }
+
+    func testSortedByThreeKeyPaths() {
+        let people = [
+            SimplePerson(forename: "Tom", surname: "James", age: 32),
+            SimplePerson(forename: "Angeline", surname: "Wade", age: 57),
+            SimplePerson(forename: "Max", surname: "James", age: 34),
+            SimplePerson(forename: "Angeline", surname: "Wade", age: 82)
+        ]
+        let expectedResult = [
+            SimplePerson(forename: "Max", surname: "James", age: 34),
+            SimplePerson(forename: "Tom", surname: "James", age: 32),
+            SimplePerson(forename: "Angeline", surname: "Wade", age: 57),
+            SimplePerson(forename: "Angeline", surname: "Wade", age: 82)
+        ]
+        XCTAssertEqual(people.sorted(by: \.surname, and: \.forename, and: \.age), expectedResult)
+    }
+
     func testMapByKeyPath() {
         let array1 = [Person(name: "John", age: 30, location: Location(city: "Boston")), Person(name: "Jan", age: 22, location: Location(city: "Prague")), Person(name: "Roman", age: 26, location: Location(city: "Moscow"))]
         XCTAssertEqual(array1.map(by: \.name), ["John", "Jan", "Roman"])
