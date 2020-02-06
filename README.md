@@ -21,7 +21,7 @@ SwifterSwift is a collection of **over 500 native Swift extensions**, with handy
 
 ## Requirements
 
-- **iOS** 8.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+ / **Ubuntu** 14.04+
+- **iOS** 10.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+ / **Ubuntu** 14.04+
 - Swift 5.0+
 
 ## Looking to use SwifterSwift for older versions of Swift
@@ -241,6 +241,7 @@ let package = Package(
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreLocation/CLLocationExtensions.swift"><code>CLLocation extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreLocation/CLVisitExtensions.swift"><code>CLVisit extensions</code></a></li>
 </ul>
 </details>
 

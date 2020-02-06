@@ -21,6 +21,7 @@ final class StringExtensionsTests: XCTestCase {
 
     func testBase64Decoded() {
         XCTAssertEqual("SGVsbG8gV29ybGQh".base64Decoded, helloWorld)
+        XCTAssertEqual("http://example.com/xxx", "aHR0cDovL2V4YW1wbGUuY29tL3h4eA".base64Decoded)
         XCTAssertNil(helloWorld.base64Decoded)
     }
 
@@ -799,7 +800,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(num.spelledOutString(locale: Locale(identifier: "en_US")), "twelve point three two")
     }
 
-    @available(iOS 9.0, macOS 10.11, *)
+    @available(macOS 10.11, *)
     func testIntOrdinal() {
         let num = 12
         XCTAssertNotNil(num.ordinalString())

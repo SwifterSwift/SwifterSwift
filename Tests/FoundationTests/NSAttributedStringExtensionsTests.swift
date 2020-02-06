@@ -90,25 +90,69 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
     func testApplyingToRegex() {
         #if canImport(UIKit) && os(iOS)
-        let email = "steve.jobs@apple.com"
+        let email = "sTeVe.jObS@apple.com"
         let testString = NSAttributedString(string: "Your email is \(email)!").bolded
         let attributes: [NSAttributedString.Key: Any] = [.underlineStyle: NSUnderlineStyle.single.rawValue, .foregroundColor: UIColor.blue]
-        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let casePattern = "Steve\\.Jobs"
 
-        let attrTestString = testString.applying(attributes: attributes, toRangesMatching: pattern)
+        // Case sensitive
+        caseSensitiveRegexTest(testString, attributes: attributes, pattern: casePattern)
+        // Common
+        commonRegexTest(stringToTest: testString, attributes: attributes, email)
+        #endif
+    }
+
+    #if canImport(UIKit) && os(iOS)
+    private func caseSensitiveRegexTest(_ stringToTest: NSAttributedString, attributes: [NSAttributedString.Key: Any], pattern: String) {
+        let stringRange = NSRange(0..<stringToTest.length)
+
+        // Apply case insensitive option for success attributes applying
+        let caseInsensitiveAttrString = stringToTest.applying(attributes: attributes, toRangesMatching: pattern, options: [.caseInsensitive])
+        var caseInsensitiveUnderlineIndicator: Int?
+        var caseInsensitiveTextColor: UIColor?
+        caseInsensitiveAttrString.enumerateAttribute(.underlineStyle, in: stringRange) { value, range, stop in
+            guard let value = value as? Int else { return }
+            // Save found values and stop enumeration
+            caseInsensitiveUnderlineIndicator = value
+            caseInsensitiveTextColor = caseInsensitiveAttrString.attribute(.foregroundColor, at: range.location, effectiveRange: nil) as? UIColor
+            stop.pointee = true
+        }
+        XCTAssertEqual(caseInsensitiveUnderlineIndicator, 1)
+        XCTAssertEqual(caseInsensitiveTextColor, .blue)
+
+        // Apply no options for failure attributes applying
+        let caseSensitiveAttrString = stringToTest.applying(attributes: attributes, toRangesMatching: pattern)
+        var caseSensitiveUnderlineIndicator: Int?
+        var caseSensitiveTextColor: UIColor?
+        caseSensitiveAttrString.enumerateAttribute(.underlineStyle, in: stringRange) { value, range, stop in
+            guard let value = value as? Int else { return }
+            // Save found values and stop enumeration
+            caseSensitiveUnderlineIndicator = value
+            caseSensitiveTextColor = caseInsensitiveAttrString.attribute(.foregroundColor, at: range.location, effectiveRange: nil) as? UIColor
+            stop.pointee = true
+        }
+        XCTAssertNotEqual(caseSensitiveUnderlineIndicator, 1)
+        XCTAssertNotEqual(caseSensitiveTextColor, .blue)
+    }
+    #endif
+
+    #if canImport(UIKit) && os(iOS)
+    private func commonRegexTest(stringToTest: NSAttributedString, attributes: [NSAttributedString.Key: Any], _ email: String) {
+        let stringRange = NSRange(0..<stringToTest.length)
+        let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let attrTestString = stringToTest.applying(attributes: attributes, toRangesMatching: pattern)
 
         let attrAtBeginning = attrTestString.attributes(at: 0, effectiveRange: nil)
         XCTAssert(attrAtBeginning.count == 1)
 
         var passed = false
         // iterate through each range of attributes
-        attrTestString.enumerateAttributes(in: NSRange(0..<attrTestString.length), options: .longestEffectiveRangeNotRequired) { attrs, range, _ in
-
-            let emailFromRange = attrTestString.attributedSubstring(from: range).string
+        attrTestString.enumerateAttributes(in: stringRange, options: .longestEffectiveRangeNotRequired) { attrs, range, _ in
 
             // exit if there are not more attributes for the subsequence than what was there originally
             guard attrs.count > attrAtBeginning.count else { return }
 
+            let emailFromRange = attrTestString.attributedSubstring(from: range).string
             // confirm that the string with the applied attributes is the email
             XCTAssertEqual(emailFromRange, email)
 
@@ -129,8 +173,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
             XCTAssert(passed)
         }
-        #endif
     }
+    #endif
 
     func testApplyingToOccurrences() {
         #if canImport(UIKit) && os(iOS)
