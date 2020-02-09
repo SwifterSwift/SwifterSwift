@@ -5,6 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "SwifterSwift",
+    platforms: [
+        .iOS(SupportedPlatform.IOSVersion.v10)
+    ],
     products: [
         .library(name: "SwifterSwift", targets: ["SwifterSwift"])
     ],
