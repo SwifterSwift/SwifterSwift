@@ -124,7 +124,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
-    static func == (lhs: Self, rhs: Wrapped.RawValue) -> Bool {
+    static func == (lhs: Optional, rhs: Wrapped.RawValue) -> Bool {
         return lhs?.rawValue == rhs
     }
 
@@ -136,7 +136,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
-    static func == (lhs: Wrapped.RawValue, rhs: Self) -> Bool {
+    static func == (lhs: Wrapped.RawValue, rhs: Optional) -> Bool {
         return lhs == rhs?.rawValue
     }
 
@@ -148,7 +148,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
-    static func == (lhs: Self, rhs: Wrapped.RawValue?) -> Bool {
+    static func == (lhs: Optional, rhs: Wrapped.RawValue?) -> Bool {
         return lhs?.rawValue == rhs
     }
 
@@ -160,7 +160,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
-    static func == (lhs: Wrapped.RawValue?, rhs: Self) -> Bool {
+    static func == (lhs: Wrapped.RawValue?, rhs: Optional) -> Bool {
         return lhs == rhs?.rawValue
     }
 
@@ -172,7 +172,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
-    static func != (lhs: Self, rhs: Wrapped.RawValue) -> Bool {
+    static func != (lhs: Optional, rhs: Wrapped.RawValue) -> Bool {
         return lhs?.rawValue != rhs
     }
 
@@ -184,7 +184,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
-    static func != (lhs: Wrapped.RawValue, rhs: Self) -> Bool {
+    static func != (lhs: Wrapped.RawValue, rhs: Optional) -> Bool {
         return lhs != rhs?.rawValue
     }
 
@@ -196,7 +196,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
-    static func != (lhs: Self, rhs: Wrapped.RawValue?) -> Bool {
+    static func != (lhs: Optional, rhs: Wrapped.RawValue?) -> Bool {
         return lhs?.rawValue != rhs
     }
 
@@ -208,7 +208,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
-    static func != (lhs: Wrapped.RawValue?, rhs: Self) -> Bool {
+    static func != (lhs: Wrapped.RawValue?, rhs: Optional) -> Bool {
         return lhs != rhs?.rawValue
     }
 
