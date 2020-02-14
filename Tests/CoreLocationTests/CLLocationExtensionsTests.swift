@@ -34,6 +34,20 @@ final class CLLocationExtensionsTests: XCTestCase {
         XCTAssertEqual(bearing, 105.619, accuracy: 0.001)
     }
 
+    func testPlacemark() {
+        let goodLoc = CLLocation(latitude: 36.099190, longitude: -115.175217)
+        let badLoc = CLLocation(latitude: 69.696969, longitude: 69.696969)
+
+        goodLoc.placemark { (placemark) in
+            print(placemark)
+        }
+
+        badLoc.placemark { (placemark) in
+            print(placemark)
+        }
+
+    }
+
 }
 
 #endif

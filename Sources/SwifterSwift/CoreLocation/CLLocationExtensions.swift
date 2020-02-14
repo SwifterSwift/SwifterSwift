@@ -49,8 +49,7 @@ public extension CLLocation {
 
     /// SwifterSwift: Calculates the bearing to another CLLocation.
     ///
-    /// - Parameters:
-    ///   - destination: Location to calculate bearing.
+    /// - Parameter destination: Location to calculate bearing.
     /// - Returns: Calculated bearing degrees in the range 0° ... 360°
     func bearing(to destination: CLLocation) -> Double {
         // http://stackoverflow.com/questions/3925942/cllocation-category-for-calculating-bearing-w-haversine-function
@@ -68,6 +67,21 @@ public extension CLLocation {
         let degrees = rads * 180 / Double.pi
 
         return (degrees+360).truncatingRemainder(dividingBy: 360)
+    }
+
+    /// SwifterSwift: Retrieve the first placemark of a location.
+    ///
+    /// - Parameter completion: completion handler to run after reverseGeocodeLocation finishes.
+    /// - Returns: The first placemark of a location or nil if it didn't find one.
+    func placemark(completion: @escaping (CLPlacemark?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.reverseGeocodeLocation(self) { (placemarks, error) in
+            if error != nil {
+                completion(nil)
+            } else {
+                completion(placemarks?.first)
+            }
+        }
     }
 
 }
