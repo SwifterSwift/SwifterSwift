@@ -138,4 +138,26 @@ final class OptionalExtensionsTests: XCTestCase {
         XCTAssert(nilString == nilSummer)
     }
 
+    func testNotEqualsRawValue() {
+        let summerString = "summer"
+        let summerStringOptional: String? = "summer"
+        let nilString: String? = nil
+
+        let summer: Season? = Season.summer
+        XCTAssertFalse(summer != summerString)
+        XCTAssertFalse(summerString != summer)
+        XCTAssertFalse(summer != summerStringOptional)
+        XCTAssertFalse(summerStringOptional != summer)
+        XCTAssert(summer != nilString)
+        XCTAssert(nilString != summer)
+
+        let nilSummer: Season? = nil
+        XCTAssert(nilSummer != summerString)
+        XCTAssert(summerString != nilSummer)
+        XCTAssert(nilSummer != summerStringOptional)
+        XCTAssert(summerStringOptional != nilSummer)
+        XCTAssertFalse(nilSummer != nilString)
+        XCTAssertFalse(nilString != nilSummer)
+    }
+
 }

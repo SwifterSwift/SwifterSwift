@@ -27,4 +27,20 @@ final class RawRepresentableExtensionsTests: XCTestCase {
         XCTAssertFalse(nilString == summer)
     }
 
+    func testNotEqualsRawValue() {
+        let summer = Season.summer
+
+        let summerString = "summer"
+        XCTAssertFalse(summer != summerString)
+        XCTAssertFalse(summerString != summer)
+
+        let summerStringOptional: String? = "summer"
+        XCTAssertFalse(summer != summerStringOptional)
+        XCTAssertFalse(summerStringOptional != summer)
+
+        let nilString: String? = nil
+        XCTAssert(summer != nilString)
+        XCTAssert(nilString != summer)
+    }
+
 }
