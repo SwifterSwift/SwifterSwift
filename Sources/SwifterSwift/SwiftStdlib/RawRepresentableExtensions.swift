@@ -6,7 +6,8 @@
 //  Copyright © 2020 SwifterSwift
 //
 
-extension RawRepresentable where RawValue: Equatable {
+// MARK: - Methods (RawValue: Equatable)
+public extension RawRepresentable where RawValue: Equatable {
 
     // swiftlint:disable missing_swifterswift_prefix
 

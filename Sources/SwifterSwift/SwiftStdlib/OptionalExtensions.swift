@@ -111,7 +111,8 @@ public extension Optional where Wrapped: Collection {
 
 }
 
-extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equatable {
+// MARK: - Methods (RawRepresentable, RawValue: Equatable)
+public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equatable {
 
     // swiftlint:disable missing_swifterswift_prefix
 
