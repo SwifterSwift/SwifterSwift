@@ -116,4 +116,26 @@ final class OptionalExtensionsTests: XCTestCase {
         XCTAssertEqual(collection.nonEmpty!, [1, 2, 3])
     }
 
+    func testEqualsRawValue() {
+        let summerString = "summer"
+        let summerStringOptional: String? = "summer"
+        let nilString: String? = nil
+
+        let summer: Season? = Season.summer
+        XCTAssert(summer == summerString)
+        XCTAssert(summerString == summer)
+        XCTAssert(summer == summerStringOptional)
+        XCTAssert(summerStringOptional == summer)
+        XCTAssertFalse(summer == nilString)
+        XCTAssertFalse(nilString == summer)
+
+        let nilSummer: Season? = nil
+        XCTAssertFalse(nilSummer == summerString)
+        XCTAssertFalse(summerString == nilSummer)
+        XCTAssertFalse(nilSummer == summerStringOptional)
+        XCTAssertFalse(summerStringOptional == nilSummer)
+        XCTAssert(nilSummer == nilString)
+        XCTAssert(nilString == nilSummer)
+    }
+
 }
