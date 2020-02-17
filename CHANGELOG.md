@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **Optional**:
+  - Conform to `Equatable` when `Wrapped` is `RawRepresentable` and its `RawValue` is `Equatable`. [#804](https://github.com/SwifterSwift/SwifterSwift/pull/804) by [guykogus](https://github.com/guykogus)
 - **CoreLocation**:
   - Added `Array where Element: CLLocation extension` and added `distance(unitLength:)` function. [#799](https://github.com/SwifterSwift/SwifterSwift/pull/799) by [trevorphillips](https://github.com/trevorphillips)
 - **Decodable**:

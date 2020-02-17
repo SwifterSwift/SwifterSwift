@@ -924,16 +924,20 @@
 			isa = PBXGroup;
 			children = (
 				07C50CFA1F5EB03200F46E5A /* ArrayExtensionsTests.swift */,
+				664CB971217186E900FC87B4 /* BidirectionalCollectionExtensionsTests.swift */,
 				664CB97A21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift */,
 				07C50CFB1F5EB03200F46E5A /* BoolExtensionsTests.swift */,
 				07C50CFC1F5EB03200F46E5A /* CharacterExtensionsTests.swift */,
 				07C50CFD1F5EB03200F46E5A /* CollectionExtensionsTests.swift */,
 				7832C2B3209BB32500224EED /* ComparableExtensionsTests.swift */,
+				D951E8AE23D04E4600F2CD0B /* DecodableExtensionsTests.swift */,
 				07C50D001F5EB03200F46E5A /* DictionaryExtensionsTests.swift */,
 				07C50D011F5EB03200F46E5A /* DoubleExtensionsTests.swift */,
 				07C50D021F5EB03200F46E5A /* FloatExtensionsTests.swift */,
 				078916D92076077000AC0665 /* FloatingPointExtensionsTests.swift */,
 				07C50D031F5EB03200F46E5A /* IntExtensionsTests.swift */,
+				C7E027C82360958B00F1061E /* KeyedDecodingContainerExtensionsTests.swift */,
+				B2A0DAC42336DCE5002B0BC5 /* MutableCollectionTests.swift */,
 				07C50D051F5EB03200F46E5A /* OptionalExtensionsTests.swift */,
 				18C8E5E22074C67000F8AF51 /* SequenceExtensionsTests.swift */,
 				078916DD20760DA700AC0665 /* SignedIntegerExtensionsTests.swift */,
@@ -942,10 +946,6 @@
 				07FE50441F891C95000766AA /* SignedNumericExtensionsTests.swift */,
 				B22EB2B820E9E814001EAE70 /* RangeReplaceableCollectionTests.swift */,
 				B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */,
-				664CB971217186E900FC87B4 /* BidirectionalCollectionExtensionsTests.swift */,
-				B2A0DAC42336DCE5002B0BC5 /* MutableCollectionTests.swift */,
-				C7E027C82360958B00F1061E /* KeyedDecodingContainerExtensionsTests.swift */,
-				D951E8AE23D04E4600F2CD0B /* DecodableExtensionsTests.swift */,
 				2141A351235F379600218109 /* TestHelpers.swift */,
 			);
 			path = SwiftStdlibTests;
