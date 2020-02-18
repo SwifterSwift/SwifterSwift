@@ -116,4 +116,64 @@ final class OptionalExtensionsTests: XCTestCase {
         XCTAssertEqual(collection.nonEmpty!, [1, 2, 3])
     }
 
+    func testEqualsRawValue() {
+        let summerString = "summer"
+        let summerStringOptional: String? = "summer"
+        let nilString: String? = nil
+
+        let summer = Season.summer
+        XCTAssert(summer == summerString)
+        XCTAssert(summerString == summer)
+        XCTAssert(summer == summerStringOptional)
+        XCTAssert(summerStringOptional == summer)
+        XCTAssertFalse(summer == nilString)
+        XCTAssertFalse(nilString == summer)
+
+        let summerOptional: Season? = Season.summer
+        XCTAssert(summerOptional == summerString)
+        XCTAssert(summerString == summerOptional)
+        XCTAssert(summerOptional == summerStringOptional)
+        XCTAssert(summerStringOptional == summerOptional)
+        XCTAssertFalse(summerOptional == nilString)
+        XCTAssertFalse(nilString == summerOptional)
+
+        let nilSummer: Season? = nil
+        XCTAssertFalse(nilSummer == summerString)
+        XCTAssertFalse(summerString == nilSummer)
+        XCTAssertFalse(nilSummer == summerStringOptional)
+        XCTAssertFalse(summerStringOptional == nilSummer)
+        XCTAssert(nilSummer == nilString)
+        XCTAssert(nilString == nilSummer)
+    }
+
+    func testNotEqualsRawValue() {
+        let summerString = "summer"
+        let summerStringOptional: String? = "summer"
+        let nilString: String? = nil
+
+        let summer = Season.summer
+        XCTAssertFalse(summer != summerString)
+        XCTAssertFalse(summerString != summer)
+        XCTAssertFalse(summer != summerStringOptional)
+        XCTAssertFalse(summerStringOptional != summer)
+        XCTAssert(summer != nilString)
+        XCTAssert(nilString != summer)
+
+        let summerOptional: Season? = Season.summer
+        XCTAssertFalse(summerOptional != summerString)
+        XCTAssertFalse(summerString != summerOptional)
+        XCTAssertFalse(summerOptional != summerStringOptional)
+        XCTAssertFalse(summerStringOptional != summerOptional)
+        XCTAssert(summerOptional != nilString)
+        XCTAssert(nilString != summerOptional)
+
+        let nilSummer: Season? = nil
+        XCTAssert(nilSummer != summerString)
+        XCTAssert(summerString != nilSummer)
+        XCTAssert(nilSummer != summerStringOptional)
+        XCTAssert(summerStringOptional != nilSummer)
+        XCTAssertFalse(nilSummer != nilString)
+        XCTAssertFalse(nilString != nilSummer)
+    }
+
 }

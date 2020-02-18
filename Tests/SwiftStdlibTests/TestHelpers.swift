@@ -6,6 +6,13 @@
 //  Copyright © 2019 SwifterSwift
 //
 
+enum Season: String {
+    case summer
+    case autumn
+    case winter
+    case spring
+}
+
 /**
  These structs used to test ArrayExtensions and RangeReplaceableCollection.
  Feel free to use it for your needs.
