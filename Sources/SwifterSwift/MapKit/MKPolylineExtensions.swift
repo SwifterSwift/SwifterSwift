@@ -21,6 +21,16 @@ public extension MKPolyline {
         self.init(coordinates: &refCoordinates, count: refCoordinates.count)
     }
 
+    /// SwifterSwift: Create a new MKPolyline from a provided Array of locations.
+    ///
+    /// - Parameter locations: Array of CLLocation(s).
+    convenience init(locations: [CLLocation]) {
+        var refCoordinates = locations.map {
+            return CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude)
+        }
+        self.init(coordinates: &refCoordinates, count: refCoordinates.count)
+    }
+
 }
 
 // MARK: - Properties
