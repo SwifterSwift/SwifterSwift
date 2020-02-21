@@ -49,7 +49,7 @@ final class MKPolylineTests: XCTestCase {
             return CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude)
         }
 
-        let polyline = MKPolyline(coordinates: coordinates)
+        let polyline = MKPolyline(locations: locations)
         let polyline2 = MKPolyline(coordinates: &refCoordinates, count: refCoordinates.count)
 
         for (coordinate1, coordinate2) in zip(polyline.coordinates, polyline2.coordinates) {
