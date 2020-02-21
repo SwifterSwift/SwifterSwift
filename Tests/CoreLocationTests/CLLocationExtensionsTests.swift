@@ -35,17 +35,23 @@ final class CLLocationExtensionsTests: XCTestCase {
     }
 
     func testPlacemark() {
-        let goodLoc = CLLocation(latitude: 36.099190, longitude: -115.175217)
-        let badLoc = CLLocation(latitude: 69.696969, longitude: 69.696969)
+        let validExpectation = XCTestExpectation(description: "Retrieve placemarks from a valid location")
+        let invalidExpectation = XCTestExpectation(description: "Retrieve placemarks from a invalid location")
 
-        goodLoc.placemark { (placemark) in
-            print(placemark)
+        let validLoc = CLLocation(latitude: 36.099190, longitude: -115.175217)
+        let invalidLoc = CLLocation(latitude: 469.696969, longitude: 469.696969)
+
+        validLoc.placemarks { (placemarks) in
+            XCTAssertNotNil(placemarks)
+            validExpectation.fulfill()
         }
 
-        badLoc.placemark { (placemark) in
-            print(placemark)
+        invalidLoc.placemarks { (placemarks) in
+            XCTAssertNil(placemarks)
+            invalidExpectation.fulfill()
         }
 
+        wait(for: [validExpectation, invalidExpectation], timeout: 10.0)
     }
 
 }
