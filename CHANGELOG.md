@@ -6,7 +6,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **MKPolyline**:
-    - Added `init(locations:)` to MKPolyline. [#806](https://github.com/SwifterSwift/SwifterSwift/pull/806) by [trevorphillips](https://github.com/trevorphillips)
+    - Added `init(locations:)` to MKPolyline. [#805](https://github.com/SwifterSwift/SwifterSwift/pull/805) by [trevorphillips](https://github.com/trevorphillips)
 - **Optional**:
   - Conform to `Equatable` when `Wrapped` is `RawRepresentable` and its `RawValue` is `Equatable`. [#804](https://github.com/SwifterSwift/SwifterSwift/pull/804) by [guykogus](https://github.com/guykogus)
 - **CoreLocation**:
