@@ -71,8 +71,7 @@ public extension CLLocation {
 
     /// SwifterSwift: Retrieve the first placemark of a location.
     ///
-    /// - Parameter completion: completion handler to run after reverseGeocodeLocation finishes.
-    /// - Returns: An array of  placemarks for a given location or nil if it didn't find any.
+    /// - Parameter completion: completion handler to run after reverseGeocodeLocation finishes and passes back and optional list of CLPlacemarks.
     func placemarks(completion: @escaping ([CLPlacemark]?) -> Void) {
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(self) { (placemarks, error) in
