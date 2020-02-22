@@ -41,13 +41,15 @@ final class CLLocationExtensionsTests: XCTestCase {
         let validLoc = CLLocation(latitude: 36.099190, longitude: -115.175217)
         let invalidLoc = CLLocation(latitude: 469.696969, longitude: 469.696969)
 
-        validLoc.placemarks { (placemarks) in
+        validLoc.placemarks { (placemarks, error) in
             XCTAssertNotNil(placemarks)
+            XCTAssertNil(error)
             validExpectation.fulfill()
         }
 
-        invalidLoc.placemarks { (placemarks) in
+        invalidLoc.placemarks { (placemarks, error) in
             XCTAssertNil(placemarks)
+            XCTAssertNotNil(error)
             invalidExpectation.fulfill()
         }
 
