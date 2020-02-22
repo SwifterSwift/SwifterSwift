@@ -33,26 +33,18 @@ final class MKPolylineTests: XCTestCase {
         ].map(CLLocation.init)
 
     func testInitWithCoordinates() {
-        var refCoordinates = coordinates
-
         let polyline = MKPolyline(coordinates: coordinates)
-        let polyline2 = MKPolyline(coordinates: &refCoordinates, count: refCoordinates.count)
-
-        for (coordinate1, coordinate2) in zip(polyline.coordinates, polyline2.coordinates) {
+        for (coordinate1, coordinate2) in zip(polyline.coordinates, coordinates) {
             XCTAssertEqual(coordinate1.latitude, coordinate2.latitude, accuracy: 0.000000001)
             XCTAssertEqual(coordinate1.longitude, coordinate2.longitude, accuracy: 0.000000001)
         }
     }
 
     func testInitWithLocations() {
-        var refCoordinates = locations.map {
-            return CLLocationCoordinate2D(latitude: $0.coordinate.latitude, longitude: $0.coordinate.longitude)
-        }
+        let newCoordinates = locations.map { $0.coordinate }
 
         let polyline = MKPolyline(locations: locations)
-        let polyline2 = MKPolyline(coordinates: &refCoordinates, count: refCoordinates.count)
-
-        for (coordinate1, coordinate2) in zip(polyline.coordinates, polyline2.coordinates) {
+        for (coordinate1, coordinate2) in zip(polyline.coordinates, newCoordinates) {
             XCTAssertEqual(coordinate1.latitude, coordinate2.latitude, accuracy: 0.000000001)
             XCTAssertEqual(coordinate1.longitude, coordinate2.longitude, accuracy: 0.000000001)
         }
