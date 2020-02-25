@@ -158,6 +158,21 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(button.titleEdgeInsets, UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10))
     }
 
+    func testCenterTextAndImageVertically() {
+        let button = UIButton(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let image = UIImage(color: .green, size: CGSize(width: 10, height: 10))
+        button.setTitleForAllStates("Title")
+        button.setImageForAllStates(image)
+        button.centerTextAndImageVertically(spacing: 20)
+
+        if let imageFrame = button.imageView?.frame,
+            let titleFrame = button.titleLabel?.frame {
+
+            XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
+            XCTAssertEqual(titleFrame.minY - 20, imageFrame.maxY, accuracy: 1.0)
+        }
+    }
+
 }
 
 #endif
