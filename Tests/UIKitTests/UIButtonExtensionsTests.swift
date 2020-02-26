@@ -165,12 +165,18 @@ final class UIButtonExtensionsTests: XCTestCase {
         button.setImageForAllStates(image)
         button.centerTextAndImageVertically(spacing: 20)
 
-        if let imageFrame = button.imageView?.frame,
-            let titleFrame = button.titleLabel?.frame {
-
-            XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
-            XCTAssertEqual(titleFrame.minY - 20, imageFrame.maxY, accuracy: 1.0)
+        guard let imageFrame = button.imageView?.frame else {
+            XCTFail("Unable to get image frame from button")
+            return
         }
+
+        guard let titleFrame = button.titleLabel?.frame else {
+            XCTFail("Unable to get title frame from button")
+            return
+        }
+
+        XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
+        XCTAssertEqual(titleFrame.minY - 20, imageFrame.maxY, accuracy: 1.0)
     }
 
 }
