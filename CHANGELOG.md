@@ -57,6 +57,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `curlString` property to get a cURL command representation of this URL request. [#790](https://github.com/SwifterSwift/SwifterSwift/pull/790) by [DimaZava](https://github.com/DimaZava).
 - **SKProduct**:
   - Added `localizedPrice` to get localized price of product. [#781](https://github.com/SwifterSwift/SwifterSwift/pull/781) by [strawb3rryx7](https://github.com/strawb3rryx7).
+- **UIButton**:
+  - Added `centerTextAndImageVertically` to center image and title in button vertically, image above title. [#807](https://github.com/SwifterSwift/SwifterSwift/pull/807) by [qchenqizhi](https://github.com/qchenqizhi).
 
 ### Changed
 - **Collection**:
