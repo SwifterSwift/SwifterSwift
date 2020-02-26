@@ -206,7 +206,8 @@ public extension UIButton {
         imageEdgeInsets = UIEdgeInsets(
             top: -(titleSize.height + spacing),
             left: 0.0,
-            bottom: 0.0, right: -titleSize.width
+            bottom: 0.0,
+            right: -titleSize.width
         )
 
         let edgeOffset = abs(titleSize.height - imageSize.height) / 2.0
