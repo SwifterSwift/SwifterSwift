@@ -9,6 +9,10 @@
 #if canImport(Foundation)
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 // MARK: - Initializers
 public extension URLRequest {
 
