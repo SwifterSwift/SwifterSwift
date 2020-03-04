@@ -55,6 +55,11 @@ public extension UIViewController {
     /// - Returns: UIAlertController object (discardable).
     @discardableResult
     func showAlert(title: String?, message: String?, buttonTitles: [String]? = nil, highlightedButtonIndex: Int? = nil, completion: ((Int) -> Void)? = nil) -> UIAlertController {
+        // prevent keyboard dismissing animation
+        UIView.performWithoutAnimation {
+            view.endEditing(true)
+        }
+        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         var allButtons = buttonTitles ?? [String]()
         if allButtons.count == 0 {
@@ -72,7 +77,11 @@ public extension UIViewController {
                 alertController.preferredAction = action
             }
         }
-        present(alertController, animated: true, completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
         return alertController
     }
 
