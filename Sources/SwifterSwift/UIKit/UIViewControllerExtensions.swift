@@ -55,6 +55,8 @@ public extension UIViewController {
     /// - Returns: UIAlertController object (discardable).
     @discardableResult
     func showAlert(title: String?, message: String?, buttonTitles: [String]? = nil, highlightedButtonIndex: Int? = nil, completion: ((Int) -> Void)? = nil) -> UIAlertController {
+        view.layer.removeAllAnimations()
+        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         var allButtons = buttonTitles ?? [String]()
         if allButtons.count == 0 {
