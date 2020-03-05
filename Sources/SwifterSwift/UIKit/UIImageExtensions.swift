@@ -61,8 +61,8 @@ public extension UIImage {
     func cropped(to rect: CGRect) -> UIImage {
         guard rect.size.width <= size.width && rect.size.height <= size.height else { return self }
         let scaledRect = rect.applying(CGAffineTransform(scaleX: scale, y: scale))
-        guard let image: CGImage = cgImage?.cropping(to: scaledRect) else { return self }
-        return UIImage(cgImage: image, scale: scale, orientation: self.imageOrientation)
+        guard let image = cgImage?.cropping(to: scaledRect) else { return self }
+        return UIImage(cgImage: image, scale: scale, orientation: imageOrientation)
     }
 
     /// SwifterSwift: UIImage scaled to height with respect to aspect ratio.
