@@ -12,6 +12,10 @@ import XCTest
 #if canImport(Foundation)
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 final class URLRequestExtensionsTests: XCTestCase {
 
     func testInitFromURLString() {

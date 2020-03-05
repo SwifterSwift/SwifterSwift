@@ -89,8 +89,8 @@ jobs:
       
   Linux:
     runs-on: [ubuntu-16.04] 
-    container: swift:5.0.3
+    container: swift:5.1.4
     steps:
       - uses: actions/checkout@v1
       - name: Linux
-        run: swift test --parallel
+        run: swift test --enable-test-discovery --parallel
