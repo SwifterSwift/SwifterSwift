@@ -174,9 +174,9 @@ public extension UIButton {
         states.forEach { setTitle(title, for: $0) }
     }
 
-    /// SwifterSwift: Center align title text and image on UIButton
+    /// SwifterSwift: Center align title text and image
     ///
-    /// - Parameter spacing: spacing between UIButton title text and UIButton Image.
+    /// - Parameter spacing: spacing between title text and image.
     func centerTextAndImage(spacing: CGFloat) {
         let insetAmount = spacing / 2
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
@@ -184,10 +184,11 @@ public extension UIButton {
         contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
     }
 
-    /// SwifterSwift: Center vertically title text and image on UIButton
-    ///
-    /// - Parameter spacing: spacing between UIButton title text and UIButton Image.
-    func centerTextAndImageVertically(spacing: CGFloat = 6.0) {
+    /// SwifterSwift: align title text and image vertically
+    /// - Parameters:
+    ///   - imageAboveText: set true for image above text (default is true).
+    ///   - spacing: spacing between title text and Image.
+    func alignTextAndImageVertically(imageAboveText: Bool = true, spacing: CGFloat = 6.0) {
         // https://stackoverflow.com/questions/2451223/#7199529
         guard
             let imageSize = imageView?.image?.size,
@@ -195,18 +196,20 @@ public extension UIButton {
             let font = titleLabel?.font
             else { return }
 
+        let titleOffset = -(imageSize.height + spacing)
         titleEdgeInsets = UIEdgeInsets(
-            top: 0.0,
+            top: imageAboveText ? 0.0 : titleOffset,
             left: -imageSize.width,
-            bottom: -(imageSize.height + spacing),
+            bottom: imageAboveText ? titleOffset : 0,
             right: 0.0
         )
 
         let titleSize = text.size(withAttributes: [.font: font])
+        let imageOffset = -(titleSize.height + spacing)
         imageEdgeInsets = UIEdgeInsets(
-            top: -(titleSize.height + spacing),
+            top: imageAboveText ? imageOffset : 0.0,
             left: 0.0,
-            bottom: 0.0,
+            bottom: imageAboveText ? 0.0 : imageOffset,
             right: -titleSize.width
         )
 

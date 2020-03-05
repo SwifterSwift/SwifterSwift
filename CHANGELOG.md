@@ -58,7 +58,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **SKProduct**:
   - Added `localizedPrice` to get localized price of product. [#781](https://github.com/SwifterSwift/SwifterSwift/pull/781) by [strawb3rryx7](https://github.com/strawb3rryx7).
 - **UIButton**:
-  - Added `centerTextAndImageVertically` to center image and title in button vertically, image above title. [#807](https://github.com/SwifterSwift/SwifterSwift/pull/807) by [qchenqizhi](https://github.com/qchenqizhi).
+  - Added `alignTextAndImageVertically` to align image and title in button vertically. [#807](https://github.com/SwifterSwift/SwifterSwift/pull/807) by [qchenqizhi](https://github.com/qchenqizhi).
 
 ### Changed
 - **Collection**:

@@ -158,12 +158,14 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(button.titleEdgeInsets, UIEdgeInsets(top: 0, left: 10, bottom: 0, right: -10))
     }
 
-    func testCenterTextAndImageVertically() {
+    func testAlignTextAndImageVertically() {
         let button = UIButton(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         let image = UIImage(color: .green, size: CGSize(width: 10, height: 10))
         button.setTitleForAllStates("Title")
         button.setImageForAllStates(image)
-        button.centerTextAndImageVertically(spacing: 20)
+
+        // Image above text
+        button.alignTextAndImageVertically(imageAboveText: true, spacing: 20)
 
         guard let imageFrame = button.imageView?.frame else {
             XCTFail("Unable to get image frame from button")
@@ -175,8 +177,26 @@ final class UIButtonExtensionsTests: XCTestCase {
             return
         }
 
+        XCTAssert(titleFrame.midY > imageFrame.midY)
         XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
         XCTAssertEqual(titleFrame.minY - 20, imageFrame.maxY, accuracy: 1.0)
+
+        // Text above imag
+        button.alignTextAndImageVertically(imageAboveText: false, spacing: 20)
+
+        guard let imageFrame2 = button.imageView?.frame else {
+            XCTFail("Unable to get image frame from button")
+            return
+        }
+
+        guard let titleFrame2 = button.titleLabel?.frame else {
+            XCTFail("Unable to get title frame from button")
+            return
+        }
+
+        XCTAssert(titleFrame2.midY < imageFrame2.midY)
+        XCTAssertEqual(titleFrame2.midX, imageFrame2.midX, accuracy: 1.0)
+        XCTAssertEqual(titleFrame2.maxY, imageFrame2.minY - 20, accuracy: 1.0)
     }
 
 }
