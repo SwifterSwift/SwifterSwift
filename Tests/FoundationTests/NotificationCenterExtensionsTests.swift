@@ -6,8 +6,6 @@
 //  Copyright © 2020 SwifterSwift
 //
 
-#if canImport(Foundation)
-
 import XCTest
 @testable import SwifterSwift
 
@@ -59,5 +57,3 @@ final class NotificationCenterExtensionsTests: XCTestCase {
     }
 
 }
-
-#endif
