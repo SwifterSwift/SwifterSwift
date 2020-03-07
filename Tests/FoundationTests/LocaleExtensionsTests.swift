@@ -27,6 +27,19 @@ final class LocaleExtensionsTests: XCTestCase {
         XCTAssertFalse(twentyFourLocale.is12HourTimeFormat)
     }
 
+    func testFlagEmoji() {
+        XCTAssertEqual(Locale.flagEmoji(forRegionCode: "AC"), "🇦🇨")
+        XCTAssertEqual(Locale.flagEmoji(forRegionCode: "ZW"), "🇿🇼")
+        #if !os(Linux)
+        XCTAssertNil(Locale.flagEmoji(forRegionCode: ""))
+        XCTAssertNil(Locale.flagEmoji(forRegionCode: "ac"))
+        #endif
+
+        for regionCode in Locale.isoRegionCodes {
+            XCTAssertNotNil(Locale.flagEmoji(forRegionCode: regionCode))
+        }
+    }
+
 }
 
 #endif
