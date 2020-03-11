@@ -9,6 +9,9 @@
 import XCTest
 @testable import SwifterSwift
 
+#if canImport(Foundation)
+import Foundation
+
 final class NotificationCenterExtensionsTests: XCTestCase {
 
     func testObserveOnce() {
@@ -57,3 +60,5 @@ final class NotificationCenterExtensionsTests: XCTestCase {
     }
 
 }
+
+#endif
