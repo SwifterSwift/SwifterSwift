@@ -181,7 +181,7 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
         XCTAssertEqual(titleFrame.minY - 20, imageFrame.maxY, accuracy: 1.0)
 
-        // Text above imag
+        // Text above image
         button.alignTextAndImageVertically(imageAboveText: false, spacing: 20)
 
         guard let imageFrame2 = button.imageView?.frame else {
