@@ -52,7 +52,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `decodeBoolAsIntOrString(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as Bool. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
   - Added `decodeBoolAsIntOrStringIfPresent(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as `Bool` if present. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
 - **Locale**:
-  - Added `is12HourTimeFormat` to indicate if locale has 12h format. [#793](https://github.com/SwifterSwift/SwifterSwift/pull/793) by [DimaZava](https://github.com/DimaZava). 
+  - Added `is12HourTimeFormat` to indicate if locale has 12h format. [#793](https://github.com/SwifterSwift/SwifterSwift/pull/793) by [DimaZava](https://github.com/DimaZava).
+  - `flagEmoji(forRegionCode:)` to convert a region code into the corresponding flag emoji. [#813](https://github.com/SwifterSwift/SwifterSwift/pull/813) by [guykogus](https://github.com/guykogus)
 - **URLRequest**:
   - Added `curlString` property to get a cURL command representation of this URL request. [#790](https://github.com/SwifterSwift/SwifterSwift/pull/790) by [DimaZava](https://github.com/DimaZava).
 - **SKProduct**:
@@ -82,6 +83,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Fixed
 - Fixed build error occurring when building AppKit extensions for macCatalyst. [#762](https://github.com/SwifterSwift/SwifterSwift/pull/762) by [MaxHaertwig](https://github.com/maxhaertwig).
 - Fixed `String.base64Decoded` making it a safe decode by including padding on the string. [#801](https://github.com/SwifterSwift/SwifterSwift/pull/801) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
+- Fixed `UIImage.cropped(to:)` making it work correctly with scaled image. [#811](https://github.com/SwifterSwift/SwifterSwift/pull/811) by [qchenqizhi](https://github.com/qchenqizhi).
 
 ### Security
 
