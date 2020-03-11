@@ -9,9 +9,6 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(Foundation)
-import Foundation
-
 final class NotificationCenterExtensionsTests: XCTestCase {
 
     func testObserveOnce() {
@@ -19,29 +16,30 @@ final class NotificationCenterExtensionsTests: XCTestCase {
 
         let notificationCenter = NotificationCenter()
         let notificationName = Notification.Name(rawValue: "foo")
+        let object = NSObject()
         let operationQueue = OperationQueue()
         let increment = { (_: Notification) in count += 1 }
         notificationCenter.observeOnce(forName: notificationName,
-                                       object: self,
+                                       object: object,
                                        queue: operationQueue,
                                        using: increment)
 
         let wrongNotificationName = Notification.Name(rawValue: "bar")
 
-        notificationCenter.post(name: wrongNotificationName, object: self)
+        notificationCenter.post(name: wrongNotificationName, object: object)
         XCTAssertEqual(count, 0)
         notificationCenter.post(name: notificationName, object: nil)
         XCTAssertEqual(count, 0)
-        notificationCenter.post(name: notificationName, object: self)
+        notificationCenter.post(name: notificationName, object: object)
         XCTAssertEqual(count, 1)
-        notificationCenter.post(name: notificationName, object: self)
+        notificationCenter.post(name: notificationName, object: object)
         XCTAssertEqual(count, 1)
 
         notificationCenter.observeOnce(forName: nil,
-                                       object: self,
+                                       object: object,
                                        queue: operationQueue,
                                        using: increment)
-        notificationCenter.post(name: wrongNotificationName, object: self)
+        notificationCenter.post(name: wrongNotificationName, object: object)
         XCTAssertEqual(count, 2)
 
         notificationCenter.observeOnce(forName: notificationName,
@@ -52,13 +50,11 @@ final class NotificationCenterExtensionsTests: XCTestCase {
         XCTAssertEqual(count, 3)
 
         notificationCenter.observeOnce(forName: notificationName,
-                                       object: self,
+                                       object: object,
                                        queue: nil,
                                        using: increment)
-        notificationCenter.post(name: notificationName, object: self)
+        notificationCenter.post(name: notificationName, object: object)
         XCTAssertEqual(count, 4)
     }
 
 }
-
-#endif
