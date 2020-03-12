@@ -58,8 +58,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `curlString` property to get a cURL command representation of this URL request. [#790](https://github.com/SwifterSwift/SwifterSwift/pull/790) by [DimaZava](https://github.com/DimaZava).
 - **SKProduct**:
   - Added `localizedPrice` to get localized price of product. [#781](https://github.com/SwifterSwift/SwifterSwift/pull/781) by [strawb3rryx7](https://github.com/strawb3rryx7).
-- **UIButton**:
-  - Added `alignTextAndImageVertically` to align image and title in button vertically. [#807](https://github.com/SwifterSwift/SwifterSwift/pull/807) by [qchenqizhi](https://github.com/qchenqizhi).
 
 ### Changed
 - **Collection**:
@@ -74,7 +72,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Corrected documentation for `sorted(by:with:)` and `sorted(by:)`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
 - **NSAttributedString**:
   - Update `applying(attributes: [NSAttributedString.Key : Any], toRangesMatching pattern: String)` to respond `applying(attributes: [NSAttributedString.Key : Any], toRangesMatching pattern: String, options: NSRegularExpression.Options = [])` signature to support regular expression options.  [#791](https://github.com/SwifterSwift/SwifterSwift/pull/791) by [DimaZava](https://github.com/DimaZava)
-  
+- **UIButton**:
+ - Refactored `centerTextAndImage(spacing:)`: now can specify the relative position of title and image by setting the new parameter `ImagePosition`. [#807](https://github.com/SwifterSwift/SwifterSwift/pull/807) by [qchenqizhi](https://github.com/qchenqizhi).
 
 ### Deprecated
 
