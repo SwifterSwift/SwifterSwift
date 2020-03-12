@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **NotificationCenter**:
+  - `observeOnce(forName:object:queue:using:)` for observing a single posting of a notification. [#812](https://github.com/SwifterSwift/SwifterSwift/pull/812) by [guykogus](https://github.com/guykogus)
 - **Optional**:
   - Conform to `Equatable` when `Wrapped` is `RawRepresentable` and its `RawValue` is `Equatable`. [#804](https://github.com/SwifterSwift/SwifterSwift/pull/804) by [guykogus](https://github.com/guykogus)
 - **CoreLocation**:
