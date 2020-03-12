@@ -34,39 +34,39 @@ final class CGRectExtensionsTests: XCTestCase {
         var resizingRect: CGRect
         let newSize = CGSize(width: 40, height: 50)
 
-        // By anchor top left
-        resizingRect = rect.resizing(to: newSize)
-        let rect2 = rect.resizing(to: newSize, anchor: .topLeft)
+        // By anchor center
+        resizingRect = rect.resizing(to: newSize, anchor: CGPoint(x: 0.5, y: 0.5))
+        let rect2 = rect.resizing(to: newSize)
         XCTAssertEqual(resizingRect, rect2)
+        XCTAssertEqual(rect.midX, resizingRect.midX)
+        XCTAssertEqual(rect.midY, resizingRect.midY)
+        XCTAssertNotEqual(rect.size, resizingRect.size)
+        XCTAssertEqual(newSize, resizingRect.size)
+
+        // By anchor top left
+        resizingRect = rect.resizing(to: newSize, anchor: .zero)
         XCTAssertEqual(rect.origin, resizingRect.origin)
         XCTAssertNotEqual(rect.size, resizingRect.size)
         XCTAssertEqual(newSize, resizingRect.size)
 
         // By anchor top right
-        resizingRect = rect.resizing(to: newSize, anchor: .topRight)
+        resizingRect = rect.resizing(to: newSize, anchor: CGPoint(x: 1.0, y: 0.0))
         XCTAssertEqual(rect.maxX, resizingRect.maxX)
         XCTAssertEqual(rect.minY, resizingRect.minY)
         XCTAssertNotEqual(rect.size, resizingRect.size)
         XCTAssertEqual(newSize, resizingRect.size)
 
         // By anchor bottom left
-        resizingRect = rect.resizing(to: newSize, anchor: .bottomLeft)
+        resizingRect = rect.resizing(to: newSize, anchor: CGPoint(x: 0.0, y: 1.0))
         XCTAssertEqual(rect.minX, resizingRect.minX)
         XCTAssertEqual(rect.maxY, resizingRect.maxY)
         XCTAssertNotEqual(rect.size, resizingRect.size)
         XCTAssertEqual(newSize, resizingRect.size)
 
         // By anchor bottom right
-        resizingRect = rect.resizing(to: newSize, anchor: .bottomRight)
+        resizingRect = rect.resizing(to: newSize, anchor: CGPoint(x: 1.0, y: 1.0))
         XCTAssertEqual(rect.maxX, resizingRect.maxX)
         XCTAssertEqual(rect.maxY, resizingRect.maxY)
-        XCTAssertNotEqual(rect.size, resizingRect.size)
-        XCTAssertEqual(newSize, resizingRect.size)
-
-        // By anchor center
-        resizingRect = rect.resizing(to: newSize, anchor: .center)
-        XCTAssertEqual(rect.midX, resizingRect.midX)
-        XCTAssertEqual(rect.midY, resizingRect.midY)
         XCTAssertNotEqual(rect.size, resizingRect.size)
         XCTAssertEqual(newSize, resizingRect.size)
     }

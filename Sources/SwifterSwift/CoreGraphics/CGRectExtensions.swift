@@ -5,6 +5,7 @@
 //  Created by Chen Qizhi on 2020/03/11.
 //  Copyright © 2020 SwifterSwift
 //
+
 #if canImport(CoreGraphics)
 import CoreGraphics
 
@@ -12,9 +13,7 @@ import CoreGraphics
 public extension CGRect {
 
     /// SwifterSwift: Return center of rect
-    var center: CGPoint {
-        return CGPoint(x: midX, y: midY)
-    }
+    var center: CGPoint { CGPoint(x: midX, y: midY) }
 
 }
 
@@ -35,45 +34,25 @@ public extension CGRect {
 // MARK: - Methods
 public extension CGRect {
 
-    /// SwifterSwift: Corners and center of `CGRect`, can be use for resizing,
-    enum Anchor {
-        case topLeft
-        case topRight
-        case bottomLeft
-        case bottomRight
-        case center
-    }
-
     /// SwifterSwift: Create a new `CGRect` by resizing with specified anchor
     /// - Parameters:
     ///   - size: new size to be applied
-    ///   - anchor: specified anchor, excample:
+    ///   - anchor: specified anchor, a point in normalized coordinates -
+    ///     '(0, 0)' is the top left corner of rect，'(1, 1)' is the bottom right corner of rect,
+    ///     defaults to '(0.5, 0.5)'. excample:
     ///
-    ///          anchor = .bottomLeft:
+    ///          anchor = CGPoint(x: 0.0, y: 1.0):
     ///
     ///                       A2------B2
     ///          A----B       |        |
     ///          |    |  -->  |        |
     ///          C----D       C-------D2
     ///
-    func resizing(to size: CGSize, anchor: CGRect.Anchor = .topLeft) -> CGRect {
-        var origin = self.origin
-        switch anchor {
-        case .topRight:
-            origin.x = maxX - size.width
-        case .bottomLeft:
-            origin.y = maxY - size.height
-        case .bottomRight:
-            origin.x = maxX - size.width
-            origin.y = maxY - size.height
-        case .center:
-            origin.x = midX - size.width / 2.0
-            origin.y = midY - size.height / 2.0
-        default:
-            break
-        }
-
-        return CGRect(origin: origin, size: size)
+    func resizing(to size: CGSize, anchor: CGPoint = CGPoint(x: 0.5, y: 0.5)) -> CGRect {
+        let sizeDelta = CGSize(width: size.width - width, height: size.height - height)
+        return CGRect(origin: CGPoint(x: minX - sizeDelta.width * anchor.x,
+                                      y: minY - sizeDelta.height * anchor.y),
+                      size: size)
     }
 
 }
