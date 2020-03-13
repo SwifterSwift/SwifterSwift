@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **NotificationCenter**:
+  - `observeOnce(forName:object:queue:using:)` for observing a single posting of a notification. [#812](https://github.com/SwifterSwift/SwifterSwift/pull/812) by [guykogus](https://github.com/guykogus)
 - **Optional**:
   - Conform to `Equatable` when `Wrapped` is `RawRepresentable` and its `RawValue` is `Equatable`. [#804](https://github.com/SwifterSwift/SwifterSwift/pull/804) by [guykogus](https://github.com/guykogus)
 - **CoreLocation**:
@@ -58,6 +60,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `curlString` property to get a cURL command representation of this URL request. [#790](https://github.com/SwifterSwift/SwifterSwift/pull/790) by [DimaZava](https://github.com/DimaZava).
 - **SKProduct**:
   - Added `localizedPrice` to get localized price of product. [#781](https://github.com/SwifterSwift/SwifterSwift/pull/781) by [strawb3rryx7](https://github.com/strawb3rryx7).
+- **CGRect**
+  - Added property `center`. [#814](https://github.com/SwifterSwift/SwifterSwift/pull/814) by [qchenqizhi](https://github.com/qchenqizhi).
+  - Added initializer `init(center:size:)` to create `CGRect` with center and size. [#814](https://github.com/SwifterSwift/SwifterSwift/pull/814) by [qchenqizhi](https://github.com/qchenqizhi).
+  - Added `resizing(to:anchor:)` to create `CGRect` by resizing with anchor. [#814](https://github.com/SwifterSwift/SwifterSwift/pull/814) by [qchenqizhi](https://github.com/qchenqizhi).
 
 ### Changed
 - **Collection**:

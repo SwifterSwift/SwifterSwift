@@ -232,6 +232,7 @@ let package = Package(
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGFloatExtensions.swift"><code>CGFloat extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGPointExtensions.swift"><code>CGPoint extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGSizeExtensions.swift"><code>CGSize extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGRectExtensions.swift"><code>CGRect extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGVectorExtensions.swift"><code>CGVector extensions</code></a></li>
 </ul>
 </details>
