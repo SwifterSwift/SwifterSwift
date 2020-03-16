@@ -163,7 +163,7 @@ final class UIButtonExtensionsTests: XCTestCase {
         let spacing: CGFloat = 20
 
         // Image on the left of text
-        button.centerTextAndImage(image: .onLeftOfText, spacing: spacing)
+        button.centerTextAndImage(spacing: spacing)
         var imageFrame = button.imageView!.frame
         var titleFrame = button.titleLabel!.frame
 
@@ -171,32 +171,14 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(titleFrame.midY, imageFrame.midY, accuracy: 1.0)
         XCTAssertEqual(titleFrame.minX - spacing, imageFrame.maxX, accuracy: 1.0)
 
-        // Image on the right of text
-        button.centerTextAndImage(image: .onRightOfText, spacing: spacing)
-        imageFrame = button.imageView!.frame
-        titleFrame = button.titleLabel!.frame
-
-        XCTAssert(titleFrame.midX < imageFrame.midX)
-        XCTAssertEqual(titleFrame.midY, imageFrame.midY, accuracy: 1.0)
-        XCTAssertEqual(titleFrame.maxX, imageFrame.minX - spacing, accuracy: 1.0)
-
         // Image above text
-        button.centerTextAndImage(image: .aboveText, spacing: spacing)
+        button.centerTextAndImage(imageAboveText: true, spacing: spacing)
         imageFrame = button.imageView!.frame
         titleFrame = button.titleLabel!.frame
 
         XCTAssert(titleFrame.midY > imageFrame.midY)
         XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
         XCTAssertEqual(titleFrame.minY - spacing, imageFrame.maxY, accuracy: 1.0)
-
-        // Image below text
-        button.centerTextAndImage(image: .belowText, spacing: spacing)
-        imageFrame = button.imageView!.frame
-        titleFrame = button.titleLabel!.frame
-
-        XCTAssert(titleFrame.midY < imageFrame.midY)
-        XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
-        XCTAssertEqual(titleFrame.maxY, imageFrame.minY - spacing, accuracy: 1.0)
     }
 
 }
