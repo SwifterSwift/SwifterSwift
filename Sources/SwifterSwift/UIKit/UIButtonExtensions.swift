@@ -204,7 +204,28 @@ public extension UIButton {
             contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
         }
     }
-
+    
+    /// SwifterSwift: Put image to the right side of title
+    /// 
+    /// - Parameter spacing: spacing between title text and image.
+    func rightAlignImage(spacing: CGFloat) {
+        guard
+            let imageSize = imageView?.image?.size,
+            let text = titleLabel?.text,
+            let font = titleLabel?.font
+        else { return }
+        
+        let titleSize = text.size(withAttributes: [.font: font])
+        
+        let titleOffset = -(imageSize.width + spacing)
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: titleOffset, bottom: 0, right: imageSize.width)
+        
+        let imageOffset = -(titleSize.width + spacing)
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: titleSize.width, bottom: 0, right: imageOffset)
+        
+        let edgeOffset = spacing / 2.0
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: edgeOffset, bottom: 0, right: edgeOffset)
+    }
 }
 
 #endif

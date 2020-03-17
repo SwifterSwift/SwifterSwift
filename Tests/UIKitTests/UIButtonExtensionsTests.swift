@@ -180,6 +180,25 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
         XCTAssertEqual(titleFrame.minY - spacing, imageFrame.maxY, accuracy: 1.0)
     }
+    
+    func testRightAlignImage() {
+        let button = UIButton(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let image = UIImage(color: .red, size: CGSize(width: 10, height: 10))
+        button.setTitleForAllStates("Title")
+        button.setImageForAllStates(image)
+        
+        XCTAssertNotNil(button.imageView)
+        XCTAssertNotNil(button.titleLabel)
+        
+        let spacing: CGFloat = 20
+        button.rightAlignImage(spacing: spacing)
+        let imageFrame = button.imageView!.frame
+        let titleFrame = button.titleLabel!.frame
+        
+        XCTAssert(imageFrame.minX > titleFrame.maxX)
+        XCTAssertEqual(titleFrame.midY, imageFrame.midY, accuracy: 1.0)
+        XCTAssertEqual(imageFrame.minX - spacing, titleFrame.maxX, accuracy: 1.0)
+    }
 
 }
 
