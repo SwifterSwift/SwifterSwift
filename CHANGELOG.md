@@ -78,7 +78,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Corrected documentation for `sorted(by:with:)` and `sorted(by:)`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
 - **NSAttributedString**:
   - Update `applying(attributes: [NSAttributedString.Key : Any], toRangesMatching pattern: String)` to respond `applying(attributes: [NSAttributedString.Key : Any], toRangesMatching pattern: String, options: NSRegularExpression.Options = [])` signature to support regular expression options.  [#791](https://github.com/SwifterSwift/SwifterSwift/pull/791) by [DimaZava](https://github.com/DimaZava)
-  
+- **UIButton**:
+ - Refactored `centerTextAndImage(spacing:)`: now the image position can be above the text, by setting a new parameter `imageAboveText` to `true`. [#807](https://github.com/SwifterSwift/SwifterSwift/pull/807) by [qchenqizhi](https://github.com/qchenqizhi).
 
 ### Deprecated
 
