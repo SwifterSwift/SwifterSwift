@@ -611,6 +611,7 @@ public extension String {
         guard !isEmpty && range.lowerBound >= 0 else { return nil }
         guard let lowerIndex = index(startIndex, offsetBy: range.lowerBound, limitedBy: endIndex) else { return nil }
         guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound, limitedBy: endIndex) else { return nil }
+
         return String(self[lowerIndex..<upperIndex])
     }
 
@@ -620,7 +621,7 @@ public extension String {
     ///		"Hello World!"[safe: 21...110] -> nil
     ///
     /// - Parameter range: Closed range.
-    subscript(safe range: ClosedRange<Int>) -> String?{
+    subscript(safe range: ClosedRange<Int>) -> String? {
         guard !isEmpty && range.lowerBound >= 0 else { return nil }
         guard let lowerIndex = index(startIndex, offsetBy: range.lowerBound, limitedBy: index(endIndex, offsetBy: -1)) else { return nil }
         guard let upperIndex = index(lowerIndex, offsetBy: range.upperBound - range.lowerBound, limitedBy: index(endIndex, offsetBy: -1)) else { return nil }
