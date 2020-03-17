@@ -367,7 +367,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(oneCharStr[safe: 0..<0], "")
         XCTAssertEqual(oneCharStr[safe: 0..<1], "a")
         XCTAssertNil(oneCharStr[safe: 0..<2])
-        XCTAssertEqual(oneCharStr[safe: 1..<1], "")
+        XCTAssertNil(oneCharStr[safe: 1..<1])
         XCTAssertNil(oneCharStr[safe: 1..<2])
 
         XCTAssertEqual(oneCharStr[safe: 0...0], "a")
