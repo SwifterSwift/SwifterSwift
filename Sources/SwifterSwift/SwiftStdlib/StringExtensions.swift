@@ -601,7 +601,7 @@ public extension String {
         return self[self.index(startIndex, offsetBy: index)]
     }
     
-    /// SwifterSwift: Safely subscript string within a close or half-open range.
+    /// SwifterSwift: Safely subscript string within a given range.
     ///
     ///        "Hello World!"[safe: 6..<11] -> "World"
     ///        "Hello World!"[safe: 21..<110] -> nil
