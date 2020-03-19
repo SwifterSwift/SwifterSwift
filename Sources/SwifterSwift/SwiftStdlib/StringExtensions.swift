@@ -600,51 +600,25 @@ public extension String {
         guard index >= 0 && index < count else { return nil }
         return self[self.index(startIndex, offsetBy: index)]
     }
-
-    /// SwifterSwift: Safely subscript string within a half-open range.
+    
+    /// SwifterSwift: Safely subscript string within a close or half-open range.
     ///
-    ///		"Hello World!"[safe: 6..<11] -> "World"
-    ///		"Hello World!"[safe: 21..<110] -> nil
+    ///        "Hello World!"[safe: 6..<11] -> "World"
+    ///        "Hello World!"[safe: 21..<110] -> nil
     ///
-    /// - Parameter substringRange: Half-open range.
-    subscript(safe substringRange: CountableRange<Int>) -> String? {
-        guard
-            !isEmpty,
-            substringRange.lowerBound >= 0,
-            let lowerIndex = index(startIndex, offsetBy: substringRange.lowerBound, limitedBy: endIndex),
-            let upperIndex = index(lowerIndex, offsetBy: substringRange.upperBound - substringRange.lowerBound, limitedBy: endIndex),
-            let range = range(of: self) else {
+    ///        "Hello World!"[safe: 6...11] -> "World!"
+    ///        "Hello World!"[safe: 21...110] -> nil
+    ///
+    /// - Parameter range: Range expression.
+    subscript<R>(safe range: R) -> String? where R: RangeExpression, R.Bound == Int {
+        let range = range.relative(to: Int.min..<Int.max)
+        guard range.lowerBound >= 0,
+            let lowerIndex = index(startIndex, offsetBy: range.lowerBound, limitedBy: endIndex),
+            let upperIndex = index(startIndex, offsetBy: range.upperBound, limitedBy: endIndex) else {
                 return nil
         }
 
-        if range ~= lowerIndex {
-            return String(self[lowerIndex..<upperIndex])
-        } else {
-            return nil
-        }
-    }
-
-    /// SwifterSwift: Safely subscript string within a closed range.
-    ///
-    ///		"Hello World!"[safe: 6...11] -> "World!"
-    ///		"Hello World!"[safe: 21...110] -> nil
-    ///
-    /// - Parameter substringRange: Closed range.
-    subscript(safe substringRange: ClosedRange<Int>) -> String? {
-        guard
-            !isEmpty,
-            substringRange.lowerBound >= 0,
-            let lowerIndex = index(startIndex, offsetBy: substringRange.lowerBound, limitedBy: endIndex),
-            let upperIndex = index(lowerIndex, offsetBy: substringRange.upperBound - substringRange.lowerBound, limitedBy: endIndex),
-            let range = range(of: self) else {
-                return nil
-        }
-        
-        if range ~= lowerIndex && range ~= upperIndex {
-            return String(self[lowerIndex...upperIndex])
-        } else {
-            return nil
-        }
+        return String(self[lowerIndex..<upperIndex])
     }
 
     #if os(iOS) || os(macOS)
