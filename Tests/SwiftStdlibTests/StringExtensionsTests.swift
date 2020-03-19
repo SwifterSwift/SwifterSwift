@@ -345,13 +345,49 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(str[safe: 1], "e")
         XCTAssertNil(str[safe: 18])
 
-        XCTAssertEqual(str[safe: 1..<5], "ello")
-        XCTAssertNil(str[safe: 10..<18])
-        XCTAssertNil(""[safe: 1..<2])
+        XCTAssertNil(str[safe: -5..<5])
+        XCTAssertNil(str[safe: -5...5])
 
+        XCTAssertEqual(str[safe: 0..<0], "")
+        XCTAssertEqual(str[safe: 0..<4], "Hell")
+        XCTAssertEqual(str[safe: 1..<5], "ello")
+        XCTAssertEqual(str[safe: 7..<7], "")
+        XCTAssertNil(str[safe: 10..<18])
+        XCTAssertEqual(str[safe: 11..<12], "!")
+
+        XCTAssertEqual(str[safe: 0...0], "H")
         XCTAssertEqual(str[safe: 0...4], "Hello")
+        XCTAssertEqual(str[safe: 1...5], "ello ")
+        XCTAssertEqual(str[safe: 7...7], "o")
         XCTAssertNil(str[safe: 10...18])
+        XCTAssertEqual(str[safe: 11...11], "!")
+        XCTAssertNil(str[safe: 11...12])
+
+        let oneCharStr = "a"
+        XCTAssertEqual(oneCharStr[safe: 0..<0], "")
+        XCTAssertEqual(oneCharStr[safe: 0..<1], "a")
+        XCTAssertNil(oneCharStr[safe: 0..<2])
+        XCTAssertEqual(oneCharStr[safe: 1..<1], "")
+        XCTAssertNil(oneCharStr[safe: 1..<2])
+
+        XCTAssertEqual(oneCharStr[safe: 0...0], "a")
+        XCTAssertNil(oneCharStr[safe: 0...1])
+        XCTAssertNil(oneCharStr[safe: 0...2])
+        XCTAssertNil(oneCharStr[safe: 1...1])
+        XCTAssertNil(oneCharStr[safe: 1...2])
+
+        // Empty string
+        XCTAssertEqual(""[safe: 0..<0], "")
+        XCTAssertNil(""[safe: 0..<1])
+        XCTAssertNil(""[safe: 1..<1])
+        XCTAssertNil(""[safe: 1..<2])
+        XCTAssertNil(""[safe: 2..<3])
+
+        XCTAssertNil(""[safe: 0...0])
+        XCTAssertNil(""[safe: 0...1])
+        XCTAssertNil(""[safe: 1..<1])
         XCTAssertNil(""[safe: 1...2])
+        XCTAssertNil(""[safe: 2...3])
     }
 
     func testCopyToPasteboard() {
