@@ -57,6 +57,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `is12HourTimeFormat` to indicate if locale has 12h format. [#793](https://github.com/SwifterSwift/SwifterSwift/pull/793) by [DimaZava](https://github.com/DimaZava).
   - `flagEmoji(forRegionCode:)` to convert a region code into the corresponding flag emoji. [#813](https://github.com/SwifterSwift/SwifterSwift/pull/813) by [guykogus](https://github.com/guykogus)
 - **URLRequest**:
+  - `init(string:relativeTo:)` to allow initializing a `URL` with an optional `String`. [#818](https://github.com/SwifterSwift/SwifterSwift/pull/818) by [guykogus](https://github.com/guykogus)
   - Added `curlString` property to get a cURL command representation of this URL request. [#790](https://github.com/SwifterSwift/SwifterSwift/pull/790) by [DimaZava](https://github.com/DimaZava).
 - **SKProduct**:
   - Added `localizedPrice` to get localized price of product. [#781](https://github.com/SwifterSwift/SwifterSwift/pull/781) by [strawb3rryx7](https://github.com/strawb3rryx7).
