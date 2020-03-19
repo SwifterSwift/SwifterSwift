@@ -18,15 +18,6 @@ final class URLExtensionsTests: XCTestCase {
     let params = ["q": "swifter swift"]
     let queryUrl = URL(string: "https://www.google.com?q=swifter%20swift")!
 
-    func testAppendingQueryParameters() {
-        XCTAssertEqual(url.appendingQueryParameters(params), queryUrl)
-    }
-
-    func testAppendQueryParameters() {
-        url.appendQueryParameters(params)
-        XCTAssertEqual(url, queryUrl)
-    }
-
     func testQueryParameters() {
         let url = URL(string: "https://www.google.com?q=swifter%20swift&steve=jobs&empty")!
         guard let parameters = url.queryParameters else {
@@ -38,6 +29,29 @@ final class URLExtensionsTests: XCTestCase {
         XCTAssertEqual(parameters["q"], "swifter swift")
         XCTAssertEqual(parameters["steve"], "jobs")
         XCTAssertEqual(parameters["empty"], nil)
+    }
+
+    func testOptionalStringInitializer() {
+        XCTAssertNil(URL(string: nil, relativeTo: nil))
+        XCTAssertNil(URL(string: nil))
+
+        let baseURL = URL(string: "https://www.example.com")
+        XCTAssertNotNil(baseURL)
+        XCTAssertNil(URL(string: nil, relativeTo: baseURL))
+
+        let string = "/index.html"
+        let optionalString: String? = string
+        XCTAssertEqual(URL(string: optionalString, relativeTo: baseURL), URL(string: string, relativeTo: baseURL))
+        XCTAssertEqual(URL(string: optionalString, relativeTo: baseURL)?.absoluteString, "https://www.example.com/index.html")
+    }
+
+    func testAppendingQueryParameters() {
+        XCTAssertEqual(url.appendingQueryParameters(params), queryUrl)
+    }
+
+    func testAppendQueryParameters() {
+        url.appendQueryParameters(params)
+        XCTAssertEqual(url, queryUrl)
     }
 
     func testValueForQueryKey() {
