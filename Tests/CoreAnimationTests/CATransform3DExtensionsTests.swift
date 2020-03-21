@@ -15,8 +15,6 @@ import XCTest
 import CoreGraphics
 #endif
 
-// swiftlint:disable identifier_name
-
 final class CATransform3DExtensionsTests: XCTestCase {
 
     let x = CGFloat(5)
@@ -175,7 +173,5 @@ final class CATransform3DExtensionsTests: XCTestCase {
     #endif
 
 }
-
-// swiftlint:enable identifier_name
 
 #endif

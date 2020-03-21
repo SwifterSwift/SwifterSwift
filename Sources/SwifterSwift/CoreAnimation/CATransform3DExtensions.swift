@@ -111,7 +111,7 @@ public extension CATransform3D {
     ///   - ty: y-axis translation
     ///   - tz: z-axis translation
     @inlinable
-    init(translationX tx: CGFloat, y ty: CGFloat, z tz: CGFloat) { // swiftlint:disable:this identifier_name
+    init(translationX tx: CGFloat, y ty: CGFloat, z tz: CGFloat) {
         self = CATransform3DMakeTranslation(tx, ty, tz)
     }
 
@@ -121,7 +121,7 @@ public extension CATransform3D {
     ///   - sy: y-axis scale
     ///   - sz: z-axis scale
     @inlinable
-    init(scaleX sx: CGFloat, y sy: CGFloat, z sz: CGFloat) { // swiftlint:disable:this identifier_name
+    init(scaleX sx: CGFloat, y sy: CGFloat, z sz: CGFloat) {
         self = CATransform3DMakeScale(sx, sy, sz)
     }
 
@@ -134,7 +134,7 @@ public extension CATransform3D {
     ///   - y: y position of the vector
     ///   - z: z position of the vector
     @inlinable
-    init(rotationAngle angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) { // swiftlint:disable:this identifier_name
+    init(rotationAngle angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) {
         self = CATransform3DMakeRotation(angle, x, y, z)
     }
 
@@ -159,7 +159,7 @@ public extension CATransform3D {
     ///   - tz: z-axis translation
     /// - Returns: The translated matrix.
     @inlinable
-    func translatedBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
+    func translatedBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) -> CATransform3D {
         CATransform3DTranslate(self, tx, ty, tz)
     }
 
@@ -170,7 +170,7 @@ public extension CATransform3D {
     ///   - sz: z-axis scale
     /// - Returns: The scaled matrix.
     @inlinable
-    func scaledBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
+    func scaledBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) -> CATransform3D {
         CATransform3DScale(self, sx, sy, sz)
     }
 
@@ -184,7 +184,7 @@ public extension CATransform3D {
     ///   - z: z position of the vector
     /// - Returns: The rotated matrix.
     @inlinable
-    func rotated(by angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
+    func rotated(by angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) -> CATransform3D {
         CATransform3DRotate(self, angle, x, y, z)
     }
 
@@ -211,7 +211,7 @@ public extension CATransform3D {
     ///   - ty: y-axis translation
     ///   - tz: z-axis translation
     @inlinable
-    mutating func translateBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) { // swiftlint:disable:this identifier_name
+    mutating func translateBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) {
         self = CATransform3DTranslate(self, tx, ty, tz)
     }
 
@@ -221,7 +221,7 @@ public extension CATransform3D {
     ///   - sy: y-axis scale
     ///   - sz: z-axis scale
     @inlinable
-    mutating func scaleBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) { // swiftlint:disable:this identifier_name
+    mutating func scaleBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) {
         self = CATransform3DScale(self, sx, sy, sz)
     }
 
@@ -234,7 +234,7 @@ public extension CATransform3D {
     ///   - y: y position of the vector
     ///   - z: z position of the vector
     @inlinable
-    mutating func rotate(by angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) { // swiftlint:disable:this identifier_name
+    mutating func rotate(by angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) {
         self = CATransform3DRotate(self, angle, x, y, z)
     }
 

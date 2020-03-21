@@ -22,10 +22,8 @@ final class CGAffineTransformExtensionsTests: XCTestCase {
     func testTransform3D() {
         XCTAssertEqual(CGAffineTransform.identity.transform3D(), CATransform3DIdentity)
 
-        // swiftlint:disable identifier_name
         let x = CGFloat(5)
         let y = CGFloat(10)
-        // swiftlint:enable identifier_name
         let angle = CGFloat.pi / 3
 
         XCTAssertEqual(CGAffineTransform(translationX: x, y: y).transform3D(), CATransform3DMakeTranslation(x, y, 0))

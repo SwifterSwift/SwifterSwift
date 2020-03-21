@@ -39,3 +39,9 @@ disabled_rules:
 
 excluded:
   - vendor # Folder created by bundle install command that we run on CI
+
+identifier_name:
+  excluded:
+    - x
+    - y
+    - z
