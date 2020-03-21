@@ -111,7 +111,7 @@ public extension CATransform3D {
     ///   - ty: y-axis translation
     ///   - tz: z-axis translation
     @inlinable
-    init(translationX tx: CGFloat, y ty: CGFloat, z tz: CGFloat) {
+    init(translationX tx: CGFloat, y ty: CGFloat, z tz: CGFloat) { // swiftlint:disable:this identifier_name
         self = CATransform3DMakeTranslation(tx, ty, tz)
     }
 
@@ -121,7 +121,7 @@ public extension CATransform3D {
     ///   - sy: y-axis scale
     ///   - sz: z-axis scale
     @inlinable
-    init(scaleX sx: CGFloat, y sy: CGFloat, z sz: CGFloat) {
+    init(scaleX sx: CGFloat, y sy: CGFloat, z sz: CGFloat) { // swiftlint:disable:this identifier_name
         self = CATransform3DMakeScale(sx, sy, sz)
     }
 
@@ -159,7 +159,7 @@ public extension CATransform3D {
     ///   - tz: z-axis translation
     /// - Returns: The translated matrix.
     @inlinable
-    func translatedBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) -> CATransform3D {
+    func translatedBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
         CATransform3DTranslate(self, tx, ty, tz)
     }
 
@@ -170,7 +170,7 @@ public extension CATransform3D {
     ///   - sz: z-axis scale
     /// - Returns: The scaled matrix.
     @inlinable
-    func scaledBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) -> CATransform3D {
+    func scaledBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
         CATransform3DScale(self, sx, sy, sz)
     }
 
@@ -211,7 +211,7 @@ public extension CATransform3D {
     ///   - ty: y-axis translation
     ///   - tz: z-axis translation
     @inlinable
-    mutating func translateBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) {
+    mutating func translateBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) { // swiftlint:disable:this identifier_name
         self = CATransform3DTranslate(self, tx, ty, tz)
     }
 
@@ -221,7 +221,7 @@ public extension CATransform3D {
     ///   - sy: y-axis scale
     ///   - sz: z-axis scale
     @inlinable
-    mutating func scaleBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) {
+    mutating func scaleBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) { // swiftlint:disable:this identifier_name
         self = CATransform3DScale(self, sx, sy, sz)
     }
 
