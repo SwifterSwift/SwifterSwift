@@ -896,7 +896,9 @@ final class DateExtensionsTests: XCTestCase {
             XCTAssertEqual(String(describing: date), "2017-12-25 00:00:00 +0000")
         }
 
+        #if !targetEnvironment(macCatalyst)
         XCTAssertNil(Date(integerLiteral: 222))
+        #endif
     }
 
     func testRandomRange() {

@@ -16,7 +16,7 @@ public extension Array where Element: CLLocation {
     ///
     /// - Parameter unitLength: The unit of length to return the distance in.
     /// - Returns: The distance in the specified unit.
-    @available(iOS 10.0, tvOS 10.0, macOS 10.12, watchOS 3.0, *)
+    @available(tvOS 10.0, macOS 10.12, watchOS 3.0, *)
     func distance(unitLength unit: UnitLength) -> Measurement<UnitLength> {
         guard count > 1 else {
           return Measurement(value: 0.0, unit: unit)

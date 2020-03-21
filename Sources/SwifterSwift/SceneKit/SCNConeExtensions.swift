@@ -1,5 +1,5 @@
 //
-//  SCNCone.swift
+//  SCNConeExtensions.swift
 //  SwifterSwift
 //
 //  Created by Max Härtwig on 06.04.19.

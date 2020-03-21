@@ -6,7 +6,10 @@ import PackageDescription
 let package = Package(
     name: "SwifterSwift",
     platforms: [
-        .iOS(SupportedPlatform.IOSVersion.v10)
+        .iOS(.v10),
+        .tvOS(.v9),
+        .watchOS(.v2),
+        .macOS(.v10_10)
     ],
     products: [
         .library(name: "SwifterSwift", targets: ["SwifterSwift"])
@@ -14,7 +17,6 @@ let package = Package(
     dependencies: [],
     targets: [
         .target(name: "SwifterSwift", dependencies: []),
-        .testTarget(name: "SwifterSwiftStdlibTests", dependencies: ["SwifterSwift"], path: "Tests/SwiftStdlibTests"),
-        .testTarget(name: "SwifterSwiftFoundationTests", dependencies: ["SwifterSwift"], path: "Tests/FoundationTests")
+        .testTarget(name: "SwifterSwiftTests", dependencies: ["SwifterSwift"], path: "Tests")
     ]
 )

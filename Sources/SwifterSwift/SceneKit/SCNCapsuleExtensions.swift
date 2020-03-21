@@ -1,5 +1,5 @@
 //
-//  SCNCapsule.swift
+//  SCNCapsuleExtensions.swift
 //  SwifterSwift
 //
 //  Created by Max Härtwig on 06.04.19.
