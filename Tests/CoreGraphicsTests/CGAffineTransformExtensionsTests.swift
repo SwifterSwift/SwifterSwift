@@ -12,6 +12,10 @@ import XCTest
 #if canImport(CoreGraphics)
 import CoreGraphics
 
+#if canImport(QuartzCore)
+import QuartzCore
+#endif
+
 final class CGAffineTransformExtensionsTests: XCTestCase {
 
     #if canImport(QuartzCore)
