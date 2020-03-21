@@ -5,6 +5,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **CATransform3D**:
+  - `identity`, `isIdentity`, `init(translationX:y:z:)`, `init(scaleX:y:z:)`, `init(rotationAngle:x:y:z:)`, `translatedBy(x:y:z:)`, `scaledBy(x:y:z:)`, `rotated(by:x:y:z:)`, `inverted()`, `concatenating(_:)`, `translateBy(x:y:z:)`, `scaleBy(x:y:z:)`, `rotate(by:x:y:z:)`, `invert()`, `concatenate(_:)`, `isAffine` and `affineTransform()`. Also conforms to `Codable` and `Equatable`. [#819](https://github.com/SwifterSwift/SwifterSwift/pull/819) by [guykogus](https://github.com/guykogus)
+- **CGAffineTransform**:
+  - `transform3D()`. [#819](https://github.com/SwifterSwift/SwifterSwift/pull/819) by [guykogus](https://github.com/guykogus)
 - **NotificationCenter**:
   - `observeOnce(forName:object:queue:using:)` for observing a single posting of a notification. [#812](https://github.com/SwifterSwift/SwifterSwift/pull/812) by [guykogus](https://github.com/guykogus)
 - **Optional**:
