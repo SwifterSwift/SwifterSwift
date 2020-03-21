@@ -3,7 +3,7 @@ custom_rules:
     included: ".*\\.swift"
     excluded: ".*Tests\\.swift"
     name: "Missing SwifterSwift: prefix"
-    regex: "///\\s(?!SwifterSwift:\\s)\\w+[^\\n]*$"
+    regex: "\\n\\n(\\s*///\\s(?!SwifterSwift:\\s)\\w+[^\\n]*$)"
     match_kinds:
       - doccomment
     message: "Doc string should always start with the SwifterSwift: prefix"
