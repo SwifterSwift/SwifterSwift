@@ -23,6 +23,7 @@ extension CATransform3D: Equatable {
     /// - Parameters:
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
+    @inlinable
     public static func == (lhs: CATransform3D, rhs: CATransform3D) -> Bool {
         CATransform3DEqualToTransform(lhs, rhs)
     }
@@ -35,6 +36,7 @@ extension CATransform3D: Equatable {
 public extension CATransform3D {
 
     /// SwifterSwift: The identity transform: [1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1].
+    @inlinable
     static var identity: CATransform3D { CATransform3DIdentity }
 
 }
@@ -48,6 +50,7 @@ extension CATransform3D: Codable {
     ///
     /// This initializer throws an error if reading from the decoder fails, or if the data read is corrupted or otherwise invalid.
     /// - Parameter decoder: The decoder to read data from.
+    @inlinable
     public init(from decoder: Decoder) throws {
         var container = try decoder.unkeyedContainer()
         self.init(m11: try container.decode(CGFloat.self),
@@ -74,6 +77,7 @@ extension CATransform3D: Codable {
     ///
     /// This function throws an error if any values are invalid for the given encoder’s format.
     /// - Parameter encoder: The encoder to write data to.
+    @inlinable
     public func encode(to encoder: Encoder) throws {
         var container = encoder.unkeyedContainer()
         try container.encode(m11)
@@ -106,6 +110,7 @@ public extension CATransform3D {
     ///   - tx: x-axis translation
     ///   - ty: y-axis translation
     ///   - tz: z-axis translation
+    @inlinable
     init(translationX tx: CGFloat, y ty: CGFloat, z tz: CGFloat) { // swiftlint:disable:this identifier_name
         self = CATransform3DMakeTranslation(tx, ty, tz)
     }
@@ -115,6 +120,7 @@ public extension CATransform3D {
     ///   - sx: x-axis scale
     ///   - sy: y-axis scale
     ///   - sz: z-axis scale
+    @inlinable
     init(scaleX sx: CGFloat, y sy: CGFloat, z sz: CGFloat) { // swiftlint:disable:this identifier_name
         self = CATransform3DMakeScale(sx, sy, sz)
     }
@@ -127,6 +133,7 @@ public extension CATransform3D {
     ///   - x: x position of the vector
     ///   - y: y position of the vector
     ///   - z: z position of the vector
+    @inlinable
     init(rotationAngle angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) { // swiftlint:disable:this identifier_name
         self = CATransform3DMakeRotation(angle, x, y, z)
     }
@@ -137,6 +144,7 @@ public extension CATransform3D {
 public extension CATransform3D {
 
     /// SwifterSwift: Returns `true` if the receiver is the identity transform.
+    @inlinable
     var isIdentity: Bool { CATransform3DIsIdentity(self) }
 
 }
@@ -150,6 +158,7 @@ public extension CATransform3D {
     ///   - ty: y-axis translation
     ///   - tz: z-axis translation
     /// - Returns: The translated matrix.
+    @inlinable
     func translatedBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
         CATransform3DTranslate(self, tx, ty, tz)
     }
@@ -160,6 +169,7 @@ public extension CATransform3D {
     ///   - sy: y-axis scale
     ///   - sz: z-axis scale
     /// - Returns: The scaled matrix.
+    @inlinable
     func scaledBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
         CATransform3DScale(self, sx, sy, sz)
     }
@@ -173,6 +183,7 @@ public extension CATransform3D {
     ///   - y: y position of the vector
     ///   - z: z position of the vector
     /// - Returns: The rotated matrix.
+    @inlinable
     func rotated(by angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
         CATransform3DRotate(self, angle, x, y, z)
     }
@@ -181,6 +192,7 @@ public extension CATransform3D {
     ///
     /// Returns the original matrix if the receiver has no inverse.
     /// - Returns: The inverted matrix of the receiver.
+    @inlinable
     func inverted() -> CATransform3D {
         CATransform3DInvert(self)
     }
@@ -188,6 +200,7 @@ public extension CATransform3D {
     /// SwifterSwift: Concatenate `transform` to the receiver.
     /// - Parameter t2: The transform to concatenate on to the receiver
     /// - Returns: The concatenated matrix.
+    @inlinable
     func concatenating(_ t2: CATransform3D) -> CATransform3D { // swiftlint:disable:this identifier_name
         CATransform3DConcat(self, t2)
     }
@@ -197,6 +210,7 @@ public extension CATransform3D {
     ///   - tx: x-axis translation
     ///   - ty: y-axis translation
     ///   - tz: z-axis translation
+    @inlinable
     mutating func translateBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) { // swiftlint:disable:this identifier_name
         self = CATransform3DTranslate(self, tx, ty, tz)
     }
@@ -206,6 +220,7 @@ public extension CATransform3D {
     ///   - sx: x-axis scale
     ///   - sy: y-axis scale
     ///   - sz: z-axis scale
+    @inlinable
     mutating func scaleBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) { // swiftlint:disable:this identifier_name
         self = CATransform3DScale(self, sx, sy, sz)
     }
@@ -218,6 +233,7 @@ public extension CATransform3D {
     ///   - x: x position of the vector
     ///   - y: y position of the vector
     ///   - z: z position of the vector
+    @inlinable
     mutating func rotate(by angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) { // swiftlint:disable:this identifier_name
         self = CATransform3DRotate(self, angle, x, y, z)
     }
@@ -225,12 +241,14 @@ public extension CATransform3D {
     /// SwifterSwift: Invert the receiver.
     ///
     /// Returns the original matrix if the receiver has no inverse.
+    @inlinable
     mutating func invert() {
         self = CATransform3DInvert(self)
     }
 
     /// SwifterSwift: Concatenate `transform` to the receiver.
     /// - Parameter t2: The transform to concatenate on to the receiver
+    @inlinable
     mutating func concatenate(_ t2: CATransform3D) { // swiftlint:disable:this identifier_name
         self = CATransform3DConcat(self, t2)
     }
@@ -245,11 +263,13 @@ import CoreGraphics
 public extension CATransform3D {
 
     /// SwifterSwift: Returns true if the receiver can be represented exactly by an affine transform.
+    @inlinable
     var isAffine: Bool { CATransform3DIsAffine(self) }
 
     /// SwifterSwift: Returns the affine transform represented by the receiver.
     ///
     /// If the receiver can not be represented exactly by an affine transform the returned value is undefined.
+    @inlinable
     func affineTransform() -> CGAffineTransform {
         CATransform3DGetAffineTransform(self)
     }
