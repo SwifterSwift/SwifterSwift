@@ -105,7 +105,7 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertEqual(scaledImage!.size.width, 300, accuracy: 0.1)
     }
 
-    @available(iOS 10.0, tvOS 10.0, watchOS 3.0, *)
+    @available(tvOS 10.0, watchOS 3.0, *)
     func testRotatedByMeasurement() {
         let bundle = Bundle.init(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
