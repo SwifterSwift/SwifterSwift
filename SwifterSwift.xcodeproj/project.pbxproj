@@ -457,21 +457,21 @@
 		9D806A662258D75A008E500A /* SCNBoxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A642258D75A008E500A /* SCNBoxExtensions.swift */; };
 		9D806A672258D75A008E500A /* SCNBoxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A642258D75A008E500A /* SCNBoxExtensions.swift */; };
 		9D806A682258D75A008E500A /* SCNBoxExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A642258D75A008E500A /* SCNBoxExtensions.swift */; };
-		9D806A6A2258DC3E008E500A /* SCNShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A692258DC3E008E500A /* SCNShape.swift */; };
-		9D806A6B2258DC3E008E500A /* SCNShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A692258DC3E008E500A /* SCNShape.swift */; };
-		9D806A6C2258DC3E008E500A /* SCNShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A692258DC3E008E500A /* SCNShape.swift */; };
+		9D806A6A2258DC3E008E500A /* SCNShapeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A692258DC3E008E500A /* SCNShapeExtensions.swift */; };
+		9D806A6B2258DC3E008E500A /* SCNShapeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A692258DC3E008E500A /* SCNShapeExtensions.swift */; };
+		9D806A6C2258DC3E008E500A /* SCNShapeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A692258DC3E008E500A /* SCNShapeExtensions.swift */; };
 		9D806A6F2258DE23008E500A /* SCNCylinderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A6E2258DE23008E500A /* SCNCylinderExtensions.swift */; };
 		9D806A702258DE23008E500A /* SCNCylinderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A6E2258DE23008E500A /* SCNCylinderExtensions.swift */; };
 		9D806A712258DE23008E500A /* SCNCylinderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A6E2258DE23008E500A /* SCNCylinderExtensions.swift */; };
 		9D806A722258DE23008E500A /* SCNCylinderExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A6E2258DE23008E500A /* SCNCylinderExtensions.swift */; };
-		9D806A742258E0D8008E500A /* SCNCone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A732258E0D8008E500A /* SCNCone.swift */; };
-		9D806A752258E0D8008E500A /* SCNCone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A732258E0D8008E500A /* SCNCone.swift */; };
-		9D806A762258E0D8008E500A /* SCNCone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A732258E0D8008E500A /* SCNCone.swift */; };
-		9D806A772258E0D8008E500A /* SCNCone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A732258E0D8008E500A /* SCNCone.swift */; };
-		9D806A792258E6A0008E500A /* SCNCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A782258E6A0008E500A /* SCNCapsule.swift */; };
-		9D806A7A2258E6A0008E500A /* SCNCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A782258E6A0008E500A /* SCNCapsule.swift */; };
-		9D806A7B2258E6A0008E500A /* SCNCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A782258E6A0008E500A /* SCNCapsule.swift */; };
-		9D806A7C2258E6A0008E500A /* SCNCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A782258E6A0008E500A /* SCNCapsule.swift */; };
+		9D806A742258E0D8008E500A /* SCNConeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A732258E0D8008E500A /* SCNConeExtensions.swift */; };
+		9D806A752258E0D8008E500A /* SCNConeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A732258E0D8008E500A /* SCNConeExtensions.swift */; };
+		9D806A762258E0D8008E500A /* SCNConeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A732258E0D8008E500A /* SCNConeExtensions.swift */; };
+		9D806A772258E0D8008E500A /* SCNConeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A732258E0D8008E500A /* SCNConeExtensions.swift */; };
+		9D806A792258E6A0008E500A /* SCNCapsuleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A782258E6A0008E500A /* SCNCapsuleExtensions.swift */; };
+		9D806A7A2258E6A0008E500A /* SCNCapsuleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A782258E6A0008E500A /* SCNCapsuleExtensions.swift */; };
+		9D806A7B2258E6A0008E500A /* SCNCapsuleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A782258E6A0008E500A /* SCNCapsuleExtensions.swift */; };
+		9D806A7C2258E6A0008E500A /* SCNCapsuleExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A782258E6A0008E500A /* SCNCapsuleExtensions.swift */; };
 		9D806A7E2258F41B008E500A /* SCNMaterialExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A7D2258F41B008E500A /* SCNMaterialExtensionsTests.swift */; };
 		9D806A7F2258F41B008E500A /* SCNMaterialExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A7D2258F41B008E500A /* SCNMaterialExtensionsTests.swift */; };
 		9D806A802258F41B008E500A /* SCNMaterialExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D806A7D2258F41B008E500A /* SCNMaterialExtensionsTests.swift */; };
@@ -806,10 +806,10 @@
 		9D806A5A2258D2B8008E500A /* SCNMaterialExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNMaterialExtensions.swift; sourceTree = "<group>"; };
 		9D806A5F2258D503008E500A /* SCNPlaneExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNPlaneExtensions.swift; sourceTree = "<group>"; };
 		9D806A642258D75A008E500A /* SCNBoxExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNBoxExtensions.swift; sourceTree = "<group>"; };
-		9D806A692258DC3E008E500A /* SCNShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNShape.swift; sourceTree = "<group>"; };
+		9D806A692258DC3E008E500A /* SCNShapeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNShapeExtensions.swift; sourceTree = "<group>"; };
 		9D806A6E2258DE23008E500A /* SCNCylinderExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNCylinderExtensions.swift; sourceTree = "<group>"; };
-		9D806A732258E0D8008E500A /* SCNCone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNCone.swift; sourceTree = "<group>"; };
-		9D806A782258E6A0008E500A /* SCNCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNCapsule.swift; sourceTree = "<group>"; };
+		9D806A732258E0D8008E500A /* SCNConeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNConeExtensions.swift; sourceTree = "<group>"; };
+		9D806A782258E6A0008E500A /* SCNCapsuleExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNCapsuleExtensions.swift; sourceTree = "<group>"; };
 		9D806A7D2258F41B008E500A /* SCNMaterialExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNMaterialExtensionsTests.swift; sourceTree = "<group>"; };
 		9D806A812258F56F008E500A /* SCNBoxExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNBoxExtensionsTests.swift; sourceTree = "<group>"; };
 		9D806A852258F624008E500A /* SCNGeometryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNGeometryExtensions.swift; sourceTree = "<group>"; };
@@ -1328,13 +1328,13 @@
 			isa = PBXGroup;
 			children = (
 				9D806A642258D75A008E500A /* SCNBoxExtensions.swift */,
-				9D806A782258E6A0008E500A /* SCNCapsule.swift */,
-				9D806A732258E0D8008E500A /* SCNCone.swift */,
+				9D806A782258E6A0008E500A /* SCNCapsuleExtensions.swift */,
+				9D806A732258E0D8008E500A /* SCNConeExtensions.swift */,
 				9D806A6E2258DE23008E500A /* SCNCylinderExtensions.swift */,
 				9D806A852258F624008E500A /* SCNGeometryExtensions.swift */,
 				9D806A5A2258D2B8008E500A /* SCNMaterialExtensions.swift */,
 				9D806A5F2258D503008E500A /* SCNPlaneExtensions.swift */,
-				9D806A692258DC3E008E500A /* SCNShape.swift */,
+				9D806A692258DC3E008E500A /* SCNShapeExtensions.swift */,
 				9D806A4A2258CFA6008E500A /* SCNSphereExtensions.swift */,
 				9D806A402258B931008E500A /* SCNVector3Extensions.swift */,
 			);
@@ -1876,7 +1876,7 @@
 				C7E027C42360942000F1061E /* KeyedDecodingContainerExtensions.swift in Sources */,
 				07B7F2111F5EB43C00E6F910 /* DictionaryExtensions.swift in Sources */,
 				076AEC891FDB48580077D153 /* UIDatePickerExtensions.swift in Sources */,
-				9D806A6A2258DC3E008E500A /* SCNShape.swift in Sources */,
+				9D806A6A2258DC3E008E500A /* SCNShapeExtensions.swift in Sources */,
 				F854D2A52423AE92003A08A9 /* CGAffineTransformExtensions.swift in Sources */,
 				07B7F2301F5EB45100E6F910 /* CGPointExtensions.swift in Sources */,
 				664CB96D2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */,
@@ -1908,7 +1908,7 @@
 				B29527AD20F99E9700E1F75D /* RandomAccessCollectionExtensions.swift in Sources */,
 				07B7F1971F5EB42000E6F910 /* UIImageExtensions.swift in Sources */,
 				734307F82108C2240029CD16 /* CGVectorExtensions.swift in Sources */,
-				9D806A742258E0D8008E500A /* SCNCone.swift in Sources */,
+				9D806A742258E0D8008E500A /* SCNConeExtensions.swift in Sources */,
 				B22EB2B720E9E720001EAE70 /* RangeReplaceableCollectionExtensions.swift in Sources */,
 				077BA08A1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				9D4914831F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
@@ -1917,7 +1917,7 @@
 				E5E5EB3A2350EED400B04C42 /* CAGradientLayerExtensions.swift in Sources */,
 				07B7F2121F5EB43C00E6F910 /* DoubleExtensions.swift in Sources */,
 				07B7F2171F5EB43C00E6F910 /* OptionalExtensions.swift in Sources */,
-				9D806A792258E6A0008E500A /* SCNCapsule.swift in Sources */,
+				9D806A792258E6A0008E500A /* SCNCapsuleExtensions.swift in Sources */,
 				074EAF1B1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */,
 				8D4B424C212972AE002A5923 /* UILayoutPriorityExtensions.swift in Sources */,
 				CA1317542106D35E002F1B0D /* UIRefreshControlExtensions.swift in Sources */,
@@ -1967,7 +1967,7 @@
 				9DC844A82349E28100E1571A /* UIColorExtensions.swift in Sources */,
 				07B7F2351F5EB45200E6F910 /* CGFloatExtensions.swift in Sources */,
 				07B7F1AE1F5EB42000E6F910 /* UIImageViewExtensions.swift in Sources */,
-				9D806A6B2258DC3E008E500A /* SCNShape.swift in Sources */,
+				9D806A6B2258DC3E008E500A /* SCNShapeExtensions.swift in Sources */,
 				07B7F2381F5EB45200E6F910 /* CLLocationExtensions.swift in Sources */,
 				07B7F1FC1F5EB43C00E6F910 /* CollectionExtensions.swift in Sources */,
 				74932D1623B8CEB800A56D81 /* SKProductExtensions.swift in Sources */,
@@ -1985,7 +1985,7 @@
 				7832C2B0209BB19300224EED /* ComparableExtensions.swift in Sources */,
 				077BA0901F6BE83600D9C4AC /* UserDefaultsExtensions.swift in Sources */,
 				07B7F1B71F5EB42000E6F910 /* UISwitchExtensions.swift in Sources */,
-				9D806A752258E0D8008E500A /* SCNCone.swift in Sources */,
+				9D806A752258E0D8008E500A /* SCNConeExtensions.swift in Sources */,
 				07B7F1BA1F5EB42000E6F910 /* UITextFieldExtensions.swift in Sources */,
 				07B7F1F91F5EB43C00E6F910 /* ArrayExtensions.swift in Sources */,
 				07B7F1B61F5EB42000E6F910 /* UIStoryboardExtensions.swift in Sources */,
@@ -2018,7 +2018,7 @@
 				9D4914841F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
 				F87AA5D624125808005F5B28 /* NotificationCenterExtensions.swift in Sources */,
 				07B7F2011F5EB43C00E6F910 /* FloatExtensions.swift in Sources */,
-				9D806A7A2258E6A0008E500A /* SCNCapsule.swift in Sources */,
+				9D806A7A2258E6A0008E500A /* SCNCapsuleExtensions.swift in Sources */,
 				07B7F2001F5EB43C00E6F910 /* DoubleExtensions.swift in Sources */,
 				07B7F2051F5EB43C00E6F910 /* OptionalExtensions.swift in Sources */,
 				074EAF1C1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */,
@@ -2061,7 +2061,7 @@
 				9D806A432258B931008E500A /* SCNVector3Extensions.swift in Sources */,
 				07A1C449224FFE17003272E4 /* UIApplicationExtensions.swift in Sources */,
 				0770035920729B040095F09A /* MKPolylineExtensions.swift in Sources */,
-				9D806A7B2258E6A0008E500A /* SCNCapsule.swift in Sources */,
+				9D806A7B2258E6A0008E500A /* SCNCapsuleExtensions.swift in Sources */,
 				07B7F2291F5EB45100E6F910 /* CGFloatExtensions.swift in Sources */,
 				07B7F1C41F5EB42200E6F910 /* UIImageViewExtensions.swift in Sources */,
 				07B7F22C1F5EB45100E6F910 /* CLLocationExtensions.swift in Sources */,
@@ -2085,7 +2085,7 @@
 				D951E8AC23D04DCA00F2CD0B /* DecodableExtensions.swift in Sources */,
 				9D806A882258F624008E500A /* SCNGeometryExtensions.swift in Sources */,
 				07B7F1CC1F5EB42200E6F910 /* UIStoryboardExtensions.swift in Sources */,
-				9D806A6C2258DC3E008E500A /* SCNShape.swift in Sources */,
+				9D806A6C2258DC3E008E500A /* SCNShapeExtensions.swift in Sources */,
 				07B7F1C61F5EB42200E6F910 /* UINavigationBarExtensions.swift in Sources */,
 				F87AA5D724125808005F5B28 /* NotificationCenterExtensions.swift in Sources */,
 				07B7F1C01F5EB42200E6F910 /* UIButtonExtensions.swift in Sources */,
@@ -2113,7 +2113,7 @@
 				9D806A4F2258CFF8008E500A /* SCNSphereExtensions.swift in Sources */,
 				07A494E623C7CAAA00DFCBFC /* CLVisitExtensions.swift in Sources */,
 				07B7F1EE1F5EB43B00E6F910 /* DoubleExtensions.swift in Sources */,
-				9D806A762258E0D8008E500A /* SCNCone.swift in Sources */,
+				9D806A762258E0D8008E500A /* SCNConeExtensions.swift in Sources */,
 				07B7F1F31F5EB43B00E6F910 /* OptionalExtensions.swift in Sources */,
 				074EAF1D1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */,
 				18C8E5E02074C60C00F8AF51 /* SequenceExtensions.swift in Sources */,
@@ -2164,12 +2164,12 @@
 				D951E8AD23D04DCB00F2CD0B /* DecodableExtensions.swift in Sources */,
 				07B7F2251F5EB44600E6F910 /* NSAttributedStringExtensions.swift in Sources */,
 				077BA08D1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
-				9D806A772258E0D8008E500A /* SCNCone.swift in Sources */,
+				9D806A772258E0D8008E500A /* SCNConeExtensions.swift in Sources */,
 				18C8E5E12074C60C00F8AF51 /* SequenceExtensions.swift in Sources */,
 				784C75302051BD4A001C48DD /* MKPolylineExtensions.swift in Sources */,
 				7343080A2108E4650029CD16 /* CGVectorExtensions.swift in Sources */,
 				B2A0DAB92336D5A6002B0BC5 /* StdlibDeprecated.swift in Sources */,
-				9D806A7C2258E6A0008E500A /* SCNCapsule.swift in Sources */,
+				9D806A7C2258E6A0008E500A /* SCNCapsuleExtensions.swift in Sources */,
 				07B7F1E31F5EB43B00E6F910 /* SignedNumericExtensions.swift in Sources */,
 				9D806A722258DE23008E500A /* SCNCylinderExtensions.swift in Sources */,
 				07B7F2241F5EB44600E6F910 /* CLLocationExtensions.swift in Sources */,

@@ -14,6 +14,7 @@ import CoreLocation
 
 final class CLLocationArrayExtensionsTests: XCTestCase {
 
+    @available(tvOS 10.0, macOS 10.12, watchOS 3.0, *)
     func testDistance() {
         let locations1 = [CLLocation]()
         let locations2 = [

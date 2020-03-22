@@ -66,8 +66,10 @@ final class UITextViewExtensionsTests: XCTestCase {
         // wrapToContent would change to the fractional value instead of the ceil value.
         textView.bounds = CGRect(origin: .zero, size: textSize)
 
+        #if !targetEnvironment(macCatalyst)
         // after setting wrap, content size will be equal to bounds
         XCTAssertEqual(textView.bounds.size, textView.contentSize)
+        #endif
     }
 
 }
