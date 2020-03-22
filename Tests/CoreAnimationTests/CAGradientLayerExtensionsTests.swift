@@ -14,7 +14,7 @@ import XCTest
 final class CAGradientLayerExtensionsTests: XCTestCase {
 
     func testInitWithGradientAttributes() {
-        let colors: [UIColor] = [.red, .blue, .orange, .yellow]
+        let colors: [Color] = [.red, .blue, .orange, .yellow]
         let locations: [CGFloat]? = [0, 0.3, 0.6, 1]
         let startPoint = CGPoint(x: 0.0, y: 0.5)
         let endPoint = CGPoint(x: 1.0, y: 0.5)

@@ -600,7 +600,7 @@ public extension String {
         guard index >= 0 && index < count else { return nil }
         return self[self.index(startIndex, offsetBy: index)]
     }
-    
+
     /// SwifterSwift: Safely subscript string within a given range.
     ///
     ///        "Hello World!"[safe: 6..<11] -> "World"

@@ -203,7 +203,6 @@ public extension UIView {
         }
     }
 
-    // swiftlint:disable identifier_name
     /// SwifterSwift: x origin of view.
     var x: CGFloat {
         get {
@@ -213,9 +212,7 @@ public extension UIView {
             frame.origin.x = newValue
         }
     }
-    // swiftlint:enable identifier_name
 
-    // swiftlint:disable identifier_name
     /// SwifterSwift: y origin of view.
     var y: CGFloat {
         get {
@@ -225,7 +222,6 @@ public extension UIView {
             frame.origin.y = newValue
         }
     }
-    // swiftlint:enable identifier_name
 
 }
 
