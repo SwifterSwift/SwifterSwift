@@ -11,13 +11,13 @@
 [![codecov](https://codecov.io/gh/SwifterSwift/SwifterSwift/branch/master/graph/badge.svg)](https://codecov.io/gh/SwifterSwift/SwifterSwift)
 [![docs](http://swifterswift.com/docs/badge.svg)](http://swifterswift.com/docs)
 [![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
-[![Xcode](https://img.shields.io/badge/Xcode-11.2-blue.svg)](https://developer.apple.com/xcode)
+[![Xcode](https://img.shields.io/badge/Xcode-11.4-blue.svg)](https://developer.apple.com/xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Slack Channel](https://slackin-ppvrggbpgn.now.sh/badge.svg)](https://slackin-ppvrggbpgn.now.sh/)
 
 SwifterSwift is a collection of **over 500 native Swift extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS, watchOS and Linux.
 
-### [Whats New in v5.1?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v510)
+### [Whats New in v5.2?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v520)
 
 ## Requirements
 
@@ -80,7 +80,7 @@ SwifterSwift is Swift v5.0+ compatible starting from v5
 </br>
 <p>To integrate SwifterSwift into your Xcode project using <a href="https://github.com/Carthage/Carthage">Carthage</a>, specify it in your <code>Cartfile</code>:</p>
 
-<pre><code class="ogdl language-ogdl">github "SwifterSwift/SwifterSwift" ~&gt; 5.0
+<pre><code class="ogdl language-ogdl">github "SwifterSwift/SwifterSwift" ~&gt; 5.2
 </code></pre>
 </details>
 
@@ -95,7 +95,7 @@ let package = Package(
     name: "YOUR_PROJECT_NAME",
     targets: [],
     dependencies: [
-        .package(url: "https://github.com/SwifterSwift/SwifterSwift.git", from: "5.1.0")
+        .package(url: "https://github.com/SwifterSwift/SwifterSwift.git", from: "5.2.0")
     ]
 )
 </code></pre>

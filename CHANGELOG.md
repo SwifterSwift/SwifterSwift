@@ -5,6 +5,23 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+---
+
+## [v5.2.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/5.2.0)
+
+### Added
+
 - **CATransform3D**:
   - `identity`, `isIdentity`, `init(translationX:y:z:)`, `init(scaleX:y:z:)`, `init(rotationAngle:x:y:z:)`, `translatedBy(x:y:z:)`, `scaledBy(x:y:z:)`, `rotated(by:x:y:z:)`, `inverted()`, `concatenating(_:)`, `translateBy(x:y:z:)`, `scaleBy(x:y:z:)`, `rotate(by:x:y:z:)`, `invert()`, `concatenate(_:)`, `isAffine` and `affineTransform()`. Also conforms to `Codable` and `Equatable`. [#819](https://github.com/SwifterSwift/SwifterSwift/pull/819) by [guykogus](https://github.com/guykogus)
 - **CGAffineTransform**:
@@ -24,7 +41,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Array**:
   - Added `sorted(like:keyPath:)` to sort an array like another array based on a key path. [#772](https://github.com/SwifterSwift/SwifterSwift/pull/772) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **MKMapView**:
-    -  Added `zoom(to:meter:edgePadding:animated:)` method to zoom multiple `MKMapView` coordinates. [#723](https://github.com/SwifterSwift/SwifterSwift/pull/723) by [Mustafa GUNES](https://github.com/mustafagunes).
+  - Added `zoom(to:meter:edgePadding:animated:)` method to zoom multiple `MKMapView` coordinates. [#723](https://github.com/SwifterSwift/SwifterSwift/pull/723) by [Mustafa GUNES](https://github.com/mustafagunes).
 - **Dictionary**:
   - Added `init(grouping:by:)` to initialize a dictionary by grouping sequence from a hashable `KeyPath`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
 - **RangeReplaceableCollection**:
@@ -71,6 +88,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `resizing(to:anchor:)` to create `CGRect` by resizing with anchor. [#814](https://github.com/SwifterSwift/SwifterSwift/pull/814) by [qchenqizhi](https://github.com/qchenqizhi).
 
 ### Changed
+
 - **Collection**:
   - Refactored `group(by:)` to be generic for all `Collection`s, not only `where Index == Int`. [#758](https://github.com/SwifterSwift/SwifterSwift/pull/758) by [guykogus](https://github.com/guykogus)
 - **UIImage**:
@@ -88,16 +106,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **String**:
   - Bug fix `String[safe:]`, subscript should not crash. [#816](https://github.com/SwifterSwift/SwifterSwift/pull/816) by [cHaLkdusT](https://github.com/cHaLkdusT)
 
-### Deprecated
-
-### Removed
-
 ### Fixed
+
 - Fixed build error occurring when building AppKit extensions for macCatalyst. [#762](https://github.com/SwifterSwift/SwifterSwift/pull/762) by [MaxHaertwig](https://github.com/maxhaertwig).
 - Fixed `String.base64Decoded` making it a safe decode by including padding on the string. [#801](https://github.com/SwifterSwift/SwifterSwift/pull/801) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - Fixed `UIImage.cropped(to:)` making it work correctly with scaled image. [#811](https://github.com/SwifterSwift/SwifterSwift/pull/811) by [qchenqizhi](https://github.com/qchenqizhi).
-
-### Security
 
 ---
 
