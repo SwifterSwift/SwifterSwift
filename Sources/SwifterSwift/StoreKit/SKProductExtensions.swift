@@ -9,6 +9,7 @@
 #if canImport(StoreKit)
 import StoreKit
 
+@available(watchOS 6.2, *)
 public extension SKProduct {
 
     private static let priceFormatter: NumberFormatter = {
