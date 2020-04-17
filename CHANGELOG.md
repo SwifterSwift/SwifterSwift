@@ -6,7 +6,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **RangeReplaceableCollection**:
-  - `subscript(offset:)` and `subscript(range:)` to access and replace elements by the index offsets. [#824](https://github.com/SwifterSwift/SwifterSwift/pull/824) by [guykogus](https://github.com/guykogus)
+  - `subscript(offset:)` and `subscript(range:)` to access and replace elements by the index offsets. [#826](https://github.com/SwifterSwift/SwifterSwift/pull/826) by [guykogus](https://github.com/guykogus)
 
 ### Changed
 
