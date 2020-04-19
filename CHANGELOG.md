@@ -86,6 +86,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added property `center`. [#814](https://github.com/SwifterSwift/SwifterSwift/pull/814) by [qchenqizhi](https://github.com/qchenqizhi).
   - Added initializer `init(center:size:)` to create `CGRect` with center and size. [#814](https://github.com/SwifterSwift/SwifterSwift/pull/814) by [qchenqizhi](https://github.com/qchenqizhi).
   - Added `resizing(to:anchor:)` to create `CGRect` by resizing with anchor. [#814](https://github.com/SwifterSwift/SwifterSwift/pull/814) by [qchenqizhi](https://github.com/qchenqizhi).
+- **Data**
+  - Added `toHexString` function to convert data to a String containing hex values. [#335](https://github.com/SwifterSwift/SwifterSwift/pull/827) by [@dannys42](https://github.com/dannys42).
+
 
 ### Changed
 
