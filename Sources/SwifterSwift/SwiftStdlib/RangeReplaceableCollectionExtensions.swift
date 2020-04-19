@@ -151,4 +151,32 @@ public extension RangeReplaceableCollection {
         var set = Set<E>()
         removeAll { !set.insert($0[keyPath: path]).inserted }
     }
+
+    /// SwifterSwift: Accesses the element at the specified position.
+    ///
+    /// - Parameter offset: The offset position of the element to access. `offset` must be a valid index offset of the collection that is not equal to the `endIndex` property.
+    subscript(offset: Int) -> Element {
+        get {
+            return self[index(startIndex, offsetBy: offset)]
+        }
+        set {
+            let offsetIndex = index(startIndex, offsetBy: offset)
+            replaceSubrange(offsetIndex..<index(after: offsetIndex), with: [newValue])
+        }
+    }
+
+    /// SwifterSwift: Accesses a contiguous subrange of the collection’s elements.
+    ///
+    /// - Parameter range: A range of the collection’s indices offsets. The bounds of the range must be valid indices of the collection.
+    subscript<R>(range: R) -> SubSequence where R: RangeExpression, R.Bound == Int {
+        get {
+            let indexRange = range.relative(to: 0..<count)
+            return self[index(startIndex, offsetBy: indexRange.lowerBound)..<index(startIndex, offsetBy: indexRange.upperBound)]
+        }
+        set {
+            let indexRange = range.relative(to: 0..<count)
+            replaceSubrange(index(startIndex, offsetBy: indexRange.lowerBound)..<index(startIndex, offsetBy: indexRange.upperBound), with: newValue)
+        }
+    }
+
 }

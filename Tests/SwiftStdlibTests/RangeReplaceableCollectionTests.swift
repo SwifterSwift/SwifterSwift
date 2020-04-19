@@ -137,4 +137,47 @@ final class RangeReplaceableCollectionTests: XCTestCase {
         input.removeDuplicates(keyPath: \.location)
         XCTAssertEqual(input, expectedResult)
     }
+
+    func testIntSubscripts() {
+        var string = "Hello world!"
+        XCTAssertEqual(string[0], "H")
+        XCTAssertEqual(string[11], "!")
+
+        XCTAssertEqual(string[0..<5], "Hello")
+        XCTAssertEqual(string[6..<12], "world!")
+
+        XCTAssertEqual(string[0...4], "Hello")
+        XCTAssertEqual(string[6...11], "world!")
+
+        XCTAssertEqual(string[0...], "Hello world!")
+
+        XCTAssertEqual(string[...11], "Hello world!")
+
+        XCTAssertEqual(string[..<12], "Hello world!")
+
+        string[0] = "h"
+        XCTAssertEqual(string, "hello world!")
+        string[11] = "?"
+        XCTAssertEqual(string, "hello world?")
+
+        string[0..<5] = "Goodbye"
+        XCTAssertEqual(string, "Goodbye world?")
+        string[8..<14] = "planet!"
+        XCTAssertEqual(string, "Goodbye planet!")
+
+        string[0...6] = "Hello"
+        XCTAssertEqual(string, "Hello planet!")
+        string[6...12] = "world?"
+        XCTAssertEqual(string, "Hello world?")
+
+        string[5...] = "!"
+        XCTAssertEqual(string, "Hello!")
+
+        string[..<6] = "Hello Ferris"
+        XCTAssertEqual(string, "Hello Ferris")
+
+        string[...4] = "Save"
+        XCTAssertEqual(string, "Save Ferris")
+    }
+
 }
