@@ -6,6 +6,13 @@ import SwifterSwift
 
 //: ## Foundation extensions
 
+//: ### Data extensions
+
+// Convert data to a hexdump
+let data = Data([0xde, 0xad, 0xbe, 0xef])
+var hexDump = data.toHexString()
+
+
 //: ### Date extensions
 
 // Check if date is in today
