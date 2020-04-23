@@ -40,16 +40,12 @@ public extension UIStackView {
     ///
     /// - Parameter views: views array.
     func addArrangedSubviews(_ views: [UIView]) {
-        for view in views {
-            addArrangedSubview(view)
-        }
+        views.forEach { addArrangedSubview($0) }
     }
 
     /// SwifterSwift: Removes all views in stack’s array of arranged subviews.
     func removeArrangedSubviews() {
-        for view in arrangedSubviews {
-            removeArrangedSubview(view)
-        }
+        arrangedSubviews.forEach { removeArrangedSubview($0) }
     }
 
 }
