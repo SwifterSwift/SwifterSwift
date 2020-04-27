@@ -70,6 +70,23 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
 
     // MARK: - Methods
+    func testApplying() {
+        #if canImport(AppKit) || canImport(UIKit)
+        let string = NSAttributedString(string: "Applying")
+        let out = string.applying(attributes: [
+            .strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int),
+            .foregroundColor: UIColor.red
+        ])
+        let attributes = out.attributes(at: 0, effectiveRange: nil)
+        let filteredAttributes = attributes.filter { (key, value) -> Bool in
+            return (key == NSAttributedString.Key.foregroundColor && (value as? Color) == .red) ||
+                (key == NSAttributedString.Key.strikethroughStyle && (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.single.rawValue)
+        }
+
+        XCTAssertEqual(filteredAttributes.count, 2)
+        #endif
+    }
+
     func testColored() {
         #if canImport(AppKit) || canImport(UIKit)
         let string = NSAttributedString(string: "Colored")
