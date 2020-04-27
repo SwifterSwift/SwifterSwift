@@ -75,7 +75,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let string = NSAttributedString(string: "Applying")
         let out = string.applying(attributes: [
             .strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int),
-            .foregroundColor: UIColor.red
+            .foregroundColor: Color.red
         ])
         let attributes = out.attributes(at: 0, effectiveRange: nil)
         let filteredAttributes = attributes.filter { (key, value) -> Bool in
