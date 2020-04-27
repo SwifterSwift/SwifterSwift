@@ -9,6 +9,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `subscript(offset:)` and `subscript(range:)` to access and replace elements by the index offsets. [#826](https://github.com/SwifterSwift/SwifterSwift/pull/826) by [guykogus](https://github.com/guykogus)
 
 ### Changed
+- **NSAttributedStringExtensions.swift**:
+  - `applying(attributes:)` changed access modifier from `fileprivate` to `public`. [#832](https://github.com/SwifterSwift/SwifterSwift/pull/832) by [cHaLkdusT](https://github.com/cHaLkdusT)
 
 ### Deprecated
 
