@@ -84,7 +84,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         ])
         attributes = out.attributes(at: 0, effectiveRange: nil)
         XCTAssertEqual(attributes.count, 2)
-        XCTAssertEqual(attributes[.strikethroughStyle] as! NSNumber, NSNumber(value: NSUnderlineStyle.single.rawValue)) // swiftlint:disable:next force_cast
+        XCTAssertEqual(attributes[.strikethroughStyle] as! NSNumber, NSNumber(value: NSUnderlineStyle.single.rawValue)) // swiftlint:disable:this force_cast
         XCTAssertEqual(attributes[.foregroundColor] as! Color, .red) // swiftlint:disable:next force_cast
         #endif
     }
