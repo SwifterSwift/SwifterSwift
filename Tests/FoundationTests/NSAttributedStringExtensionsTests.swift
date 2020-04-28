@@ -78,7 +78,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertTrue(attributes.isEmpty)
 
         out = string.applying(attributes: [
-            .strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int),
+            .strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue),
             .foregroundColor: Color.red
         ])
         attributes = out.attributes(at: 0, effectiveRange: nil)
