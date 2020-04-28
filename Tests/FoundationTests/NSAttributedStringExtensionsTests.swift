@@ -12,6 +12,7 @@ import XCTest
 #if canImport(Foundation)
 import Foundation
 
+// swiftlint:disable:next type_body_length
 final class NSAttributedStringExtensionsTests: XCTestCase {
 
     func testBolded() {
@@ -83,8 +84,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         ])
         attributes = out.attributes(at: 0, effectiveRange: nil)
         XCTAssertEqual(attributes.count, 2)
-        XCTAssertEqual(attributes[.strikethroughStyle] as! NSNumber, NSNumber(value: NSUnderlineStyle.single.rawValue))
-        XCTAssertEqual(attributes[.foregroundColor] as! Color, .red)
+        XCTAssertEqual(attributes[.strikethroughStyle] as! NSNumber, NSNumber(value: NSUnderlineStyle.single.rawValue)) // swiftlint:disable:next force_cast
+        XCTAssertEqual(attributes[.foregroundColor] as! Color, .red) // swiftlint:disable:next force_cast
         #endif
     }
 
