@@ -82,12 +82,9 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             .foregroundColor: Color.red
         ])
         attributes = out.attributes(at: 0, effectiveRange: nil)
-        let filteredAttributes = attributes.filter { (key, value) -> Bool in
-            return (key == NSAttributedString.Key.foregroundColor && (value as? Color) == .red) ||
-                (key == NSAttributedString.Key.strikethroughStyle && (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.single.rawValue)
-        }
-
-        XCTAssertEqual(filteredAttributes.count, 2)
+        XCTAssertEqual(attributes.count, 2)
+        XCTAssertEqual(attributes[.strikethroughStyle] as! NSNumber, NSNumber(value: NSUnderlineStyle.single.rawValue as Int))
+        XCTAssertEqual(attributes[.foregroundColor] as! Color, .red)
         #endif
     }
 
