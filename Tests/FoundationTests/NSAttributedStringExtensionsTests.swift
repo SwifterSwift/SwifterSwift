@@ -73,11 +73,15 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     func testApplying() {
         #if canImport(AppKit) || canImport(UIKit)
         let string = NSAttributedString(string: "Applying")
-        let out = string.applying(attributes: [
+        var out = string.applying(attributes: [:])
+        var attributes = out.attributes(at: 0, effectiveRange: nil)
+        XCTAssertTrue(attributes.isEmpty)
+
+        out = string.applying(attributes: [
             .strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int),
             .foregroundColor: Color.red
         ])
-        let attributes = out.attributes(at: 0, effectiveRange: nil)
+        attributes = out.attributes(at: 0, effectiveRange: nil)
         let filteredAttributes = attributes.filter { (key, value) -> Bool in
             return (key == NSAttributedString.Key.foregroundColor && (value as? Color) == .red) ||
                 (key == NSAttributedString.Key.strikethroughStyle && (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.single.rawValue)
