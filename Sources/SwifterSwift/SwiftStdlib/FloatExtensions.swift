@@ -28,7 +28,19 @@ public extension Float {
     var double: Double {
         return Double(self)
     }
-
+    ///The float type takes 4 bytes and returns the corresponding 4 bytes
+    var bitPatterns: [UInt8] {
+        return [3, 2, 1, 0].map { UInt8((bitPattern >> (8 * $0)) & 0xff)}
+    }
+    ///Four bytes to float data
+    init(bitPatterns: [UInt8]) {
+        if bitPatterns.count != 4 {
+            self =  0.0
+        } else {
+            let sum = [0, 1, 2, 3].map { (UInt32(bitPatterns[$0]) << (24-$0*8))}.reduce(into: 0, +=)
+            self = .init(bitPattern: sum)
+        }
+    }
     #if canImport(CoreGraphics)
     /// SwifterSwift: CGFloat.
     var cgFloat: CGFloat {
