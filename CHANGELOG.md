@@ -7,6 +7,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **RangeReplaceableCollection**:
   - `subscript(offset:)` and `subscript(range:)` to access and replace elements by the index offsets. [#826](https://github.com/SwifterSwift/SwifterSwift/pull/826) by [guykogus](https://github.com/guykogus)
+- **SKNode**:
+  - `center`, `topLeft`, `topRight`, `bottomLeft`, `bottomRight` to get anchor position or set position using anchor. [#835](https://github.com/SwifterSwift/SwifterSwift/pull/835) by [rypyak](https://github.com/rypyak)
+
 
 ### Changed
 - **NSAttributedStringExtensions.swift**:
