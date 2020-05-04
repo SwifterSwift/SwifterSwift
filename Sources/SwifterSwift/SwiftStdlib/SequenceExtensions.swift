@@ -272,6 +272,16 @@ public extension Sequence {
     func filter(by keyPath: KeyPath<Element, Bool>) -> [Element] {
         return filter { $0[keyPath: keyPath] }
     }
+
+    /// SwifterSwift: Returns the first element of the sequence with having property by given key path equals to given `value`.
+    ///
+    /// - Parameters:
+    ///   - keyPath: The `KeyPath` of property for `Element` to compare.
+    ///   - value: The value to compare with `Element` property
+    /// - Returns: The first element of the collection that has property by given key path equals to given `value` or `nil` if there is no such element.
+    func first<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Element? {
+        return first { $0[keyPath: keyPath] == value }
+    }
 }
 
 public extension Sequence where Element: Equatable {

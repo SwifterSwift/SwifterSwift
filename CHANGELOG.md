@@ -7,6 +7,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **RangeReplaceableCollection**:
   - `subscript(offset:)` and `subscript(range:)` to access and replace elements by the index offsets. [#826](https://github.com/SwifterSwift/SwifterSwift/pull/826) by [guykogus](https://github.com/guykogus)
+- **Sequence**:
+  - Added `first(where:equals:)` to find the first element of the sequence with having property by given key path equals to given value. [#836](https://github.com/SwifterSwift/SwifterSwift/pull/836) by [hamtiko](https://github.com/hamtiko)
 
 ### Changed
 - **NSAttributedStringExtensions.swift**:
