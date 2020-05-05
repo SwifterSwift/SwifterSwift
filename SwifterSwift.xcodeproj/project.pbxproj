@@ -398,9 +398,9 @@
 		74932D1523B8CEB700A56D81 /* SKProductExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748B191923B4F4C20030FABB /* SKProductExtensions.swift */; };
 		74932D1623B8CEB800A56D81 /* SKProductExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 748B191923B4F4C20030FABB /* SKProductExtensions.swift */; };
 		752AC7A020BC975E00659E76 /* SKNodeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC79F20BC975E00659E76 /* SKNodeExtensions.swift */; };
-		752AC7A520BC9FF500659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */; };
-		752AC7A620BCA04100659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */; };
-		752AC7A720BCA04200659E76 /* SpriteKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */; };
+		752AC7A520BC9FF500659E76 /* SKNodeExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SKNodeExtensionTests.swift */; };
+		752AC7A620BCA04100659E76 /* SKNodeExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SKNodeExtensionTests.swift */; };
+		752AC7A720BCA04200659E76 /* SKNodeExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752AC7A420BC9FF500659E76 /* SKNodeExtensionTests.swift */; };
 		7832C2AF209BB19300224EED /* ComparableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832C2AE209BB19300224EED /* ComparableExtensions.swift */; };
 		7832C2B0209BB19300224EED /* ComparableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832C2AE209BB19300224EED /* ComparableExtensions.swift */; };
 		7832C2B1209BB19300224EED /* ComparableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7832C2AE209BB19300224EED /* ComparableExtensions.swift */; };
@@ -784,7 +784,7 @@
 		748B191923B4F4C20030FABB /* SKProductExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKProductExtensions.swift; sourceTree = "<group>"; };
 		748B191E23B4F4FA0030FABB /* SKProductTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKProductTests.swift; sourceTree = "<group>"; };
 		752AC79F20BC975E00659E76 /* SKNodeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeExtensions.swift; sourceTree = "<group>"; };
-		752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpriteKitTests.swift; sourceTree = "<group>"; };
+		752AC7A420BC9FF500659E76 /* SKNodeExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKNodeExtensionTests.swift; sourceTree = "<group>"; };
 		754D8E6B21851D7F00038A7B /* Examples.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Examples.playground; sourceTree = "<group>"; };
 		7832C2AE209BB19300224EED /* ComparableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableExtensions.swift; sourceTree = "<group>"; };
 		7832C2B3209BB32500224EED /* ComparableExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableExtensionsTests.swift; sourceTree = "<group>"; };
@@ -1293,7 +1293,7 @@
 		752AC7A120BC977700659E76 /* SpriteKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				752AC7A420BC9FF500659E76 /* SpriteKitTests.swift */,
+				752AC7A420BC9FF500659E76 /* SKNodeExtensionTests.swift */,
 			);
 			path = SpriteKitTests;
 			sourceTree = "<group>";
@@ -2272,7 +2272,7 @@
 				CA1317582106D4F5002F1B0D /* UIRefreshControlExntesionsTests.swift in Sources */,
 				07C50D3A1F5EB04700F46E5A /* UISwitchExtensionsTests.swift in Sources */,
 				07C50D341F5EB04700F46E5A /* UINavigationControllerExtensionsTests.swift in Sources */,
-				752AC7A520BC9FF500659E76 /* SpriteKitTests.swift in Sources */,
+				752AC7A520BC9FF500659E76 /* SKNodeExtensionTests.swift in Sources */,
 				F8C1AE74225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */,
 				07C50D5A1F5EB05000F46E5A /* CollectionExtensionsTests.swift in Sources */,
 				076AEC8D1FDB49480077D153 /* UIDatePickerExtensionsTests.swift in Sources */,
@@ -2324,7 +2324,7 @@
 				07C50D711F5EB05100F46E5A /* StringExtensionsTests.swift in Sources */,
 				07C50D6A1F5EB05100F46E5A /* DateExtensionsTests.swift in Sources */,
 				077BA09F1F6BEA4900D9C4AC /* URLRequestExtensionsTests.swift in Sources */,
-				752AC7A620BCA04100659E76 /* SpriteKitTests.swift in Sources */,
+				752AC7A620BCA04100659E76 /* SKNodeExtensionTests.swift in Sources */,
 				07C50D441F5EB04700F46E5A /* UICollectionViewExtensionsTests.swift in Sources */,
 				07C50D521F5EB04700F46E5A /* UITableViewExtensionsTests.swift in Sources */,
 				F854D2C02423EBD0003A08A9 /* CATransform3DExtensionsTests.swift in Sources */,
@@ -2461,7 +2461,7 @@
 				07C50D751F5EB05100F46E5A /* CharacterExtensionsTests.swift in Sources */,
 				07FE50431F891B40000766AA /* ColorExtensionsTests.swift in Sources */,
 				07C50D7D1F5EB05100F46E5A /* LocaleExtensionsTests.swift in Sources */,
-				752AC7A720BCA04200659E76 /* SpriteKitTests.swift in Sources */,
+				752AC7A720BCA04200659E76 /* SKNodeExtensionTests.swift in Sources */,
 				07C50D781F5EB05100F46E5A /* DateExtensionsTests.swift in Sources */,
 				07C50D821F5EB05800F46E5A /* CGPointExtensionsTests.swift in Sources */,
 				7832C2B6209BB32500224EED /* ComparableExtensionsTests.swift in Sources */,
