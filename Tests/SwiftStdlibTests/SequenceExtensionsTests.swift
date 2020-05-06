@@ -207,7 +207,7 @@ final class SequenceExtensionsTests: XCTestCase {
         let array1 = [
             Person(name: "John", age: 30, location: Location(city: "Boston")),
             Person(name: "Jan", age: 22, location: nil),
-            Person(name: "Roman", age: 26, location: Location(city: "Moscow"))
+            Person(name: "Roman", age: 30, location: Location(city: "Moscow"))
         ]
 
         let first30Age = array1.first(where: \.age, equals: 30)
@@ -215,6 +215,22 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(first30Age, array1.first)
 
         let missingPerson = array1.first(where: \.name, equals: "Tom")
+
+        XCTAssertNil(missingPerson)
+    }
+
+    func testLastByKeyPath() {
+        let array1 = [
+            Person(name: "John", age: 30, location: Location(city: "Boston")),
+            Person(name: "Jan", age: 22, location: nil),
+            Person(name: "Roman", age: 30, location: Location(city: "Moscow"))
+        ]
+
+        let last30Age = array1.last(where: \.age, equals: 30)
+
+        XCTAssertEqual(last30Age, array1.last)
+
+        let missingPerson = array1.last(where: \.name, equals: "Tom")
 
         XCTAssertNil(missingPerson)
     }
