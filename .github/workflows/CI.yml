@@ -12,11 +12,9 @@ jobs:
   Darwin:
     name: Darwin
     runs-on: macos-latest
-    strategy:
-      matrix:
-        xcode: ['/Applications/Xcode_11.3.app/Contents/Developer']
     env:
       PROJECT: SwifterSwift.xcodeproj
+      DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -31,7 +29,6 @@ jobs:
         xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
         bash <(curl -s https://codecov.io/bash) -cF ios -J 'SwifterSwift'
       env:
-          DEVELOPER_DIR: ${{ matrix.xcode }}
           SCHEME: SwifterSwift-iOS
           DESTINATION: platform=iOS Simulator,name=iPhone 11
     - name: Test MacOS
@@ -39,7 +36,6 @@ jobs:
         xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-macos.json" xcpretty -f `xcpretty-json-formatter`
         bash <(curl -s https://codecov.io/bash) -cF macos -J 'SwifterSwift'
       env:
-          DEVELOPER_DIR: ${{ matrix.xcode }}
           SCHEME: SwifterSwift-macOS
           DESTINATION: platform=OS X
     - name: Test TVOS
@@ -47,13 +43,11 @@ jobs:
         xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-tvos.json" xcpretty -f `xcpretty-json-formatter`
         bash <(curl -s https://codecov.io/bash) -cF tvos -J 'SwifterSwift'
       env:
-          DEVELOPER_DIR: ${{ matrix.xcode }}
           SCHEME: SwifterSwift-tvOS
           DESTINATION: platform=tvOS Simulator,name=Apple TV 4K (at 1080p)
     - name: Build WatchOS
       run: xcodebuild clean build -project $PROJECT -scheme $SCHEME -destination "$DESTINATION"
       env:
-          DEVELOPER_DIR: ${{ matrix.xcode }}
           SCHEME: SwifterSwift-watchOS
           DESTINATION: name=Apple Watch Series 5 - 40mm
   
@@ -79,7 +73,8 @@ jobs:
     strategy:
       matrix:
         platform: ['ios', 'macos', 'tvos', 'watchos']
-        xcode: ['/Applications/Xcode_11.3.app/Contents/Developer']
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -89,7 +84,7 @@ jobs:
       
   Linux:
     runs-on: [ubuntu-16.04] 
-    container: swift:5.1.4
+    container: swift:5.2.3
     steps:
       - uses: actions/checkout@v1
       - name: Linux
