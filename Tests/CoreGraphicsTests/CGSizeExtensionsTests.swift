@@ -62,12 +62,33 @@ final class CGSizeExtensionsTests: XCTestCase {
         XCTAssertEqual(result.height, 14)
     }
 
+    func testAddScalarRight() {
+        let sizeA = CGSize(width: 5, height: 10)
+        let result = sizeA + (width: 4, height: 4)
+        XCTAssertEqual(result.width, 9)
+        XCTAssertEqual(result.height, 14)
+    }
+
+    func testAddScalarLeft() {
+        let sizeA = CGSize(width: 5, height: 10)
+        let result = (5, 3) + sizeA
+        XCTAssertEqual(result.width, 10)
+        XCTAssertEqual(result.height, 13)
+    }
+
     func testAddEqual() {
         var sizeA = CGSize(width: 5, height: 10)
         let sizeB = CGSize(width: 3, height: 4)
         sizeA += sizeB
         XCTAssertEqual(sizeA.width, 8)
         XCTAssertEqual(sizeA.height, 14)
+    }
+
+    func testAddEqualScalar() {
+        var sizeA = CGSize(width: 5, height: 10)
+        sizeA += (3, 0)
+        XCTAssertEqual(sizeA.width, 8)
+        XCTAssertEqual(sizeA.height, 10)
     }
 
     func testSubtract() {
@@ -78,11 +99,25 @@ final class CGSizeExtensionsTests: XCTestCase {
         XCTAssertEqual(result.height, 6)
     }
 
+    func testSubtractScalar() {
+        let sizeA = CGSize(width: 5, height: 10)
+        let result = sizeA - (2, 3)
+        XCTAssertEqual(result.width, 3)
+        XCTAssertEqual(result.height, 7)
+    }
+
     func testSubtractEqual() {
         var sizeA = CGSize(width: 5, height: 10)
         let sizeB = CGSize(width: 3, height: 4)
         sizeA -= sizeB
         XCTAssertEqual(sizeA.width, 2)
+        XCTAssertEqual(sizeA.height, 6)
+    }
+
+    func testSubtractScalarEqual() {
+        var sizeA = CGSize(width: 5, height: 10)
+        sizeA -= (1, 4)
+        XCTAssertEqual(sizeA.width, 4)
         XCTAssertEqual(sizeA.height, 6)
     }
 
