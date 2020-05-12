@@ -62,9 +62,9 @@ final class CGSizeExtensionsTests: XCTestCase {
         XCTAssertEqual(result.height, 14)
     }
 
-    func testAddTupleRight() {
-        let sizeA = CGSize(width: 5, height: 10)
-        let result = sizeA + (width: 4, height: 4)
+    func testAddTuple() {
+        let size = CGSize(width: 5, height: 10)
+        let result = size + (width: 4, height: 4)
         XCTAssertEqual(result.width, 9)
         XCTAssertEqual(result.height, 14)
     }
@@ -78,10 +78,10 @@ final class CGSizeExtensionsTests: XCTestCase {
     }
 
     func testAddEqualTuple() {
-        var sizeA = CGSize(width: 5, height: 10)
-        sizeA += (3, 0)
-        XCTAssertEqual(sizeA.width, 8)
-        XCTAssertEqual(sizeA.height, 10)
+        var size = CGSize(width: 5, height: 10)
+        size += (3, 0)
+        XCTAssertEqual(size.width, 8)
+        XCTAssertEqual(size.height, 10)
     }
 
     func testSubtract() {
@@ -93,8 +93,8 @@ final class CGSizeExtensionsTests: XCTestCase {
     }
 
     func testSubtractTuple() {
-        let sizeA = CGSize(width: 5, height: 10)
-        let result = sizeA - (2, 3)
+        let size = CGSize(width: 5, height: 10)
+        let result = size - (2, 3)
         XCTAssertEqual(result.width, 3)
         XCTAssertEqual(result.height, 7)
     }
@@ -107,11 +107,11 @@ final class CGSizeExtensionsTests: XCTestCase {
         XCTAssertEqual(sizeA.height, 6)
     }
 
-    func testSubtractTupleEqual() {
-        var sizeA = CGSize(width: 5, height: 10)
-        sizeA -= (1, 4)
-        XCTAssertEqual(sizeA.width, 4)
-        XCTAssertEqual(sizeA.height, 6)
+    func testSubtractEqualTuple() {
+        var size = CGSize(width: 5, height: 10)
+        size -= (1, 4)
+        XCTAssertEqual(size.width, 4)
+        XCTAssertEqual(size.height, 6)
     }
 
     func testMultiplyCGSize() {
