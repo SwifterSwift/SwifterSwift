@@ -96,20 +96,6 @@ public extension CGSize {
         return CGSize(width: lhs.width + tuple.width, height: lhs.height + tuple.height)
     }
 
-    /// SwifterSwift: Add a tuple to CGSize.
-    ///
-    ///     let sizeA = CGSize(width: 5, height: 10)
-    ///     let result = (4, 5) + sizeA
-    ///     // result = CGSize(width: 9, height: 15)
-    ///
-    /// - Parameters:
-    ///   - scalar: tuple value.
-    ///   - rhs: CGSize to add to.
-    /// - Returns: The result comes from the addition of the given tuple and CGSize.
-    static func + (tuple: (width: CGFloat, height: CGFloat), rhs: CGSize) -> CGSize {
-        return CGSize(width: tuple.width + rhs.width, height: tuple.height + rhs.height)
-    }
-
     /// SwifterSwift: Add a CGSize to self.
     ///
     ///     var sizeA = CGSize(width: 5, height: 10)
