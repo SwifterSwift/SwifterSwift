@@ -15,7 +15,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **CGSize**:
   - Added new `+`, `+=`, `-` and `-=` operator extensions for tuple (width: CGFloat, height: CGFloat). [#841](https://github.com/SwifterSwift/SwifterSwift/pull/841) by [hamtiko](https://github.com/hamtiko)
 - **UIImage**
-  - Added `init?(qrCode:correctionLevel:)` to create QR Code image from string.  [#842](https://github.com/SwifterSwift/SwifterSwift/pull/842) by [heart](https://github.com/heart)
+  - Added `init?(qrCode:correctionLevel:)` to create QR Code image from string.  [#843](https://github.com/SwifterSwift/SwifterSwift/pull/843) by [heart](https://github.com/heart)
   - Added `init?(code128Barcode:quietSpace:)` to create Code 128 barcode image from string.  [#843](https://github.com/SwifterSwift/SwifterSwift/pull/843) by [heart](https://github.com/heart)
 
 
