@@ -353,7 +353,11 @@ public extension UIImage {
     ///
     /// - Parameters:
     ///     -   qrCode: a `String`, representing the QR code image.
-    ///     -   correctionLevel: The inputCorrectionLevel parameter controls the amount of additional data encoded in the output image to provide error correction. Higher levels of error correction result in larger output images but allow larger areas of the code to be damaged or obscured without. There are four possible correction modes `L` 7% , `M` 15%, `Q` 25%, `H` 30%  (the percent number is corresponding error resilience levels):
+    ///     -   correctionLevel: The inputCorrectionLevel parameter controls the amount of additional data encoded
+    ///     in the output image to provide error correction.
+    ///     Higher levels of error correction result in larger output images but allow larger areas of the code to be damaged
+    ///     or obscured without. There are four possible correction modes
+    ///     `L` 7% , `M` 15%, `Q` 25%, `H` 30%  (the percent number is corresponding error resilience levels):
     #if !os(watchOS)
     convenience init?(qrCode: String, correctionLevel: String = "M") {
         guard let qrCodeData = qrCode.data(using: .isoLatin1),
