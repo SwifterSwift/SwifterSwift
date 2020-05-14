@@ -167,7 +167,7 @@ final class UIImageExtensionsTests: XCTestCase {
 
     func testURL() {
         let bundle = Bundle.init(for: UIImageExtensionsTests.self)
-        guard let swifterSwiftLogo = bundle.url(forResource: "TestImage", withExtension: "png") else { XCTAssert(false, "Swifter Swift Test Image not available, or url is no longer valid."); return}
+        guard let swifterSwiftLogo = bundle.url(forResource: "TestImage", withExtension: "png") else { XCTAssert(false, "Swifter Swift Test Image not available, or url is no longer valid."); return }
         let image = try? UIImage(url: swifterSwiftLogo)
         XCTAssertNotNil(image)
 
@@ -223,6 +223,17 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertEqual(image.jpegBase64String(compressionQuality: 1), "/9j/4AAQSkZJRgABAQAASABIAAD/4QBYRXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAIdpAAQAAAABAAAAJgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAAQABAwERAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/bAEMBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/dAAQAAf/aAAwDAQACEQMRAD8A/jnr/v4P5XP/2Q==")
     }
 
-}
+    func testQRCode() {
+        let image = UIImage(qrCode: "qr code is awesome")
+        XCTAssertNotNil(image)
+        XCTAssertNotEqual(image?.size ?? CGSize.zero, CGSize.zero)
+    }
 
+    func test2DBarCode() {
+        let image = UIImage(code128Barcode: "code 128 is awesome")
+        XCTAssertNotNil(image)
+        XCTAssertNotEqual(image?.size ?? CGSize.zero, CGSize.zero)
+    }
+
+}
 #endif

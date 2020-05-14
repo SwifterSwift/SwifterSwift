@@ -349,6 +349,42 @@ public extension UIImage {
         self.init(data: data, scale: scale)
     }
 
+    /// SwifterSwift: Create a new QR Code image from a string
+    ///
+    /// - Parameters:
+    ///     -   qrCode: a `String`, representing the QR code image.
+    ///     -   correctionLevel: The inputCorrectionLevel parameter controls the amount of additional data encoded in the output image to provide error correction. Higher levels of error correction result in larger output images but allow larger areas of the code to be damaged or obscured without. There are four possible correction modes `L` 7% , `M` 15%, `Q` 25%, `H` 30%  (the percent number is corresponding error resilience levels):
+    #if !os(watchOS)
+    convenience init?(qrCode: String, correctionLevel: String = "M") {
+        guard let qrCodeData = qrCode.data(using: .isoLatin1),
+            let filter = CIFilter(name: "CIQRCodeGenerator",
+                                  parameters: ["inputMessage": qrCodeData,
+                                               "inputCorrectionLevel": correctionLevel]),
+            let ciImage = filter.outputImage else {
+                return nil
+        }
+        self.init(ciImage: ciImage)
+    }
+    #endif
+
+    /// SwifterSwift: Create a new QR Code image from a string
+    ///
+    /// - Parameters:
+    ///     -   code128Barcode: a `String`, representing the barcode image.
+    ///     -   quietSpace: The number of pixels of added white space on each side of the barcode. Default value: 7.00 Minimum: 0.00 Maximum: 20.00.
+    #if !os(watchOS)
+    convenience init?(code128Barcode: String, quietSpace: Double = 7.0) {
+        guard let code128BarcodeData = code128Barcode.data(using: .ascii),
+            let filter = CIFilter(name: "CICode128BarcodeGenerator",
+                                  parameters: ["inputMessage": code128BarcodeData,
+                                               "inputQuietSpace": quietSpace]),
+            let ciImage = filter.outputImage else {
+                return nil
+        }
+        self.init(ciImage: ciImage)
+    }
+    #endif
+
 }
 
 #endif
