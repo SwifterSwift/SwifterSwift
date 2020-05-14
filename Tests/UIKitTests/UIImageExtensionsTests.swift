@@ -232,7 +232,7 @@ final class UIImageExtensionsTests: XCTestCase {
     func test2DBarCode() {
         let image = UIImage(code128Barcode: "code 128 is awesome")
         XCTAssertNotNil(image)
-        XCTAssertNotEqual(image?.size ?? CGSize.zero, CGSize.zero)
+        XCTAssertNotEqual(image?.size, .zero)
     }
 
 }
