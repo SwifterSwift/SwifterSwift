@@ -355,8 +355,10 @@ public extension UIImage {
     ///     -   qrCode: a `String`, representing the QR code image.
     ///     -   correctionLevel: Controls the amount of additional data encoded to allow larger areas of the code to be damaged.
     ///     There are four possible correction modes `L` 7% , `M` 15%, `Q` 25%, `H` 30%
-    #if !os(watchOS)
     convenience init?(qrCode: String, correctionLevel: String = "M") {
+        #if os(watchOS)
+        return nil
+        #else
         guard let qrCodeData = qrCode.data(using: .isoLatin1),
             let filter = CIFilter(name: "CIQRCodeGenerator",
                                   parameters: ["inputMessage": qrCodeData,
@@ -365,16 +367,18 @@ public extension UIImage {
                 return nil
         }
         self.init(ciImage: ciImage)
+        #endif
     }
-    #endif
 
     /// SwifterSwift: Create a new QR Code image from a string
     ///
     /// - Parameters:
     ///     -   code128Barcode: a `String`, representing the barcode image.
     ///     -   quietSpace: The number of pixels of added white space on each side of the barcode. Default value: 7.00 Minimum: 0.00 Maximum: 20.00
-    #if !os(watchOS)
     convenience init?(code128Barcode: String, quietSpace: Double = 7.0) {
+        #if os(watchOS)
+        return nil
+        #else
         guard let code128BarcodeData = code128Barcode.data(using: .ascii),
             let filter = CIFilter(name: "CICode128BarcodeGenerator",
                                   parameters: ["inputMessage": code128BarcodeData,
@@ -383,8 +387,8 @@ public extension UIImage {
                 return nil
         }
         self.init(ciImage: ciImage)
+        #endif
     }
-    #endif
 
 }
 
