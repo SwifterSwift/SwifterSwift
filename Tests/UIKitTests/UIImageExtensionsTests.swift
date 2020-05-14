@@ -224,15 +224,25 @@ final class UIImageExtensionsTests: XCTestCase {
     }
 
     func testQRCode() {
-        let image = UIImage(qrCode: "qr code is awesome")
+        let image = try? UIImage(qrCode: "qr code is awesome")
+        XCTAssertNotNil(image)
+        XCTAssertNotEqual(image?.size, .zero)
+    }
+    
+    func testQRCodeWithInvalidCorrectionLevelValue() {
+        let image = try? UIImage(qrCode: "qr code is awesome", correctionLevel: "Z")
+        XCTAssertNil(image)
+    }
+
+    func test2DBarCode() {
+        let image = try? UIImage(code128Barcode: "code 128 is awesome")
         XCTAssertNotNil(image)
         XCTAssertNotEqual(image?.size, .zero)
     }
 
-    func test2DBarCode() {
-        let image = UIImage(code128Barcode: "code 128 is awesome")
-        XCTAssertNotNil(image)
-        XCTAssertNotEqual(image?.size, .zero)
+    func test2DBarCodeWithInvalidQuietSpaceValue() {
+        let image = try? UIImage(code128Barcode: "code 128 is awesome", quietSpace: 900)
+        XCTAssertNil(image)
     }
 
 }

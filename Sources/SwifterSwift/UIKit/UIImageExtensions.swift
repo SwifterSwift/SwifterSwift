@@ -349,16 +349,20 @@ public extension UIImage {
         self.init(data: data, scale: scale)
     }
 
+    #if !os(watchOS)
     /// SwifterSwift: Create a new QR Code image from a string
-    ///
+    /// 
     /// - Parameters:
     ///     -   qrCode: a `String`, representing the QR code image.
     ///     -   correctionLevel: Controls the amount of additional data encoded to allow larger areas of the code to be damaged.
-    ///     There are four possible correction modes `L` 7% , `M` 15%, `Q` 25%, `H` 30%
-    convenience init?(qrCode: String, correctionLevel: String = "M") {
-        #if os(watchOS)
-        return nil
-        #else
+    ///  There are four possible correction modes `L` 7% , `M` 15%, `Q` 25%, `H` 30%
+    convenience init?(qrCode: String, correctionLevel: String = "M") throws {
+        if correctionLevel != "L"
+            && correctionLevel != "M"
+            && correctionLevel != "Q"
+            && correctionLevel != "H" {
+            throw NSError(domain: "Invalid correction level. Only 4 possible correction modes L, M, Q, H", code: 0, userInfo: nil)
+        }
         guard let qrCodeData = qrCode.data(using: .isoLatin1),
             let filter = CIFilter(name: "CIQRCodeGenerator",
                                   parameters: ["inputMessage": qrCodeData,
@@ -367,18 +371,19 @@ public extension UIImage {
                 return nil
         }
         self.init(ciImage: ciImage)
-        #endif
     }
+    #endif
 
+    #if !os(watchOS)
     /// SwifterSwift: Create a new QR Code image from a string
     ///
     /// - Parameters:
     ///     -   code128Barcode: a `String`, representing the barcode image.
     ///     -   quietSpace: The number of pixels of added white space on each side of the barcode. Default value: 7.00 Minimum: 0.00 Maximum: 20.00
-    convenience init?(code128Barcode: String, quietSpace: Double = 7.0) {
-        #if os(watchOS)
-        return nil
-        #else
+    convenience init?(code128Barcode: String, quietSpace: Double = 7.0) throws {
+        if quietSpace < 0.0 || quietSpace > 20.00 {
+            throw NSError(domain: "quietSpace must between 0.0 to 20.0", code: 0, userInfo: nil)
+        }
         guard let code128BarcodeData = code128Barcode.data(using: .ascii),
             let filter = CIFilter(name: "CICode128BarcodeGenerator",
                                   parameters: ["inputMessage": code128BarcodeData,
@@ -387,8 +392,8 @@ public extension UIImage {
                 return nil
         }
         self.init(ciImage: ciImage)
-        #endif
     }
+    #endif
 
 }
 
