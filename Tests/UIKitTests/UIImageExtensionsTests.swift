@@ -226,7 +226,7 @@ final class UIImageExtensionsTests: XCTestCase {
     func testQRCode() {
         let image = UIImage(qrCode: "qr code is awesome")
         XCTAssertNotNil(image)
-        XCTAssertNotEqual(image?.size ?? CGSize.zero, CGSize.zero)
+        XCTAssertNotEqual(image?.size, .zero)
     }
 
     func test2DBarCode() {
