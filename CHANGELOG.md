@@ -18,6 +18,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Changed
 - **NSAttributedStringExtensions.swift**:
   - `applying(attributes:)` changed access modifier from `fileprivate` to `public`. [#832](https://github.com/SwifterSwift/SwifterSwift/pull/832) by [cHaLkdusT](https://github.com/cHaLkdusT)
+- **Color**:
+  - Refactored `init(light:dark:)` to remove deployment target version restrictions. [#844](https://github.com/SwifterSwift/SwifterSwift/pull/844) by [VincentSit](https://github.com/vincentsit).
 
 ### Deprecated
 

@@ -15,13 +15,17 @@ import UIKit
 final class UIColorExtensionsTests: XCTestCase {
 
     #if !os(watchOS)
-    @available(iOS 13.0, tvOS 13.0, *)
     func testInitLightDark() {
         let lightModeColor = UIColor.red
         let darkModeColor = UIColor.blue
         let color = UIColor(light: lightModeColor, dark: darkModeColor)
-        XCTAssertEqual(color.resolvedColor(with: UITraitCollection(userInterfaceStyle: .light)), lightModeColor)
-        XCTAssertEqual(color.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark)), darkModeColor)
+
+        if #available(iOS 13.0, tvOS 13.0, *) {
+            XCTAssertEqual(color.resolvedColor(with: UITraitCollection(userInterfaceStyle: .light)), lightModeColor)
+            XCTAssertEqual(color.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark)), darkModeColor)
+        } else {
+            XCTAssertEqual(color, lightModeColor)
+        }
     }
     #endif
 
