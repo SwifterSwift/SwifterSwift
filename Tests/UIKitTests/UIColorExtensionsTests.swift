@@ -28,6 +28,7 @@ final class UIColorExtensionsTests: XCTestCase {
             XCTAssertEqual(color2.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark)), nil)
         } else {
             XCTAssertEqual(color, lightModeColor)
+            XCTAssertEqual(color2, lightModeColor)
         }
     }
     #endif
