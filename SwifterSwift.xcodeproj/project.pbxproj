@@ -422,6 +422,10 @@
 		8D4B4250212972E7002A5923 /* UILayoutPriorityExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4B424E212972E7002A5923 /* UILayoutPriorityExtensionsTests.swift */; };
 		90693551208B4F9400407C4D /* UIGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90693550208B4F9400407C4D /* UIGestureRecognizerExtensions.swift */; };
 		90693555208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90693554208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift */; };
+		985C1B8F24797694008AAB0E /* WKWebViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C1B8E24797694008AAB0E /* WKWebViewExtensions.swift */; };
+		985C1B9024797694008AAB0E /* WKWebViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C1B8E24797694008AAB0E /* WKWebViewExtensions.swift */; };
+		985C1B932479795B008AAB0E /* WKWebViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C1B922479795B008AAB0E /* WKWebViewExtensionsTests.swift */; };
+		985C1B942479795B008AAB0E /* WKWebViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C1B922479795B008AAB0E /* WKWebViewExtensionsTests.swift */; };
 		9D4914831F85138E00F3868F /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */; };
 		9D4914841F85138E00F3868F /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */; };
 		9D4914851F85138E00F3868F /* NSPredicateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */; };
@@ -796,6 +800,8 @@
 		8D4B424E212972E7002A5923 /* UILayoutPriorityExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILayoutPriorityExtensionsTests.swift; sourceTree = "<group>"; };
 		90693550208B4F9400407C4D /* UIGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
 		90693554208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtensionsTests.swift; sourceTree = "<group>"; };
+		985C1B8E24797694008AAB0E /* WKWebViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewExtensions.swift; sourceTree = "<group>"; };
+		985C1B922479795B008AAB0E /* WKWebViewExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewExtensionsTests.swift; sourceTree = "<group>"; };
 		9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensions.swift; sourceTree = "<group>"; };
 		9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSPredicateExtensionsTests.swift; sourceTree = "<group>"; };
 		9D806A352258AC0D008E500A /* UIBezierPathExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBezierPathExtensions.swift; sourceTree = "<group>"; };
@@ -1040,6 +1046,7 @@
 				748B191823B4F4B10030FABB /* StoreKit */,
 				077BA0871F6BE73000D9C4AC /* SwiftStdlib */,
 				07B7F1791F5EB41600E6F910 /* UIKit */,
+				985C1B8D2479765E008AAB0E /* WebKit */,
 			);
 			path = SwifterSwift;
 			sourceTree = "<group>";
@@ -1131,6 +1138,7 @@
 				748B191B23B4F4DA0030FABB /* StoreKitTests */,
 				077BA0931F6BE93000D9C4AC /* SwiftStdlibTests */,
 				07C50D0D1F5EB03200F46E5A /* UIKitTests */,
+				985C1B9124797911008AAB0E /* WebKitTest */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1322,6 +1330,22 @@
 				784C75362051BE1D001C48DD /* MKPolylineTests.swift */,
 			);
 			path = MapKitTests;
+			sourceTree = "<group>";
+		};
+		985C1B8D2479765E008AAB0E /* WebKit */ = {
+			isa = PBXGroup;
+			children = (
+				985C1B8E24797694008AAB0E /* WKWebViewExtensions.swift */,
+			);
+			path = WebKit;
+			sourceTree = "<group>";
+		};
+		985C1B9124797911008AAB0E /* WebKitTest */ = {
+			isa = PBXGroup;
+			children = (
+				985C1B922479795B008AAB0E /* WKWebViewExtensionsTests.swift */,
+			);
+			path = WebKitTest;
 			sourceTree = "<group>";
 		};
 		9D806A3F2258B91F008E500A /* SceneKit */ = {
@@ -1858,6 +1882,7 @@
 				07B7F1A71F5EB42000E6F910 /* UIViewExtensions.swift in Sources */,
 				07B7F1991F5EB42000E6F910 /* UILabelExtensions.swift in Sources */,
 				752AC7A020BC975E00659E76 /* SKNodeExtensions.swift in Sources */,
+				985C1B8F24797694008AAB0E /* WKWebViewExtensions.swift in Sources */,
 				9D9784DB1FCAE3D200D988E7 /* StringProtocolExtensions.swift in Sources */,
 				F8A710E923BF3EF100112DAD /* EdgeInsetsExtensions.swift in Sources */,
 				07B7F20C1F5EB43C00E6F910 /* BoolExtensions.swift in Sources */,
@@ -2177,6 +2202,7 @@
 				9D806A682258D75A008E500A /* SCNBoxExtensions.swift in Sources */,
 				F854D2C52423ECF0003A08A9 /* CATransform3DExtensions.swift in Sources */,
 				F854D2B02423DF5A003A08A9 /* CGAffineTransformExtensions.swift in Sources */,
+				985C1B9024797694008AAB0E /* WKWebViewExtensions.swift in Sources */,
 				278CA08D1F9A9232004918BD /* NSImageExtensions.swift in Sources */,
 				F8A710EC23BF3F7400112DAD /* EdgeInsetsExtensions.swift in Sources */,
 				74932D1523B8CEB700A56D81 /* SKProductExtensions.swift in Sources */,
@@ -2229,6 +2255,7 @@
 				664CB97B21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift in Sources */,
 				07C50D3C1F5EB04700F46E5A /* UITableViewExtensionsTests.swift in Sources */,
 				F87AA5DA24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */,
+				985C1B932479795B008AAB0E /* WKWebViewExtensionsTests.swift in Sources */,
 				078916DE20760DA700AC0665 /* SignedIntegerExtensionsTests.swift in Sources */,
 				07C50D381F5EB04700F46E5A /* UISliderExtensionsTests.swift in Sources */,
 				07C50D2F1F5EB04600F46E5A /* ColorExtensionsTests.swift in Sources */,
@@ -2470,6 +2497,7 @@
 				F8A710F123BF3F8600112DAD /* EdgeInsetsExtensionsTests.swift in Sources */,
 				116090B624187D8100DDCD01 /* CGRectExtensionsTests.swift in Sources */,
 				07FE50471F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */,
+				985C1B942479795B008AAB0E /* WKWebViewExtensionsTests.swift in Sources */,
 				A94AA78C202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */,
 				B29527B420F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */,
 				9D806AA12258FF1A008E500A /* SCNSphereExtensionsTests.swift in Sources */,
