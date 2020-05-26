@@ -28,5 +28,7 @@ extension WKWebView {
         guard let url = URL(string: urlString) else { return nil }
         return load(URLRequest(url: url))
     }
+
 }
+
 #endif
