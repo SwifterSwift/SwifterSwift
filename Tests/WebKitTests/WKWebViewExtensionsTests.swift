@@ -23,7 +23,7 @@ final class WKWebViewExtensionsTests: XCTestCase {
     }
 
     func testLoadURL() {
-        let url = URL(string: "https://www.w3schools.com/")!
+        let url = URL(string: "https://example.com/")!
         let navigation = webView.loadURL(url)
 
         XCTAssertNotNil(navigation)
@@ -32,7 +32,7 @@ final class WKWebViewExtensionsTests: XCTestCase {
     }
 
     func testLoadURLString() {
-        let urlString = "https://www.w3schools.com/"
+        let urlString = "https://example.com/"
         let navigation = webView.loadURLString(urlString)
 
         XCTAssertNotNil(navigation)
@@ -51,8 +51,18 @@ final class WKWebViewExtensionsTests: XCTestCase {
 
 extension WKWebViewExtensionsTests: WKNavigationDelegate {
 
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         XCTAssertNotNil(self.webView.url)
+        self.successExpectation.fulfill()
+    }
+
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        XCTFail(error.localizedDescription)
+        self.successExpectation.fulfill()
+    }
+
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        XCTFail(error.localizedDescription)
         self.successExpectation.fulfill()
     }
 
