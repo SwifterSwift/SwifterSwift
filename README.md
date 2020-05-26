@@ -73,6 +73,9 @@ SwifterSwift is Swift v5.0+ compatible starting from v5
 
 <h4>- Integrate Dispatch extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/Dispatch'</code></pre>
+
+<h4>- Integrate WebKit extensions only:</h4>
+<pre><code class="ruby language-ruby">pod 'SwifterSwift/WebKit'</code></pre>
 </details>
 
 <details>
@@ -301,6 +304,14 @@ let package = Package(
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/Dispatch/DispatchQueueExtensions.swift"><code>DispatchQueue extensions</code></a></li>
+</ul>
+</details>
+
+<details>
+<summary>WebKit Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/WebKit/WKWebViewExtensions.swift"><code>WKWebView extensions</code></a></li>
 </ul>
 </details>
 

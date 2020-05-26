@@ -28,7 +28,7 @@ final class WKWebViewExtensionsTests: XCTestCase {
 
         XCTAssertNotNil(navigation)
 
-        wait(for: [successExpectation], timeout: 2.5)
+        wait(for: [successExpectation], timeout: 3)
     }
 
     func testLoadURLString() {
@@ -37,7 +37,7 @@ final class WKWebViewExtensionsTests: XCTestCase {
 
         XCTAssertNotNil(navigation)
 
-        wait(for: [successExpectation], timeout: 2.5)
+        wait(for: [successExpectation], timeout: 3)
     }
 
     func testLoadInvalidURLString() {

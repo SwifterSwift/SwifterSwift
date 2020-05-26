@@ -1138,7 +1138,7 @@
 				748B191B23B4F4DA0030FABB /* StoreKitTests */,
 				077BA0931F6BE93000D9C4AC /* SwiftStdlibTests */,
 				07C50D0D1F5EB03200F46E5A /* UIKitTests */,
-				985C1B9124797911008AAB0E /* WebKitTest */,
+				985C1B9124797911008AAB0E /* WebKitTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1340,12 +1340,12 @@
 			path = WebKit;
 			sourceTree = "<group>";
 		};
-		985C1B9124797911008AAB0E /* WebKitTest */ = {
+		985C1B9124797911008AAB0E /* WebKitTests */ = {
 			isa = PBXGroup;
 			children = (
 				985C1B922479795B008AAB0E /* WKWebViewExtensionsTests.swift */,
 			);
-			path = WebKitTest;
+			path = WebKitTests;
 			sourceTree = "<group>";
 		};
 		9D806A3F2258B91F008E500A /* SceneKit */ = {
