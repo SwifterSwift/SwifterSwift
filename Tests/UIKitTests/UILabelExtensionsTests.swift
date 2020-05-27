@@ -29,7 +29,7 @@ final class UILabelExtensionsTests: XCTestCase {
         XCTAssertEqual(label.font, preferredFont)
     }
 
-    func testrequiredHeight() {
+    func testRequiredHeight() {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let label = UILabel(frame: frame)
         label.text = "Hello world"
