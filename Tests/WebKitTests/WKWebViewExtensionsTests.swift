@@ -15,14 +15,14 @@ import WebKit
 final class WKWebViewExtensionsTests: XCTestCase {
 
     var webView: WKWebView!
-    let successExpectation = XCTestExpectation(description: "Correct URL")
 
     override func setUp() {
         webView = WKWebView()
-        webView.navigationDelegate = self
     }
 
     func testLoadURL() {
+        let successExpectation = WebViewSuccessExpectation(description: "Correct URL", webView: webView)
+
         let url = URL(string: "https://example.com/")!
         let navigation = webView.loadURL(url)
 
@@ -32,6 +32,8 @@ final class WKWebViewExtensionsTests: XCTestCase {
     }
 
     func testLoadURLString() {
+        let successExpectation = WebViewSuccessExpectation(description: "Correct URL string", webView: webView)
+
         let urlString = "https://example.com/"
         let navigation = webView.loadURLString(urlString)
 
@@ -47,25 +49,43 @@ final class WKWebViewExtensionsTests: XCTestCase {
         XCTAssertNil(navigation)
     }
 
+    func testLoadDeadURLString() {
+        let failureExpectation = WebViewFailureExpectation(description: "Dead URL string", webView: webView)
+
+        let deadURLString = "https://deadurl.com"
+        let navigation = webView.loadURLString(deadURLString)
+
+        XCTAssertNotNil(navigation)
+
+        wait(for: [failureExpectation], timeout: 3)
+    }
+
 }
 
-extension WKWebViewExtensionsTests: WKNavigationDelegate {
+class WebViewSuccessExpectation: XCTestExpectation, WKNavigationDelegate {
+    init(description: String, webView: WKWebView) {
+        super.init(description: description)
+        webView.navigationDelegate = self
+    }
 
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        XCTAssertNotNil(self.webView.url)
-        self.successExpectation.fulfill()
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        fulfill()
+    }
+}
+
+class WebViewFailureExpectation: XCTestExpectation, WKNavigationDelegate {
+    init(description: String, webView: WKWebView) {
+        super.init(description: description)
+        webView.navigationDelegate = self
     }
 
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        XCTFail(error.localizedDescription)
-        self.successExpectation.fulfill()
+        fulfill()
     }
 
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        XCTFail(error.localizedDescription)
-        self.successExpectation.fulfill()
+        fulfill()
     }
-
 }
 
 #endif
