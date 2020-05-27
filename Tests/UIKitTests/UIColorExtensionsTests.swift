@@ -19,16 +19,12 @@ final class UIColorExtensionsTests: XCTestCase {
         let lightModeColor = UIColor.red
         let darkModeColor = UIColor.blue
         let color = UIColor(light: lightModeColor, dark: darkModeColor)
-        let color2 = UIColor(light: lightModeColor, dark: nil)
 
         if #available(iOS 13.0, tvOS 13.0, *) {
             XCTAssertEqual(color.resolvedColor(with: UITraitCollection(userInterfaceStyle: .light)), lightModeColor)
             XCTAssertEqual(color.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark)), darkModeColor)
-            XCTAssertEqual(color2.resolvedColor(with: UITraitCollection(userInterfaceStyle: .light)), lightModeColor)
-            XCTAssertEqual(color2.resolvedColor(with: UITraitCollection(userInterfaceStyle: .dark)), nil)
         } else {
             XCTAssertEqual(color, lightModeColor)
-            XCTAssertEqual(color2, lightModeColor)
         }
     }
     #endif
