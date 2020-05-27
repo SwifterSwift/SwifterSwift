@@ -14,6 +14,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `center`, `topLeft`, `topRight`, `bottomLeft`, `bottomRight` to get anchor position or set position using anchor. [#835](https://github.com/SwifterSwift/SwifterSwift/pull/835) by [rypyak](https://github.com/rypyak)
 - **CGSize**:
   - Added new `+`, `+=`, `-` and `-=` operator extensions for tuple (width: CGFloat, height: CGFloat). [#841](https://github.com/SwifterSwift/SwifterSwift/pull/841) by [hamtiko](https://github.com/hamtiko)
+- **WKWebView**:
+  - Added `loadURL(_:)` and `loadURLString(_:)` extensions for `WkWebView`. [#851](https://github.com/SwifterSwift/SwifterSwift/pull/851) by [hamtiko](https://github.com/hamtiko)
 
 ### Changed
 - **NSAttributedStringExtensions.swift**:
