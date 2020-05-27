@@ -47,8 +47,9 @@ final class UILabelExtensionsTests: XCTestCase {
         
         // Empty attributed string
         
-        XCTAssertTrue(CGSize.zero.equalTo(UILabel.size(thatFitsAttributedString: NSAttributedString.init(), withConstraints: CGSize(width: 10, height: CGFloat.greatestFiniteMagnitude))),
-                      "empty string should size to zero")
+        let zeroSize = UILabel.size(thatFitsAttributedString: NSAttributedString.init(), withConstraints: CGSize(width: 10, height: CGFloat.greatestFiniteMagnitude))
+        
+        XCTAssertTrue(CGSize.zero.equalTo(zeroSize), "empty string should size to zero")
         
         // Single line attributed string
         

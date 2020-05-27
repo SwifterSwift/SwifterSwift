@@ -9,7 +9,6 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-
 // MARK: - Properties
 public extension UILabel {
     
@@ -29,6 +28,41 @@ public extension UILabel {
 // MARK: - Methods
 public extension UILabel {
     
+    /// SwifterSwift:  Calculate and return the size that best fits an attributed string, given the specified constraints on size and number of lines.
+    ///
+    ///   let yourAttributedString = ...
+    ///   let yourConstraintSize = ...
+    ///   let size = UILabel.size(thatFitsAttributedString: yourAttributedString, withConstraints: yourConstraintSize)
+    ///
+    /// - Parameters:
+    ///   - attributedString: The attributed string.
+    ///   - size: The maximum dimensions used to calculate size.
+    /// - Returns: The size that fits the attributed string within the specified constraints.
+    
+    static func size(thatFitsAttributedString attributedString: NSAttributedString,
+                     withConstraints size: CGSize) -> CGSize {
+        
+        guard attributedString.length > 0 else { return CGSize.zero}
+        
+        let framesetter = CTFramesetterCreateWithAttributedString(attributedString)
+        
+        let calculatedSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter,
+                                                                          CFRange(location: 0,length: attributedString.length),
+                                                                          nil,
+                                                                          size,
+                                                                          nil)
+        
+        return calculatedSize
+        
+        
+        
+    }
+}
+
+// MARK: - Initializers
+
+public extension UILabel {
+    
     /// SwifterSwift: Initialize a UILabel with text
     convenience init(text: String?) {
         self.init()
@@ -44,36 +78,6 @@ public extension UILabel {
         self.init()
         font = UIFont.preferredFont(forTextStyle: style)
         self.text = text
-    }
-    
-    /// SwifterSwift:  Calculate and return the size that best fits an attributed string, given the specified constraints on size and number of lines.
-    ///
-    ///   let yourAttributedString = ...
-    ///   let yourConstraintSize = ...
-    ///   let size = UILabel.size(thatFitsAttributedString: yourAttributedString, withConstraints: yourConstraintSize)
-    ///
-    /// - Parameters:
-    ///   - attributedString The attributed string.
-    ///   - size The maximum dimensions used to calculate size.
-    /// - Returns: The size that fits the attributed string within the specified constraints.
-    
-    static func size(thatFitsAttributedString attributedString: NSAttributedString,
-                     withConstraints size: CGSize) -> CGSize {
-        
-        guard attributedString.length > 0 else { return CGSize.zero}
-        
-        let framesetter = CTFramesetterCreateWithAttributedString(attributedString)
-              
-        let calculatedSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter,
-                                                                          CFRange(location: 0,length: attributedString.length),
-                                                                          nil,
-                                                                          size,
-                                                                          nil)
-        
-        return calculatedSize
-        
-        
-        
     }
 }
 
