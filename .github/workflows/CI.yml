@@ -59,7 +59,7 @@ jobs:
           bundle exec danger --verbose
       
   Swiftlint:
-    runs-on: [macos]
+    runs-on: macos-latest
     name: SwiftLint
     steps: 
       - uses: actions/checkout@v1
