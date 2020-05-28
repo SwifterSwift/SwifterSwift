@@ -43,6 +43,7 @@ final class UILabelExtensionsTests: XCTestCase {
         #endif
     }
 
+    @available(iOS 10, *)
     func testSizeThatFitsAttributedString() {
         
         // Empty attributed string
