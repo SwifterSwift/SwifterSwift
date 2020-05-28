@@ -82,4 +82,9 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/SwifterSwift/Dispatch/*.swift'
   end
 
+  # WebKit Extensions
+  s.subspec 'WebKit' do |sp|
+    sp.source_files = 'Sources/SwifterSwift/WebKit/*.swift'
+  end
+
 end
