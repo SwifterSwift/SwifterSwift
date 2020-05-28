@@ -38,7 +38,6 @@ public extension UILabel {
     ///   - attributedString: The attributed string.
     ///   - size: The maximum dimensions used to calculate size.
     /// - Returns: The size that fits the attributed string within the specified constraints.
-    @available(iOS 10, *)
     static func size(thatFitsAttributedString attributedString: NSAttributedString,
                      withConstraints size: CGSize) -> CGSize {
 
