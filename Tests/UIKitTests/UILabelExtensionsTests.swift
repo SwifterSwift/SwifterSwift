@@ -66,7 +66,10 @@ final class UILabelExtensionsTests: XCTestCase {
         
         let singleLineSize = UILabel.size(thatFitsAttributedString: attributedString, withConstraints: CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
         
-        let font = attributedString.attribute(NSAttributedString.Key.font, at: 0, effectiveRange: nil) as! UIFont
+        guard let font = attributedString.attribute(NSAttributedString.Key.font, at: 0, effectiveRange: nil) as? UIFont else {
+            XCTFail("Unable to find font in attributed string")
+            return
+        }
         
         XCTAssertLessThan(singleLineSize.height, font.pointSize * 2, "Label should size to less than two lines")
         
