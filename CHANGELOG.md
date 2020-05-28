@@ -16,6 +16,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added new `+`, `+=`, `-` and `-=` operator extensions for tuple (width: CGFloat, height: CGFloat). [#841](https://github.com/SwifterSwift/SwifterSwift/pull/841) by [hamtiko](https://github.com/hamtiko)
 - **WKWebView**:
   - Added `loadURL(_:)` and `loadURLString(_:)` extensions for `WkWebView`. [#851](https://github.com/SwifterSwift/SwifterSwift/pull/851) by [hamtiko](https://github.com/hamtiko)
+  - **UILabel**:
+    - Added  `size(thatFitsAttributedString attributedString: NSAttributedString,
+     withConstraints size: CGSize) -> CGSize` to calculate and return the size that best fits an attributed string given specified constraints. [#853](https://github.com/SwifterSwift/SwifterSwift/pull/853) by [daliadanila](https://github.com/daliadanila)
 
 ### Changed
 - **NSAttributedStringExtensions.swift**:
