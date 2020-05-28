@@ -28,7 +28,7 @@ public extension UILabel {
 // MARK: - Methods
 public extension UILabel {
     
-    /// SwifterSwift:  Calculate and return the size that best fits an attributed string, given the specified constraints on size and number of lines.
+    /// SwifterSwift:  Calculate and return the size that best fits an attributed string, given the specified constraints on size
     ///
     ///   let yourAttributedString = ...
     ///   let yourConstraintSize = ...

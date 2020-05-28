@@ -102,4 +102,32 @@ view.cornerRadius = 30
 // Add shadow to view
 view.addShadow(ofColor: .black, radius: 3, opacity: 0.5)
 
+//: UILabel extension
+
+let string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+
+let attributes = [NSAttributedString.Key.foregroundColor: UIColor.red, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 16) ]
+
+let attributedString = NSAttributedString(string: string, attributes: attributes)
+
+let label = UILabel()
+
+label.numberOfLines = 20
+
+label.attributedText = attributedString
+
+let singleLineSize = UILabel.size(thatFitsAttributedString: attributedString, withConstraints: CGSize(width: 100, height: CGFloat.greatestFiniteMagnitude))
+
+label.backgroundColor = UIColor.white
+
+label.frame = CGRect.init(x: 0, y: 0, width: singleLineSize.width, height: singleLineSize.height)
+
+let testView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 500, height: singleLineSize.height))
+
+testView.backgroundColor = UIColor.blue
+
+testView.addSubview(label)
+
+
 //: [Next](@next)
+//
