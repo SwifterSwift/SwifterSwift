@@ -128,6 +128,5 @@ testView.backgroundColor = UIColor.blue
 
 testView.addSubview(label)
 
-
 //: [Next](@next)
 //

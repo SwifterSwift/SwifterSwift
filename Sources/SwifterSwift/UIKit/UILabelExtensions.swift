@@ -11,7 +11,7 @@ import UIKit
 
 // MARK: - Properties
 public extension UILabel {
-    
+
     /// SwifterSwift: Required height for a label
     var requiredHeight: CGFloat {
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: frame.width, height: CGFloat.greatestFiniteMagnitude))
@@ -27,7 +27,7 @@ public extension UILabel {
 
 // MARK: - Methods
 public extension UILabel {
-    
+
     /// SwifterSwift:  Calculate and return the size that best fits an attributed string, given the specified constraints on size
     ///
     ///   let yourAttributedString = ...
@@ -41,34 +41,32 @@ public extension UILabel {
     @available(iOS 10, *)
     static func size(thatFitsAttributedString attributedString: NSAttributedString,
                      withConstraints size: CGSize) -> CGSize {
-        
+
         guard attributedString.length > 0 else { return CGSize.zero}
-        
+
         let framesetter = CTFramesetterCreateWithAttributedString(attributedString)
-        
+
         let calculatedSize = CTFramesetterSuggestFrameSizeWithConstraints(framesetter,
-                                                                          CFRange(location: 0,length: attributedString.length),
+                                                                          CFRange(location: 0, length: attributedString.length),
                                                                           nil,
                                                                           size,
                                                                           nil)
-        
+
         return calculatedSize
-        
-        
-        
+
     }
 }
 
 // MARK: - Initializers
 
 public extension UILabel {
-    
+
     /// SwifterSwift: Initialize a UILabel with text
     convenience init(text: String?) {
         self.init()
         self.text = text
     }
-    
+
     /// SwifterSwift: Initialize a UILabel with a text and font style.
     ///
     /// - Parameters:
