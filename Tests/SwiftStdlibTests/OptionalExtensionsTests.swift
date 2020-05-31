@@ -14,6 +14,20 @@ private enum OptionalTestError: Error {
 }
 
 final class OptionalExtensionsTests: XCTestCase {
+    
+    func testUnwrap() {
+        let foo: Int? = nil
+        var codeBlockExecuted = false
+        foo.unwrap { value in
+            codeBlockExecuted = true
+        }
+        XCTAssertFalse(codeBlockExecuted)
+        
+        let bar: Int? = 17
+        bar.unwrap { value in
+            XCTAssertEqual(value, 17)
+        }
+    }
 
     func testUnwrappedOrDefault() {
         var str: String?

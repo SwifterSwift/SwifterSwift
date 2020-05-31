@@ -8,6 +8,25 @@
 
 // MARK: - Methods
 public extension Optional {
+    
+    /// SwifterSwift: Unwraps optional value and if it's not nil, executes passed closures
+    ///
+    ///        let foo: String? = nil
+    ///        foo.unwrap { it in
+    ///           print(it) // this block won't be executed
+    ///        }
+    ///
+    ///        let bar: String? = "bar"
+    ///        bar.unwrap { it in
+    ///           print(it) // this block will be executed
+    ///        }
+    ///
+    /// - Parameter defaultValue: default value to return if self is nil.
+    func unwrap(code block: (Wrapped) -> Void) {
+        if let self = self {
+            block(self)
+        }
+    }
 
     /// SwifterSwift: Get self of default value (if self is nil).
     ///
