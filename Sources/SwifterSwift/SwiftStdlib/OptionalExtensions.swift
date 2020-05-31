@@ -21,7 +21,6 @@ public extension Optional {
     ///           print(it) // this block will be executed
     ///        }
     ///
-    /// - Parameter defaultValue: default value to return if self is nil.
     func unwrap(code block: (Wrapped) -> Void) {
         if let self = self {
             block(self)
