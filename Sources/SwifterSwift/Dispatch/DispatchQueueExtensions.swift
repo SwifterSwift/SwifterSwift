@@ -41,6 +41,34 @@ public extension DispatchQueue {
 
         return DispatchQueue.getSpecific(key: key) != nil
     }
+    
+    /// SwifterSwift: Runs passed closure on main thread.
+    ///
+    /// - Parameter block: The closure to run on main thread
+    static func asyncOnMain(code block: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            block()
+        }
+    }
+    
+    /// SwifterSwift: Runs passed closure on background thread.
+    ///
+    /// - Parameter block: The closure to run on background thread
+    static func asyncOnBg(code block: @escaping () -> Void) {
+        DispatchQueue.global().async {
+            block()
+        }
+    }
+    
+    /// SwifterSwift: Runs passed closure asynchronous after certain time interval
+    ///
+    /// - Parameter time: The time inverval after which the closure will run.
+    /// - Parameter block: The closure to run after certain time interval.
+    static func asyncAfter(time: TimeInterval, code block: @escaping () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + time) {
+            block()
+        }
+    }
 
 }
 
