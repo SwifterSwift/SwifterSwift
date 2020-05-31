@@ -957,6 +957,19 @@ public extension String {
         return range(of: pattern, options: .regularExpression, range: nil, locale: nil) != nil
     }
     #endif
+    
+    /// SwifterSwift: Overload Swift's 'contains' operator for matching regex pattern
+    ///
+    /// - Parameter lhs: String to check on regex pattern.
+    /// - Parameter rhs: Pattern to verify.
+    /// - Returns: true if string matches the pattern.
+    static func ~= (lhs: String, rhs: String) -> Bool {
+        // https://www.hackingwithswift.com/articles/108/how-to-use-regular-expressions-in-swift
+        
+        guard let regex = try? NSRegularExpression(pattern: rhs) else { return false }
+        let range = NSRange(location: 0, length: lhs.utf16.count)
+        return regex.firstMatch(in: lhs, options: [], range: range) != nil
+    }
 
     /// SwifterSwift: Pad string to fit the length parameter size with another string in the start.
     ///
