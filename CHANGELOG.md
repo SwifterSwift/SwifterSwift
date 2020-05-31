@@ -28,6 +28,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Removed
 
 ### Fixed
+- **CAGradientLayerExtensions.swift**:
+- CAGradientLayer extensions inaccessible through internal level protection. [#856](https://github.com/SwifterSwift/SwifterSwift/pull/856) by [Den Andreychuk](https://github.com/denandreychuk).
 
 ### Security
 
