@@ -965,7 +965,7 @@ public extension String {
     /// - Parameter rhs: Regex pattern to match against.
     /// - Returns: true if string matches the pattern.
     static func ~= (lhs: String, rhs: String) -> Bool {
-        return lhs.range(of: rhs, options: .regularExpression, range: nil, locale: nil) != nil
+        return lhs.range(of: rhs, options: .regularExpression) != nil
     }
     #endif
 

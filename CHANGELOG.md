@@ -5,6 +5,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+
+-**String**:
+  - Overloaded Swift's 'contains' operator for string to check regex mathing. [#858](https://github.com/SwifterSwift/SwifterSwift/pull/858) by [VatoKo](https://github.com/VatoKo)
 - **RangeReplaceableCollection**:
   - `subscript(offset:)` and `subscript(range:)` to access and replace elements by the index offsets. [#826](https://github.com/SwifterSwift/SwifterSwift/pull/826) by [guykogus](https://github.com/guykogus)
 - **Sequence**:
