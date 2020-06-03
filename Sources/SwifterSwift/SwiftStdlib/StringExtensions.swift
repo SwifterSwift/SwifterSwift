@@ -962,7 +962,7 @@ public extension String {
     /// SwifterSwift: Overload Swift's 'contains' operator for matching regex pattern
     ///
     /// - Parameter lhs: String to check on regex pattern.
-    /// - Parameter rhs: Pattern to verify.
+    /// - Parameter rhs: Regex pattern to match against.
     /// - Returns: true if string matches the pattern.
     static func ~= (lhs: String, rhs: String) -> Bool {
         return lhs.range(of: rhs, options: .regularExpression, range: nil, locale: nil) != nil
