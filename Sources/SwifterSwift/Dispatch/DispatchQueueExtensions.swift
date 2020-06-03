@@ -51,7 +51,7 @@ public extension DispatchQueue {
     func asyncAfter(delay: Double,
                     qos: DispatchQoS = .unspecified,
                     flags: DispatchWorkItemFlags = [],
-                    execute work: @escaping @convention(block) () -> Void) {
+                    execute work: @escaping () -> Void) {
         asyncAfter(deadline: .now() + delay, qos: qos, flags: flags, execute: work)
     }
 
