@@ -9,33 +9,6 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-// MARK: - Helper Protocols
-protocol Storyboarded {
-    static func instantiate(from storyboard: String, bundle: Bundle) -> Self
-}
-
-extension Storyboarded where Self: UIViewController {
-    
-    /// SwifterSwift: Instantiate UIViewController from storyboard
-    ///
-    ///     class MyViewController: UIViewController, Storyboarded {}
-    ///
-    ///     let myViewController = MyViewController.instantiate()
-    ///
-    /// - Parameters:
-    ///   - storyboard: Name of the storyboard where the UIViewController is located
-    ///   - bundle: Bundle in which storyboard is located
-    /// - Returns: Custom UIViewController instantiated from storyboard
-    static func instantiate(from storyboard: String = "Main", bundle: Bundle = Bundle.main) -> Self {
-        // https://www.hackingwithswift.com/articles/158/how-to-create-a-custom-xcode-template-for-coordinators
-        let storyboardIdentifier = String(describing: self)
-        let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
-        return storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as! Self
-    }
-    
-}
-
-
 // MARK: - Properties
 public extension UIViewController {
 
@@ -49,6 +22,23 @@ public extension UIViewController {
 
 // MARK: - Methods
 public extension UIViewController {
+    
+    
+    /// SwifterSwift: Instantiate UIViewController from storyboard
+    ///
+    ///     let myViewController = MyViewController.instantiate()
+    ///
+    /// - Parameters:
+    ///   - storyboard: Name of the storyboard where the UIViewController is located
+    ///   - bundle: Bundle in which storyboard is located
+    ///   - identifier: UIViewController's storyboard identifier
+    /// - Returns: Custom UIViewController instantiated from storyboard
+    class func instantiate(from storyboard: String = "Main", bundle: Bundle? = nil, identifier: String? = nil) -> Self {
+        let viewControllerIdentifier = identifier ?? String(describing: self)
+        let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
+        let vc = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as! Self
+        return vc
+    }
 
     /// SwifterSwift: Assign as listener to notification.
     ///
