@@ -63,7 +63,7 @@ final class DispatchQueueExtensionsTests: XCTestCase {
         }
         
         waitForExpectations(timeout: delay, handler: nil)
-        XCTAssertTrue(codeExecuted)
+        XCTAssert(codeExecuted)
     }
 
 }
