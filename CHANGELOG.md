@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+-**DispatchQueue**:
+- Added `asyncAfter(delay:qos:flags:execute:)` method to use it more conveniently without typing unnecessary `.now() + delay`. [#859](https://github.com/SwifterSwift/SwifterSwift/pull/859) by [VatoKo](https://github.com/VatoKo)
 - **RangeReplaceableCollection**:
   - `subscript(offset:)` and `subscript(range:)` to access and replace elements by the index offsets. [#826](https://github.com/SwifterSwift/SwifterSwift/pull/826) by [guykogus](https://github.com/guykogus)
 - **Sequence**:
