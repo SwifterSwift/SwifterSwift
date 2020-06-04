@@ -9,6 +9,33 @@
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+// MARK: - Helper Protocols
+protocol Storyboarded {
+    static func instantiate(from storyboard: String, bundle: Bundle) -> Self
+}
+
+extension Storyboarded where Self: UIViewController {
+    
+    /// SwifterSwift: Instantiate UIViewController from storyboard
+    ///
+    ///     class MyViewController: UIViewController, Storyboarded {}
+    ///
+    ///     let myViewController = MyViewController.instantiate()
+    ///
+    /// - Parameters:
+    ///   - storyboard: Name of the storyboard where the UIViewController is located
+    ///   - bundle: Bundle in which storyboard is located
+    /// - Returns: Custom UIViewController instantiated from storyboard
+    static func instantiate(from storyboard: String = "Main", bundle: Bundle = Bundle.main) -> Self {
+        // https://www.hackingwithswift.com/articles/158/how-to-create-a-custom-xcode-template-for-coordinators
+        let storyboardIdentifier = String(describing: self)
+        let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
+        return storyboard.instantiateViewController(withIdentifier: storyboardIdentifier) as! Self
+    }
+    
+}
+
+
 // MARK: - Properties
 public extension UIViewController {
 
