@@ -577,8 +577,8 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertTrue("email@mail.com".matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"))
     }
     
+    #if canImport(Foundation)
     func testRegexMatchOperator() {
-        #if canImport(Foundation)
         XCTAssertTrue("123" ~= "\\d{3}")
         XCTAssertFalse("dasda" ~= "\\d{3}")
         XCTAssertFalse("notanemail.com" ~= "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
@@ -587,8 +587,8 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertFalse("" ~= "[a-z]at")
         XCTAssertTrue("" ~= "[a-z]*")
         XCTAssertFalse("" ~= "[0-9]+")
-        #endif
     }
+    #endif
 
     func testPadStart() {
         var str: String = "str"
