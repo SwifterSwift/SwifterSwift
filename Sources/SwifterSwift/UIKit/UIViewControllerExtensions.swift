@@ -26,8 +26,6 @@ public extension UIViewController {
     
     /// SwifterSwift: Instantiate UIViewController from storyboard
     ///
-    ///     let myViewController = MyViewController.instantiate()
-    ///
     /// - Parameters:
     ///   - storyboard: Name of the storyboard where the UIViewController is located
     ///   - bundle: Bundle in which storyboard is located
@@ -36,8 +34,7 @@ public extension UIViewController {
     class func instantiate(from storyboard: String = "Main", bundle: Bundle? = nil, identifier: String? = nil) -> Self {
         let viewControllerIdentifier = identifier ?? String(describing: self)
         let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
-        let vc = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as! Self
-        return vc
+        return storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as! Self
     }
 
     /// SwifterSwift: Assign as listener to notification.
