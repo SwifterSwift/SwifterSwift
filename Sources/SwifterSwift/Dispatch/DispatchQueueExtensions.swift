@@ -41,6 +41,20 @@ public extension DispatchQueue {
 
         return DispatchQueue.getSpecific(key: key) != nil
     }
+    
+    /// SwifterSwift: Runs passed closure asynchronous after certain time interval
+    ///
+    /// - Parameters:
+    ///   - delay: The time inverval after which the closure will run.
+    ///   - qos: Quality of service at which the work item should be executed.
+    ///   - flags: Flags that control the execution environment of the work item.
+    ///   - work: The closure to run after certain time interval.
+    func asyncAfter(delay: Double,
+                    qos: DispatchQoS = .unspecified,
+                    flags: DispatchWorkItemFlags = [],
+                    execute work: @escaping () -> Void) {
+        asyncAfter(deadline: .now() + delay, qos: qos, flags: flags, execute: work)
+    }
 
 }
 

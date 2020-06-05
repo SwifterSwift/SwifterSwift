@@ -7,6 +7,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **UIViewController**:
 -   Added  `instantiate(from:bundle:identifier:)` function to  `UIViewController` to make it easier to instantiate it from storyboard. [#860](https://github.com/SwifterSwift/SwifterSwift/pull/860) by [VatoKo](https://github.com/VatoKo)
+-**String**:
+  - Overloaded Swift's 'contains' operator (`~=`) for `String` to check regex matching. [#858](https://github.com/SwifterSwift/SwifterSwift/pull/858) by [VatoKo](https://github.com/VatoKo)
+-**DispatchQueue**:
+- Added `asyncAfter(delay:qos:flags:execute:)` method to use it more conveniently without typing unnecessary `.now() + delay`. [#859](https://github.com/SwifterSwift/SwifterSwift/pull/859) by [VatoKo](https://github.com/VatoKo)
 - **RangeReplaceableCollection**:
   - `subscript(offset:)` and `subscript(range:)` to access and replace elements by the index offsets. [#826](https://github.com/SwifterSwift/SwifterSwift/pull/826) by [guykogus](https://github.com/guykogus)
 - **Sequence**:
@@ -30,6 +34,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Removed
 
 ### Fixed
+- **CAGradientLayerExtensions.swift**:
+- CAGradientLayer extensions inaccessible through internal level protection. [#856](https://github.com/SwifterSwift/SwifterSwift/pull/856) by [Den Andreychuk](https://github.com/denandreychuk).
 
 ### Security
 

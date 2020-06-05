@@ -51,6 +51,20 @@ final class DispatchQueueExtensionsTests: XCTestCase {
 
         waitForExpectations(timeout: 0.5, handler: nil)
     }
+    
+    func testAsyncAfter() {
+        let delay: Double = 2
+        var codeExecuted = false
+        let codeShouldBeExecuted = expectation(description: "Executed")
+        
+        DispatchQueue.main.asyncAfter(delay: delay) {
+            codeExecuted = true
+            codeShouldBeExecuted.fulfill()
+        }
+        
+        waitForExpectations(timeout: delay, handler: nil)
+        XCTAssert(codeExecuted)
+    }
 
 }
 
