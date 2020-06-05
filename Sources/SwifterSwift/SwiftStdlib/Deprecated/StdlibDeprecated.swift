@@ -104,7 +104,7 @@ public extension Sequence {
     ///
     /// - Parameter keyPath: Boolean key path. If it's value is `true` the element will be added to result.
     /// - Returns: An array containing filtered elements.
-    @available(*, deprecated, message: "Use filter() with KeyPath instead.")
+    @available(*, deprecated, message: "Please use filter() with a key path instead.")
     func filter(by keyPath: KeyPath<Element, Bool>) -> [Element] {
         return filter { $0[keyPath: keyPath] }
     }
