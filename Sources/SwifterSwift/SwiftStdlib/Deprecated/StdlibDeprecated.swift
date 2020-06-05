@@ -95,7 +95,7 @@ public extension Sequence {
     ///
     /// - Parameter keyPath: Key path to map.
     /// - Returns: An array containing the non-nil results of mapping.
-    @available(*, deprecated, message: "Use compactMap() with KeyPath instead.")
+    @available(*, deprecated, message: "Please use compactMap() with a key path instead.")
     func compactMap<T>(by keyPath: KeyPath<Element, T?>) -> [T] {
         return compactMap { $0[keyPath: keyPath] }
     }
