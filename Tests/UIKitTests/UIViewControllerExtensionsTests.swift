@@ -54,6 +54,18 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         NotificationCenter.default.post(name: notificationIdentifier, object: nil)
         XCTAssertFalse(viewController.notificationFired)
     }
+    
+    class MyViewController: UIViewController {
+        var foo: String?
+    }
+    
+    func testInstantiate() {
+        let bar = "Bar"
+        let vc = MyViewController.instantiate(from: "TestStoryboard")
+        XCTAssertNotNil(vc)
+        vc.foo = bar
+        XCTAssertEqual(vc.foo, bar)
+    }
 
     func testShowAlert() {
         let viewController = UIViewController()
