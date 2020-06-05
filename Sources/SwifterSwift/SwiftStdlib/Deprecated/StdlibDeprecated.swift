@@ -86,7 +86,7 @@ public extension Sequence {
     ///
     /// - Parameter keyPath: Key path to map.
     /// - Returns: An array containing the results of mapping.
-    @available(*, deprecated, message: "Use map() with KeyPath instead.")
+    @available(*, deprecated, message: "Please use map() with a key path instead.")
     func map<T>(by keyPath: KeyPath<Element, T>) -> [T] {
         return map { $0[keyPath: keyPath] }
     }
