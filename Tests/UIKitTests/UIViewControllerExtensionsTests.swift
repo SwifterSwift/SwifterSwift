@@ -21,6 +21,10 @@ final class UIViewControllerExtensionsTests: XCTestCase {
             notificationFired = true
         }
     }
+    
+    class MyViewController: UIViewController {
+        var foo: String?
+    }
 
     let notificationIdentifier = Notification.Name("MockNotification")
 
@@ -55,14 +59,10 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertFalse(viewController.notificationFired)
     }
     
-    class MyViewController: UIViewController {
-        var foo: String?
-    }
-    
     func testInstantiate() {
         let bar = "Bar"
         let vc = MyViewController.instantiate(from: "TestStoryboard")
-        XCTAssertNotNil(vc)
+        XCTAssert(vc is MyViewController)
         vc.foo = bar
         XCTAssertEqual(vc.foo, bar)
     }

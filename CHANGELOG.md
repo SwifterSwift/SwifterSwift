@@ -6,7 +6,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **UIViewController**:
--   Added  `instantiate(from:bundle:identifier:)` function to  `UIViewController` to make it easier to instantiate it from storyboard. [#860](https://github.com/SwifterSwift/SwifterSwift/pull/860) by [VatoKo](https://github.com/VatoKo)
+  - Added `instantiate(from:bundle:identifier:)` function to `UIViewController` to make it easier to instantiate it from storyboard. [#860](https://github.com/SwifterSwift/SwifterSwift/pull/860) by [VatoKo](https://github.com/VatoKo)
 -**String**:
   - Overloaded Swift's 'contains' operator (`~=`) for `String` to check regex matching. [#858](https://github.com/SwifterSwift/SwifterSwift/pull/858) by [VatoKo](https://github.com/VatoKo)
 -**DispatchQueue**:
