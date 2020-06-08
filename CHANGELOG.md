@@ -28,6 +28,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Refactored `init(light:dark:)` to remove deployment target version restrictions. [#844](https://github.com/SwifterSwift/SwifterSwift/pull/844) by [VincentSit](https://github.com/vincentsit).
 
 ### Deprecated
+- **Sequence**:
+  - Marked `map(by:)`, `compactMap(by:)`, `filter(by:)` as deprecated in favor use of Key Path expressions as functions feature in Swift 5.2. [#862](https://github.com/SwifterSwift/SwifterSwift/pull/862) by [Roman Podymov](https://github.com/RomanPodymov).
 
 ### Removed
 
