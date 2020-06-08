@@ -79,12 +79,15 @@ public extension Collection {
     ///   - slice: size of array in each interation.
     ///   - body: a closure that takes an array of slice size as a parameter.
     func forEach(slice: Int, body: ([Element]) throws -> Void) rethrows {
-        guard slice > 0, !isEmpty else { return }
+        guard slice > 0 else { return }
 
         var start = startIndex
         while let end = index(start, offsetBy: slice, limitedBy: endIndex) {
             try body(Array(self[start..<end]))
             start = index(start, offsetBy: slice)
+        }
+        if start < endIndex {
+            try body(Array(self[start..<endIndex]))
         }
     }
 
