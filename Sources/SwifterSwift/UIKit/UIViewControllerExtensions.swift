@@ -22,8 +22,7 @@ public extension UIViewController {
 
 // MARK: - Methods
 public extension UIViewController {
-    
-    
+
     /// SwifterSwift: Instantiate UIViewController from storyboard
     ///
     /// - Parameters:

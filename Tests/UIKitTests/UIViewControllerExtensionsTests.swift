@@ -21,7 +21,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
             notificationFired = true
         }
     }
-    
+
     class MyViewController: UIViewController {
         var foo: String?
     }
@@ -58,13 +58,13 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         NotificationCenter.default.post(name: notificationIdentifier, object: nil)
         XCTAssertFalse(viewController.notificationFired)
     }
-    
+
     func testInstantiate() {
         let bar = "Bar"
-        let vc = MyViewController.instantiate(from: "TestStoryboard")
-        XCTAssert(vc is MyViewController)
-        vc.foo = bar
-        XCTAssertEqual(vc.foo, bar)
+        let myViewController = MyViewController.instantiate(from: "TestStoryboard")
+        XCTAssert(myViewController is MyViewController)
+        myViewController.foo = bar
+        XCTAssertEqual(myViewController.foo, bar)
     }
 
     func testShowAlert() {
