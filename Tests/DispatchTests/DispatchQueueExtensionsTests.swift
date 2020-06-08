@@ -19,7 +19,7 @@ final class DispatchQueueExtensionsTests: XCTestCase {
         let group = DispatchGroup()
 
         DispatchQueue.main.async(group: group) {
-            XCTAssertTrue(DispatchQueue.isMainQueue)
+            XCTAssert(DispatchQueue.isMainQueue)
         }
         DispatchQueue.global().async(group: group) {
             XCTAssertFalse(DispatchQueue.isMainQueue)
@@ -38,10 +38,10 @@ final class DispatchQueueExtensionsTests: XCTestCase {
         let queue = DispatchQueue.global()
 
         queue.async(group: group) {
-            XCTAssertTrue(DispatchQueue.isCurrent(queue))
+            XCTAssert(DispatchQueue.isCurrent(queue))
         }
         DispatchQueue.main.async(group: group) {
-            XCTAssertTrue(DispatchQueue.isCurrent(DispatchQueue.main))
+            XCTAssert(DispatchQueue.isCurrent(DispatchQueue.main))
             XCTAssertFalse(DispatchQueue.isCurrent(queue))
         }
 

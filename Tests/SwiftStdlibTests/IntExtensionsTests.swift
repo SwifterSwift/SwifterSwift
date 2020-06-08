@@ -75,12 +75,12 @@ final class IntExtensionsTests: XCTestCase {
 
     func testIsPrime() {
         // Prime number
-        XCTAssertTrue(2.isPrime())
-        XCTAssertTrue(3.isPrime())
-        XCTAssertTrue(7.isPrime())
-        XCTAssertTrue(19.isPrime())
-        XCTAssertTrue(577.isPrime())
-        XCTAssertTrue(1999.isPrime())
+        XCTAssert(2.isPrime())
+        XCTAssert(3.isPrime())
+        XCTAssert(7.isPrime())
+        XCTAssert(19.isPrime())
+        XCTAssert(577.isPrime())
+        XCTAssert(1999.isPrime())
 
         // Composite number
         XCTAssertFalse(4.isPrime())
@@ -97,13 +97,14 @@ final class IntExtensionsTests: XCTestCase {
 
     func testRomanNumeral() {
         XCTAssertEqual(10.romanNumeral(), "X")
+        XCTAssertEqual(2784.romanNumeral(), "MMDCCLXXXIV")
         XCTAssertNil((-1).romanNumeral())
     }
 
     func testRoundToNearest() {
-        XCTAssert(12.roundToNearest(5) == 10)
-        XCTAssert(63.roundToNearest(25) == 75)
-        XCTAssert(42.roundToNearest(0) == 42)
+        XCTAssertEqual(12.roundToNearest(5), 10)
+        XCTAssertEqual(63.roundToNearest(25), 75)
+        XCTAssertEqual(42.roundToNearest(0), 42)
     }
 
     func testOperators() {

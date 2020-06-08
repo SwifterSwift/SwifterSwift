@@ -76,7 +76,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let string = NSAttributedString(string: "Applying")
         var out = string.applying(attributes: [:])
         var attributes = out.attributes(at: 0, effectiveRange: nil)
-        XCTAssertTrue(attributes.isEmpty)
+        XCTAssert(attributes.isEmpty)
 
         out = string.applying(attributes: [
             .strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue),
@@ -162,7 +162,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let attrTestString = stringToTest.applying(attributes: attributes, toRangesMatching: pattern)
 
         let attrAtBeginning = attrTestString.attributes(at: 0, effectiveRange: nil)
-        XCTAssert(attrAtBeginning.count == 1)
+        XCTAssertEqual(attrAtBeginning.count, 1)
 
         var passed = false
         // iterate through each range of attributes

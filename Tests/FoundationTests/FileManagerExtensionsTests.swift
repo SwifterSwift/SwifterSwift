@@ -32,8 +32,8 @@ final class FileManagerExtensionsTests: XCTestCase {
             // Check contents
             if let dict = json {
                 if let string = dict["title"] as? String, let itemId = dict["id"] as? Int {
-                    XCTAssert(string == "Test")
-                    XCTAssert(itemId == 1)
+                    XCTAssertEqual(string, "Test")
+                    XCTAssertEqual(itemId, 1)
                 } else {
                     XCTFail("Does not contain the correct content.")
                 }
@@ -62,8 +62,8 @@ final class FileManagerExtensionsTests: XCTestCase {
             // Check contents
             if let dict = json {
                 if let string = dict["title"] as? String, let itemId = dict["id"] as? Int {
-                    XCTAssert(string == "Test")
-                    XCTAssert(itemId == 1)
+                    XCTAssertEqual(string, "Test")
+                    XCTAssertEqual(itemId, 1)
                 } else {
                     XCTFail("Does not contain the correct content.")
                 }

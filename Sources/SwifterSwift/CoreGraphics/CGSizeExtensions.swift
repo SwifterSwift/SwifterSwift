@@ -14,7 +14,8 @@ public extension CGSize {
 
     /// SwifterSwift: Returns the aspect ratio.
     var aspectRatio: CGFloat {
-        return height == 0 ? 0 : width / height
+        guard height != 0 else { return 0 }
+        return width / height
     }
 
     /// SwifterSwift: Returns width or height, whichever is the bigger value.

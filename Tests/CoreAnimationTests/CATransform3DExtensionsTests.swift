@@ -39,7 +39,7 @@ final class CATransform3DExtensionsTests: XCTestCase {
         let encoder = JSONEncoder()
         var data: Data?
         XCTAssertNoThrow(data = try encoder.encode(transform))
-        XCTAssert(data?.isEmpty == false)
+        XCTAssertEqual(data?.isEmpty, false)
 
         let decoder = JSONDecoder()
         var decodedTransform: CATransform3D?

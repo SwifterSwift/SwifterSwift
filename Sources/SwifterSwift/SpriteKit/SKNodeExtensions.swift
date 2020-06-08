@@ -17,7 +17,9 @@ public extension SKNode {
     ///         mySKNode.descendants() -> [childNodeOne, childNodeTwo]
     ///
     func descendants() -> [SKNode] {
-        return children + children.reduce(into: [SKNode]()) { $0 += $1.descendants() }
+        var children = self.children
+        children.append(contentsOf: children.reduce(into: [SKNode]()) { $0.append(contentsOf: $1.descendants()) })
+        return children
     }
 
     /// SwifterSwift: The center anchor of the node in its parent's coordinate system.

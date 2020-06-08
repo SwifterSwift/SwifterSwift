@@ -17,7 +17,7 @@ final class NSPredicateExtensionsTests: XCTestCase {
     func testNot() {
         let predicate = NSPredicate(value: true)
         let notPredicate = predicate.not
-        XCTAssert(notPredicate.compoundPredicateType == .not)
+        XCTAssertEqual(notPredicate.compoundPredicateType, .not)
 
         #if os(Linux)
         XCTAssertEqual(notPredicate.subpredicates, [predicate])
@@ -32,7 +32,7 @@ final class NSPredicateExtensionsTests: XCTestCase {
         let predicate1 = NSPredicate(value: true)
         let predicate2 = NSPredicate(value: false)
         let andPredicate = predicate1.and(predicate2)
-        XCTAssert(andPredicate.compoundPredicateType == .and)
+        XCTAssertEqual(andPredicate.compoundPredicateType, .and)
 
         #if os(Linux)
         XCTAssertEqual(andPredicate.subpredicates, [predicate1, predicate2])
@@ -47,7 +47,7 @@ final class NSPredicateExtensionsTests: XCTestCase {
         let predicate1 = NSPredicate(value: true)
         let predicate2 = NSPredicate(value: false)
         let orPredicate = predicate1.or(predicate2)
-        XCTAssert(orPredicate.compoundPredicateType == .or)
+        XCTAssertEqual(orPredicate.compoundPredicateType, .or)
 
         #if os(Linux)
         XCTAssertEqual(orPredicate.subpredicates, [predicate1, predicate2])
@@ -61,7 +61,7 @@ final class NSPredicateExtensionsTests: XCTestCase {
     func testOperatorNot() {
         let predicate = NSPredicate(value: false)
         let notPredicate = !predicate
-        XCTAssert(notPredicate.compoundPredicateType == .not)
+        XCTAssertEqual(notPredicate.compoundPredicateType, .not)
 
         #if os(Linux)
         XCTAssertEqual(notPredicate.subpredicates, [predicate])
@@ -76,7 +76,7 @@ final class NSPredicateExtensionsTests: XCTestCase {
         let predicate1 = NSPredicate(value: false)
         let predicate2 = NSPredicate(value: true)
         let andPredicate = predicate1 + predicate2
-        XCTAssert(andPredicate.compoundPredicateType == .and)
+        XCTAssertEqual(andPredicate.compoundPredicateType, .and)
 
         #if os(Linux)
         XCTAssertEqual(andPredicate.subpredicates, [predicate1, predicate2])
@@ -91,7 +91,7 @@ final class NSPredicateExtensionsTests: XCTestCase {
         let predicate1 = NSPredicate(value: true)
         let predicate2 = NSPredicate(value: false)
         let orPredicate = predicate1 | predicate2
-        XCTAssert(orPredicate.compoundPredicateType == .or)
+        XCTAssertEqual(orPredicate.compoundPredicateType, .or)
 
         #if os(Linux)
         XCTAssertEqual(orPredicate.subpredicates, [predicate1, predicate2])

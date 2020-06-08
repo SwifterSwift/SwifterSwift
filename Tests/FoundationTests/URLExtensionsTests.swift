@@ -28,7 +28,7 @@ final class URLExtensionsTests: XCTestCase {
         XCTAssertEqual(parameters.count, 2)
         XCTAssertEqual(parameters["q"], "swifter swift")
         XCTAssertEqual(parameters["steve"], "jobs")
-        XCTAssertEqual(parameters["empty"], nil)
+        XCTAssertNil(parameters["empty"])
     }
 
     func testOptionalStringInitializer() {
@@ -62,8 +62,8 @@ final class URLExtensionsTests: XCTestCase {
         let otherResult = url.queryValue(for: "other")
 
         XCTAssertEqual(codeResult, "12345")
-        XCTAssertEqual(emtpyResult, nil)
-        XCTAssertEqual(otherResult, nil)
+        XCTAssertNil(emtpyResult)
+        XCTAssertNil(otherResult)
     }
 
     func testDeletingAllPathComponents() {
