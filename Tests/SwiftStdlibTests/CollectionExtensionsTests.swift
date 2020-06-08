@@ -39,9 +39,9 @@ final class CollectionExtensionsTests: XCTestCase {
     }
 
     func testIndicesWhere() {
-        let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        let array: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         let indices = array.indices { $0 % 2 == 0 }
-        XCTAssertEqual(indices!, [0, 2, 4, 6, 8])
+        XCTAssertEqual(indices, [0, 2, 4, 6, 8])
         let emptyArray: [Int] = []
         let emptyIndices = emptyArray.indices { $0 % 2 == 0 }
         XCTAssertNil(emptyIndices)
@@ -124,6 +124,13 @@ final class CollectionExtensionsTests: XCTestCase {
         slices = array.group(by: 6)
         XCTAssertNotNil(slices)
         XCTAssertEqual(slices?.count, 1)
+    }
+
+    func testIndices() {
+        XCTAssertEqual([].indices(of: 5), [])
+        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].indices(of: 5), [])
+        XCTAssertEqual([1, 1, 2, 3, 4, 1, 2, 1].indices(of: 1), [0, 1, 5, 7])
+        XCTAssertEqual(["a", "b", "c", "b", "4", "1", "2", "1"].indices(of: "b"), [1, 3])
     }
 
     func testAverage() {
