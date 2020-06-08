@@ -67,7 +67,7 @@ public extension Collection {
     /// - Returns: all indices where the specified condition evaluates to true. (optional)
     func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
         let indices = try self.indices.filter { try condition(self[$0]) }
-        return indices.isEmpty ? nil :indices
+        return indices.isEmpty ? nil : indices
     }
 
     /// SwifterSwift: Calls the given closure with an array of size of the parameter slice.
