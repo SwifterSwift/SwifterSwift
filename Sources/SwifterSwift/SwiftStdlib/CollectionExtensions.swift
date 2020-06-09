@@ -84,8 +84,8 @@ public extension Collection {
         var start = startIndex
         while case let end = index(start, offsetBy: slice, limitedBy: endIndex) ?? endIndex,
             start != end {
-             try body(Array(self[start..<end]))
-             start = end
+                try body(Array(self[start..<end]))
+                start = end
         }
     }
 
