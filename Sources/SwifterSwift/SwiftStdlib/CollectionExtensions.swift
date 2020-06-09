@@ -82,12 +82,10 @@ public extension Collection {
         guard slice > 0 else { return }
 
         var start = startIndex
-        while let end = index(start, offsetBy: slice, limitedBy: endIndex) {
-            try body(Array(self[start..<end]))
-            start = index(start, offsetBy: slice)
-        }
-        if start < endIndex {
-            try body(Array(self[start..<endIndex]))
+        while case let end = index(start, offsetBy: slice, limitedBy: endIndex) ?? endIndex,
+            start != end {
+             try body(Array(self[start..<end]))
+             start = end
         }
     }
 
