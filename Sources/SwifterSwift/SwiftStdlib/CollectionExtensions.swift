@@ -22,10 +22,8 @@ public extension Collection {
     ///
     /// - Parameter each: closure to run for each element.
     func forEachInParallel(_ each: (Self.Element) -> Void) {
-        let indicesArray = Array(indices)
-        DispatchQueue.concurrentPerform(iterations: indicesArray.count) { (index) in
-            let elementIndex = indicesArray[index]
-            each(self[elementIndex])
+        DispatchQueue.concurrentPerform(iterations: count) {
+            each(self[index(startIndex, offsetBy: $0)])
         }
     }
     #endif
