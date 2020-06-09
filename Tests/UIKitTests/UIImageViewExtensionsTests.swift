@@ -41,7 +41,7 @@ final class UIImageViewExtensionsTests: XCTestCase {
         }
         XCTAssertEqual(failImageView.contentMode, .center)
         XCTAssertNil(failImageView.image)
-        waitForExpectations(timeout: 15, handler: nil)
+        waitForExpectations(timeout: 15)
     }
 
     func testBlur() {

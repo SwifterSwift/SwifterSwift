@@ -23,7 +23,7 @@ final class UISliderExtensionsTests: XCTestCase {
             XCTAssertEqual(slider.value, 90.0)
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 5)
     }
 
     func testSetValue() {
@@ -50,7 +50,7 @@ final class UISliderExtensionsTests: XCTestCase {
             exp.fulfill()
         }
         XCTAssertEqual(slider.value, 50.0)
-        waitForExpectations(timeout: 3, handler: nil)
+        waitForExpectations(timeout: 3)
     }
 
 }

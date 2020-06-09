@@ -27,7 +27,7 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
             XCTAssertEqual(navigationController.topViewController, vcToPush)
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 5)
     }
 
     func testPopViewController() {
@@ -43,7 +43,7 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
             XCTAssertEqual(navigationController.topViewController, rootVC)
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 5)
     }
 
     func testMakeTransparent() {

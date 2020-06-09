@@ -55,7 +55,7 @@ final class UITableViewExtensionsTests: XCTestCase {
             XCTAssert(true)
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 5)
     }
 
     func testRemoveTableFooterView() {

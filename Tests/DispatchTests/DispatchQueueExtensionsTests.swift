@@ -29,7 +29,7 @@ final class DispatchQueueExtensionsTests: XCTestCase {
             expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.5, handler: nil)
+        waitForExpectations(timeout: 0.5)
     }
 
     func testIsCurrent() {
@@ -49,21 +49,18 @@ final class DispatchQueueExtensionsTests: XCTestCase {
             expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.5, handler: nil)
+        waitForExpectations(timeout: 0.5)
     }
-    
+
     func testAsyncAfter() {
-        let delay: Double = 2
-        var codeExecuted = false
+        let delay = TimeInterval(2)
         let codeShouldBeExecuted = expectation(description: "Executed")
-        
+
         DispatchQueue.main.asyncAfter(delay: delay) {
-            codeExecuted = true
             codeShouldBeExecuted.fulfill()
         }
-        
-        waitForExpectations(timeout: delay, handler: nil)
-        XCTAssert(codeExecuted)
+
+        waitForExpectations(timeout: delay + 1)
     }
 
 }

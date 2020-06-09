@@ -229,7 +229,7 @@ final class UIViewExtensionsTests: XCTestCase {
         }
 
         XCTAssertEqual(view2.alpha, 1)
-        waitForExpectations(timeout: 0.5, handler: nil)
+        waitForExpectations(timeout: 0.5)
     }
 
     func testFadeOut() {
@@ -249,7 +249,7 @@ final class UIViewExtensionsTests: XCTestCase {
             fadeOutExpectation.fulfill()
         }
         XCTAssertEqual(view2.alpha, 0)
-        waitForExpectations(timeout: 0.5, handler: nil)
+        waitForExpectations(timeout: 0.5)
     }
 
     func testRotateByAngle() {
@@ -272,7 +272,7 @@ final class UIViewExtensionsTests: XCTestCase {
             rotateExpectation.fulfill()
         }
         XCTAssertEqual(view3.transform, transform3)
-        waitForExpectations(timeout: 0.5, handler: nil)
+        waitForExpectations(timeout: 0.5)
     }
 
     func testRotateToAngle() {
@@ -295,7 +295,7 @@ final class UIViewExtensionsTests: XCTestCase {
             rotateExpectation.fulfill()
         }
         XCTAssertEqual(view3.transform, transform3)
-        waitForExpectations(timeout: 0.5, handler: nil)
+        waitForExpectations(timeout: 0.5)
     }
 
     func testScale() {
