@@ -119,7 +119,7 @@ public extension UIViewController {
             popoverPresentationVC.delegate = delegate
         }
 
-        present(popoverContent, animated: animated, completion: completion)
+        (Self.topMost ?? self).present(popoverContent, animated: animated, completion: completion)
     }
     #endif
 
