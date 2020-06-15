@@ -912,7 +912,7 @@ public extension String {
     ///   - trailing: string to add at the end of truncated string.
     /// - Returns: truncated string (this is an extr...).
     func truncated(toLength length: Int, trailing: String? = "...") -> String {
-        guard 1..<count ~= length else { return self }
+        guard 0..<count ~= length else { return self }
         return self[startIndex..<index(startIndex, offsetBy: length)] + (trailing ?? "")
     }
 

@@ -552,6 +552,8 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testTruncated() {
+        XCTAssertEqual("".truncated(toLength: 5, trailing: nil), "")
+        XCTAssertEqual("This is a short sentence".truncated(toLength: -1, trailing: nil), "This is a short sentence")
         XCTAssertEqual("This is a very long sentence".truncated(toLength: 14), "This is a very...")
 
         XCTAssertEqual("This is a very long sentence".truncated(toLength: 14, trailing: nil), "This is a very")
