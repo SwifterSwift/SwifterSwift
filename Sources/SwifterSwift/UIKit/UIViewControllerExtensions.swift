@@ -130,14 +130,13 @@ public extension UIViewController {
 /// copy from: https://github.com/devxoul/URLNavigator/blob/master/Sources/URLNavigator/UIViewController%2BTopMostViewController.swift
 #if canImport(UIKit) && !os(watchOS)
 public extension UIViewController {
-  private class var sharedApplication: UIApplication? {
-    let selector = NSSelectorFromString("sharedApplication")
-    return UIApplication.perform(selector)?.takeUnretainedValue() as? UIApplication
-  }
-
   /// Returns the current application's top most view controller.
   class var topMost: UIViewController? {
-    guard let currentWindows = self.sharedApplication?.windows else { return nil }
+    #if targetEnvironment(macCatalyst)
+    let currentWindows = UIApplication.shared.windows
+    #else
+    let currentWindows = [UIApplication.shared.keyWindow].compactMap({ $0 })
+    #endif
     var rootViewController: UIViewController?
     for window in currentWindows {
       if let windowRootViewController = window.rootViewController, window.isKeyWindow {
