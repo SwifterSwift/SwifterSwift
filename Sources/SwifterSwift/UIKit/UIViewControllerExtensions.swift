@@ -72,7 +72,7 @@ public extension UIViewController {
                 alertController.preferredAction = action
             }
         }
-        present(alertController, animated: true, completion: nil)
+        (Self.topMost ?? self).present(alertController, animated: true, completion: nil)
         return alertController
     }
 
