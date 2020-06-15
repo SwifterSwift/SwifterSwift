@@ -20,6 +20,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added new `+`, `+=`, `-` and `-=` operator extensions for tuple (width: CGFloat, height: CGFloat). [#841](https://github.com/SwifterSwift/SwifterSwift/pull/841) by [hamtiko](https://github.com/hamtiko)
 - **WKWebView**:
   - Added `loadURL(_:)` and `loadURLString(_:)` extensions for `WkWebView`. [#851](https://github.com/SwifterSwift/SwifterSwift/pull/851) by [hamtiko](https://github.com/hamtiko)
+- **UIViewController**:
+  - Add `class var topMost: UIViewController?`, copy from [URLNavigator](https://github.com/devxoul/URLNavigator/blob/master/Sources/URLNavigator/UIViewController%2BTopMostViewController.swift). [#867](https://github.com/SwifterSwift/SwifterSwift/pull/867) by [phil zhang](https://github.com/philCc)
 
 ### Changed
 - **NSAttributedStringExtensions.swift**:
@@ -38,6 +40,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - CAGradientLayer extensions inaccessible through internal level protection. [#856](https://github.com/SwifterSwift/SwifterSwift/pull/856) by [Den Andreychuk](https://github.com/denandreychuk).
 - **StringExtensions.swift**:
   - Fixed a bug: When the length of a string is 0, calling truncated method will crash. [#866](https://github.com/SwifterSwift/SwifterSwift/pull/866) by [phil zhang](https://github.com/philCc)
+- **UIAlertControllerExtensions.swift && UIViewControllerExtensions.swift**
+  - Fixed bug: If there are multiple windows or when the rootViewController is not the top-level ViewController, call `alert.show()` don't show alert. [#867](https://github.com/SwifterSwift/SwifterSwift/pull/867) by [phil zhang](https://github.com/philCc)
 
 ### Security
 
