@@ -56,6 +56,21 @@ public extension DispatchQueue {
         asyncAfter(deadline: .now() + delay, qos: qos, flags: flags, execute: work)
     }
 
+    func debounce(millisecondsDelay: Int, action: @escaping () -> Void) -> () -> Void {
+        // http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
+        var lastFireTime = DispatchTime.now()
+        let deadline = { lastFireTime + DispatchTimeInterval.milliseconds(millisecondsDelay) }
+        return {
+            self.asyncAfter(deadline: deadline()) {
+                let now = DispatchTime.now()
+                if now >= deadline() {
+                    lastFireTime = now
+                    action()
+                }
+            }
+        }
+    }
+
 }
 
 #endif

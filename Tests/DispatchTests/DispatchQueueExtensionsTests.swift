@@ -63,6 +63,30 @@ final class DispatchQueueExtensionsTests: XCTestCase {
         waitForExpectations(timeout: delay + 1)
     }
 
+    func testDebounce() {
+        var value = 0
+        let done = expectation(description: "Execute block after delay")
+
+        let debouncedIncrementor = DispatchQueue.main.debounce(millisecondsDelay: 20) {
+            value += 1
+        }
+
+        for index in 1...10 {
+            debouncedIncrementor()
+            if index == 10 {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
+                    done.fulfill()
+                }
+            }
+        }
+
+        XCTAssertEqual(value, 0, "Debounced function does not get executed right away")
+
+        waitForExpectations(timeout: 2.5, handler: { _ in
+            XCTAssertEqual(value, 1, "Value was incremented only once")
+        })
+    }
+
 }
 
 #endif
