@@ -67,14 +67,15 @@ final class DispatchQueueExtensionsTests: XCTestCase {
         var value = 0
         let done = expectation(description: "Execute block after delay")
 
-        let debouncedIncrementor = DispatchQueue.main.debounce(millisecondsDelay: 20) {
+        let delay = TimeInterval(0.02)
+        let debouncedIncrementor = DispatchQueue.main.debounce(delay: delay) {
             value += 1
         }
 
         for index in 1...10 {
             debouncedIncrementor()
             if index == 10 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.02) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                     done.fulfill()
                 }
             }
