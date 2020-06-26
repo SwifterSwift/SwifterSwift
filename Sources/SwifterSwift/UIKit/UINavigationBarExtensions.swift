@@ -53,4 +53,59 @@ public extension UINavigationBar {
 
 }
 
+// MARK: NavigationBar's bottom line
+public extension UINavigationBar {
+    
+    /// Show bottom Border
+    func showBottomBorder() {
+        if let border = viewWithTag(1234) {
+            border.isHidden = false
+        } else {
+            let bottomBorderRect = CGRect(x: 0, y: frame.height, width: frame.width, height: 1 / UIScreen.main.scale)
+            let bottomBorderView = UIView(frame: bottomBorderRect)
+            bottomBorderView.tag = 1234
+            addSubview(bottomBorderView)
+        }
+    }
+    
+    /// Hidden bottom Border
+    func hideBottomBorder() {
+        if let border = viewWithTag(1234) {
+            border.isHidden = true
+        }
+    }
+    
+    /// Hidden bottom line
+    func hideBottomHairline() {
+        let navigationBarImageView = hairlineImageViewInNavigationBar(view: self)
+        navigationBarImageView?.isHidden = true
+        hideBottomBorder()
+    }
+    
+    /// Show bottom line
+    func showBottomHairline() {
+        let navigationBarImageView = hairlineImageViewInNavigationBar(view: self)
+        navigationBarImageView?.isHidden = true
+        showBottomBorder()
+    }
+    
+    
+    /// Get Hairline Image View In NavigationBar
+    /// - Parameter view: view description
+    /// - Returns: description
+    private func hairlineImageViewInNavigationBar(view: UIView) -> UIImageView? {
+        if let imageView = view as? UIImageView, view.bounds.height <= 1.0 {
+            return imageView
+        }
+        
+        for subview in view.subviews {
+            if let imageView = hairlineImageViewInNavigationBar(view: subview) {
+                return imageView
+            }
+        }
+        return nil
+    }
+}
+
+
 #endif

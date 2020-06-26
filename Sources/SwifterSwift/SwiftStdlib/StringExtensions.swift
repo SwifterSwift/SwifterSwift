@@ -22,6 +22,10 @@ import AppKit
 import CoreGraphics
 #endif
 
+#if canImport(CryptoSwift)
+import CryptoSwift
+#endif
+
 // MARK: - Properties
 public extension String {
 
@@ -1255,4 +1259,95 @@ public extension String {
 
 }
 
+#endif
+
+#if canImport(CryptoSwift)
+/// AED Encrypt and Decrypt
+public extension String {
+    
+    /// AES Encrypt
+    ///
+    /// - Parameters:
+    ///   - key: key
+    ///   - iv: iv
+    /// - Returns: String
+    func aesEncrypt(key: String, iv: String) -> String? {
+        var result: String?
+        do {
+            // Converts a string to Data in UTF8 encoding
+            let data: Data = self.data(using: String.Encoding.utf8, allowLossyConversion: true)!
+            
+            // 用AES的方式將Data加密
+            let aecEnc: AES = try AES(key: key, iv: iv, padding: .pkcs5)
+                // AES(key: key, iv: iv, blockMode: .CBC)
+            let enc = try aecEnc.encrypt(data.bytes)
+            
+            // Base64 encoding is used to turn the Data back to the string
+            let encData: Data = Data(bytes: enc, count: enc.count)
+            result = encData.base64EncodedString()
+        } catch {
+            print("\(error.localizedDescription)")
+        }
+        
+        return result
+    }
+    
+    /// AES Decrypt
+    ///
+    /// - Parameters:
+    ///   - key: key
+    ///   - iv: iv
+    /// - Returns: String
+    func aesDecrypt(key: String, iv: String) -> String? {
+        var result: String?
+        do {
+            // Base64 decoding is used to decode the string and then convert the Data
+            let data = Data(base64Encoded: self, options: Data.Base64DecodingOptions(rawValue: 0))!
+            
+            // Decrypt the Data using AES
+            let aesDec: AES = try AES(key: key, iv: iv, padding: .pkcs5)
+            
+            let dec = try aesDec.decrypt(data.bytes)
+            
+            // Returns the unencrypted Data back to the string using UTF8 encoding
+            let desData: Data = Data(bytes: dec, count: dec.count)
+            result = String(data: desData, encoding: .utf8)!
+        } catch {
+            print("\(error.localizedDescription)")
+        }
+        return result
+    }
+}
+
+#endif
+
+#if canImport(Foundation)
+public extension String {
+    
+    /// Returns the width of the string
+    /// - Parameter font: font size
+    /// - Returns: size of width
+    func widthOfString(usingFont font: UIFont) -> CGFloat {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        let size = self.size(withAttributes: fontAttributes)
+        return size.width
+    }
+    
+    /// Returns the height of the string
+    /// - Parameter font: font size
+    /// - Returns: size of height
+    func heightOfString(usingFont font: UIFont) -> CGFloat {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        let size = self.size(withAttributes: fontAttributes)
+        return size.height
+    }
+    
+    /// Returns the size of the string
+    /// - Parameter font: font size
+    /// - Returns: size of string
+    func sizeOfString(usingFont font: UIFont) -> CGSize {
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        return self.size(withAttributes: fontAttributes)
+    }
+}
 #endif
