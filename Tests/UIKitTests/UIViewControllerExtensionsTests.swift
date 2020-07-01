@@ -55,15 +55,11 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertFalse(viewController.notificationFired)
     }
 
-    #if !targetEnvironment(macCatalyst)
-    
     func testInstantiate() {
         let myViewController = MyViewController.instantiate(from: "TestStoryboard", bundle: Bundle(for: UIViewControllerExtensionsTests.self))
         myViewController.loadViewIfNeeded()
         XCTAssertNotNil(myViewController.testLabel)
     }
-    
-    #endif
 
     func testShowAlert() {
         let viewController = UIViewController()
