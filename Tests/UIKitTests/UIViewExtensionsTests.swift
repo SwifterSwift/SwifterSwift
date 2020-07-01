@@ -55,7 +55,7 @@ final class UIViewExtensionsTests: XCTestCase {
         let txtView = UITextField(frame: CGRect.zero)
         window.addSubview(txtView)
         txtView.becomeFirstResponder()
-        XCTAssertTrue(txtView.firstResponder() === txtView)
+        XCTAssert(txtView.firstResponder() === txtView)
 
         // When a subview is firstResponder
         let superView = UIView()
@@ -63,10 +63,10 @@ final class UIViewExtensionsTests: XCTestCase {
         let subView = UITextField(frame: CGRect.zero)
         superView.addSubview(subView)
         subView.becomeFirstResponder()
-        XCTAssertTrue(superView.firstResponder() === subView)
+        XCTAssert(superView.firstResponder() === subView)
 
         // When you have to find recursively
-        XCTAssertTrue(window.firstResponder() === subView)
+        XCTAssert(window.firstResponder() === subView)
 
     }
 
@@ -229,7 +229,7 @@ final class UIViewExtensionsTests: XCTestCase {
         }
 
         XCTAssertEqual(view2.alpha, 1)
-        waitForExpectations(timeout: 0.5, handler: nil)
+        waitForExpectations(timeout: 0.5)
     }
 
     func testFadeOut() {
@@ -249,7 +249,7 @@ final class UIViewExtensionsTests: XCTestCase {
             fadeOutExpectation.fulfill()
         }
         XCTAssertEqual(view2.alpha, 0)
-        waitForExpectations(timeout: 0.5, handler: nil)
+        waitForExpectations(timeout: 0.5)
     }
 
     func testRotateByAngle() {
@@ -272,7 +272,7 @@ final class UIViewExtensionsTests: XCTestCase {
             rotateExpectation.fulfill()
         }
         XCTAssertEqual(view3.transform, transform3)
-        waitForExpectations(timeout: 0.5, handler: nil)
+        waitForExpectations(timeout: 0.5)
     }
 
     func testRotateToAngle() {
@@ -295,7 +295,7 @@ final class UIViewExtensionsTests: XCTestCase {
             rotateExpectation.fulfill()
         }
         XCTAssertEqual(view3.transform, transform3)
-        waitForExpectations(timeout: 0.5, handler: nil)
+        waitForExpectations(timeout: 0.5)
     }
 
     func testScale() {

@@ -14,8 +14,21 @@ final class CollectionExtensionsTests: XCTestCase {
     let collection = [1, 2, 3, 4, 5]
 
     func testForEachInParallel() {
-        collection.forEachInParallel { item in
-            XCTAssert(collection.contains(item))
+        let expectation = XCTestExpectation(description: "forEachInParallel")
+
+        var count = 0
+        let countQueue = DispatchQueue.global()
+        collection.forEachInParallel {
+            XCTAssert(collection.contains($0))
+            countQueue.async {
+                count += 1
+                if count == self.collection.count {
+                    expectation.fulfill()
+                }
+            }
+        }
+        if count != collection.count {
+            wait(for: [expectation], timeout: 0.5)
         }
     }
 

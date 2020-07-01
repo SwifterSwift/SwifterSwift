@@ -21,7 +21,7 @@ final class DictionaryExtensionsTests: XCTestCase {
     func testRemoveAll() {
         var dict: [String: String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
         dict.removeAll(keys: ["key1", "key2"])
-        XCTAssertTrue(dict.keys.contains("key3"))
+        XCTAssert(dict.keys.contains("key3"))
         XCTAssertFalse(dict.keys.contains("key1"))
         XCTAssertFalse(dict.keys.contains("key2"))
     }
@@ -30,7 +30,7 @@ final class DictionaryExtensionsTests: XCTestCase {
         var emptyDict = [String: String]()
         XCTAssertNil(emptyDict.removeValueForRandomKey())
 
-        var dict = ["key1": "value1", "key2": "value2", "key3": "value3"]
+        var dict: [String: String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
         let elements = dict.count
         let removedElement = dict.removeValueForRandomKey()
         XCTAssertEqual(elements - 1, dict.count)
@@ -67,8 +67,8 @@ final class DictionaryExtensionsTests: XCTestCase {
     func testKeysForValue() {
         let dict = ["key1": "value1", "key2": "value1", "key3": "value2"]
         let result = dict.keys(forValue: "value1")
-        XCTAssertTrue(result.contains("key1"))
-        XCTAssertTrue(result.contains("key2"))
+        XCTAssert(result.contains("key1"))
+        XCTAssert(result.contains("key2"))
         XCTAssertFalse(result.contains("key3"))
     }
 
@@ -81,7 +81,7 @@ final class DictionaryExtensionsTests: XCTestCase {
     func testSubscriptKeypath() {
         var json = ["key": ["key1": ["key2": "value"]]]
 
-        XCTAssertEqual(json[path: []] as? String, nil)
+        XCTAssertNil(json[path: []] as? String)
         XCTAssertEqual(json[path: ["key", "key1"]] as? [String: String], ["key2": "value"])
         XCTAssertEqual(json[path: ["key", "key1", "key2"]] as? String, "value")
         json[path: ["key", "key1", "key2"]] = "newValue"
@@ -92,14 +92,14 @@ final class DictionaryExtensionsTests: XCTestCase {
         let dict: [String: String] = ["key1": "value1"]
         let dict2: [String: String] = ["key2": "value2"]
         let result = dict + dict2
-        XCTAssertTrue(result.keys.contains("key1"))
-        XCTAssertTrue(result.keys.contains("key2"))
+        XCTAssert(result.keys.contains("key1"))
+        XCTAssert(result.keys.contains("key2"))
     }
 
     func testOperatorMinus() {
         let dict: [String: String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
         let result = dict-["key1", "key2"]
-        XCTAssertTrue(result.keys.contains("key3"))
+        XCTAssert(result.keys.contains("key3"))
         XCTAssertFalse(result.keys.contains("key1"))
         XCTAssertFalse(result.keys.contains("key2"))
     }
@@ -108,14 +108,14 @@ final class DictionaryExtensionsTests: XCTestCase {
         var dict: [String: String] = ["key1": "value1"]
         let dict2: [String: String] = ["key2": "value2"]
         dict += dict2
-        XCTAssertTrue(dict.keys.contains("key1"))
-        XCTAssertTrue(dict.keys.contains("key2"))
+        XCTAssert(dict.keys.contains("key1"))
+        XCTAssert(dict.keys.contains("key2"))
     }
 
     func testOperatorRemoveKeys() {
         var dict: [String: String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
         dict-=["key1", "key2"]
-        XCTAssertTrue(dict.keys.contains("key3"))
+        XCTAssert(dict.keys.contains("key3"))
         XCTAssertFalse(dict.keys.contains("key1"))
         XCTAssertFalse(dict.keys.contains("key2"))
     }

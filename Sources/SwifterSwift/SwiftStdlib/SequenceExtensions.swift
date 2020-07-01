@@ -249,30 +249,6 @@ public extension Sequence {
         return reduce(.zero) { $0 + $1[keyPath: keyPath] }
     }
 
-    /// SwifterSwift: Returns an array containing the results of mapping the given key path over the sequence’s elements.
-    ///
-    /// - Parameter keyPath: Key path to map.
-    /// - Returns: An array containing the results of mapping.
-    func map<T>(by keyPath: KeyPath<Element, T>) -> [T] {
-        return map { $0[keyPath: keyPath] }
-    }
-
-    /// SwifterSwift: Returns an array containing the non-nil results of mapping the given key path over the sequence’s elements.
-    ///
-    /// - Parameter keyPath: Key path to map.
-    /// - Returns: An array containing the non-nil results of mapping.
-    func compactMap<T>(by keyPath: KeyPath<Element, T?>) -> [T] {
-        return compactMap { $0[keyPath: keyPath] }
-    }
-
-    /// SwifterSwift: Returns an array containing the results of filtering the sequence’s elements by a boolean key path.
-    ///
-    /// - Parameter keyPath: Boolean key path. If it's value is `true` the element will be added to result.
-    /// - Returns: An array containing filtered elements.
-    func filter(by keyPath: KeyPath<Element, Bool>) -> [Element] {
-        return filter { $0[keyPath: keyPath] }
-    }
-
     /// SwifterSwift: Returns the first element of the sequence with having property by given key path equals to given `value`.
     ///
     /// - Parameters:

@@ -133,8 +133,8 @@ final class UICollectionViewExtensionsTests: XCTestCase {
         XCTAssertFalse(emptyCollectionView.isValidIndexPath(zeroIndexPath))
 
         XCTAssertFalse(collectionView.isValidIndexPath(negativeIndexPath))
-        XCTAssertTrue(collectionView.isValidIndexPath(zeroIndexPath))
-        XCTAssertTrue(collectionView.isValidIndexPath(validIndexPath))
+        XCTAssert(collectionView.isValidIndexPath(zeroIndexPath))
+        XCTAssert(collectionView.isValidIndexPath(validIndexPath))
         XCTAssertFalse(collectionView.isValidIndexPath(invalidIndexPath))
     }
 }

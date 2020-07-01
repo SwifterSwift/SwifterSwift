@@ -14,6 +14,7 @@ import UIKit
 
 final class UIDatePickerExtensionsTests: XCTestCase {
 
+    #if !targetEnvironment(macCatalyst)
     func testTextColor() {
         let datePicker = UIDatePicker()
         if let color = datePicker.textColor {
@@ -29,6 +30,7 @@ final class UIDatePickerExtensionsTests: XCTestCase {
         datePicker.textColor = nil
         XCTAssertNil(datePicker.textColor)
     }
+    #endif
 
 }
 
