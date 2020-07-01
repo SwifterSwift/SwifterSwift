@@ -22,10 +22,6 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         }
     }
 
-    class MyViewController: UIViewController {
-        @IBOutlet var testLabel: UILabel!
-    }
-
     let notificationIdentifier = Notification.Name("MockNotification")
 
     func testAddNotificationObserver() {
@@ -62,7 +58,8 @@ final class UIViewControllerExtensionsTests: XCTestCase {
     #if !targetEnvironment(macCatalyst)
     
     func testInstantiate() {
-        let myViewController = MyViewController.instantiate(from: "TestStoryboard")
+        let myViewController = MyViewController.instantiate(from: "TestStoryboard", bundle: Bundle(for: UIViewControllerExtensionsTests.self))
+        myViewController.loadViewIfNeeded()
         XCTAssertNotNil(myViewController.testLabel)
     }
     
