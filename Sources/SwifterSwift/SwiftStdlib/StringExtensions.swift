@@ -957,7 +957,7 @@ public extension String {
         return range(of: pattern, options: .regularExpression, range: nil, locale: nil) != nil
     }
     #endif
-    
+
     #if canImport(Foundation)
     /// SwifterSwift: Overload Swift's 'contains' operator for matching regex pattern
     ///

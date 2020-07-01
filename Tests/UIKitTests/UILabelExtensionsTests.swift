@@ -35,7 +35,7 @@ final class UILabelExtensionsTests: XCTestCase {
         label.text = "Hello world"
 
         #if os(iOS)
-        XCTAssert(label.requiredHeight > 20)
+        XCTAssert(label.requiredHeight >= 20)
         XCTAssert(label.requiredHeight < 25)
         #else
         XCTAssert(label.requiredHeight > 0)

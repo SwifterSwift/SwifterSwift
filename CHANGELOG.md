@@ -26,12 +26,16 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `applying(attributes:)` changed access modifier from `fileprivate` to `public`. [#832](https://github.com/SwifterSwift/SwifterSwift/pull/832) by [cHaLkdusT](https://github.com/cHaLkdusT)
 - **Color**:
   - Refactored `init(light:dark:)` to remove deployment target version restrictions. [#844](https://github.com/SwifterSwift/SwifterSwift/pull/844) by [VincentSit](https://github.com/vincentsit).
+- **CAGradientLayer**:
+  - In `init(colors:locations:startPoint:endPoint:type:)` added default values to `startPoint` and `endPoint`. [#864](https://github.com/SwifterSwift/SwifterSwift/pull/864) by [guykogus](https://github.com/guykogus)
 
 ### Deprecated
 - **Sequence**:
   - Marked `map(by:)`, `compactMap(by:)`, `filter(by:)` as deprecated in favor use of Key Path expressions as functions feature in Swift 5.2. [#862](https://github.com/SwifterSwift/SwifterSwift/pull/862) by [Roman Podymov](https://github.com/RomanPodymov).
 
 ### Removed
+- **UIDatePicker**
+  - Disabled `textColor` when compiling for target `macCatalyst` as it will crash. [#864](https://github.com/SwifterSwift/SwifterSwift/pull/864) by [guykogus](https://github.com/guykogus)
 
 ### Fixed
 - **CAGradientLayerExtensions.swift**:

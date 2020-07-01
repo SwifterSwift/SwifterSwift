@@ -13,6 +13,7 @@ import XCTest
 import WebKit
 
 final class WKWebViewExtensionsTests: XCTestCase {
+    private let timeout = TimeInterval(10)
 
     var webView: WKWebView!
 
@@ -28,7 +29,7 @@ final class WKWebViewExtensionsTests: XCTestCase {
 
         XCTAssertNotNil(navigation)
 
-        wait(for: [successExpectation], timeout: 3)
+        wait(for: [successExpectation], timeout: timeout)
     }
 
     func testLoadURLString() {
@@ -39,7 +40,7 @@ final class WKWebViewExtensionsTests: XCTestCase {
 
         XCTAssertNotNil(navigation)
 
-        wait(for: [successExpectation], timeout: 3)
+        wait(for: [successExpectation], timeout: timeout)
     }
 
     func testLoadInvalidURLString() {
@@ -57,7 +58,7 @@ final class WKWebViewExtensionsTests: XCTestCase {
 
         XCTAssertNotNil(navigation)
 
-        wait(for: [failureExpectation], timeout: 3)
+        wait(for: [failureExpectation], timeout: timeout)
     }
 
 }

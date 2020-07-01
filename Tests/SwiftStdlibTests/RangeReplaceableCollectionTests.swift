@@ -15,9 +15,9 @@ final class RangeReplaceableCollectionTests: XCTestCase {
         var array = [1, 2, 3]
         let newArray = [Int](expression: array.removeLast(), count: array.count)
         XCTAssertEqual(newArray, [3, 2, 1])
-        XCTAssertTrue(array.isEmpty)
+        XCTAssert(array.isEmpty)
         let empty = [Int](expression: 1, count: 0)
-        XCTAssertTrue(empty.isEmpty)
+        XCTAssert(empty.isEmpty)
 
     }
 

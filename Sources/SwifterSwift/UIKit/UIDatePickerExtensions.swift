@@ -12,6 +12,7 @@ import UIKit
 // MARK: - Properties
 public extension UIDatePicker {
 
+    #if !targetEnvironment(macCatalyst)
     /// SwifterSwift: Text color of UIDatePicker.
     var textColor: UIColor? {
         set {
@@ -21,6 +22,7 @@ public extension UIDatePicker {
             return value(forKeyPath: "textColor") as? UIColor
         }
     }
+    #endif
 
 }
 
