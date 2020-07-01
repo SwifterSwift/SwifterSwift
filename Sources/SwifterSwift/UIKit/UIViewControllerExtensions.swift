@@ -34,7 +34,7 @@ public extension UIViewController {
         let viewControllerIdentifier = identifier ?? String(describing: self)
         let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
         guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as? Self else {
-            preconditionFailure("Unable to instantiate view controller with identifier \(viewControllerIdentifier) as type \(String(describing: self))")
+            preconditionFailure("Unable to instantiate view controller with identifier \(viewControllerIdentifier) as type \(type(of: self))")
         }
         return viewController
     }

@@ -23,7 +23,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
     }
 
     class MyViewController: UIViewController {
-        var foo: String?
+        @IBOutlet var testLabel: UILabel!
     }
 
     let notificationIdentifier = Notification.Name("MockNotification")
@@ -59,11 +59,14 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertFalse(viewController.notificationFired)
     }
 
+    #if !targetEnvironment(macCatalyst)
+    
     func testInstantiate() {
-        let bar = "Bar"
         let myViewController = MyViewController.instantiate(from: "TestStoryboard")
-        myViewController.foo = bar
+        XCTAssertNotNil(myViewController.testLabel)
     }
+    
+    #endif
 
     func testShowAlert() {
         let viewController = UIViewController()
