@@ -46,7 +46,7 @@ public extension NSView {
         set {
             wantsLayer = true
             layer?.masksToBounds = true
-            layer?.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
+            layer?.cornerRadius = newValue.magnitude
         }
     }
 

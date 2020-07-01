@@ -19,25 +19,25 @@ final class UIGestureRecognizerExtensionsTests: XCTestCase {
         let tap = UITapGestureRecognizer()
 
         // First Baseline Assertion
-        XCTAssert(view.gestureRecognizers == nil)
-        XCTAssert(tap.view == nil)
+        XCTAssertNil(view.gestureRecognizers)
+        XCTAssertNil(tap.view)
 
         view.addGestureRecognizer(tap)
 
         // Verify change
-        XCTAssertFalse(view.gestureRecognizers == nil)
-        XCTAssertFalse(tap.view == nil)
+        XCTAssertNotNil(view.gestureRecognizers)
+        XCTAssertNotNil(tap.view)
 
         // Second Baseline Assertion
-        XCTAssertFalse((view.gestureRecognizers?.count ?? 0) == 0)
+        XCTAssertNotEqual(view.gestureRecognizers?.count, 0)
         XCTAssertFalse(view.gestureRecognizers?.isEmpty ?? true)
 
         tap.removeFromView()
 
         // Verify change
-        XCTAssert((view.gestureRecognizers?.count ?? 1) == 0)
+        XCTAssertEqual(view.gestureRecognizers?.count, 0)
         XCTAssert(view.gestureRecognizers?.isEmpty ?? false)
-        XCTAssert(tap.view == nil)
+        XCTAssertNil(tap.view)
     }
 
 }

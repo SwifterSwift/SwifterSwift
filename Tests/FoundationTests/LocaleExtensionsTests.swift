@@ -21,7 +21,7 @@ final class LocaleExtensionsTests: XCTestCase {
 
     func testIs12HourTimeFormat() {
         let twelveHourLocale = Locale(identifier: "en")
-        XCTAssertTrue(twelveHourLocale.is12HourTimeFormat)
+        XCTAssert(twelveHourLocale.is12HourTimeFormat)
 
         let twentyFourLocale = Locale(identifier: "ru")
         XCTAssertFalse(twentyFourLocale.is12HourTimeFormat)

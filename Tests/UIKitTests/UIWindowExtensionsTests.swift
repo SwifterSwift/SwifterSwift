@@ -36,7 +36,7 @@ final class UIWindowExtensionsTests: XCTestCase {
             XCTAssertEqual(window.rootViewController!, viewController)
         }
 
-        waitForExpectations(timeout: 1, handler: nil)
+        waitForExpectations(timeout: 1)
     }
 
 }

@@ -21,7 +21,7 @@ final class UIAlertControllerExtensionsTests: XCTestCase {
 
         XCTAssertNotNil(discardedResult)
 
-        XCTAssert(alertController.actions.count == 1)
+        XCTAssertEqual(alertController.actions.count, 1)
 
         let action = alertController.actions.first
 
@@ -40,7 +40,7 @@ final class UIAlertControllerExtensionsTests: XCTestCase {
 
         alertController.addTextField(text: "TextField", placeholder: "PlaceHolder", editingChangedTarget: self, editingChangedSelector: selector)
 
-        XCTAssert(alertController.textFields?.count == 1)
+        XCTAssertEqual(alertController.textFields?.count, 1)
 
         let textField = alertController.textFields?.first
 
@@ -60,7 +60,7 @@ final class UIAlertControllerExtensionsTests: XCTestCase {
         XCTAssertEqual(alertController.message, "Message")
         XCTAssertEqual(alertController.view.tintColor, .blue)
 
-        XCTAssert(alertController.actions.count == 1)
+        XCTAssertEqual(alertController.actions.count, 1)
 
         let defaultAction = alertController.actions.first
 
@@ -81,7 +81,7 @@ final class UIAlertControllerExtensionsTests: XCTestCase {
         XCTAssertEqual(alertController.message, error.localizedDescription)
         XCTAssertEqual(alertController.view.tintColor, .red)
 
-        XCTAssert(alertController.actions.count == 1)
+        XCTAssertEqual(alertController.actions.count, 1)
 
         let defaultAction = alertController.actions.first
 

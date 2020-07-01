@@ -268,7 +268,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil("8.23".float(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".float(locale: Locale(identifier: "en_US_POSIX")), Float(8.23))
 
-        #if os(Linux) || targetEnvironment(macCatalyst)
+        #if os(Linux)
         XCTAssertEqual("8s".float(), 8)
         #else
         XCTAssertNil("8s".float())
@@ -282,7 +282,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil("8.23".double(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".double(locale: Locale(identifier: "en_US_POSIX")), 8.23)
 
-        #if os(Linux) || targetEnvironment(macCatalyst)
+        #if os(Linux)
         XCTAssertEqual("8s".double(), 8)
         #else
         XCTAssertNil("8s".double())
@@ -297,11 +297,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".cgFloat(locale: Locale(identifier: "en_US_POSIX")), CGFloat(8.23))
 
-        #if targetEnvironment(macCatalyst)
-        XCTAssertEqual("8s".cgFloat(), 8)
-        #else
         XCTAssertNil("8s".cgFloat())
-        #endif
         #endif
     }
 
@@ -552,6 +548,8 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testTruncated() {
+        XCTAssertEqual("".truncated(toLength: 5, trailing: nil), "")
+        XCTAssertEqual("This is a short sentence".truncated(toLength: -1, trailing: nil), "This is a short sentence")
         XCTAssertEqual("This is a very long sentence".truncated(toLength: 14), "This is a very...")
 
         XCTAssertEqual("This is a very long sentence".truncated(toLength: 14, trailing: nil), "This is a very")
@@ -571,21 +569,21 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testMatches() {
-        XCTAssertTrue("123".matches(pattern: "\\d{3}"))
+        XCTAssert("123".matches(pattern: "\\d{3}"))
         XCTAssertFalse("dasda".matches(pattern: "\\d{3}"))
         XCTAssertFalse("notanemail.com".matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"))
-        XCTAssertTrue("email@mail.com".matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"))
+        XCTAssert("email@mail.com".matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"))
     }
-    
+
     #if canImport(Foundation)
     func testRegexMatchOperator() {
-        XCTAssertTrue("123" ~= "\\d{3}")
+        XCTAssert("123" ~= "\\d{3}")
         XCTAssertFalse("dasda" ~= "\\d{3}")
         XCTAssertFalse("notanemail.com" ~= "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
-        XCTAssertTrue("email@mail.com" ~= "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
-        XCTAssertTrue("hat" ~= "[a-z]at")
+        XCTAssert("email@mail.com" ~= "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
+        XCTAssert("hat" ~= "[a-z]at")
         XCTAssertFalse("" ~= "[a-z]at")
-        XCTAssertTrue("" ~= "[a-z]*")
+        XCTAssert("" ~= "[a-z]*")
         XCTAssertFalse("" ~= "[0-9]+")
     }
     #endif
@@ -664,7 +662,7 @@ final class StringExtensionsTests: XCTestCase {
         #if os(iOS) || os(tvOS)
         let strCorrect = "Hello, World!"
 
-        XCTAssertTrue(strCorrect.isSpelledCorrectly)
+        XCTAssert(strCorrect.isSpelledCorrectly)
 
         let strNonCorrect = "Helol, Wrold!"
         XCTAssertFalse(strNonCorrect.isSpelledCorrectly)

@@ -21,8 +21,8 @@ final class UIStackViewExtensionsTest: XCTestCase {
         var stack = UIStackView(arrangedSubviews: [view1, view2], axis: .horizontal)
 
         XCTAssertEqual(stack.arrangedSubviews.count, 2)
-        XCTAssertTrue(stack.arrangedSubviews[0] === view1)
-        XCTAssertTrue(stack.arrangedSubviews[1] === view2)
+        XCTAssert(stack.arrangedSubviews[0] === view1)
+        XCTAssert(stack.arrangedSubviews[1] === view2)
 
         XCTAssertEqual(stack.axis, .horizontal)
         XCTAssertEqual(stack.alignment, .fill)

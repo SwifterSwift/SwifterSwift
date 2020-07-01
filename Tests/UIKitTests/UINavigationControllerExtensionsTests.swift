@@ -23,11 +23,11 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
         let exp = expectation(description: "pushCallback")
 
         navigationController.pushViewController(vcToPush) {
-            XCTAssert(navigationController.viewControllers.count == 1)
+            XCTAssertEqual(navigationController.viewControllers.count, 1)
             XCTAssertEqual(navigationController.topViewController, vcToPush)
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 5)
     }
 
     func testPopViewController() {
@@ -35,15 +35,15 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
         let navigationController = UINavigationController(rootViewController: rootVC)
         let vcToPush = UIViewController()
         navigationController.pushViewController(vcToPush, animated: false)
-        XCTAssert(navigationController.viewControllers.count == 2)
+        XCTAssertEqual(navigationController.viewControllers.count, 2)
 
         let exp = expectation(description: "pushCallback")
         navigationController.popViewController(animated: false) {
-            XCTAssert(navigationController.viewControllers.count == 1)
+            XCTAssertEqual(navigationController.viewControllers.count, 1)
             XCTAssertEqual(navigationController.topViewController, rootVC)
             exp.fulfill()
         }
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 5)
     }
 
     func testMakeTransparent() {
