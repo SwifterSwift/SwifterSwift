@@ -62,9 +62,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
     func testInstantiate() {
         let bar = "Bar"
         let myViewController = MyViewController.instantiate(from: "TestStoryboard")
-        XCTAssert(myViewController is MyViewController)
         myViewController.foo = bar
-        XCTAssertEqual(myViewController.foo, bar)
     }
 
     func testShowAlert() {
