@@ -6,8 +6,11 @@
 //  Copyright © 2020 SwifterSwift
 //
 
-import Foundation
+#if canImport(UIKit) && !os(watchOS)
+import UIKit
 
 class MyViewController: UIViewController {
     @IBOutlet var testLabel: UILabel!
 }
+
+#endif
