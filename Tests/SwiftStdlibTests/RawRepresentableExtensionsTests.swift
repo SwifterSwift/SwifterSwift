@@ -12,7 +12,7 @@ import XCTest
 final class RawRepresentableExtensionsTests: XCTestCase {
 
     func testOptionalRawValueInitializer() {
-        private enum Animal: String {
+        enum Animal: String {
             case cat, dog
         }
         
