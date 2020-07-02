@@ -95,7 +95,7 @@ final class CollectionExtensionsTests: XCTestCase {
 
         iterations = 0
 
-        // Empty arary
+        // Empty array
         array = []
         array.forEach(slice: 1) { _ in
             XCTFail("Should not find any slices")
