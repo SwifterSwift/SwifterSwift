@@ -13,7 +13,8 @@ final class RawRepresentableExtensionsTests: XCTestCase {
 
     func testOptionalRawValueInitializer() {
         enum Animal: String {
-            case cat, dog
+            case cat
+            case dog
         }
         
         XCTAssertNil(Animal(rawValue: nil))
