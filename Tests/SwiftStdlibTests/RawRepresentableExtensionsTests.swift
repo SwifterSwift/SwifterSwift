@@ -9,14 +9,13 @@
 import XCTest
 @testable import SwifterSwift
 
-private enum Animal: String {
-    case cat
-    case dog
-}
-
 final class RawRepresentableExtensionsTests: XCTestCase {
 
     func testOptionalRawValueInitializer() {
+        private enum Animal: String {
+            case cat, dog
+        }
+        
         XCTAssertNil(Animal(rawValue: nil))
 
         let optionalString1: String? = "cat"
