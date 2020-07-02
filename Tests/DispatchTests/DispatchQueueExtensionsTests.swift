@@ -72,13 +72,12 @@ final class DispatchQueueExtensionsTests: XCTestCase {
             value += 1
         }
 
-        for index in 1...10 {
+        for _ in 1...10 {
             debouncedIncrementor()
-            if index == 10 {
-                DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
-                    done.fulfill()
-                }
-            }
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+            done.fulfill()
         }
 
         XCTAssertEqual(value, 0, "Debounced function was executed right away")
