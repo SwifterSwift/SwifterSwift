@@ -587,6 +587,8 @@
 		D9F36CF623521F440057258F /* MKMapViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F36CF523521F440057258F /* MKMapViewTests.swift */; };
 		E5E5EB3A2350EED400B04C42 /* CAGradientLayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5EB392350EED400B04C42 /* CAGradientLayerExtensions.swift */; };
 		E5E5EB3D2350F40200B04C42 /* CAGradientLayerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5EB3C2350F40200B04C42 /* CAGradientLayerExtensionsTests.swift */; };
+		F850972424AF72690007F74D /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36CB6424AC9909007727DA /* MyViewController.swift */; };
+		F850972524AF72690007F74D /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36CB6424AC9909007727DA /* MyViewController.swift */; };
 		F854D2A52423AE92003A08A9 /* CGAffineTransformExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854D2A42423AE92003A08A9 /* CGAffineTransformExtensions.swift */; };
 		F854D2AE2423DF54003A08A9 /* CGAffineTransformExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854D2A42423AE92003A08A9 /* CGAffineTransformExtensions.swift */; };
 		F854D2B02423DF5A003A08A9 /* CGAffineTransformExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F854D2A42423AE92003A08A9 /* CGAffineTransformExtensions.swift */; };
@@ -611,6 +613,7 @@
 		F87AA5DA24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */; };
 		F87AA5DB24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */; };
 		F87AA5DC24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */; };
+		F88C491924AF73A400BA0503 /* TestStoryboard-tvOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F88C491824AF73A400BA0503 /* TestStoryboard-tvOS.storyboard */; };
 		F8A710E923BF3EF100112DAD /* EdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A710E823BF3EF100112DAD /* EdgeInsetsExtensions.swift */; };
 		F8A710EA23BF3F7300112DAD /* EdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A710E823BF3EF100112DAD /* EdgeInsetsExtensions.swift */; };
 		F8A710EB23BF3F7400112DAD /* EdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A710E823BF3EF100112DAD /* EdgeInsetsExtensions.swift */; };
@@ -782,6 +785,7 @@
 		42F53FEB2039C5AC0070DC11 /* UIStackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensions.swift; sourceTree = "<group>"; };
 		42F53FEF2039C7140070DC11 /* UIStackViewExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionsTests.swift; sourceTree = "<group>"; };
 		5C88FBEB234CC1280065A942 /* NSColorExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtensionsTests.swift; sourceTree = "<group>"; };
+		5E36CB6424AC9909007727DA /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		664CB96C2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalCollectionExtensions.swift; sourceTree = "<group>"; };
 		664CB971217186E900FC87B4 /* BidirectionalCollectionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalCollectionExtensionsTests.swift; sourceTree = "<group>"; };
 		664CB9752171899800FC87B4 /* BinaryFloatingPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryFloatingPointExtensions.swift; sourceTree = "<group>"; };
@@ -870,6 +874,7 @@
 		F854D2BE2423EBD0003A08A9 /* CATransform3DExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransform3DExtensionsTests.swift; sourceTree = "<group>"; };
 		F87AA5D4241257E3005F5B28 /* NotificationCenterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtensions.swift; sourceTree = "<group>"; };
 		F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtensionsTests.swift; sourceTree = "<group>"; };
+		F88C491824AF73A400BA0503 /* TestStoryboard-tvOS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "TestStoryboard-tvOS.storyboard"; sourceTree = "<group>"; };
 		F8A710E823BF3EF100112DAD /* EdgeInsetsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsExtensions.swift; sourceTree = "<group>"; };
 		F8A710ED23BF3F8200112DAD /* EdgeInsetsExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsExtensionsTests.swift; sourceTree = "<group>"; };
 		F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegularExpressionExtensions.swift; sourceTree = "<group>"; };
@@ -1406,9 +1411,11 @@
 				CAC5EBC22125270A00AB27EC /* test.json */,
 				CAC5EBBF2125270A00AB27EC /* TestImage.png */,
 				CAC5EBC02125270A00AB27EC /* TestStoryboard.storyboard */,
+				F88C491824AF73A400BA0503 /* TestStoryboard-tvOS.storyboard */,
 				CAC5EBC12125270A00AB27EC /* UICollectionViewCell.xib */,
 				CAC5EBC32125270A00AB27EC /* UITableViewCell.xib */,
 				CAC5EBC42125270A00AB27EC /* UITableViewHeaderFooterView.xib */,
+				5E36CB6424AC9909007727DA /* MyViewController.swift */,
 			);
 			path = ResourcesTests;
 			sourceTree = "<group>";
@@ -1730,6 +1737,7 @@
 				CAC5EBD02125273100AB27EC /* TestImage.png in Resources */,
 				CAC5EBCE2125272A00AB27EC /* test.json in Resources */,
 				CAC5EBCD2125272400AB27EC /* big_buck_bunny_720p_1mb.mp4 in Resources */,
+				F88C491924AF73A400BA0503 /* TestStoryboard-tvOS.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2303,6 +2311,7 @@
 				9D9784E41FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift in Sources */,
 				07C50D361F5EB04700F46E5A /* UISearchBarExtensionsTests.swift in Sources */,
 				0782A5B223DA98C000E562C0 /* CLLocationArrayExtensionsTests.swift in Sources */,
+				F850972424AF72690007F74D /* MyViewController.swift in Sources */,
 				9D806A472258B9BB008E500A /* SCNVector3ExtensionsTests.swift in Sources */,
 				07C50D8C1F5EB06000F46E5A /* CGFloatExtensionsTests.swift in Sources */,
 				42F53FF02039C7140070DC11 /* UIStackViewExtensionsTests.swift in Sources */,
@@ -2414,6 +2423,7 @@
 				07C50D501F5EB04700F46E5A /* UISwitchExtensionsTests.swift in Sources */,
 				07C50D4A1F5EB04700F46E5A /* UINavigationControllerExtensionsTests.swift in Sources */,
 				F8A710F023BF3F8500112DAD /* EdgeInsetsExtensionsTests.swift in Sources */,
+				F850972524AF72690007F74D /* MyViewController.swift in Sources */,
 				9D806A3E2258AED4008E500A /* UIBezierPathExtensionsTests.swift in Sources */,
 				07C50D681F5EB05100F46E5A /* CollectionExtensionsTests.swift in Sources */,
 				B29527B320F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */,

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="16097" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="appleTV" appearance="light"/>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--My View Controller-->
+        <scene sceneID="Jyw-19-CDC">
+            <objects>
+                <viewController storyboardIdentifier="MyViewController" id="R8y-GL-RDb" customClass="MyViewController" customModule="SwifterSwift_tvOSTests" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rFI-eg-VAH"/>
+                        <viewControllerLayoutGuide type="bottom" id="RZ3-f1-H4l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uk2-gr-Qqx">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWH-gj-UTU">
+                                <rect key="frame" x="914" y="517" width="92" height="46"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="LWH-gj-UTU" firstAttribute="centerY" secondItem="6w1-qf-8HS" secondAttribute="centerY" id="IAm-oV-npU"/>
+                            <constraint firstItem="LWH-gj-UTU" firstAttribute="centerX" secondItem="6w1-qf-8HS" secondAttribute="centerX" id="Ykn-TC-VJq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6w1-qf-8HS"/>
+                    </view>
+                    <connections>
+                        <outlet property="testLabel" destination="LWH-gj-UTU" id="Ddt-nd-BYX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lc2-mG-1XC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+    </scenes>
+</document>
