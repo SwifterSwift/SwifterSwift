@@ -14,19 +14,13 @@ import HealthKit
 public extension HKActivitySummary {
 
     /// SwifterSwift: Check if stand goal is met
-    var isStandGoalMet: Bool {
-        return appleStandHoursGoal.compare(appleStandHours) != .orderedDescending
-    }
+    var isStandGoalMet: Bool { appleStandHoursGoal.compare(appleStandHours) != .orderedDescending }
 
     /// SwifterSwift: Check if exercise time goal is met
-    var isExerciseGoalMet: Bool {
-        return appleExerciseTimeGoal.compare(appleExerciseTime) != .orderedDescending
-    }
+    var isExerciseTimeGoalMet: Bool { appleExerciseTimeGoal.compare(appleExerciseTime) != .orderedDescending }
 
     /// SwifterSwift: Check if active energy goal is met
-    var isEnergyGoalMet: Bool {
-        return activeEnergyBurnedGoal.compare(activeEnergyBurned) != .orderedDescending
-    }
+    var isEnergyBurnedGoalMet: Bool { activeEnergyBurnedGoal.compare(activeEnergyBurned) != .orderedDescending }
 
 }
 

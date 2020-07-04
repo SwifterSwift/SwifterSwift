@@ -29,34 +29,34 @@ class HKActivitySummaryExtensionsTests: XCTestCase {
         XCTAssert(summary.isStandGoalMet)
     }
 
-    func testIsExerciseGoalMet() {
+    func testIsExerciseTimeGoalMet() {
         let unit = HKUnit.minute()
         let summary = HKActivitySummary()
         summary.appleExerciseTimeGoal = HKQuantity(unit: unit, doubleValue: 30)
 
         summary.appleExerciseTime = HKQuantity(unit: unit, doubleValue: 6)
-        XCTAssertFalse(summary.isExerciseGoalMet)
+        XCTAssertFalse(summary.isExerciseTimeGoalMet)
 
         summary.appleExerciseTime = HKQuantity(unit: unit, doubleValue: 30)
-        XCTAssert(summary.isExerciseGoalMet)
+        XCTAssert(summary.isExerciseTimeGoalMet)
 
         summary.appleExerciseTime = HKQuantity(unit: unit, doubleValue: 40)
-        XCTAssert(summary.isExerciseGoalMet)
+        XCTAssert(summary.isExerciseTimeGoalMet)
     }
 
-    func testIsEnergyGoalMet() {
+    func testIsEnergyBurnedGoalMet() {
         let unit = HKUnit.jouleUnit(with: .kilo)
         let summary = HKActivitySummary()
         summary.activeEnergyBurnedGoal = HKQuantity(unit: unit, doubleValue: 400)
 
         summary.activeEnergyBurned = HKQuantity(unit: unit, doubleValue: 200)
-        XCTAssertFalse(summary.isEnergyGoalMet)
+        XCTAssertFalse(summary.isEnergyBurnedGoalMet)
 
         summary.activeEnergyBurned = HKQuantity(unit: unit, doubleValue: 400)
-        XCTAssert(summary.isEnergyGoalMet)
+        XCTAssert(summary.isEnergyBurnedGoalMet)
 
         summary.activeEnergyBurned = HKQuantity(unit: unit, doubleValue: 600)
-        XCTAssert(summary.isEnergyGoalMet)
+        XCTAssert(summary.isEnergyBurnedGoalMet)
     }
 
 }
