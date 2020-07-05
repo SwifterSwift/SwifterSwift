@@ -23,7 +23,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **WKWebView**:
   - Added `loadURL(_:)` and `loadURLString(_:)` extensions for `WkWebView`. [#851](https://github.com/SwifterSwift/SwifterSwift/pull/851) by [hamtiko](https://github.com/hamtiko)
 - **HKActivitySummary**:
-  - Added `isStandGoalMet`, `isExerciseGoalMet`, and `isEnergyGoalMet`. [#875](https://github.com/SwifterSwift/SwifterSwift/pull/875) by [lhygilbert](https://github.com/lhygilbert)
+  - Added `isStandGoalMet`, `isExerciseTimeGoalMet`, and `isEnergyBurnedGoalMet `. [#875](https://github.com/SwifterSwift/SwifterSwift/pull/875) by [lhygilbert](https://github.com/lhygilbert)
 
 ### Changed
 - **NSAttributedStringExtensions.swift**:
