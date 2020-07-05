@@ -87,4 +87,9 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/SwifterSwift/WebKit/*.swift'
   end
 
+  # HealthKit Extensions
+  s.subspec 'HealthKit' do |sp|
+    sp.source_files = 'Sources/SwifterSwift/HealthKit/*.swift'
+  end
+
 end

@@ -328,6 +328,9 @@
 		07FE50451F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE50441F891C95000766AA /* SignedNumericExtensionsTests.swift */; };
 		07FE50461F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE50441F891C95000766AA /* SignedNumericExtensionsTests.swift */; };
 		07FE50471F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07FE50441F891C95000766AA /* SignedNumericExtensionsTests.swift */; };
+		0DAEBCE024B0045F00F61684 /* HKActivitySummaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAEBCDF24B0045F00F61684 /* HKActivitySummaryExtensions.swift */; };
+		0DAEBCE324B0079700F61684 /* HKActivitySummaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAEBCE224B0079700F61684 /* HKActivitySummaryExtensionsTests.swift */; };
+		0DAEBCE424B007CE00F61684 /* HKActivitySummaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAEBCDF24B0045F00F61684 /* HKActivitySummaryExtensions.swift */; };
 		116090AF24187D5C00DDCD01 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116090AE24187D5C00DDCD01 /* CGRectExtensions.swift */; };
 		116090B024187D5C00DDCD01 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116090AE24187D5C00DDCD01 /* CGRectExtensions.swift */; };
 		116090B124187D5C00DDCD01 /* CGRectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116090AE24187D5C00DDCD01 /* CGRectExtensions.swift */; };
@@ -767,6 +770,8 @@
 		07C50D291F5EB03200F46E5A /* NSAttributedStringExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSAttributedStringExtensionsTests.swift; sourceTree = "<group>"; };
 		07C50D2A1F5EB03200F46E5A /* NSViewExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewExtensionsTests.swift; sourceTree = "<group>"; };
 		07FE50441F891C95000766AA /* SignedNumericExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedNumericExtensionsTests.swift; sourceTree = "<group>"; };
+		0DAEBCDF24B0045F00F61684 /* HKActivitySummaryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivitySummaryExtensions.swift; sourceTree = "<group>"; };
+		0DAEBCE224B0079700F61684 /* HKActivitySummaryExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HKActivitySummaryExtensionsTests.swift; sourceTree = "<group>"; };
 		116090AE24187D5C00DDCD01 /* CGRectExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExtensions.swift; sourceTree = "<group>"; };
 		116090B324187D8100DDCD01 /* CGRectExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectExtensionsTests.swift; sourceTree = "<group>"; };
 		185BDE601F8AAEFD00140E19 /* CGColorExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGColorExtensionsTests.swift; sourceTree = "<group>"; };
@@ -1052,6 +1057,7 @@
 				077BA0871F6BE73000D9C4AC /* SwiftStdlib */,
 				07B7F1791F5EB41600E6F910 /* UIKit */,
 				985C1B8D2479765E008AAB0E /* WebKit */,
+				0DAEBCDE24B0041900F61684 /* HealthKit */,
 			);
 			path = SwifterSwift;
 			sourceTree = "<group>";
@@ -1144,6 +1150,7 @@
 				077BA0931F6BE93000D9C4AC /* SwiftStdlibTests */,
 				07C50D0D1F5EB03200F46E5A /* UIKitTests */,
 				985C1B9124797911008AAB0E /* WebKitTests */,
+				0DAEBCE124B0077000F61684 /* HealthKitTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1261,6 +1268,22 @@
 				07A494E823C7CAC500DFCBFC /* CLVisitExtensionsTests.swift */,
 			);
 			path = CoreLocationTests;
+			sourceTree = "<group>";
+		};
+		0DAEBCDE24B0041900F61684 /* HealthKit */ = {
+			isa = PBXGroup;
+			children = (
+				0DAEBCDF24B0045F00F61684 /* HKActivitySummaryExtensions.swift */,
+			);
+			path = HealthKit;
+			sourceTree = "<group>";
+		};
+		0DAEBCE124B0077000F61684 /* HealthKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				0DAEBCE224B0079700F61684 /* HKActivitySummaryExtensionsTests.swift */,
+			);
+			path = HealthKitTests;
 			sourceTree = "<group>";
 		};
 		664CB981217243BA00FC87B4 /* Dispatch */ = {
@@ -1971,6 +1994,7 @@
 				748B191A23B4F4C20030FABB /* SKProductExtensions.swift in Sources */,
 				07B7F19E1F5EB42000E6F910 /* UISegmentedControlExtensions.swift in Sources */,
 				07B7F20F1F5EB43C00E6F910 /* DataExtensions.swift in Sources */,
+				0DAEBCE024B0045F00F61684 /* HKActivitySummaryExtensions.swift in Sources */,
 				07B7F19C1F5EB42000E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				9D806A5B2258D2B8008E500A /* SCNMaterialExtensions.swift in Sources */,
 				F87AA5D5241257E3005F5B28 /* NotificationCenterExtensions.swift in Sources */,
@@ -2099,6 +2123,7 @@
 				07B7F1C41F5EB42200E6F910 /* UIImageViewExtensions.swift in Sources */,
 				07B7F22C1F5EB45100E6F910 /* CLLocationExtensions.swift in Sources */,
 				0782A5B623DA98C900E562C0 /* CLLocationArrayExtensions.swift in Sources */,
+				0DAEBCE424B007CE00F61684 /* HKActivitySummaryExtensions.swift in Sources */,
 				07B7F1EA1F5EB43B00E6F910 /* CollectionExtensions.swift in Sources */,
 				07B7F1F11F5EB43B00E6F910 /* IntExtensions.swift in Sources */,
 				9D806A672258D75A008E500A /* SCNBoxExtensions.swift in Sources */,
@@ -2255,6 +2280,7 @@
 				9D806A8B2258F892008E500A /* SCNGeometryExtensionsTests.swift in Sources */,
 				07C50D5C1F5EB05000F46E5A /* DateExtensionsTests.swift in Sources */,
 				F8A710EF23BF3F8500112DAD /* EdgeInsetsExtensionsTests.swift in Sources */,
+				0DAEBCE324B0079700F61684 /* HKActivitySummaryExtensionsTests.swift in Sources */,
 				077BA09E1F6BEA4900D9C4AC /* URLRequestExtensionsTests.swift in Sources */,
 				9D806A932258FCCE008E500A /* SCNConeExtensionsTests.swift in Sources */,
 				D9F36CF623521F440057258F /* MKMapViewTests.swift in Sources */,
