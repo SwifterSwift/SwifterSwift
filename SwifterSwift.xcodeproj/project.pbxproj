@@ -533,13 +533,6 @@
 		B22EB2BB20E9E81C001EAE70 /* RangeReplaceableCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EB2B620E9E720001EAE70 /* RangeReplaceableCollectionExtensions.swift */; };
 		B22EB2BD20E9EA1F001EAE70 /* RangeReplaceableCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EB2B820E9E814001EAE70 /* RangeReplaceableCollectionTests.swift */; };
 		B22EB2BE20E9EA20001EAE70 /* RangeReplaceableCollectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EB2B820E9E814001EAE70 /* RangeReplaceableCollectionTests.swift */; };
-		B29527AD20F99E9700E1F75D /* RandomAccessCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527AC20F99E9700E1F75D /* RandomAccessCollectionExtensions.swift */; };
-		B29527AE20F99F9900E1F75D /* RandomAccessCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527AC20F99E9700E1F75D /* RandomAccessCollectionExtensions.swift */; };
-		B29527AF20F99F9900E1F75D /* RandomAccessCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527AC20F99E9700E1F75D /* RandomAccessCollectionExtensions.swift */; };
-		B29527B020F99F9A00E1F75D /* RandomAccessCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527AC20F99E9700E1F75D /* RandomAccessCollectionExtensions.swift */; };
-		B29527B220F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */; };
-		B29527B320F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */; };
-		B29527B420F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */; };
 		B2A0DAB62336D5A6002B0BC5 /* StdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A0DAB52336D5A6002B0BC5 /* StdlibDeprecated.swift */; };
 		B2A0DAB72336D5A6002B0BC5 /* StdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A0DAB52336D5A6002B0BC5 /* StdlibDeprecated.swift */; };
 		B2A0DAB82336D5A6002B0BC5 /* StdlibDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2A0DAB52336D5A6002B0BC5 /* StdlibDeprecated.swift */; };
@@ -844,8 +837,6 @@
 		A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensionsTests.swift; sourceTree = "<group>"; };
 		B22EB2B620E9E720001EAE70 /* RangeReplaceableCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeReplaceableCollectionExtensions.swift; sourceTree = "<group>"; };
 		B22EB2B820E9E814001EAE70 /* RangeReplaceableCollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeReplaceableCollectionTests.swift; sourceTree = "<group>"; };
-		B29527AC20F99E9700E1F75D /* RandomAccessCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollectionExtensions.swift; sourceTree = "<group>"; };
-		B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollectionExtensionsTests.swift; sourceTree = "<group>"; };
 		B2A0DAB52336D5A6002B0BC5 /* StdlibDeprecated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StdlibDeprecated.swift; sourceTree = "<group>"; };
 		B2A0DABF2336DA87002B0BC5 /* MutableCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableCollectionExtensions.swift; sourceTree = "<group>"; };
 		B2A0DAC42336DCE5002B0BC5 /* MutableCollectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableCollectionTests.swift; sourceTree = "<group>"; };
@@ -961,7 +952,6 @@
 				07B7F1711F5EB41600E6F910 /* FloatingPointExtensions.swift */,
 				07B7F1721F5EB41600E6F910 /* IntExtensions.swift */,
 				07B7F1741F5EB41600E6F910 /* OptionalExtensions.swift */,
-				B29527AC20F99E9700E1F75D /* RandomAccessCollectionExtensions.swift */,
 				B22EB2B620E9E720001EAE70 /* RangeReplaceableCollectionExtensions.swift */,
 				18C8E5DD2074C58100F8AF51 /* SequenceExtensions.swift */,
 				07B7F1751F5EB41600E6F910 /* SignedIntegerExtensions.swift */,
@@ -1000,7 +990,6 @@
 				9D9784DF1FCAE6DD00D988E7 /* StringProtocolExtensionsTests.swift */,
 				07FE50441F891C95000766AA /* SignedNumericExtensionsTests.swift */,
 				B22EB2B820E9E814001EAE70 /* RangeReplaceableCollectionTests.swift */,
-				B29527B120F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift */,
 				2141A351235F379600218109 /* TestHelpers.swift */,
 			);
 			path = SwiftStdlibTests;
@@ -1961,7 +1950,6 @@
 				07B7F21A1F5EB43C00E6F910 /* StringExtensions.swift in Sources */,
 				9D806A652258D75A008E500A /* SCNBoxExtensions.swift in Sources */,
 				07B7F2331F5EB45100E6F910 /* NSAttributedStringExtensions.swift in Sources */,
-				B29527AD20F99E9700E1F75D /* RandomAccessCollectionExtensions.swift in Sources */,
 				07B7F1971F5EB42000E6F910 /* UIImageExtensions.swift in Sources */,
 				734307F82108C2240029CD16 /* CGVectorExtensions.swift in Sources */,
 				9D806A742258E0D8008E500A /* SCNConeExtensions.swift in Sources */,
@@ -2071,7 +2059,6 @@
 				077BA08B1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				07A1C448224FFE16003272E4 /* UIApplicationExtensions.swift in Sources */,
 				F854D2C42423ECF0003A08A9 /* CATransform3DExtensions.swift in Sources */,
-				B29527AE20F99F9900E1F75D /* RandomAccessCollectionExtensions.swift in Sources */,
 				9D4914841F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
 				F87AA5D624125808005F5B28 /* NotificationCenterExtensions.swift in Sources */,
 				07B7F2011F5EB43C00E6F910 /* FloatExtensions.swift in Sources */,
@@ -2188,7 +2175,6 @@
 				07B7F1C81F5EB42200E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				07B7F1D11F5EB42200E6F910 /* UITextViewExtensions.swift in Sources */,
 				F8C1AE71225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */,
-				B29527AF20F99F9900E1F75D /* RandomAccessCollectionExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2249,7 +2235,6 @@
 				07A494E723C7CAAA00DFCBFC /* CLVisitExtensions.swift in Sources */,
 				07B7F2201F5EB44600E6F910 /* CGColorExtensions.swift in Sources */,
 				0726D77C1F7C24840028CAB5 /* ColorExtensions.swift in Sources */,
-				B29527B020F99F9A00E1F75D /* RandomAccessCollectionExtensions.swift in Sources */,
 				07B7F1D51F5EB43B00E6F910 /* ArrayExtensions.swift in Sources */,
 				7832C2B2209BB19300224EED /* ComparableExtensions.swift in Sources */,
 				F8C1AE72225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */,
@@ -2349,7 +2334,6 @@
 				07C50D8D1F5EB06000F46E5A /* CGPointExtensionsTests.swift in Sources */,
 				F854D2BF2423EBD0003A08A9 /* CATransform3DExtensionsTests.swift in Sources */,
 				C7E027C92360958B00F1061E /* KeyedDecodingContainerExtensionsTests.swift in Sources */,
-				B29527B220F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */,
 				07C50D3F1F5EB04700F46E5A /* UIViewControllerExtensionsTests.swift in Sources */,
 				07C50D3D1F5EB04700F46E5A /* UITextFieldExtensionsTests.swift in Sources */,
 				07C50D641F5EB05000F46E5A /* URLExtensionsTests.swift in Sources */,
@@ -2438,7 +2422,6 @@
 				F850972524AF72690007F74D /* MyViewController.swift in Sources */,
 				9D806A3E2258AED4008E500A /* UIBezierPathExtensionsTests.swift in Sources */,
 				07C50D681F5EB05100F46E5A /* CollectionExtensionsTests.swift in Sources */,
-				B29527B320F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */,
 				9D806A902258FAA0008E500A /* SCNCapsuleExtensionsTests.swift in Sources */,
 				664CB97C21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift in Sources */,
 				07C50D4B1F5EB04700F46E5A /* UINavigationItemExtensionsTests.swift in Sources */,
@@ -2535,7 +2518,6 @@
 				07FE50471F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */,
 				985C1B942479795B008AAB0E /* WKWebViewExtensionsTests.swift in Sources */,
 				A94AA78C202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */,
-				B29527B420F9A04900E1F75D /* RandomAccessCollectionExtensionsTests.swift in Sources */,
 				9D806AA12258FF1A008E500A /* SCNSphereExtensionsTests.swift in Sources */,
 				9D806A8D2258F892008E500A /* SCNGeometryExtensionsTests.swift in Sources */,
 				078916DC2076077000AC0665 /* FloatingPointExtensionsTests.swift in Sources */,

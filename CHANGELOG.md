@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **Collection**
+  - Moved `indices(of:)` from `RandomAccessCollection` to find the indices of an element. [#863](https://github.com/SwifterSwift/SwifterSwift/pull/863) by [guykogus](https://github.com/guykogus)
 - **UIViewController**:
   - Added `instantiate(from:bundle:identifier:)` function to `UIViewController` to make it easier to instantiate it from storyboard. [#860](https://github.com/SwifterSwift/SwifterSwift/pull/860) by [VatoKo](https://github.com/VatoKo)
 - **String**:
@@ -23,10 +25,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **WKWebView**:
   - Added `loadURL(_:)` and `loadURLString(_:)` extensions for `WkWebView`. [#851](https://github.com/SwifterSwift/SwifterSwift/pull/851) by [hamtiko](https://github.com/hamtiko)
 - **HKActivitySummary**:
-  - Added `isStandGoalMet`, `isExerciseTimeGoalMet`, and `isEnergyBurnedGoalMet `. [#875](https://github.com/SwifterSwift/SwifterSwift/pull/875) by [lhygilbert](https://github.com/lhygilbert)
+  - Added `isStandGoalMet`, `isExerciseTimeGoalMet`, and `isEnergyBurnedGoalMet`. [#875](https://github.com/SwifterSwift/SwifterSwift/pull/875) by [lhygilbert](https://github.com/lhygilbert)
 
 ### Changed
-- **NSAttributedStringExtensions.swift**:
+- **NSAttributedString**:
   - `applying(attributes:)` changed access modifier from `fileprivate` to `public`. [#832](https://github.com/SwifterSwift/SwifterSwift/pull/832) by [cHaLkdusT](https://github.com/cHaLkdusT)
 - **Color**:
   - Refactored `init(light:dark:)` to remove deployment target version restrictions. [#844](https://github.com/SwifterSwift/SwifterSwift/pull/844) by [VincentSit](https://github.com/vincentsit).
@@ -42,7 +44,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Disabled `textColor` when compiling for target `macCatalyst` as it will crash. [#864](https://github.com/SwifterSwift/SwifterSwift/pull/864) by [guykogus](https://github.com/guykogus)
 
 ### Fixed
-- **CAGradientLayerExtensions.swift**:
+- **Collection**
+  - `indices(where:)`, `forEach(slice:body:)` can be used on a collection with any index type. `average()` can be used on any integer element type. [#863](https://github.com/SwifterSwift/SwifterSwift/pull/863) by [guykogus](https://github.com/guykogus)
+- **CAGradientLayer**:
   - CAGradientLayer extensions inaccessible through internal level protection. [#856](https://github.com/SwifterSwift/SwifterSwift/pull/856) by [Den Andreychuk](https://github.com/denandreychuk).
 - **StringExtensions.swift**:
   - Fixed a bug: When the length of a string is 0, calling truncated method will crash. [#866](https://github.com/SwifterSwift/SwifterSwift/pull/866) by [phil zhang](https://github.com/philCc)
