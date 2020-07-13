@@ -144,17 +144,43 @@ public extension UITextField {
         leftViewMode = .always
     }
 
+    /// SwifterSwift: Add padding to the right of the textfield rect.
+    ///
+    /// - Parameter padding: amount of padding to apply to the right of the textfield rect.
+    func addPaddingRight(_ padding: CGFloat) {
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: padding, height: frame.height))
+        rightView = paddingView
+        rightViewMode = .always
+    }
+    
     /// SwifterSwift: Add padding to the left of the textfield rect.
     ///
     /// - Parameters:
     ///   - image: left image
     ///   - padding: amount of padding between icon and the left of textfield
     func addPaddingLeftIcon(_ image: UIImage, padding: CGFloat) {
+        let iconView = UIView(frame: CGRect(x: 0, y: 0, width: image.size.width + padding, height: image.size.height))
         let imageView = UIImageView(image: image)
+        imageView.frame = iconView.bounds
         imageView.contentMode = .center
-        leftView = imageView
-        leftView?.frame.size = CGSize(width: image.size.width + padding, height: image.size.height)
+        iconView.addSubview(imageView)
+        leftView = iconView
         leftViewMode = .always
+    }
+    
+    /// SwifterSwift: Add padding to the right of the textfield rect.
+    ///
+    /// - Parameters:
+    ///   - image: right image
+    ///   - padding: amount of padding between icon and the right of textfield
+    func addPaddingRightIcon(_ image: UIImage, padding: CGFloat) {
+        let iconView = UIView(frame: CGRect(x: 0, y: 0, width: image.size.width + padding, height: image.size.height))
+        let imageView = UIImageView(image: image)
+        imageView.frame = iconView.bounds
+        imageView.contentMode = .center
+        iconView.addSubview(imageView)
+        rightView = iconView
+        rightViewMode = .always
     }
 
 }
