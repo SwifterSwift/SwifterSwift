@@ -170,6 +170,16 @@ public extension UIView {
         }
     }
 
+    /// SwifterSwift: Masks to bounds of view; also inspectable from Storyboard.
+    @IBInspectable var masksToBounds: Bool {
+        get {
+            return layer.masksToBounds
+        }
+        set {
+            layer.masksToBounds = newValue
+        }
+    }
+
     /// SwifterSwift: Size of view.
     var size: CGSize {
         get {
