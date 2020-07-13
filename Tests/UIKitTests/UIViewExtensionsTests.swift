@@ -157,8 +157,7 @@ final class UIViewExtensionsTests: XCTestCase {
     }
 
     func testMasksToBounds() {
-        let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        let view = UIView(frame: frame)
+        let view = UIView(frame: .zero)
         view.layer.masksToBounds = true
         XCTAssertTrue(view.masksToBounds)
         view.masksToBounds = false
