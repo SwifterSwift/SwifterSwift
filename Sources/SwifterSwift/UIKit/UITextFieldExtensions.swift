@@ -150,7 +150,7 @@ public extension UITextField {
         rightView = UIView(frame: CGRect(x: 0, y: 0, width: padding, height: frame.height))
         rightViewMode = .always
     }
-    
+
     /// SwifterSwift: Add padding to the left of the textfield rect.
     ///
     /// - Parameters:
@@ -165,7 +165,7 @@ public extension UITextField {
         leftView = iconView
         leftViewMode = .always
     }
-    
+
     /// SwifterSwift: Add padding to the right of the textfield rect.
     ///
     /// - Parameters:
