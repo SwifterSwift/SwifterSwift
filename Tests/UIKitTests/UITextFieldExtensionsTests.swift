@@ -157,7 +157,7 @@ final class UITextFieldExtensionsTests: XCTestCase {
         textfield.frame = CGRect(x: 0, y: 0, width: 100, height: 44)
 
         let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let image = UIImage(named: "TestImage", in: bundle)!
         textfield.addPaddingRightIcon(image, padding: 5)
         XCTAssertEqual(textfield.rightView?.frame.width, image.size.width + 5)
     }
