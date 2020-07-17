@@ -37,6 +37,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Refactored `init(light:dark:)` to remove deployment target version restrictions. [#844](https://github.com/SwifterSwift/SwifterSwift/pull/844) by [VincentSit](https://github.com/vincentsit).
 - **CAGradientLayer**:
   - In `init(colors:locations:startPoint:endPoint:type:)` added default values to `startPoint` and `endPoint`. [#864](https://github.com/SwifterSwift/SwifterSwift/pull/864) by [guykogus](https://github.com/guykogus)
+- **UITextField**:
+  - Added `addPaddingRight`,`addPaddingRightIcon`extension,[#878](https://github.com/SwifterSwift/SwifterSwift/pull/878) by [Jayxiang](https://github.com/Jayxiang)
 
 ### Deprecated
 - **Sequence**:
@@ -53,6 +55,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - CAGradientLayer extensions inaccessible through internal level protection. [#856](https://github.com/SwifterSwift/SwifterSwift/pull/856) by [Den Andreychuk](https://github.com/denandreychuk).
 - **StringExtensions.swift**:
   - Fixed a bug: When the length of a string is 0, calling truncated method will crash. [#866](https://github.com/SwifterSwift/SwifterSwift/pull/866) by [phil zhang](https://github.com/philCc)
+- **UITextField**
+  - Fixed a bug:UITextField `addPaddingLeftIcon` doesn't work on iOS 13[#876](https://github.com/SwifterSwift/SwifterSwift/issues/876) by [Jayxiang](https://github.com/Jayxiang)
 
 ### Security
 
