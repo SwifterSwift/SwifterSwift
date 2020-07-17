@@ -139,8 +139,7 @@ public extension UITextField {
     ///
     /// - Parameter padding: amount of padding to apply to the left of the textfield rect.
     func addPaddingLeft(_ padding: CGFloat) {
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: padding, height: frame.height))
-        leftView = paddingView
+        leftView = UIView(frame: CGRect(x: 0, y: 0, width: padding, height: frame.height))
         leftViewMode = .always
     }
 
@@ -148,8 +147,7 @@ public extension UITextField {
     ///
     /// - Parameter padding: amount of padding to apply to the right of the textfield rect.
     func addPaddingRight(_ padding: CGFloat) {
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: padding, height: frame.height))
-        rightView = paddingView
+        rightView = UIView(frame: CGRect(x: 0, y: 0, width: padding, height: frame.height))
         rightViewMode = .always
     }
     
