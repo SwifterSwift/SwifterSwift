@@ -233,6 +233,53 @@ public extension UIView {
         }
     }
 
+    /// SwifterSwift: Return constraints for this view. This must enumerate superviews.
+    var allConstraints: [NSLayoutConstraint] {
+        // https://stackoverflow.com/questions/47053727
+
+        // build array of self and all superviews
+        var views = [self]
+        var current = self
+        while let superview = current.superview {
+            views.append(superview)
+            current = superview
+        }
+
+        // now collect constraints affecting this view
+        return views.flatMap { $0.constraints }.filter {
+            $0.firstItem as? UIView == self || $0.secondItem as? UIView == self
+        }
+    }
+
+    /// SwifterSwift: First width constraint for this view
+    var widthConstraint: NSLayoutConstraint? {
+        findConstraint(attribute: .width)
+    }
+
+    /// SwifterSwift: First height constraint for this view
+    var heightConstraint: NSLayoutConstraint? {
+        findConstraint(attribute: .height)
+    }
+
+    /// SwifterSwift: First leading constraint for this view
+    var leadingConstraint: NSLayoutConstraint? {
+        findConstraint(attribute: .leading)
+    }
+
+    /// SwifterSwift: First trailing constraint for this view
+    var trailingConstraint: NSLayoutConstraint? {
+        findConstraint(attribute: .trailing)
+    }
+
+    /// SwifterSwift: First top constraint for this view
+    var topConstraint: NSLayoutConstraint? {
+        findConstraint(attribute: .top)
+    }
+
+    /// SwifterSwift: First bottom constraint for this view
+    var bottomConstraint: NSLayoutConstraint? {
+        findConstraint(attribute: .bottom)
+    }
 }
 
 // MARK: - Methods
@@ -580,6 +627,16 @@ public extension UIView {
         return ancestorView(where: { $0 is T }) as? T
     }
 
+    /// SwifterSwift: Search constraints for this view until we find one for the given attribute.
+    ///
+    /// - Parameter attribute: the attribute to find
+    /// - Returns: matching constraint
+    func findConstraint(attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
+        allConstraints.first {
+            ($0.firstAttribute == attribute && $0.firstItem as? UIView == self) ||
+            ($0.secondAttribute == attribute && $0.secondItem as? UIView == self)
+        }
+    }
 }
 
 #endif
