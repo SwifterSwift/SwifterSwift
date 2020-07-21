@@ -322,6 +322,12 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(view1.transform, view3.transform)
     }
 
+    func testLoadFromNib() {
+        let bundle = Bundle(for: UIViewExtensionsTests.self)
+        XCTAssertNotNil(UIView.loadFromNib(named: "UITableViewCell", bundle: bundle))
+        XCTAssertNotNil(UIView.loadFromNib(withClass: UITableViewCell.self, bundle: bundle))
+    }
+
     func testRemoveSubviews() {
         let view = UIView()
         view.addSubviews([UIView(), UIView()])
