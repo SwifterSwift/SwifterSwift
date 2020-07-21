@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 
 ### Added
+- **FloatingPoint**
+  - Moved the square root operator `√` from `Double` and `Float` to make it generic. [#880](https://github.com/SwifterSwift/SwifterSwift/pull/880) by [guykogus](https://github.com/guykogus)
 - **Collection**
   - Moved `indices(of:)` from `RandomAccessCollection` to find the indices of an element. [#863](https://github.com/SwifterSwift/SwifterSwift/pull/863) by [guykogus](https://github.com/guykogus)
 - **UIViewController**:

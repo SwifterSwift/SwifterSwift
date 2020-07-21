@@ -59,9 +59,11 @@ final class FloatingPointExtensionsTests: XCTestCase {
     func testOperators() {
         XCTAssert((Float(5.0) ± Float(2.0)) == (Float(3.0), Float(7.0)) || (Float(5.0) ± Float(2.0)) == (Float(7.0), Float(3.0)))
         XCTAssert((±Float(2.0)) == (Float(2.0), Float(-2.0)) || (±Float(2.0)) == (Float(-2.0), Float(2.0)))
+        XCTAssertEqual(√Float(25.0), Float(5.0))
 
         XCTAssert((Double(5.0) ± Double(2.0)) == (Double(3.0), Double(7.0)) || (Double(5.0) ± Double(2.0)) == (Double(7.0), Double(3.0)))
         XCTAssert((±Double(2.0)) == (Double(2.0), Double(-2.0)) || (±Double(2.0)) == (Double(-2.0), Double(2.0)))
+        XCTAssertEqual(√Double(25.0), Double(5.0))
     }
 
 }

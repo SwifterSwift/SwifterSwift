@@ -31,7 +31,6 @@ final class FloatExtensionsTests: XCTestCase {
 
     func testOperators() {
         XCTAssertEqual((Float(5.0) ** Float(2.0)), Float(25.0))
-        XCTAssertEqual((√Float(25.0)), Float(5.0))
     }
 
 }

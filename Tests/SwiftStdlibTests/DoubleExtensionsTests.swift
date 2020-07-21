@@ -31,7 +31,6 @@ final class DoubleExtensionsTests: XCTestCase {
 
     func testOperators() {
         XCTAssertEqual((Double(5.0) ** Double(2.0)), Double(25.0))
-        XCTAssertEqual((√Double(25.0)), Double(5.0))
     }
 
 }
