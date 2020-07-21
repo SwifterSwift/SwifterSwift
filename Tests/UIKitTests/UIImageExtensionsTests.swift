@@ -13,6 +13,13 @@ import XCTest
 import UIKit
 
 final class UIImageExtensionsTests: XCTestCase {
+    func testAverageColor() {
+        // note that not all colors precisely survive the roundtrip due to CI colorspace
+        // management. Blue & brown seem safe, though.
+        let size = CGSize(width: 10, height: 5)
+        XCTAssertEqual(UIColor.blue, UIImage(color: .blue, size: size).averageColor)
+        XCTAssertEqual(UIColor.brown, UIImage(color: .brown, size: size).averageColor)
+    }
 
     func testBytesSize() {
         let bundle = Bundle.init(for: UIImageExtensionsTests.self)

@@ -261,7 +261,6 @@ public extension Color {
                      blue: max(blue - percentage, 0),
                      alpha: alpha)
     }
-
 }
 
 // MARK: - Initializers
