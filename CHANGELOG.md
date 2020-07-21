@@ -31,6 +31,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `isStandGoalMet`, `isExerciseTimeGoalMet`, and `isEnergyBurnedGoalMet`. [#875](https://github.com/SwifterSwift/SwifterSwift/pull/875) by [lhygilbert](https://github.com/lhygilbert)
 - **UIView**:
   - Added `masksToBounds` (IBInspectable) extension. [#877](https://github.com/SwifterSwift/SwifterSwift/pull/877) by [hamtiko](https://github.com/hamtiko)
+- **UIImage**
+  - Added `averageColor`, which calculates the average UIColor for an entire image.
 
 ### Changed
 - **NSAttributedString**:
