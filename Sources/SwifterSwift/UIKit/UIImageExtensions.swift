@@ -45,7 +45,7 @@ public extension UIImage {
             return nil
         }
 
-        // extract single pixel of RGBA8 data
+        // After getting the single-pixel image from the filter extract pixel's RGBA8 data
         var bitmap = [UInt8](repeating: 0, count: 4)
         let context = CIContext(options: [.workingColorSpace: NSNull()])
         context.render(outputImage,
