@@ -55,7 +55,7 @@ public extension UIImage {
                        format: .RGBA8,
                        colorSpace: nil)
 
-        // convert to UIColor
+        // Convert pixel data to UIColor
         return UIColor(red: CGFloat(bitmap[0]) / 255.0,
                        green: CGFloat(bitmap[1]) / 255.0,
                        blue: CGFloat(bitmap[2]) / 255.0,
