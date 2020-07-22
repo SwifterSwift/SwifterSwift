@@ -632,6 +632,10 @@ public extension UIView {
     /// - Parameter attribute: the attribute to find
     /// - Returns: matching constraint
     func findConstraint(attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
+        // This is a bit subtle. While looking for .height, it's entirely
+        // possible that firstAttribute is .height but firstItem is not self
+        // (secondItem would be self in that case). That's not what we want to
+        // return.
         allConstraints.first {
             ($0.firstAttribute == attribute && $0.firstItem as? UIView == self) ||
             ($0.secondAttribute == attribute && $0.secondItem as? UIView == self)
