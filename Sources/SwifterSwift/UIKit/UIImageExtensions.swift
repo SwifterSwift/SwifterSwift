@@ -39,7 +39,7 @@ public extension UIImage {
             return nil
         }
 
-        // run CIAreaAverage filter to get average
+        // CIAreaAverage returns a single-pixel image that contains the average color for a given region of an image.
         let parameters = [kCIInputImageKey: ciImage, kCIInputExtentKey: CIVector(cgRect: ciImage.extent)]
         guard let outputImage = CIFilter(name: "CIAreaAverage", parameters: parameters)?.outputImage else {
             return nil
