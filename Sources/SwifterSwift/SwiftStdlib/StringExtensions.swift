@@ -417,7 +417,7 @@ public extension String {
     /// "hello ^$ there" -> "hello \\^\\$ there"
     ///
     var regexEscaped: String {
-      NSRegularExpression.escapedPattern(for: self)
+      return NSRegularExpression.escapedPattern(for: self)
     }
     #endif
 
