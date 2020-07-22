@@ -33,6 +33,7 @@ public extension UIImage {
     }
 
     /// SwifterSwift: Average color for this image
+    #if canImport(CoreImage)
     var averageColor: UIColor? {
         // https://stackoverflow.com/questions/26330924
         guard let ciImage = CIImage(image: self) else {
@@ -61,6 +62,7 @@ public extension UIImage {
                        blue: CGFloat(bitmap[2]) / 255.0,
                        alpha: CGFloat(bitmap[3]) / 255.0)
     }
+    #endif
 }
 
 // MARK: - Methods
