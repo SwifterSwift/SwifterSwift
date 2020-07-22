@@ -322,11 +322,13 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(view1.transform, view3.transform)
     }
 
+    #if os(iOS) // UITableViewCell nib only works on iOS
     func testLoadFromNib() {
         let bundle = Bundle(for: UIViewExtensionsTests.self)
         XCTAssertNotNil(UIView.loadFromNib(named: "UITableViewCell", bundle: bundle))
         XCTAssertNotNil(UIView.loadFromNib(withClass: UITableViewCell.self, bundle: bundle))
     }
+    #endif
 
     func testRemoveSubviews() {
         let view = UIView()
