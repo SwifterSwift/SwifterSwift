@@ -580,49 +580,51 @@ public extension UIView {
     }
 }
 
-// MARK: - findConstraint and friends
+// MARK: - Constraints
 public extension UIView {
-    /// SwifterSwift: Search constraints until we find one for the given view and attribute. This will enumerate ancestors since constraints are always added to the common ancestor.
+    /// SwifterSwift: Search constraints until we find one for the given view
+    /// and attribute. This will enumerate ancestors since constraints are
+    /// always added to the common ancestor.
     ///
-    /// - Parameter view: the view to find
     /// - Parameter attribute: the attribute to find
+    /// - Parameter at: the view to find
     /// - Returns: matching constraint
-    func findConstraint(view: UIView, attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
+    func findConstraint(attribute: NSLayoutConstraint.Attribute, at view: UIView) -> NSLayoutConstraint? {
         let constraint = constraints.first {
             ($0.firstAttribute == attribute && $0.firstItem as? UIView == view) ||
             ($0.secondAttribute == attribute && $0.secondItem as? UIView == view)
         }
-        return constraint ?? superview?.findConstraint(view: view, attribute: attribute)
+        return constraint ?? superview?.findConstraint(attribute: attribute, at: view)
     }
 
     /// SwifterSwift: First width constraint for this view
     var widthConstraint: NSLayoutConstraint? {
-        findConstraint(view: self, attribute: .width)
+        findConstraint(attribute: .width, at: self)
     }
 
     /// SwifterSwift: First height constraint for this view
     var heightConstraint: NSLayoutConstraint? {
-        findConstraint(view: self, attribute: .height)
+        findConstraint(attribute: .height, at: self)
     }
 
     /// SwifterSwift: First leading constraint for this view
     var leadingConstraint: NSLayoutConstraint? {
-        findConstraint(view: self, attribute: .leading)
+        findConstraint(attribute: .leading, at: self)
     }
 
     /// SwifterSwift: First trailing constraint for this view
     var trailingConstraint: NSLayoutConstraint? {
-        findConstraint(view: self, attribute: .trailing)
+        findConstraint(attribute: .trailing, at: self)
     }
 
     /// SwifterSwift: First top constraint for this view
     var topConstraint: NSLayoutConstraint? {
-        findConstraint(view: self, attribute: .top)
+        findConstraint(attribute: .top, at: self)
     }
 
     /// SwifterSwift: First bottom constraint for this view
     var bottomConstraint: NSLayoutConstraint? {
-        findConstraint(view: self, attribute: .bottom)
+        findConstraint(attribute: .bottom, at: self)
     }
 }
 

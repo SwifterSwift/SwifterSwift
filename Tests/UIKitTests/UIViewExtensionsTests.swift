@@ -474,10 +474,15 @@ final class UIViewExtensionsTests: XCTestCase {
         let view = UIView()
         let container = UIView()
         container.addSubview(view)
-        view.widthAnchor.constraint(equalToConstant: 1).isActive = true
-        container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 3).isActive = true
-        XCTAssertNotNil(view.findConstraint(view: view, attribute: .width))
-        XCTAssertNil(view.findConstraint(view: view, attribute: .height))
+        NSLayoutConstraint.activate([
+            view.widthAnchor.constraint(equalToConstant: 1),
+            container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 3)
+        ])
+        XCTAssertNotNil(view.findConstraint(attribute: .width, at: view))
+        XCTAssertNil(view.findConstraint(attribute: .height, at: view))
+
+        // pathological case
+        XCTAssertNil(view.findConstraint(attribute: .height, at: UIView()))
     }
 
     func testConstraintProperties() {
@@ -486,12 +491,14 @@ final class UIViewExtensionsTests: XCTestCase {
         container.addSubview(view)
 
         // setup constraints, some in container and some in view
-        view.widthAnchor.constraint(equalToConstant: 1).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 2).isActive = true
-        container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 3).isActive = true
-        container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4).isActive = true
-        view.topAnchor.constraint(equalTo: container.topAnchor, constant: 5).isActive = true
-        view.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: 6).isActive = true
+        NSLayoutConstraint.activate([
+            view.widthAnchor.constraint(equalToConstant: 1),
+            view.heightAnchor.constraint(equalToConstant: 2),
+            container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 3),
+            container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
+            view.topAnchor.constraint(equalTo: container.topAnchor, constant: 5),
+            view.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: 6)
+        ])
 
         // find them
         XCTAssertEqual(view.widthConstraint!.constant, 1)
