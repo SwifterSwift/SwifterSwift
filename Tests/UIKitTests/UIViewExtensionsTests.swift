@@ -478,11 +478,11 @@ final class UIViewExtensionsTests: XCTestCase {
             view.widthAnchor.constraint(equalToConstant: 1),
             container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 3)
         ])
-        XCTAssertNotNil(view.findConstraint(attribute: .width, at: view))
-        XCTAssertNil(view.findConstraint(attribute: .height, at: view))
+        XCTAssertNotNil(view.findConstraint(attribute: .width, for: view))
+        XCTAssertNil(view.findConstraint(attribute: .height, for: view))
 
         // pathological case
-        XCTAssertNil(view.findConstraint(attribute: .height, at: UIView()))
+        XCTAssertNil(view.findConstraint(attribute: .height, for: UIView()))
     }
 
     func testConstraintProperties() {

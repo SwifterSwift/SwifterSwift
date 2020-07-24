@@ -589,42 +589,42 @@ public extension UIView {
     /// - Parameter attribute: the attribute to find
     /// - Parameter at: the view to find
     /// - Returns: matching constraint
-    func findConstraint(attribute: NSLayoutConstraint.Attribute, at view: UIView) -> NSLayoutConstraint? {
+    func findConstraint(attribute: NSLayoutConstraint.Attribute, for view: UIView) -> NSLayoutConstraint? {
         let constraint = constraints.first {
             ($0.firstAttribute == attribute && $0.firstItem as? UIView == view) ||
             ($0.secondAttribute == attribute && $0.secondItem as? UIView == view)
         }
-        return constraint ?? superview?.findConstraint(attribute: attribute, at: view)
+        return constraint ?? superview?.findConstraint(attribute: attribute, for: view)
     }
 
     /// SwifterSwift: First width constraint for this view
     var widthConstraint: NSLayoutConstraint? {
-        findConstraint(attribute: .width, at: self)
+        findConstraint(attribute: .width, for: self)
     }
 
     /// SwifterSwift: First height constraint for this view
     var heightConstraint: NSLayoutConstraint? {
-        findConstraint(attribute: .height, at: self)
+        findConstraint(attribute: .height, for: self)
     }
 
     /// SwifterSwift: First leading constraint for this view
     var leadingConstraint: NSLayoutConstraint? {
-        findConstraint(attribute: .leading, at: self)
+        findConstraint(attribute: .leading, for: self)
     }
 
     /// SwifterSwift: First trailing constraint for this view
     var trailingConstraint: NSLayoutConstraint? {
-        findConstraint(attribute: .trailing, at: self)
+        findConstraint(attribute: .trailing, for: self)
     }
 
     /// SwifterSwift: First top constraint for this view
     var topConstraint: NSLayoutConstraint? {
-        findConstraint(attribute: .top, at: self)
+        findConstraint(attribute: .top, for: self)
     }
 
     /// SwifterSwift: First bottom constraint for this view
     var bottomConstraint: NSLayoutConstraint? {
-        findConstraint(attribute: .bottom, at: self)
+        findConstraint(attribute: .bottom, for: self)
     }
 }
 
