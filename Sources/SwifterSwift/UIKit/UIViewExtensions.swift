@@ -337,7 +337,7 @@ public extension UIView {
     /// - Returns: UIView
     class func loadFromNib<T: UIView>(withClass name: T.Type, bundle: Bundle? = nil) -> T {
         let named = String(describing: name)
-        guard let view = UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? T else {
+        guard let view = UINib(nibName: named, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? T else {
             fatalError("First element in xib file \(named) is not of type \(named)")
         }
         return view
