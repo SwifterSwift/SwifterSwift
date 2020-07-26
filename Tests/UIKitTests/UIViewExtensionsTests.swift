@@ -470,6 +470,47 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableView.self), tableView)
     }
 
+    func testFindConstraint() {
+        let view = UIView()
+        let container = UIView()
+        container.addSubview(view)
+        NSLayoutConstraint.activate([
+            view.widthAnchor.constraint(equalToConstant: 1),
+            container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 3)
+        ])
+        XCTAssertNotNil(view.findConstraint(attribute: .width, for: view))
+        XCTAssertNil(view.findConstraint(attribute: .height, for: view))
+
+        // pathological case
+        XCTAssertNil(view.findConstraint(attribute: .height, for: UIView()))
+    }
+
+    func testConstraintProperties() {
+        let container = UIView()
+        let view = UIView()
+        container.addSubview(view)
+
+        // setup constraints, some in container and some in view
+        NSLayoutConstraint.activate([
+            view.widthAnchor.constraint(equalToConstant: 1),
+            view.heightAnchor.constraint(equalToConstant: 2),
+            container.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 3),
+            container.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 4),
+            view.topAnchor.constraint(equalTo: container.topAnchor, constant: 5),
+            view.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: 6)
+        ])
+
+        // find them
+        XCTAssertEqual(view.widthConstraint!.constant, 1)
+        XCTAssertEqual(view.heightConstraint!.constant, 2)
+        XCTAssertEqual(view.leadingConstraint!.constant, 3)
+        XCTAssertEqual(view.trailingConstraint!.constant, 4)
+        XCTAssertEqual(view.topConstraint!.constant, 5)
+        XCTAssertEqual(view.bottomConstraint!.constant, 6)
+
+        // simple empty case test
+        XCTAssertNil(container.widthConstraint)
+    }
 }
 
 #endif
