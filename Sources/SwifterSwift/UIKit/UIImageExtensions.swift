@@ -34,7 +34,7 @@ public extension UIImage {
 
     /// SwifterSwift: Average color for this image
     #if canImport(CoreImage)
-    var averageColor: UIColor? {
+    func averageColor() -> UIColor? {
         // https://stackoverflow.com/questions/26330924
         guard let ciImage = CIImage(image: self) else {
             return nil
