@@ -32,8 +32,8 @@ public extension UIImage {
         return withRenderingMode(.alwaysTemplate)
     }
 
-    /// SwifterSwift: Average color for this image
     #if canImport(CoreImage)
+    /// SwifterSwift: Average color for this image
     func averageColor() -> UIColor? {
         // https://stackoverflow.com/questions/26330924
         guard let ciImage = CIImage(image: self) else {
