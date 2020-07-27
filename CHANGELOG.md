@@ -32,7 +32,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIView**:
   - Added `masksToBounds` (IBInspectable) extension. [#877](https://github.com/SwifterSwift/SwifterSwift/pull/877) by [hamtiko](https://github.com/hamtiko)
 - **UIImage**
-  - Added `averageColor`, which calculates the average UIColor for an entire image.
+  - Added `averageColor`, which calculates the average UIColor for an entire image. [#884](https://github.com/SwifterSwift/SwifterSwift/pull/884) by [gurgeous](https://github.com/gurgeous)
 
 ### Changed
 - **NSAttributedString**:
