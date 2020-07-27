@@ -14,11 +14,38 @@ import UIKit
 
 final class UIImageExtensionsTests: XCTestCase {
     func testAverageColor() {
-        // note that not all colors precisely survive the roundtrip due to CI colorspace
-        // management. Blue & brown seem safe, though.
+        // note that not all colors precisely survive the roundtrip due to colorspace
+        // management. Use XCTAssertEqual w/ accuracy.
+        func assertColorsEqual(_ color1: UIColor, _ color2: UIColor, accuracy: CGFloat = 0.01) {
+            var r1: CGFloat = 0, g1: CGFloat = 0, b1: CGFloat = 0, a1: CGFloat = 0
+            var r2: CGFloat = 0, g2: CGFloat = 0, b2: CGFloat = 0, a2: CGFloat = 0
+            color1.getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
+            color2.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
+            XCTAssertEqual(r1, r2, accuracy: accuracy)
+            XCTAssertEqual(g1, g2, accuracy: accuracy)
+            XCTAssertEqual(b1, b2, accuracy: accuracy)
+            XCTAssertEqual(a1, a2, accuracy: accuracy)
+        }
+
         let size = CGSize(width: 10, height: 5)
-        XCTAssertEqual(UIColor.blue, UIImage(color: .blue, size: size).averageColor())
-        XCTAssertEqual(UIColor.brown, UIImage(color: .brown, size: size).averageColor())
+
+        // simple fill test
+        assertColorsEqual(UIColor.blue, UIImage(color: .blue, size: size).averageColor()!)
+        assertColorsEqual(UIColor.orange, UIImage(color: .orange, size: size).averageColor()!)
+
+        // more interesting - red + green = yellow
+        let renderer = UIGraphicsImageRenderer(size: size)
+        let yellow = renderer.image {
+            var rect = CGRect(x: 0, y: 0, width: size.width / 2, height: size.height)
+            for color in [ UIColor.red, UIColor.green ] {
+                $0.cgContext.beginPath()
+                $0.cgContext.setFillColor(color.cgColor)
+                $0.cgContext.addRect(rect)
+                $0.cgContext.fillPath()
+                rect.origin.x += rect.size.width
+            }
+        }
+        assertColorsEqual(UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 1), yellow.averageColor()!)
     }
 
     func testBytesSize() {

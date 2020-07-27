@@ -36,6 +36,7 @@ public extension UIImage {
     /// SwifterSwift: Average color for this image
     func averageColor() -> UIColor? {
         // https://stackoverflow.com/questions/26330924
+        // note: self.ciImage appears to always be nil
         guard let ciImage = CIImage(image: self) else {
             return nil
         }
@@ -48,7 +49,8 @@ public extension UIImage {
 
         // After getting the single-pixel image from the filter extract pixel's RGBA8 data
         var bitmap = [UInt8](repeating: 0, count: 4)
-        let context = CIContext(options: [.workingColorSpace: NSNull()])
+        let workingColorSpace: Any = cgImage?.colorSpace ?? NSNull()
+        let context = CIContext(options: [.workingColorSpace: workingColorSpace])
         context.render(outputImage,
                        toBitmap: &bitmap,
                        rowBytes: 4,
