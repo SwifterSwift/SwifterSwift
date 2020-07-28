@@ -10,7 +10,7 @@
 import XCTest
 @testable import SwifterSwift
 
-#if canImport(CoreGraphics)
+#if canImport(AppKit) || canImport(UIKit)
 import CoreGraphics
 
 public func XCTAssertEqual(_ expression1: @autoclosure () throws -> Color,
