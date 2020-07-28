@@ -605,6 +605,10 @@
 		F87AA5DB24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */; };
 		F87AA5DC24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */; };
 		F88C491924AF73A400BA0503 /* TestStoryboard-tvOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F88C491824AF73A400BA0503 /* TestStoryboard-tvOS.storyboard */; };
+		F899FE7924D01A2000F3BDE5 /* WKWebViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C1B922479795B008AAB0E /* WKWebViewExtensionsTests.swift */; };
+		F899FE7A24D01A2400F3BDE5 /* XCTestExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E62DA324D0187000BF35AE /* XCTestExtensionsTests.swift */; };
+		F899FE7B24D01A2500F3BDE5 /* XCTestExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E62DA324D0187000BF35AE /* XCTestExtensionsTests.swift */; };
+		F899FE7C24D01A2500F3BDE5 /* XCTestExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E62DA324D0187000BF35AE /* XCTestExtensionsTests.swift */; };
 		F8A710E923BF3EF100112DAD /* EdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A710E823BF3EF100112DAD /* EdgeInsetsExtensions.swift */; };
 		F8A710EA23BF3F7300112DAD /* EdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A710E823BF3EF100112DAD /* EdgeInsetsExtensions.swift */; };
 		F8A710EB23BF3F7400112DAD /* EdgeInsetsExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A710E823BF3EF100112DAD /* EdgeInsetsExtensions.swift */; };
@@ -619,6 +623,9 @@
 		F8C1AE74225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE73225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift */; };
 		F8C1AE75225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE73225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift */; };
 		F8C1AE76225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE73225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift */; };
+		F8EC9E4E24D01C360089401E /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC9E4D24D01C360089401E /* XCTestExtensions.swift */; };
+		F8EC9E4F24D01C360089401E /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC9E4D24D01C360089401E /* XCTestExtensions.swift */; };
+		F8EC9E5024D01C360089401E /* XCTestExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EC9E4D24D01C360089401E /* XCTestExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -868,6 +875,8 @@
 		F8A710ED23BF3F8200112DAD /* EdgeInsetsExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsExtensionsTests.swift; sourceTree = "<group>"; };
 		F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegularExpressionExtensions.swift; sourceTree = "<group>"; };
 		F8C1AE73225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegularExpressionExtensionsTests.swift; sourceTree = "<group>"; };
+		F8E62DA324D0187000BF35AE /* XCTestExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestExtensionsTests.swift; sourceTree = "<group>"; };
+		F8EC9E4D24D01C360089401E /* XCTestExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCTestExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1038,6 +1047,7 @@
 				07D8960C1F5ED84400FC894D /* CoreLocation */,
 				664CB981217243BA00FC87B4 /* Dispatch */,
 				07B7F1651F5EB41600E6F910 /* Foundation */,
+				0DAEBCDE24B0041900F61684 /* HealthKit */,
 				784C752D2051BD01001C48DD /* MapKit */,
 				9D806A3F2258B91F008E500A /* SceneKit */,
 				0726D7751F7C19880028CAB5 /* Shared */,
@@ -1046,7 +1056,6 @@
 				077BA0871F6BE73000D9C4AC /* SwiftStdlib */,
 				07B7F1791F5EB41600E6F910 /* UIKit */,
 				985C1B8D2479765E008AAB0E /* WebKit */,
-				0DAEBCDE24B0041900F61684 /* HealthKit */,
 			);
 			path = SwifterSwift;
 			sourceTree = "<group>";
@@ -1130,6 +1139,7 @@
 				07D8960F1F5ED8AB00FC894D /* CoreLocationTests */,
 				664CB98821724A3A00FC87B4 /* DispatchTests */,
 				07C50CF91F5EB03200F46E5A /* FoundationTests */,
+				0DAEBCE124B0077000F61684 /* HealthKitTests */,
 				784C75322051BDCA001C48DD /* MapKitTests */,
 				CAC5EBBE2125270A00AB27EC /* ResourcesTests */,
 				9D806A452258B99D008E500A /* SceneKitTests */,
@@ -1139,7 +1149,8 @@
 				077BA0931F6BE93000D9C4AC /* SwiftStdlibTests */,
 				07C50D0D1F5EB03200F46E5A /* UIKitTests */,
 				985C1B9124797911008AAB0E /* WebKitTests */,
-				0DAEBCE124B0077000F61684 /* HealthKitTests */,
+				F8EC9E4C24D01C360089401E /* XCTest */,
+				F8E62DA224D0184E00BF35AE /* XCTestTests */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -1448,6 +1459,22 @@
 				F854D2BE2423EBD0003A08A9 /* CATransform3DExtensionsTests.swift */,
 			);
 			path = CoreAnimationTests;
+			sourceTree = "<group>";
+		};
+		F8E62DA224D0184E00BF35AE /* XCTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				F8E62DA324D0187000BF35AE /* XCTestExtensionsTests.swift */,
+			);
+			path = XCTestTests;
+			sourceTree = "<group>";
+		};
+		F8EC9E4C24D01C360089401E /* XCTest */ = {
+			isa = PBXGroup;
+			children = (
+				F8EC9E4D24D01C360089401E /* XCTestExtensions.swift */,
+			);
+			path = XCTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2292,6 +2319,7 @@
 				9D806A9B2258FE9D008E500A /* SCNShapeExtensionsTests.swift in Sources */,
 				B2A0DAC52336DCE5002B0BC5 /* MutableCollectionTests.swift in Sources */,
 				07C50D5F1F5EB05000F46E5A /* FloatExtensionsTests.swift in Sources */,
+				F8EC9E4E24D01C360089401E /* XCTestExtensions.swift in Sources */,
 				D951E8AF23D04E4600F2CD0B /* DecodableExtensionsTests.swift in Sources */,
 				07C50D371F5EB04700F46E5A /* UISegmentedControlExtensionsTests.swift in Sources */,
 				07C50D8E1F5EB06000F46E5A /* CGSizeExtensionsTests.swift in Sources */,
@@ -2319,6 +2347,7 @@
 				CA1317582106D4F5002F1B0D /* UIRefreshControlExntesionsTests.swift in Sources */,
 				07C50D3A1F5EB04700F46E5A /* UISwitchExtensionsTests.swift in Sources */,
 				07C50D341F5EB04700F46E5A /* UINavigationControllerExtensionsTests.swift in Sources */,
+				F899FE7A24D01A2400F3BDE5 /* XCTestExtensionsTests.swift in Sources */,
 				752AC7A520BC9FF500659E76 /* SKNodeExtensionTests.swift in Sources */,
 				F8C1AE74225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */,
 				07C50D5A1F5EB05000F46E5A /* CollectionExtensionsTests.swift in Sources */,
@@ -2369,6 +2398,7 @@
 				7832C2B5209BB32500224EED /* ComparableExtensionsTests.swift in Sources */,
 				07C50D711F5EB05100F46E5A /* StringExtensionsTests.swift in Sources */,
 				07C50D6A1F5EB05100F46E5A /* DateExtensionsTests.swift in Sources */,
+				F8EC9E4F24D01C360089401E /* XCTestExtensions.swift in Sources */,
 				077BA09F1F6BEA4900D9C4AC /* URLRequestExtensionsTests.swift in Sources */,
 				752AC7A620BCA04100659E76 /* SKNodeExtensionTests.swift in Sources */,
 				07C50D441F5EB04700F46E5A /* UICollectionViewExtensionsTests.swift in Sources */,
@@ -2391,6 +2421,7 @@
 				07C50D671F5EB05100F46E5A /* CharacterExtensionsTests.swift in Sources */,
 				9D49148A1F8515D100F3868F /* NSPredicateExtensionsTests.swift in Sources */,
 				07C50D651F5EB05100F46E5A /* ArrayExtensionsTests.swift in Sources */,
+				F899FE7924D01A2000F3BDE5 /* WKWebViewExtensionsTests.swift in Sources */,
 				748B192023B4F4FA0030FABB /* SKProductTests.swift in Sources */,
 				2141A353235F37C100218109 /* TestHelpers.swift in Sources */,
 				07C50D6D1F5EB05100F46E5A /* FloatExtensionsTests.swift in Sources */,
@@ -2443,6 +2474,7 @@
 				07C50D6C1F5EB05100F46E5A /* DoubleExtensionsTests.swift in Sources */,
 				9D806A482258B9BB008E500A /* SCNVector3ExtensionsTests.swift in Sources */,
 				07C50D6B1F5EB05100F46E5A /* DictionaryExtensionsTests.swift in Sources */,
+				F899FE7B24D01A2500F3BDE5 /* XCTestExtensionsTests.swift in Sources */,
 				07C50D691F5EB05100F46E5A /* DataExtensionsTests.swift in Sources */,
 				07C50D6F1F5EB05100F46E5A /* LocaleExtensionsTests.swift in Sources */,
 				F87AA5DB24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */,
@@ -2485,6 +2517,7 @@
 				07C50D7F1F5EB05100F46E5A /* StringExtensionsTests.swift in Sources */,
 				70269A311FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */,
 				9D806A842258F56F008E500A /* SCNBoxExtensionsTests.swift in Sources */,
+				F8EC9E5024D01C360089401E /* XCTestExtensions.swift in Sources */,
 				9D806A952258FCCE008E500A /* SCNConeExtensionsTests.swift in Sources */,
 				664CB974217186E900FC87B4 /* BidirectionalCollectionExtensionsTests.swift in Sources */,
 				9D806A912258FAA0008E500A /* SCNCapsuleExtensionsTests.swift in Sources */,
@@ -2513,6 +2546,7 @@
 				7832C2B6209BB32500224EED /* ComparableExtensionsTests.swift in Sources */,
 				07C50D811F5EB05800F46E5A /* CGFloatExtensionsTests.swift in Sources */,
 				9D806A992258FD81008E500A /* SCNCylinderExtensionsTests.swift in Sources */,
+				F899FE7C24D01A2500F3BDE5 /* XCTestExtensionsTests.swift in Sources */,
 				F8A710F123BF3F8600112DAD /* EdgeInsetsExtensionsTests.swift in Sources */,
 				116090B624187D8100DDCD01 /* CGRectExtensionsTests.swift in Sources */,
 				07FE50471F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */,
