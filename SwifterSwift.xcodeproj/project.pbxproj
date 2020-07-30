@@ -605,7 +605,6 @@
 		F87AA5DB24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */; };
 		F87AA5DC24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */; };
 		F88C491924AF73A400BA0503 /* TestStoryboard-tvOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F88C491824AF73A400BA0503 /* TestStoryboard-tvOS.storyboard */; };
-		F899FE7924D01A2000F3BDE5 /* WKWebViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C1B922479795B008AAB0E /* WKWebViewExtensionsTests.swift */; };
 		F899FE7A24D01A2400F3BDE5 /* XCTestExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E62DA324D0187000BF35AE /* XCTestExtensionsTests.swift */; };
 		F899FE7B24D01A2500F3BDE5 /* XCTestExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E62DA324D0187000BF35AE /* XCTestExtensionsTests.swift */; };
 		F899FE7C24D01A2500F3BDE5 /* XCTestExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E62DA324D0187000BF35AE /* XCTestExtensionsTests.swift */; };
@@ -2421,7 +2420,6 @@
 				07C50D671F5EB05100F46E5A /* CharacterExtensionsTests.swift in Sources */,
 				9D49148A1F8515D100F3868F /* NSPredicateExtensionsTests.swift in Sources */,
 				07C50D651F5EB05100F46E5A /* ArrayExtensionsTests.swift in Sources */,
-				F899FE7924D01A2000F3BDE5 /* WKWebViewExtensionsTests.swift in Sources */,
 				748B192023B4F4FA0030FABB /* SKProductTests.swift in Sources */,
 				2141A353235F37C100218109 /* TestHelpers.swift in Sources */,
 				07C50D6D1F5EB05100F46E5A /* FloatExtensionsTests.swift in Sources */,
