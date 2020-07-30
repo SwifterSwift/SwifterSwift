@@ -11,6 +11,7 @@ import XCTest
 
 final class XCTestExtensionsTests: XCTestCase {
 
+    #if canImport(AppKit) || canImport(UIKit)
     func testAssertEqualColorsWithAccuracy() {
         XCTAssertEqual(.blue, .blue, accuracy: 0)
 
@@ -28,5 +29,6 @@ final class XCTestExtensionsTests: XCTestCase {
                        Color(red: 0, green: 0, blue: 0, alpha: accuracy),
                        accuracy: accuracy)
     }
+    #endif
 
 }

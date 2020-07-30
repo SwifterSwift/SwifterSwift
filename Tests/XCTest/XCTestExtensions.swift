@@ -8,11 +8,29 @@
 
 #if canImport(XCTest)
 import XCTest
-@testable import SwifterSwift
+
+#if canImport(UIKit)
+import UIKit
+/// SwifterSwift: Color
+public typealias Color = UIColor
+#endif
+
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
+import AppKit
+/// SwifterSwift: Color
+public typealias Color = NSColor
+#endif
 
 #if canImport(AppKit) || canImport(UIKit)
-import CoreGraphics
 
+/// SwifterSwift: Asserts that two `Color`s are equal within a certain accuracy.
+/// - Parameters:
+///   - expression1: A `Color`.
+///   - expression2: A `Color`.
+///   - accuracy: Describes the maximum difference between `expression1` and `expression2` for these values to be considered equal.
+///   - message: An optional description of the failure.
+///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
+///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
 public func XCTAssertEqual(_ expression1: @autoclosure () throws -> Color,
                            _ expression2: @autoclosure () throws -> Color,
                            accuracy: CGFloat,
