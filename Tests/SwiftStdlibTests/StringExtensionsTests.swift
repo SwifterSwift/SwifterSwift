@@ -246,6 +246,10 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("it's easy to encode strings".urlEncoded, "it's%20easy%20to%20encode%20strings")
     }
 
+    func testRegexEscaped() {
+        XCTAssertEqual("hello ^$ there".regexEscaped, "hello \\^\\$ there")
+    }
+
     func testWithoutSpacesAndNewLines() {
         XCTAssertEqual("Hello \n Test".withoutSpacesAndNewLines, "HelloTest")
     }

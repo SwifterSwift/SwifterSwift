@@ -412,6 +412,16 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
+    /// SwifterSwift: Escaped string for inclusion in a regular expression pattern
+    ///
+    /// "hello ^$ there" -> "hello \\^\\$ there"
+    ///
+    var regexEscaped: String {
+      return NSRegularExpression.escapedPattern(for: self)
+    }
+    #endif
+
+    #if canImport(Foundation)
     /// SwifterSwift: String without spaces and new lines.
     ///
     ///		"   \n Swifter   \n  Swift  ".withoutSpacesAndNewLines -> "SwifterSwift"
