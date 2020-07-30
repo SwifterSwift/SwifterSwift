@@ -323,7 +323,6 @@ final class UIViewExtensionsTests: XCTestCase {
     }
 
     func testLoadFromNib() {
-        // versions of this nib are present for both iOS and tvOS tests
         let bundle = Bundle(for: UIViewExtensionsTests.self)
         XCTAssertNotNil(UIView.loadFromNib(named: "UIImageView", bundle: bundle))
         XCTAssertNotNil(UIView.loadFromNib(withClass: UIImageView.self, bundle: bundle))
