@@ -13,6 +13,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `instantiate(from:bundle:identifier:)` function to `UIViewController` to make it easier to instantiate it from storyboard. [#860](https://github.com/SwifterSwift/SwifterSwift/pull/860) by [VatoKo](https://github.com/VatoKo)
 - **String**:
   - Overloaded Swift's 'contains' operator (`~=`) for `String` to check regex matching. [#858](https://github.com/SwifterSwift/SwifterSwift/pull/858) by [VatoKo](https://github.com/VatoKo)
+  - `regexEscaped`, which returns an escaped string for inclusion in a regex pattern
 - **DispatchQueue**:
   - Added `asyncAfter(delay:qos:flags:execute:)` method to use it more conveniently without typing unnecessary `.now() + delay`. [#859](https://github.com/SwifterSwift/SwifterSwift/pull/859) by [VatoKo](https://github.com/VatoKo)
   - Re-added `debounce(delay:action:)` for only executing a closure once using a throttle delay. [#869](https://github.com/SwifterSwift/SwifterSwift/pull/869) by [guykogus](https://github.com/guykogus)
@@ -33,6 +34,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `masksToBounds` (IBInspectable) extension. [#877](https://github.com/SwifterSwift/SwifterSwift/pull/877) by [hamtiko](https://github.com/hamtiko)
 - **UIImage**
   - Added `averageColor`, which calculates the average UIColor for an entire image. [#884](https://github.com/SwifterSwift/SwifterSwift/pull/884) by [gurgeous](https://github.com/gurgeous)
+  - Added `loadFromNib(withClass:)`, which loads a UIView of a particular type from a nib file. [#885](https://github.com/SwifterSwift/SwifterSwift/pull/885) by [gurgeous](https://github.com/gurgeous)
+  - Added `findConstraint` for finding an existing constraint. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous]
+  - Added `widthConstraint`, `heightConstraint`, `leadingConstraint`, `trailingConstraint`, `topConstraint`, and `bottomConstraint` for finding specific constraints. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous]
 
 ### Changed
 - **NSAttributedString**:
