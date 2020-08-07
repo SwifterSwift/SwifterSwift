@@ -270,7 +270,7 @@ public extension UIView {
 
     /// SwifterSwift: Add shadow to view.
     ///
-    /// - Note: This method only works with non-clear background color, or set a `shadowPath`.
+    /// - Note: This method only works with non-clear background color, or if the view has a `shadowPath` set.
     /// See parameter `opacity` for detail.
     ///
     /// - Parameters:
