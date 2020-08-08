@@ -1,17 +1,11 @@
-//
-//  UINavigationControllerExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/6/16.
-//  Copyright © 2016 SwifterSwift
-//
+// UINavigationControllerExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Methods
-public extension UINavigationController {
 
+public extension UINavigationController {
     /// SwifterSwift: Pop ViewController with completion handler.
     ///
     /// - Parameters:
@@ -48,7 +42,6 @@ public extension UINavigationController {
         navigationBar.tintColor = tint
         navigationBar.titleTextAttributes = [.foregroundColor: tint]
     }
-
 }
 
 #endif

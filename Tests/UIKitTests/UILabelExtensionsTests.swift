@@ -1,19 +1,12 @@
-//
-//  UILabelExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 3/26/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UILabelExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UILabelExtensionsTests: XCTestCase {
-
     func testInitWithText() {
         let label = UILabel(text: "Hello world")
         XCTAssertEqual(label.text, "Hello world")
@@ -42,7 +35,6 @@ final class UILabelExtensionsTests: XCTestCase {
         XCTAssert(label.requiredHeight < 100)
         #endif
     }
-
 }
 
 #endif

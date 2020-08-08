@@ -1,16 +1,9 @@
-//
-//  SignedIntegerExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 5.04.2018.
-//  Copyright © 2018 SwifterSwift
-//
+// SignedIntegerExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class SignedIntegerExtensionsTests: XCTestCase {
-
     func testAbs() {
         XCTAssertEqual((-9).abs, 9)
     }
@@ -56,5 +49,4 @@ final class SignedIntegerExtensionsTests: XCTestCase {
     func testString() {
         XCTAssertEqual(2.string, "2")
     }
-
 }

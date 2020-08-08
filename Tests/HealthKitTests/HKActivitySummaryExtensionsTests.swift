@@ -1,19 +1,12 @@
-//
-//  HKActivitySummaryExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Gilbert Lo on 7/3/20.
-//  Copyright © 2020 SwifterSwift
-//
+// HKActivitySummaryExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(HealthKit)
 import HealthKit
 
 class HKActivitySummaryExtensionsTests: XCTestCase {
-
     func testIsStandGoalMet() {
         let unit = HKUnit.count()
         let summary = HKActivitySummary()
@@ -58,7 +51,6 @@ class HKActivitySummaryExtensionsTests: XCTestCase {
         summary.activeEnergyBurned = HKQuantity(unit: unit, doubleValue: 600)
         XCTAssert(summary.isEnergyBurnedGoalMet)
     }
-
 }
 
 #endif

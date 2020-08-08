@@ -1,19 +1,12 @@
-//
-//  CGFloatExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/27/16.
-//  Copyright © 2016 SwifterSwift
-//
+// CGFloatExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(CoreGraphics)
 import CoreGraphics
 
 final class CGFloatExtensionsTests: XCTestCase {
-
     func testAbs() {
         XCTAssertEqual(CGFloat(-9.3).abs, CGFloat(9.3))
     }
@@ -57,7 +50,6 @@ final class CGFloatExtensionsTests: XCTestCase {
     func testRadiansToDegrees() {
         XCTAssertEqual(CGFloat.pi.radiansToDegrees, CGFloat(180))
     }
-
 }
 
 #endif

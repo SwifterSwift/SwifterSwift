@@ -1,0 +1,7 @@
+--closingparen same-line
+--commas inline
+--exclude Examples
+--header "{file} - Copyright {year} SwifterSwift"
+--ifdef no-indent
+--importgrouping testable-top
+--maxwidth 120

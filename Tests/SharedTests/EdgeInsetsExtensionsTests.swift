@@ -1,18 +1,11 @@
-//
-//  EdgeInsetsExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Guy Kogus on 03/01/2020.
-//  Copyright © 2020 SwifterSwift
-//
+// EdgeInsetsExtensionsTests.swift - Copyright 2020 SwifterSwift
 
 #if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class EdgeInsetsExtensionsTests: XCTestCase {
-
     func testHorizontal() {
         let inset = EdgeInsets(top: 30.0, left: 5.0, bottom: 5.0, right: 10.0)
         XCTAssertEqual(inset.horizontal, 15.0)
@@ -187,7 +180,6 @@ final class EdgeInsetsExtensionsTests: XCTestCase {
         let negativeExpected = EdgeInsets(top: -6, left: -8, bottom: -10, right: -12)
         XCTAssertEqual(negativeInsets, negativeExpected)
     }
-
 }
 
 #endif

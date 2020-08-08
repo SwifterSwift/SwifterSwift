@@ -1,17 +1,11 @@
-//
-//  CGPointExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 07/12/2016.
-//  Copyright © 2016 SwifterSwift
-//
+// CGPointExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
 
 // MARK: - Methods
-public extension CGPoint {
 
+public extension CGPoint {
     /// SwifterSwift: Distance from another CGPoint.
     ///
     ///     let point1 = CGPoint(x: 10, y: 10)
@@ -40,12 +34,11 @@ public extension CGPoint {
         // http://stackoverflow.com/questions/6416101/calculate-the-distance-between-two-cgpoints
         return sqrt(pow(point2.x - point1.x, 2) + pow(point2.y - point1.y, 2))
     }
-
 }
 
 // MARK: - Operators
-public extension CGPoint {
 
+public extension CGPoint {
     /// SwifterSwift: Add two CGPoints.
     ///
     ///     let point1 = CGPoint(x: 10, y: 10)
@@ -148,7 +141,6 @@ public extension CGPoint {
     static func * (scalar: CGFloat, point: CGPoint) -> CGPoint {
         return CGPoint(x: point.x * scalar, y: point.y * scalar)
     }
-
 }
 
 #endif

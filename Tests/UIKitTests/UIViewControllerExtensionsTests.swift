@@ -1,19 +1,12 @@
-//
-//  UIViewControllerExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Steven on 2/25/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UIViewControllerExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UIViewControllerExtensionsTests: XCTestCase {
-
     class MockNotificationViewController: UIViewController {
         var notificationFired = false
 
@@ -68,7 +61,8 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertNotNil(myViewController.testLabel)
 
         let identifiedViewController = MyViewController.instantiate(from: storyboard,
-                                                                    bundle: Bundle(for: UIViewControllerExtensionsTests.self),
+                                                                    bundle: Bundle(for: UIViewControllerExtensionsTests
+                                                                        .self),
                                                                     identifier: "MyViewController")
         identifiedViewController.loadViewIfNeeded()
         XCTAssertNotNil(identifiedViewController.testLabel)
@@ -91,7 +85,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertEqual(alertController.title, title)
         XCTAssertEqual(alertController.message, message)
         // check whether the buttons are added in the same order
-        for action in 0..<alertController.actions.count {
+        for action in 0 ..< alertController.actions.count {
             XCTAssertEqual(alertController.actions[action].title, actionButtons[action])
         }
         XCTAssertEqual(alertController.preferredAction, alertController.actions[preferredButtonIndex])
@@ -150,7 +144,8 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         window.addSubview(presentingViewController.view)
         RunLoop.current.run(until: Date())
 
-        presentingViewController.presentPopover(popover, sourcePoint: presentingViewController.view.center, animated: false)
+        presentingViewController
+            .presentPopover(popover, sourcePoint: presentingViewController.view.center, animated: false)
 
         XCTAssertEqual(presentingViewController.presentedViewController, popover)
         XCTAssertEqual(popover.presentingViewController, presentingViewController)
@@ -169,7 +164,8 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         window.addSubview(presentingViewController.view)
         RunLoop.current.run(until: Date())
 
-        presentingViewController.presentPopover(popover, sourcePoint: presentingViewController.view.center, size: customSize)
+        presentingViewController
+            .presentPopover(popover, sourcePoint: presentingViewController.view.center, size: customSize)
 
         XCTAssertEqual(presentingViewController.presentedViewController, popover)
         XCTAssertEqual(popover.presentingViewController, presentingViewController)
@@ -180,7 +176,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
     func testPresentPopoverWithDelegate() {
         // swiftlint:disable:next nesting
         class PopoverDelegate: NSObject, UIPopoverPresentationControllerDelegate {
-            func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
+            func adaptivePresentationStyle(for _: UIPresentationController) -> UIModalPresentationStyle {
                 return .popover
             }
         }
@@ -196,7 +192,8 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         window.addSubview(presentingViewController.view)
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 5))
 
-        presentingViewController.presentPopover(popover, sourcePoint: presentingViewController.view.center, delegate: delegate)
+        presentingViewController
+            .presentPopover(popover, sourcePoint: presentingViewController.view.center, delegate: delegate)
 
         XCTAssertEqual(presentingViewController.presentedViewController, popover)
         XCTAssertEqual(popover.presentingViewController, presentingViewController)
@@ -207,7 +204,6 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertEqual(popoverDelegate, delegate)
     }
     #endif
-
 }
 
 #endif

@@ -1,17 +1,11 @@
-//
-//  UIBezierPathExtensions.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 04.04.19.
-//  Copyright © 2019 SwifterSwift
-//
+// UIBezierPathExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit)
 import UIKit
 
 // MARK: - Initializers
-public extension UIBezierPath {
 
+public extension UIBezierPath {
     /// SwifterSwift: Initializes a UIBezierPath with a line from a CGPoint to another CGPoint.
     ///
     /// - Parameters:
@@ -40,7 +34,7 @@ public extension UIBezierPath {
     ///
     /// - Parameter points: The points of the polygon which the path should form.
     convenience init?(polygonWithPoints points: [CGPoint]) {
-        guard points.count > 2 else {return nil}
+        guard points.count > 2 else { return nil }
         self.init()
         move(to: points[0])
         for point in points[1...] {
@@ -68,7 +62,6 @@ public extension UIBezierPath {
         let origin = centered ? CGPoint(x: -size.width / 2, y: -size.height / 2) : .zero
         self.init(rect: CGRect(origin: origin, size: size))
     }
-
 }
 
 #endif

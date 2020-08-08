@@ -1,17 +1,11 @@
-//
-//  UIImageExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/6/16.
-//  Copyright © 2016 SwifterSwift
-//
+// UIImageExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit)
 import UIKit
 
 // MARK: - Properties
-public extension UIImage {
 
+public extension UIImage {
     /// SwifterSwift: Size in bytes of UIImage
     var bytesSize: Int {
         return jpegData(compressionQuality: 1)?.count ?? 0
@@ -31,12 +25,11 @@ public extension UIImage {
     var template: UIImage {
         return withRenderingMode(.alwaysTemplate)
     }
-
 }
 
 // MARK: - Methods
-public extension UIImage {
 
+public extension UIImage {
     /// SwifterSwift: Compressed UIImage from original UIImage.
     ///
     /// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
@@ -59,7 +52,7 @@ public extension UIImage {
     /// - Parameter rect: CGRect to crop UIImage to.
     /// - Returns: cropped UIImage
     func cropped(to rect: CGRect) -> UIImage {
-        guard rect.size.width <= size.width && rect.size.height <= size.height else { return self }
+        guard rect.size.width <= size.width, rect.size.height <= size.height else { return self }
         let scaledRect = rect.applying(CGAffineTransform(scaleX: scale, y: scale))
         guard let image = cgImage?.cropping(to: scaledRect) else { return self }
         return UIImage(cgImage: image, scale: scale, orientation: imageOrientation)
@@ -165,7 +158,6 @@ public extension UIImage {
     /// - Parameter color: color to fill image with.
     /// - Returns: UIImage filled with given color.
     func filled(withColor color: UIColor) -> UIImage {
-
         #if !os(watchOS)
         if #available(tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
@@ -234,7 +226,6 @@ public extension UIImage {
     ///   - backgroundColor: Color to use as background color
     /// - Returns: UIImage with a background color that is visible where alpha < 1
     func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage {
-
         #if !os(watchOS)
         if #available(tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
@@ -265,7 +256,7 @@ public extension UIImage {
     func withRoundedCorners(radius: CGFloat? = nil) -> UIImage? {
         let maxRadius = min(size.width, size.height) / 2
         let cornerRadius: CGFloat
-        if let radius = radius, radius > 0 && radius <= maxRadius {
+        if let radius = radius, radius > 0, radius <= maxRadius {
             cornerRadius = radius
         } else {
             cornerRadius = maxRadius
@@ -296,12 +287,11 @@ public extension UIImage {
     func jpegBase64String(compressionQuality: CGFloat) -> String? {
         return jpegData(compressionQuality: compressionQuality)?.base64EncodedString()
     }
-
 }
 
 // MARK: - Initializers
-public extension UIImage {
 
+public extension UIImage {
     /// SwifterSwift: Create UIImage from color and size.
     ///
     /// - Parameters:
@@ -348,7 +338,6 @@ public extension UIImage {
         let data = try Data(contentsOf: url)
         self.init(data: data, scale: scale)
     }
-
 }
 
 #endif

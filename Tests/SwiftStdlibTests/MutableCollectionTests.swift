@@ -1,17 +1,10 @@
-//
-//  MutableCollectionTests.swift
-//  SwifterSwift
-//
-//  Created by Luciano Almeida on 21/09/19.
-//  Copyright © 2019 SwifterSwift
-//
+// MutableCollectionTests.swift - Copyright 2020 SwifterSwift
 
 import XCTest
 
 @testable import SwifterSwift
 
 final class MutableCollectionTests: XCTestCase {
-
     func testKeyPathSort() {
         var array = ["James", "Wade", "Bryant"]
         array.sort(by: \String.count, with: <)
@@ -25,8 +18,8 @@ final class MutableCollectionTests: XCTestCase {
 
         // Testing optional keyPath
         let optionalCompare = { (char1: Character?, char2: Character?) -> Bool in
-          guard let char1 = char1, let char2 = char2 else { return false }
-          return char1 < char2
+            guard let char1 = char1, let char2 = char2 else { return false }
+            return char1 < char2
         }
 
         var array2 = ["James", "Wade", "Bryant", ""]

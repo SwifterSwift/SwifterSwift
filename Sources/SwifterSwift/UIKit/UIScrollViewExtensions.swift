@@ -1,17 +1,11 @@
-//
-//  UIScrollViewExtensions.swift
-//  SwifterSwift
-//
-//  Created by camila oliveira on 22/04/18.
-//  Copyright © 2018 SwifterSwift
-//
+// UIScrollViewExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Methods
-public extension UIScrollView {
 
+public extension UIScrollView {
     /// SwifterSwift: Takes a snapshot of an entire ScrollView
     ///
     ///    AnySubclassOfUIScroolView().snapshot
@@ -31,7 +25,6 @@ public extension UIScrollView {
         frame = previousFrame
         return UIGraphicsGetImageFromCurrentImageContext()
     }
-
 }
 
 #endif

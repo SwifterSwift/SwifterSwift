@@ -1,19 +1,12 @@
-//
-//  UIBarButtonExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Steven on 2/14/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UIBarButtonExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UIBarButtonExtensionsTests: XCTestCase {
-
     func testFlexibleSpace() {
         let space1 = UIBarButtonItem.flexibleSpace
         let space2 = UIBarButtonItem.flexibleSpace
@@ -24,7 +17,6 @@ final class UIBarButtonExtensionsTests: XCTestCase {
     func testSelector() {}
 
     func testAddTargetForAction() {
-
         let barButton = UIBarButtonItem()
         let selector = #selector(testSelector)
 
@@ -41,7 +33,6 @@ final class UIBarButtonExtensionsTests: XCTestCase {
         let barButtonItem = UIBarButtonItem.fixedSpace(width: width)
         XCTAssertEqual(barButtonItem.width, width)
     }
-
 }
 
 #endif

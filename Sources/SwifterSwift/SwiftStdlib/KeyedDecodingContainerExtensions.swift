@@ -1,17 +1,10 @@
-//
-//  KeyedDecodingContainer.swift
-//  SwifterSwift
-//
-//  Created by Francesco Deliro on 23/10/2019.
-//  Copyright © 2019 SwifterSwift
-//
+// KeyedDecodingContainerExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 #endif
 
 public extension KeyedDecodingContainer {
-
     #if canImport(Foundation)
     /// SwifterSwift: Try to decode a Bool as Int then String before decoding as Bool.
     ///
@@ -45,5 +38,4 @@ public extension KeyedDecodingContainer {
         }
     }
     #endif
-
 }

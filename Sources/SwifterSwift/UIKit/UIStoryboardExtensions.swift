@@ -1,17 +1,11 @@
-//
-//  UIStoryboardExtensions.swift
-//  SwifterSwift
-//
-//  Created by Steven on 2/6/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UIStoryboardExtensions.swift - Copyright 2020 SwifterSwift
 
-#if canImport(UIKit)  && !os(watchOS)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Methods
-public extension UIStoryboard {
 
+public extension UIStoryboard {
     /// SwifterSwift: Get main storyboard for application
     static var main: UIStoryboard? {
         let bundle = Bundle.main
@@ -26,7 +20,6 @@ public extension UIStoryboard {
     func instantiateViewController<T: UIViewController>(withClass name: T.Type) -> T? {
         return instantiateViewController(withIdentifier: String(describing: name)) as? T
     }
-
 }
 
 #endif

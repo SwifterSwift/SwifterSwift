@@ -1,19 +1,12 @@
-//
-//  UIGestureRecognizerExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Morgan Dock on 4/21/18.
-//  Copyright © 2018 SwifterSwift
-//
+// UIGestureRecognizerExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if os(iOS) && !os(watchOS)
 import UIKit
 
 final class UIGestureRecognizerExtensionsTests: XCTestCase {
-
     func testRemoveFromView() {
         let view = UIImageView()
         let tap = UITapGestureRecognizer()
@@ -39,7 +32,6 @@ final class UIGestureRecognizerExtensionsTests: XCTestCase {
         XCTAssert(view.gestureRecognizers?.isEmpty ?? false)
         XCTAssertNil(tap.view)
     }
-
 }
 
 #endif

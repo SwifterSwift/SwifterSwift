@@ -1,16 +1,9 @@
-//
-//  UILayoutPriorityExtensions.swift
-//  SwifterSwift
-//
-//  Created by diamantidis on 8/19/18.
-//  Copyright © 2018 SwifterSwift. All rights reserved.
-//
+// UILayoutPriorityExtensions.swift - Copyright 2020 SwifterSwift
 
 #if os(iOS) || os(tvOS)
 import UIKit
 
 extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
-
     // MARK: - Initializers
 
     /// SwifterSwift: Initialize `UILayoutPriority` with a float literal
@@ -30,7 +23,6 @@ extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiter
     public init(integerLiteral value: Int) {
         self.init(rawValue: Float(value))
     }
-
 }
 
 #endif

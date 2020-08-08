@@ -1,13 +1,7 @@
-//
-//  UIScrollViewExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by camila oliveira on 22/04/18.
-//  Copyright © 2018 SwifterSwift
-//
+// UIScrollViewExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -22,7 +16,6 @@ final class UIScrollViewExtensionsTest: XCTestCase {
         let view = UIScrollView()
         XCTAssertNil(view.snapshot)
     }
-
 }
 
 #endif

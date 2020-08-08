@@ -1,10 +1,4 @@
-//
-//  DoubleExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/6/16.
-//  Copyright © 2016 SwifterSwift
-//
+// DoubleExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
@@ -17,8 +11,8 @@ import Glibc
 #endif
 
 // MARK: - Properties
-public extension Double {
 
+public extension Double {
     /// SwifterSwift: Int.
     var int: Int {
         return Int(self)
@@ -35,13 +29,12 @@ public extension Double {
         return CGFloat(self)
     }
     #endif
-
 }
 
 // MARK: - Operators
 
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
-infix operator ** : PowerPrecedence
+infix operator **: PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
 ///
 /// - Parameters:

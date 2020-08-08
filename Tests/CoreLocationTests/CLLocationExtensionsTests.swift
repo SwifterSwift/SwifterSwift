@@ -1,19 +1,12 @@
-//
-//  CLLocationExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Luciano Almeida on 21/04/17.
-//  Copyright © 2017 SwifterSwift
-//
+// CLLocationExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(CoreLocation)
 import CoreLocation
 
 final class CLLocationExtensionsTests: XCTestCase {
-
     func testMidLocation() {
         let aLoc = CLLocation(latitude: -15.822877, longitude: -47.941839)
         let bLoc = CLLocation(latitude: -15.692030, longitude: -47.594397)
@@ -33,7 +26,6 @@ final class CLLocationExtensionsTests: XCTestCase {
 
         XCTAssertEqual(bearing, 105.619, accuracy: 0.001)
     }
-
 }
 
 #endif

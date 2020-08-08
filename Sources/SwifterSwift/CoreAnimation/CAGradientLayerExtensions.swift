@@ -1,16 +1,9 @@
-//
-//  CAGradientLayerExtensions.swift
-//  SwifterSwift
-//
-//  Created by Jay Mehta on 11/10/19.
-//  Copyright © 2019 SwifterSwift
-//
+// CAGradientLayerExtensions.swift - Copyright 2020 SwifterSwift
 
 #if !os(watchOS) && !os(Linux) && canImport(QuartzCore)
 import QuartzCore
 
 public extension CAGradientLayer {
-
     /// SwifterSwift: Creates a CAGradientLayer with the specified colors, location, startPoint, endPoint, and type.
     /// - Parameter colors: An array of colors defining the color of each gradient stop
     /// - Parameter locations: An array of NSNumber defining the location of each
@@ -28,13 +21,12 @@ public extension CAGradientLayer {
                      endPoint: CGPoint = CGPoint(x: 0.5, y: 1),
                      type: CAGradientLayerType = .axial) {
         self.init()
-        self.colors =  colors.map { $0.cgColor }
+        self.colors = colors.map { $0.cgColor }
         self.locations = locations?.map { NSNumber(value: Double($0)) }
         self.startPoint = startPoint
         self.endPoint = endPoint
         self.type = type
     }
-
 }
 
 #endif

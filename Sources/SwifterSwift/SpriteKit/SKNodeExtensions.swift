@@ -1,17 +1,11 @@
-//
-//  SKNodeExtensions.swift
-//  SwifterSwift
-//
-//  Created by Olivia Brown on 5/28/18.
-//  Copyright © 2018 SwifterSwift
-//
+// SKNodeExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(SpriteKit)
 import SpriteKit
 
 // MARK: - Methods
-public extension SKNode {
 
+public extension SKNode {
     /// SwifterSwift: Return an array of all SKNode descendants
     ///
     ///         mySKNode.descendants() -> [childNodeOne, childNodeTwo]
@@ -96,7 +90,6 @@ public extension SKNode {
             position = CGPoint(x: newValue.x - contents.maxX, y: newValue.y - contents.minY)
         }
     }
-
 }
 
 #endif

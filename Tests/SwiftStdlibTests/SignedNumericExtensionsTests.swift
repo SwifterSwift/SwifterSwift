@@ -1,16 +1,9 @@
-//
-//  SignedNumericExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 10/7/17.
-//  Copyright © 2017 SwifterSwift
-//
+// SignedNumericExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class SignedNumericExtensionsTests: XCTestCase {
-
     func testString() {
         let number1: Double = -1.2
         XCTAssertEqual(number1.string, "-1.2")
@@ -39,5 +32,4 @@ final class SignedNumericExtensionsTests: XCTestCase {
         XCTAssertNotNil(number3.asLocaleCurrency)
         XCTAssert(number3.asLocaleCurrency!.contains("\(number3)"))
     }
-
 }

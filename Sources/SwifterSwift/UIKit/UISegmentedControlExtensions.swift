@@ -1,21 +1,15 @@
-//
-//  UISegmentedControlExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 9/28/16.
-//  Copyright © 2016 SwifterSwift
-//
+// UISegmentedControlExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Properties
-public extension UISegmentedControl {
 
+public extension UISegmentedControl {
     /// SwifterSwift: Segments titles.
     var segmentTitles: [String] {
         get {
-            let range = 0..<numberOfSegments
+            let range = 0 ..< numberOfSegments
             return range.compactMap { titleForSegment(at: $0) }
         }
         set {
@@ -29,7 +23,7 @@ public extension UISegmentedControl {
     /// SwifterSwift: Segments images.
     var segmentImages: [UIImage] {
         get {
-            let range = 0..<numberOfSegments
+            let range = 0 ..< numberOfSegments
             return range.compactMap { imageForSegment(at: $0) }
         }
         set {
@@ -39,7 +33,6 @@ public extension UISegmentedControl {
             }
         }
     }
-
 }
 
 #endif

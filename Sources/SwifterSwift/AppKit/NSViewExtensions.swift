@@ -1,17 +1,11 @@
-//
-//  NSViewExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 3/3/17.
-//  Copyright © 2017 SwifterSwift
-//
+// NSViewExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 
 // MARK: - Properties
-public extension NSView {
 
+public extension NSView {
     /// SwifterSwift: Border color of view; also inspectable from Storyboard.
     @IBInspectable
     var borderColor: NSColor? {
@@ -145,12 +139,11 @@ public extension NSView {
             frame.size.width = newValue
         }
     }
-
 }
 
 // MARK: - Methods
-public extension NSView {
 
+public extension NSView {
     /// SwifterSwift: Add array of subviews to view.
     ///
     /// - Parameter subviews: array of subviews to add to self.
@@ -162,7 +155,6 @@ public extension NSView {
     func removeSubviews() {
         subviews.forEach { $0.removeFromSuperview() }
     }
-
 }
 
 #endif

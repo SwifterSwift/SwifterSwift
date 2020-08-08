@@ -1,13 +1,7 @@
-//
-//  CGColorExtensionsTests.swift
-//  SwifterSwift-iOS
-//
-//  Created by Ryan Batchelder on 10/8/17.
-//  Copyright © 2017 SwifterSwift
-//
+// CGColorExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(CoreGraphics)
 import CoreGraphics
@@ -19,7 +13,6 @@ import UIKit
 #endif
 
 final class CGColorExtensionsTests: XCTestCase {
-
     #if !os(macOS)
     func testUIColor() {
         let red = UIColor.red
@@ -35,7 +28,6 @@ final class CGColorExtensionsTests: XCTestCase {
         XCTAssertEqual(cgRed.nsColor, red)
     }
     #endif
-
 }
 
 #endif

@@ -1,17 +1,11 @@
-//
-//  UITabBarExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 9/28/16.
-//  Copyright © 2016 SwifterSwift
-//
+// UITabBarExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Methods
-public extension UITabBar {
 
+public extension UITabBar {
     /// SwifterSwift: Set tabBar colors.
     ///
     /// - Parameters:
@@ -24,7 +18,6 @@ public extension UITabBar {
         selectedBackground: UIColor? = nil,
         item: UIColor? = nil,
         selectedItem: UIColor? = nil) {
-
         // background
         barTintColor = background ?? barTintColor
 
@@ -40,7 +33,7 @@ public extension UITabBar {
         }
 
         if let selectedbg = selectedBackground {
-            let rect = CGSize(width: frame.width/CGFloat(barItems.count), height: frame.height)
+            let rect = CGSize(width: frame.width / CGFloat(barItems.count), height: frame.height)
             selectionIndicatorImage = { (color: UIColor, size: CGSize) -> UIImage in
                 UIGraphicsBeginImageContextWithOptions(size, false, 1)
                 color.setFill()
@@ -76,7 +69,7 @@ public extension UITabBar {
                     let newImage = UIGraphicsGetImageFromCurrentImageContext()!
                     UIGraphicsEndImageContext()
                     return newImage
-                    }(image, itemColor).withRenderingMode(.alwaysOriginal)
+                }(image, itemColor).withRenderingMode(.alwaysOriginal)
 
                 barItem.setTitleTextAttributes([.foregroundColor: itemColor], for: .normal)
                 if let selected = selectedItem {
@@ -85,7 +78,6 @@ public extension UITabBar {
             }
         }
     }
-
 }
 
 #endif

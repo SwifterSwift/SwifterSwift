@@ -1,17 +1,11 @@
-//
-//  UITextFieldExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/5/16.
-//  Copyright © 2016 SwifterSwift
-//
+// UITextFieldExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Enums
-public extension UITextField {
 
+public extension UITextField {
     /// SwifterSwift: UITextField text type.
     ///
     /// - emailAddress: UITextField is used to enter email addresses.
@@ -27,12 +21,11 @@ public extension UITextField {
         /// SwifterSwift: UITextField is used to enter generic text.
         case generic
     }
-
 }
 
 // MARK: - Properties
-public extension UITextField {
 
+public extension UITextField {
     /// SwifterSwift: Set textField for common text types.
     var textType: TextType {
         get {
@@ -115,12 +108,11 @@ public extension UITextField {
             iconView.tintColor = newValue
         }
     }
-
 }
 
 // MARK: - Methods
-public extension UITextField {
 
+public extension UITextField {
     /// SwifterSwift: Clear text.
     func clear() {
         text = ""
@@ -180,7 +172,6 @@ public extension UITextField {
         rightView = iconView
         rightViewMode = .always
     }
-
 }
 
 #endif

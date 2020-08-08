@@ -1,19 +1,12 @@
-//
-//  FileManagerExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Jason Jon E. Carreos on 05/02/2018.
-//  Copyright © 2018 SwifterSwift
-//
+// FileManagerExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(Foundation)
 import Foundation
 
 final class FileManagerExtensionsTests: XCTestCase {
-
     func testJSONFromFileAtPath() {
         #if !os(Linux)
         do {
@@ -49,12 +42,12 @@ final class FileManagerExtensionsTests: XCTestCase {
     func testJSONFromFileWithFilename() {
         #if !os(Linux)
         do {
-            var filename = "test.json"  // With extension
+            var filename = "test.json" // With extension
             var json = try FileManager.default.jsonFromFile(withFilename: filename, at: FileManagerExtensionsTests.self)
 
             XCTAssertNotNil(json)
 
-            filename = "test"  // Without extension
+            filename = "test" // Without extension
             json = try FileManager.default.jsonFromFile(withFilename: filename, at: FileManagerExtensionsTests.self)
 
             XCTAssertNotNil(json)
@@ -107,7 +100,6 @@ final class FileManagerExtensionsTests: XCTestCase {
             XCTFail("\(error)")
         }
     }
-
 }
 
 #endif

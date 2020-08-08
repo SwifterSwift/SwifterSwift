@@ -1,17 +1,11 @@
-//
-//  CalendarExtensions.swift
-//  SwifterSwift
-//
-//  Created by Chaithanya Prathyush on 09/11/17.
-//  Copyright © 2017 SwifterSwift
-//
+// CalendarExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 
 // MARK: - Methods
-public extension Calendar {
 
+public extension Calendar {
     /// SwifterSwift: Return the number of days in the month for a specified 'Date'.
     ///
     ///		let date = Date() // "Jan 12, 2017, 7:07 PM"
@@ -22,7 +16,6 @@ public extension Calendar {
     func numberOfDaysInMonth(for date: Date) -> Int {
         return range(of: .day, in: .month, for: date)!.count
     }
-
 }
 
 #endif

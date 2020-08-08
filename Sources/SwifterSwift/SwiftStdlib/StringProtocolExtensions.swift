@@ -1,15 +1,8 @@
-//
-//  StringProtocolExtensions.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 11/26/17.
-//  Copyright © 2017 SwifterSwift
-//
+// StringProtocolExtensions.swift - Copyright 2020 SwifterSwift
 
 import Foundation
 
 public extension StringProtocol {
-
     /// SwifterSwift: The longest common suffix.
     ///
     ///        "Hello world!".commonSuffix(with: "It's cold!") = "ld!"
@@ -21,9 +14,10 @@ public extension StringProtocol {
     func commonSuffix<T: StringProtocol>(with aString: T, options: String.CompareOptions = []) -> String {
         return String(zip(reversed(), aString.reversed())
             .lazy
-            .prefix(while: { (lhs: Character, rhs: Character) in String(lhs).compare(String(rhs), options: options) == .orderedSame })
+            .prefix(while: { (lhs: Character, rhs: Character) in
+                String(lhs).compare(String(rhs), options: options) == .orderedSame
+            })
             .map { (lhs: Character, _: Character) in lhs }
             .reversed())
     }
-
 }

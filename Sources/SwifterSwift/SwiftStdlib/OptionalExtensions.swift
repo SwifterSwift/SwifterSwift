@@ -1,14 +1,8 @@
-//
-//  OptionalExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 3/3/17.
-//  Copyright © 2017 SwifterSwift
-//
+// OptionalExtensions.swift - Copyright 2020 SwifterSwift
 
 // MARK: - Methods
-public extension Optional {
 
+public extension Optional {
     /// SwifterSwift: Get self of default value (if self is nil).
     ///
     ///		let foo: String? = nil
@@ -90,12 +84,11 @@ public extension Optional {
             lhs = rhs()
         }
     }
-
 }
 
 // MARK: - Methods (Collection)
-public extension Optional where Wrapped: Collection {
 
+public extension Optional where Wrapped: Collection {
     /// SwifterSwift: Check if optional is nil or empty collection.
     var isNilOrEmpty: Bool {
         guard let collection = self else { return true }
@@ -108,12 +101,11 @@ public extension Optional where Wrapped: Collection {
         guard !collection.isEmpty else { return nil }
         return collection
     }
-
 }
 
 // MARK: - Methods (RawRepresentable, RawValue: Equatable)
-public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equatable {
 
+public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equatable {
     // swiftlint:disable missing_swifterswift_prefix
 
     /// Returns a Boolean value indicating whether two values are equal.
@@ -165,9 +157,9 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     }
 
     // swiftlint:enable missing_swifterswift_prefix
-
 }
 
 // MARK: - Operators
-infix operator ??= : AssignmentPrecedence
-infix operator ?= : AssignmentPrecedence
+
+infix operator ??=: AssignmentPrecedence
+infix operator ?=: AssignmentPrecedence

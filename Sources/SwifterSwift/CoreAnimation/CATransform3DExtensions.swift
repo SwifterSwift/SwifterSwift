@@ -1,18 +1,12 @@
-//
-//  CATransform3DExtensions.swift
-//  SwifterSwift
-//
-//  Created by Guy Kogus on 19/3/20.
-//  Copyright © 2020 SwifterSwift
-//
+// CATransform3DExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(QuartzCore)
 
 import QuartzCore
 
 // MARK: - Equatable
-extension CATransform3D: Equatable {
 
+extension CATransform3D: Equatable {
     // swiftlint:disable missing_swifterswift_prefix
 
     /// Returns a Boolean value indicating whether two values are equal.
@@ -29,21 +23,19 @@ extension CATransform3D: Equatable {
     }
 
     // swiftlint:disable missing_swifterswift_prefix
-
 }
 
 // MARK: - Static Properties
-public extension CATransform3D {
 
+public extension CATransform3D {
     /// SwifterSwift: The identity transform: [1 0 0 0; 0 1 0 0; 0 0 1 0; 0 0 0 1].
     @inlinable
     static var identity: CATransform3D { CATransform3DIdentity }
-
 }
 
 // MARK: - Codable
-extension CATransform3D: Codable {
 
+extension CATransform3D: Codable {
     // swiftlint:disable missing_swifterswift_prefix
 
     /// Creates a new instance by decoding from the given decoder.
@@ -99,12 +91,11 @@ extension CATransform3D: Codable {
     }
 
     // swiftlint:enable missing_swifterswift_prefix
-
 }
 
 // MARK: - Initializers
-public extension CATransform3D {
 
+public extension CATransform3D {
     /// SwifterSwift: Returns a transform that translates by `(tx, ty, tz)`.
     /// - Parameters:
     ///   - tx: x-axis translation
@@ -137,21 +128,19 @@ public extension CATransform3D {
     init(rotationAngle angle: CGFloat, x: CGFloat, y: CGFloat, z: CGFloat) {
         self = CATransform3DMakeRotation(angle, x, y, z)
     }
-
 }
 
 // MARK: - Properties
-public extension CATransform3D {
 
+public extension CATransform3D {
     /// SwifterSwift: Returns `true` if the receiver is the identity transform.
     @inlinable
     var isIdentity: Bool { CATransform3DIsIdentity(self) }
-
 }
 
 // MARK: - Methods
-public extension CATransform3D {
 
+public extension CATransform3D {
     /// SwifterSwift: Translate the receiver by `(tx, ty, tz)`.
     /// - Parameters:
     ///   - tx: x-axis translation
@@ -159,7 +148,8 @@ public extension CATransform3D {
     ///   - tz: z-axis translation
     /// - Returns: The translated matrix.
     @inlinable
-    func translatedBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
+    func translatedBy(x tx: CGFloat, y ty: CGFloat,
+                      z tz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
         CATransform3DTranslate(self, tx, ty, tz)
     }
 
@@ -170,7 +160,8 @@ public extension CATransform3D {
     ///   - sz: z-axis scale
     /// - Returns: The scaled matrix.
     @inlinable
-    func scaledBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
+    func scaledBy(x sx: CGFloat, y sy: CGFloat,
+                  z sz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
         CATransform3DScale(self, sx, sy, sz)
     }
 
@@ -252,7 +243,6 @@ public extension CATransform3D {
     mutating func concatenate(_ t2: CATransform3D) { // swiftlint:disable:this identifier_name
         self = CATransform3DConcat(self, t2)
     }
-
 }
 
 #if canImport(CoreGraphics)
@@ -260,8 +250,8 @@ public extension CATransform3D {
 import CoreGraphics
 
 // MARK: - CGAffineTransform
-public extension CATransform3D {
 
+public extension CATransform3D {
     /// SwifterSwift: Returns true if the receiver can be represented exactly by an affine transform.
     @inlinable
     var isAffine: Bool { CATransform3DIsAffine(self) }
@@ -273,7 +263,6 @@ public extension CATransform3D {
     func affineTransform() -> CGAffineTransform {
         CATransform3DGetAffineTransform(self)
     }
-
 }
 
 #endif

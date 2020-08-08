@@ -1,19 +1,12 @@
-//
-//  UISliderExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Steven on 2/16/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UISliderExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if os(iOS)
 import UIKit
 
 final class UISliderExtensionsTests: XCTestCase {
-
     func testCompletionCalledAnimated() {
         let slider = UISlider()
         slider.minimumValue = 0
@@ -52,7 +45,6 @@ final class UISliderExtensionsTests: XCTestCase {
         XCTAssertEqual(slider.value, 50.0)
         waitForExpectations(timeout: 3)
     }
-
 }
 
 #endif

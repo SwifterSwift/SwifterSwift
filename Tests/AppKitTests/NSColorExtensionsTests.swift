@@ -1,19 +1,12 @@
-//
-//  UIColorExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Max Haertwig on 10/08/19.
-//  Copyright © 2019 SwifterSwift
-//
+// NSColorExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(AppKit)
 import AppKit
 
 final class NSColorExtensionsTests: XCTestCase {
-
     func testInitLightDark() {
         if #available(OSX 10.15, *) {
             let lightModeColor = NSColor.red
@@ -31,7 +24,6 @@ final class NSColorExtensionsTests: XCTestCase {
             XCTAssertEqual(view.backgroundColor, darkModeColor)
         }
     }
-
 }
 
 #endif

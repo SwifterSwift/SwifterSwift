@@ -1,16 +1,9 @@
-//
-//  StringProtocolExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 11/26/17.
-//  Copyright © 2017 SwifterSwift
-//
+// StringProtocolExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class StringProtocolExtensionsTests: XCTestCase {
-
     func testCommonSuffix() {
         let string1 = "Hello world!"
 
@@ -33,5 +26,4 @@ final class StringProtocolExtensionsTests: XCTestCase {
 
         XCTAssertEqual(string1.commonSuffix(with: "你好世界"), "")
     }
-
 }

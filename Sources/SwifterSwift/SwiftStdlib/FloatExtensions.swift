@@ -1,10 +1,4 @@
-//
-//  FloatExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/8/16.
-//  Copyright © 2016 SwifterSwift
-//
+// FloatExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
@@ -17,8 +11,8 @@ import Glibc
 #endif
 
 // MARK: - Properties
-public extension Float {
 
+public extension Float {
     /// SwifterSwift: Int.
     var int: Int {
         return Int(self)
@@ -35,13 +29,12 @@ public extension Float {
         return CGFloat(self)
     }
     #endif
-
 }
 
 // MARK: - Operators
 
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
-infix operator ** : PowerPrecedence
+infix operator **: PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
 ///
 /// - Parameters:

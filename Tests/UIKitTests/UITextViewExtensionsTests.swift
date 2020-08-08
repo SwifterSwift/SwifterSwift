@@ -1,19 +1,12 @@
-//
-//  UITextViewExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 2/15/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UITextViewExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UITextViewExtensionsTests: XCTestCase {
-
     var textView = UITextView(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
 
     override func setUp() {
@@ -28,7 +21,8 @@ final class UITextViewExtensionsTests: XCTestCase {
     }
 
     func testScroll() {
-        let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
+        let text =
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation."
         textView.text = text
         textView.scrollToBottom()
         XCTAssertGreaterThan(textView.contentOffset.y, 0.0)
@@ -38,7 +32,8 @@ final class UITextViewExtensionsTests: XCTestCase {
     }
 
     func testWrapToContent() {
-        let text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        let text =
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
         // initial setting
         textView.frame = CGRect(origin: .zero, size: CGSize(width: 100, height: 20))
@@ -71,7 +66,6 @@ final class UITextViewExtensionsTests: XCTestCase {
         XCTAssertEqual(textView.bounds.size, textView.contentSize)
         #endif
     }
-
 }
 
 #endif

@@ -1,10 +1,4 @@
-//
-//  StringExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/5/16.
-//  Copyright © 2016 SwifterSwift
-//
+// StringExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -23,8 +17,8 @@ import CoreGraphics
 #endif
 
 // MARK: - Properties
-public extension String {
 
+public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: String decoded from base64 (if applicable).
     ///
@@ -89,19 +83,19 @@ public extension String {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         for scalar in unicodeScalars {
             switch scalar.value {
-            case 0x1F600...0x1F64F, // Emoticons
-            0x1F300...0x1F5FF, // Misc Symbols and Pictographs
-            0x1F680...0x1F6FF, // Transport and Map
-            0x1F1E6...0x1F1FF, // Regional country flags
-            0x2600...0x26FF, // Misc symbols
-            0x2700...0x27BF, // Dingbats
-            0xE0020...0xE007F, // Tags
-            0xFE00...0xFE0F, // Variation Selectors
-            0x1F900...0x1F9FF, // Supplemental Symbols and Pictographs
-            127000...127600, // Various asian characters
-            65024...65039, // Variation selector
-            9100...9300, // Misc items
-            8400...8447: // Combining Diacritical Marks for Symbols
+            case 0x1F600 ... 0x1F64F, // Emoticons
+                 0x1F300 ... 0x1F5FF, // Misc Symbols and Pictographs
+                 0x1F680 ... 0x1F6FF, // Transport and Map
+                 0x1F1E6 ... 0x1F1FF, // Regional country flags
+                 0x2600 ... 0x26FF, // Misc symbols
+                 0x2700 ... 0x27BF, // Dingbats
+                 0xE0020 ... 0xE007F, // Tags
+                 0xFE00 ... 0xFE0F, // Variation Selectors
+                 0x1F900 ... 0x1F9FF, // Supplemental Symbols and Pictographs
+                 127_000 ... 127_600, // Various asian characters
+                 65024 ... 65039, // Variation selector
+                 9100 ... 9300, // Misc items
+                 8400 ... 8447: // Combining Diacritical Marks for Symbols
                 return true
             default:
                 continue
@@ -173,8 +167,8 @@ public extension String {
         let letters = filter { $0.isLetter }
         guard !letters.isEmpty else { return false }
         let midIndex = letters.index(letters.startIndex, offsetBy: letters.count / 2)
-        let firstHalf = letters[letters.startIndex..<midIndex]
-        let secondHalf = letters[midIndex..<letters.endIndex].reversed()
+        let firstHalf = letters[letters.startIndex ..< midIndex]
+        let secondHalf = letters[midIndex ..< letters.endIndex].reversed()
         return !zip(firstHalf, secondHalf).contains(where: { $0.lowercased() != $1.lowercased() })
     }
 
@@ -187,7 +181,8 @@ public extension String {
     ///
     var isValidEmail: Bool {
         // http://emailregex.com/
-        let regex = "^(?:[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[\\p{L}0-9](?:[a-z0-9-]*[\\p{L}0-9])?\\.)+[\\p{L}0-9](?:[\\p{L}0-9-]*[\\p{L}0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[\\p{L}0-9-]*[\\p{L}0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])$"
+        let regex =
+            "^(?:[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[\\p{L}0-9!#$%\\&'*+/=?\\^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[\\p{L}0-9](?:[a-z0-9-]*[\\p{L}0-9])?\\.)+[\\p{L}0-9](?:[\\p{L}0-9-]*[\\p{L}0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[\\p{L}0-9-]*[\\p{L}0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])$"
         return range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
     }
     #endif
@@ -362,10 +357,11 @@ public extension String {
 
         // https://www.lipsum.com/
         let loremIpsum = """
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		"""
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        """
         if loremIpsum.count > length {
-            return String(loremIpsum[loremIpsum.startIndex..<loremIpsum.index(loremIpsum.startIndex, offsetBy: length)])
+            return String(loremIpsum[loremIpsum.startIndex ..< loremIpsum
+                    .index(loremIpsum.startIndex, offsetBy: length)])
         }
         return loremIpsum
     }
@@ -417,7 +413,7 @@ public extension String {
     /// "hello ^$ there" -> "hello \\^\\$ there"
     ///
     var regexEscaped: String {
-      return NSRegularExpression.escapedPattern(for: self)
+        return NSRegularExpression.escapedPattern(for: self)
     }
     #endif
 
@@ -444,16 +440,17 @@ public extension String {
         let checker = UITextChecker()
         let range = NSRange(location: 0, length: utf16.count)
 
-        let misspelledRange = checker.rangeOfMisspelledWord(in: self, range: range, startingAt: 0, wrap: false, language: Locale.preferredLanguages.first ?? "en")
+        let misspelledRange = checker
+            .rangeOfMisspelledWord(in: self, range: range, startingAt: 0, wrap: false,
+                                   language: Locale.preferredLanguages.first ?? "en")
         return misspelledRange.location == NSNotFound
     }
     #endif
-
 }
 
 // MARK: - Methods
-public extension String {
 
+public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: Float value from string (if applicable).
     ///
@@ -607,7 +604,7 @@ public extension String {
     ///
     /// - Parameter index: index.
     subscript(safe index: Int) -> Character? {
-        guard index >= 0 && index < count else { return nil }
+        guard index >= 0, index < count else { return nil }
         return self[self.index(startIndex, offsetBy: index)]
     }
 
@@ -621,14 +618,14 @@ public extension String {
     ///
     /// - Parameter range: Range expression.
     subscript<R>(safe range: R) -> String? where R: RangeExpression, R.Bound == Int {
-        let range = range.relative(to: Int.min..<Int.max)
+        let range = range.relative(to: Int.min ..< Int.max)
         guard range.lowerBound >= 0,
             let lowerIndex = index(startIndex, offsetBy: range.lowerBound, limitedBy: endIndex),
             let upperIndex = index(startIndex, offsetBy: range.upperBound, limitedBy: endIndex) else {
-                return nil
+            return nil
         }
 
-        return String(self[lowerIndex..<upperIndex])
+        return String(self[lowerIndex ..< upperIndex])
     }
 
     #if os(iOS) || os(macOS)
@@ -767,7 +764,7 @@ public extension String {
         guard length > 0 else { return "" }
         let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var randomString = ""
-        for _ in 1...length {
+        for _ in 1 ... length {
             randomString.append(base.randomElement()!)
         }
         return randomString
@@ -790,12 +787,12 @@ public extension String {
     ///   - length: amount of characters to be sliced after given index.
     /// - Returns: sliced substring of length number of characters (if applicable) (example: "Hello World".slicing(from: 6, length: 5) -> "World")
     func slicing(from index: Int, length: Int) -> String? {
-        guard length >= 0, index >= 0, index < count  else { return nil }
+        guard length >= 0, index >= 0, index < count else { return nil }
         guard index.advanced(by: length) <= count else {
-            return self[safe: index..<count]
+            return self[safe: index ..< count]
         }
         guard length > 0 else { return "" }
-        return self[safe: index..<index.advanced(by: length)]
+        return self[safe: index ..< index.advanced(by: length)]
     }
 
     /// SwifterSwift: Slice given string from a start index with length (if applicable).
@@ -827,7 +824,7 @@ public extension String {
     @discardableResult
     mutating func slice(from start: Int, to end: Int) -> String {
         guard end >= start else { return self }
-        if let str = self[safe: start..<end] {
+        if let str = self[safe: start ..< end] {
             self = str
         }
         return self
@@ -843,7 +840,7 @@ public extension String {
     @discardableResult
     mutating func slice(at index: Int) -> String {
         guard index < count else { return self }
-        if let str = self[safe: index..<count] {
+        if let str = self[safe: index ..< count] {
             self = str
         }
         return self
@@ -907,7 +904,7 @@ public extension String {
     mutating func truncate(toLength length: Int, trailing: String? = "...") -> String {
         guard length > 0 else { return self }
         if count > length {
-            self = self[startIndex..<index(startIndex, offsetBy: length)] + (trailing ?? "")
+            self = self[startIndex ..< index(startIndex, offsetBy: length)] + (trailing ?? "")
         }
         return self
     }
@@ -922,8 +919,8 @@ public extension String {
     ///   - trailing: string to add at the end of truncated string.
     /// - Returns: truncated string (this is an extr...).
     func truncated(toLength length: Int, trailing: String? = "...") -> String {
-        guard 0..<count ~= length else { return self }
-        return self[startIndex..<index(startIndex, offsetBy: length)] + (trailing ?? "")
+        guard 0 ..< count ~= length else { return self }
+        return self[startIndex ..< index(startIndex, offsetBy: length)] + (trailing ?? "")
     }
 
     #if canImport(Foundation)
@@ -1005,13 +1002,13 @@ public extension String {
 
         let padLength = length - count
         if padLength < string.count {
-            return string[string.startIndex..<string.index(string.startIndex, offsetBy: padLength)] + self
+            return string[string.startIndex ..< string.index(string.startIndex, offsetBy: padLength)] + self
         } else {
             var padding = string
             while padding.count < padLength {
                 padding.append(string)
             }
-            return padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)] + self
+            return padding[padding.startIndex ..< padding.index(padding.startIndex, offsetBy: padLength)] + self
         }
     }
 
@@ -1041,13 +1038,13 @@ public extension String {
 
         let padLength = length - count
         if padLength < string.count {
-            return self + string[string.startIndex..<string.index(string.startIndex, offsetBy: padLength)]
+            return self + string[string.startIndex ..< string.index(string.startIndex, offsetBy: padLength)]
         } else {
             var padding = string
             while padding.count < padLength {
                 padding.append(string)
             }
-            return self + padding[padding.startIndex..<padding.index(padding.startIndex, offsetBy: padLength)]
+            return self + padding[padding.startIndex ..< padding.index(padding.startIndex, offsetBy: padLength)]
         }
     }
 
@@ -1087,8 +1084,8 @@ public extension String {
 }
 
 // MARK: - Initializers
-public extension String {
 
+public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: Create a new string from a base64 string (if applicable).
     ///
@@ -1116,19 +1113,18 @@ public extension String {
 
         let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var randomString = ""
-        for _ in 1...length {
+        for _ in 1 ... length {
             randomString.append(base.randomElement()!)
         }
         self = randomString
     }
-
 }
 
 #if !os(Linux)
 
 // MARK: - NSAttributedString
-public extension String {
 
+public extension String {
     #if canImport(UIKit)
     private typealias Font = UIFont
     #endif
@@ -1140,7 +1136,8 @@ public extension String {
     #if os(iOS) || os(macOS)
     /// SwifterSwift: Bold string.
     var bold: NSAttributedString {
-        return NSMutableAttributedString(string: self, attributes: [.font: Font.boldSystemFont(ofSize: Font.systemFontSize)])
+        return NSMutableAttributedString(string: self,
+                                         attributes: [.font: Font.boldSystemFont(ofSize: Font.systemFontSize)])
     }
     #endif
 
@@ -1154,14 +1151,17 @@ public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: Strikethrough string.
     var strikethrough: NSAttributedString {
-        return NSAttributedString(string: self, attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
+        return NSAttributedString(string: self,
+                                  attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single
+                                          .rawValue as Int)])
     }
     #endif
 
     #if os(iOS)
     /// SwifterSwift: Italic string.
     var italic: NSAttributedString {
-        return NSMutableAttributedString(string: self, attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        return NSMutableAttributedString(string: self,
+                                         attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
     }
     #endif
 
@@ -1174,14 +1174,13 @@ public extension String {
         return NSMutableAttributedString(string: self, attributes: [.foregroundColor: color])
     }
     #endif
-
 }
 
 #endif
 
 // MARK: - Operators
-public extension String {
 
+public extension String {
     /// SwifterSwift: Repeat string multiple times.
     ///
     ///        'bar' * 3 -> "barbarbar"
@@ -1207,14 +1206,13 @@ public extension String {
         guard lhs > 0 else { return "" }
         return String(repeating: rhs, count: lhs)
     }
-
 }
 
 #if canImport(Foundation)
 
 // MARK: - NSString extensions
-public extension String {
 
+public extension String {
     /// SwifterSwift: NSString from a string.
     var nsString: NSString {
         return NSString(string: self)
@@ -1262,7 +1260,6 @@ public extension String {
     func appendingPathExtension(_ str: String) -> String? {
         return (self as NSString).appendingPathExtension(str)
     }
-
 }
 
 #endif

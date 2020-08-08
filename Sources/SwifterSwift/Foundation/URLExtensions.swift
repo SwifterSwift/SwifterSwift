@@ -1,25 +1,20 @@
-//
-//  URLExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 03/02/2017.
-//  Copyright © 2017 SwifterSwift
-//
+import AVFoundation
+// URLExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 
 #if canImport(UIKit) && canImport(AVFoundation)
 import UIKit
-import AVFoundation
 #endif
 
 // MARK: - Properties
-public extension URL {
 
+public extension URL {
     /// SwifterSwift: Dictionary of the URL's query parameters
     var queryParameters: [String: String]? {
-        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false), let queryItems = components.queryItems else { return nil }
+        guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false),
+            let queryItems = components.queryItems else { return nil }
 
         var items: [String: String] = [:]
 
@@ -29,12 +24,11 @@ public extension URL {
 
         return items
     }
-
 }
 
 // MARK: - Initializers
-public extension URL {
 
+public extension URL {
     /// SwifterSwift: Initializes an `URL` object with a base URL and a relative string. If `string` was malformed, returns `nil`.
     /// - Parameters:
     ///   - string: The URL string with which to initialize the `URL` object. Must conform to RFC 2396. `string` is interpreted relative to `url`.
@@ -43,12 +37,11 @@ public extension URL {
         guard let string = string else { return nil }
         self.init(string: string, relativeTo: url)
     }
-
 }
 
 // MARK: - Methods
-public extension URL {
 
+public extension URL {
     /// SwifterSwift: URL with appending query parameters.
     ///
     ///		let url = URL(string: "https://google.com")!
@@ -59,7 +52,8 @@ public extension URL {
     /// - Returns: URL with appending given query parameters.
     func appendingQueryParameters(_ parameters: [String: String]) -> URL {
         var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
-        urlComponents.queryItems = (urlComponents.queryItems ?? []) + parameters.map { URLQueryItem(name: $0, value: $1) }
+        urlComponents.queryItems = (urlComponents.queryItems ?? []) + parameters
+            .map { URLQueryItem(name: $0, value: $1) }
         return urlComponents.url!
     }
 
@@ -96,7 +90,7 @@ public extension URL {
     /// - Returns: URL with all path components removed.
     func deletingAllPathComponents() -> URL {
         var url: URL = self
-        for _ in 0..<pathComponents.count - 1 {
+        for _ in 0 ..< pathComponents.count - 1 {
             url.deleteLastPathComponent()
         }
         return url
@@ -108,7 +102,7 @@ public extension URL {
     ///        url.deleteAllPathComponents()
     ///        print(url) // prints "https://domain.com/"
     mutating func deleteAllPathComponents() {
-        for _ in 0..<pathComponents.count - 1 {
+        for _ in 0 ..< pathComponents.count - 1 {
             deleteLastPathComponent()
         }
     }
@@ -128,12 +122,11 @@ public extension URL {
         let droppedScheme = String(absoluteString.dropFirst(2))
         return URL(string: droppedScheme)
     }
-
 }
 
 // MARK: - Methods
-public extension URL {
 
+public extension URL {
     #if os(iOS) || os(tvOS)
     /// SwifterSwift: Generate a thumbnail image from given url. Returns nil if no thumbnail could be created. This function may take some time to complete. It's recommended to dispatch the call if the thumbnail is not generated from a local resource.
     ///
@@ -158,7 +151,6 @@ public extension URL {
         return UIImage(cgImage: cgImage)
     }
     #endif
-
 }
 
 #endif

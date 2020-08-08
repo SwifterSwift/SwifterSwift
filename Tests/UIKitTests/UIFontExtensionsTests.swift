@@ -1,19 +1,12 @@
-//
-//  UIFontExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Benjamin Meyer on 9/16/17.
-//  Copyright © 2016 SwifterSwift
-//
+// UIFontExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit)
 import UIKit
 
 final class UIFontExtension: XCTestCase {
-
     func testBold() {
         let font = UIFont.preferredFont(forTextStyle: .body)
         let boldFont = font.bold
@@ -37,7 +30,8 @@ final class UIFontExtension: XCTestCase {
             return
         }
 
-        guard let selector = settings.first?[UIFontDescriptor.AttributeName(rawValue: "CTFeatureSelectorIdentifier")] else {
+        guard let selector = settings.first?[UIFontDescriptor.AttributeName(rawValue: "CTFeatureSelectorIdentifier")]
+        else {
             XCTFail("Unable to get selector from font")
             return
         }
@@ -53,7 +47,6 @@ final class UIFontExtension: XCTestCase {
         XCTAssertEqual(font.familyName, monoFont.familyName)
         XCTAssertEqual(font.lineHeight, monoFont.lineHeight)
     }
-
 }
 
 #endif

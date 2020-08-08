@@ -1,16 +1,9 @@
-//
-//  FloatExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/27/16.
-//  Copyright © 2016 SwifterSwift
-//
+// FloatExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class FloatExtensionsTests: XCTestCase {
-
     func testInt() {
         XCTAssertEqual(Float(-1).int, -1)
         XCTAssertEqual(Float(2).int, 2)
@@ -30,7 +23,6 @@ final class FloatExtensionsTests: XCTestCase {
     }
 
     func testOperators() {
-        XCTAssertEqual((Float(5.0) ** Float(2.0)), Float(25.0))
+        XCTAssertEqual(Float(5.0) ** Float(2.0), Float(25.0))
     }
-
 }

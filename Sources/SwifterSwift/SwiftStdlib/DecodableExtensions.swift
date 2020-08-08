@@ -1,17 +1,10 @@
-//
-//  DecodableExtensions.swift
-//  SwifterSwift
-//
-//  Created by Mustafa GUNES on 16.01.2020.
-//  Copyright © 2020 SwifterSwift
-//
+// DecodableExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 #endif
 
 public extension Decodable {
-
     #if canImport(Foundation)
     /// SwifterSwift: Parsing the model in Decodable type
     /// - Parameters:

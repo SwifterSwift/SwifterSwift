@@ -1,17 +1,10 @@
-//
-//  StringExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/27/16.
-//  Copyright © 2016 SwifterSwift
-//
+// StringExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 // swiftlint:disable:next type_body_length
 final class StringExtensionsTests: XCTestCase {
-
     var helloWorld = "Hello World!"
 
     override func setUp() {
@@ -317,7 +310,8 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testMostCommonCharacter() {
-        let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character".mostCommonCharacter
+        let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character"
+            .mostCommonCharacter
         XCTAssertEqual(mostCommonCharacter(), "e")
         XCTAssertNil("".mostCommonCharacter())
     }
@@ -345,49 +339,49 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(str[safe: 1], "e")
         XCTAssertNil(str[safe: 18])
 
-        XCTAssertNil(str[safe: -5..<5])
-        XCTAssertNil(str[safe: -5...5])
+        XCTAssertNil(str[safe: -5 ..< 5])
+        XCTAssertNil(str[safe: -5 ... 5])
 
-        XCTAssertEqual(str[safe: 0..<0], "")
-        XCTAssertEqual(str[safe: 0..<4], "Hell")
-        XCTAssertEqual(str[safe: 1..<5], "ello")
-        XCTAssertEqual(str[safe: 7..<7], "")
-        XCTAssertNil(str[safe: 10..<18])
-        XCTAssertEqual(str[safe: 11..<12], "!")
+        XCTAssertEqual(str[safe: 0 ..< 0], "")
+        XCTAssertEqual(str[safe: 0 ..< 4], "Hell")
+        XCTAssertEqual(str[safe: 1 ..< 5], "ello")
+        XCTAssertEqual(str[safe: 7 ..< 7], "")
+        XCTAssertNil(str[safe: 10 ..< 18])
+        XCTAssertEqual(str[safe: 11 ..< 12], "!")
 
-        XCTAssertEqual(str[safe: 0...0], "H")
-        XCTAssertEqual(str[safe: 0...4], "Hello")
-        XCTAssertEqual(str[safe: 1...5], "ello ")
-        XCTAssertEqual(str[safe: 7...7], "o")
-        XCTAssertNil(str[safe: 10...18])
-        XCTAssertEqual(str[safe: 11...11], "!")
-        XCTAssertNil(str[safe: 11...12])
+        XCTAssertEqual(str[safe: 0 ... 0], "H")
+        XCTAssertEqual(str[safe: 0 ... 4], "Hello")
+        XCTAssertEqual(str[safe: 1 ... 5], "ello ")
+        XCTAssertEqual(str[safe: 7 ... 7], "o")
+        XCTAssertNil(str[safe: 10 ... 18])
+        XCTAssertEqual(str[safe: 11 ... 11], "!")
+        XCTAssertNil(str[safe: 11 ... 12])
 
         let oneCharStr = "a"
-        XCTAssertEqual(oneCharStr[safe: 0..<0], "")
-        XCTAssertEqual(oneCharStr[safe: 0..<1], "a")
-        XCTAssertNil(oneCharStr[safe: 0..<2])
-        XCTAssertEqual(oneCharStr[safe: 1..<1], "")
-        XCTAssertNil(oneCharStr[safe: 1..<2])
+        XCTAssertEqual(oneCharStr[safe: 0 ..< 0], "")
+        XCTAssertEqual(oneCharStr[safe: 0 ..< 1], "a")
+        XCTAssertNil(oneCharStr[safe: 0 ..< 2])
+        XCTAssertEqual(oneCharStr[safe: 1 ..< 1], "")
+        XCTAssertNil(oneCharStr[safe: 1 ..< 2])
 
-        XCTAssertEqual(oneCharStr[safe: 0...0], "a")
-        XCTAssertNil(oneCharStr[safe: 0...1])
-        XCTAssertNil(oneCharStr[safe: 0...2])
-        XCTAssertNil(oneCharStr[safe: 1...1])
-        XCTAssertNil(oneCharStr[safe: 1...2])
+        XCTAssertEqual(oneCharStr[safe: 0 ... 0], "a")
+        XCTAssertNil(oneCharStr[safe: 0 ... 1])
+        XCTAssertNil(oneCharStr[safe: 0 ... 2])
+        XCTAssertNil(oneCharStr[safe: 1 ... 1])
+        XCTAssertNil(oneCharStr[safe: 1 ... 2])
 
         // Empty string
-        XCTAssertEqual(""[safe: 0..<0], "")
-        XCTAssertNil(""[safe: 0..<1])
-        XCTAssertNil(""[safe: 1..<1])
-        XCTAssertNil(""[safe: 1..<2])
-        XCTAssertNil(""[safe: 2..<3])
+        XCTAssertEqual(""[safe: 0 ..< 0], "")
+        XCTAssertNil(""[safe: 0 ..< 1])
+        XCTAssertNil(""[safe: 1 ..< 1])
+        XCTAssertNil(""[safe: 1 ..< 2])
+        XCTAssertNil(""[safe: 2 ..< 3])
 
-        XCTAssertNil(""[safe: 0...0])
-        XCTAssertNil(""[safe: 0...1])
-        XCTAssertNil(""[safe: 1..<1])
-        XCTAssertNil(""[safe: 1...2])
-        XCTAssertNil(""[safe: 2...3])
+        XCTAssertNil(""[safe: 0 ... 0])
+        XCTAssertNil(""[safe: 0 ... 1])
+        XCTAssertNil(""[safe: 1 ..< 1])
+        XCTAssertNil(""[safe: 1 ... 2])
+        XCTAssertNil(""[safe: 2 ... 3])
     }
 
     func testCopyToPasteboard() {
@@ -426,7 +420,6 @@ final class StringExtensionsTests: XCTestCase {
         str = ""
         str.firstCharacterUppercased()
         XCTAssertEqual(str, "")
-
     }
 
     func testHasUniqueCharacters() {
@@ -733,7 +726,8 @@ final class StringExtensionsTests: XCTestCase {
         #if !os(Linux)
         let underlinedString = "hello".underline
         // swiftlint:disable:next legacy_constructor
-        let attrs = underlinedString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, underlinedString.length))
+        let attrs = underlinedString
+            .attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, underlinedString.length))
         XCTAssertNotNil(attrs[NSAttributedString.Key.underlineStyle])
         guard let style = attrs[NSAttributedString.Key.underlineStyle] as? Int else {
             XCTFail("Unable to find style in testUnderline")
@@ -747,7 +741,8 @@ final class StringExtensionsTests: XCTestCase {
         #if !os(Linux)
         let strikedthroughString = "hello".strikethrough
         // swiftlint:disable:next legacy_constructor
-        let attrs = strikedthroughString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, strikedthroughString.length))
+        let attrs = strikedthroughString
+            .attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, strikedthroughString.length))
         XCTAssertNotNil(attrs[NSAttributedString.Key.strikethroughStyle])
         guard let style = attrs[NSAttributedString.Key.strikethroughStyle] as? NSNumber else {
             XCTFail("Unable to find style in testStrikethrough")
@@ -775,7 +770,8 @@ final class StringExtensionsTests: XCTestCase {
         #if canImport(AppKit) || canImport(UIKit)
         let coloredString = "hello".colored(with: .orange)
         // swiftlint:disable:next legacy_constructor
-        let attrs = coloredString.attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, coloredString.length))
+        let attrs = coloredString
+            .attributes(at: 0, longestEffectiveRange: nil, in: NSMakeRange(0, coloredString.length))
         XCTAssertNotNil(attrs[NSAttributedString.Key.foregroundColor])
 
         guard let color = attrs[.foregroundColor] as? Color else {
@@ -857,5 +853,4 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil(num.ordinalString())
         XCTAssertEqual(num.ordinalString(), "12th")
     }
-
 }

@@ -1,19 +1,12 @@
-//
-//  UINavigationBarExtensionTests.swift
-//  SwifterSwift
-//
-//  Created by Steven on 2/16/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UINavigationBarExtensionTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UINavigationBarExtensionsTests: XCTestCase {
-
     func testSetTitleFont() {
         let navigationBar = UINavigationBar()
         let helveticaFont = UIFont(name: "HelveticaNeue", size: 14)!
@@ -54,7 +47,6 @@ final class UINavigationBarExtensionsTests: XCTestCase {
         let color = navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor
         XCTAssertEqual(color, .green)
     }
-
 }
 
 #endif

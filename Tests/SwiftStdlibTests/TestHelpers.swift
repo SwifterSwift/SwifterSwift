@@ -1,10 +1,4 @@
-//
-//  TestHelpers.swift
-//  SwifterSwift
-//
-//  Created by Ilya Glushchuk on 22/10/2019.
-//  Copyright © 2019 SwifterSwift
-//
+// TestHelpers.swift - Copyright 2020 SwifterSwift
 
 enum Season: String {
     case summer
@@ -45,6 +39,6 @@ struct TestStruct: ExpressibleByIntegerLiteral, Equatable {
     typealias IntegerLiteralType = Int
 
     init(integerLiteral value: Int) {
-        self.testField = value
+        testField = value
     }
 }

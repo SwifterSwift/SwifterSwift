@@ -1,19 +1,12 @@
-//
-//  SCNVector3ExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 06.04.19.
-//  Copyright © 2019 SwifterSwift
-//
+// SCNVector3ExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(SceneKit)
 import SceneKit
 
 final class SceneKitTests: XCTestCase {
-
     let vector1 = SCNVector3(10, -20, 30)
     let vector2 = SCNVector3(20, 0, -10)
 
@@ -63,7 +56,6 @@ final class SceneKitTests: XCTestCase {
         let result = 3 * vector1
         XCTAssertEqual(result, SCNVector3(30, -60, 90))
     }
-
 }
 
 extension SCNVector3: Equatable {

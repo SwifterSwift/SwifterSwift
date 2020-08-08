@@ -1,20 +1,12 @@
-//
-//  UILayoutPriorityExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by diamantidis on 8/19/18.
-//  Copyright © 2018 SwifterSwift. All rights reserved.
-//
+// UILayoutPriorityExtensionsTests.swift - Copyright 2020 SwifterSwift
 
 #if os(iOS) || os(tvOS)
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class UILayoutPriorityExtensionsTests: XCTestCase {
-
     func testFloatLiteralInitializer() {
-
         var priority: UILayoutPriority = 0.5
         XCTAssertEqual(UILayoutPriority(rawValue: 0.5), priority)
 
@@ -26,7 +18,6 @@ final class UILayoutPriorityExtensionsTests: XCTestCase {
     }
 
     func testIntegerLiteralInitializer() {
-
         var priority: UILayoutPriority = 5
         XCTAssertEqual(UILayoutPriority(rawValue: 5), priority)
 
@@ -36,7 +27,6 @@ final class UILayoutPriorityExtensionsTests: XCTestCase {
         priority = 0
         XCTAssertEqual(UILayoutPriority(rawValue: 0), priority)
     }
-
 }
 
 #endif

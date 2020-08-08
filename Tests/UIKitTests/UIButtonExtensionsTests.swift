@@ -1,19 +1,12 @@
-//
-//  UIButtonExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Steven on 2/14/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UIButtonExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UIButtonExtensionsTests: XCTestCase {
-
     func testImageForDisabled() {
         let button = UIButton()
         XCTAssertEqual(button.imageForDisabled, button.image(for: .disabled))
@@ -180,7 +173,6 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
         XCTAssertEqual(titleFrame.minY - spacing, imageFrame.maxY, accuracy: 1.0)
     }
-
 }
 
 #endif

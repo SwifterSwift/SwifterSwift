@@ -1,17 +1,11 @@
-//
-//  SCNSphereExtensions.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 06.04.19.
-//  Copyright © 2019 SwifterSwift
-//
+// SCNSphereExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit
 
 // MARK: - Methods
-public extension SCNSphere {
 
+public extension SCNSphere {
     /// SwifterSwift: Creates a sphere geometry with the specified diameter.
     ///
     /// - Parameter diameter: The diameter of the sphere in its local coordinate space.
@@ -56,7 +50,6 @@ public extension SCNSphere {
     convenience init(diameter: CGFloat, color: Color) {
         self.init(diameter: diameter, material: SCNMaterial(color: color))
     }
-
 }
 
 #endif

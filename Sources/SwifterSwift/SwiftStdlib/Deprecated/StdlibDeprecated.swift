@@ -1,10 +1,4 @@
-//
-//  StdlibDeprecated.swift
-//  SwifterSwift
-//
-//  Created by Luciano Almeida on 21/09/19.
-//  Copyright © 2019 SwifterSwift
-//
+// StdlibDeprecated.swift - Copyright 2020 SwifterSwift
 
 private func optionalCompareAscending<T: Comparable>(path1: T?, path2: T?) -> Bool {
     guard let path1 = path1, let path2 = path2 else { return false }
@@ -17,7 +11,6 @@ private func optionalCompareDescending<T: Comparable>(path1: T?, path2: T?) -> B
 }
 
 public extension Array {
-
     /// SwifterSwift: Returns a sorted array based on an optional keypath.
     ///
     /// - Parameter path: Key path to sort. The key path type must be Comparable.
@@ -77,11 +70,9 @@ public extension Array {
         }
         return self
     }
-
 }
 
 public extension Sequence {
-
     /// SwifterSwift: Returns an array containing the results of mapping the given key path over the sequence’s elements.
     ///
     /// - Parameter keyPath: Key path to map.

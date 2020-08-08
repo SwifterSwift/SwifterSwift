@@ -1,16 +1,9 @@
-//
-//  FileManagerExtensions.swift
-//  SwifterSwift
-//
-//  Created by Jason Jon E. Carreos on 05/02/2018.
-//  Copyright © 2018 SwifterSwift
-//
+// FileManagerExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 
 public extension FileManager {
-
     /// SwifterSwift: Read from a JSON file at a given path.
     ///
     /// - Parameters:
@@ -21,7 +14,6 @@ public extension FileManager {
     func jsonFromFile(
         atPath path: String,
         readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {
-
         let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
         let json = try JSONSerialization.jsonObject(with: data, options: readingOptions)
 
@@ -82,7 +74,7 @@ public extension FileManager {
         let envs = ProcessInfo.processInfo.environment
         let env = envs["TMPDIR"] ?? envs["TEMP"] ?? envs["TMP"] ?? "/tmp"
         let dir = "/\(env)/file-temp.XXXXXX"
-        var template = [UInt8](dir.utf8).map({ Int8($0) }) + [Int8(0)]
+        var template = [UInt8](dir.utf8).map { Int8($0) } + [Int8(0)]
         guard mkdtemp(&template) != nil else { throw CocoaError.error(.featureUnsupported) }
         return URL(fileURLWithPath: String(cString: template))
         #endif

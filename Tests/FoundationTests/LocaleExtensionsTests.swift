@@ -1,19 +1,12 @@
-//
-//  LocaleExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Basem Emara on 4/19/17.
-//  Copyright © 2017 SwifterSwift
-//
+// LocaleExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(Foundation)
 import Foundation
 
 final class LocaleExtensionsTests: XCTestCase {
-
     func testPosix() {
         let test: Locale = .posix
         XCTAssertEqual(test.identifier, "en_US_POSIX")
@@ -39,7 +32,6 @@ final class LocaleExtensionsTests: XCTestCase {
             XCTAssertNotNil(Locale.flagEmoji(forRegionCode: regionCode))
         }
     }
-
 }
 
 #endif

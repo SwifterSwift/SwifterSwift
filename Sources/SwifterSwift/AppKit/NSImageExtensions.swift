@@ -1,17 +1,11 @@
-//
-//  NSImageExtensions.swift
-//  SwifterSwift-macOS
-//
-//  Created by BUDDAx2 on 20.10.2017.
-//  Copyright © 2017 SwifterSwift
-//
+// NSImageExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 
 // MARK: - Methods
-public extension NSImage {
 
+public extension NSImage {
     /// SwifterSwift: NSImage scaled to maximum size with respect to aspect ratio
     ///
     /// - Parameter maxSize: maximum size
@@ -58,10 +52,10 @@ public extension NSImage {
         guard let data = tiffRepresentation else { return }
         guard let imageRep = NSBitmapImageRep(data: data) else { return }
 
-        guard let imageData = imageRep.representation(using: type, properties: [.compressionFactor: compressionFactor]) else { return }
+        guard let imageData = imageRep.representation(using: type, properties: [.compressionFactor: compressionFactor])
+        else { return }
         try? imageData.write(to: url)
     }
-
 }
 
 #endif

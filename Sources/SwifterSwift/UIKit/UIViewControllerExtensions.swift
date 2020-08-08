@@ -1,28 +1,21 @@
-//
-//  UIViewControllerExtensions.swift
-//  SwifterSwift
-//
-//  Created by Emirhan Erdogan on 07/08/16.
-//  Copyright © 2016 SwifterSwift
-//
+// UIViewControllerExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Properties
-public extension UIViewController {
 
+public extension UIViewController {
     /// SwifterSwift: Check if ViewController is onscreen and not hidden.
     var isVisible: Bool {
         // http://stackoverflow.com/questions/2777438/how-to-tell-if-uiviewcontrollers-view-is-visible
         return isViewLoaded && view.window != nil
     }
-
 }
 
 // MARK: - Methods
-public extension UIViewController {
 
+public extension UIViewController {
     /// SwifterSwift: Instantiate UIViewController from storyboard
     ///
     /// - Parameters:
@@ -33,7 +26,8 @@ public extension UIViewController {
     class func instantiate(from storyboard: String = "Main", bundle: Bundle? = nil, identifier: String? = nil) -> Self {
         let viewControllerIdentifier = identifier ?? String(describing: self)
         let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
-        guard let viewController = storyboard.instantiateViewController(withIdentifier: viewControllerIdentifier) as? Self else {
+        guard let viewController = storyboard
+            .instantiateViewController(withIdentifier: viewControllerIdentifier) as? Self else {
             preconditionFailure("Unable to instantiate view controller with identifier \(viewControllerIdentifier) as type \(type(of: self))")
         }
         return viewController
@@ -70,16 +64,21 @@ public extension UIViewController {
     ///   - completion: (Optional) completion block to be invoked when any one of the buttons is tapped. It passes the index of the tapped button as an argument
     /// - Returns: UIAlertController object (discardable).
     @discardableResult
-    func showAlert(title: String?, message: String?, buttonTitles: [String]? = nil, highlightedButtonIndex: Int? = nil, completion: ((Int) -> Void)? = nil) -> UIAlertController {
+    func showAlert(
+        title: String?,
+        message: String?,
+        buttonTitles: [String]? = nil,
+        highlightedButtonIndex: Int? = nil,
+        completion: ((Int) -> Void)? = nil) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         var allButtons = buttonTitles ?? [String]()
         if allButtons.count == 0 {
             allButtons.append("OK")
         }
 
-        for index in 0..<allButtons.count {
+        for index in 0 ..< allButtons.count {
             let buttonTitle = allButtons[index]
-            let action = UIAlertAction(title: buttonTitle, style: .default, handler: { (_) in
+            let action = UIAlertAction(title: buttonTitle, style: .default, handler: { _ in
                 completion?(index)
             })
             alertController.addAction(action)
@@ -122,7 +121,13 @@ public extension UIViewController {
     ///   - delegate: the popover's presentationController delegate. Default is nil.
     ///   - animated: Pass true to animate the presentation; otherwise, pass false.
     ///   - completion: The block to execute after the presentation finishes. Default is nil.
-    func presentPopover(_ popoverContent: UIViewController, sourcePoint: CGPoint, size: CGSize? = nil, delegate: UIPopoverPresentationControllerDelegate? = nil, animated: Bool = true, completion: (() -> Void)? = nil) {
+    func presentPopover(
+        _ popoverContent: UIViewController,
+        sourcePoint: CGPoint,
+        size: CGSize? = nil,
+        delegate: UIPopoverPresentationControllerDelegate? = nil,
+        animated: Bool = true,
+        completion: (() -> Void)? = nil) {
         popoverContent.modalPresentationStyle = .popover
 
         if let size = size {
@@ -138,7 +143,6 @@ public extension UIViewController {
         present(popoverContent, animated: animated, completion: completion)
     }
     #endif
-
 }
 
 #endif

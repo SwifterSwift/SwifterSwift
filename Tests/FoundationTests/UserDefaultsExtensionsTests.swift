@@ -1,19 +1,12 @@
-//
-//  UserDefaultsExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 9/6/17.
-//  Copyright © 2016 SwifterSwift
-//
+// UserDefaultsExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(Foundation)
 import Foundation
 
 final class UserDefaultsExtensionsTests: XCTestCase {
-
     private struct TestObject: Codable {
         var itemId: Int
     }
@@ -71,7 +64,6 @@ final class UserDefaultsExtensionsTests: XCTestCase {
         XCTAssertNotNil(retrievedCodable)
         #endif
     }
-
 }
 
 #endif
