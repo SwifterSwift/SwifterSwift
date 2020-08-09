@@ -5,3 +5,4 @@
 --ifdef no-indent
 --importgrouping testable-top
 --maxwidth 120
+--swiftversion 5.1

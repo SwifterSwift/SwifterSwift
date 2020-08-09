@@ -14,7 +14,7 @@ public extension UITableView {
 
     /// SwifterSwift: Index of last section in tableView.
     var lastSection: Int? {
-        return numberOfSections > 0 ? numberOfSections - 1 : nil
+        numberOfSections > 0 ? numberOfSections - 1 : nil
     }
 }
 
@@ -175,7 +175,7 @@ public extension UITableView {
     /// - Parameter indexPath: An IndexPath to check
     /// - Returns: Boolean value for valid or invalid IndexPath
     func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
-        return indexPath.section >= 0 &&
+        indexPath.section >= 0 &&
             indexPath.row >= 0 &&
             indexPath.section < numberOfSections &&
             indexPath.row < numberOfRows(inSection: indexPath.section)

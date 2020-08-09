@@ -36,7 +36,7 @@ public extension Character {
     ///        Character("A").int -> nil
     ///
     var int: Int? {
-        return Int(String(self))
+        Int(String(self))
     }
 
     /// SwifterSwift: String from character.
@@ -44,7 +44,7 @@ public extension Character {
     ///        Character("a").string -> "a"
     ///
     var string: String {
-        return String(self)
+        String(self)
     }
 
     /// SwifterSwift: Return the character lowercased.
@@ -52,7 +52,7 @@ public extension Character {
     ///        Character("A").lowercased -> Character("a")
     ///
     var lowercased: Character {
-        return String(self).lowercased().first!
+        String(self).lowercased().first!
     }
 
     /// SwifterSwift: Return the character uppercased.
@@ -60,7 +60,7 @@ public extension Character {
     ///        Character("a").uppercased -> Character("A")
     ///
     var uppercased: Character {
-        return String(self).uppercased().first!
+        String(self).uppercased().first!
     }
 }
 
@@ -73,7 +73,7 @@ public extension Character {
     ///
     /// - Returns: A random character.
     static func randomAlphanumeric() -> Character {
-        return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".randomElement()!
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".randomElement()!
     }
 }
 

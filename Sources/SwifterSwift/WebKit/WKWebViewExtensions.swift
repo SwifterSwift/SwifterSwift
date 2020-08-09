@@ -11,7 +11,7 @@ extension WKWebView {
     /// - Returns: A new navigation for given `url`.
     @discardableResult
     public func loadURL(_ url: URL) -> WKNavigation? {
-        return load(URLRequest(url: url))
+        load(URLRequest(url: url))
     }
 
     /// SwifterSwift: Navigate to url using `String`.

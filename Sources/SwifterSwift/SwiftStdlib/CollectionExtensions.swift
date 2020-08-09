@@ -30,7 +30,7 @@ public extension Collection {
     ///
     /// - Parameter index: index of element to access element.
     subscript(safe index: Index) -> Element? {
-        return indices.contains(index) ? self[index] : nil
+        indices.contains(index) ? self[index] : nil
     }
 
     /// SwifterSwift: Returns an array of slices of length "size" from the array. If array can't be split evenly, the final slice will be the remaining elements.
@@ -95,7 +95,7 @@ public extension Collection where Element: Equatable {
     /// - Parameter item: item to check.
     /// - Returns: an array with all indices of the given item.
     func indices(of item: Element) -> [Index] {
-        return indices.filter { self[$0] == item }
+        indices.filter { self[$0] == item }
     }
 }
 

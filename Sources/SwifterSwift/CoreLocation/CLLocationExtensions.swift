@@ -38,7 +38,7 @@ public extension CLLocation {
     /// - Parameter point: End location.
     /// - Returns: Location that represents the half-way point.
     func midLocation(to point: CLLocation) -> CLLocation {
-        return CLLocation.midLocation(start: self, end: point)
+        CLLocation.midLocation(start: self, end: point)
     }
 
     /// SwifterSwift: Calculates the bearing to another CLLocation.

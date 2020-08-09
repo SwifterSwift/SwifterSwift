@@ -25,7 +25,7 @@ public extension Dictionary {
     /// - Parameter key: key to search for
     /// - Returns: true if key exists in dictionary.
     func has(key: Key) -> Bool {
-        return index(forKey: key) != nil
+        index(forKey: key) != nil
     }
 
     /// SwifterSwift: Remove all keys contained in the keys parameter from the dictionary.
@@ -100,7 +100,7 @@ public extension Dictionary {
     /// - Parameter transform: A mapping closure. `transform` accepts an element of this sequence as its parameter and returns a transformed value of the same or of a different type.
     /// - Returns: A dictionary containing the transformed elements of this sequence.
     func mapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)) rethrows -> [K: V] {
-        return [K: V](uniqueKeysWithValues: try map(transform))
+        [K: V](uniqueKeysWithValues: try map(transform))
     }
 
     /// SwifterSwift: Returns a dictionary containing the non-`nil` results of calling the given transformation with each element of this sequence.
@@ -108,7 +108,7 @@ public extension Dictionary {
     /// - Returns: A dictionary of the non-`nil` results of calling `transform` with each element of the sequence.
     /// - Complexity: *O(m + n)*, where _m_ is the length of this sequence and _n_ is the length of the result.
     func compactMapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)?) rethrows -> [K: V] {
-        return [K: V](uniqueKeysWithValues: try compactMap(transform))
+        [K: V](uniqueKeysWithValues: try compactMap(transform))
     }
 }
 
@@ -125,7 +125,7 @@ public extension Dictionary where Value: Equatable {
     /// - Parameter value: Value for which keys are to be fetched.
     /// - Returns: An array containing keys that have the given value.
     func keys(forValue value: Value) -> [Key] {
-        return keys.filter { self[$0] == value }
+        keys.filter { self[$0] == value }
     }
 }
 

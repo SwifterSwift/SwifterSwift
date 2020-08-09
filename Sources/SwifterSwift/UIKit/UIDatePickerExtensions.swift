@@ -13,7 +13,7 @@ public extension UIDatePicker {
             setValue(newValue, forKeyPath: "textColor")
         }
         get {
-            return value(forKeyPath: "textColor") as? UIColor
+            value(forKeyPath: "textColor") as? UIColor
         }
     }
     #endif

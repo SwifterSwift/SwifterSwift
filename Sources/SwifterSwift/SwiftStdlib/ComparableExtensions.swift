@@ -16,7 +16,7 @@ public extension Comparable {
     ///
     /// - returns: `true` if value is between `min` and `max`, `false` otherwise.
     func isBetween(_ range: ClosedRange<Self>) -> Bool {
-        return range ~= self
+        range ~= self
     }
 
     /// SwifterSwift: Returns value limited within the provided range.
@@ -31,6 +31,6 @@ public extension Comparable {
     ///
     /// - returns: A value limited to the range between `min` and `max`.
     func clamped(to range: ClosedRange<Self>) -> Self {
-        return max(range.lowerBound, min(self, range.upperBound))
+        max(range.lowerBound, min(self, range.upperBound))
     }
 }

@@ -15,7 +15,7 @@ public extension Optional {
     /// - Returns: self if not nil or default value if nil.
     func unwrapped(or defaultValue: Wrapped) -> Wrapped {
         // http://www.russbishop.net/improving-optionals
-        return self ?? defaultValue
+        self ?? defaultValue
     }
 
     /// SwifterSwift: Gets the wrapped value of an optional. If the optional is `nil`, throw a custom error.
@@ -117,7 +117,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
     @inlinable static func == (lhs: Optional, rhs: Wrapped.RawValue?) -> Bool {
-        return lhs?.rawValue == rhs
+        lhs?.rawValue == rhs
     }
 
     /// Returns a Boolean value indicating whether two values are equal.
@@ -129,7 +129,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
     @inlinable static func == (lhs: Wrapped.RawValue?, rhs: Optional) -> Bool {
-        return lhs == rhs?.rawValue
+        lhs == rhs?.rawValue
     }
 
     /// Returns a Boolean value indicating whether two values are not equal.
@@ -141,7 +141,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
     @inlinable static func != (lhs: Optional, rhs: Wrapped.RawValue?) -> Bool {
-        return lhs?.rawValue != rhs
+        lhs?.rawValue != rhs
     }
 
     /// Returns a Boolean value indicating whether two values are not equal.
@@ -153,7 +153,7 @@ public extension Optional where Wrapped: RawRepresentable, Wrapped.RawValue: Equ
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
     @inlinable static func != (lhs: Wrapped.RawValue?, rhs: Optional) -> Bool {
-        return lhs != rhs?.rawValue
+        lhs != rhs?.rawValue
     }
 
     // swiftlint:enable missing_swifterswift_prefix

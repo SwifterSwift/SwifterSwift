@@ -177,7 +177,7 @@ final class UITableViewExtensionsTests: XCTestCase {
 
 extension UITableViewExtensionsTests: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tableView == emptyTableView ? 0 : 2
+        tableView == emptyTableView ? 0 : 2
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -189,7 +189,7 @@ extension UITableViewExtensionsTests: UITableViewDataSource {
     }
 
     func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        UITableViewCell()
     }
 }
 

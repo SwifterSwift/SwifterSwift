@@ -137,16 +137,16 @@ final class UICollectionViewExtensionsTests: XCTestCase {
 
 extension UICollectionViewExtensionsTests: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return (collectionView == self.collectionView || collectionView == flowLayoutCollectionView) ? 2 : 0
+        (collectionView == self.collectionView || collectionView == flowLayoutCollectionView) ? 2 : 0
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (collectionView == self.collectionView || collectionView == flowLayoutCollectionView) ?
+        (collectionView == self.collectionView || collectionView == flowLayoutCollectionView) ?
             (section == 0 ? 5 : 0) : 0
     }
 
     func collectionView(_: UICollectionView, cellForItemAt _: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        UICollectionViewCell()
     }
 }
 

@@ -109,7 +109,7 @@ public extension RangeReplaceableCollection {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements up until condition evaluates to false.
     func take(while condition: (Element) throws -> Bool) rethrows -> Self {
-        return Self(try prefix(while: condition))
+        Self(try prefix(while: condition))
     }
 
     /// SwifterSwift: Skip elements of Array while condition is true.
@@ -150,7 +150,7 @@ public extension RangeReplaceableCollection {
     /// - Parameter offset: The offset position of the element to access. `offset` must be a valid index offset of the collection that is not equal to the `endIndex` property.
     subscript(offset: Int) -> Element {
         get {
-            return self[index(startIndex, offsetBy: offset)]
+            self[index(startIndex, offsetBy: offset)]
         }
         set {
             let offsetIndex = index(startIndex, offsetBy: offset)

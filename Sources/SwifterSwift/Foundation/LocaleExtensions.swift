@@ -8,7 +8,7 @@ import Foundation
 public extension Locale {
     /// SwifterSwift: UNIX representation of locale usually used for normalizing.
     static var posix: Locale {
-        return Locale(identifier: "en_US_POSIX")
+        Locale(identifier: "en_US_POSIX")
     }
 
     /// SwifterSwift: Returns bool value indicating if locale has 12h format.

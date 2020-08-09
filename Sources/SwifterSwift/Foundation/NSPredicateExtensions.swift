@@ -8,7 +8,7 @@ import Foundation
 public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by NOT-ing the predicate.
     var not: NSCompoundPredicate {
-        return NSCompoundPredicate(notPredicateWithSubpredicate: self)
+        NSCompoundPredicate(notPredicateWithSubpredicate: self)
     }
 }
 
@@ -20,7 +20,7 @@ public extension NSPredicate {
     /// - Parameter predicate: NSPredicate
     /// - Returns: NSCompoundPredicate
     func and(_ predicate: NSPredicate) -> NSCompoundPredicate {
-        return NSCompoundPredicate(andPredicateWithSubpredicates: [self, predicate])
+        NSCompoundPredicate(andPredicateWithSubpredicates: [self, predicate])
     }
 
     /// SwifterSwift: Returns a new predicate formed by OR-ing the argument to the predicate.
@@ -28,7 +28,7 @@ public extension NSPredicate {
     /// - Parameter predicate: NSPredicate
     /// - Returns: NSCompoundPredicate
     func or(_ predicate: NSPredicate) -> NSCompoundPredicate {
-        return NSCompoundPredicate(orPredicateWithSubpredicates: [self, predicate])
+        NSCompoundPredicate(orPredicateWithSubpredicates: [self, predicate])
     }
 }
 
@@ -39,7 +39,7 @@ public extension NSPredicate {
     /// - Parameters: rhs: NSPredicate to convert.
     /// - Returns: NSCompoundPredicate
     static prefix func ! (rhs: NSPredicate) -> NSCompoundPredicate {
-        return rhs.not
+        rhs.not
     }
 
     /// SwifterSwift: Returns a new predicate formed by AND-ing the argument to the predicate.
@@ -49,7 +49,7 @@ public extension NSPredicate {
     ///   - rhs: NSPredicate.
     /// - Returns: NSCompoundPredicate
     static func + (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
-        return lhs.and(rhs)
+        lhs.and(rhs)
     }
 
     /// SwifterSwift: Returns a new predicate formed by OR-ing the argument to the predicate.
@@ -59,7 +59,7 @@ public extension NSPredicate {
     ///   - rhs: NSPredicate.
     /// - Returns: NSCompoundPredicate
     static func | (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
-        return lhs.or(rhs)
+        lhs.or(rhs)
     }
 
     /// SwifterSwift: Returns a new predicate formed by remove the argument to the predicate.
@@ -69,7 +69,7 @@ public extension NSPredicate {
     ///   - rhs: NSPredicate.
     /// - Returns: NSCompoundPredicate
     static func - (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
-        return lhs + !rhs
+        lhs + !rhs
     }
 }
 

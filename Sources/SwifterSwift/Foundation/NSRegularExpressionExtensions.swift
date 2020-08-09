@@ -68,9 +68,9 @@ public extension NSRegularExpression {
                  options: MatchingOptions = [],
                  range: Range<String.Index>) -> [NSTextCheckingResult]
     {
-        return matches(in: string,
-                       options: options,
-                       range: NSRange(range, in: string))
+        matches(in: string,
+                options: options,
+                range: NSRange(range, in: string))
     }
 
     /// SwifterSwift: Returns the number of matches of the regular expression within the specified range of the string.
@@ -84,9 +84,9 @@ public extension NSRegularExpression {
                          options: MatchingOptions = [],
                          range: Range<String.Index>) -> Int
     {
-        return numberOfMatches(in: string,
-                               options: options,
-                               range: NSRange(range, in: string))
+        numberOfMatches(in: string,
+                        options: options,
+                        range: NSRange(range, in: string))
     }
 
     /// SwifterSwift: Returns the first match of the regular expression within the specified range of the string.
@@ -100,9 +100,9 @@ public extension NSRegularExpression {
                     options: MatchingOptions = [],
                     range: Range<String.Index>) -> NSTextCheckingResult?
     {
-        return firstMatch(in: string,
-                          options: options,
-                          range: NSRange(range, in: string))
+        firstMatch(in: string,
+                   options: options,
+                   range: NSRange(range, in: string))
     }
 
     /// SwifterSwift: Returns the range of the first match of the regular expression within the specified range of the string.
@@ -116,10 +116,10 @@ public extension NSRegularExpression {
                            options: MatchingOptions = [],
                            range: Range<String.Index>) -> Range<String.Index>?
     {
-        return Range(rangeOfFirstMatch(in: string,
-                                       options: options,
-                                       range: NSRange(range, in: string)),
-                     in: string)
+        Range(rangeOfFirstMatch(in: string,
+                                options: options,
+                                range: NSRange(range, in: string)),
+              in: string)
     }
 
     /// SwifterSwift: Returns a new string containing matching regular expressions replaced with the template string.
@@ -135,10 +135,10 @@ public extension NSRegularExpression {
                                   range: Range<String.Index>,
                                   withTemplate templ: String) -> String
     {
-        return stringByReplacingMatches(in: string,
-                                        options: options,
-                                        range: NSRange(range, in: string),
-                                        withTemplate: templ)
+        stringByReplacingMatches(in: string,
+                                 options: options,
+                                 range: NSRange(range, in: string),
+                                 withTemplate: templ)
     }
 
     /// SwifterSwift: Replaces regular expression matches within the mutable string using the template string.

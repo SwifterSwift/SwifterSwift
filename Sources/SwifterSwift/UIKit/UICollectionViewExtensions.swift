@@ -8,12 +8,12 @@ import UIKit
 public extension UICollectionView {
     /// SwifterSwift: Index path of last item in collectionView.
     var indexPathForLastItem: IndexPath? {
-        return indexPathForLastItem(inSection: lastSection)
+        indexPathForLastItem(inSection: lastSection)
     }
 
     /// SwifterSwift: Index of last section in collectionView.
     var lastSection: Int {
-        return numberOfSections > 0 ? numberOfSections - 1 : 0
+        numberOfSections > 0 ? numberOfSections - 1 : 0
     }
 }
 
@@ -170,7 +170,7 @@ public extension UICollectionView {
     /// - Parameter indexPath: An IndexPath to check
     /// - Returns: Boolean value for valid or invalid IndexPath
     func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
-        return indexPath.section >= 0 &&
+        indexPath.section >= 0 &&
             indexPath.item >= 0 &&
             indexPath.section < numberOfSections &&
             indexPath.item < numberOfItems(inSection: indexPath.section)

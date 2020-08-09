@@ -177,7 +177,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         // swiftlint:disable:next nesting
         class PopoverDelegate: NSObject, UIPopoverPresentationControllerDelegate {
             func adaptivePresentationStyle(for _: UIPresentationController) -> UIModalPresentationStyle {
-                return .popover
+                .popover
             }
         }
 

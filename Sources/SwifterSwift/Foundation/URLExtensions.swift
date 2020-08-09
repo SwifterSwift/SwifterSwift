@@ -76,7 +76,7 @@ public extension URL {
     ///
     /// - Parameter key: The key of a query value.
     func queryValue(for key: String) -> String? {
-        return URLComponents(string: absoluteString)?
+        URLComponents(string: absoluteString)?
             .queryItems?
             .first(where: { $0.name == key })?
             .value

@@ -12,7 +12,7 @@ public extension MKMapView {
     ///   - name: MKAnnotationView type.
     /// - Returns: optional MKAnnotationView object.
     func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type) -> T? {
-        return dequeueReusableAnnotationView(withIdentifier: String(describing: name)) as? T
+        dequeueReusableAnnotationView(withIdentifier: String(describing: name)) as? T
     }
 
     /// SwifterSwift: Register MKAnnotationView using class type

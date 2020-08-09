@@ -20,7 +20,7 @@ public extension UISearchBar {
 
     /// SwifterSwift: Text with no spaces or new lines in beginning and end (if applicable).
     var trimmedText: String? {
-        return text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        text?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
 

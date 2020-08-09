@@ -16,7 +16,7 @@ public extension CGPoint {
     /// - Parameter point: CGPoint to get distance from.
     /// - Returns: Distance between self and given CGPoint.
     func distance(from point: CGPoint) -> CGFloat {
-        return CGPoint.distance(from: self, to: point)
+        CGPoint.distance(from: self, to: point)
     }
 
     /// SwifterSwift: Distance between two CGPoints.
@@ -32,7 +32,7 @@ public extension CGPoint {
     /// - Returns: distance between the two given CGPoints.
     static func distance(from point1: CGPoint, to point2: CGPoint) -> CGFloat {
         // http://stackoverflow.com/questions/6416101/calculate-the-distance-between-two-cgpoints
-        return sqrt(pow(point2.x - point1.x, 2) + pow(point2.y - point1.y, 2))
+        sqrt(pow(point2.x - point1.x, 2) + pow(point2.y - point1.y, 2))
     }
 }
 
@@ -51,7 +51,7 @@ public extension CGPoint {
     ///   - rhs: CGPoint to add.
     /// - Returns: result of addition of the two given CGPoints.
     static func + (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
-        return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
+        CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
     }
 
     /// SwifterSwift: Add a CGPoints to self.
@@ -81,7 +81,7 @@ public extension CGPoint {
     ///   - rhs: CGPoint to subtract.
     /// - Returns: result of subtract of the two given CGPoints.
     static func - (lhs: CGPoint, rhs: CGPoint) -> CGPoint {
-        return CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
+        CGPoint(x: lhs.x - rhs.x, y: lhs.y - rhs.y)
     }
 
     /// SwifterSwift: Subtract a CGPoints from self.
@@ -110,7 +110,7 @@ public extension CGPoint {
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
     static func * (point: CGPoint, scalar: CGFloat) -> CGPoint {
-        return CGPoint(x: point.x * scalar, y: point.y * scalar)
+        CGPoint(x: point.x * scalar, y: point.y * scalar)
     }
 
     /// SwifterSwift: Multiply self with a scalar
@@ -139,7 +139,7 @@ public extension CGPoint {
     ///   - point: CGPoint to multiply.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
     static func * (scalar: CGFloat, point: CGPoint) -> CGPoint {
-        return CGPoint(x: point.x * scalar, y: point.y * scalar)
+        CGPoint(x: point.x * scalar, y: point.y * scalar)
     }
 }
 

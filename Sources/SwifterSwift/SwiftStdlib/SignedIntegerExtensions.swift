@@ -16,27 +16,27 @@ import Foundation
 public extension SignedInteger {
     /// SwifterSwift: Absolute value of integer number.
     var abs: Self {
-        return Swift.abs(self)
+        Swift.abs(self)
     }
 
     /// SwifterSwift: Check if integer is positive.
     var isPositive: Bool {
-        return self > 0
+        self > 0
     }
 
     /// SwifterSwift: Check if integer is negative.
     var isNegative: Bool {
-        return self < 0
+        self < 0
     }
 
     /// SwifterSwift: Check if integer is even.
     var isEven: Bool {
-        return (self % 2) == 0
+        (self % 2) == 0
     }
 
     /// SwifterSwift: Check if integer is odd.
     var isOdd: Bool {
-        return (self % 2) != 0
+        (self % 2) != 0
     }
 
     /// SwifterSwift: String of format (XXh XXm) from seconds Int.
@@ -68,7 +68,7 @@ public extension SignedInteger {
     /// - Parameter number: integer value to find gcd with.
     /// - Returns: greatest common divisor of self and n.
     func gcd(of number: Self) -> Self {
-        return number == 0 ? self : number.gcd(of: self % number)
+        number == 0 ? self : number.gcd(of: self % number)
     }
 
     /// SwifterSwift: Least common multiple of integer and n.
@@ -76,7 +76,7 @@ public extension SignedInteger {
     /// - Parameter number: integer value to find lcm with.
     /// - Returns: least common multiple of self and n.
     func lcm(of number: Self) -> Self {
-        return (self * number).abs / gcd(of: number)
+        (self * number).abs / gcd(of: number)
     }
 
     #if canImport(Foundation)

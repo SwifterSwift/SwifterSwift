@@ -9,41 +9,41 @@ import Foundation
 public extension FloatingPoint {
     /// SwifterSwift: Absolute value of number.
     var abs: Self {
-        return Swift.abs(self)
+        Swift.abs(self)
     }
 
     /// SwifterSwift: Check if number is positive.
     var isPositive: Bool {
-        return self > 0
+        self > 0
     }
 
     /// SwifterSwift: Check if number is negative.
     var isNegative: Bool {
-        return self < 0
+        self < 0
     }
 
     #if canImport(Foundation)
     /// SwifterSwift: Ceil of number.
     var ceil: Self {
-        return Foundation.ceil(self)
+        Foundation.ceil(self)
     }
     #endif
 
     /// SwifterSwift: Radian value of degree input.
     var degreesToRadians: Self {
-        return Self.pi * self / Self(180)
+        Self.pi * self / Self(180)
     }
 
     #if canImport(Foundation)
     /// SwifterSwift: Floor of number.
     var floor: Self {
-        return Foundation.floor(self)
+        Foundation.floor(self)
     }
     #endif
 
     /// SwifterSwift: Degree value of radian input.
     var radiansToDegrees: Self {
-        return self * Self(180) / Self.pi
+        self * Self(180) / Self.pi
     }
 }
 
@@ -85,7 +85,7 @@ prefix operator √
 /// - Returns: square root of given float.
 public prefix func √ <T>(float: T) -> T where T: FloatingPoint {
     // http://nshipster.com/swift-operators/
-    return sqrt(float)
+    sqrt(float)
 }
 
 // swiftlint:enable identifier_name

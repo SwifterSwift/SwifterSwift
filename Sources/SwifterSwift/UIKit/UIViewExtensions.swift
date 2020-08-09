@@ -74,7 +74,7 @@ public extension UIView {
     /// SwifterSwift: Border width of view; also inspectable from Storyboard.
     @IBInspectable var borderWidth: CGFloat {
         get {
-            return layer.borderWidth
+            layer.borderWidth
         }
         set {
             layer.borderWidth = newValue
@@ -84,7 +84,7 @@ public extension UIView {
     /// SwifterSwift: Corner radius of view; also inspectable from Storyboard.
     @IBInspectable var cornerRadius: CGFloat {
         get {
-            return layer.cornerRadius
+            layer.cornerRadius
         }
         set {
             layer.masksToBounds = true
@@ -95,7 +95,7 @@ public extension UIView {
     /// SwifterSwift: Height of view.
     var height: CGFloat {
         get {
-            return frame.size.height
+            frame.size.height
         }
         set {
             frame.size.height = newValue
@@ -136,7 +136,7 @@ public extension UIView {
     /// SwifterSwift: Shadow offset of view; also inspectable from Storyboard.
     @IBInspectable var shadowOffset: CGSize {
         get {
-            return layer.shadowOffset
+            layer.shadowOffset
         }
         set {
             layer.shadowOffset = newValue
@@ -146,7 +146,7 @@ public extension UIView {
     /// SwifterSwift: Shadow opacity of view; also inspectable from Storyboard.
     @IBInspectable var shadowOpacity: Float {
         get {
-            return layer.shadowOpacity
+            layer.shadowOpacity
         }
         set {
             layer.shadowOpacity = newValue
@@ -156,7 +156,7 @@ public extension UIView {
     /// SwifterSwift: Shadow radius of view; also inspectable from Storyboard.
     @IBInspectable var shadowRadius: CGFloat {
         get {
-            return layer.shadowRadius
+            layer.shadowRadius
         }
         set {
             layer.shadowRadius = newValue
@@ -166,7 +166,7 @@ public extension UIView {
     /// SwifterSwift: Masks to bounds of view; also inspectable from Storyboard.
     @IBInspectable var masksToBounds: Bool {
         get {
-            return layer.masksToBounds
+            layer.masksToBounds
         }
         set {
             layer.masksToBounds = newValue
@@ -176,7 +176,7 @@ public extension UIView {
     /// SwifterSwift: Size of view.
     var size: CGSize {
         get {
-            return frame.size
+            frame.size
         }
         set {
             width = newValue.width
@@ -199,7 +199,7 @@ public extension UIView {
     /// SwifterSwift: Width of view.
     var width: CGFloat {
         get {
-            return frame.size.width
+            frame.size.width
         }
         set {
             frame.size.width = newValue
@@ -209,7 +209,7 @@ public extension UIView {
     /// SwifterSwift: x origin of view.
     var x: CGFloat {
         get {
-            return frame.origin.x
+            frame.origin.x
         }
         set {
             frame.origin.x = newValue
@@ -219,7 +219,7 @@ public extension UIView {
     /// SwifterSwift: y origin of view.
     var y: CGFloat {
         get {
-            return frame.origin.y
+            frame.origin.y
         }
         set {
             frame.origin.y = newValue
@@ -326,7 +326,7 @@ public extension UIView {
     ///   - bundle: bundle of nib (default is nil).
     /// - Returns: optional UIView (if applicable).
     class func loadFromNib(named name: String, bundle: Bundle? = nil) -> UIView? {
-        return UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
+        UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
 
     /// SwifterSwift: Load view of a certain type from nib
@@ -616,7 +616,7 @@ public extension UIView {
     ///
     /// - Parameter name: class of the view to search.
     func ancestorView<T: UIView>(withClass _: T.Type) -> T? {
-        return ancestorView(where: { $0 is T }) as? T
+        ancestorView(where: { $0 is T }) as? T
     }
 }
 

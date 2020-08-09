@@ -119,13 +119,13 @@ public extension Color {
 
     /// SwifterSwift: Alpha of Color (read-only).
     var alpha: CGFloat {
-        return cgColor.alpha
+        cgColor.alpha
     }
 
     #if !os(watchOS)
     /// SwifterSwift: CoreImage.CIColor (read-only)
     var coreImageColor: CoreImage.CIColor? {
-        return CoreImage.CIColor(color: self)
+        CoreImage.CIColor(color: self)
     }
     #endif
 

@@ -9,7 +9,7 @@ public extension UIViewController {
     /// SwifterSwift: Check if ViewController is onscreen and not hidden.
     var isVisible: Bool {
         // http://stackoverflow.com/questions/2777438/how-to-tell-if-uiviewcontrollers-view-is-visible
-        return isViewLoaded && view.window != nil
+        isViewLoaded && view.window != nil
     }
 }
 

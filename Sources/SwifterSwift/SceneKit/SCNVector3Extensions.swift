@@ -19,7 +19,7 @@ public extension SCNVector3 {
     ///         SCNVector3(2, -3, -6).abs -> SCNVector3(2, 3, 6)
     ///
     var absolute: SCNVector3 {
-        return SCNVector3(abs(x), abs(y), abs(z))
+        SCNVector3(abs(x), abs(y), abs(z))
     }
 
     /// SwifterSwift: Returns the length of the vector.
@@ -27,7 +27,7 @@ public extension SCNVector3 {
     ///         SCNVector3(2, 3, 6).length -> 7
     ///
     var length: SceneKitFloat {
-        return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
+        sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
     }
 }
 
@@ -43,7 +43,7 @@ public extension SCNVector3 {
     ///   - rhs: SCNVector3 to add.
     /// - Returns: result of addition of the two given SCNVector3s.
     static func + (lhs: SCNVector3, rhs: SCNVector3) -> SCNVector3 {
-        return SCNVector3(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z)
+        SCNVector3(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z)
     }
 
     /// SwifterSwift: Add a SCNVector3 to self.
@@ -67,7 +67,7 @@ public extension SCNVector3 {
     ///   - rhs: SCNVector3 to subtract.
     /// - Returns: result of subtract of the two given SCNVector3s.
     static func - (lhs: SCNVector3, rhs: SCNVector3) -> SCNVector3 {
-        return SCNVector3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z)
+        SCNVector3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z)
     }
 
     /// SwifterSwift: Subtract a SCNVector3 from self.
@@ -91,7 +91,7 @@ public extension SCNVector3 {
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given SCNVector3 with the scalar.
     static func * (vector: SCNVector3, scalar: SceneKitFloat) -> SCNVector3 {
-        return SCNVector3(vector.x * scalar, vector.y * scalar, vector.z * scalar)
+        SCNVector3(vector.x * scalar, vector.y * scalar, vector.z * scalar)
     }
 
     /// SwifterSwift: Multiply self with a scalar
@@ -116,7 +116,7 @@ public extension SCNVector3 {
     ///   - vector: SCNVector3 to multiply.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
     static func * (scalar: SceneKitFloat, vector: SCNVector3) -> SCNVector3 {
-        return SCNVector3(vector.x * scalar, vector.y * scalar, vector.z * scalar)
+        SCNVector3(vector.x * scalar, vector.y * scalar, vector.z * scalar)
     }
 }
 

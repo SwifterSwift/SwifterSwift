@@ -9,7 +9,7 @@ public extension Bool {
     ///        true.int -> 1
     ///
     var int: Int {
-        return self ? 1 : 0
+        self ? 1 : 0
     }
 
     /// SwifterSwift: Return "true" if true, or "false" if false.
@@ -18,6 +18,6 @@ public extension Bool {
     ///        true.string -> "true"
     ///
     var string: String {
-        return self ? "true" : "false"
+        self ? "true" : "false"
     }
 }

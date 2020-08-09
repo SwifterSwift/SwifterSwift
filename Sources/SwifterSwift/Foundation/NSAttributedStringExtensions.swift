@@ -17,28 +17,28 @@ public extension NSAttributedString {
     #if os(iOS)
     /// SwifterSwift: Bolded string.
     var bolded: NSAttributedString {
-        return applying(attributes: [.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        applying(attributes: [.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
     }
     #endif
 
     #if !os(Linux)
     /// SwifterSwift: Underlined string.
     var underlined: NSAttributedString {
-        return applying(attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+        applying(attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
     #endif
 
     #if os(iOS)
     /// SwifterSwift: Italicized string.
     var italicized: NSAttributedString {
-        return applying(attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        applying(attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
     }
     #endif
 
     #if !os(Linux)
     /// SwifterSwift: Struckthrough string.
     var struckthrough: NSAttributedString {
-        return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
+        applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
     }
     #endif
 
@@ -74,7 +74,7 @@ public extension NSAttributedString {
     /// - Parameter color: text color.
     /// - Returns: a NSAttributedString colored with given color.
     func colored(with color: Color) -> NSAttributedString {
-        return applying(attributes: [.foregroundColor: color])
+        applying(attributes: [.foregroundColor: color])
     }
     #endif
 
@@ -160,7 +160,7 @@ public extension NSAttributedString {
     ///   - rhs: String to add.
     /// - Returns: New instance with added NSAttributedString.
     static func + (lhs: NSAttributedString, rhs: String) -> NSAttributedString {
-        return lhs + NSAttributedString(string: rhs)
+        lhs + NSAttributedString(string: rhs)
     }
 }
 

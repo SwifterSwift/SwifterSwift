@@ -53,7 +53,7 @@ public extension String {
 
     /// SwifterSwift: Array of characters of a string.
     var charactersArray: [Character] {
-        return Array(self)
+        Array(self)
     }
 
     #if canImport(Foundation)
@@ -120,7 +120,7 @@ public extension String {
     ///		"123".hasLetters -> false
     ///
     var hasLetters: Bool {
-        return rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
+        rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
     }
 
     /// SwifterSwift: Check if string contains one or more numbers.
@@ -129,7 +129,7 @@ public extension String {
     ///		"123abc".hasNumbers -> true
     ///
     var hasNumbers: Bool {
-        return rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
+        rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
     }
 
     /// SwifterSwift: Check if string contains only letters.
@@ -193,7 +193,7 @@ public extension String {
     ///		"https://google.com".isValidUrl -> true
     ///
     var isValidUrl: Bool {
-        return URL(string: self) != nil
+        URL(string: self) != nil
     }
     #endif
 
@@ -237,7 +237,7 @@ public extension String {
     ///		"file://Documents/file.txt".isValidFileUrl -> true
     ///
     var isValidFileUrl: Bool {
-        return URL(string: self)?.isFileURL ?? false
+        URL(string: self)?.isFileURL ?? false
     }
     #endif
 
@@ -268,7 +268,7 @@ public extension String {
     ///     "abc".isDigits -> false
     ///
     var isDigits: Bool {
-        return CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: self))
+        CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: self))
     }
     #endif
 
@@ -288,7 +288,7 @@ public extension String {
     ///		"Hèllö Wórld!".latinized -> "Hello World!"
     ///
     var latinized: String {
-        return folding(options: .diacriticInsensitive, locale: Locale.current)
+        folding(options: .diacriticInsensitive, locale: Locale.current)
     }
     #endif
 
@@ -345,7 +345,7 @@ public extension String {
     ///		"101".int -> 101
     ///
     var int: Int? {
-        return Int(self)
+        Int(self)
     }
 
     /// SwifterSwift: Lorem ipsum string of given length.
@@ -373,7 +373,7 @@ public extension String {
     ///		"not url".url -> nil
     ///
     var url: URL? {
-        return URL(string: self)
+        URL(string: self)
     }
     #endif
 
@@ -383,7 +383,7 @@ public extension String {
     ///		"   hello  \n".trimmed -> "hello"
     ///
     var trimmed: String {
-        return trimmingCharacters(in: .whitespacesAndNewlines)
+        trimmingCharacters(in: .whitespacesAndNewlines)
     }
     #endif
 
@@ -393,7 +393,7 @@ public extension String {
     ///		"it's%20easy%20to%20decode%20strings".urlDecoded -> "it's easy to decode strings"
     ///
     var urlDecoded: String {
-        return removingPercentEncoding ?? self
+        removingPercentEncoding ?? self
     }
     #endif
 
@@ -403,7 +403,7 @@ public extension String {
     ///		"it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
     ///
     var urlEncoded: String {
-        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+        addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
     #endif
 
@@ -413,7 +413,7 @@ public extension String {
     /// "hello ^$ there" -> "hello \\^\\$ there"
     ///
     var regexEscaped: String {
-        return NSRegularExpression.escapedPattern(for: self)
+        NSRegularExpression.escapedPattern(for: self)
     }
     #endif
 
@@ -423,14 +423,14 @@ public extension String {
     ///		"   \n Swifter   \n  Swift  ".withoutSpacesAndNewLines -> "SwifterSwift"
     ///
     var withoutSpacesAndNewLines: String {
-        return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
+        replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
     }
     #endif
 
     #if canImport(Foundation)
     /// SwifterSwift: Check if the given string contains only white spaces
     var isWhitespace: Bool {
-        return trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     #endif
 
@@ -511,7 +511,7 @@ public extension String {
     ///        "Hello world".localized -> Hallo Welt
     ///
     func localized(comment: String = "") -> String {
-        return NSLocalizedString(self, comment: comment)
+        NSLocalizedString(self, comment: comment)
     }
     #endif
 
@@ -535,7 +535,7 @@ public extension String {
     ///
     /// - Returns: The unicodes for all characters in a string.
     func unicodeArray() -> [Int] {
-        return unicodeScalars.map { Int($0.value) }
+        unicodeScalars.map { Int($0.value) }
     }
 
     #if canImport(Foundation)
@@ -962,7 +962,7 @@ public extension String {
     /// - Parameter pattern: Pattern to verify.
     /// - Returns: true if string matches the pattern.
     func matches(pattern: String) -> Bool {
-        return range(of: pattern, options: .regularExpression, range: nil, locale: nil) != nil
+        range(of: pattern, options: .regularExpression, range: nil, locale: nil) != nil
     }
     #endif
 
@@ -973,7 +973,7 @@ public extension String {
     /// - Parameter rhs: Regex pattern to match against.
     /// - Returns: true if string matches the pattern.
     static func ~= (lhs: String, rhs: String) -> Bool {
-        return lhs.range(of: rhs, options: .regularExpression) != nil
+        lhs.range(of: rhs, options: .regularExpression) != nil
     }
     #endif
 
@@ -1137,32 +1137,32 @@ public extension String {
     #if os(iOS) || os(macOS)
     /// SwifterSwift: Bold string.
     var bold: NSAttributedString {
-        return NSMutableAttributedString(string: self,
-                                         attributes: [.font: Font.boldSystemFont(ofSize: Font.systemFontSize)])
+        NSMutableAttributedString(string: self,
+                                  attributes: [.font: Font.boldSystemFont(ofSize: Font.systemFontSize)])
     }
     #endif
 
     #if canImport(Foundation)
     /// SwifterSwift: Underlined string
     var underline: NSAttributedString {
-        return NSAttributedString(string: self, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
+        NSAttributedString(string: self, attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
     #endif
 
     #if canImport(Foundation)
     /// SwifterSwift: Strikethrough string.
     var strikethrough: NSAttributedString {
-        return NSAttributedString(string: self,
-                                  attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single
-                                          .rawValue as Int)])
+        NSAttributedString(string: self,
+                           attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single
+                                   .rawValue as Int)])
     }
     #endif
 
     #if os(iOS)
     /// SwifterSwift: Italic string.
     var italic: NSAttributedString {
-        return NSMutableAttributedString(string: self,
-                                         attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        NSMutableAttributedString(string: self,
+                                  attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
     }
     #endif
 
@@ -1172,7 +1172,7 @@ public extension String {
     /// - Parameter color: text color.
     /// - Returns: a NSAttributedString versions of string colored with given color.
     func colored(with color: Color) -> NSAttributedString {
-        return NSMutableAttributedString(string: self, attributes: [.foregroundColor: color])
+        NSMutableAttributedString(string: self, attributes: [.foregroundColor: color])
     }
     #endif
 }
@@ -1216,32 +1216,32 @@ public extension String {
 public extension String {
     /// SwifterSwift: NSString from a string.
     var nsString: NSString {
-        return NSString(string: self)
+        NSString(string: self)
     }
 
     /// SwifterSwift: NSString lastPathComponent.
     var lastPathComponent: String {
-        return (self as NSString).lastPathComponent
+        (self as NSString).lastPathComponent
     }
 
     /// SwifterSwift: NSString pathExtension.
     var pathExtension: String {
-        return (self as NSString).pathExtension
+        (self as NSString).pathExtension
     }
 
     /// SwifterSwift: NSString deletingLastPathComponent.
     var deletingLastPathComponent: String {
-        return (self as NSString).deletingLastPathComponent
+        (self as NSString).deletingLastPathComponent
     }
 
     /// SwifterSwift: NSString deletingPathExtension.
     var deletingPathExtension: String {
-        return (self as NSString).deletingPathExtension
+        (self as NSString).deletingPathExtension
     }
 
     /// SwifterSwift: NSString pathComponents.
     var pathComponents: [String] {
-        return (self as NSString).pathComponents
+        (self as NSString).pathComponents
     }
 
     /// SwifterSwift: NSString appendingPathComponent(str: String)
@@ -1251,7 +1251,7 @@ public extension String {
     /// - Parameter str: the path component to append to the receiver.
     /// - Returns: a new string made by appending aString to the receiver, preceded if necessary by a path separator.
     func appendingPathComponent(_ str: String) -> String {
-        return (self as NSString).appendingPathComponent(str)
+        (self as NSString).appendingPathComponent(str)
     }
 
     /// SwifterSwift: NSString appendingPathExtension(str: String)
@@ -1259,7 +1259,7 @@ public extension String {
     /// - Parameter str: The extension to append to the receiver.
     /// - Returns: a new string made by appending to the receiver an extension separator followed by ext (if applicable).
     func appendingPathExtension(_ str: String) -> String? {
-        return (self as NSString).appendingPathExtension(str)
+        (self as NSString).appendingPathExtension(str)
     }
 }
 

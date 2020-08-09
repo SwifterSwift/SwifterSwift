@@ -12,56 +12,56 @@ import Foundation
 public extension CGFloat {
     /// SwifterSwift: Absolute of CGFloat value.
     var abs: CGFloat {
-        return Swift.abs(self)
+        Swift.abs(self)
     }
 
     #if canImport(Foundation)
     /// SwifterSwift: Ceil of CGFloat value.
     var ceil: CGFloat {
-        return Foundation.ceil(self)
+        Foundation.ceil(self)
     }
     #endif
 
     /// SwifterSwift: Radian value of degree input.
     var degreesToRadians: CGFloat {
-        return .pi * self / 180.0
+        .pi * self / 180.0
     }
 
     #if canImport(Foundation)
     /// SwifterSwift: Floor of CGFloat value.
     var floor: CGFloat {
-        return Foundation.floor(self)
+        Foundation.floor(self)
     }
     #endif
 
     /// SwifterSwift: Check if CGFloat is positive.
     var isPositive: Bool {
-        return self > 0
+        self > 0
     }
 
     /// SwifterSwift: Check if CGFloat is negative.
     var isNegative: Bool {
-        return self < 0
+        self < 0
     }
 
     /// SwifterSwift: Int.
     var int: Int {
-        return Int(self)
+        Int(self)
     }
 
     /// SwifterSwift: Float.
     var float: Float {
-        return Float(self)
+        Float(self)
     }
 
     /// SwifterSwift: Double.
     var double: Double {
-        return Double(self)
+        Double(self)
     }
 
     /// SwifterSwift: Degree value of radian input.
     var radiansToDegrees: CGFloat {
-        return self * 180 / CGFloat.pi
+        self * 180 / CGFloat.pi
     }
 }
 
