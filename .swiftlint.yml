@@ -34,8 +34,18 @@ custom_rules:
     severity: warning
 
 disabled_rules:
-- line_length
-- file_length
+  - line_length
+  - file_length
+
+  # transient, fixed by swiftformat
+  - colon
+  - leading_whitespace
+  - opening_brace
+  - switch_case_alignment
+  - trailing_comma
+  - trailing_newline
+  - trailing_whitespace
+  - vertical_whitespace
 
 excluded:
   - vendor # Folder created by bundle install command that we run on CI
