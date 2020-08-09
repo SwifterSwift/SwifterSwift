@@ -31,9 +31,11 @@ public extension MKMapView {
     /// - Returns: optional MKAnnotationView object.
     @available(iOS 11.0, tvOS 11.0, macOS 10.13, *)
     func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type,
-                                                            for annotation: MKAnnotation) -> T? {
+                                                            for annotation: MKAnnotation) -> T?
+    {
         guard let annotationView = dequeueReusableAnnotationView(withIdentifier: String(describing: name),
-                                                                 for: annotation) as? T else {
+                                                                 for: annotation) as? T
+        else {
             fatalError("Couldn't find MKAnnotationView for \(String(describing: name))")
         }
 

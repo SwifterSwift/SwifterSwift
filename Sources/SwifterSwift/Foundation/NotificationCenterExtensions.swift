@@ -24,7 +24,8 @@ public extension NotificationCenter {
     func observeOnce(forName name: NSNotification.Name?,
                      object obj: Any? = nil,
                      queue: OperationQueue? = nil,
-                     using block: @escaping (_ notification: Notification) -> Void) {
+                     using block: @escaping (_ notification: Notification) -> Void)
+    {
         var handler: NSObjectProtocol!
         handler = addObserver(forName: name, object: obj, queue: queue) { [unowned self] in
             self.removeObserver(handler!)

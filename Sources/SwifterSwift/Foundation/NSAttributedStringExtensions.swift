@@ -88,7 +88,8 @@ public extension NSAttributedString {
     /// - Returns: An NSAttributedString with attributes applied to substrings matching the pattern
     func applying(attributes: [NSAttributedString.Key: Any],
                   toRangesMatching pattern: String,
-                  options: NSRegularExpression.Options = []) -> NSAttributedString {
+                  options: NSRegularExpression.Options = []) -> NSAttributedString
+    {
         guard let pattern = try? NSRegularExpression(pattern: pattern, options: options) else { return self }
 
         let matches = pattern.matches(in: string, options: [], range: NSRange(0 ..< length))
@@ -108,7 +109,8 @@ public extension NSAttributedString {
     ///   - target: a subsequence string for the attributes to be applied to
     /// - Returns: An NSAttributedString with attributes applied on the target string
     func applying<T: StringProtocol>(attributes: [NSAttributedString.Key: Any],
-                                     toOccurrencesOf target: T) -> NSAttributedString {
+                                     toOccurrencesOf target: T) -> NSAttributedString
+    {
         let pattern = "\\Q\(target)\\E"
 
         return applying(attributes: attributes, toRangesMatching: pattern)

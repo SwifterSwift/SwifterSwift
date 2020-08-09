@@ -17,7 +17,8 @@ public extension UIImageView {
         from url: URL,
         contentMode: UIView.ContentMode = .scaleAspectFit,
         placeholder: UIImage? = nil,
-        completionHandler: ((UIImage?) -> Void)? = nil) {
+        completionHandler: ((UIImage?) -> Void)? = nil)
+    {
         image = placeholder
         self.contentMode = contentMode
         URLSession.shared.dataTask(with: url) { data, response, _ in

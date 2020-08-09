@@ -930,7 +930,7 @@ public extension Date {
             TimeInterval
                 .random(in: range.lowerBound.timeIntervalSinceReferenceDate ..< range.upperBound
                     .timeIntervalSinceReferenceDate,
-                        using: &generator))
+                    using: &generator))
     }
 
     /// SwifterSwift: Returns a random date within the specified range, using the given generator as a source for randomness.
@@ -940,12 +940,13 @@ public extension Date {
     ///   - generator: The random number generator to use when creating the new random date.
     /// - Returns: A random date within the bounds of `range`.
     static func random<T>(in range: ClosedRange<Date>, using generator: inout T) -> Date
-        where T: RandomNumberGenerator {
+        where T: RandomNumberGenerator
+    {
         return Date(timeIntervalSinceReferenceDate:
             TimeInterval
                 .random(in: range.lowerBound.timeIntervalSinceReferenceDate ... range.upperBound
                     .timeIntervalSinceReferenceDate,
-                        using: &generator))
+                    using: &generator))
     }
 }
 
@@ -977,7 +978,8 @@ public extension Date {
         hour: Int? = Date().hour,
         minute: Int? = Date().minute,
         second: Int? = Date().second,
-        nanosecond: Int? = Date().nanosecond) {
+        nanosecond: Int? = Date().nanosecond)
+    {
         var components = DateComponents()
         components.calendar = calendar
         components.timeZone = timeZone

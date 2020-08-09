@@ -27,8 +27,10 @@ public extension UIViewController {
         let viewControllerIdentifier = identifier ?? String(describing: self)
         let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
         guard let viewController = storyboard
-            .instantiateViewController(withIdentifier: viewControllerIdentifier) as? Self else {
-            preconditionFailure("Unable to instantiate view controller with identifier \(viewControllerIdentifier) as type \(type(of: self))")
+            .instantiateViewController(withIdentifier: viewControllerIdentifier) as? Self
+        else {
+            preconditionFailure(
+                "Unable to instantiate view controller with identifier \(viewControllerIdentifier) as type \(type(of: self))")
         }
         return viewController
     }
@@ -69,7 +71,8 @@ public extension UIViewController {
         message: String?,
         buttonTitles: [String]? = nil,
         highlightedButtonIndex: Int? = nil,
-        completion: ((Int) -> Void)? = nil) -> UIAlertController {
+        completion: ((Int) -> Void)? = nil) -> UIAlertController
+    {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         var allButtons = buttonTitles ?? [String]()
         if allButtons.count == 0 {
@@ -127,7 +130,8 @@ public extension UIViewController {
         size: CGSize? = nil,
         delegate: UIPopoverPresentationControllerDelegate? = nil,
         animated: Bool = true,
-        completion: (() -> Void)? = nil) {
+        completion: (() -> Void)? = nil)
+    {
         popoverContent.modalPresentationStyle = .popover
 
         if let size = size {

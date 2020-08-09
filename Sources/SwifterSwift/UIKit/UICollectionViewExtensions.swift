@@ -69,7 +69,8 @@ public extension UICollectionView {
     /// - Returns: UICollectionViewCell object with associated class name.
     func dequeueReusableCell<T: UICollectionViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: name), for: indexPath) as? T else {
-            fatalError("Couldn't find UICollectionViewCell for \(String(describing: name)), make sure the cell is registered with collection view")
+            fatalError(
+                "Couldn't find UICollectionViewCell for \(String(describing: name)), make sure the cell is registered with collection view")
         }
         return cell
     }
@@ -82,10 +83,13 @@ public extension UICollectionView {
     ///   - indexPath: location of cell in collectionView.
     /// - Returns: UICollectionReusableView object with associated class name.
     func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind kind: String, withClass name: T.Type,
-                                                                       for indexPath: IndexPath) -> T {
+                                                                       for indexPath: IndexPath) -> T
+    {
         guard let cell = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: name),
-                                                          for: indexPath) as? T else {
-            fatalError("Couldn't find UICollectionReusableView for \(String(describing: name)), make sure the view is registered with collection view")
+                                                          for: indexPath) as? T
+        else {
+            fatalError(
+                "Couldn't find UICollectionReusableView for \(String(describing: name)), make sure the view is registered with collection view")
         }
         return cell
     }
@@ -122,7 +126,8 @@ public extension UICollectionView {
     ///   - kind: the kind of supplementary view to retrieve. This value is defined by the layout object.
     ///   - name: UICollectionReusableView type.
     func register<T: UICollectionReusableView>(nib: UINib?, forSupplementaryViewOfKind kind: String,
-                                               withClass name: T.Type) {
+                                               withClass name: T.Type)
+    {
         register(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: name))
     }
 
@@ -153,7 +158,8 @@ public extension UICollectionView {
         guard indexPath.item >= 0,
             indexPath.section >= 0,
             indexPath.section < numberOfSections,
-            indexPath.item < numberOfItems(inSection: indexPath.section) else {
+            indexPath.item < numberOfItems(inSection: indexPath.section)
+        else {
             return
         }
         scrollToItem(at: indexPath, at: scrollPosition, animated: animated)

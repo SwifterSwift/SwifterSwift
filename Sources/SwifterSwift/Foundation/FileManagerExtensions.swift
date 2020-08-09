@@ -13,7 +13,8 @@ public extension FileManager {
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
     func jsonFromFile(
         atPath path: String,
-        readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {
+        readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]?
+    {
         let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
         let json = try JSONSerialization.jsonObject(with: data, options: readingOptions)
 
@@ -32,7 +33,8 @@ public extension FileManager {
     func jsonFromFile(
         withFilename filename: String,
         at bundleClass: AnyClass? = nil,
-        readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {
+        readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]?
+    {
         // https://stackoverflow.com/questions/24410881/reading-in-a-json-file-using-swift
 
         // To handle cases that provided filename has an extension

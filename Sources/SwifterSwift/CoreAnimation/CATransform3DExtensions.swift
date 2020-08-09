@@ -192,7 +192,7 @@ public extension CATransform3D {
     /// - Parameter t2: The transform to concatenate on to the receiver
     /// - Returns: The concatenated matrix.
     @inlinable
-   // swiftlint:disable:next identifier_name
+    // swiftlint:disable:next identifier_name
     func concatenating(_ t2: CATransform3D) -> CATransform3D {
         CATransform3DConcat(self, t2)
     }

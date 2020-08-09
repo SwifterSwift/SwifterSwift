@@ -4,8 +4,8 @@
 import XCTest
 
 #if canImport(MapKit)
-import MapKit
 import struct CoreLocation.CLLocationCoordinate2D
+import MapKit
 
 #if !os(watchOS)
 @available(tvOS 9.2, *)

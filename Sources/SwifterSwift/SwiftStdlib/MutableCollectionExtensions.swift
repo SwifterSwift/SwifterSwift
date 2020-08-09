@@ -22,7 +22,8 @@ public extension MutableCollection where Self: RandomAccessCollection {
     ///     - keyPath1: Key path to sort by. Must be Comparable.
     ///     - keyPath2: Key path to sort by in case the values of `keyPath1` match. Must be Comparable.
     mutating func sort<T: Comparable, U: Comparable>(by keyPath1: KeyPath<Element, T>,
-                                                     and keyPath2: KeyPath<Element, U>) {
+                                                     and keyPath2: KeyPath<Element, U>)
+    {
         sort {
             if $0[keyPath: keyPath1] != $1[keyPath: keyPath1] {
                 return $0[keyPath: keyPath1] < $1[keyPath: keyPath1]
@@ -39,7 +40,8 @@ public extension MutableCollection where Self: RandomAccessCollection {
     ///     - keyPath3: Key path to sort by in case the values of `keyPath1` and `keyPath2` match. Must be Comparable.
     mutating func sort<T: Comparable, U: Comparable, V: Comparable>(by keyPath1: KeyPath<Element, T>,
                                                                     and keyPath2: KeyPath<Element, U>,
-                                                                    and keyPath3: KeyPath<Element, V>) {
+                                                                    and keyPath3: KeyPath<Element, V>)
+    {
         sort {
             if $0[keyPath: keyPath1] != $1[keyPath: keyPath1] {
                 return $0[keyPath: keyPath1] < $1[keyPath: keyPath1]

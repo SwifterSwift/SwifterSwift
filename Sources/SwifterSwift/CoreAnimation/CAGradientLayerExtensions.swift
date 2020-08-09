@@ -19,7 +19,8 @@ public extension CAGradientLayer {
                      locations: [CGFloat]? = nil,
                      startPoint: CGPoint = CGPoint(x: 0.5, y: 0),
                      endPoint: CGPoint = CGPoint(x: 0.5, y: 1),
-                     type: CAGradientLayerType = .axial) {
+                     type: CAGradientLayerType = .axial)
+    {
         self.init()
         self.colors = colors.map { $0.cgColor }
         self.locations = locations?.map { NSNumber(value: Double($0)) }

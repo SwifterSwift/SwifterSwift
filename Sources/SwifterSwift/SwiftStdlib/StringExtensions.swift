@@ -621,7 +621,8 @@ public extension String {
         let range = range.relative(to: Int.min ..< Int.max)
         guard range.lowerBound >= 0,
             let lowerIndex = index(startIndex, offsetBy: range.lowerBound, limitedBy: endIndex),
-            let upperIndex = index(startIndex, offsetBy: range.upperBound, limitedBy: endIndex) else {
+            let upperIndex = index(startIndex, offsetBy: range.upperBound, limitedBy: endIndex)
+        else {
             return nil
         }
 

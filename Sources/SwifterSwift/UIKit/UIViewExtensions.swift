@@ -275,7 +275,8 @@ public extension UIView {
         ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0),
         radius: CGFloat = 3,
         offset: CGSize = .zero,
-        opacity: Float = 0.5) {
+        opacity: Float = 0.5)
+    {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
@@ -383,7 +384,8 @@ public extension UIView {
         ofType type: AngleUnit,
         animated: Bool = false,
         duration: TimeInterval = 1,
-        completion: ((Bool) -> Void)? = nil) {
+        completion: ((Bool) -> Void)? = nil)
+    {
         let angleWithType = (type == .degrees) ? .pi * angle / 180.0 : angle
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
@@ -404,7 +406,8 @@ public extension UIView {
         ofType type: AngleUnit,
         animated: Bool = false,
         duration: TimeInterval = 1,
-        completion: ((Bool) -> Void)? = nil) {
+        completion: ((Bool) -> Void)? = nil)
+    {
         let angleWithType = (type == .degrees) ? .pi * angle / 180.0 : angle
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, animations: {
@@ -423,7 +426,8 @@ public extension UIView {
         by offset: CGPoint,
         animated: Bool = false,
         duration: TimeInterval = 1,
-        completion: ((Bool) -> Void)? = nil) {
+        completion: ((Bool) -> Void)? = nil)
+    {
         if animated {
             UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
                 self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
@@ -445,7 +449,8 @@ public extension UIView {
         direction: ShakeDirection = .horizontal,
         duration: TimeInterval = 1,
         animationType: ShakeAnimationType = .easeOut,
-        completion: (() -> Void)? = nil) {
+        completion: (() -> Void)? = nil)
+    {
         CATransaction.begin()
         let animation: CAKeyframeAnimation
         switch direction {
@@ -529,7 +534,8 @@ public extension UIView {
         bottomConstant: CGFloat = 0,
         rightConstant: CGFloat = 0,
         widthConstant: CGFloat = 0,
-        heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
+        heightConstant: CGFloat = 0) -> [NSLayoutConstraint]
+    {
         // https://videos.letsbuildthatapp.com/
         translatesAutoresizingMaskIntoConstraints = false
 

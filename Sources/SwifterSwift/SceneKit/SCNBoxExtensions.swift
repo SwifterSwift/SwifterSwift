@@ -38,7 +38,8 @@ public extension SCNBox {
         height: CGFloat,
         length: CGFloat,
         chamferRadius: CGFloat = 0,
-        material: SCNMaterial) {
+        material: SCNMaterial)
+    {
         self.init(width: width, height: height, length: length, chamferRadius: chamferRadius)
         materials = [material]
     }

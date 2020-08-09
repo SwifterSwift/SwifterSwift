@@ -183,7 +183,8 @@ public extension Color {
     ///   - intensity2: intensity of second color (default is 0.5)
     /// - Returns: Color created by blending first and seond colors.
     static func blend(_ color1: Color, intensity1: CGFloat = 0.5, with color2: Color,
-                      intensity2: CGFloat = 0.5) -> Color {
+                      intensity2: CGFloat = 0.5) -> Color
+    {
         // http://stackoverflow.com/questions/27342715/blend-uicolors-in-swift
 
         let total = intensity1 + intensity2
