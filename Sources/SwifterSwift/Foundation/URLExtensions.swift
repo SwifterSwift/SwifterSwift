@@ -1,10 +1,10 @@
-import AVFoundation
 // URLExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 
 #if canImport(UIKit) && canImport(AVFoundation)
+import AVFoundation
 import UIKit
 #endif
 

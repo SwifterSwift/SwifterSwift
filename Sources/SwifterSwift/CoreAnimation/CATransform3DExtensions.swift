@@ -148,8 +148,8 @@ public extension CATransform3D {
     ///   - tz: z-axis translation
     /// - Returns: The translated matrix.
     @inlinable
-    func translatedBy(x tx: CGFloat, y ty: CGFloat,
-                      z tz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
+    // swiftlint:disable:next identifier_name
+    func translatedBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) -> CATransform3D {
         CATransform3DTranslate(self, tx, ty, tz)
     }
 
@@ -160,8 +160,8 @@ public extension CATransform3D {
     ///   - sz: z-axis scale
     /// - Returns: The scaled matrix.
     @inlinable
-    func scaledBy(x sx: CGFloat, y sy: CGFloat,
-                  z sz: CGFloat) -> CATransform3D { // swiftlint:disable:this identifier_name
+    // swiftlint:disable:next identifier_name
+    func scaledBy(x sx: CGFloat, y sy: CGFloat, z sz: CGFloat) -> CATransform3D {
         CATransform3DScale(self, sx, sy, sz)
     }
 
@@ -192,7 +192,8 @@ public extension CATransform3D {
     /// - Parameter t2: The transform to concatenate on to the receiver
     /// - Returns: The concatenated matrix.
     @inlinable
-    func concatenating(_ t2: CATransform3D) -> CATransform3D { // swiftlint:disable:this identifier_name
+   // swiftlint:disable:next identifier_name
+    func concatenating(_ t2: CATransform3D) -> CATransform3D {
         CATransform3DConcat(self, t2)
     }
 
@@ -202,7 +203,8 @@ public extension CATransform3D {
     ///   - ty: y-axis translation
     ///   - tz: z-axis translation
     @inlinable
-    mutating func translateBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) { // swiftlint:disable:this identifier_name
+    // swiftlint:disable:next identifier_name
+    mutating func translateBy(x tx: CGFloat, y ty: CGFloat, z tz: CGFloat) {
         self = CATransform3DTranslate(self, tx, ty, tz)
     }
 
