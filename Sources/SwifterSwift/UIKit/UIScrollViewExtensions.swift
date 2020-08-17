@@ -69,7 +69,7 @@ extension UIScrollView {
         setContentOffset(CGPoint(x: max(0, contentSize.width - bounds.width) + contentInset.right, y: contentOffset.y), animated: animated)
     }
 
-    /// SwifterSwift: Scroll up one length of the scroll view.
+    /// SwifterSwift: Scroll up one page of the scroll view.
     /// If `isPagingEnabled` is `true`, the previous page location is used.
     /// - Parameter animated: `true` to animate the transition at a constant velocity to the new offset, `false` to make the transition immediate.
     func scrollUp(animated: Bool = true) {
@@ -83,7 +83,7 @@ extension UIScrollView {
         }
     }
 
-    /// SwifterSwift: Scroll left one width of the scroll view.
+    /// SwifterSwift: Scroll left one page of the scroll view.
     /// If `isPagingEnabled` is `true`, the previous page location is used.
     /// - Parameter animated: `true` to animate the transition at a constant velocity to the new offset, `false` to make the transition immediate.
     func scrollLeft(animated: Bool = true) {
@@ -97,7 +97,7 @@ extension UIScrollView {
         }
     }
 
-    /// SwifterSwift: Scroll down one length of the scroll view.
+    /// SwifterSwift: Scroll down one page of the scroll view.
     /// If `isPagingEnabled` is `true`, the next page location is used.
     /// - Parameter animated: `true` to animate the transition at a constant velocity to the new offset, `false` to make the transition immediate.
     func scrollDown(animated: Bool = true) {
@@ -111,7 +111,7 @@ extension UIScrollView {
         }
     }
 
-    /// SwifterSwift: Scroll right one length of the scroll view.
+    /// SwifterSwift: Scroll right one page of the scroll view.
     /// If `isPagingEnabled` is `true`, the next page location is used.
     /// - Parameter animated: `true` to animate the transition at a constant velocity to the new offset, `false` to make the transition immediate.
     func scrollRight(animated: Bool = true) {
