@@ -22,7 +22,7 @@ public typealias Color = NSColor
 #endif
 
 #if canImport(AppKit) || canImport(UIKit)
-/// SwifterSwift: Asserts that two `Color`s are equal within a certain accuracy.
+/// SwifterSwift: Asserts that the RGBA values of two `Color`s are equal within a certain accuracy.
 /// - Parameters:
 ///   - expression1: A `Color`.
 ///   - expression2: A `Color`.
