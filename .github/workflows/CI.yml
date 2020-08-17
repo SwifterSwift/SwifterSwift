@@ -22,8 +22,7 @@ jobs:
     - name: Brew Upgrade
       run: |
         brew update
-        brew outdated xctool || brew upgrade xctool
-        brew install swiftlint
+        brew bundle --no-upgrade
     - name: Test iOS
       run: |
         xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
@@ -65,7 +64,8 @@ jobs:
       - uses: actions/checkout@v1
       - name: SwiftLint
         run: |
-          brew install swiftlint
+          brew update
+          brew bundle --no-upgrade
           swiftlint
   CocoaPods:
     name: CocoaPods
