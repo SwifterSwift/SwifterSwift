@@ -621,6 +621,8 @@
 		F8C1AE74225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE73225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift */; };
 		F8C1AE75225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE73225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift */; };
 		F8C1AE76225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE73225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift */; };
+		F8DED22624EAA2070068F758 /* UIScrollViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3F7AB208D3D5C00BC297B /* UIScrollViewExtensions.swift */; };
+		F8DED22724EAA20F0068F758 /* UIScrollViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B3F7AD208D3DF300BC297B /* UIScrollViewExtensionsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2064,6 +2066,7 @@
 				07B7F1B81F5EB42000E6F910 /* UITabBarExtensions.swift in Sources */,
 				664CB96E2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */,
 				734308082108E4630029CD16 /* CGVectorExtensions.swift in Sources */,
+				F8DED22624EAA2070068F758 /* UIScrollViewExtensions.swift in Sources */,
 				07B7F1BC1F5EB42000E6F910 /* UIViewControllerExtensions.swift in Sources */,
 				F8A710EA23BF3F7300112DAD /* EdgeInsetsExtensions.swift in Sources */,
 				07B7F2371F5EB45200E6F910 /* CGSizeExtensions.swift in Sources */,
@@ -2446,6 +2449,7 @@
 				07C50D431F5EB04700F46E5A /* UIButtonExtensionsTests.swift in Sources */,
 				0782A5B323DA98C100E562C0 /* CLLocationArrayExtensionsTests.swift in Sources */,
 				70269A321FB47B0C00C6C2D0 /* CalendarExtensionTest.swift in Sources */,
+				F8DED22724EAA20F0068F758 /* UIScrollViewExtensionsTests.swift in Sources */,
 				182698AD1F8AB46F0052F21E /* CGColorExtensionsTests.swift in Sources */,
 				07C50D8A1F5EB06000F46E5A /* CLLocationExtensionsTests.swift in Sources */,
 				07C50D881F5EB06000F46E5A /* CGPointExtensionsTests.swift in Sources */,

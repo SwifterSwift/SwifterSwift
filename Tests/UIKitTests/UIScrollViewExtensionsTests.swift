@@ -73,17 +73,20 @@ final class UIScrollViewExtensionsTest: XCTestCase {
         scroll.scrollUp(animated: false)
         XCTAssertEqual(scroll.contentOffset, CGPoint(x: offset.x, y: -10))
 
+        let scrollView = UIScrollView()
+        scrollView.scrollUp(animated: false)
+        XCTAssertEqual(scrollView.contentOffset, .zero)
+
+        #if !os(tvOS)
         scroll.isPagingEnabled = true
         scroll.contentOffset = offset
         scroll.scrollUp(animated: false)
         XCTAssertEqual(scroll.contentOffset, CGPoint(x: offset.x, y: 90))
 
-        let scrollView = UIScrollView()
-        scrollView.scrollUp(animated: false)
-        XCTAssertEqual(scrollView.contentOffset, .zero)
         scrollView.isPagingEnabled = true
         scrollView.scrollUp(animated: false)
         XCTAssertEqual(scrollView.contentOffset, .zero)
+        #endif
     }
 
     func testScrollLeft() {
@@ -95,17 +98,20 @@ final class UIScrollViewExtensionsTest: XCTestCase {
         scroll.scrollLeft(animated: false)
         XCTAssertEqual(scroll.contentOffset, CGPoint(x: -20, y: offset.y))
 
+        let scrollView = UIScrollView()
+        scrollView.scrollLeft(animated: false)
+        XCTAssertEqual(scrollView.contentOffset, .zero)
+
+        #if !os(tvOS)
         scroll.isPagingEnabled = true
         scroll.contentOffset = offset
         scroll.scrollLeft(animated: false)
         XCTAssertEqual(scroll.contentOffset, CGPoint(x: 80, y: offset.y))
 
-        let scrollView = UIScrollView()
-        scrollView.scrollLeft(animated: false)
-        XCTAssertEqual(scrollView.contentOffset, .zero)
         scrollView.isPagingEnabled = true
         scrollView.scrollLeft(animated: false)
         XCTAssertEqual(scrollView.contentOffset, .zero)
+        #endif
     }
 
     func testScrollDown() {
@@ -116,17 +122,20 @@ final class UIScrollViewExtensionsTest: XCTestCase {
         scroll.scrollDown(animated: false)
         XCTAssertEqual(scroll.contentOffset, CGPoint(x: offset.x, y: 430))
 
+        let scrollView = UIScrollView()
+        scrollView.scrollDown(animated: false)
+        XCTAssertEqual(scrollView.contentOffset, .zero)
+
+        #if !os(tvOS)
         scroll.isPagingEnabled = true
         scroll.contentOffset = offset
         scroll.scrollDown(animated: false)
         XCTAssertEqual(scroll.contentOffset, CGPoint(x: offset.x, y: 290))
 
-        let scrollView = UIScrollView()
-        scrollView.scrollDown(animated: false)
-        XCTAssertEqual(scrollView.contentOffset, .zero)
         scrollView.isPagingEnabled = true
         scrollView.scrollDown(animated: false)
         XCTAssertEqual(scrollView.contentOffset, .zero)
+        #endif
     }
 
     func testScrollRight() {
@@ -137,17 +146,20 @@ final class UIScrollViewExtensionsTest: XCTestCase {
         scroll.scrollRight(animated: false)
         XCTAssertEqual(scroll.contentOffset, CGPoint(x: 440, y: offset.y))
 
+        let scrollView = UIScrollView()
+        scrollView.scrollRight(animated: false)
+        XCTAssertEqual(scrollView.contentOffset, .zero)
+
+        #if !os(tvOS)
         scroll.isPagingEnabled = true
         scroll.contentOffset = offset
         scroll.scrollRight(animated: false)
         XCTAssertEqual(scroll.contentOffset, CGPoint(x: 280, y: offset.y))
 
-        let scrollView = UIScrollView()
-        scrollView.scrollRight(animated: false)
-        XCTAssertEqual(scrollView.contentOffset, .zero)
         scrollView.isPagingEnabled = true
         scrollView.scrollRight(animated: false)
         XCTAssertEqual(scrollView.contentOffset, .zero)
+        #endif
     }
 
 }

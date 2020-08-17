@@ -43,7 +43,7 @@ public extension UIScrollView {
 
 }
 
-extension UIScrollView {
+public extension UIScrollView {
 
     /// SwifterSwift: Scroll to the top-most content offset.
     /// - Parameter animated: `true` to animate the transition at a constant velocity to the new offset, `false` to make the transition immediate.
@@ -75,11 +75,13 @@ extension UIScrollView {
     func scrollUp(animated: Bool = true) {
         let minY = -contentInset.top
         var y = max(minY, contentOffset.y - bounds.height)
+        #if !os(tvOS)
         if isPagingEnabled,
             bounds.height != 0 {
             let page = max(0, ((y + contentInset.top) / bounds.height).rounded(.down))
             y = max(minY, page * bounds.height - contentInset.top)
         }
+        #endif
         setContentOffset(CGPoint(x: contentOffset.x, y: y), animated: animated)
     }
 
@@ -89,11 +91,13 @@ extension UIScrollView {
     func scrollLeft(animated: Bool = true) {
         let minX = -contentInset.left
         var x = max(minX, contentOffset.x - bounds.width)
+        #if !os(tvOS)
         if isPagingEnabled,
             bounds.width != 0 {
             let page = ((x + contentInset.left) / bounds.width).rounded(.down)
             x = max(minX, page * bounds.width - contentInset.left)
         }
+        #endif
         setContentOffset(CGPoint(x: x, y: contentOffset.y), animated: animated)
     }
 
@@ -103,11 +107,13 @@ extension UIScrollView {
     func scrollDown(animated: Bool = true) {
         let maxY = max(0, contentSize.height - bounds.height) + contentInset.bottom
         var y = min(maxY, contentOffset.y + bounds.height)
+        #if !os(tvOS)
         if isPagingEnabled,
             bounds.height != 0 {
             let page = ((y + contentInset.top) / bounds.height).rounded(.down)
             y = min(maxY, page * bounds.height - contentInset.top)
         }
+        #endif
         setContentOffset(CGPoint(x: contentOffset.x, y: y), animated: animated)
     }
 
@@ -117,11 +123,13 @@ extension UIScrollView {
     func scrollRight(animated: Bool = true) {
         let maxX = max(0, contentSize.width - bounds.width) + contentInset.right
         var x = min(maxX, contentOffset.x + bounds.width)
+        #if !os(tvOS)
         if isPagingEnabled,
             bounds.width != 0 {
             let page = ((x + contentInset.left) / bounds.width).rounded(.down)
             x = min(maxX, page * bounds.width - contentInset.left)
         }
+        #endif
         setContentOffset(CGPoint(x: x, y: contentOffset.y), animated: animated)
     }
 
