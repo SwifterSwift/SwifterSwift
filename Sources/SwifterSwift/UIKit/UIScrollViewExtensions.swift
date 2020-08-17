@@ -74,13 +74,13 @@ extension UIScrollView {
     /// - Parameter animated: `true` to animate the transition at a constant velocity to the new offset, `false` to make the transition immediate.
     func scrollUp(animated: Bool = true) {
         let minY = -contentInset.top
-        let y = max(minY, contentOffset.y - bounds.height)
-        if isPagingEnabled {
+        var y = max(minY, contentOffset.y - bounds.height)
+        if isPagingEnabled,
+            bounds.height != 0 {
             let page = max(0, ((y + contentInset.top) / bounds.height).rounded(.down))
-            setContentOffset(CGPoint(x: contentOffset.x, y: max(minY, page * bounds.height - contentInset.top)), animated: animated)
-        } else {
-            setContentOffset(CGPoint(x: contentOffset.x, y: y), animated: animated)
+            y = max(minY, page * bounds.height - contentInset.top)
         }
+        setContentOffset(CGPoint(x: contentOffset.x, y: y), animated: animated)
     }
 
     /// SwifterSwift: Scroll left one page of the scroll view.
@@ -88,13 +88,13 @@ extension UIScrollView {
     /// - Parameter animated: `true` to animate the transition at a constant velocity to the new offset, `false` to make the transition immediate.
     func scrollLeft(animated: Bool = true) {
         let minX = -contentInset.left
-        let x = max(minX, contentOffset.x - bounds.width)
-        if isPagingEnabled {
+        var x = max(minX, contentOffset.x - bounds.width)
+        if isPagingEnabled,
+            bounds.width != 0 {
             let page = ((x + contentInset.left) / bounds.width).rounded(.down)
-            setContentOffset(CGPoint(x: max(minX, page * bounds.width - contentInset.left), y: contentOffset.y), animated: animated)
-        } else {
-            setContentOffset(CGPoint(x: x, y: contentOffset.y), animated: animated)
+            x = max(minX, page * bounds.width - contentInset.left)
         }
+        setContentOffset(CGPoint(x: x, y: contentOffset.y), animated: animated)
     }
 
     /// SwifterSwift: Scroll down one page of the scroll view.
@@ -102,13 +102,13 @@ extension UIScrollView {
     /// - Parameter animated: `true` to animate the transition at a constant velocity to the new offset, `false` to make the transition immediate.
     func scrollDown(animated: Bool = true) {
         let maxY = max(0, contentSize.height - bounds.height) + contentInset.bottom
-        let y = min(maxY, contentOffset.y + bounds.height)
-        if isPagingEnabled {
+        var y = min(maxY, contentOffset.y + bounds.height)
+        if isPagingEnabled,
+            bounds.height != 0 {
             let page = ((y + contentInset.top) / bounds.height).rounded(.down)
-            setContentOffset(CGPoint(x: contentOffset.x, y: min(maxY, page * bounds.height - contentInset.top)), animated: animated)
-        } else {
-            setContentOffset(CGPoint(x: contentOffset.x, y: y), animated: animated)
+            y = min(maxY, page * bounds.height - contentInset.top)
         }
+        setContentOffset(CGPoint(x: contentOffset.x, y: y), animated: animated)
     }
 
     /// SwifterSwift: Scroll right one page of the scroll view.
@@ -116,13 +116,13 @@ extension UIScrollView {
     /// - Parameter animated: `true` to animate the transition at a constant velocity to the new offset, `false` to make the transition immediate.
     func scrollRight(animated: Bool = true) {
         let maxX = max(0, contentSize.width - bounds.width) + contentInset.right
-        let x = min(maxX, contentOffset.x + bounds.width)
-        if isPagingEnabled {
+        var x = min(maxX, contentOffset.x + bounds.width)
+        if isPagingEnabled,
+            bounds.width != 0 {
             let page = ((x + contentInset.left) / bounds.width).rounded(.down)
-            setContentOffset(CGPoint(x: min(maxX, page * bounds.width - contentInset.left), y: contentOffset.y), animated: animated)
-        } else {
-            setContentOffset(CGPoint(x: x, y: contentOffset.y), animated: animated)
+            x = min(maxX, page * bounds.width - contentInset.left)
         }
+        setContentOffset(CGPoint(x: x, y: contentOffset.y), animated: animated)
     }
 
 }
