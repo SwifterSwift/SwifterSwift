@@ -129,6 +129,7 @@ let package = Package(
 <summary>Manually</summary>
 </br>
 <p>Add the <a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift">SwifterSwift</a> folder to your Xcode project to use all extensions, or a specific extension.</p>
+<p>For your test targets you can also add the <a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Tests/XCTest">XCTest</a> folder.</p>
 </details>
 
 ## List of All Extensions
@@ -322,6 +323,14 @@ let package = Package(
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/HealthKit/HKActivitySummaryExtensions.swift"><code>HKActivitySummary extensions</code></a></li>
+</ul>
+</details>
+
+<details>
+<summary>XCTest Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Tests/XCTest/XCTestExtensions.swift"><code>XCTest extensions</code></a></li>
 </ul>
 </details>
 
