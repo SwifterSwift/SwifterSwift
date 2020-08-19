@@ -7,6 +7,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **UIScrollView**
   - Added `visibleRect`, `scrollToTop(animated:)`, `scrollToLeft(animated:)`, `scrollToBottom(animated:)`, `scrollToRight(animated:)`, `scrollUp(animated:)`, `scrollLeft(animated:)`, `scrollDown(animated:)`, `scrollRight(animated:)`. [#888](https://github.com/SwifterSwift/SwifterSwift/pull/888) by [guykogus](https://github.com/guykogus)
+- **XCTest**
+  - Added `XCTAssertEqual(_:_:accuracy:_:file:line:)` for checking if `Color` objects are equal within a given level of accuracy. [#889](https://github.com/SwifterSwift/SwifterSwift/pull/889) by [guykogus](https://github.com/guykogus)
 - **FloatingPoint**
   - Moved the square root operator `√` from `Double` and `Float` to make it generic. [#880](https://github.com/SwifterSwift/SwifterSwift/pull/880) by [guykogus](https://github.com/guykogus)
 - **Collection**
