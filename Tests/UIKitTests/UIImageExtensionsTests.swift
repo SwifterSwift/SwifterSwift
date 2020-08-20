@@ -14,24 +14,11 @@ import UIKit
 
 final class UIImageExtensionsTests: XCTestCase {
     func testAverageColor() {
-        // note that not all colors precisely survive the roundtrip due to colorspace
-        // management. Use XCTAssertEqual w/ accuracy.
-        func assertColorsEqual(_ color1: UIColor, _ color2: UIColor, accuracy: CGFloat = 0.01) {
-            var r1: CGFloat = 0, g1: CGFloat = 0, b1: CGFloat = 0, a1: CGFloat = 0
-            var r2: CGFloat = 0, g2: CGFloat = 0, b2: CGFloat = 0, a2: CGFloat = 0
-            color1.getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
-            color2.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
-            XCTAssertEqual(r1, r2, accuracy: accuracy)
-            XCTAssertEqual(g1, g2, accuracy: accuracy)
-            XCTAssertEqual(b1, b2, accuracy: accuracy)
-            XCTAssertEqual(a1, a2, accuracy: accuracy)
-        }
-
         let size = CGSize(width: 10, height: 5)
 
         // simple fill test
-        assertColorsEqual(UIColor.blue, UIImage(color: .blue, size: size).averageColor()!)
-        assertColorsEqual(UIColor.orange, UIImage(color: .orange, size: size).averageColor()!)
+        XCTAssertEqual(UIColor.blue, UIImage(color: .blue, size: size).averageColor()!, accuracy: 0.01)
+        XCTAssertEqual(UIColor.orange, UIImage(color: .orange, size: size).averageColor()!, accuracy: 0.01)
 
         // more interesting - red + green = yellow
         let renderer = UIGraphicsImageRenderer(size: size)
@@ -45,7 +32,7 @@ final class UIImageExtensionsTests: XCTestCase {
                 rect.origin.x += rect.size.width
             }
         }
-        assertColorsEqual(UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 1), yellow.averageColor()!)
+        XCTAssertEqual(UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 1), yellow.averageColor()!, accuracy: 0.01)
     }
 
     func testBytesSize() {
