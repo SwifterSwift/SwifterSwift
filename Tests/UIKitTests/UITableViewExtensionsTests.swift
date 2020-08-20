@@ -72,17 +72,6 @@ final class UITableViewExtensionsTests: XCTestCase {
         XCTAssertNil(tableView.tableHeaderView)
     }
 
-    func testScrollToBottom() {
-        let bottomOffset = CGPoint(x: 0, y: tableView.contentSize.height - tableView.bounds.size.height)
-        tableView.scrollToBottom()
-        XCTAssertEqual(bottomOffset, tableView.contentOffset)
-    }
-
-    func testScrollToTop() {
-        tableView.scrollToTop()
-        XCTAssertEqual(CGPoint.zero, tableView.contentOffset)
-    }
-
     func testDequeueReusableCellWithClass() {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
         let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
