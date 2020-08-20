@@ -74,21 +74,6 @@ public extension UITableView {
         tableHeaderView = nil
     }
 
-    /// SwifterSwift: Scroll to bottom of TableView.
-    ///
-    /// - Parameter animated: set true to animate scroll (default is true).
-    func scrollToBottom(animated: Bool = true) {
-        let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height)
-        setContentOffset(bottomOffset, animated: animated)
-    }
-
-    /// SwifterSwift: Scroll to top of TableView.
-    ///
-    /// - Parameter animated: set true to animate scroll (default is true).
-    func scrollToTop(animated: Bool = true) {
-        setContentOffset(CGPoint.zero, animated: animated)
-    }
-
     /// SwifterSwift: Dequeue reusable UITableViewCell using class name
     ///
     /// - Parameter name: UITableViewCell type
