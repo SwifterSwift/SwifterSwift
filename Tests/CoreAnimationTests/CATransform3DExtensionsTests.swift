@@ -160,8 +160,9 @@ final class CATransform3DExtensionsTests: XCTestCase {
 
     func testAffineTransform() {
         XCTAssertEqual(CATransform3DIdentity.affineTransform(), CGAffineTransform.identity)
-        XCTAssertEqual(CATransform3DMakeTranslation(x, y, 1).affineTransform(),
-                       CGAffineTransform(translationX: x, y: y))
+        XCTAssertEqual(
+            CATransform3DMakeTranslation(x, y, 1).affineTransform(),
+            CGAffineTransform(translationX: x, y: y))
     }
 
     #endif

@@ -12,7 +12,7 @@ public extension MKMapView {
     ///   - name: MKAnnotationView type.
     /// - Returns: optional MKAnnotationView object.
     func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type) -> T? {
-        dequeueReusableAnnotationView(withIdentifier: String(describing: name)) as? T
+        return dequeueReusableAnnotationView(withIdentifier: String(describing: name)) as? T
     }
 
     /// SwifterSwift: Register MKAnnotationView using class type
@@ -31,11 +31,10 @@ public extension MKMapView {
     /// - Returns: optional MKAnnotationView object.
     @available(iOS 11.0, tvOS 11.0, macOS 10.13, *)
     func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type,
-                                                            for annotation: MKAnnotation) -> T?
-    {
-        guard let annotationView = dequeueReusableAnnotationView(withIdentifier: String(describing: name),
-                                                                 for: annotation) as? T
-        else {
+                                                            for annotation: MKAnnotation) -> T? {
+        guard let annotationView = dequeueReusableAnnotationView(
+            withIdentifier: String(describing: name),
+            for: annotation) as? T else {
             fatalError("Couldn't find MKAnnotationView for \(String(describing: name))")
         }
 
@@ -53,8 +52,10 @@ public extension MKMapView {
         guard !coordinates.isEmpty else { return }
 
         if coordinates.count == 1 {
-            let coordinateRegion = MKCoordinateRegion(center: coordinates.first!, latitudinalMeters: meter,
-                                                      longitudinalMeters: meter)
+            let coordinateRegion = MKCoordinateRegion(
+                center: coordinates.first!,
+                latitudinalMeters: meter,
+                longitudinalMeters: meter)
             setRegion(coordinateRegion, animated: true)
         } else {
             let mkPolygon = MKPolygon(coordinates: coordinates, count: coordinates.count)

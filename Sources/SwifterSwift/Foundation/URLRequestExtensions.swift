@@ -39,8 +39,7 @@ public extension URLRequest {
         }
 
         if let data = httpBody,
-            let body = String(data: data, encoding: .utf8)
-        {
+            let body = String(data: data, encoding: .utf8) {
             command.append("-d '\(body)'")
         }
 

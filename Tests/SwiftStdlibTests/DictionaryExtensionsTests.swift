@@ -51,8 +51,9 @@ final class DictionaryExtensionsTests: XCTestCase {
         XCTAssertEqual(testDict.jsonString()?.contains("\"testArrayKey\":[1,2,3,4,5]"), true)
         XCTAssertEqual(testDict.jsonString()?.contains("\"testKey\":\"testValue\""), true)
 
-        XCTAssertEqual(testDict.jsonString(prettify: true)?.contains("[\n    1,\n    2,\n    3,\n    4,\n    5\n  ]"),
-                       true)
+        XCTAssertEqual(
+            testDict.jsonString(prettify: true)?.contains("[\n    1,\n    2,\n    3,\n    4,\n    5\n  ]"),
+            true)
 
         XCTAssertNil(["key": NSObject()].jsonString())
         XCTAssertNil([1: 2].jsonString())
@@ -118,7 +119,7 @@ final class DictionaryExtensionsTests: XCTestCase {
         let intToString = [0: "0", 1: "1", 2: "2", 3: "3", 4: "4", 5: "5", 6: "6", 7: "7", 8: "8", 9: "9"]
 
         let stringToInt: [String: Int] = intToString.mapKeysAndValues { key, value in
-            (String(describing: key), Int(value)!)
+            return (String(describing: key), Int(value)!)
         }
 
         XCTAssertEqual(stringToInt, ["0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9])
@@ -151,12 +152,15 @@ final class DictionaryExtensionsTests: XCTestCase {
         let array2 = ["James", "Wade", "Bryant", "John", "", ""]
         let array3: [String] = []
 
-        XCTAssertEqual(Dictionary(grouping: array1, by: \String.count),
-                       [6: ["Bryant"], 5: ["James"], 4: ["Wade", "John"]])
-        XCTAssertEqual(Dictionary(grouping: array1, by: \String.first),
-                       [Optional("B"): ["Bryant"], Optional("J"): ["James", "John"], Optional("W"): ["Wade"]])
-        XCTAssertEqual(Dictionary(grouping: array2, by: \String.count),
-                       [6: ["Bryant"], 5: ["James"], 4: ["Wade", "John"], 0: ["", ""]])
+        XCTAssertEqual(
+            Dictionary(grouping: array1, by: \String.count),
+            [6: ["Bryant"], 5: ["James"], 4: ["Wade", "John"]])
+        XCTAssertEqual(
+            Dictionary(grouping: array1, by: \String.first),
+            [Optional("B"): ["Bryant"], Optional("J"): ["James", "John"], Optional("W"): ["Wade"]])
+        XCTAssertEqual(
+            Dictionary(grouping: array2, by: \String.count),
+            [6: ["Bryant"], 5: ["James"], 4: ["Wade", "John"], 0: ["", ""]])
         XCTAssertEqual(Dictionary(grouping: array3, by: \String.count), [:])
     }
 }

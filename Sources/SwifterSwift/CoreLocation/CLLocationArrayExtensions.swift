@@ -16,7 +16,7 @@ public extension Array where Element: CLLocation {
             return Measurement(value: 0.0, unit: unit)
         }
         var distance: CLLocationDistance = 0.0
-        for idx in 0 ..< count - 1 {
+        for idx in 0..<count - 1 {
             distance += self[idx].distance(from: self[idx + 1])
         }
         return Measurement(value: distance, unit: UnitLength.meters).converted(to: unit)

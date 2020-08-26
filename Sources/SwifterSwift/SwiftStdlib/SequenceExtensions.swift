@@ -9,7 +9,7 @@ public extension Sequence {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when all elements in the array match the specified condition.
     func all(matching condition: (Element) throws -> Bool) rethrows -> Bool {
-        try !contains { try !condition($0) }
+        return try !contains { try !condition($0) }
     }
 
     /// SwifterSwift: Check if no elements in collection match a conditon.
@@ -20,7 +20,7 @@ public extension Sequence {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when no elements in the array match the specified condition.
     func none(matching condition: (Element) throws -> Bool) rethrows -> Bool {
-        try !contains { try condition($0) }
+        return try !contains { try condition($0) }
     }
 
     /// SwifterSwift: Check if any element in collection match a conditon.
@@ -31,7 +31,7 @@ public extension Sequence {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: true when no elements in the array match the specified condition.
     func any(matching condition: (Element) throws -> Bool) rethrows -> Bool {
-        try contains { try condition($0) }
+        return try contains { try condition($0) }
     }
 
     /// SwifterSwift: Get last element that satisfies a conditon.
@@ -54,7 +54,7 @@ public extension Sequence {
     /// - Parameter condition: to evaluate the exclusion of an element from the array.
     /// - Returns: the array with rejected values filtered from it.
     func reject(where condition: (Element) throws -> Bool) rethrows -> [Element] {
-        try filter { try !condition($0) }
+        return try filter { return try !condition($0) }
     }
 
     /// SwifterSwift: Get element count based on condition.
@@ -118,7 +118,7 @@ public extension Sequence {
     ///   - transform: transform element function to evaluate every element.
     /// - Returns: Return an filtered and mapped array.
     func filtered<T>(_ isIncluded: (Element) throws -> Bool, map transform: (Element) throws -> T) rethrows -> [T] {
-        try compactMap {
+        return try compactMap {
             if try isIncluded($0) {
                 return try transform($0)
             }
@@ -185,7 +185,7 @@ public extension Sequence {
     /// - Parameter compare: Comparation function that will determine the ordering.
     /// - Returns: The sorted array.
     func sorted<T>(by keyPath: KeyPath<Element, T>, with compare: (T, T) -> Bool) -> [Element] {
-        sorted { compare($0[keyPath: keyPath], $1[keyPath: keyPath]) }
+        return sorted { compare($0[keyPath: keyPath], $1[keyPath: keyPath]) }
     }
 
     /// SwifterSwift: Return a sorted array based on a key path.
@@ -193,7 +193,7 @@ public extension Sequence {
     /// - Parameter keyPath: Key path to sort by. The key path type must be Comparable.
     /// - Returns: The sorted array.
     func sorted<T: Comparable>(by keyPath: KeyPath<Element, T>) -> [Element] {
-        sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
+        return sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
     }
 
     /// SwifterSwift: Returns a sorted sequence based on two key paths. The second one will be used in case the values of the first one match.
@@ -202,9 +202,8 @@ public extension Sequence {
     ///     - keyPath1: Key path to sort by. Must be Comparable.
     ///     - keyPath2: Key path to sort by in case the values of `keyPath1` match. Must be Comparable.
     func sorted<T: Comparable, U: Comparable>(by keyPath1: KeyPath<Element, T>,
-                                              and keyPath2: KeyPath<Element, U>) -> [Element]
-    {
-        sorted {
+                                              and keyPath2: KeyPath<Element, U>) -> [Element] {
+        return sorted {
             if $0[keyPath: keyPath1] != $1[keyPath: keyPath1] {
                 return $0[keyPath: keyPath1] < $1[keyPath: keyPath1]
             }
@@ -220,9 +219,8 @@ public extension Sequence {
     ///     - keyPath3: Key path to sort by in case the values of `keyPath1` and `keyPath2` match. Must be Comparable.
     func sorted<T: Comparable, U: Comparable, V: Comparable>(by keyPath1: KeyPath<Element, T>,
                                                              and keyPath2: KeyPath<Element, U>,
-                                                             and keyPath3: KeyPath<Element, V>) -> [Element]
-    {
-        sorted {
+                                                             and keyPath3: KeyPath<Element, V>) -> [Element] {
+        return sorted {
             if $0[keyPath: keyPath1] != $1[keyPath: keyPath1] {
                 return $0[keyPath: keyPath1] < $1[keyPath: keyPath1]
             }
@@ -241,7 +239,7 @@ public extension Sequence {
     /// - Returns: The sum of the `AdditiveArithmetic` propertys at `keyPath`.
     func sum<T: AdditiveArithmetic>(for keyPath: KeyPath<Element, T>) -> T {
         // Inspired by: https://swiftbysundell.com/articles/reducers-in-swift/
-        reduce(.zero) { $0 + $1[keyPath: keyPath] }
+        return reduce(.zero) { $0 + $1[keyPath: keyPath] }
     }
 
     /// SwifterSwift: Returns the first element of the sequence with having property by given key path equals to given `value`.
@@ -251,7 +249,7 @@ public extension Sequence {
     ///   - value: The value to compare with `Element` property
     /// - Returns: The first element of the collection that has property by given key path equals to given `value` or `nil` if there is no such element.
     func first<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Element? {
-        first { $0[keyPath: keyPath] == value }
+        return first { $0[keyPath: keyPath] == value }
     }
 
     /// SwifterSwift: Returns the last element of the sequence with having property by given key path equals to given `value`.
@@ -261,7 +259,7 @@ public extension Sequence {
     ///   - value: The value to compare with `Element` property
     /// - Returns: The last element of the collection that has property by given key path equals to given `value` or `nil` if there is no such element.
     func last<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Element? {
-        last { $0[keyPath: keyPath] == value }
+        return last { $0[keyPath: keyPath] == value }
     }
 }
 
@@ -327,6 +325,6 @@ public extension Sequence where Element: Numeric {
     ///
     /// - Returns: sum of the array's elements.
     func sum() -> Element {
-        reduce(into: 0, +=)
+        return reduce(into: 0, +=)
     }
 }

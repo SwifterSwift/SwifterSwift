@@ -25,7 +25,7 @@ extension NSEdgeInsets: Equatable {
     ///   - lhs: A value to compare.
     ///   - rhs: Another value to compare.
     public static func == (lhs: NSEdgeInsets, rhs: NSEdgeInsets) -> Bool {
-        lhs.top == rhs.top &&
+        return lhs.top == rhs.top &&
             lhs.left == rhs.left &&
             lhs.bottom == rhs.bottom &&
             lhs.right == rhs.right
@@ -44,14 +44,14 @@ public extension EdgeInsets {
     ///
     var vertical: CGFloat {
         // Source: https://github.com/MessageKit/MessageKit/blob/master/Sources/SwifterSwift/EdgeInsets%2BExtensions.swift
-        top + bottom
+        return top + bottom
     }
 
     /// SwifterSwift: Return the horizontal insets. The horizontal insets is composed by  left + right.
     ///
     var horizontal: CGFloat {
         // Source: https://github.com/MessageKit/MessageKit/blob/master/Sources/SwifterSwift/EdgeInsets%2BExtensions.swift
-        left + right
+        return left + right
     }
 }
 
@@ -81,7 +81,7 @@ public extension EdgeInsets {
     ///   - top: Offset to be applied in to the top edge.
     /// - Returns: EdgeInsets offset with given offset.
     func insetBy(top: CGFloat) -> EdgeInsets {
-        EdgeInsets(top: self.top + top, left: left, bottom: bottom, right: right)
+        return EdgeInsets(top: self.top + top, left: left, bottom: bottom, right: right)
     }
 
     /// SwifterSwift: Creates an `EdgeInsets` based on current value and left offset.
@@ -90,7 +90,7 @@ public extension EdgeInsets {
     ///   - left: Offset to be applied in to the left edge.
     /// - Returns: EdgeInsets offset with given offset.
     func insetBy(left: CGFloat) -> EdgeInsets {
-        EdgeInsets(top: top, left: self.left + left, bottom: bottom, right: right)
+        return EdgeInsets(top: top, left: self.left + left, bottom: bottom, right: right)
     }
 
     /// SwifterSwift: Creates an `EdgeInsets` based on current value and bottom offset.
@@ -99,7 +99,7 @@ public extension EdgeInsets {
     ///   - bottom: Offset to be applied in to the bottom edge.
     /// - Returns: EdgeInsets offset with given offset.
     func insetBy(bottom: CGFloat) -> EdgeInsets {
-        EdgeInsets(top: top, left: left, bottom: self.bottom + bottom, right: right)
+        return EdgeInsets(top: top, left: left, bottom: self.bottom + bottom, right: right)
     }
 
     /// SwifterSwift: Creates an `EdgeInsets` based on current value and right offset.
@@ -108,7 +108,7 @@ public extension EdgeInsets {
     ///   - right: Offset to be applied in to the right edge.
     /// - Returns: EdgeInsets offset with given offset.
     func insetBy(right: CGFloat) -> EdgeInsets {
-        EdgeInsets(top: top, left: left, bottom: bottom, right: self.right + right)
+        return EdgeInsets(top: top, left: left, bottom: bottom, right: self.right + right)
     }
 
     /// SwifterSwift: Creates an `EdgeInsets` based on current value and horizontal value equally divided and applied to right offset and left offset.
@@ -117,7 +117,7 @@ public extension EdgeInsets {
     ///   - horizontal: Offset to be applied to right and left.
     /// - Returns: EdgeInsets offset with given offset.
     func insetBy(horizontal: CGFloat) -> EdgeInsets {
-        EdgeInsets(top: top, left: left + horizontal / 2, bottom: bottom, right: right + horizontal / 2)
+        return EdgeInsets(top: top, left: left + horizontal / 2, bottom: bottom, right: right + horizontal / 2)
     }
 
     /// SwifterSwift: Creates an `EdgeInsets` based on current value and vertical value equally divided and applied to top and bottom.
@@ -126,7 +126,7 @@ public extension EdgeInsets {
     ///   - vertical: Offset to be applied to top and bottom.
     /// - Returns: EdgeInsets offset with given offset.
     func insetBy(vertical: CGFloat) -> EdgeInsets {
-        EdgeInsets(top: top + vertical / 2, left: left, bottom: bottom + vertical / 2, right: right)
+        return EdgeInsets(top: top + vertical / 2, left: left, bottom: bottom + vertical / 2, right: right)
     }
 }
 
@@ -140,10 +140,10 @@ public extension EdgeInsets {
     ///   - rhs: The right-hand expression
     /// - Returns: A new `EdgeInsets` instance where the values of `lhs` and `rhs` are added together.
     static func + (_ lhs: EdgeInsets, _ rhs: EdgeInsets) -> EdgeInsets {
-        EdgeInsets(top: lhs.top + rhs.top,
-                   left: lhs.left + rhs.left,
-                   bottom: lhs.bottom + rhs.bottom,
-                   right: lhs.right + rhs.right)
+        return EdgeInsets(top: lhs.top + rhs.top,
+                          left: lhs.left + rhs.left,
+                          bottom: lhs.bottom + rhs.bottom,
+                          right: lhs.right + rhs.right)
     }
 
     /// SwifterSwift: Add all the properties of two `EdgeInsets` to the left-hand instance.

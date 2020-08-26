@@ -43,8 +43,7 @@ public extension UIAlertController {
         title: String,
         style: UIAlertAction.Style = .default,
         isEnabled: Bool = true,
-        handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction
-    {
+        handler: ((UIAlertAction) -> Void)? = nil) -> UIAlertAction {
         let action = UIAlertAction(title: title, style: style, handler: handler)
         action.isEnabled = isEnabled
         addAction(action)
@@ -62,8 +61,7 @@ public extension UIAlertController {
         text: String? = nil,
         placeholder: String? = nil,
         editingChangedTarget: Any?,
-        editingChangedSelector: Selector?)
-    {
+        editingChangedSelector: Selector?) {
         addTextField { textField in
             textField.text = text
             textField.placeholder = placeholder
@@ -88,8 +86,7 @@ public extension UIAlertController {
         title: String,
         message: String? = nil,
         defaultActionButtonTitle: String = "OK",
-        tintColor: UIColor? = nil)
-    {
+        tintColor: UIColor? = nil) {
         self.init(title: title, message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: defaultActionButtonTitle, style: .default, handler: nil)
         addAction(defaultAction)
@@ -110,8 +107,7 @@ public extension UIAlertController {
         error: Error,
         defaultActionButtonTitle: String = "OK",
         preferredStyle: UIAlertController.Style = .alert,
-        tintColor: UIColor? = nil)
-    {
+        tintColor: UIColor? = nil) {
         self.init(title: title, message: error.localizedDescription, preferredStyle: preferredStyle)
         let defaultAction = UIAlertAction(title: defaultActionButtonTitle, style: .default, handler: nil)
         addAction(defaultAction)

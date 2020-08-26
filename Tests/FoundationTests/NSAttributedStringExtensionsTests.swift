@@ -15,8 +15,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let attributes = out.attributes(at: 0, effectiveRange: nil)
 
         let filterClosure: (NSAttributedString.Key, Any) -> Bool = { key, value in
-            key == NSAttributedString.Key
-                .font && ((value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize))
+            return (key == NSAttributedString.Key
+                .font && ((value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize)))
         }
 
         let filteredAttributes = attributes.filter { filterClosure($0, $1) }
@@ -30,8 +30,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let out = string.underlined
         let attributes = out.attributes(at: 0, effectiveRange: nil)
         let filteredAttributes = attributes.filter { (key, value) -> Bool in
-            key == NSAttributedString.Key.underlineStyle &&
-                (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.single.rawValue
+            return (key == NSAttributedString.Key.underlineStyle &&
+                (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.single.rawValue)
         }
 
         XCTAssertEqual(filteredAttributes.count, 1)
@@ -44,8 +44,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let out = string.italicized
         let attributes = out.attributes(at: 0, effectiveRange: nil)
         let filteredAttributes = attributes.filter { (key, value) -> Bool in
-            key == NSAttributedString.Key
-                .font && (value as? UIFont) == .italicSystemFont(ofSize: UIFont.systemFontSize)
+            return (key == NSAttributedString.Key
+                .font && (value as? UIFont) == .italicSystemFont(ofSize: UIFont.systemFontSize))
         }
 
         XCTAssertEqual(filteredAttributes.count, 1)
@@ -58,8 +58,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let out = string.struckthrough
         let attributes = out.attributes(at: 0, effectiveRange: nil)
         let filteredAttributes = attributes.filter { (key, value) -> Bool in
-            key == NSAttributedString.Key
-                .strikethroughStyle && (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.single.rawValue
+            return (key == NSAttributedString.Key
+                .strikethroughStyle && (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.single.rawValue)
         }
 
         XCTAssertEqual(filteredAttributes.count, 1)
@@ -81,8 +81,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         ])
         attributes = out.attributes(at: 0, effectiveRange: nil)
         XCTAssertEqual(attributes.count, 2)
-        XCTAssertEqual(attributes[.strikethroughStyle] as! NSNumber, // swiftlint:disable:this force_cast
-                       NSNumber(value: NSUnderlineStyle.single.rawValue))
+        XCTAssertEqual(attributes[.strikethroughStyle] as! NSNumber,
+                       NSNumber(value: NSUnderlineStyle.single.rawValue)) // swiftlint:disable:this force_cast
         XCTAssertEqual(attributes[.foregroundColor] as! Color, .red) // swiftlint:disable:this force_cast
         #endif
     }
@@ -93,7 +93,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         var out = string.colored(with: .red)
         var attributes = out.attributes(at: 0, effectiveRange: nil)
         let filteredAttributes = attributes.filter { (key, value) -> Bool in
-            key == NSAttributedString.Key.foregroundColor && (value as? Color) == .red
+            return (key == NSAttributedString.Key.foregroundColor && (value as? Color) == .red)
         }
 
         XCTAssertEqual(filteredAttributes.count, 1)
@@ -124,21 +124,24 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     private func caseSensitiveRegexTest(
         _ stringToTest: NSAttributedString,
         attributes: [NSAttributedString.Key: Any],
-        pattern: String)
-    {
-        let stringRange = NSRange(0 ..< stringToTest.length)
+        pattern: String) {
+        let stringRange = NSRange(0..<stringToTest.length)
 
         // Apply case insensitive option for success attributes applying
-        let caseInsensitiveAttrString = stringToTest
-            .applying(attributes: attributes, toRangesMatching: pattern, options: [.caseInsensitive])
+        let caseInsensitiveAttrString = stringToTest.applying(
+            attributes: attributes,
+            toRangesMatching: pattern,
+            options: [.caseInsensitive])
         var caseInsensitiveUnderlineIndicator: Int?
         var caseInsensitiveTextColor: UIColor?
         caseInsensitiveAttrString.enumerateAttribute(.underlineStyle, in: stringRange) { value, range, stop in
             guard let value = value as? Int else { return }
             // Save found values and stop enumeration
             caseInsensitiveUnderlineIndicator = value
-            caseInsensitiveTextColor = caseInsensitiveAttrString
-                .attribute(.foregroundColor, at: range.location, effectiveRange: nil) as? UIColor
+            caseInsensitiveTextColor = caseInsensitiveAttrString.attribute(
+                .foregroundColor,
+                at: range.location,
+                effectiveRange: nil) as? UIColor
             stop.pointee = true
         }
         XCTAssertEqual(caseInsensitiveUnderlineIndicator, 1)
@@ -152,8 +155,10 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             guard let value = value as? Int else { return }
             // Save found values and stop enumeration
             caseSensitiveUnderlineIndicator = value
-            caseSensitiveTextColor = caseInsensitiveAttrString
-                .attribute(.foregroundColor, at: range.location, effectiveRange: nil) as? UIColor
+            caseSensitiveTextColor = caseInsensitiveAttrString.attribute(
+                .foregroundColor,
+                at: range.location,
+                effectiveRange: nil) as? UIColor
             stop.pointee = true
         }
         XCTAssertNotEqual(caseSensitiveUnderlineIndicator, 1)
@@ -165,9 +170,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     private func commonRegexTest(
         stringToTest: NSAttributedString,
         attributes: [NSAttributedString.Key: Any],
-        _ email: String)
-    {
-        let stringRange = NSRange(0 ..< stringToTest.length)
+        _ email: String) {
+        let stringRange = NSRange(0..<stringToTest.length)
         let pattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let attrTestString = stringToTest.applying(attributes: attributes, toRangesMatching: pattern)
 
@@ -220,8 +224,9 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
         var passed = false
         // iterate through each range of attributes
-        attrGreeting.enumerateAttributes(in: NSRange(0 ..< attrGreeting.length),
-                                         options: .longestEffectiveRangeNotRequired) { attrs, range, _ in
+        attrGreeting.enumerateAttributes(
+            in: NSRange(0..<attrGreeting.length),
+            options: .longestEffectiveRangeNotRequired) { attrs, range, _ in
                 // exit if there are not more attributes for the subsequence than what was there originally
                 guard attrs.count > attrAtBeginning.count else { return }
 
@@ -259,18 +264,15 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         var filteredAttributes = attributes.filter { (key, value) -> Bool in
             var valid = false
             if key == NSAttributedString.Key.font, let value = value as? UIFont,
-                value == .italicSystemFont(ofSize: UIFont.systemFontSize)
-            {
+                value == .italicSystemFont(ofSize: UIFont.systemFontSize) {
                 valid = true
             }
             if key == NSAttributedString.Key.underlineStyle, let value = value as? NSUnderlineStyle.RawValue,
-                value == NSUnderlineStyle.single.rawValue
-            {
+                value == NSUnderlineStyle.single.rawValue {
                 valid = true
             }
             if key == NSAttributedString.Key.strikethroughStyle, let value = value as? NSUnderlineStyle.RawValue,
-                value == NSUnderlineStyle.single.rawValue
-            {
+                value == NSUnderlineStyle.single.rawValue {
                 valid = true
             }
 
@@ -281,7 +283,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
         attributes = string.attributes(at: 5, effectiveRange: nil)
         filteredAttributes = attributes.filter { (key, value) -> Bool in
-            key == NSAttributedString.Key.font && (value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize)
+            return (key == NSAttributedString.Key
+                .font && (value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize))
         }
 
         XCTAssertEqual(filteredAttributes.count, 1)

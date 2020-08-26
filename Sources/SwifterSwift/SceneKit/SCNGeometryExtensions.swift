@@ -8,7 +8,7 @@ import SceneKit
 public extension SCNGeometry {
     /// SwifterSwift: Returns the size of the geometry's bounding box.
     var boundingSize: SCNVector3 {
-        (boundingBox.max - boundingBox.min).absolute
+        return (boundingBox.max - boundingBox.min).absolute
     }
 }
 

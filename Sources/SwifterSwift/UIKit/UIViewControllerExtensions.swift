@@ -9,7 +9,7 @@ public extension UIViewController {
     /// SwifterSwift: Check if ViewController is onscreen and not hidden.
     var isVisible: Bool {
         // http://stackoverflow.com/questions/2777438/how-to-tell-if-uiviewcontrollers-view-is-visible
-        isViewLoaded && view.window != nil
+        return isViewLoaded && view.window != nil
     }
 }
 
@@ -27,8 +27,7 @@ public extension UIViewController {
         let viewControllerIdentifier = identifier ?? String(describing: self)
         let storyboard = UIStoryboard(name: storyboard, bundle: bundle)
         guard let viewController = storyboard
-            .instantiateViewController(withIdentifier: viewControllerIdentifier) as? Self
-        else {
+            .instantiateViewController(withIdentifier: viewControllerIdentifier) as? Self else {
             preconditionFailure(
                 "Unable to instantiate view controller with identifier \(viewControllerIdentifier) as type \(type(of: self))")
         }
@@ -71,15 +70,14 @@ public extension UIViewController {
         message: String?,
         buttonTitles: [String]? = nil,
         highlightedButtonIndex: Int? = nil,
-        completion: ((Int) -> Void)? = nil) -> UIAlertController
-    {
+        completion: ((Int) -> Void)? = nil) -> UIAlertController {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         var allButtons = buttonTitles ?? [String]()
         if allButtons.count == 0 {
             allButtons.append("OK")
         }
 
-        for index in 0 ..< allButtons.count {
+        for index in 0..<allButtons.count {
             let buttonTitle = allButtons[index]
             let action = UIAlertAction(title: buttonTitle, style: .default, handler: { _ in
                 completion?(index)
@@ -130,8 +128,7 @@ public extension UIViewController {
         size: CGSize? = nil,
         delegate: UIPopoverPresentationControllerDelegate? = nil,
         animated: Bool = true,
-        completion: (() -> Void)? = nil)
-    {
+        completion: (() -> Void)? = nil) {
         popoverContent.modalPresentationStyle = .popover
 
         if let size = size {

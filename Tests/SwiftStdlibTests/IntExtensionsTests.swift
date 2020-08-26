@@ -5,7 +5,7 @@ import XCTest
 
 final class IntExtensionsTests: XCTestCase {
     func testCountableRange() {
-        XCTAssertEqual(10.countableRange, 0 ..< 10)
+        XCTAssertEqual(10.countableRange, 0..<10)
     }
 
     func testDegreesToRadians() {

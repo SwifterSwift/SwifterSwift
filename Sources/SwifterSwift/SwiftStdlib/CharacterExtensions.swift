@@ -11,19 +11,19 @@ public extension Character {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         let scalarValue = String(self).unicodeScalars.first!.value
         switch scalarValue {
-        case 0x1F600 ... 0x1F64F, // Emoticons
-             0x1F300 ... 0x1F5FF, // Misc Symbols and Pictographs
-             0x1F680 ... 0x1F6FF, // Transport and Map
-             0x1F1E6 ... 0x1F1FF, // Regional country flags
-             0x2600 ... 0x26FF, // Misc symbols
-             0x2700 ... 0x27BF, // Dingbats
-             0xE0020 ... 0xE007F, // Tags
-             0xFE00 ... 0xFE0F, // Variation Selectors
-             0x1F900 ... 0x1F9FF, // Supplemental Symbols and Pictographs
-             127_000 ... 127_600, // Various asian characters
-             65024 ... 65039, // Variation selector
-             9100 ... 9300, // Misc items
-             8400 ... 8447: // Combining Diacritical Marks for Symbols
+        case 0x1F600...0x1F64F, // Emoticons
+             0x1F300...0x1F5FF, // Misc Symbols and Pictographs
+             0x1F680...0x1F6FF, // Transport and Map
+             0x1F1E6...0x1F1FF, // Regional country flags
+             0x2600...0x26FF, // Misc symbols
+             0x2700...0x27BF, // Dingbats
+             0xE0020...0xE007F, // Tags
+             0xFE00...0xFE0F, // Variation Selectors
+             0x1F900...0x1F9FF, // Supplemental Symbols and Pictographs
+             127_000...127_600, // Various asian characters
+             65024...65039, // Variation selector
+             9100...9300, // Misc items
+             8400...8447: // Combining Diacritical Marks for Symbols
             return true
         default:
             return false
@@ -36,7 +36,7 @@ public extension Character {
     ///        Character("A").int -> nil
     ///
     var int: Int? {
-        Int(String(self))
+        return Int(String(self))
     }
 
     /// SwifterSwift: String from character.
@@ -44,7 +44,7 @@ public extension Character {
     ///        Character("a").string -> "a"
     ///
     var string: String {
-        String(self)
+        return String(self)
     }
 
     /// SwifterSwift: Return the character lowercased.
@@ -52,7 +52,7 @@ public extension Character {
     ///        Character("A").lowercased -> Character("a")
     ///
     var lowercased: Character {
-        String(self).lowercased().first!
+        return String(self).lowercased().first!
     }
 
     /// SwifterSwift: Return the character uppercased.
@@ -60,7 +60,7 @@ public extension Character {
     ///        Character("a").uppercased -> Character("A")
     ///
     var uppercased: Character {
-        String(self).uppercased().first!
+        return String(self).uppercased().first!
     }
 }
 
@@ -73,7 +73,7 @@ public extension Character {
     ///
     /// - Returns: A random character.
     static func randomAlphanumeric() -> Character {
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".randomElement()!
+        return "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".randomElement()!
     }
 }
 

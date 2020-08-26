@@ -60,12 +60,12 @@ public extension UITextField {
 
     /// SwifterSwift: Check if text field is empty.
     var isEmpty: Bool {
-        text?.isEmpty == true
+        return text?.isEmpty == true
     }
 
     /// SwifterSwift: Return text with no spaces or new lines in beginning and end.
     var trimmedText: String? {
-        text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        return text?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     /// SwifterSwift: Check if textFields text is a valid email format.
@@ -78,9 +78,9 @@ public extension UITextField {
     ///
     var hasValidEmail: Bool {
         // http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift
-        text!.range(of: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
-                    options: String.CompareOptions.regularExpression,
-                    range: nil, locale: nil) != nil
+        return text!.range(of: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+                           options: String.CompareOptions.regularExpression,
+                           range: nil, locale: nil) != nil
     }
 
     /// SwifterSwift: Left view tint color.

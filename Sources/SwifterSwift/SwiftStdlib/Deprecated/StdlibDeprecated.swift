@@ -79,7 +79,7 @@ public extension Sequence {
     /// - Returns: An array containing the results of mapping.
     @available(*, deprecated, message: "Please use map() with a key path instead.")
     func map<T>(by keyPath: KeyPath<Element, T>) -> [T] {
-        map { $0[keyPath: keyPath] }
+        return map { $0[keyPath: keyPath] }
     }
 
     /// SwifterSwift: Returns an array containing the non-nil results of mapping the given key path over the sequence’s elements.
@@ -88,7 +88,7 @@ public extension Sequence {
     /// - Returns: An array containing the non-nil results of mapping.
     @available(*, deprecated, message: "Please use compactMap() with a key path instead.")
     func compactMap<T>(by keyPath: KeyPath<Element, T?>) -> [T] {
-        compactMap { $0[keyPath: keyPath] }
+        return compactMap { $0[keyPath: keyPath] }
     }
 
     /// SwifterSwift: Returns an array containing the results of filtering the sequence’s elements by a boolean key path.
@@ -97,6 +97,6 @@ public extension Sequence {
     /// - Returns: An array containing filtered elements.
     @available(*, deprecated, message: "Please use filter() with a key path instead.")
     func filter(by keyPath: KeyPath<Element, Bool>) -> [Element] {
-        filter { $0[keyPath: keyPath] }
+        return filter { $0[keyPath: keyPath] }
     }
 }

@@ -74,7 +74,7 @@ public extension UIView {
     /// SwifterSwift: Border width of view; also inspectable from Storyboard.
     @IBInspectable var borderWidth: CGFloat {
         get {
-            layer.borderWidth
+            return layer.borderWidth
         }
         set {
             layer.borderWidth = newValue
@@ -84,7 +84,7 @@ public extension UIView {
     /// SwifterSwift: Corner radius of view; also inspectable from Storyboard.
     @IBInspectable var cornerRadius: CGFloat {
         get {
-            layer.cornerRadius
+            return layer.cornerRadius
         }
         set {
             layer.masksToBounds = true
@@ -95,7 +95,7 @@ public extension UIView {
     /// SwifterSwift: Height of view.
     var height: CGFloat {
         get {
-            frame.size.height
+            return frame.size.height
         }
         set {
             frame.size.height = newValue
@@ -136,7 +136,7 @@ public extension UIView {
     /// SwifterSwift: Shadow offset of view; also inspectable from Storyboard.
     @IBInspectable var shadowOffset: CGSize {
         get {
-            layer.shadowOffset
+            return layer.shadowOffset
         }
         set {
             layer.shadowOffset = newValue
@@ -146,7 +146,7 @@ public extension UIView {
     /// SwifterSwift: Shadow opacity of view; also inspectable from Storyboard.
     @IBInspectable var shadowOpacity: Float {
         get {
-            layer.shadowOpacity
+            return layer.shadowOpacity
         }
         set {
             layer.shadowOpacity = newValue
@@ -156,7 +156,7 @@ public extension UIView {
     /// SwifterSwift: Shadow radius of view; also inspectable from Storyboard.
     @IBInspectable var shadowRadius: CGFloat {
         get {
-            layer.shadowRadius
+            return layer.shadowRadius
         }
         set {
             layer.shadowRadius = newValue
@@ -166,7 +166,7 @@ public extension UIView {
     /// SwifterSwift: Masks to bounds of view; also inspectable from Storyboard.
     @IBInspectable var masksToBounds: Bool {
         get {
-            layer.masksToBounds
+            return layer.masksToBounds
         }
         set {
             layer.masksToBounds = newValue
@@ -176,7 +176,7 @@ public extension UIView {
     /// SwifterSwift: Size of view.
     var size: CGSize {
         get {
-            frame.size
+            return frame.size
         }
         set {
             width = newValue.width
@@ -199,7 +199,7 @@ public extension UIView {
     /// SwifterSwift: Width of view.
     var width: CGFloat {
         get {
-            frame.size.width
+            return frame.size.width
         }
         set {
             frame.size.width = newValue
@@ -209,7 +209,7 @@ public extension UIView {
     /// SwifterSwift: x origin of view.
     var x: CGFloat {
         get {
-            frame.origin.x
+            return frame.origin.x
         }
         set {
             frame.origin.x = newValue
@@ -219,7 +219,7 @@ public extension UIView {
     /// SwifterSwift: y origin of view.
     var y: CGFloat {
         get {
-            frame.origin.y
+            return frame.origin.y
         }
         set {
             frame.origin.y = newValue
@@ -275,8 +275,7 @@ public extension UIView {
         ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0),
         radius: CGFloat = 3,
         offset: CGSize = .zero,
-        opacity: Float = 0.5)
-    {
+        opacity: Float = 0.5) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
@@ -326,7 +325,7 @@ public extension UIView {
     ///   - bundle: bundle of nib (default is nil).
     /// - Returns: optional UIView (if applicable).
     class func loadFromNib(named name: String, bundle: Bundle? = nil) -> UIView? {
-        UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
+        return UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
 
     /// SwifterSwift: Load view of a certain type from nib
@@ -384,8 +383,7 @@ public extension UIView {
         ofType type: AngleUnit,
         animated: Bool = false,
         duration: TimeInterval = 1,
-        completion: ((Bool) -> Void)? = nil)
-    {
+        completion: ((Bool) -> Void)? = nil) {
         let angleWithType = (type == .degrees) ? .pi * angle / 180.0 : angle
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
@@ -406,8 +404,7 @@ public extension UIView {
         ofType type: AngleUnit,
         animated: Bool = false,
         duration: TimeInterval = 1,
-        completion: ((Bool) -> Void)? = nil)
-    {
+        completion: ((Bool) -> Void)? = nil) {
         let angleWithType = (type == .degrees) ? .pi * angle / 180.0 : angle
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, animations: {
@@ -426,8 +423,7 @@ public extension UIView {
         by offset: CGPoint,
         animated: Bool = false,
         duration: TimeInterval = 1,
-        completion: ((Bool) -> Void)? = nil)
-    {
+        completion: ((Bool) -> Void)? = nil) {
         if animated {
             UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
                 self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
@@ -449,8 +445,7 @@ public extension UIView {
         direction: ShakeDirection = .horizontal,
         duration: TimeInterval = 1,
         animationType: ShakeAnimationType = .easeOut,
-        completion: (() -> Void)? = nil)
-    {
+        completion: (() -> Void)? = nil) {
         CATransaction.begin()
         let animation: CAKeyframeAnimation
         switch direction {
@@ -489,9 +484,11 @@ public extension UIView {
             view.translatesAutoresizingMaskIntoConstraints = false
             viewsDictionary[key] = view
         }
-        addConstraints(NSLayoutConstraint
-            .constraints(withVisualFormat: withFormat, options: NSLayoutConstraint.FormatOptions(), metrics: nil,
-                         views: viewsDictionary))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: withFormat,
+            options: NSLayoutConstraint.FormatOptions(),
+            metrics: nil,
+            views: viewsDictionary))
     }
 
     /// SwifterSwift: Anchor all sides of the view into it's superview.
@@ -534,8 +531,7 @@ public extension UIView {
         bottomConstant: CGFloat = 0,
         rightConstant: CGFloat = 0,
         widthConstant: CGFloat = 0,
-        heightConstant: CGFloat = 0) -> [NSLayoutConstraint]
-    {
+        heightConstant: CGFloat = 0) -> [NSLayoutConstraint] {
         // https://videos.letsbuildthatapp.com/
         translatesAutoresizingMaskIntoConstraints = false
 
@@ -616,7 +612,7 @@ public extension UIView {
     ///
     /// - Parameter name: class of the view to search.
     func ancestorView<T: UIView>(withClass _: T.Type) -> T? {
-        ancestorView(where: { $0 is T }) as? T
+        return ancestorView(where: { $0 is T }) as? T
     }
 }
 

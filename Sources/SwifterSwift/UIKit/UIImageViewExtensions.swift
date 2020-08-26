@@ -17,8 +17,7 @@ public extension UIImageView {
         from url: URL,
         contentMode: UIView.ContentMode = .scaleAspectFit,
         placeholder: UIImage? = nil,
-        completionHandler: ((UIImage?) -> Void)? = nil)
-    {
+        completionHandler: ((UIImage?) -> Void)? = nil) {
         image = placeholder
         self.contentMode = contentMode
         URLSession.shared.dataTask(with: url) { data, response, _ in
@@ -26,8 +25,7 @@ public extension UIImageView {
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
                 let data = data,
-                let image = UIImage(data: data)
-            else {
+                let image = UIImage(data: data) else {
                 completionHandler?(nil)
                 return
             }

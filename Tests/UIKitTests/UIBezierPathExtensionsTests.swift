@@ -52,8 +52,9 @@ final class UIBezierPathExtensionsTests: XCTestCase {
         let size = CGSize(width: width, height: height)
 
         let centeredPath = UIBezierPath(ovalOf: size, centered: true)
-        XCTAssertEqual(centeredPath,
-                       UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: -width / 2, y: -height / 2), size: size)))
+        XCTAssertEqual(
+            centeredPath,
+            UIBezierPath(ovalIn: CGRect(origin: CGPoint(x: -width / 2, y: -height / 2), size: size)))
 
         let uncenteredPath = UIBezierPath(ovalOf: size, centered: false)
         XCTAssertEqual(uncenteredPath, UIBezierPath(ovalIn: CGRect(origin: .zero, size: size)))
@@ -65,8 +66,9 @@ final class UIBezierPathExtensionsTests: XCTestCase {
         let size = CGSize(width: width, height: height)
 
         let centeredPath = UIBezierPath(rectOf: size, centered: true)
-        XCTAssertEqual(centeredPath,
-                       UIBezierPath(rect: CGRect(origin: CGPoint(x: -width / 2, y: -height / 2), size: size)))
+        XCTAssertEqual(
+            centeredPath,
+            UIBezierPath(rect: CGRect(origin: CGPoint(x: -width / 2, y: -height / 2), size: size)))
 
         let uncenteredPath = UIBezierPath(rectOf: size, centered: false)
         XCTAssertEqual(uncenteredPath, UIBezierPath(rect: CGRect(origin: .zero, size: size)))

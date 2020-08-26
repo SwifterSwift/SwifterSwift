@@ -12,7 +12,7 @@ public extension StringProtocol {
     ///     - Parameter options: Options for the comparison.
     /// - Returns: The longest common suffix of the receiver and the given String
     func commonSuffix<T: StringProtocol>(with aString: T, options: String.CompareOptions = []) -> String {
-        String(zip(reversed(), aString.reversed())
+        return String(zip(reversed(), aString.reversed())
             .lazy
             .prefix(while: { (lhs: Character, rhs: Character) in
                 String(lhs).compare(String(rhs), options: options) == .orderedSame

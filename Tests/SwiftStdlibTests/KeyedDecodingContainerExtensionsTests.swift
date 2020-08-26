@@ -60,6 +60,6 @@ final class KeyedDecodingContainerTests: XCTestCase {
     }
 
     private func mockJsonData(from json: String) -> Data {
-        Data(json.utf8)
+        return Data(json.utf8)
     }
 }

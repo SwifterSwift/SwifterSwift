@@ -19,8 +19,7 @@ public extension UIWindow {
         animated: Bool = true,
         duration: TimeInterval = 0.5,
         options: UIView.AnimationOptions = .transitionFlipFromRight,
-        _ completion: (() -> Void)? = nil)
-    {
+        _ completion: (() -> Void)? = nil) {
         guard animated else {
             rootViewController = viewController
             completion?()

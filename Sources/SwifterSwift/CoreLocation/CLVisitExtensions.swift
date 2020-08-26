@@ -10,7 +10,7 @@ public extension CLVisit {
     ///
     /// - Returns: CLLocation
     var location: CLLocation {
-        CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+        return CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
     }
 }
 

@@ -9,7 +9,7 @@ public extension UISegmentedControl {
     /// SwifterSwift: Segments titles.
     var segmentTitles: [String] {
         get {
-            let range = 0 ..< numberOfSegments
+            let range = 0..<numberOfSegments
             return range.compactMap { titleForSegment(at: $0) }
         }
         set {
@@ -23,7 +23,7 @@ public extension UISegmentedControl {
     /// SwifterSwift: Segments images.
     var segmentImages: [UIImage] {
         get {
-            let range = 0 ..< numberOfSegments
+            let range = 0..<numberOfSegments
             return range.compactMap { imageForSegment(at: $0) }
         }
         set {

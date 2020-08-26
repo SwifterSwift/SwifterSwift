@@ -65,7 +65,7 @@ final class DispatchQueueExtensionsTests: XCTestCase {
             value += 1
         }
 
-        for _ in 1 ... 10 {
+        for _ in 1...10 {
             debouncedIncrementor()
         }
 

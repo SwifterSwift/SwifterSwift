@@ -35,8 +35,9 @@ final class URLExtensionsTests: XCTestCase {
         let string = "/index.html"
         let optionalString: String? = string
         XCTAssertEqual(URL(string: optionalString, relativeTo: baseURL), URL(string: string, relativeTo: baseURL))
-        XCTAssertEqual(URL(string: optionalString, relativeTo: baseURL)?.absoluteString,
-                       "https://www.example.com/index.html")
+        XCTAssertEqual(
+            URL(string: optionalString, relativeTo: baseURL)?.absoluteString,
+            "https://www.example.com/index.html")
     }
 
     func testAppendingQueryParameters() {

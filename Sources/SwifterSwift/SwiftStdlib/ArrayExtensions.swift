@@ -23,8 +23,8 @@ public extension Array {
     ///   - otherIndex: index of other element.
     mutating func safeSwap(from index: Index, to otherIndex: Index) {
         guard index != otherIndex else { return }
-        guard startIndex ..< endIndex ~= index else { return }
-        guard startIndex ..< endIndex ~= otherIndex else { return }
+        guard startIndex..<endIndex ~= index else { return }
+        guard startIndex..<endIndex ~= otherIndex else { return }
         swapAt(index, otherIndex)
     }
 
@@ -103,7 +103,7 @@ public extension Array where Element: Equatable {
     ///
     func withoutDuplicates() -> [Element] {
         // Thanks to https://github.com/sairamkotha for improving the method
-        reduce(into: [Element]()) {
+        return reduce(into: [Element]()) {
             if !$0.contains($1) {
                 $0.append($1)
             }
@@ -115,7 +115,7 @@ public extension Array where Element: Equatable {
     /// - Parameter path: Key path to compare, the value must be Equatable.
     /// - Returns: an array of unique elements.
     func withoutDuplicates<E: Equatable>(keyPath path: KeyPath<Element, E>) -> [Element] {
-        reduce(into: [Element]()) { result, element in
+        return reduce(into: [Element]()) { result, element in
             if !result.contains(where: { $0[keyPath: path] == element[keyPath: path] }) {
                 result.append(element)
             }

@@ -98,11 +98,11 @@ final class NSPredicateExtensionsTests: XCTestCase {
     func testOperatorSubPredicate() {
         let predicate1 = NSPredicate(block: { value, _ in
             guard let number = value as? Int else { return false }
-            return 1 ..< 5 ~= number
+            return 1..<5 ~= number
         })
         let predicate2 = NSPredicate(block: { value, _ in
             guard let number = value as? Int else { return false }
-            return 3 ..< 6 ~= number
+            return 3..<6 ~= number
         })
 
         let subPredicate = predicate1 - predicate2

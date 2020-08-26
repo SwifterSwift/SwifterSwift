@@ -8,7 +8,7 @@ import UIKit
 public extension UIBarButtonItem {
     /// SwifterSwift: Creates a flexible space UIBarButtonItem
     static var flexibleSpace: UIBarButtonItem {
-        UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     }
 }
 

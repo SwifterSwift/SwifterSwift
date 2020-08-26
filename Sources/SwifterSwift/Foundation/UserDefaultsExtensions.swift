@@ -11,7 +11,7 @@ public extension UserDefaults {
     /// - Parameter key: key in the current user's defaults database.
     subscript(key: String) -> Any? {
         get {
-            object(forKey: key)
+            return object(forKey: key)
         }
         set {
             set(newValue, forKey: key)
@@ -23,7 +23,7 @@ public extension UserDefaults {
     /// - Parameter forKey: key to find float for.
     /// - Returns: Float object for key (if exists).
     func float(forKey key: String) -> Float? {
-        object(forKey: key) as? Float
+        return object(forKey: key) as? Float
     }
 
     /// SwifterSwift: Date from UserDefaults.
@@ -31,7 +31,7 @@ public extension UserDefaults {
     /// - Parameter forKey: key to find date for.
     /// - Returns: Date object for key (if exists).
     func date(forKey key: String) -> Date? {
-        object(forKey: key) as? Date
+        return object(forKey: key) as? Date
     }
 
     /// SwifterSwift: Retrieves a Codable object from UserDefaults.

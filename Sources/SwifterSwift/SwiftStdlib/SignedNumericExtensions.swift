@@ -9,7 +9,7 @@ import Foundation
 public extension SignedNumeric {
     /// SwifterSwift: String.
     var string: String {
-        String(describing: self)
+        return String(describing: self)
     }
 
     #if canImport(Foundation)

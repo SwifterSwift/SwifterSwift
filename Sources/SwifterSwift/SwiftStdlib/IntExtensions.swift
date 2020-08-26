@@ -15,45 +15,45 @@ import Glibc
 public extension Int {
     /// SwifterSwift: CountableRange 0..<Int.
     var countableRange: CountableRange<Int> {
-        0 ..< self
+        return 0..<self
     }
 
     /// SwifterSwift: Radian value of degree input.
     var degreesToRadians: Double {
-        Double.pi * Double(self) / 180.0
+        return Double.pi * Double(self) / 180.0
     }
 
     /// SwifterSwift: Degree value of radian input
     var radiansToDegrees: Double {
-        Double(self) * 180 / Double.pi
+        return Double(self) * 180 / Double.pi
     }
 
     /// SwifterSwift: UInt.
     var uInt: UInt {
-        UInt(self)
+        return UInt(self)
     }
 
     /// SwifterSwift: Double.
     var double: Double {
-        Double(self)
+        return Double(self)
     }
 
     /// SwifterSwift: Float.
     var float: Float {
-        Float(self)
+        return Float(self)
     }
 
     #if canImport(CoreGraphics)
     /// SwifterSwift: CGFloat.
     var cgFloat: CGFloat {
-        CGFloat(self)
+        return CGFloat(self)
     }
     #endif
 
     /// SwifterSwift: String formatted for values over ±1000 (example: 1k, -2k, 100k, 1kk, -5kk..)
     var kFormatted: String {
         var sign: String {
-            self >= 0 ? "" : "-"
+            return self >= 0 ? "" : "-"
         }
         let abs = Swift.abs(self)
         if abs == 0 {
@@ -131,7 +131,7 @@ public extension Int {
         for (index, romanChar) in romanValues.enumerated() {
             let arabicValue = arabicValues[index]
             let div = startingValue / arabicValue
-            for _ in 0 ..< div {
+            for _ in 0..<div {
                 romanValue.append(romanChar)
             }
             startingValue -= arabicValue * div
@@ -141,7 +141,7 @@ public extension Int {
 
     /// SwifterSwift: Rounds to the closest multiple of n
     func roundToNearest(_ number: Int) -> Int {
-        number == 0 ? self : Int(round(Double(self) / Double(number))) * number
+        return number == 0 ? self : Int(round(Double(self) / Double(number))) * number
     }
 }
 
@@ -157,7 +157,7 @@ infix operator **: PowerPrecedence
 /// - Returns: exponentiation result (example: 2 ** 3 = 8).
 func ** (lhs: Int, rhs: Int) -> Double {
     // http://nshipster.com/swift-operators/
-    pow(Double(lhs), Double(rhs))
+    return pow(Double(lhs), Double(rhs))
 }
 
 // swiftlint:disable identifier_name
@@ -168,7 +168,7 @@ prefix operator √
 /// - Returns: square root of given integer.
 public prefix func √ (int: Int) -> Double {
     // http://nshipster.com/swift-operators/
-    sqrt(Double(int))
+    return sqrt(Double(int))
 }
 
 // swiftlint:enable identifier_name

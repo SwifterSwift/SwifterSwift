@@ -10,14 +10,14 @@ public extension CGVector {
     ///
     /// https://en.wikipedia.org/wiki/Atan2
     var angle: CGFloat {
-        atan2(dy, dx)
+        return atan2(dy, dx)
     }
 
     /// SwifterSwift: The magnitude (or length) of the vector.
     ///
     /// https://en.wikipedia.org/wiki/Euclidean_vector#Length
     var magnitude: CGFloat {
-        sqrt((dx * dx) + (dy * dy))
+        return sqrt((dx * dx) + (dy * dy))
     }
 }
 
@@ -51,7 +51,7 @@ public extension CGVector {
     ///   - scalar: The scale by which the vector will be multiplied
     /// - Returns: The vector with its magnitude scaled
     static func * (vector: CGVector, scalar: CGFloat) -> CGVector {
-        CGVector(dx: vector.dx * scalar, dy: vector.dy * scalar)
+        return CGVector(dx: vector.dx * scalar, dy: vector.dy * scalar)
     }
 
     /// SwifterSwift: Multiplies a scalar and a vector (commutative).
@@ -64,7 +64,7 @@ public extension CGVector {
     ///   - vector: The vector to be multiplied
     /// - Returns: The vector with its magnitude scaled
     static func * (scalar: CGFloat, vector: CGVector) -> CGVector {
-        CGVector(dx: scalar * vector.dx, dy: scalar * vector.dy)
+        return CGVector(dx: scalar * vector.dx, dy: scalar * vector.dy)
     }
 
     /// SwifterSwift: Compound assignment operator for vector-scalr multiplication
@@ -88,7 +88,7 @@ public extension CGVector {
     /// - Parameter vector: The vector to be negated
     /// - Returns: The negated vector
     static prefix func - (vector: CGVector) -> CGVector {
-        CGVector(dx: -vector.dx, dy: -vector.dy)
+        return CGVector(dx: -vector.dx, dy: -vector.dy)
     }
 }
 

@@ -14,7 +14,7 @@ public extension UITableView {
 
     /// SwifterSwift: Index of last section in tableView.
     var lastSection: Int? {
-        numberOfSections > 0 ? numberOfSections - 1 : nil
+        return numberOfSections > 0 ? numberOfSections - 1 : nil
     }
 }
 
@@ -98,8 +98,7 @@ public extension UITableView {
     /// - Parameter name: UITableViewHeaderFooterView type
     /// - Returns: UITableViewHeaderFooterView object with associated class name.
     func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withClass name: T.Type) -> T {
-        guard let headerFooterView = dequeueReusableHeaderFooterView(withIdentifier: String(describing: name)) as? T
-        else {
+        guard let headerFooterView = dequeueReusableHeaderFooterView(withIdentifier: String(describing: name)) as? T else {
             fatalError(
                 "Couldn't find UITableViewHeaderFooterView for \(String(describing: name)), make sure the view is registered with table view")
         }
@@ -160,7 +159,7 @@ public extension UITableView {
     /// - Parameter indexPath: An IndexPath to check
     /// - Returns: Boolean value for valid or invalid IndexPath
     func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
-        indexPath.section >= 0 &&
+        return indexPath.section >= 0 &&
             indexPath.row >= 0 &&
             indexPath.section < numberOfSections &&
             indexPath.row < numberOfRows(inSection: indexPath.section)

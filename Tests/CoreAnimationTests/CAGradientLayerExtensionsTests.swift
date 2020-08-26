@@ -13,8 +13,12 @@ final class CAGradientLayerExtensionsTests: XCTestCase {
         let endPoint = CGPoint(x: 1.0, y: 0.5)
         let gradientLayerType = CAGradientLayerType.axial
 
-        let gradientLayer = CAGradientLayer(colors: colors, locations: locations, startPoint: startPoint,
-                                            endPoint: endPoint, type: gradientLayerType)
+        let gradientLayer = CAGradientLayer(
+            colors: colors,
+            locations: locations,
+            startPoint: startPoint,
+            endPoint: endPoint,
+            type: gradientLayerType)
 
         XCTAssertEqual(gradientLayer.colors?.count, colors.count)
         XCTAssertEqual(gradientLayer.locations as? [CGFloat], locations)

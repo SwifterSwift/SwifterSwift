@@ -76,7 +76,7 @@ public extension URL {
     ///
     /// - Parameter key: The key of a query value.
     func queryValue(for key: String) -> String? {
-        URLComponents(string: absoluteString)?
+        return URLComponents(string: absoluteString)?
             .queryItems?
             .first(where: { $0.name == key })?
             .value
@@ -90,7 +90,7 @@ public extension URL {
     /// - Returns: URL with all path components removed.
     func deletingAllPathComponents() -> URL {
         var url: URL = self
-        for _ in 0 ..< pathComponents.count - 1 {
+        for _ in 0..<pathComponents.count - 1 {
             url.deleteLastPathComponent()
         }
         return url
@@ -102,7 +102,7 @@ public extension URL {
     ///        url.deleteAllPathComponents()
     ///        print(url) // prints "https://domain.com/"
     mutating func deleteAllPathComponents() {
-        for _ in 0 ..< pathComponents.count - 1 {
+        for _ in 0..<pathComponents.count - 1 {
             deleteLastPathComponent()
         }
     }

@@ -59,7 +59,7 @@ public extension RangeReplaceableCollection {
             removeSubrange(range)
             insert(contentsOf: slice, at: startIndex)
         } else {
-            let range = startIndex ..< index(startIndex, offsetBy: -placesToMove)
+            let range = startIndex..<index(startIndex, offsetBy: -placesToMove)
             let slice = self[range]
             removeSubrange(range)
             append(contentsOf: slice)
@@ -109,7 +109,7 @@ public extension RangeReplaceableCollection {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements up until condition evaluates to false.
     func take(while condition: (Element) throws -> Bool) rethrows -> Self {
-        Self(try prefix(while: condition))
+        return Self(try prefix(while: condition))
     }
 
     /// SwifterSwift: Skip elements of Array while condition is true.
@@ -150,11 +150,11 @@ public extension RangeReplaceableCollection {
     /// - Parameter offset: The offset position of the element to access. `offset` must be a valid index offset of the collection that is not equal to the `endIndex` property.
     subscript(offset: Int) -> Element {
         get {
-            self[index(startIndex, offsetBy: offset)]
+            return self[index(startIndex, offsetBy: offset)]
         }
         set {
             let offsetIndex = index(startIndex, offsetBy: offset)
-            replaceSubrange(offsetIndex ..< index(after: offsetIndex), with: [newValue])
+            replaceSubrange(offsetIndex..<index(after: offsetIndex), with: [newValue])
         }
     }
 
@@ -163,14 +163,15 @@ public extension RangeReplaceableCollection {
     /// - Parameter range: A range of the collection’s indices offsets. The bounds of the range must be valid indices of the collection.
     subscript<R>(range: R) -> SubSequence where R: RangeExpression, R.Bound == Int {
         get {
-            let indexRange = range.relative(to: 0 ..< count)
-            return self[index(startIndex, offsetBy: indexRange.lowerBound) ..<
-                index(startIndex, offsetBy: indexRange.upperBound)]
+            let indexRange = range.relative(to: 0..<count)
+            return self[index(startIndex, offsetBy: indexRange.lowerBound)..<index(startIndex,
+                                                                                   offsetBy: indexRange.upperBound)]
         }
         set {
-            let indexRange = range.relative(to: 0 ..< count)
-            replaceSubrange(index(startIndex, offsetBy: indexRange.lowerBound) ..<
-                index(startIndex, offsetBy: indexRange.upperBound), with: newValue)
+            let indexRange = range.relative(to: 0..<count)
+            replaceSubrange(
+                index(startIndex, offsetBy: indexRange.lowerBound)..<index(startIndex, offsetBy: indexRange.upperBound),
+                with: newValue)
         }
     }
 }

@@ -9,7 +9,7 @@ public extension Data {
     /// SwifterSwift: Return data as an array of bytes.
     var bytes: [UInt8] {
         // http://stackoverflow.com/questions/38097710/swift-3-changes-for-getbytes-method
-        [UInt8](self)
+        return [UInt8](self)
     }
 }
 
@@ -21,7 +21,7 @@ public extension Data {
     /// - Parameter encoding: encoding.
     /// - Returns: String by encoding Data using the given encoding (if applicable).
     func string(encoding: String.Encoding) -> String? {
-        String(data: self, encoding: encoding)
+        return String(data: self, encoding: encoding)
     }
 
     /// SwifterSwift: Returns a Foundation object from given JSON data.
@@ -32,7 +32,7 @@ public extension Data {
     /// - Returns: A Foundation object from the JSON data in the receiver, or `nil` if an error occurs.
     /// - Throws: An `NSError` if the receiver does not represent a valid JSON object.
     func jsonObject(options: JSONSerialization.ReadingOptions = []) throws -> Any {
-        try JSONSerialization.jsonObject(with: self, options: options)
+        return try JSONSerialization.jsonObject(with: self, options: options)
     }
 }
 

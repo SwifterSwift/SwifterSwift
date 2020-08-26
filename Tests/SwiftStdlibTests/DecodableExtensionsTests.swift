@@ -14,12 +14,12 @@ private struct City: Decodable {
 
 final class DecodableExtensionsTests: XCTestCase {
     private var mockJsonData: Data {
-        #"{"id": 1, "name": "Şanlıurfa", "url": "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg"}"# .data(
+        return #"{"id": 1, "name": "Şanlıurfa", "url": "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg"}"# .data(
             using: .utf8)!
     }
 
     private var invalidMockJsonData: Data {
-        #"{"id": "1", "name": "Şanlıurfa", "url": "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg"}"# .data(
+        return #"{"id": "1", "name": "Şanlıurfa", "url": "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg"}"# .data(
             using: .utf8)!
     }
 
@@ -31,8 +31,9 @@ final class DecodableExtensionsTests: XCTestCase {
 
         XCTAssertEqual(city.id, 1)
         XCTAssertEqual(city.name, "Şanlıurfa")
-        XCTAssertEqual(city.url,
-                       URL(string: "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg"))
+        XCTAssertEqual(
+            city.url,
+            URL(string: "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg"))
     }
 
     func testDecodeModelInvalidData() {

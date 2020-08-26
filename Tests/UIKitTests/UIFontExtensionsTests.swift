@@ -30,8 +30,7 @@ final class UIFontExtension: XCTestCase {
             return
         }
 
-        guard let selector = settings.first?[UIFontDescriptor.AttributeName(rawValue: "CTFeatureSelectorIdentifier")]
-        else {
+        guard let selector = settings.first?[UIFontDescriptor.AttributeName(rawValue: "CTFeatureSelectorIdentifier")] else {
             XCTFail("Unable to get selector from font")
             return
         }

@@ -51,17 +51,17 @@ public extension UIApplication {
 
     /// SwifterSwift: Application name (if applicable).
     var displayName: String? {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
     }
 
     /// SwifterSwift: App current build number (if applicable).
     var buildNumber: String? {
-        Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
+        return Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String
     }
 
     /// SwifterSwift: App's current version number (if applicable).
     var version: String? {
-        Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
+        return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
 }
 

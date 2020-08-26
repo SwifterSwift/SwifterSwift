@@ -30,7 +30,7 @@ public extension Collection {
     ///
     /// - Parameter index: index of element to access element.
     subscript(safe index: Index) -> Element? {
-        indices.contains(index) ? self[index] : nil
+        return indices.contains(index) ? self[index] : nil
     }
 
     /// SwifterSwift: Returns an array of slices of length "size" from the array. If array can't be split evenly, the final slice will be the remaining elements.
@@ -47,7 +47,7 @@ public extension Collection {
         var slices = [[Element]]()
         while start != endIndex {
             let end = index(start, offsetBy: size, limitedBy: endIndex) ?? endIndex
-            slices.append(Array(self[start ..< end]))
+            slices.append(Array(self[start..<end]))
             start = end
         }
         return slices
@@ -75,9 +75,8 @@ public extension Collection {
     func forEach(slice: Int, body: ([Element]) throws -> Void) rethrows {
         var start = startIndex
         while case let end = index(start, offsetBy: slice, limitedBy: endIndex) ?? endIndex,
-            start != end
-        {
-            try body(Array(self[start ..< end]))
+            start != end {
+            try body(Array(self[start..<end]))
             start = end
         }
     }
@@ -95,7 +94,7 @@ public extension Collection where Element: Equatable {
     /// - Parameter item: item to check.
     /// - Returns: an array with all indices of the given item.
     func indices(of item: Element) -> [Index] {
-        indices.filter { self[$0] == item }
+        return indices.filter { self[$0] == item }
     }
 }
 

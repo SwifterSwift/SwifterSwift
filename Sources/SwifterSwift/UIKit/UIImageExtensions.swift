@@ -8,22 +8,22 @@ import UIKit
 public extension UIImage {
     /// SwifterSwift: Size in bytes of UIImage
     var bytesSize: Int {
-        jpegData(compressionQuality: 1)?.count ?? 0
+        return jpegData(compressionQuality: 1)?.count ?? 0
     }
 
     /// SwifterSwift: Size in kilo bytes of UIImage
     var kilobytesSize: Int {
-        (jpegData(compressionQuality: 1)?.count ?? 0) / 1024
+        return (jpegData(compressionQuality: 1)?.count ?? 0) / 1024
     }
 
     /// SwifterSwift: UIImage with .alwaysOriginal rendering mode.
     var original: UIImage {
-        withRenderingMode(.alwaysOriginal)
+        return withRenderingMode(.alwaysOriginal)
     }
 
     /// SwifterSwift: UIImage with .alwaysTemplate rendering mode.
     var template: UIImage {
-        withRenderingMode(.alwaysTemplate)
+        return withRenderingMode(.alwaysTemplate)
     }
 }
 
@@ -44,7 +44,7 @@ public extension UIImage {
     /// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
     /// - Returns: optional Data (if applicable).
     func compressedData(quality: CGFloat = 0.5) -> Data? {
-        jpegData(compressionQuality: quality)
+        return jpegData(compressionQuality: quality)
     }
 
     /// SwifterSwift: UIImage Cropped to CGRect.
@@ -277,7 +277,7 @@ public extension UIImage {
     ///
     /// - returns: Base 64 encoded PNG data of the image as a String.
     func pngBase64String() -> String? {
-        pngData()?.base64EncodedString()
+        return pngData()?.base64EncodedString()
     }
 
     /// SwifterSwift: Base 64 encoded JPEG data of the image.
@@ -285,7 +285,7 @@ public extension UIImage {
     /// - parameter compressionQuality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality).
     /// - returns: Base 64 encoded JPEG data of the image as a String.
     func jpegBase64String(compressionQuality: CGFloat) -> String? {
-        jpegData(compressionQuality: compressionQuality)?.base64EncodedString()
+        return jpegData(compressionQuality: compressionQuality)?.base64EncodedString()
     }
 }
 

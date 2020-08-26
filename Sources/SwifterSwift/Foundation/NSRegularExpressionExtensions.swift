@@ -25,8 +25,7 @@ public extension NSRegularExpression {
                           using block: @escaping (
                               _ result: NSTextCheckingResult?,
                               _ flags: MatchingFlags,
-                              _ stop: inout Bool) -> Void)
-    {
+                              _ stop: inout Bool) -> Void) {
         enumerateMatches(in: string,
                          options: options,
                          range: NSRange(range, in: string)) { result, flags, stop in
@@ -37,14 +36,12 @@ public extension NSRegularExpression {
                 }
         }
     }
-
     #else
     func enumerateMatches(in string: String,
                           options: MatchingOptions = [],
                           range: Range<String.Index>,
                           using block: (_ result: NSTextCheckingResult?, _ flags: MatchingFlags, _ stop: inout Bool)
-                              -> Void)
-    {
+                              -> Void) {
         enumerateMatches(in: string,
                          options: options,
                          range: NSRange(range, in: string)) { result, flags, stop in
@@ -66,11 +63,10 @@ public extension NSRegularExpression {
     /// - Returns: An array of `NSTextCheckingResult` objects. Each result gives the overall matched range via its `range` property, and the range of each individual capture group via its `range(at:)` method. The range {NSNotFound, 0} is returned if one of the capture groups did not participate in this particular match.
     func matches(in string: String,
                  options: MatchingOptions = [],
-                 range: Range<String.Index>) -> [NSTextCheckingResult]
-    {
-        matches(in: string,
-                options: options,
-                range: NSRange(range, in: string))
+                 range: Range<String.Index>) -> [NSTextCheckingResult] {
+        return matches(in: string,
+                       options: options,
+                       range: NSRange(range, in: string))
     }
 
     /// SwifterSwift: Returns the number of matches of the regular expression within the specified range of the string.
@@ -82,11 +78,10 @@ public extension NSRegularExpression {
     /// - Returns: The number of matches of the regular expression.
     func numberOfMatches(in string: String,
                          options: MatchingOptions = [],
-                         range: Range<String.Index>) -> Int
-    {
-        numberOfMatches(in: string,
-                        options: options,
-                        range: NSRange(range, in: string))
+                         range: Range<String.Index>) -> Int {
+        return numberOfMatches(in: string,
+                               options: options,
+                               range: NSRange(range, in: string))
     }
 
     /// SwifterSwift: Returns the first match of the regular expression within the specified range of the string.
@@ -98,11 +93,10 @@ public extension NSRegularExpression {
     /// - Returns: An `NSTextCheckingResult` object. This result gives the overall matched range via its `range` property, and the range of each individual capture group via its `range(at:)` method. The range {NSNotFound, 0} is returned if one of the capture groups did not participate in this particular match.
     func firstMatch(in string: String,
                     options: MatchingOptions = [],
-                    range: Range<String.Index>) -> NSTextCheckingResult?
-    {
-        firstMatch(in: string,
-                   options: options,
-                   range: NSRange(range, in: string))
+                    range: Range<String.Index>) -> NSTextCheckingResult? {
+        return firstMatch(in: string,
+                          options: options,
+                          range: NSRange(range, in: string))
     }
 
     /// SwifterSwift: Returns the range of the first match of the regular expression within the specified range of the string.
@@ -114,12 +108,11 @@ public extension NSRegularExpression {
     /// - Returns: The range of the first match. Returns `nil` if no match is found.
     func rangeOfFirstMatch(in string: String,
                            options: MatchingOptions = [],
-                           range: Range<String.Index>) -> Range<String.Index>?
-    {
-        Range(rangeOfFirstMatch(in: string,
-                                options: options,
-                                range: NSRange(range, in: string)),
-              in: string)
+                           range: Range<String.Index>) -> Range<String.Index>? {
+        return Range(rangeOfFirstMatch(in: string,
+                                       options: options,
+                                       range: NSRange(range, in: string)),
+                     in: string)
     }
 
     /// SwifterSwift: Returns a new string containing matching regular expressions replaced with the template string.
@@ -133,12 +126,11 @@ public extension NSRegularExpression {
     func stringByReplacingMatches(in string: String,
                                   options: MatchingOptions = [],
                                   range: Range<String.Index>,
-                                  withTemplate templ: String) -> String
-    {
-        stringByReplacingMatches(in: string,
-                                 options: options,
-                                 range: NSRange(range, in: string),
-                                 withTemplate: templ)
+                                  withTemplate templ: String) -> String {
+        return stringByReplacingMatches(in: string,
+                                        options: options,
+                                        range: NSRange(range, in: string),
+                                        withTemplate: templ)
     }
 
     /// SwifterSwift: Replaces regular expression matches within the mutable string using the template string.
@@ -153,8 +145,7 @@ public extension NSRegularExpression {
     func replaceMatches(in string: inout String,
                         options: MatchingOptions = [],
                         range: Range<String.Index>,
-                        withTemplate templ: String) -> Int
-    {
+                        withTemplate templ: String) -> Int {
         let mutableString = NSMutableString(string: string)
         let matches = replaceMatches(in: mutableString,
                                      options: options,

@@ -15,18 +15,18 @@ import Glibc
 public extension Double {
     /// SwifterSwift: Int.
     var int: Int {
-        Int(self)
+        return Int(self)
     }
 
     /// SwifterSwift: Float.
     var float: Float {
-        Float(self)
+        return Float(self)
     }
 
     #if canImport(CoreGraphics)
     /// SwifterSwift: CGFloat.
     var cgFloat: CGFloat {
-        CGFloat(self)
+        return CGFloat(self)
     }
     #endif
 }
@@ -43,5 +43,5 @@ infix operator **: PowerPrecedence
 /// - Returns: exponentiation result (example: 4.4 ** 0.5 = 2.0976176963).
 func ** (lhs: Double, rhs: Double) -> Double {
     // http://nshipster.com/swift-operators/
-    pow(lhs, rhs)
+    return pow(lhs, rhs)
 }

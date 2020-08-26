@@ -23,7 +23,7 @@ public extension NSView {
     @IBInspectable
     var borderWidth: CGFloat {
         get {
-            layer?.borderWidth ?? 0
+            return layer?.borderWidth ?? 0
         }
         set {
             wantsLayer = true
@@ -35,7 +35,7 @@ public extension NSView {
     @IBInspectable
     var cornerRadius: CGFloat {
         get {
-            layer?.cornerRadius ?? 0
+            return layer?.cornerRadius ?? 0
         }
         set {
             wantsLayer = true
@@ -47,7 +47,7 @@ public extension NSView {
     // SwifterSwift: Height of view.
     var height: CGFloat {
         get {
-            frame.size.height
+            return frame.size.height
         }
         set {
             frame.size.height = newValue
@@ -71,7 +71,7 @@ public extension NSView {
     @IBInspectable
     var shadowOffset: CGSize {
         get {
-            layer?.shadowOffset ?? CGSize.zero
+            return layer?.shadowOffset ?? CGSize.zero
         }
         set {
             wantsLayer = true
@@ -83,7 +83,7 @@ public extension NSView {
     @IBInspectable
     var shadowOpacity: Float {
         get {
-            layer?.shadowOpacity ?? 0
+            return layer?.shadowOpacity ?? 0
         }
         set {
             wantsLayer = true
@@ -95,7 +95,7 @@ public extension NSView {
     @IBInspectable
     var shadowRadius: CGFloat {
         get {
-            layer?.shadowRadius ?? 0
+            return layer?.shadowRadius ?? 0
         }
         set {
             wantsLayer = true
@@ -122,7 +122,7 @@ public extension NSView {
     /// SwifterSwift: Size of view.
     var size: CGSize {
         get {
-            frame.size
+            return frame.size
         }
         set {
             width = newValue.width
@@ -133,7 +133,7 @@ public extension NSView {
     /// SwifterSwift: Width of view.
     var width: CGFloat {
         get {
-            frame.size.width
+            return frame.size.width
         }
         set {
             frame.size.width = newValue
