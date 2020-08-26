@@ -36,7 +36,6 @@ public extension UIImage {
     /// SwifterSwift: Average color for this image
     func averageColor() -> UIColor? {
         // https://stackoverflow.com/questions/26330924
-        // note: self.ciImage appears to always be nil
         guard let ciImage = ciImage ?? CIImage(image: self) else { return nil }
 
         // CIAreaAverage returns a single-pixel image that contains the average color for a given region of an image.
