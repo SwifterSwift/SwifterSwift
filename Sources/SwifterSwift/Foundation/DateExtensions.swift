@@ -50,8 +50,8 @@ public extension Date {
 public extension Date {
     /// SwifterSwift: User’s current calendar.
     var calendar: Calendar {
-        return Calendar(identifier: Calendar.current
-            .identifier) // Workaround to segfault on corelibs foundation https://bugs.swift.org/browse/SR-10147
+        // Workaround to segfault on corelibs foundation https://bugs.swift.org/browse/SR-10147
+        return Calendar(identifier: Calendar.current.identifier)
     }
 
     /// SwifterSwift: Era.
