@@ -130,7 +130,7 @@ public extension UIView {
     }
 
     /// SwifterSwift: Shadow color of view; also inspectable from Storyboard.
-    @IBInspectable var shadowColor: UIColor? {
+    @IBInspectable var layerShadowColor: UIColor? {
         get {
             guard let color = layer.shadowColor else { return nil }
             return UIColor(cgColor: color)
@@ -141,7 +141,7 @@ public extension UIView {
     }
 
     /// SwifterSwift: Shadow offset of view; also inspectable from Storyboard.
-    @IBInspectable var shadowOffset: CGSize {
+    @IBInspectable var layerShadowOffset: CGSize {
         get {
             return layer.shadowOffset
         }
@@ -151,7 +151,7 @@ public extension UIView {
     }
 
     /// SwifterSwift: Shadow opacity of view; also inspectable from Storyboard.
-    @IBInspectable var shadowOpacity: Float {
+    @IBInspectable var layerShadowOpacity: Float {
         get {
             return layer.shadowOpacity
         }
@@ -161,7 +161,7 @@ public extension UIView {
     }
 
     /// SwifterSwift: Shadow radius of view; also inspectable from Storyboard.
-    @IBInspectable var shadowRadius: CGFloat {
+    @IBInspectable var layerShadowRadius: CGFloat {
         get {
             return layer.shadowRadius
         }
