@@ -93,10 +93,10 @@ final class UIViewExtensionsTests: XCTestCase {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let view = UIView(frame: frame)
         view.layer.shadowColor = nil
-        XCTAssertNil(view.shadowColor)
-        view.shadowColor = UIColor.orange
+        XCTAssertNil(view.layerShadowColor)
+        view.layerShadowColor = UIColor.orange
         XCTAssertNotNil(view.layer.shadowColor!)
-        XCTAssertEqual(view.shadowColor, UIColor.orange)
+        XCTAssertEqual(view.layerShadowColor, UIColor.orange)
     }
 
     func testScreenshot() {
@@ -114,9 +114,9 @@ final class UIViewExtensionsTests: XCTestCase {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let view = UIView(frame: frame)
         view.layer.shadowOffset = CGSize.zero
-        XCTAssertEqual(view.shadowOffset, CGSize.zero)
+        XCTAssertEqual(view.layerShadowOffset, CGSize.zero)
         let size = CGSize(width: 5, height: 5)
-        view.shadowOffset = size
+        view.layerShadowOffset = size
         XCTAssertEqual(view.layer.shadowOffset, size)
     }
 
@@ -124,8 +124,8 @@ final class UIViewExtensionsTests: XCTestCase {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let view = UIView(frame: frame)
         view.layer.shadowOpacity = 0
-        XCTAssertEqual(view.shadowOpacity, 0)
-        view.shadowOpacity = 0.5
+        XCTAssertEqual(view.layerShadowOpacity, 0)
+        view.layerShadowOpacity = 0.5
         XCTAssertEqual(view.layer.shadowOpacity, 0.5)
     }
 
@@ -133,8 +133,8 @@ final class UIViewExtensionsTests: XCTestCase {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let view = UIView(frame: frame)
         view.layer.shadowRadius = 0
-        XCTAssertEqual(view.shadowRadius, 0)
-        view.shadowRadius = 0.5
+        XCTAssertEqual(view.layerShadowRadius, 0)
+        view.layerShadowRadius = 0.5
         XCTAssertEqual(view.layer.shadowRadius, 0.5)
     }
 
@@ -142,10 +142,10 @@ final class UIViewExtensionsTests: XCTestCase {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let view = UIView(frame: frame)
         view.addShadow(ofColor: .red, radius: 5.0, offset: .zero, opacity: 0.5)
-        XCTAssertEqual(view.shadowColor, UIColor.red)
-        XCTAssertEqual(view.shadowRadius, 5.0)
-        XCTAssertEqual(view.shadowOffset, CGSize.zero)
-        XCTAssertEqual(view.shadowOpacity, 0.5)
+        XCTAssertEqual(view.layerShadowColor, UIColor.red)
+        XCTAssertEqual(view.layerShadowRadius, 5.0)
+        XCTAssertEqual(view.layerShadowOffset, CGSize.zero)
+        XCTAssertEqual(view.layerShadowOpacity, 0.5)
     }
 
     func testMasksToBounds() {
