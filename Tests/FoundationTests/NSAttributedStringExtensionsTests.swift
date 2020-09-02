@@ -9,7 +9,7 @@ import Foundation
 // swiftlint:disable:next type_body_length
 final class NSAttributedStringExtensionsTests: XCTestCase {
     func testBolded() {
-        #if os(iOS)
+        #if canImport(UIKit)
         let string = NSAttributedString(string: "Bolded")
         let out = string.bolded
         let attributes = out.attributes(at: 0, effectiveRange: nil)
@@ -39,7 +39,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
 
     func testItalicized() {
-        #if os(iOS)
+        #if canImport(UIKit)
         let string = NSAttributedString(string: "Italicized")
         let out = string.italicized
         let attributes = out.attributes(at: 0, effectiveRange: nil)
@@ -53,7 +53,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
 
     func testStruckthrough() {
-        #if !os(macOS) && !os(Linux)
+        #if !os(macOS)
         let string = NSAttributedString(string: "Struck through")
         let out = string.struckthrough
         let attributes = out.attributes(at: 0, effectiveRange: nil)

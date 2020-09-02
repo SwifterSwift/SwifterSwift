@@ -21,10 +21,12 @@ public extension NSAttributedString {
     }
     #endif
 
+    #if !os(Linux)
     /// SwifterSwift: Underlined string.
     var underlined: NSAttributedString {
         return applying(attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
+    #endif
 
     #if canImport(UIKit)
     /// SwifterSwift: Italicized string.
