@@ -53,7 +53,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
 
     func testStruckthrough() {
-        #if !os(macOS)
+        #if !os(macOS) && !os(Linux)
         let string = NSAttributedString(string: "Struck through")
         let out = string.struckthrough
         let attributes = out.attributes(at: 0, effectiveRange: nil)

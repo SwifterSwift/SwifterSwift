@@ -35,10 +35,12 @@ public extension NSAttributedString {
     }
     #endif
 
+    #if !os(Linux)
     /// SwifterSwift: Struckthrough string.
     var struckthrough: NSAttributedString {
         return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue)])
     }
+    #endif
 
     /// SwifterSwift: Dictionary of the attributes applied across the whole string
     var attributes: [Key: Any] {
