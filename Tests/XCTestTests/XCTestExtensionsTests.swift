@@ -1,16 +1,9 @@
-//
-//  XCTestExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Guy Kogus on 28/7/20.
-//  Copyright © 2020 SwifterSwift
-//
+// XCTestExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class XCTestExtensionsTests: XCTestCase {
-
     #if canImport(AppKit) || canImport(UIKit)
     func testAssertEqualColorsWithAccuracy() {
         XCTAssertEqual(.blue, .blue, accuracy: 0)
@@ -30,5 +23,4 @@ final class XCTestExtensionsTests: XCTestCase {
                        accuracy: accuracy)
     }
     #endif
-
 }

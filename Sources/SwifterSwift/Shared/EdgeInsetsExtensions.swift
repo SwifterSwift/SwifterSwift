@@ -1,10 +1,4 @@
-//
-//  EdgeInsetsExtensions.swift
-//  SwifterSwift
-//
-//  Created by Guy Kogus on 03/01/2020.
-//  Copyright © 2020 SwifterSwift
-//
+// EdgeInsetsExtensions.swift - Copyright 2020 SwifterSwift
 
 #if os(iOS) || os(tvOS) || os(watchOS)
 import UIKit
@@ -37,12 +31,14 @@ extension NSEdgeInsets: Equatable {
             lhs.right == rhs.right
     }
 }
+
 // swiftlint:enable missing_swifterswift_prefix
 #endif
 
 #if os(iOS) || os(tvOS) || os(watchOS) || os(macOS)
 
 // MARK: - Properties
+
 public extension EdgeInsets {
     /// SwifterSwift: Return the vertical insets. The vertical insets is composed by top + bottom.
     ///
@@ -57,10 +53,10 @@ public extension EdgeInsets {
         // Source: https://github.com/MessageKit/MessageKit/blob/master/Sources/SwifterSwift/EdgeInsets%2BExtensions.swift
         return left + right
     }
-
 }
 
 // MARK: - Methods
+
 public extension EdgeInsets {
     /// SwifterSwift: Creates an `EdgeInsets` with the inset value applied to all (top, bottom, right, left)
     ///
@@ -135,8 +131,8 @@ public extension EdgeInsets {
 }
 
 // MARK: - Operators
-public extension EdgeInsets {
 
+public extension EdgeInsets {
     /// SwifterSwift: Add all the properties of two `EdgeInsets` to create their addition.
     ///
     /// - Parameters:
@@ -145,9 +141,9 @@ public extension EdgeInsets {
     /// - Returns: A new `EdgeInsets` instance where the values of `lhs` and `rhs` are added together.
     static func + (_ lhs: EdgeInsets, _ rhs: EdgeInsets) -> EdgeInsets {
         return EdgeInsets(top: lhs.top + rhs.top,
-                            left: lhs.left + rhs.left,
-                            bottom: lhs.bottom + rhs.bottom,
-                            right: lhs.right + rhs.right)
+                          left: lhs.left + rhs.left,
+                          bottom: lhs.bottom + rhs.bottom,
+                          right: lhs.right + rhs.right)
     }
 
     /// SwifterSwift: Add all the properties of two `EdgeInsets` to the left-hand instance.
@@ -161,7 +157,6 @@ public extension EdgeInsets {
         lhs.bottom += rhs.bottom
         lhs.right += rhs.right
     }
-
 }
 
 #endif

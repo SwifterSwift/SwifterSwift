@@ -1,10 +1,4 @@
-//
-//  CGAffineTransformExtensions.swift
-//  SwifterSwift
-//
-//  Created by Guy Kogus on 19/3/20.
-//  Copyright © 2020 SwifterSwift
-//
+// CGAffineTransformExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
@@ -14,12 +8,11 @@ import CoreGraphics
 import QuartzCore
 
 // MARK: - Methods
-public extension CGAffineTransform {
 
+public extension CGAffineTransform {
     /// SwifterSwift: Returns a transform with the same effect as the receiver.
     @inlinable
     func transform3D() -> CATransform3D { CATransform3DMakeAffineTransform(self) }
-
 }
 
 #endif

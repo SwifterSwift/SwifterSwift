@@ -1,19 +1,12 @@
-//
-//  UINavigationControllerExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Steven on 2/16/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UINavigationControllerExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UINavigationControllerExtensionsTests: XCTestCase {
-
     func testPushViewController() {
         let navigationController = UINavigationController()
         let vcToPush = UIViewController()
@@ -60,6 +53,5 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
         XCTAssertNotNil(color)
         XCTAssertEqual(color!, .red)
     }
-
 }
 #endif

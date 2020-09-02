@@ -1,13 +1,6 @@
-//
-//  SequenceExtensions.swift
-//  SwifterSwift
-//
-//  Created by Anton Novoselov on 04/04/2018.
-//  Copyright © 2018 SwifterSwift
-//
+// SequenceExtensions.swift - Copyright 2020 SwifterSwift
 
 public extension Sequence {
-
     /// SwifterSwift: Check if all elements in collection match a conditon.
     ///
     ///        [2, 2, 4].all(matching: {$0 % 2 == 0}) -> true
@@ -124,13 +117,13 @@ public extension Sequence {
     ///   - isIncluded: condition of inclusion to evaluate each element against.
     ///   - transform: transform element function to evaluate every element.
     /// - Returns: Return an filtered and mapped array.
-    func filtered<T>(_ isIncluded: (Element) throws -> Bool, map transform: (Element) throws -> T) rethrows ->  [T] {
-        return try compactMap({
+    func filtered<T>(_ isIncluded: (Element) throws -> Bool, map transform: (Element) throws -> T) rethrows -> [T] {
+        return try compactMap {
             if try isIncluded($0) {
                 return try transform($0)
             }
             return nil
-        })
+        }
     }
 
     /// SwifterSwift: Get the only element based on a condition.
@@ -142,7 +135,7 @@ public extension Sequence {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: The only element in the array matching the specified condition. If there are more matching elements, nil is returned. (optional)
-    func single(where condition: ((Element) throws -> Bool)) rethrows -> Element? {
+    func single(where condition: (Element) throws -> Bool) rethrows -> Element? {
         var singleElement: Element?
         for element in self where try condition(element) {
             guard singleElement == nil else {
@@ -167,7 +160,7 @@ public extension Sequence {
         return try filter { set.insert(try transform($0)).inserted }
     }
 
-    /// SwifterSwift: Separates all items into 2 lists based on a given predicate. The first list contains all items for which the specified condition evaluates to true. The second list contains those that don't.
+    ///  SwifterSwift: Separates all items into 2 lists based on a given predicate. The first list contains all items for which the specified condition evaluates to true. The second list contains those that don't.
     ///
     ///     let (even, odd) = [0, 1, 2, 3, 4, 5].divided { $0 % 2 == 0 }
     ///     let (minors, adults) = people.divided { $0.age < 18 }
@@ -179,7 +172,7 @@ public extension Sequence {
         var matching = ContiguousArray<Element>()
         var nonMatching = ContiguousArray<Element>()
 
-        var iterator = self.makeIterator()
+        var iterator = makeIterator()
         while let element = iterator.next() {
             try condition(element) ? matching.append(element) : nonMatching.append(element)
         }
@@ -271,7 +264,6 @@ public extension Sequence {
 }
 
 public extension Sequence where Element: Equatable {
-
     /// SwifterSwift: Check if array contains an array of elements.
     ///
     ///        [1, 2, 3, 4, 5].contains([1, 2]) -> true
@@ -289,11 +281,9 @@ public extension Sequence where Element: Equatable {
         }
         return true
     }
-
 }
 
 public extension Sequence where Element: Hashable {
-
     /// SwifterSwift: Check whether a sequence contains duplicates.
     ///
     /// - Returns: true if the receiver contains duplicates.
@@ -327,8 +317,8 @@ public extension Sequence where Element: Hashable {
 }
 
 // MARK: - Methods (Numeric)
-public extension Sequence where Element: Numeric {
 
+public extension Sequence where Element: Numeric {
     /// SwifterSwift: Sum of all elements in array.
     ///
     ///        [1, 2, 3, 4, 5].sum() -> 15
@@ -337,5 +327,4 @@ public extension Sequence where Element: Numeric {
     func sum() -> Element {
         return reduce(into: 0, +=)
     }
-
 }

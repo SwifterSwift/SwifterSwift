@@ -1,17 +1,11 @@
-//
-//  UIStackViewExtensions.swift
-//  SwifterSwift-iOS
-//
-//  Created by Benjamin Meyer on 2/18/18.
-//  Copyright © 2018 SwifterSwift
-//
+// UIStackViewExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Initializers
-public extension UIStackView {
 
+public extension UIStackView {
     /// SwifterSwift: Initialize an UIStackView with an array of UIView and common parameters.
     ///
     ///     let stackView = UIStackView(arrangedSubviews: [UIView(), UIView()], axis: .vertical)
@@ -28,7 +22,6 @@ public extension UIStackView {
         spacing: CGFloat = 0.0,
         alignment: UIStackView.Alignment = .fill,
         distribution: UIStackView.Distribution = .fill) {
-
         self.init(arrangedSubviews: arrangedSubviews)
         self.axis = axis
         self.spacing = spacing
@@ -51,7 +44,6 @@ public extension UIStackView {
             removeArrangedSubview(view)
         }
     }
-
 }
 
 #endif

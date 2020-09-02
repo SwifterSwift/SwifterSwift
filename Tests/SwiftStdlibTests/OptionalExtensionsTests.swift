@@ -1,20 +1,13 @@
-//
-//  OptionalExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 3/3/17.
-//  Copyright © 2017 SwifterSwift
-//
+// OptionalExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 private enum OptionalTestError: Error {
     case optionalIsNil
 }
 
 final class OptionalExtensionsTests: XCTestCase {
-
     func testUnwrappedOrDefault() {
         var str: String?
         XCTAssertEqual(str.unwrapped(or: "swift"), "swift")
@@ -175,5 +168,4 @@ final class OptionalExtensionsTests: XCTestCase {
         XCTAssertFalse(nilSummer != nilString)
         XCTAssertFalse(nilString != nilSummer)
     }
-
 }

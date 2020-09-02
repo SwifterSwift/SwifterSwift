@@ -1,19 +1,12 @@
-//
-//  DataExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 09/02/2017.
-//  Copyright © 2017 SwifterSwift
-//
+// DataExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(Foundation)
 import Foundation
 
 final class DataExtensionsTests: XCTestCase {
-
     func testString() {
         let dataFromString = "hello".data(using: .utf8)
         XCTAssertNotNil(dataFromString)
@@ -47,7 +40,6 @@ final class DataExtensionsTests: XCTestCase {
         XCTAssertNotNil(array)
         XCTAssertEqual(array?.first, "hello")
     }
-
 }
 
 #endif

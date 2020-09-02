@@ -1,13 +1,7 @@
-//
-//  CATransform3DExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Guy Kogus on 19/3/20.
-//  Copyright © 2020 SwifterSwift
-//
+// CATransform3DExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(QuartzCore)
 
@@ -16,7 +10,6 @@ import CoreGraphics
 #endif
 
 final class CATransform3DExtensionsTests: XCTestCase {
-
     let x = CGFloat(5)
     let y = CGFloat(10)
     let z = CGFloat(20)
@@ -167,11 +160,12 @@ final class CATransform3DExtensionsTests: XCTestCase {
 
     func testAffineTransform() {
         XCTAssertEqual(CATransform3DIdentity.affineTransform(), CGAffineTransform.identity)
-        XCTAssertEqual(CATransform3DMakeTranslation(x, y, 1).affineTransform(), CGAffineTransform(translationX: x, y: y))
+        XCTAssertEqual(
+            CATransform3DMakeTranslation(x, y, 1).affineTransform(),
+            CGAffineTransform(translationX: x, y: y))
     }
 
     #endif
-
 }
 
 #endif

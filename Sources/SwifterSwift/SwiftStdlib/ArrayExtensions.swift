@@ -1,14 +1,8 @@
-//
-//  ArrayExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/5/16.
-//  Copyright © 2016 SwifterSwift
-//
+// ArrayExtensions.swift - Copyright 2020 SwifterSwift
 
 // MARK: - Methods
-public extension Array {
 
+public extension Array {
     /// SwifterSwift: Insert an element at the beginning of array.
     ///
     ///        [2, 3, 4, 5].prepend(1) -> [1, 2, 3, 4, 5]
@@ -54,8 +48,8 @@ public extension Array {
 }
 
 // MARK: - Methods (Equatable)
-public extension Array where Element: Equatable {
 
+public extension Array where Element: Equatable {
     /// SwifterSwift: Remove all instances of an item from array.
     ///
     ///        [1, 2, 2, 3, 4, 5].removeAll(2) -> [1, 3, 4, 5]
@@ -121,7 +115,7 @@ public extension Array where Element: Equatable {
     /// - Parameter path: Key path to compare, the value must be Equatable.
     /// - Returns: an array of unique elements.
     func withoutDuplicates<E: Equatable>(keyPath path: KeyPath<Element, E>) -> [Element] {
-        return reduce(into: [Element]()) { (result, element) in
+        return reduce(into: [Element]()) { result, element in
             if !result.contains(where: { $0[keyPath: path] == element[keyPath: path] }) {
                 result.append(element)
             }

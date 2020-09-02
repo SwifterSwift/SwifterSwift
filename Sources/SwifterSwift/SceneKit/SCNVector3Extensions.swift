@@ -1,10 +1,4 @@
-//
-//  SCNVector3Extensions.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 04.04.19.
-//  Copyright © 2019 SwifterSwift
-//
+// SCNVector3Extensions.swift - Copyright 2020 SwifterSwift
 
 #if os(OSX)
 /// SwifterSwift: CGFloat.
@@ -18,8 +12,8 @@ public typealias SceneKitFloat = Float
 import SceneKit
 
 // MARK: - Methods
-public extension SCNVector3 {
 
+public extension SCNVector3 {
     /// SwifterSwift: Returns the absolute values of the vector's components.
     ///
     ///         SCNVector3(2, -3, -6).abs -> SCNVector3(2, 3, 6)
@@ -35,12 +29,11 @@ public extension SCNVector3 {
     var length: SceneKitFloat {
         return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
     }
-
 }
 
 // MARK: - Operators
-public extension SCNVector3 {
 
+public extension SCNVector3 {
     /// SwifterSwift: Add two SCNVector3s.
     ///
     ///     SCNVector3(10, 10, 10) + SCNVector3(10, 20, -30) -> SCNVector3(20, 30, -20)
@@ -125,7 +118,6 @@ public extension SCNVector3 {
     static func * (scalar: SceneKitFloat, vector: SCNVector3) -> SCNVector3 {
         return SCNVector3(vector.x * scalar, vector.y * scalar, vector.z * scalar)
     }
-
 }
 
 #endif

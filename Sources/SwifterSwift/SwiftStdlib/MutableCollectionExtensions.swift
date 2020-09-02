@@ -1,10 +1,4 @@
-//
-//  MutableCollectionExtensions.swift
-//  SwifterSwift
-//
-//  Created by Luciano Almeida on 21/09/19.
-//  Copyright © 2019 SwifterSwift
-//
+// MutableCollectionExtensions.swift - Copyright 2020 SwifterSwift
 
 public extension MutableCollection where Self: RandomAccessCollection {
     /// SwifterSwift: Sort the collection based on a keypath and a compare function.

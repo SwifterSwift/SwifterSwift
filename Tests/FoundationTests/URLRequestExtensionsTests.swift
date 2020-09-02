@@ -1,13 +1,7 @@
-//
-//  URLRequestExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 9/6/17.
-//  Copyright © 2016 SwifterSwift
-//
+// URLRequestExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(Foundation)
 import Foundation
@@ -17,7 +11,6 @@ import FoundationNetworking
 #endif
 
 final class URLRequestExtensionsTests: XCTestCase {
-
     func testInitFromURLString() {
         let urlString = "https://www.w3schools.com/"
         let request1 = URLRequest(url: URL(string: urlString)!)

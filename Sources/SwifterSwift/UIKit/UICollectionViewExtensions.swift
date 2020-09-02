@@ -1,17 +1,11 @@
-//
-//  UICollectionViewExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 11/12/2016.
-//  Copyright © 2016 SwifterSwift
-//
+// UICollectionViewExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Properties
-public extension UICollectionView {
 
+public extension UICollectionView {
     /// SwifterSwift: Index path of last item in collectionView.
     var indexPathForLastItem: IndexPath? {
         return indexPathForLastItem(inSection: lastSection)
@@ -21,12 +15,11 @@ public extension UICollectionView {
     var lastSection: Int {
         return numberOfSections > 0 ? numberOfSections - 1 : 0
     }
-
 }
 
 // MARK: - Methods
-public extension UICollectionView {
 
+public extension UICollectionView {
     /// SwifterSwift: Number of all items in all sections of collectionView.
     ///
     /// - Returns: The count of all rows in the collectionView.
@@ -76,7 +69,8 @@ public extension UICollectionView {
     /// - Returns: UICollectionViewCell object with associated class name.
     func dequeueReusableCell<T: UICollectionViewCell>(withClass name: T.Type, for indexPath: IndexPath) -> T {
         guard let cell = dequeueReusableCell(withReuseIdentifier: String(describing: name), for: indexPath) as? T else {
-            fatalError("Couldn't find UICollectionViewCell for \(String(describing: name)), make sure the cell is registered with collection view")
+            fatalError(
+                "Couldn't find UICollectionViewCell for \(String(describing: name)), make sure the cell is registered with collection view")
         }
         return cell
     }
@@ -88,9 +82,14 @@ public extension UICollectionView {
     ///   - name: UICollectionReusableView type.
     ///   - indexPath: location of cell in collectionView.
     /// - Returns: UICollectionReusableView object with associated class name.
-    func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind kind: String, withClass name: T.Type, for indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: name), for: indexPath) as? T else {
-            fatalError("Couldn't find UICollectionReusableView for \(String(describing: name)), make sure the view is registered with collection view")
+    func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind kind: String, withClass name: T.Type,
+                                                                       for indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: String(describing: name),
+            for: indexPath) as? T else {
+            fatalError(
+                "Couldn't find UICollectionReusableView for \(String(describing: name)), make sure the view is registered with collection view")
         }
         return cell
     }
@@ -126,7 +125,8 @@ public extension UICollectionView {
     ///   - nib: Nib file used to create the reusable view.
     ///   - kind: the kind of supplementary view to retrieve. This value is defined by the layout object.
     ///   - name: UICollectionReusableView type.
-    func register<T: UICollectionReusableView>(nib: UINib?, forSupplementaryViewOfKind kind: String, withClass name: T.Type) {
+    func register<T: UICollectionReusableView>(nib: UINib?, forSupplementaryViewOfKind kind: String,
+                                               withClass name: T.Type) {
         register(nib, forSupplementaryViewOfKind: kind, withReuseIdentifier: String(describing: name))
     }
 
@@ -154,11 +154,11 @@ public extension UICollectionView {
     ///   - scrollPosition: Scroll position
     ///   - animated: Whether to animate or not
     func safeScrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
-        guard indexPath.item >= 0 &&
-            indexPath.section >= 0 &&
-            indexPath.section < numberOfSections &&
+        guard indexPath.item >= 0,
+            indexPath.section >= 0,
+            indexPath.section < numberOfSections,
             indexPath.item < numberOfItems(inSection: indexPath.section) else {
-                return
+            return
         }
         scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
     }
@@ -173,7 +173,6 @@ public extension UICollectionView {
             indexPath.section < numberOfSections &&
             indexPath.item < numberOfItems(inSection: indexPath.section)
     }
-
 }
 
 #endif

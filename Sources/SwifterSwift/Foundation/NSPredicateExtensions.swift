@@ -1,27 +1,20 @@
-//
-//  NSPredicateExtensions.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 04.10.17.
-//  Copyright © 2017 SwifterSwift
-//
+// NSPredicateExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 
 // MARK: - Properties
-public extension NSPredicate {
 
+public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by NOT-ing the predicate.
     var not: NSCompoundPredicate {
         return NSCompoundPredicate(notPredicateWithSubpredicate: self)
     }
-
 }
 
 // MARK: - Methods
-public extension NSPredicate {
 
+public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by AND-ing the argument to the predicate.
     ///
     /// - Parameter predicate: NSPredicate
@@ -37,12 +30,11 @@ public extension NSPredicate {
     func or(_ predicate: NSPredicate) -> NSCompoundPredicate {
         return NSCompoundPredicate(orPredicateWithSubpredicates: [self, predicate])
     }
-
 }
 
 // MARK: - Operators
-public extension NSPredicate {
 
+public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by NOT-ing the predicate.
     /// - Parameters: rhs: NSPredicate to convert.
     /// - Returns: NSCompoundPredicate
@@ -79,7 +71,6 @@ public extension NSPredicate {
     static func - (lhs: NSPredicate, rhs: NSPredicate) -> NSCompoundPredicate {
         return lhs + !rhs
     }
-
 }
 
 #endif

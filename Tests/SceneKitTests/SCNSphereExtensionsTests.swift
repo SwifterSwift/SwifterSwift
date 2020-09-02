@@ -1,19 +1,12 @@
-//
-//  SCNSphereExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 06.04.19.
-//  Copyright © 2019 SwifterSwift
-//
+// SCNSphereExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(SceneKit)
 import SceneKit
 
 final class SCNSphereExtensionsTests: XCTestCase {
-
     func testInitWithDiameter() {
         let sphere = SCNSphere(diameter: 10)
         XCTAssertEqual(sphere.boundingSize, SCNVector3(10, 10, 10))
@@ -44,7 +37,6 @@ final class SCNSphereExtensionsTests: XCTestCase {
         XCTAssertEqual(sphere.boundingSize, SCNVector3(10, 10, 10))
         XCTAssertEqual(sphere.materials[0].diffuse.contents as? Color, color)
     }
-
 }
 
 #endif

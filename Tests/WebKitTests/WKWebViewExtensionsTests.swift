@@ -1,13 +1,7 @@
-//
-//  WKWebViewExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Tigran Hambardzumyan on 5/23/20.
-//  Copyright © 2020 SwifterSwift
-//
+// WKWebViewExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(WebKit)
 import WebKit
@@ -60,7 +54,6 @@ final class WKWebViewExtensionsTests: XCTestCase {
 
         wait(for: [failureExpectation], timeout: timeout)
     }
-
 }
 
 class WebViewSuccessExpectation: XCTestExpectation, WKNavigationDelegate {
@@ -69,7 +62,7 @@ class WebViewSuccessExpectation: XCTestExpectation, WKNavigationDelegate {
         webView.navigationDelegate = self
     }
 
-    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+    func webView(_: WKWebView, didCommit _: WKNavigation!) {
         fulfill()
     }
 }
@@ -80,11 +73,11 @@ class WebViewFailureExpectation: XCTestExpectation, WKNavigationDelegate {
         webView.navigationDelegate = self
     }
 
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+    func webView(_: WKWebView, didFail _: WKNavigation!, withError _: Error) {
         fulfill()
     }
 
-    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+    func webView(_: WKWebView, didFailProvisionalNavigation _: WKNavigation!, withError _: Error) {
         fulfill()
     }
 }

@@ -1,14 +1,8 @@
-//
-//  ComparableExtensions.swift
-//  SwifterSwift
-//
-//  Created by Shai Mishali on 5/4/18.
-//  Copyright © 2018 SwifterSwift
-//
+// ComparableExtensions.swift - Copyright 2020 SwifterSwift
 
 // MARK: - Methods
-public extension Comparable {
 
+public extension Comparable {
     /// SwifterSwift: Returns true if value is in the provided range.
     ///
     ///    1.isBetween(5...7) // false
@@ -39,5 +33,4 @@ public extension Comparable {
     func clamped(to range: ClosedRange<Self>) -> Self {
         return max(range.lowerBound, min(self, range.upperBound))
     }
-
 }

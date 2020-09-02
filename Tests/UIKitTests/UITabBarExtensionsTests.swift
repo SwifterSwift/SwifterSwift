@@ -1,19 +1,12 @@
-//
-//  UITabBarExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 3/26/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UITabBarExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UITabBarExtensionsTests: XCTestCase {
-
     func testSetColors() {
         let frame = CGRect(x: 0, y: 0, width: 300, height: 44)
         var tabBar = UITabBar(frame: frame)
@@ -25,7 +18,7 @@ final class UITabBarExtensionsTests: XCTestCase {
         tabBar.setColors()
         XCTAssertNotEqual(tabBar.barTintColor, .red)
 
-        let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+        let bundle = Bundle(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
 
         let item1 = UITabBarItem(title: "First", image: image, selectedImage: image)
@@ -36,7 +29,6 @@ final class UITabBarExtensionsTests: XCTestCase {
 
         tabBar.setColors(selectedBackground: .orange, item: .white, selectedItem: .black)
     }
-
 }
 
 #endif

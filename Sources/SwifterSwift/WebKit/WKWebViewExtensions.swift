@@ -1,17 +1,11 @@
-//
-//  WKWebViewExtensions.swift
-//  SwifterSwift
-//
-//  Created by Tigran Hambardzumyan on 5/23/20.
-//  Copyright © 2020 SwifterSwift
-//
+// WKWebViewExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(WebKit)
 import WebKit
 
 // MARK: - Methods
-extension WKWebView {
 
+extension WKWebView {
     /// SwifterSwift: Navigate to `url`.
     /// - Parameter url: URL to navigate.
     /// - Returns: A new navigation for given `url`.
@@ -28,7 +22,6 @@ extension WKWebView {
         guard let url = URL(string: urlString) else { return nil }
         return load(URLRequest(url: url))
     }
-
 }
 
 #endif

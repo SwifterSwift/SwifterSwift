@@ -1,17 +1,11 @@
-//
-//  CGVectorExtensions.swift
-//  SwifterSwift
-//
-//  Created by Robbie Moyer on 7/25/18.
-//  Copyright © 2018 SwifterSwift
-//
+// CGVectorExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
 
 // MARK: - Properties
-public extension CGVector {
 
+public extension CGVector {
     /// SwifterSwift: The angle of rotation (in radians) of the vector. The range of the angle is -π to π; an angle of 0 points to the right.
     ///
     /// https://en.wikipedia.org/wiki/Atan2
@@ -25,12 +19,11 @@ public extension CGVector {
     var magnitude: CGFloat {
         return sqrt((dx * dx) + (dy * dy))
     }
-
 }
 
 // MARK: - Initializers
-public extension CGVector {
 
+public extension CGVector {
     /// SwifterSwift: Creates a vector with the given magnitude and angle.
     ///
     ///     let vector = CGVector(angle: .pi, magnitude: 1)
@@ -43,12 +36,11 @@ public extension CGVector {
         // https://www.grc.nasa.gov/WWW/K-12/airplane/vectpart.html
         self.init(dx: magnitude * cos(angle), dy: magnitude * sin(angle))
     }
-
 }
 
 // MARK: - Operators
-public extension CGVector {
 
+public extension CGVector {
     /// SwifterSwift: Multiplies a scalar and a vector (commutative).
     ///
     ///     let vector = CGVector(dx: 1, dy: 1)
@@ -98,7 +90,6 @@ public extension CGVector {
     static prefix func - (vector: CGVector) -> CGVector {
         return CGVector(dx: -vector.dx, dy: -vector.dy)
     }
-
 }
 
 #endif

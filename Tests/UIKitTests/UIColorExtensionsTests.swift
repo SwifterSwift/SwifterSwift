@@ -1,19 +1,12 @@
-//
-//  UIColorExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Max Haertwig on 10/06/19.
-//  Copyright © 2019 SwifterSwift
-//
+// UIColorExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit)
 import UIKit
 
 final class UIColorExtensionsTests: XCTestCase {
-
     #if !os(watchOS)
     func testInitLightDark() {
         let lightModeColor = UIColor.red
@@ -28,7 +21,6 @@ final class UIColorExtensionsTests: XCTestCase {
         }
     }
     #endif
-
 }
 
 #endif

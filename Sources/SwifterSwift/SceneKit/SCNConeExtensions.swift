@@ -1,17 +1,11 @@
-//
-//  SCNConeExtensions.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 06.04.19.
-//  Copyright © 2019 SwifterSwift
-//
+// SCNConeExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit
 
 // MARK: - Methods
-public extension SCNCone {
 
+public extension SCNCone {
     /// SwifterSwift: Creates a cone geometry with the given top diameter, bottom diameter, and height.
     ///
     /// - Parameters:
@@ -69,7 +63,6 @@ public extension SCNCone {
         self.init(topRadius: topDiameter / 2, bottomRadius: bottomDiameter / 2, height: height)
         materials = [SCNMaterial(color: color)]
     }
-
 }
 
 #endif

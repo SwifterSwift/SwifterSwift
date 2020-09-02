@@ -1,10 +1,4 @@
-//
-//  CharacterExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/27/16.
-//  Copyright © 2016 SwifterSwift
-//
+// CharacterExtensionsTests.swift - Copyright 2020 SwifterSwift
 
 //
 //  CharacterExtensionsTests.swift
@@ -14,11 +8,10 @@
 //  Copyright © 2016 SwifterSwift
 //
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class CharacterExtensionsTests: XCTestCase {
-
     func testIsEmoji() {
         XCTAssert(Character("😂").isEmoji)
         XCTAssertFalse(Character("j").isEmoji)
@@ -41,6 +34,7 @@ final class CharacterExtensionsTests: XCTestCase {
     func testLowercased() {
         XCTAssertEqual(Character("S").lowercased, Character("s"))
     }
+
     func testRandom() {
         var string1 = String()
         var string2 = String()
@@ -62,5 +56,4 @@ final class CharacterExtensionsTests: XCTestCase {
         XCTAssertEqual(sLetter * -5, "")
         XCTAssertEqual(-5 * sLetter, "")
     }
-
 }

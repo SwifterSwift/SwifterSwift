@@ -1,10 +1,4 @@
-//
-//  IntExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/6/16.
-//  Copyright © 2016 SwifterSwift
-//
+// IntExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
@@ -17,8 +11,8 @@ import Glibc
 #endif
 
 // MARK: - Properties
-public extension Int {
 
+public extension Int {
     /// SwifterSwift: CountableRange 0..<Int.
     var countableRange: CountableRange<Int> {
         return 0..<self
@@ -64,12 +58,12 @@ public extension Int {
         let abs = Swift.abs(self)
         if abs == 0 {
             return "0k"
-        } else if abs >= 0 && abs < 1000 {
+        } else if abs >= 0, abs < 1000 {
             return "0k"
-        } else if abs >= 1000 && abs < 1000000 {
+        } else if abs >= 1000, abs < 1_000_000 {
             return String(format: "\(sign)%ik", abs / 1000)
         }
-        return String(format: "\(sign)%ikk", abs / 100000)
+        return String(format: "\(sign)%ikk", abs / 100_000)
     }
 
     /// SwifterSwift: Array of digits of integer value.
@@ -94,19 +88,18 @@ public extension Int {
         let number = Double(abs)
         return Int(log10(number) + 1)
     }
-
 }
 
 // MARK: - Methods
-public extension Int {
 
+public extension Int {
     /// SwifterSwift: check if given integer prime or not. Warning: Using big numbers can be computationally expensive!
     /// - Returns: true or false depending on prime-ness
     func isPrime() -> Bool {
         // To improve speed on latter loop :)
         if self == 2 { return true }
 
-        guard self > 1 && self % 2 != 0 else { return false }
+        guard self > 1, self % 2 != 0 else { return false }
 
         // Explanation: It is enough to check numbers until
         // the square root of that number. If you go up from N by one,
@@ -150,13 +143,12 @@ public extension Int {
     func roundToNearest(_ number: Int) -> Int {
         return number == 0 ? self : Int(round(Double(self) / Double(number))) * number
     }
-
 }
 
 // MARK: - Operators
 
 precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
-infix operator ** : PowerPrecedence
+infix operator **: PowerPrecedence
 /// SwifterSwift: Value of exponentiation.
 ///
 /// - Parameters:
@@ -178,6 +170,7 @@ public prefix func √ (int: Int) -> Double {
     // http://nshipster.com/swift-operators/
     return sqrt(Double(int))
 }
+
 // swiftlint:enable identifier_name
 
 // swiftlint:disable identifier_name
@@ -192,6 +185,7 @@ func ± (lhs: Int, rhs: Int) -> (Int, Int) {
     // http://nshipster.com/swift-operators/
     return (lhs + rhs, lhs - rhs)
 }
+
 // swiftlint:enable identifier_name
 
 // swiftlint:disable identifier_name
@@ -204,4 +198,5 @@ public prefix func ± (int: Int) -> (Int, Int) {
     // http://nshipster.com/swift-operators/
     return (int, -int)
 }
+
 // swiftlint:enable identifier_name

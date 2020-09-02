@@ -1,19 +1,12 @@
-//
-//  NSPredicateExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 04.10.17.
-//  Copyright © 2017 SwifterSwift
-//
+// NSPredicateExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(Foundation)
 import Foundation
 
 final class NSPredicateExtensionsTests: XCTestCase {
-
     func testNot() {
         let predicate = NSPredicate(value: true)
         let notPredicate = predicate.not
@@ -105,18 +98,17 @@ final class NSPredicateExtensionsTests: XCTestCase {
     func testOperatorSubPredicate() {
         let predicate1 = NSPredicate(block: { value, _ in
             guard let number = value as? Int else { return false }
-            return 1..<5~=number
+            return 1..<5 ~= number
         })
         let predicate2 = NSPredicate(block: { value, _ in
             guard let number = value as? Int else { return false }
-            return 3..<6~=number
+            return 3..<6 ~= number
         })
 
         let subPredicate = predicate1 - predicate2
         XCTAssert(subPredicate.evaluate(with: 2))
         XCTAssertFalse(subPredicate.evaluate(with: 4))
     }
-
 }
 
 #endif

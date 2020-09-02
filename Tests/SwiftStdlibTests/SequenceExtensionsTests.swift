@@ -1,20 +1,13 @@
-//
-//  SequenceExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Anton Novoselov on 04/04/2018.
-//  Copyright © 2018 SwifterSwift
-//
+// SequenceExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 private enum SequenceTestError: Error {
     case closureThrows
 }
 
 final class SequenceExtensionsTests: XCTestCase {
-
     func testAllMatch() {
         let collection = [2, 4, 6, 8, 10, 12]
         XCTAssert(collection.all { $0 % 2 == 0 })
@@ -59,7 +52,7 @@ final class SequenceExtensionsTests: XCTestCase {
     func testForEachWhere() {
         let input = [1, 2, 2, 2, 1, 4, 1]
         var output: [Int] = []
-        input.forEach(where: {$0 % 2 == 0}, body: { output.append($0 * 2) })
+        input.forEach(where: { $0 % 2 == 0 }, body: { output.append($0 * 2) })
         XCTAssertEqual(output, [4, 4, 4, 8])
     }
 

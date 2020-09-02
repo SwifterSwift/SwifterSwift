@@ -1,10 +1,4 @@
-//
-//  CGFloatExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/23/16.
-//  Copyright © 2016 SwifterSwift
-//
+// CGFloatExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
@@ -14,8 +8,8 @@ import Foundation
 #endif
 
 // MARK: - Properties
-public extension CGFloat {
 
+public extension CGFloat {
     /// SwifterSwift: Absolute of CGFloat value.
     var abs: CGFloat {
         return Swift.abs(self)
@@ -69,7 +63,6 @@ public extension CGFloat {
     var radiansToDegrees: CGFloat {
         return self * 180 / CGFloat.pi
     }
-
 }
 
 #endif

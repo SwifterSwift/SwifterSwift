@@ -1,22 +1,15 @@
-//
-//  CGSizeExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/27/16.
-//  Copyright © 2016 SwifterSwift
-//
+// CGSizeExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(CoreGraphics)
 import CoreGraphics
 
 final class CGSizeExtensionsTests: XCTestCase {
-
     func testAspectFit() {
         let rect = CGSize(width: 120, height: 80)
-        let parentRect  = CGSize(width: 100, height: 50)
+        let parentRect = CGSize(width: 100, height: 50)
         let newRect = rect.aspectFit(to: parentRect)
         XCTAssertEqual(newRect.width, 75)
         XCTAssertEqual(newRect.height, 50)
@@ -24,7 +17,7 @@ final class CGSizeExtensionsTests: XCTestCase {
 
     func testAspectFill() {
         let rect = CGSize(width: 20, height: 120)
-        let parentRect  = CGSize(width: 100, height: 60)
+        let parentRect = CGSize(width: 100, height: 60)
         let newRect = rect.aspectFill(to: parentRect)
         XCTAssertEqual(newRect.width, 100)
         XCTAssertEqual(newRect.height, 60)
@@ -150,7 +143,6 @@ final class CGSizeExtensionsTests: XCTestCase {
         XCTAssertEqual(sizeA.width, 20)
         XCTAssertEqual(sizeA.height, 0)
     }
-
 }
 
 #endif

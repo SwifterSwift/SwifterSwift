@@ -1,37 +1,30 @@
-//
-//  CGVectorExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Robbie Moyer on 7/25/18.
-//  Copyright © 2018 SwifterSwift
-//
+// CGVectorExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(CoreGraphics)
 import CoreGraphics
 
 final class CGVectorExtensionsTests: XCTestCase {
-
     func testAngle() {
-        let vector1 = CGVector(dx: 1, dy: 1)    // pi/4
-        let vector2 = CGVector(dx: 1, dy: 0)    // 0
-        let vector3 = CGVector(dx: 0, dy: 1)    // pi/2
-        let vector4 = CGVector(dx: -1, dy: 0)   // pi
-        let vector5 = CGVector(dx: 0, dy: -1)   // -pi/2
-        let vector6 = CGVector(dx: -1, dy: -1)  // -3pi/4
-        let vector7 = CGVector(dx: 1, dy: -1)   // -pi/4
-        let vector8 = CGVector(dx: -1, dy: 1)   // 3pi/4
+        let vector1 = CGVector(dx: 1, dy: 1) // pi/4
+        let vector2 = CGVector(dx: 1, dy: 0) // 0
+        let vector3 = CGVector(dx: 0, dy: 1) // pi/2
+        let vector4 = CGVector(dx: -1, dy: 0) // pi
+        let vector5 = CGVector(dx: 0, dy: -1) // -pi/2
+        let vector6 = CGVector(dx: -1, dy: -1) // -3pi/4
+        let vector7 = CGVector(dx: 1, dy: -1) // -pi/4
+        let vector8 = CGVector(dx: -1, dy: 1) // 3pi/4
 
-        XCTAssertEqual(vector1.angle, .pi/4)
+        XCTAssertEqual(vector1.angle, .pi / 4)
         XCTAssertEqual(vector2.angle, 0)
-        XCTAssertEqual(vector3.angle, .pi/2)
+        XCTAssertEqual(vector3.angle, .pi / 2)
         XCTAssertEqual(vector4.angle, .pi)
-        XCTAssertEqual(vector5.angle, -(.pi/2))
-        XCTAssertEqual(vector6.angle, -(3 * .pi/4))
-        XCTAssertEqual(vector7.angle, -(.pi/4))
-        XCTAssertEqual(vector8.angle, 3 * .pi/4)
+        XCTAssertEqual(vector5.angle, -(.pi / 2))
+        XCTAssertEqual(vector6.angle, -(3 * .pi / 4))
+        XCTAssertEqual(vector7.angle, -(.pi / 4))
+        XCTAssertEqual(vector8.angle, 3 * .pi / 4)
     }
 
     func testMagnitude() {
@@ -74,10 +67,10 @@ final class CGVectorExtensionsTests: XCTestCase {
     }
 
     func testInitWithAngleAndMagnitude() {
-        let vector1 = CGVector(angle: .pi/4, magnitude: sqrt(2))
+        let vector1 = CGVector(angle: .pi / 4, magnitude: sqrt(2))
         let vector2 = CGVector(angle: .pi, magnitude: 1)
-        let vector3 = CGVector(angle: .pi/6, magnitude: 2)
-        let vector4 = CGVector(angle: .pi/3, magnitude: 2)
+        let vector3 = CGVector(angle: .pi / 6, magnitude: 2)
+        let vector4 = CGVector(angle: .pi / 3, magnitude: 2)
 
         let cgFloatPrecision: CGFloat = 0.000000000000001
 

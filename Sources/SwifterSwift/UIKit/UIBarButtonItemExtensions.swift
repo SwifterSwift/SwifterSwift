@@ -1,27 +1,20 @@
-//
-//  UIBarButtonItemExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 08/12/2016.
-//  Copyright © 2016 SwifterSwift
-//
+// UIBarButtonItemExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Properties
-public extension UIBarButtonItem {
 
+public extension UIBarButtonItem {
     /// SwifterSwift: Creates a flexible space UIBarButtonItem
     static var flexibleSpace: UIBarButtonItem {
         return UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
     }
-
 }
 
 // MARK: - Methods
-public extension UIBarButtonItem {
 
+public extension UIBarButtonItem {
     /// SwifterSwift: Add Target to UIBarButtonItem
     ///
     /// - Parameters:
@@ -40,7 +33,6 @@ public extension UIBarButtonItem {
         barButtonItem.width = width
         return barButtonItem
     }
-
 }
 
 #endif

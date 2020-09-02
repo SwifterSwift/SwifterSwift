@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#
+# Run swiftformat on git commit
+# see: https://github.com/nicklockwood/SwiftFormat#git-pre-commit-hook
+#
+# Install with:
+#
+# $ brew install swiftformat
+# $ ln -sf ../../scripts/pre-commit .git/hooks/pre-commit
+#
+
+if ! [ -x "$(command -v swiftformat)" ]; then
+  echo "warning: swiftformat not installed (skipping)" && exit
+fi
+
+git diff --diff-filter=d --staged --name-only | grep -e '\.swift$' | while read line; do
+  swiftformat --quiet "${line}";
+  git add "$line";
+done

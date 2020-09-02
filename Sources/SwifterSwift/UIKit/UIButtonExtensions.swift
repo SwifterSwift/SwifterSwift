@@ -1,17 +1,11 @@
-//
-//  UIButtonExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/22/16.
-//  Copyright © 2016 SwifterSwift
-//
+// UIButtonExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Properties
-public extension UIButton {
 
+public extension UIButton {
     /// SwifterSwift: Image of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     var imageForDisabled: UIImage? {
@@ -143,12 +137,11 @@ public extension UIButton {
             setTitle(newValue, for: .selected)
         }
     }
-
 }
 
 // MARK: - Methods
-public extension UIButton {
 
+public extension UIButton {
     private var states: [UIControl.State] {
         return [.normal, .selected, .highlighted, .disabled]
     }
@@ -184,8 +177,7 @@ public extension UIButton {
             guard
                 let imageSize = imageView?.image?.size,
                 let text = titleLabel?.text,
-                let font = titleLabel?.font
-                else { return }
+                let font = titleLabel?.font else { return }
 
             let titleSize = text.size(withAttributes: [.font: font])
 
@@ -204,7 +196,6 @@ public extension UIButton {
             contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
         }
     }
-
 }
 
 #endif

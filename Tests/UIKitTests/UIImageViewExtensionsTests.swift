@@ -1,19 +1,12 @@
-//
-//  UIImageViewExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Steven on 2/19/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UIImageViewExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UIImageViewExtensionsTests: XCTestCase {
-
     func testDownload() {
         // Success
         let imageView = UIImageView()
@@ -61,7 +54,6 @@ final class UIImageViewExtensionsTests: XCTestCase {
         let blurredImageView = imageView.blurred(withStyle: .extraLight)
         XCTAssertEqual(blurredImageView, imageView)
     }
-
 }
 
 #endif

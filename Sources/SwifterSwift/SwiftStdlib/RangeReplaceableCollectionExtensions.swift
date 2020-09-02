@@ -1,14 +1,8 @@
-//
-//  RangeReplaceableCollectionExtensions.swift
-//  SwifterSwift
-//
-//  Created by Luciano Almeida on 7/2/18.
-//  Copyright © 2018 SwifterSwift
-//
+// RangeReplaceableCollectionExtensions.swift - Copyright 2020 SwifterSwift
 
 // MARK: - Initializers
-public extension RangeReplaceableCollection {
 
+public extension RangeReplaceableCollection {
     /// SwifterSwift: Creates a new collection of a given size where for each position of the collection the value will be the result of a call of the given expression.
     ///
     ///     let values = Array(expression: "Value", count: 3)
@@ -28,13 +22,12 @@ public extension RangeReplaceableCollection {
             }
         }
     }
-
 }
 
 // MARK: - Methods
-public extension RangeReplaceableCollection {
 
-    /// SwifterSwift: Returns a new rotated collection by the given places.
+public extension RangeReplaceableCollection {
+    ///  SwifterSwift: Returns a new rotated collection by the given places.
     ///
     ///     [1, 2, 3, 4].rotated(by: 1) -> [4,1,2,3]
     ///     [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
@@ -48,7 +41,7 @@ public extension RangeReplaceableCollection {
         return copy.rotate(by: places)
     }
 
-    /// SwifterSwift: Rotate the collection by the given places.
+    ///  SwifterSwift: Rotate the collection by the given places.
     ///
     ///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
     ///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
@@ -59,7 +52,7 @@ public extension RangeReplaceableCollection {
     @discardableResult
     mutating func rotate(by places: Int) -> Self {
         guard places != 0 else { return self }
-        let placesToMove = places%count
+        let placesToMove = places % count
         if placesToMove > 0 {
             let range = index(endIndex, offsetBy: -placesToMove)...
             let slice = self[range]
@@ -125,7 +118,7 @@ public extension RangeReplaceableCollection {
     ///
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements after the condition evaluates to false.
-    func skip(while condition: (Element) throws-> Bool) rethrows -> Self {
+    func skip(while condition: (Element) throws -> Bool) rethrows -> Self {
         guard let idx = try firstIndex(where: { try !condition($0) }) else { return Self() }
         return Self(self[idx...])
     }
@@ -171,12 +164,14 @@ public extension RangeReplaceableCollection {
     subscript<R>(range: R) -> SubSequence where R: RangeExpression, R.Bound == Int {
         get {
             let indexRange = range.relative(to: 0..<count)
-            return self[index(startIndex, offsetBy: indexRange.lowerBound)..<index(startIndex, offsetBy: indexRange.upperBound)]
+            return self[index(startIndex, offsetBy: indexRange.lowerBound)..<index(startIndex,
+                                                                                   offsetBy: indexRange.upperBound)]
         }
         set {
             let indexRange = range.relative(to: 0..<count)
-            replaceSubrange(index(startIndex, offsetBy: indexRange.lowerBound)..<index(startIndex, offsetBy: indexRange.upperBound), with: newValue)
+            replaceSubrange(
+                index(startIndex, offsetBy: indexRange.lowerBound)..<index(startIndex, offsetBy: indexRange.upperBound),
+                with: newValue)
         }
     }
-
 }

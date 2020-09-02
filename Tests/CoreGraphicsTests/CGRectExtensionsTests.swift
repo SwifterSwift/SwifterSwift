@@ -1,19 +1,12 @@
-//
-//  CGRectExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Chen Qizhi on 2020/03/11.
-//  Copyright © 2020 SwifterSwift
-//
+// CGRectExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(CoreGraphics)
 import CoreGraphics
 
 final class CGRectExtensionsTests: XCTestCase {
-
     func testCenter() {
         let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
         let center = rect.center
@@ -70,7 +63,6 @@ final class CGRectExtensionsTests: XCTestCase {
         XCTAssertNotEqual(rect.size, resizingRect.size)
         XCTAssertEqual(newSize, resizingRect.size)
     }
-
 }
 
 #endif

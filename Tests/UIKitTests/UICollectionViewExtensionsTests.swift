@@ -1,21 +1,14 @@
-//
-//  UICollectionViewExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 2/24/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UICollectionViewExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-final private class TestCell: UICollectionViewCell {}
+private final class TestCell: UICollectionViewCell {}
 
 final class UICollectionViewExtensionsTests: XCTestCase {
-
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     let emptyCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     let flowLayoutCollectionView: UICollectionView = {
@@ -24,7 +17,9 @@ final class UICollectionViewExtensionsTests: XCTestCase {
         layout.itemSize = CGSize(width: 10, height: 10)
         layout.minimumInteritemSpacing = 0
         layout.sectionInset = .zero
-        let collection = UICollectionView(frame: CGRect(x: 0, y: 0, width: 10, height: 15), collectionViewLayout: layout)
+        let collection = UICollectionView(
+            frame: CGRect(x: 0, y: 0, width: 10, height: 15),
+            collectionViewLayout: layout)
         if #available(iOS 11, *) {
             collection.insetsLayoutMarginsFromSafeArea = false
         }
@@ -43,7 +38,6 @@ final class UICollectionViewExtensionsTests: XCTestCase {
 
         flowLayoutCollectionView.dataSource = self
         flowLayoutCollectionView.reloadData()
-
     }
 
     func testIndexPathForLastRow() {
@@ -103,7 +97,10 @@ final class UICollectionViewExtensionsTests: XCTestCase {
 
         let validIndexPathBottom = IndexPath(row: 4, section: 0)
 
-        let bottomOffset = CGPoint(x: 0, y: flowLayoutCollectionView.collectionViewLayout.collectionViewContentSize.height - flowLayoutCollectionView.bounds.size.height)
+        let bottomOffset = CGPoint(
+            x: 0,
+            y: flowLayoutCollectionView.collectionViewLayout.collectionViewContentSize.height - flowLayoutCollectionView
+                .bounds.size.height)
 
         flowLayoutCollectionView.contentOffset = CGPoint(x: 0, y: 30)
         XCTAssertNotEqual(flowLayoutCollectionView.contentOffset, bottomOffset)
@@ -140,19 +137,18 @@ final class UICollectionViewExtensionsTests: XCTestCase {
 }
 
 extension UICollectionViewExtensionsTests: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return (collectionView == self.collectionView || collectionView == self.flowLayoutCollectionView) ? 2 : 0
+        return (collectionView == self.collectionView || collectionView == flowLayoutCollectionView) ? 2 : 0
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return (collectionView == self.collectionView || collectionView == self.flowLayoutCollectionView) ? (section == 0 ? 5 : 0) : 0
+        return (collectionView == self.collectionView || collectionView == flowLayoutCollectionView) ?
+            (section == 0 ? 5 : 0) : 0
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_: UICollectionView, cellForItemAt _: IndexPath) -> UICollectionViewCell {
         return UICollectionViewCell()
     }
-
 }
 
 #endif

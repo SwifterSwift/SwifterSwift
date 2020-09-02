@@ -1,16 +1,9 @@
-//
-//  CollectionExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 09/02/2017.
-//  Copyright © 2017 SwifterSwift
-//
+// CollectionExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class CollectionExtensionsTests: XCTestCase {
-
     let collection = [1, 2, 3, 4, 5]
 
     func testForEachInParallel() {
@@ -72,7 +65,7 @@ final class CollectionExtensionsTests: XCTestCase {
         // A slice that does not divide the total evenly
         iterations = 0
         array = ["james", "irving", "jordan", "jonshon", "iverson", "shaq", "bird"]
-        array.forEach(slice: 2) { (sliceArray) in
+        array.forEach(slice: 2) { sliceArray in
             switch iterations {
             case 0: XCTAssertEqual(sliceArray, ["james", "irving"])
             case 1: XCTAssertEqual(sliceArray, ["jordan", "jonshon"])
@@ -105,26 +98,25 @@ final class CollectionExtensionsTests: XCTestCase {
     }
 
     func testGroupBySize() {
-
         // A slice with value zero
         var array: [String] = ["james", "irving", "jordan", "jonshon", "iverson", "shaq"]
         var slices = array.group(by: 0)
         XCTAssertNil(slices)
 
         // A slice that divide the total evenly
-        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq"]
+        array = ["james", "irving", "jordan", "jonshon", "iverson", "shaq"]
         slices = array.group(by: 2)
         XCTAssertNotNil(slices)
         XCTAssertEqual(slices?.count, 3)
 
         // A slice that does not divide the total evenly
-        array = [ "james", "irving", "jordan", "jonshon", "iverson", "shaq", "bird"]
+        array = ["james", "irving", "jordan", "jonshon", "iverson", "shaq", "bird"]
         slices = array.group(by: 2)
         XCTAssertNotNil(slices)
         XCTAssertEqual(slices?.count, 4)
 
         // A slice greater than the array count
-        array = [ "james", "irving", "jordan", "jonshon" ]
+        array = ["james", "irving", "jordan", "jonshon"]
         slices = array.group(by: 6)
         XCTAssertNotNil(slices)
         XCTAssertEqual(slices?.count, 1)
@@ -144,5 +136,4 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertEqual([1, 2, 3, 4, 5].average(), 3)
         XCTAssertEqual([Int]().average(), 0)
     }
-
 }

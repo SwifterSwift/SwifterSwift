@@ -1,19 +1,12 @@
-//
-//  CGPointExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 3/26/17.
-//  Copyright © 2017 SwifterSwift
-//
+// CGPointExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(CoreGraphics)
 import CoreGraphics
 
 final class CGPointExtensionsTests: XCTestCase {
-
     let point1 = CGPoint(x: 10, y: 10)
     let point2 = CGPoint(x: 30, y: 30)
 
@@ -69,7 +62,6 @@ final class CGPointExtensionsTests: XCTestCase {
         let result = CGPoint(x: 50, y: 50)
         XCTAssertEqual(point, result)
     }
-
 }
 
 #endif

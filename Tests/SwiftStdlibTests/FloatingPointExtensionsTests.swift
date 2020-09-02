@@ -1,16 +1,9 @@
-//
-//  FloatingPointExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 5.04.2018.
-//  Copyright © 2018 SwifterSwift
-//
+// FloatingPointExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class FloatingPointExtensionsTests: XCTestCase {
-
     func testAbs() {
         XCTAssertEqual(Float(-9.3).abs, Float(9.3))
         XCTAssertEqual(Double(-9.3).abs, Double(9.3))
@@ -57,13 +50,14 @@ final class FloatingPointExtensionsTests: XCTestCase {
     }
 
     func testOperators() {
-        XCTAssert((Float(5.0) ± Float(2.0)) == (Float(3.0), Float(7.0)) || (Float(5.0) ± Float(2.0)) == (Float(7.0), Float(3.0)))
+        XCTAssert((Float(5.0) ± Float(2.0)) == (Float(3.0), Float(7.0)) || (Float(5.0) ± Float(2.0)) ==
+            (Float(7.0), Float(3.0)))
         XCTAssert((±Float(2.0)) == (Float(2.0), Float(-2.0)) || (±Float(2.0)) == (Float(-2.0), Float(2.0)))
         XCTAssertEqual(√Float(25.0), Float(5.0))
 
-        XCTAssert((Double(5.0) ± Double(2.0)) == (Double(3.0), Double(7.0)) || (Double(5.0) ± Double(2.0)) == (Double(7.0), Double(3.0)))
+        XCTAssert((Double(5.0) ± Double(2.0)) == (Double(3.0), Double(7.0)) || (Double(5.0) ± Double(2.0)) ==
+            (Double(7.0), Double(3.0)))
         XCTAssert((±Double(2.0)) == (Double(2.0), Double(-2.0)) || (±Double(2.0)) == (Double(-2.0), Double(2.0)))
         XCTAssertEqual(√Double(25.0), Double(5.0))
     }
-
 }

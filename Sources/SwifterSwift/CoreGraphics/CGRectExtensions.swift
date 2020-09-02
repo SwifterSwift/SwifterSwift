@@ -1,25 +1,18 @@
-//
-//  CGRectExtensions.swift
-//  SwifterSwift
-//
-//  Created by Chen Qizhi on 2020/03/11.
-//  Copyright © 2020 SwifterSwift
-//
+// CGRectExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
 
 // MARK: - Properties
-public extension CGRect {
 
+public extension CGRect {
     /// SwifterSwift: Return center of rect
     var center: CGPoint { CGPoint(x: midX, y: midY) }
-
 }
 
 // MARK: - Initializers
-public extension CGRect {
 
+public extension CGRect {
     /// SwifterSwift: Create a `CGRect` instance with center and size
     /// - Parameters:
     ///   - center: center of the new rect
@@ -28,12 +21,11 @@ public extension CGRect {
         let origin = CGPoint(x: center.x - size.width / 2.0, y: center.y - size.height / 2.0)
         self.init(origin: origin, size: size)
     }
-
 }
 
 // MARK: - Methods
-public extension CGRect {
 
+public extension CGRect {
     /// SwifterSwift: Create a new `CGRect` by resizing with specified anchor
     /// - Parameters:
     ///   - size: new size to be applied
@@ -54,7 +46,6 @@ public extension CGRect {
                                       y: minY - sizeDelta.height * anchor.y),
                       size: size)
     }
-
 }
 
 #endif

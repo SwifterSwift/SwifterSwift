@@ -1,17 +1,11 @@
-//
-//  UIWindowExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 6/2/18.
-//  Copyright © 2018 SwifterSwift
-//
+// UIWindowExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && os(iOS)
 import UIKit
 
 // MARK: - Methods
-public extension UIWindow {
 
+public extension UIWindow {
     /// SwifterSwift: Switch current root view controller with a new view controller.
     ///
     /// - Parameters:
@@ -26,7 +20,6 @@ public extension UIWindow {
         duration: TimeInterval = 0.5,
         options: UIView.AnimationOptions = .transitionFlipFromRight,
         _ completion: (() -> Void)? = nil) {
-
         guard animated else {
             rootViewController = viewController
             completion?()
@@ -42,7 +35,6 @@ public extension UIWindow {
             completion?()
         })
     }
-
 }
 
 #endif

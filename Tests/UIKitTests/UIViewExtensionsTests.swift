@@ -1,20 +1,13 @@
-//
-//  UIViewExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 2/15/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UIViewExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // swiftlint:disable:next type_body_length
 final class UIViewExtensionsTests: XCTestCase {
-
     func testBorderColor() {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let view = UIView(frame: frame)
@@ -67,7 +60,6 @@ final class UIViewExtensionsTests: XCTestCase {
 
         // When you have to find recursively
         XCTAssert(window.firstResponder() === subView)
-
     }
 
     func testHeight() {

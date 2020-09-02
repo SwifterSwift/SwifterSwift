@@ -1,20 +1,13 @@
-//
-//  DateExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/27/16.
-//  Copyright © 2016 SwifterSwift
-//
+// DateExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(Foundation)
 import Foundation
 
 // swiftlint:disable:next type_body_length
 final class DateExtensionsTests: XCTestCase {
-
     override func setUp() {
         super.setUp()
         NSTimeZone.default = TimeZone(abbreviation: "UTC")!
@@ -104,7 +97,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testYear() {
-        var date = Date(timeIntervalSince1970: 100000.123450040)
+        var date = Date(timeIntervalSince1970: 100_000.123450040)
         XCTAssertEqual(date.year, 1970)
 
         var isLowerComponentsValid: Bool {
@@ -113,7 +106,7 @@ final class DateExtensionsTests: XCTestCase {
             guard date.hour == 3 else { return false }
             guard date.minute == 46 else { return false }
             guard date.second == 40 else { return false }
-            guard date.nanosecond == 123450040 else { return false }
+            guard date.nanosecond == 123_450_040 else { return false }
             return true
         }
 
@@ -139,7 +132,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testMonth() {
-        var date = Date(timeIntervalSince1970: 100000.123450040)
+        var date = Date(timeIntervalSince1970: 100_000.123450040)
         XCTAssertEqual(date.month, 1)
 
         var isLowerComponentsValid: Bool {
@@ -147,7 +140,7 @@ final class DateExtensionsTests: XCTestCase {
             guard date.hour == 3 else { return false }
             guard date.minute == 46 else { return false }
             guard date.second == 40 else { return false }
-            guard date.nanosecond == 123450040 else { return false }
+            guard date.nanosecond == 123_450_040 else { return false }
             return true
         }
 
@@ -172,14 +165,14 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testDay() {
-        var date = Date(timeIntervalSince1970: 100000.123450040)
+        var date = Date(timeIntervalSince1970: 100_000.123450040)
         XCTAssertEqual(date.day, 2)
 
         var isLowerComponentsValid: Bool {
             guard date.hour == 3 else { return false }
             guard date.minute == 46 else { return false }
             guard date.second == 40 else { return false }
-            guard date.nanosecond == 123450040 else { return false }
+            guard date.nanosecond == 123_450_040 else { return false }
             return true
         }
 
@@ -205,18 +198,18 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testWeekday() {
-        let date = Date(timeIntervalSince1970: 100000)
+        let date = Date(timeIntervalSince1970: 100_000)
         XCTAssertEqual(date.weekday, 6)
     }
 
     func testHour() {
-        var date = Date(timeIntervalSince1970: 100000.123450040)
+        var date = Date(timeIntervalSince1970: 100_000.123450040)
         XCTAssertEqual(date.hour, 3)
 
         var isLowerComponentsValid: Bool {
             guard date.minute == 46 else { return false }
             guard date.second == 40 else { return false }
-            guard date.nanosecond == 123450040 else { return false }
+            guard date.nanosecond == 123_450_040 else { return false }
             return true
         }
 
@@ -238,12 +231,12 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testMinute() {
-        var date = Date(timeIntervalSince1970: 100000.123450040)
+        var date = Date(timeIntervalSince1970: 100_000.123450040)
         XCTAssertEqual(date.minute, 46)
 
         var isLowerComponentsValid: Bool {
             guard date.second == 40 else { return false }
-            guard date.nanosecond == 123450040 else { return false }
+            guard date.nanosecond == 123_450_040 else { return false }
             return true
         }
 
@@ -265,11 +258,11 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testSecond() {
-        var date = Date(timeIntervalSince1970: 100000.123450040)
+        var date = Date(timeIntervalSince1970: 100_000.123450040)
         XCTAssertEqual(date.second, 40)
 
         var isLowerComponentsValid: Bool {
-            guard date.nanosecond == 123450040 else { return false }
+            guard date.nanosecond == 123_450_040 else { return false }
             return true
         }
 
@@ -291,15 +284,15 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testNanosecond() {
-        var date = Date(timeIntervalSince1970: 100000.123450040)
-        XCTAssertEqual(date.nanosecond, 123450040)
+        var date = Date(timeIntervalSince1970: 100_000.123450040)
+        XCTAssertEqual(date.nanosecond, 123_450_040)
 
         date.nanosecond = -3
-        XCTAssertEqual(date.nanosecond, 123450040)
+        XCTAssertEqual(date.nanosecond, 123_450_040)
 
         date.nanosecond = 10000
         XCTAssert(date.nanosecond >= 1000)
-        XCTAssert(date.nanosecond <= 100000)
+        XCTAssert(date.nanosecond <= 100_000)
     }
 
     func testMillisecond() {
@@ -563,7 +556,7 @@ final class DateExtensionsTests: XCTestCase {
         date.add(.month, value: 1)
         XCTAssertEqual(date.month, 10)
 
-        date = Date(timeIntervalSince1970: 1514764800)
+        date = Date(timeIntervalSince1970: 1_514_764_800)
 
         date.add(.year, value: -1)
         XCTAssertEqual(date.year, 2017)
@@ -578,8 +571,8 @@ final class DateExtensionsTests: XCTestCase {
         let date = Date(timeIntervalSince1970: 0)
 
         XCTAssertNil(date.changing(.nanosecond, value: -10))
-        XCTAssertNotNil(date.changing(.nanosecond, value: 123450040))
-        XCTAssertEqual(date.changing(.nanosecond, value: 123450040)?.nanosecond, 123450040)
+        XCTAssertNotNil(date.changing(.nanosecond, value: 123_450_040))
+        XCTAssertEqual(date.changing(.nanosecond, value: 123_450_040)?.nanosecond, 123_450_040)
 
         XCTAssertNil(date.changing(.second, value: -10))
         XCTAssertNil(date.changing(.second, value: 70))
@@ -785,14 +778,14 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testDayName() {
-        let date = Date(timeIntervalSince1970: 1486121165)
+        let date = Date(timeIntervalSince1970: 1_486_121_165)
         XCTAssertEqual(date.dayName(ofStyle: .full), "Friday")
         XCTAssertEqual(date.dayName(ofStyle: .threeLetters), "Fri")
         XCTAssertEqual(date.dayName(ofStyle: .oneLetter), "F")
     }
 
     func testMonthName() {
-        let date = Date(timeIntervalSince1970: 1486121165)
+        let date = Date(timeIntervalSince1970: 1_486_121_165)
         XCTAssertEqual(date.monthName(ofStyle: .full), "February")
         XCTAssertEqual(date.monthName(ofStyle: .threeLetters), "Feb")
         XCTAssertEqual(date.monthName(ofStyle: .oneLetter), "F")
@@ -864,13 +857,33 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testNewDateFromComponenets() {
-        let date = Date(calendar: Date().calendar, timeZone: NSTimeZone.default, era: Date().era, year: Date().year, month: Date().month, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
+        let date = Date(
+            calendar: Date().calendar,
+            timeZone: NSTimeZone.default,
+            era: Date().era,
+            year: Date().year,
+            month: Date().month,
+            day: Date().day,
+            hour: Date().hour,
+            minute: Date().minute,
+            second: Date().second,
+            nanosecond: Date().nanosecond)
         XCTAssertNotNil(date)
         let date1 = Date(timeIntervalSince1970: date!.timeIntervalSince1970)
 
         XCTAssertEqual(date?.timeIntervalSince1970, date1.timeIntervalSince1970)
 
-        let date2 = Date(calendar: nil, timeZone: NSTimeZone.default, era: Date().era, year: nil, month: nil, day: Date().day, hour: Date().hour, minute: Date().minute, second: Date().second, nanosecond: Date().nanosecond)
+        let date2 = Date(
+            calendar: nil,
+            timeZone: NSTimeZone.default,
+            era: Date().era,
+            year: nil,
+            month: nil,
+            day: Date().day,
+            hour: Date().hour,
+            minute: Date().minute,
+            second: Date().second,
+            nanosecond: Date().nanosecond)
         XCTAssertNil(date2)
     }
 
@@ -888,7 +901,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testNewDateFromIntegerLiteral() {
-        let date = Date(integerLiteral: 2017_12_25)
+        let date = Date(integerLiteral: 20_171_225)
 
         XCTAssertNotNil(date)
 
@@ -945,18 +958,22 @@ final class DateExtensionsTests: XCTestCase {
         var generator = SystemRandomNumberGenerator()
         let sinceDate = Date.distantPast
         let toDate = Date.distantFuture
-        XCTAssert(Date.random(in: sinceDate..<toDate, using: &generator).isBetween(sinceDate, toDate, includeBounds: false))
+        XCTAssert(Date.random(in: sinceDate..<toDate, using: &generator)
+            .isBetween(sinceDate, toDate, includeBounds: false))
     }
 
     func testRandomClosedRangeWithGenerator() {
         var generator = SystemRandomNumberGenerator()
         let sinceDate = Date.distantPast
         let toDate = Date.distantFuture
-        XCTAssert(Date.random(in: sinceDate...toDate, using: &generator).isBetween(sinceDate, toDate, includeBounds: true))
+        XCTAssert(Date.random(in: sinceDate...toDate, using: &generator)
+            .isBetween(sinceDate, toDate, includeBounds: true))
 
         let singleDate = Date(timeIntervalSinceReferenceDate: 0)
-        XCTAssertFalse(Date.random(in: singleDate...singleDate, using: &generator).isBetween(singleDate, singleDate, includeBounds: false))
-        XCTAssert(Date.random(in: singleDate...singleDate, using: &generator).isBetween(singleDate, singleDate, includeBounds: true))
+        XCTAssertFalse(Date.random(in: singleDate...singleDate, using: &generator)
+            .isBetween(singleDate, singleDate, includeBounds: false))
+        XCTAssert(Date.random(in: singleDate...singleDate, using: &generator)
+            .isBetween(singleDate, singleDate, includeBounds: true))
     }
 
     func testYesterday() {

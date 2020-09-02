@@ -1,19 +1,12 @@
-//
-//  UINavigationItemExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Steven on 2/16/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UINavigationItemExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UINavigationItemExtensionsTests: XCTestCase {
-
     func testReplaceTitle() {
         let navigationItem = UINavigationItem()
         let image = UIImage()
@@ -28,7 +21,6 @@ final class UINavigationItemExtensionsTests: XCTestCase {
         XCTAssertEqual(imageView?.contentMode, .scaleAspectFit)
         XCTAssertEqual(imageView?.image, image)
     }
-
 }
 
 #endif

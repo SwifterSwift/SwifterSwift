@@ -1,17 +1,11 @@
-//
-//  SCNCylinderExtensions.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 06.04.19.
-//  Copyright © 2019 SwifterSwift
-//
+// SCNCylinderExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit
 
 // MARK: - Methods
-public extension SCNCylinder {
 
+public extension SCNCylinder {
     /// SwifterSwift: Creates a cylinder geometry with the specified diameter and height.
     ///
     /// - Parameters:
@@ -65,7 +59,6 @@ public extension SCNCylinder {
         self.init(radius: diameter / 2, height: height)
         materials = [SCNMaterial(color: color)]
     }
-
 }
 
 #endif

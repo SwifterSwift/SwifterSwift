@@ -1,10 +1,4 @@
-//
-//  MKMapViewExtensions.swift
-//  SwifterSwift
-//
-//  Created by Hannes Staffler on 24.01.19.
-//  Copyright © 2019 SwifterSwift
-//
+// MKMapViewExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(MapKit)
 import MapKit
@@ -12,7 +6,6 @@ import MapKit
 #if !os(watchOS)
 @available(tvOS 9.2, *)
 public extension MKMapView {
-
     /// SwifterSwift: Dequeue reusable MKAnnotationView using class type
     ///
     /// - Parameters:
@@ -37,8 +30,11 @@ public extension MKMapView {
     ///   - annotation: annotation of the mapView.
     /// - Returns: optional MKAnnotationView object.
     @available(iOS 11.0, tvOS 11.0, macOS 10.13, *)
-    func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type, for annotation: MKAnnotation) -> T? {
-        guard let annotationView = dequeueReusableAnnotationView(withIdentifier: String(describing: name), for: annotation) as? T else {
+    func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type,
+                                                            for annotation: MKAnnotation) -> T? {
+        guard let annotationView = dequeueReusableAnnotationView(
+            withIdentifier: String(describing: name),
+            for: annotation) as? T else {
             fatalError("Couldn't find MKAnnotationView for \(String(describing: name))")
         }
 
@@ -56,7 +52,10 @@ public extension MKMapView {
         guard !coordinates.isEmpty else { return }
 
         if coordinates.count == 1 {
-            let coordinateRegion = MKCoordinateRegion(center: coordinates.first!, latitudinalMeters: meter, longitudinalMeters: meter)
+            let coordinateRegion = MKCoordinateRegion(
+                center: coordinates.first!,
+                latitudinalMeters: meter,
+                longitudinalMeters: meter)
             setRegion(coordinateRegion, animated: true)
         } else {
             let mkPolygon = MKPolygon(coordinates: coordinates, count: coordinates.count)

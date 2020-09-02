@@ -1,17 +1,11 @@
-//
-//  CLLocationExtensions.swift
-//  SwifterSwift
-//
-//  Created by Luciano Almeida on 21/04/17.
-//  Copyright © 2017 SwifterSwift
-//
+// CLLocationExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(CoreLocation)
 import CoreLocation
 
 // MARK: - Methods
-public extension CLLocation {
 
+public extension CLLocation {
     /// SwifterSwift: Calculate the half-way point along a great circle path between the two points.
     ///
     /// - Parameters:
@@ -34,9 +28,9 @@ public extension CLLocation {
         let bxLoc = cos(lat2) * cos(long2 - long1)
         let byLoc = cos(lat2) * sin(long2 - long1)
         let mlat = atan2(sin(lat1) + sin(lat2), sqrt((cos(lat1) + bxLoc) * (cos(lat1) + bxLoc) + (byLoc * byLoc)))
-        let mlong = (long1) + atan2(byLoc, cos(lat1) + bxLoc)
+        let mlong = long1 + atan2(byLoc, cos(lat1) + bxLoc)
 
-        return CLLocation(latitude: (mlat * 180 / Double.pi), longitude: (mlong * 180 / Double.pi))
+        return CLLocation(latitude: mlat * 180 / Double.pi, longitude: mlong * 180 / Double.pi)
     }
 
     /// SwifterSwift: Calculate the half-way point along a great circle path between self and another points.
@@ -67,9 +61,8 @@ public extension CLLocation {
             cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(long2 - long1))
         let degrees = rads * 180 / Double.pi
 
-        return (degrees+360).truncatingRemainder(dividingBy: 360)
+        return (degrees + 360).truncatingRemainder(dividingBy: 360)
     }
-
 }
 
 #endif

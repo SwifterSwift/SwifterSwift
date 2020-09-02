@@ -1,20 +1,13 @@
-//
-//  NSImageExtensionsTests.swift
-//  SwifterSwift-macOSTests
-//
-//  Created by BUDDAx2 on 20.10.2017.
-//  Copyright © 2017 SwifterSwift
-//
+// NSImageExtensionsTests.swift - Copyright 2020 SwifterSwift
 
 #if os(macOS)
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class NSImageExtensionsTests: XCTestCase {
-
     func testScaledToMaxSize() {
-        let bundle = Bundle.init(for: NSImageExtensionsTests.self)
+        let bundle = Bundle(for: NSImageExtensionsTests.self)
         let image = bundle.image(forResource: NSImage.Name(stringLiteral: "TestImage"))
         XCTAssertNotNil(image)
 
@@ -23,7 +16,6 @@ final class NSImageExtensionsTests: XCTestCase {
         XCTAssertEqual(scaledImage?.size.width, 150)
         XCTAssertEqual(scaledImage?.size.height, 34)
     }
-
 }
 
 #endif

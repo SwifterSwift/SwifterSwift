@@ -1,19 +1,12 @@
-//
-//  SCNBoxExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 06.04.19.
-//  Copyright © 2019 SwifterSwift
-//
+// SCNBoxExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(SceneKit)
 import SceneKit
 
 final class SCNBoxExtensionsTests: XCTestCase {
-
     func testInitWithoutChamferRadius() {
         let box = SCNBox(width: 1, height: 2, length: 3)
         XCTAssertEqual(box.boundingSize, SCNVector3(1, 2, 3))
@@ -49,7 +42,6 @@ final class SCNBoxExtensionsTests: XCTestCase {
         XCTAssertEqual(box.boundingSize, SCNVector3(1, 1, 1))
         XCTAssertEqual(box.materials[0].diffuse.contents as? Color, color)
     }
-
 }
 
 #endif

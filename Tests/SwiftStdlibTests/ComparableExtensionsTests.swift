@@ -1,17 +1,10 @@
-//
-//  ComparableExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Shai Mishali on 5/4/18.
-//  Copyright © 2018 SwifterSwift
-//
+// ComparableExtensionsTests.swift - Copyright 2020 SwifterSwift
 
 import XCTest
 
 @testable import SwifterSwift
 
 final class ComparableExtensionsTests: XCTestCase {
-
     func testIsBetween() {
         XCTAssertFalse(1.isBetween(5...7), "number range")
         XCTAssert(7.isBetween(6...12), "number range")
@@ -28,5 +21,4 @@ final class ComparableExtensionsTests: XCTestCase {
         XCTAssertEqual("c".clamped(to: "e"..."g"), "e")
         XCTAssertEqual(0.32.clamped(to: 0.37...0.42), 0.37)
     }
-
 }

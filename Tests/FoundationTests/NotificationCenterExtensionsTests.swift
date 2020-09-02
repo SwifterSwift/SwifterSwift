@@ -1,16 +1,9 @@
-//
-//  NotificationCenterExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Guy Kogus on 6/3/20.
-//  Copyright © 2020 SwifterSwift
-//
+// NotificationCenterExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class NotificationCenterExtensionsTests: XCTestCase {
-
     func testObserveOnce() {
         var count = 0
 
@@ -56,5 +49,4 @@ final class NotificationCenterExtensionsTests: XCTestCase {
         notificationCenter.post(name: notificationName, object: object)
         XCTAssertEqual(count, 4)
     }
-
 }

@@ -1,16 +1,9 @@
-//
-//  BinaryFloatingPointExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Quentin Jin on 2018/10/13.
-//  Copyright © 2018 SwifterSwift
-//
+// BinaryFloatingPointExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class BinaryFloatingPointExtensionsTests: XCTestCase {
-
     func testRounded() {
         let double = 3.1415927
         XCTAssertEqual(double.rounded(numberOfDecimalPlaces: 3, rule: .up), 3.142)
@@ -22,5 +15,4 @@ final class BinaryFloatingPointExtensionsTests: XCTestCase {
         XCTAssertEqual(float.rounded(numberOfDecimalPlaces: -1, rule: .toNearestOrEven), 3)
         XCTAssertEqual(float.rounded(numberOfDecimalPlaces: 0, rule: .toNearestOrAwayFromZero), 3)
     }
-
 }

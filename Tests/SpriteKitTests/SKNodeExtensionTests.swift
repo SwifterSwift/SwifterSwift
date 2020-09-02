@@ -1,19 +1,12 @@
-//
-//  SpriteKitTests.swift
-//  SwifterSwift
-//
-//  Created by Olivia Brown on 5/28/18.
-//  Copyright © 2018 SwifterSwift
-//
+// SKNodeExtensionTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(SpriteKit)
 import SpriteKit
 
 final class SKNodeExtensionTests: XCTestCase {
-
     func testDescendants() {
         let scene = SKScene()
         let childOne = SKNode()

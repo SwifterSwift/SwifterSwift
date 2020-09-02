@@ -1,19 +1,12 @@
-//
-//  UITableViewExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 2/24/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UITableViewExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UITableViewExtensionsTests: XCTestCase {
-
     let tableView = UITableView()
     let emptyTableView = UITableView()
 
@@ -169,27 +162,24 @@ final class UITableViewExtensionsTests: XCTestCase {
         XCTAssertNotNil(cell)
     }
     #endif
-
 }
 
 extension UITableViewExtensionsTests: UITableViewDataSource {
-
     func numberOfSections(in tableView: UITableView) -> Int {
-        return tableView == self.emptyTableView ? 0 : 2
+        return tableView == emptyTableView ? 0 : 2
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.emptyTableView {
+        if tableView == emptyTableView {
             return 0
         } else {
             return section == 0 ? 5 : 8
         }
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_: UITableView, cellForRowAt _: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
-
 }
 
 #endif

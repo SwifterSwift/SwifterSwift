@@ -1,16 +1,9 @@
-//
-//  IntExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/27/16.
-//  Copyright © 2016 SwifterSwift
-//
+// IntExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 final class IntExtensionsTests: XCTestCase {
-
     func testCountableRange() {
         XCTAssertEqual(10.countableRange, 0..<10)
     }
@@ -52,10 +45,10 @@ final class IntExtensionsTests: XCTestCase {
         XCTAssertEqual(1000.kFormatted, "1k")
         XCTAssertEqual((-1000).kFormatted, "-1k")
 
-        XCTAssertEqual(100000.kFormatted, "100k")
-        XCTAssertEqual((-100000).kFormatted, "-100k")
+        XCTAssertEqual(100_000.kFormatted, "100k")
+        XCTAssertEqual((-100_000).kFormatted, "-100k")
 
-        XCTAssertEqual(1000000.kFormatted, "10kk")
+        XCTAssertEqual(1_000_000.kFormatted, "10kk")
     }
 
     func testDigits() {
@@ -113,5 +106,4 @@ final class IntExtensionsTests: XCTestCase {
         XCTAssert((±2) == (2, -2) || (±2) == (-2, 2))
         XCTAssertEqual(√25, 5.0)
     }
-
 }

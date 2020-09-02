@@ -1,25 +1,19 @@
-//
-//  DictionaryExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/24/16.
-//  Copyright © 2016 SwifterSwift
-//
+// DictionaryExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 #endif
 
 // MARK: - Methods
-public extension Dictionary {
 
+public extension Dictionary {
     /// SwifterSwift: Creates a Dictionary from a given sequence grouped by a given key path.
     ///
     /// - Parameters:
     ///   - sequence: Sequence being grouped
     ///   - keypath: The key path to group by.
     init<S: Sequence>(grouping sequence: S, by keyPath: KeyPath<S.Element, Key>) where Value == [S.Element] {
-       self.init(grouping: sequence, by: { $0[keyPath: keyPath] })
+        self.init(grouping: sequence, by: { $0[keyPath: keyPath] })
     }
 
     /// SwifterSwift: Check if key exists in dictionary.
@@ -63,7 +57,8 @@ public extension Dictionary {
         guard JSONSerialization.isValidJSONObject(self) else {
             return nil
         }
-        let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
+        let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization
+            .WritingOptions()
         return try? JSONSerialization.data(withJSONObject: self, options: options)
     }
     #endif
@@ -94,7 +89,8 @@ public extension Dictionary {
     /// - Returns: optional JSON String (if applicable).
     func jsonString(prettify: Bool = false) -> String? {
         guard JSONSerialization.isValidJSONObject(self) else { return nil }
-        let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization.WritingOptions()
+        let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization
+            .WritingOptions()
         guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else { return nil }
         return String(data: jsonData, encoding: .utf8)
     }
@@ -114,12 +110,11 @@ public extension Dictionary {
     func compactMapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)?) rethrows -> [K: V] {
         return [K: V](uniqueKeysWithValues: try compactMap(transform))
     }
-
 }
 
 // MARK: - Methods (Value: Equatable)
-public extension Dictionary where Value: Equatable {
 
+public extension Dictionary where Value: Equatable {
     /// SwifterSwift: Returns an array of all keys that have the given value in dictionary.
     ///
     ///        let dict = ["key1": "value1", "key2": "value1", "key3": "value2"]
@@ -132,12 +127,11 @@ public extension Dictionary where Value: Equatable {
     func keys(forValue value: Value) -> [Key] {
         return keys.filter { self[$0] == value }
     }
-
 }
 
 // MARK: - Methods (ExpressibleByStringLiteral)
-public extension Dictionary where Key: StringProtocol {
 
+public extension Dictionary where Key: StringProtocol {
     /// SwifterSwift: Lowercase all keys in dictionary.
     ///
     ///        var dict = ["tEstKeY": "value"]
@@ -155,8 +149,8 @@ public extension Dictionary where Key: StringProtocol {
 }
 
 // MARK: - Subscripts
-public extension Dictionary {
 
+public extension Dictionary {
     /// SwifterSwift: Deep fetch or set a value from nested dictionaries.
     ///
     ///        var dict =  ["key": ["key1": ["key2": "value"]]]
@@ -198,8 +192,8 @@ public extension Dictionary {
 }
 
 // MARK: - Operators
-public extension Dictionary {
 
+public extension Dictionary {
     /// SwifterSwift: Merge the keys/values of two dictionaries.
     ///
     ///        let dict: [String: String] = ["key1": "value1"]
@@ -232,7 +226,7 @@ public extension Dictionary {
     ///   - lhs: dictionary
     ///   - rhs: dictionary
     static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
-        rhs.forEach { lhs[$0] = $1}
+        rhs.forEach { lhs[$0] = $1 }
     }
 
     /// SwifterSwift: Remove keys contained in the sequence from the dictionary
@@ -267,5 +261,4 @@ public extension Dictionary {
     static func -= <S: Sequence>(lhs: inout [Key: Value], keys: S) where S.Element == Key {
         lhs.removeAll(keys: keys)
     }
-
 }

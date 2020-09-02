@@ -1,23 +1,17 @@
-//
-//  UISearchBarExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/23/16.
-//  Copyright © 2016 SwifterSwift
-//
+// UISearchBarExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && os(iOS)
 import UIKit
 
 // MARK: - Properties
-public extension UISearchBar {
 
+public extension UISearchBar {
     /// SwifterSwift: Text field inside search bar (if applicable).
     var textField: UITextField? {
         if #available(iOS 13.0, *) {
             return searchTextField
         }
-        let subViews = subviews.flatMap { $0.subviews }
+        let subViews = subviews.flatMap(\.subviews)
         guard let textField = (subViews.filter { $0 is UITextField }).first as? UITextField else {
             return nil
         }
@@ -28,17 +22,15 @@ public extension UISearchBar {
     var trimmedText: String? {
         return text?.trimmingCharacters(in: .whitespacesAndNewlines)
     }
-
 }
 
 // MARK: - Methods
-public extension UISearchBar {
 
+public extension UISearchBar {
     /// SwifterSwift: Clear text.
     func clear() {
         text = ""
     }
-
 }
 
 #endif

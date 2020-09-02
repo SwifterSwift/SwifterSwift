@@ -1,19 +1,12 @@
-//
-//  CalendarExtension.swift
-//  SwifterSwift
-//
-//  Created by Chaithanya Prathyush on 09/11/17.
-//  Copyright © 2017 SwifterSwift
-//
+// CalendarExtensionTest.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(Foundation)
 import Foundation
 
 class CalendarExtensionTests: XCTestCase {
-
     func testNumberOfDaysInAMonth() {
         let calendar = Calendar(identifier: .gregorian)
         let longMonths = [1, 3, 5, 7, 8, 10, 12]
@@ -31,7 +24,6 @@ class CalendarExtensionTests: XCTestCase {
         XCTAssertEqual(calendar.numberOfDaysInMonth(for: febDate), 28)
         XCTAssertEqual(calendar.numberOfDaysInMonth(for: leapYearDate), 29)
     }
-
 }
 
 #endif

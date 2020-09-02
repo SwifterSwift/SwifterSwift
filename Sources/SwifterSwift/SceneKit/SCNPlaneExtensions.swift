@@ -1,17 +1,11 @@
-//
-//  SCNPlaneExtensions.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 06.04.19.
-//  Copyright © 2019 SwifterSwift
-//
+// SCNPlaneExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit
 
 // MARK: - Methods
-public extension SCNPlane {
 
+public extension SCNPlane {
     /// SwifterSwift: Creates a square plane geometry with the specified width.
     ///
     /// - Parameter width: The width and height of the plane along the x-axis and y-axis of its local coordinate space.
@@ -60,7 +54,6 @@ public extension SCNPlane {
         self.init(width: width, height: width)
         materials = [SCNMaterial(color: color)]
     }
-
 }
 
 #endif

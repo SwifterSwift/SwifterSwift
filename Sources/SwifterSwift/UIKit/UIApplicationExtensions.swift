@@ -1,10 +1,4 @@
-//
-//  UIApplicationExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 3/30/19.
-//  Copyright © 2019 SwifterSwift
-//
+// UIApplicationExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit)
 import UIKit
@@ -12,7 +6,6 @@ import UIKit
 #if os(iOS) || os(tvOS)
 
 public extension UIApplication {
-
     /// SwifterSwift: Application running environment.
     ///
     /// - debug: Application is running in debug mode.
@@ -70,7 +63,6 @@ public extension UIApplication {
     var version: String? {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
-
 }
 
 #endif

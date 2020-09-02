@@ -1,10 +1,4 @@
-//
-//  XCTestExtensions.swift
-//  SwifterSwift
-//
-//  Created by Guy Kogus on 28/7/20.
-//  Copyright © 2020 SwifterSwift
-//
+// XCTestExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(XCTest)
 import XCTest

@@ -1,17 +1,11 @@
-//
-//  UIViewExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/5/16.
-//  Copyright © 2016 SwifterSwift
-//
+// UIViewExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - enums
-public extension UIView {
 
+public extension UIView {
     /// SwifterSwift: Shake directions of a view.
     ///
     /// - horizontal: Shake left and right.
@@ -55,12 +49,11 @@ public extension UIView {
         /// SwifterSwift: easeInOut animation.
         case easeInOut
     }
-
 }
 
 // MARK: - Properties
-public extension UIView {
 
+public extension UIView {
     /// SwifterSwift: Border color of view; also inspectable from Storyboard.
     @IBInspectable var borderColor: UIColor? {
         get {
@@ -235,8 +228,8 @@ public extension UIView {
 }
 
 // MARK: - Methods
-public extension UIView {
 
+public extension UIView {
     /// SwifterSwift: Recursively find the first responder.
     func firstResponder() -> UIView? {
         var views = [UIView](arrayLiteral: self)
@@ -278,7 +271,11 @@ public extension UIView {
     ///   - radius: shadow radius (default is 3).
     ///   - offset: shadow offset (default is .zero).
     ///   - opacity: shadow opacity (default is 0.5). It will also be affected by the `alpha` of `backgroundColor`
-    func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+    func addShadow(
+        ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0),
+        radius: CGFloat = 3,
+        offset: CGSize = .zero,
+        opacity: Float = 0.5) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
@@ -347,7 +344,7 @@ public extension UIView {
 
     /// SwifterSwift: Remove all subviews in view.
     func removeSubviews() {
-        subviews.forEach({ $0.removeFromSuperview() })
+        subviews.forEach { $0.removeFromSuperview() }
     }
 
     /// SwifterSwift: Remove all gesture recognizers from view.
@@ -381,7 +378,12 @@ public extension UIView {
     ///   - animated: set true to animate rotation (default is true).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func rotate(byAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    func rotate(
+        byAngle angle: CGFloat,
+        ofType type: AngleUnit,
+        animated: Bool = false,
+        duration: TimeInterval = 1,
+        completion: ((Bool) -> Void)? = nil) {
         let angleWithType = (type == .degrees) ? .pi * angle / 180.0 : angle
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
@@ -397,7 +399,12 @@ public extension UIView {
     ///   - animated: set true to animate rotation (default is false).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    func rotate(
+        toAngle angle: CGFloat,
+        ofType type: AngleUnit,
+        animated: Bool = false,
+        duration: TimeInterval = 1,
+        completion: ((Bool) -> Void)? = nil) {
         let angleWithType = (type == .degrees) ? .pi * angle / 180.0 : angle
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, animations: {
@@ -412,7 +419,11 @@ public extension UIView {
     ///   - animated: set true to animate scaling (default is false).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func scale(by offset: CGPoint, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+    func scale(
+        by offset: CGPoint,
+        animated: Bool = false,
+        duration: TimeInterval = 1,
+        completion: ((Bool) -> Void)? = nil) {
         if animated {
             UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
                 self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
@@ -430,7 +441,11 @@ public extension UIView {
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - animationType: shake animation type (default is .easeOut).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut, completion:(() -> Void)? = nil) {
+    func shake(
+        direction: ShakeDirection = .horizontal,
+        duration: TimeInterval = 1,
+        animationType: ShakeAnimationType = .easeOut,
+        completion: (() -> Void)? = nil) {
         CATransaction.begin()
         let animation: CAKeyframeAnimation
         switch direction {
@@ -451,7 +466,7 @@ public extension UIView {
         }
         CATransaction.setCompletionBlock(completion)
         animation.duration = duration
-        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0]
         layer.add(animation, forKey: "shake")
         CATransaction.commit()
     }
@@ -469,7 +484,11 @@ public extension UIView {
             view.translatesAutoresizingMaskIntoConstraints = false
             viewsDictionary[key] = view
         }
-        addConstraints(NSLayoutConstraint.constraints(withVisualFormat: withFormat, options: NSLayoutConstraint.FormatOptions(), metrics: nil, views: viewsDictionary))
+        addConstraints(NSLayoutConstraint.constraints(
+            withVisualFormat: withFormat,
+            options: NSLayoutConstraint.FormatOptions(),
+            metrics: nil,
+            views: viewsDictionary))
     }
 
     /// SwifterSwift: Anchor all sides of the view into it's superview.
@@ -542,7 +561,7 @@ public extension UIView {
             anchors.append(heightAnchor.constraint(equalToConstant: heightConstant))
         }
 
-        anchors.forEach({$0.isActive = true})
+        anchors.forEach { $0.isActive = true }
 
         return anchors
     }
@@ -592,12 +611,13 @@ public extension UIView {
     /// SwifterSwift: Search all superviews until a view with this class is found.
     ///
     /// - Parameter name: class of the view to search.
-    func ancestorView<T: UIView>(withClass name: T.Type) -> T? {
+    func ancestorView<T: UIView>(withClass _: T.Type) -> T? {
         return ancestorView(where: { $0 is T }) as? T
     }
 }
 
 // MARK: - Constraints
+
 public extension UIView {
     /// SwifterSwift: Search constraints until we find one for the given view
     /// and attribute. This will enumerate ancestors since constraints are
@@ -609,7 +629,7 @@ public extension UIView {
     func findConstraint(attribute: NSLayoutConstraint.Attribute, for view: UIView) -> NSLayoutConstraint? {
         let constraint = constraints.first {
             ($0.firstAttribute == attribute && $0.firstItem as? UIView == view) ||
-            ($0.secondAttribute == attribute && $0.secondItem as? UIView == view)
+                ($0.secondAttribute == attribute && $0.secondItem as? UIView == view)
         }
         return constraint ?? superview?.findConstraint(attribute: attribute, for: view)
     }

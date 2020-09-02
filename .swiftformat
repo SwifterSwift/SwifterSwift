@@ -1,0 +1,11 @@
+--closingparen same-line
+--commas inline
+--disable redundantReturn,wrapMultilineStatementBraces
+--exclude Examples
+--guardelse same-line
+--header "{file} - Copyright {year} SwifterSwift"
+--ifdef no-indent
+--importgrouping testable-top
+--nospaceoperators ..<,...
+--maxwidth 120
+--swiftversion 5.2

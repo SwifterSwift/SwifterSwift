@@ -1,19 +1,12 @@
-//
-//  SCNConeExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 06.04.19.
-//  Copyright © 2019 SwifterSwift
-//
+// SCNConeExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(SceneKit)
 import SceneKit
 
 final class SCNConeExtensionsTests: XCTestCase {
-
     func testInitWithDiameter() {
         let cone = SCNCone(topDiameter: 10, bottomDiameter: 10, height: 20)
         XCTAssertEqual(cone.boundingSize, SCNVector3(10, 20, 10))
@@ -44,7 +37,6 @@ final class SCNConeExtensionsTests: XCTestCase {
         XCTAssertEqual(cone.boundingSize, SCNVector3(10, 20, 10))
         XCTAssertEqual(cone.materials[0].diffuse.contents as? Color, color)
     }
-
 }
 
 #endif

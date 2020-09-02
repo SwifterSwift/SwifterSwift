@@ -1,13 +1,7 @@
-//
-//  UIImageExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 3/22/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UIImageExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit)
 import UIKit
@@ -24,7 +18,7 @@ final class UIImageExtensionsTests: XCTestCase {
         let renderer = UIGraphicsImageRenderer(size: size)
         let yellow = renderer.image {
             var rect = CGRect(x: 0, y: 0, width: size.width / 2, height: size.height)
-            for color in [ UIColor.red, UIColor.green ] {
+            for color in [UIColor.red, UIColor.green] {
                 $0.cgContext.beginPath()
                 $0.cgContext.setFillColor(color.cgColor)
                 $0.cgContext.addRect(rect)
@@ -36,14 +30,14 @@ final class UIImageExtensionsTests: XCTestCase {
     }
 
     func testBytesSize() {
-        let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+        let bundle = Bundle(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
         XCTAssertEqual(image.bytesSize, 68665)
         XCTAssertEqual(UIImage().bytesSize, 0)
     }
 
     func testKilobytesSize() {
-        let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+        let bundle = Bundle(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
         XCTAssertEqual(image.kilobytesSize, 67)
     }
@@ -59,7 +53,7 @@ final class UIImageExtensionsTests: XCTestCase {
     }
 
     func testCompressed() {
-        let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+        let bundle = Bundle(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
         let originalSize = image.kilobytesSize
         let compressedImage = image.compressed(quality: 0.2)
@@ -109,7 +103,7 @@ final class UIImageExtensionsTests: XCTestCase {
     }
 
     func testScaledToHeight() {
-        let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+        let bundle = Bundle(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
 
         let scaledImage = image.scaled(toHeight: 300)
@@ -118,7 +112,7 @@ final class UIImageExtensionsTests: XCTestCase {
     }
 
     func testScaledToWidth() {
-        let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+        let bundle = Bundle(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
 
         let scaledImage = image.scaled(toWidth: 300)
@@ -128,7 +122,7 @@ final class UIImageExtensionsTests: XCTestCase {
 
     @available(tvOS 10.0, watchOS 3.0, *)
     func testRotatedByMeasurement() {
-        let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+        let bundle = Bundle(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
 
         let halfRotatedImage = image.rotated(by: Measurement(value: 90, unit: .degrees))
@@ -142,7 +136,7 @@ final class UIImageExtensionsTests: XCTestCase {
     }
 
     func testRotatedByRadians() {
-        let bundle = Bundle.init(for: UIImageExtensionsTests.self)
+        let bundle = Bundle(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
 
         let halfRotatedImage = image.rotated(by: .pi / 2)
@@ -170,7 +164,8 @@ final class UIImageExtensionsTests: XCTestCase {
     }
 
     func testBase64() {
-        let base64String = "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAE0lEQVR42mP8v5JhEwMaYKSBIADNAwvIr8dhZAAAAABJRU5ErkJggg=="
+        let base64String =
+            "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAE0lEQVR42mP8v5JhEwMaYKSBIADNAwvIr8dhZAAAAABJRU5ErkJggg=="
         let image = UIImage(base64String: base64String)
         XCTAssertNotNil(image)
 
@@ -187,8 +182,8 @@ final class UIImageExtensionsTests: XCTestCase {
     }
 
     func testURL() {
-        let bundle = Bundle.init(for: UIImageExtensionsTests.self)
-        guard let swifterSwiftLogo = bundle.url(forResource: "TestImage", withExtension: "png") else { XCTAssert(false, "Swifter Swift Test Image not available, or url is no longer valid."); return}
+        let bundle = Bundle(for: UIImageExtensionsTests.self)
+        guard let swifterSwiftLogo = bundle.url(forResource: "TestImage", withExtension: "png") else { XCTAssert(false, "Swifter Swift Test Image not available, or url is no longer valid."); return }
         let image = try? UIImage(url: swifterSwiftLogo)
         XCTAssertNotNil(image)
 
@@ -236,14 +231,17 @@ final class UIImageExtensionsTests: XCTestCase {
 
     func testPNGBase64String() {
         let image = UIImage(color: .blue, size: CGSize(width: 1, height: 1))
-        XCTAssertEqual(image.pngBase64String(), "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAAD5Ip3+AAAADUlEQVQIHWNgYPj/HwADAgH/p+FUpQAAAABJRU5ErkJggg==")
+        XCTAssertEqual(
+            image.pngBase64String(),
+            "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAAD5Ip3+AAAADUlEQVQIHWNgYPj/HwADAgH/p+FUpQAAAABJRU5ErkJggg==")
     }
 
     func testJPEGBase64String() {
         let image = UIImage(color: .blue, size: CGSize(width: 1, height: 1))
-        XCTAssertEqual(image.jpegBase64String(compressionQuality: 1), "/9j/4AAQSkZJRgABAQAASABIAAD/4QBYRXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAIdpAAQAAAABAAAAJgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAAQABAwERAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/bAEMBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/dAAQAAf/aAAwDAQACEQMRAD8A/jnr/v4P5XP/2Q==")
+        XCTAssertEqual(
+            image.jpegBase64String(compressionQuality: 1),
+            "/9j/4AAQSkZJRgABAQAASABIAAD/4QBYRXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAIdpAAQAAAABAAAAJgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgAAQABAwERAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/bAEMBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/dAAQAAf/aAAwDAQACEQMRAD8A/jnr/v4P5XP/2Q==")
     }
-
 }
 
 #endif

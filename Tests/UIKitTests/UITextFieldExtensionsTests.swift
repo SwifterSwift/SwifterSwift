@@ -1,19 +1,12 @@
-//
-//  UITextFieldExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 2/15/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UITextFieldExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 final class UITextFieldExtensionsTests: XCTestCase {
-
     func testIsEmpty() {
         let textField = UITextField()
         XCTAssert(textField.isEmpty)
@@ -54,7 +47,6 @@ final class UITextFieldExtensionsTests: XCTestCase {
         tf3.textType = .generic
         XCTAssertEqual(tf3.textType, .generic)
         XCTAssertFalse(tf3.isSecureTextEntry)
-
     }
 
     func testHasValidEmail() {
@@ -124,7 +116,10 @@ final class UITextFieldExtensionsTests: XCTestCase {
 
         textField.placeholder = nil
         textField.setPlaceHolderTextColor(.yellow)
-        let emptyColor = textField.attributedPlaceholder?.attribute(.foregroundColor, at: 0, effectiveRange: nil) as? UIColor
+        let emptyColor = textField.attributedPlaceholder?.attribute(
+            .foregroundColor,
+            at: 0,
+            effectiveRange: nil) as? UIColor
         XCTAssertNil(emptyColor)
     }
 

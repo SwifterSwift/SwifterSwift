@@ -1,10 +1,4 @@
-//
-//  NSAttributedStringExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 26/11/2016.
-//  Copyright © 2016 SwifterSwift
-//
+// NSAttributedStringExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -18,8 +12,8 @@ import AppKit
 #endif
 
 // MARK: - Properties
-public extension NSAttributedString {
 
+public extension NSAttributedString {
     #if os(iOS)
     /// SwifterSwift: Bolded string.
     var bolded: NSAttributedString {
@@ -51,16 +45,15 @@ public extension NSAttributedString {
     #if !os(Linux)
     /// SwifterSwift: Dictionary of the attributes applied across the whole string
     var attributes: [NSAttributedString.Key: Any] {
-        guard self.length > 0 else { return [:] }
+        guard length > 0 else { return [:] }
         return attributes(at: 0, effectiveRange: nil)
     }
     #endif
-
 }
 
 // MARK: - Methods
-public extension NSAttributedString {
 
+public extension NSAttributedString {
     #if !os(Linux)
     /// SwifterSwift: Applies given attributes to the new instance of NSAttributedString initialized with self object
     ///
@@ -114,18 +107,18 @@ public extension NSAttributedString {
     ///   - attributes: Dictionary of attributes
     ///   - target: a subsequence string for the attributes to be applied to
     /// - Returns: An NSAttributedString with attributes applied on the target string
-    func applying<T: StringProtocol>(attributes: [NSAttributedString.Key: Any], toOccurrencesOf target: T) -> NSAttributedString {
+    func applying<T: StringProtocol>(attributes: [NSAttributedString.Key: Any],
+                                     toOccurrencesOf target: T) -> NSAttributedString {
         let pattern = "\\Q\(target)\\E"
 
         return applying(attributes: attributes, toRangesMatching: pattern)
     }
     #endif
-
 }
 
 // MARK: - Operators
-public extension NSAttributedString {
 
+public extension NSAttributedString {
     /// SwifterSwift: Add a NSAttributedString to another NSAttributedString.
     ///
     /// - Parameters:
@@ -167,7 +160,6 @@ public extension NSAttributedString {
     static func + (lhs: NSAttributedString, rhs: String) -> NSAttributedString {
         return lhs + NSAttributedString(string: rhs)
     }
-
 }
 
 #endif

@@ -1,19 +1,12 @@
-//
-//  DispatchQueueExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Quentin Jin on 2018/10/13.
-//  Copyright © 2018 SwifterSwift
-//
+// DispatchQueueExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(Dispatch)
 import Dispatch
 
 final class DispatchQueueExtensionsTests: XCTestCase {
-
     func testIsMainQueue() {
         let expect = expectation(description: "isMainQueue")
         let group = DispatchGroup()
@@ -86,7 +79,6 @@ final class DispatchQueueExtensionsTests: XCTestCase {
             XCTAssertEqual(value, 1, "Value was incremented more once")
         }
     }
-
 }
 
 #endif

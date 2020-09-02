@@ -1,18 +1,12 @@
-//
-//  SignedNumberExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 8/15/17.
-//  Copyright © 2017 SwifterSwift
-//
+// SignedNumericExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 #endif
 
 // MARK: - Properties
-public extension SignedNumeric {
 
+public extension SignedNumeric {
     /// SwifterSwift: String.
     var string: String {
         return String(describing: self)
@@ -28,12 +22,11 @@ public extension SignedNumeric {
         return formatter.string(from: self as! NSNumber)
     }
     #endif
-
 }
 
 // MARK: - Methods
-public extension SignedNumeric {
 
+public extension SignedNumeric {
     #if canImport(Foundation)
     /// SwifterSwift: Spelled out representation of a number.
     ///
@@ -50,5 +43,4 @@ public extension SignedNumeric {
         return formatter.string(from: number)
     }
     #endif
-
 }

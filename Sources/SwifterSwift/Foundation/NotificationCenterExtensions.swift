@@ -1,16 +1,9 @@
-//
-//  NotificationCenterExtensions.swift
-//  SwifterSwift
-//
-//  Created by Guy Kogus on 6/3/20.
-//  Copyright © 2020 SwifterSwift
-//
+// NotificationCenterExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 
 public extension NotificationCenter {
-
     /// SwifterSwift: Adds a one-time entry to the notification center's dispatch table that includes a notification queue and a block to add to the queue, and an optional notification name and sender.
     /// - Parameters:
     ///   - name: The name of the notification for which to register the observer; that is, only notifications with this name are used to add the block to the operation queue.
@@ -38,7 +31,6 @@ public extension NotificationCenter {
             block($0)
         }
     }
-
 }
 
 #endif

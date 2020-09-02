@@ -1,17 +1,11 @@
-//
-//  UserDefaultsExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 9/5/17.
-//  Copyright © 2017 SwifterSwift
-//
+// UserDefaultsExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation) && !os(Linux)
 import Foundation
 
 // MARK: - Methods
-public extension UserDefaults {
 
+public extension UserDefaults {
     /// SwifterSwift: get object from UserDefaults by using subscript
     ///
     /// - Parameter key: key in the current user's defaults database.
@@ -62,7 +56,6 @@ public extension UserDefaults {
         let data = try? encoder.encode(object)
         set(data, forKey: key)
     }
-
 }
 
 #endif

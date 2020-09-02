@@ -1,16 +1,9 @@
-//
-//  NSRegularExpressionExtensions.swift
-//  SwifterSwift
-//
-//  Created by Guy Kogus on 09/10/2019.
-//  Copyright © 2019 SwifterSwift
-//
+// NSRegularExpressionExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
 
 public extension NSRegularExpression {
-
     /// SwifterSwift: Enumerates the string allowing the Block to handle each regular expression match.
     ///
     /// - Parameters:
@@ -29,30 +22,34 @@ public extension NSRegularExpression {
     func enumerateMatches(in string: String,
                           options: MatchingOptions = [],
                           range: Range<String.Index>,
-                          using block: @escaping (_ result: NSTextCheckingResult?, _ flags: MatchingFlags, _ stop: inout Bool) -> Void) {
+                          using block: @escaping (
+                              _ result: NSTextCheckingResult?,
+                              _ flags: MatchingFlags,
+                              _ stop: inout Bool) -> Void) {
         enumerateMatches(in: string,
                          options: options,
                          range: NSRange(range, in: string)) { result, flags, stop in
-                            var shouldStop = false
-                            block(result, flags, &shouldStop)
-                            if shouldStop {
-                                stop.pointee = true
-                            }
+                var shouldStop = false
+                block(result, flags, &shouldStop)
+                if shouldStop {
+                    stop.pointee = true
+                }
         }
     }
     #else
     func enumerateMatches(in string: String,
                           options: MatchingOptions = [],
                           range: Range<String.Index>,
-                          using block: (_ result: NSTextCheckingResult?, _ flags: MatchingFlags, _ stop: inout Bool) -> Void) {
+                          using block: (_ result: NSTextCheckingResult?, _ flags: MatchingFlags, _ stop: inout Bool)
+                              -> Void) {
         enumerateMatches(in: string,
                          options: options,
                          range: NSRange(range, in: string)) { result, flags, stop in
-                            var shouldStop = false
-                            block(result, flags, &shouldStop)
-                            if shouldStop {
-                                stop.pointee = true
-                            }
+                var shouldStop = false
+                block(result, flags, &shouldStop)
+                if shouldStop {
+                    stop.pointee = true
+                }
         }
     }
     #endif
@@ -157,7 +154,6 @@ public extension NSRegularExpression {
         string = mutableString.copy() as! String // swiftlint:disable:this force_cast
         return matches
     }
-
 }
 
 #endif

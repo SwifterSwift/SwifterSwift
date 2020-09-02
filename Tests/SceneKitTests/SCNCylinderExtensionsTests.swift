@@ -1,19 +1,12 @@
-//
-//  SCNCylinderExtensionsTests.swift
-//  SwifterSwift
-//
-//  Created by Max Härtwig on 06.04.19.
-//  Copyright © 2019 SwifterSwift
-//
+// SCNCylinderExtensionsTests.swift - Copyright 2020 SwifterSwift
 
-import XCTest
 @testable import SwifterSwift
+import XCTest
 
 #if canImport(SceneKit)
 import SceneKit
 
 final class SCNCylinderExtensionsTests: XCTestCase {
-
     func testInitWithDiameter() {
         let cylinder = SCNCylinder(diameter: 10, height: 20)
         XCTAssertEqual(cylinder.boundingSize, SCNVector3(10, 20, 10))
@@ -44,7 +37,6 @@ final class SCNCylinderExtensionsTests: XCTestCase {
         XCTAssertEqual(cylinder.boundingSize, SCNVector3(10, 20, 10))
         XCTAssertEqual(cylinder.materials[0].diffuse.contents as? Color, color)
     }
-
 }
 
 #endif

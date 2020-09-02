@@ -1,17 +1,11 @@
-//
-//  UILabelExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 9/23/16.
-//  Copyright © 2016 SwifterSwift
-//
+// UILabelExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Methods
-public extension UILabel {
 
+public extension UILabel {
     /// SwifterSwift: Initialize a UILabel with text
     convenience init(text: String?) {
         self.init()
@@ -40,7 +34,6 @@ public extension UILabel {
         label.sizeToFit()
         return label.frame.height
     }
-
 }
 
 #endif

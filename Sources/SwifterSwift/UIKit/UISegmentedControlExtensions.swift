@@ -1,17 +1,11 @@
-//
-//  UISegmentedControlExtensions.swift
-//  SwifterSwift
-//
-//  Created by Omar Albeik on 9/28/16.
-//  Copyright © 2016 SwifterSwift
-//
+// UISegmentedControlExtensions.swift - Copyright 2020 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 // MARK: - Properties
-public extension UISegmentedControl {
 
+public extension UISegmentedControl {
     /// SwifterSwift: Segments titles.
     var segmentTitles: [String] {
         get {
@@ -39,7 +33,6 @@ public extension UISegmentedControl {
             }
         }
     }
-
 }
 
 #endif
