@@ -31,7 +31,7 @@ public extension NSAttributedString {
             pointSize = font.pointSize
         } else {
             #if os(tvOS) || os(watchOS)
-            pointSize = Font.preferredFont(forTextStyle: .body).pointSize
+            pointSize = Font.preferredFont(forTextStyle: .headline).pointSize
             #else
             pointSize = Font.systemFontSize
             #endif
@@ -56,7 +56,7 @@ public extension NSAttributedString {
             pointSize = font.pointSize
         } else {
             #if os(tvOS) || os(watchOS)
-            pointSize = UIFont.preferredFont(forTextStyle: .body).pointSize
+            pointSize = UIFont.preferredFont(forTextStyle: .headline).pointSize
             #else
             pointSize = UIFont.systemFontSize
             #endif
