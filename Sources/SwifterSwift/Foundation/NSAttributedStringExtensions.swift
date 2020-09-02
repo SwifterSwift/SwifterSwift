@@ -23,6 +23,7 @@ public extension NSAttributedString {
     #endif
 
     /// SwifterSwift: Bolded string.
+    #if !os(Linux)
     var bolded: NSAttributedString {
         let pointSize: CGFloat
         if !string.isEmpty,
@@ -37,6 +38,7 @@ public extension NSAttributedString {
         }
         return applying(attributes: [.font: Font.boldSystemFont(ofSize: pointSize)])
     }
+    #endif
 
     #if !os(Linux)
     /// SwifterSwift: Underlined string.

@@ -17,8 +17,10 @@ private typealias Font = NSFont
 // swiftlint:disable:next type_body_length
 final class NSAttributedStringExtensionsTests: XCTestCase {
     func testBolded() {
+        #if !os(Linux)
         let attributes = NSAttributedString(string: "Bolded").bolded.attributes
         XCTAssertEqual((attributes[.font] as? Font)?.fontName, Font.boldSystemFont(ofSize: 1).fontName)
+        #endif
     }
 
     func testUnderlined() {
