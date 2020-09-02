@@ -6,6 +6,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Breaking Change
 - **UIView**
   - Rename `shadowColor`, `shadowOffset`, `shadowOpacity` and `shadowRadius` to `layerShadowColor`, `layerShadowOffset`, `layerShadowOpacity` and `layerShadowRadius` to avoid naming colisions with subclasses properties defined in other modules e.g. UIKit. [#897](https://github.com/SwifterSwift/SwifterSwift/pull/897) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+
 ### Added
 - **UIScrollView**
   - Added `visibleRect`, `scrollToTop(animated:)`, `scrollToLeft(animated:)`, `scrollToBottom(animated:)`, `scrollToRight(animated:)`, `scrollUp(animated:)`, `scrollLeft(animated:)`, `scrollDown(animated:)`, `scrollRight(animated:)`. [#888](https://github.com/SwifterSwift/SwifterSwift/pull/888) by [guykogus](https://github.com/guykogus)
@@ -46,6 +47,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Changed
 - **NSAttributedString**:
+  - `bolded` maintains font size and works on all platforms except Linux. `italicized` maintains font size and works on all platforms except Linux and macOS. [#900](https://github.com/SwifterSwift/SwifterSwift/pull/900) by [guykogus](https://github.com/guykogus)
   - `applying(attributes:)` changed access modifier from `fileprivate` to `public`. [#832](https://github.com/SwifterSwift/SwifterSwift/pull/832) by [cHaLkdusT](https://github.com/cHaLkdusT)
 - **Color**:
   - Refactored `init(light:dark:)` to remove deployment target version restrictions. [#844](https://github.com/SwifterSwift/SwifterSwift/pull/844) by [VincentSit](https://github.com/vincentsit).
