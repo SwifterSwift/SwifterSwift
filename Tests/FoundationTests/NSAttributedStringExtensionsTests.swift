@@ -18,8 +18,11 @@ private typealias Font = NSFont
 final class NSAttributedStringExtensionsTests: XCTestCase {
     func testBolded() {
         #if !os(Linux)
-        let attributes = NSAttributedString(string: "Bolded").bolded.attributes
-        XCTAssertEqual((attributes[.font] as? Font)?.fontName, Font.boldSystemFont(ofSize: 1).fontName)
+        let unsizedAttributes = NSAttributedString(string: "Bolded").bolded.attributes
+        XCTAssertEqual((unsizedAttributes[.font] as? Font)?.fontName, Font.boldSystemFont(ofSize: 1).fontName)
+
+        let sizedAttributes = NSAttributedString(string: "Bolded", attributes: [.font: Font.systemFont(ofSize: 12)]).bolded.attributes
+        XCTAssertEqual((sizedAttributes[.font] as? Font), Font.boldSystemFont(ofSize: 12))
         #endif
     }
 
@@ -32,8 +35,11 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
     func testItalicized() {
         #if canImport(UIKit)
-        let attributes = NSAttributedString(string: "Italicized").italicized.attributes
-        XCTAssertEqual((attributes[.font] as? UIFont)?.fontName, UIFont.italicSystemFont(ofSize: 1).fontName)
+        let unsizedAttributes = NSAttributedString(string: "Italicized").italicized.attributes
+        XCTAssertEqual((unsizedAttributes[.font] as? UIFont)?.fontName, UIFont.italicSystemFont(ofSize: 1).fontName)
+
+        let sizedAttributes = NSAttributedString(string: "Italicized", attributes: [.font: Font.systemFont(ofSize: 12)]).italicized.attributes
+        XCTAssertEqual((sizedAttributes[.font] as? UIFont), UIFont.italicSystemFont(ofSize: 12))
         #endif
     }
 
