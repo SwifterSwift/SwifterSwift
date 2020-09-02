@@ -15,11 +15,28 @@ import AppKit
 
 public extension NSAttributedString {
     #if canImport(UIKit)
+    private typealias Font = UIFont
+    #endif
+
+    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
+    private typealias Font = NSFont
+    #endif
+
     /// SwifterSwift: Bolded string.
     var bolded: NSAttributedString {
-        return applying(attributes: [.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        let pointSize: CGFloat
+        if !string.isEmpty,
+            let font = attribute(.font, at: 0, effectiveRange: nil) as? Font {
+            pointSize = font.pointSize
+        } else {
+            #if os(tvOS)
+            pointSize = Font.preferredFont(forTextStyle: .body).pointSize
+            #else
+            pointSize = Font.systemFontSize
+            #endif
+        }
+        return applying(attributes: [.font: Font.boldSystemFont(ofSize: pointSize)])
     }
-    #endif
 
     #if !os(Linux)
     /// SwifterSwift: Underlined string.
@@ -31,7 +48,18 @@ public extension NSAttributedString {
     #if canImport(UIKit)
     /// SwifterSwift: Italicized string.
     var italicized: NSAttributedString {
-        return applying(attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        let pointSize: CGFloat
+        if !string.isEmpty,
+            let font = attribute(.font, at: 0, effectiveRange: nil) as? UIFont {
+            pointSize = font.pointSize
+        } else {
+            #if os(tvOS)
+            pointSize = UIFont.preferredFont(forTextStyle: .body).pointSize
+            #else
+            pointSize = UIFont.systemFontSize
+            #endif
+        }
+        return applying(attributes: [.font: UIFont.italicSystemFont(ofSize: pointSize)])
     }
     #endif
 
