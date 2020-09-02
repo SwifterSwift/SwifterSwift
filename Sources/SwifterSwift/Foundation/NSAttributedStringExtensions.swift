@@ -30,7 +30,7 @@ public extension NSAttributedString {
             let font = attribute(.font, at: 0, effectiveRange: nil) as? Font {
             pointSize = font.pointSize
         } else {
-            #if os(tvOS)
+            #if os(tvOS) || os(watchOS)
             pointSize = Font.preferredFont(forTextStyle: .body).pointSize
             #else
             pointSize = Font.systemFontSize
@@ -55,7 +55,7 @@ public extension NSAttributedString {
             let font = attribute(.font, at: 0, effectiveRange: nil) as? UIFont {
             pointSize = font.pointSize
         } else {
-            #if os(tvOS)
+            #if os(tvOS) || os(watchOS)
             pointSize = UIFont.preferredFont(forTextStyle: .body).pointSize
             #else
             pointSize = UIFont.systemFontSize
