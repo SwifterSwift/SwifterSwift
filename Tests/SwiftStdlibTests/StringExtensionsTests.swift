@@ -568,19 +568,17 @@ final class StringExtensionsTests: XCTestCase {
     let emailPattern = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
 
     func testPatternMatches() {
-        XCTAssert("123".matches(pattern: "\\d{3}"))
+        XCTAssertTrue("123".matches(pattern: "\\d{3}"))
         XCTAssertFalse("dasda".matches(pattern: "\\d{3}"))
         XCTAssertFalse("notanemail.com".matches(pattern: emailPattern))
-        XCTAssert("email@mail.com".matches(pattern: emailPattern))
+        XCTAssertTrue("email@mail.com".matches(pattern: emailPattern))
     }
 
-    func testRegexMatches() {
-        // swiftlint:disable force_try
-        XCTAssert("123".matches(regex: try! NSRegularExpression(pattern: "\\d{3}")))
-        XCTAssertFalse("dasda".matches(regex: try! NSRegularExpression(pattern: "\\d{3}")))
-        XCTAssertFalse("notanemail.com".matches(regex: try! NSRegularExpression(pattern: emailPattern)))
-        XCTAssert("email@mail.com".matches(regex: try! NSRegularExpression(pattern: emailPattern)))
-        // swiftlint:enable force_try
+    func testRegexMatches() throws {
+        XCTAssertTrue("123".matches(regex: try NSRegularExpression(pattern: "\\d{3}")))
+        XCTAssertFalse("dasda".matches(regex: try NSRegularExpression(pattern: "\\d{3}")))
+        XCTAssertFalse("notanemail.com".matches(regex: try NSRegularExpression(pattern: emailPattern)))
+        XCTAssertTrue("email@mail.com".matches(regex: try NSRegularExpression(pattern: emailPattern)))
     }
 
     #if canImport(Foundation)
@@ -596,9 +594,8 @@ final class StringExtensionsTests: XCTestCase {
     }
     #endif
 
-    func testRegexMatchOperator() {
-        // swiftlint:disable:next force_try
-        let regex = try! NSRegularExpression(pattern: "\\d{3}")
+    func testRegexMatchOperator() throws {
+        let regex = try NSRegularExpression(pattern: "\\d{3}")
         XCTAssert("123" ~= regex)
         XCTAssertFalse("abc" ~= regex)
     }
@@ -880,29 +877,32 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testReplacingOccurrencesPattern() {
+        XCTAssertEqual("", "".replacingOccurrences(of: "empty", with: "case"))
+
         let string = "hello"
         XCTAssertEqual("hello", string.replacingOccurrences(of: "not", with: "found"))
         XCTAssertEqual("hexo", string.replacingOccurrences(of: "l+", with: "x"))
         XCTAssertEqual("hellxo", string.replacingOccurrences(of: "(ll)", with: "$1x"))
 
-        let range = string.startIndex..<string.index(string.startIndex, offsetBy: 3)
-        XCTAssertEqual("hexlo", string.replacingOccurrences(of: "l", with: "x", range: range))
+        let range1 = string.startIndex..<string.index(string.startIndex, offsetBy: 3)
+        XCTAssertEqual("hexlo", string.replacingOccurrences(of: "l", with: "x", range: range1))
     }
 
-    func testReplacingOccurrencesRegex() {
-        // swiftlint:disable force_try
+    func testReplacingOccurrencesRegex() throws {
+        let re1 = try NSRegularExpression(pattern: "empty")
+        XCTAssertEqual("", "".replacingOccurrences(of: re1, with: "case"))
+
         let string = "hello"
 
-        let re1 = try! NSRegularExpression(pattern: "not")
-        XCTAssertEqual("hello", string.replacingOccurrences(of: re1, with: "found"))
-        let re2 = try! NSRegularExpression(pattern: "l+")
-        XCTAssertEqual("hexo", string.replacingOccurrences(of: re2, with: "x"))
-        let re3 = try! NSRegularExpression(pattern: "(ll)")
-        XCTAssertEqual("hellxo", string.replacingOccurrences(of: re3, with: "$1x"))
+        let re2 = try NSRegularExpression(pattern: "not")
+        XCTAssertEqual("hello", string.replacingOccurrences(of: re2, with: "found"))
+        let re3 = try NSRegularExpression(pattern: "l+")
+        XCTAssertEqual("hexo", string.replacingOccurrences(of: re3, with: "x"))
+        let re4 = try NSRegularExpression(pattern: "(ll)")
+        XCTAssertEqual("hellxo", string.replacingOccurrences(of: re4, with: "$1x"))
 
-        let re4 = try! NSRegularExpression(pattern: "l")
+        let re5 = try NSRegularExpression(pattern: "l")
         let range = string.startIndex..<string.index(string.startIndex, offsetBy: 3)
-        XCTAssertEqual("hexlo", string.replacingOccurrences(of: re4, with: "x", range: range))
-        // swiftlint:enable force_try
+        XCTAssertEqual("hexlo", string.replacingOccurrences(of: re5, with: "x", range: range))
     }
 }

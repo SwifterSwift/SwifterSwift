@@ -971,10 +971,11 @@ public extension String {
     /// SwifterSwift: Verify if string matches the regex.
     ///
     /// - Parameter regex: Regex to verify.
+    /// - Parameter options: The matching options to use.
     /// - Returns: true if string matches the regex.
-    func matches(regex: NSRegularExpression) -> Bool {
+    func matches(regex: NSRegularExpression, options: NSRegularExpression.MatchingOptions = []) -> Bool {
         let range = NSRange(location: 0, length: utf16.count)
-        return regex.firstMatch(in: self, options: [], range: range) != nil
+        return regex.firstMatch(in: self, options: options, range: range) != nil
     }
     #endif
 
