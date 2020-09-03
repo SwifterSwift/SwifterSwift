@@ -968,6 +968,17 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
+    /// SwifterSwift: Verify if string matches the regex.
+    ///
+    /// - Parameter regex: Regex to verify.
+    /// - Returns: true if string matches the regex.
+    func matches(regex: NSRegularExpression) -> Bool {
+        let range = NSRange(location: 0, length: utf16.count)
+        return regex.firstMatch(in: self, options: [], range: range) != nil
+    }
+    #endif
+
+    #if canImport(Foundation)
     /// SwifterSwift: Overload Swift's 'contains' operator for matching regex pattern
     ///
     /// - Parameter lhs: String to check on regex pattern.
@@ -975,6 +986,50 @@ public extension String {
     /// - Returns: true if string matches the pattern.
     static func ~= (lhs: String, rhs: String) -> Bool {
         return lhs.range(of: rhs, options: .regularExpression) != nil
+    }
+    #endif
+
+    #if canImport(Foundation)
+    /// SwifterSwift: Overload Swift's 'contains' operator for matching regex
+    ///
+    /// - Parameter lhs: String to check on regex.
+    /// - Parameter rhs: Regex to match against.
+    /// - Returns: true if string matches the regex.
+    static func ~= (lhs: String, rhs: NSRegularExpression) -> Bool {
+        let range = NSRange(location: 0, length: lhs.utf16.count)
+        return rhs.firstMatch(in: lhs, options: [], range: range) != nil
+    }
+    #endif
+
+    #if canImport(Foundation)
+    /// SwifterSwift: Returns a new string in which all occurrences of a regex pattern in a specified range of the receiver are replaced by the template.
+    /// - Parameter pattern: Regex pattern to replace.
+    /// - Parameter template: The regex template to replace the pattern.
+    /// - Parameter searchRange: The range in the receiver in which to search.
+    /// - Returns: A new string in which all occurrences of regex pattern in searchRange of the receiver are replaced by template.
+    func replacingOccurrences(of pattern: String, with template: String,
+                              range searchRange: Range<String.Index>? = nil) -> String {
+        return replacingOccurrences(of: pattern, with: template, options: .regularExpression, range: searchRange)
+    }
+    #endif
+
+    #if canImport(Foundation)
+    /// SwifterSwift: Returns a new string in which all occurrences of a regex in a specified range of the receiver are replaced by the template.
+    /// - Parameter regex: Regex to replace.
+    /// - Parameter template: The template to replace the regex.
+    /// - Parameter searchRange: The range in the receiver in which to search.
+    /// - Returns: A new string in which all occurrences of regex in searchRange of the receiver are replaced by template.
+    func replacingOccurrences(
+        of regex: NSRegularExpression,
+        with template: String,
+        range searchRange: Range<String.Index>? = nil) -> String {
+        let range: NSRange
+        if let searchRange = searchRange {
+            range = NSRange(searchRange, in: self)
+        } else {
+            range = NSRange(location: 0, length: utf16.count)
+        }
+        return regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: template)
     }
     #endif
 
