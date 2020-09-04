@@ -6,6 +6,11 @@ import XCTest
 final class CollectionExtensionsTests: XCTestCase {
     let collection = [1, 2, 3, 4, 5]
 
+    func testFullRange() {
+        XCTAssertEqual(collection.fullRange, 0..<5)
+        XCTAssertEqual([].fullRange, 0..<0)
+    }
+
     func testForEachInParallel() {
         let expectation = XCTestExpectation(description: "forEachInParallel")
 

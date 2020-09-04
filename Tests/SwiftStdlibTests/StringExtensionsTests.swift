@@ -5,7 +5,8 @@ import XCTest
 
 // swiftlint:disable:next type_body_length
 final class StringExtensionsTests: XCTestCase {
-    var helloWorld = "Hello World!"
+    let helloWorld = "Hello World!"
+    let flower = "💐" // for testing multi-byte characters
 
     override func setUp() {
         super.setUp()
@@ -793,6 +794,12 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("Hello".nsString, NSString(string: "Hello"))
     }
 
+    func testFullNSRange() {
+        XCTAssertEqual("".fullNSRange, NSRange(location: 0, length: 0))
+        XCTAssertEqual(helloWorld.fullNSRange, NSRange(location: 0, length: 12))
+        XCTAssertEqual(flower.fullNSRange, NSRange(location: 0, length: 2))
+    }
+
     func testLastPathComponent() {
         let string = "hello"
         let nsString = NSString(string: "hello")
@@ -821,6 +828,34 @@ final class StringExtensionsTests: XCTestCase {
         let string = "hello"
         let nsString = NSString(string: "hello")
         XCTAssertEqual(string.pathComponents, nsString.pathComponents)
+    }
+
+    func testRange() {
+        let fullRange = helloWorld.range(from: NSRange(location: 0, length: 12))
+        XCTAssertEqual(String(helloWorld[fullRange]), helloWorld)
+
+        let range = helloWorld.range(from: NSRange(location: 6, length: 6))
+        XCTAssertEqual(helloWorld[range], "World!")
+
+        let emptyRange = helloWorld.range(from: NSRange(location: 0, length: 0))
+        XCTAssertEqual(helloWorld[emptyRange], "")
+
+        let flowerRange = flower.range(from: NSRange(location: 0, length: 2))
+        XCTAssertEqual(String(flower[flowerRange]), flower)
+    }
+
+    func testNSRange() {
+        let startIndex = helloWorld.startIndex
+        let endIndex = helloWorld.endIndex
+        XCTAssertEqual(helloWorld.nsRange(from: startIndex..<endIndex), NSRange(location: 0, length: 12))
+
+        XCTAssertEqual(
+            helloWorld.nsRange(from: helloWorld.index(startIndex, offsetBy: 6)..<endIndex),
+            NSRange(location: 6, length: 6))
+
+        XCTAssertEqual(helloWorld.nsRange(from: startIndex..<startIndex), NSRange(location: 0, length: 0))
+
+        XCTAssertEqual(flower.nsRange(from: flower.startIndex..<flower.endIndex), NSRange(location: 0, length: 2))
     }
 
     func testAppendingPathComponent() {
@@ -859,5 +894,12 @@ final class StringExtensionsTests: XCTestCase {
         let num = 12
         XCTAssertNotNil(num.ordinalString())
         XCTAssertEqual(num.ordinalString(), "12th")
+    }
+
+    func testNSRangeSubscript() {
+        XCTAssertEqual(helloWorld[nsRange: NSRange(location: 0, length: 0)], "")
+        XCTAssertEqual(String(helloWorld[nsRange: NSRange(location: 0, length: 12)]), helloWorld)
+        XCTAssertEqual(String(helloWorld[nsRange: NSRange(location: 6, length: 6)]), "World!")
+        XCTAssertEqual(String(flower[nsRange: NSRange(location: 0, length: 2)]), flower)
     }
 }
