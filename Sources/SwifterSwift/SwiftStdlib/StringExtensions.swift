@@ -1024,12 +1024,7 @@ public extension String {
         of regex: NSRegularExpression,
         with template: String,
         range searchRange: Range<String.Index>? = nil) -> String {
-        let range: NSRange
-        if let searchRange = searchRange {
-            range = NSRange(searchRange, in: self)
-        } else {
-            range = NSRange(location: 0, length: utf16.count)
-        }
+        let range =NSRange(searchRange ?? startIndex..<endIndex, in: self)
         return regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: template)
     }
     #endif
