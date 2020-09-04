@@ -974,7 +974,7 @@ public extension String {
     /// - Parameter options: The matching options to use.
     /// - Returns: true if string matches the regex.
     func matches(regex: NSRegularExpression, options: NSRegularExpression.MatchingOptions = []) -> Bool {
-        let range = NSRange(location: 0, length: utf16.count)
+        let range = NSRange(startIndex..<endIndex, in: self)
         return regex.firstMatch(in: self, options: options, range: range) != nil
     }
     #endif
