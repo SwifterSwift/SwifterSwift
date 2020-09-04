@@ -22,7 +22,7 @@ public extension NSAttributedString {
     private typealias Font = NSFont
     #endif
 
-    /// SwifterSwift: Bolded string.
+    /// SwifterSwift: Bolded string using the system font.
     #if !os(Linux)
     var bolded: NSAttributedString {
         let pointSize: CGFloat
@@ -48,7 +48,7 @@ public extension NSAttributedString {
     #endif
 
     #if canImport(UIKit)
-    /// SwifterSwift: Italicized string.
+    /// SwifterSwift: Italicized string using the system font.
     var italicized: NSAttributedString {
         let pointSize: CGFloat
         if !string.isEmpty,
