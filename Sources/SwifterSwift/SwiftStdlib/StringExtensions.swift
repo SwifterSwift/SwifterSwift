@@ -961,7 +961,7 @@ public extension String {
     /// SwifterSwift: Verify if string matches the regex pattern.
     ///
     /// - Parameter pattern: Pattern to verify.
-    /// - Returns: true if string matches the pattern.
+    /// - Returns: `true` if string matches the pattern.
     func matches(pattern: String) -> Bool {
         return range(of: pattern, options: .regularExpression, range: nil, locale: nil) != nil
     }
@@ -997,7 +997,7 @@ public extension String {
     /// - Parameter rhs: Regex to match against.
     /// - Returns: `true` if there is at least one match for the regex in the string.
     static func ~= (lhs: String, rhs: NSRegularExpression) -> Bool {
-        let range = NSRange(startIndex..<endIndex, in: self)
+        let range = NSRange(lhs.startIndex..<lhs.endIndex, in: lhs)
         return rhs.firstMatch(in: lhs, range: range) != nil
     }
     #endif
@@ -1024,7 +1024,7 @@ public extension String {
         of regex: NSRegularExpression,
         with template: String,
         range searchRange: Range<String.Index>? = nil) -> String {
-        let range =NSRange(searchRange ?? startIndex..<endIndex, in: self)
+        let range = NSRange(searchRange ?? startIndex..<endIndex, in: self)
         return regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: template)
     }
     #endif
