@@ -997,7 +997,7 @@ public extension String {
     /// - Parameter rhs: Regex to match against.
     /// - Returns: `true` if there is at least one match for the regex in the string.
     static func ~= (lhs: String, rhs: NSRegularExpression) -> Bool {
-        let range = NSRange(location: 0, length: lhs.utf16.count)
+        let range = NSRange(startIndex..<endIndex, in: self)
         return rhs.firstMatch(in: lhs, range: range) != nil
     }
     #endif
