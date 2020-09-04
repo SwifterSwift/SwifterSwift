@@ -4,6 +4,13 @@
 import Dispatch
 #endif
 
+// MARK: - Properties
+
+public extension Collection {
+    /// SwifterSwift: The full range of the collection.
+    var fullRange: Range<Index> { startIndex..<endIndex }
+}
+
 // MARK: - Methods
 
 public extension Collection {
