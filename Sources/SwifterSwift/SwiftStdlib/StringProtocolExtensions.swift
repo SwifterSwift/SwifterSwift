@@ -37,7 +37,6 @@ public extension StringProtocol {
         assert(
             options.isStrictSubset(of: [.regularExpression, .anchored, .caseInsensitive]),
             "Invalid options for regular expression replacement")
-        print(options.union(.regularExpression))
         return replacingOccurrences(
             of: pattern,
             with: template,

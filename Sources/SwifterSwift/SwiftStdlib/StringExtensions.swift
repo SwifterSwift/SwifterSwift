@@ -1006,14 +1006,16 @@ public extension String {
     /// SwifterSwift: Returns a new string in which all occurrences of a regex in a specified range of the receiver are replaced by the template.
     /// - Parameter regex: Regex to replace.
     /// - Parameter template: The template to replace the regex.
+    /// - Parameter options: The matching options to use
     /// - Parameter searchRange: The range in the receiver in which to search.
     /// - Returns: A new string in which all occurrences of regex in searchRange of the receiver are replaced by template.
     func replacingOccurrences(
         of regex: NSRegularExpression,
         with template: String,
+        options: NSRegularExpression.MatchingOptions = [],
         range searchRange: Range<String.Index>? = nil) -> String {
         let range = NSRange(searchRange ?? startIndex..<endIndex, in: self)
-        return regex.stringByReplacingMatches(in: self, options: [], range: range, withTemplate: template)
+        return regex.stringByReplacingMatches(in: self, options: options, range: range, withTemplate: template)
     }
     #endif
 

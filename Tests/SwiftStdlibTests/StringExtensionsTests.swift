@@ -889,8 +889,12 @@ final class StringExtensionsTests: XCTestCase {
         let re4 = try NSRegularExpression(pattern: "(ll)")
         XCTAssertEqual("hellxo", string.replacingOccurrences(of: re4, with: "$1x"))
 
-        let re5 = try NSRegularExpression(pattern: "l")
+        let re5 = try NSRegularExpression(pattern: "ell")
+        let options: NSRegularExpression.MatchingOptions = [.anchored]
+        XCTAssertEqual("hello", string.replacingOccurrences(of: re5, with: "not found", options: options))
+
+        let re6 = try NSRegularExpression(pattern: "l")
         let range = string.startIndex..<string.index(string.startIndex, offsetBy: 3)
-        XCTAssertEqual("hexlo", string.replacingOccurrences(of: re5, with: "x", range: range))
+        XCTAssertEqual("hexlo", string.replacingOccurrences(of: re6, with: "x", range: range))
     }
 }
