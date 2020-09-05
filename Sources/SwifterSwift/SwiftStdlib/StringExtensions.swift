@@ -1003,18 +1003,6 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Returns a new string in which all occurrences of a regex pattern in a specified range of the receiver are replaced by the template.
-    /// - Parameter pattern: Regex pattern to replace.
-    /// - Parameter template: The regex template to replace the pattern.
-    /// - Parameter searchRange: The range in the receiver in which to search.
-    /// - Returns: A new string in which all occurrences of regex pattern in searchRange of the receiver are replaced by template.
-    func replacingOccurrences(of pattern: String, with template: String,
-                              range searchRange: Range<String.Index>? = nil) -> String {
-        return replacingOccurrences(of: pattern, with: template, options: .regularExpression, range: searchRange)
-    }
-    #endif
-
-    #if canImport(Foundation)
     /// SwifterSwift: Returns a new string in which all occurrences of a regex in a specified range of the receiver are replaced by the template.
     /// - Parameter regex: Regex to replace.
     /// - Parameter template: The template to replace the regex.

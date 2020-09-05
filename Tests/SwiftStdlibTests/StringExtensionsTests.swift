@@ -876,18 +876,6 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(num.ordinalString(), "12th")
     }
 
-    func testReplacingOccurrencesPattern() {
-        XCTAssertEqual("", "".replacingOccurrences(of: "empty", with: "case"))
-
-        let string = "hello"
-        XCTAssertEqual("hello", string.replacingOccurrences(of: "not", with: "found"))
-        XCTAssertEqual("hexo", string.replacingOccurrences(of: "l+", with: "x"))
-        XCTAssertEqual("hellxo", string.replacingOccurrences(of: "(ll)", with: "$1x"))
-
-        let range1 = string.startIndex..<string.index(string.startIndex, offsetBy: 3)
-        XCTAssertEqual("hexlo", string.replacingOccurrences(of: "l", with: "x", range: range1))
-    }
-
     func testReplacingOccurrencesRegex() throws {
         let re1 = try NSRegularExpression(pattern: "empty")
         XCTAssertEqual("", "".replacingOccurrences(of: re1, with: "case"))
