@@ -25,9 +25,10 @@ public extension NSAttributedString {
     /// SwifterSwift: Bolded string using the system font.
     #if !os(Linux)
     var bolded: NSAttributedString {
+        guard !string.isEmpty else { return self }
+
         let pointSize: CGFloat
-        if !string.isEmpty,
-            let font = attribute(.font, at: 0, effectiveRange: nil) as? Font {
+        if let font = attribute(.font, at: 0, effectiveRange: nil) as? Font {
             pointSize = font.pointSize
         } else {
             #if os(tvOS) || os(watchOS)
@@ -50,9 +51,10 @@ public extension NSAttributedString {
     #if canImport(UIKit)
     /// SwifterSwift: Italicized string using the system font.
     var italicized: NSAttributedString {
+        guard !string.isEmpty else { return self }
+
         let pointSize: CGFloat
-        if !string.isEmpty,
-            let font = attribute(.font, at: 0, effectiveRange: nil) as? UIFont {
+        if let font = attribute(.font, at: 0, effectiveRange: nil) as? UIFont {
             pointSize = font.pointSize
         } else {
             #if os(tvOS) || os(watchOS)
@@ -87,6 +89,8 @@ public extension NSAttributedString {
     /// - Parameter attributes: Dictionary of attributes
     /// - Returns: NSAttributedString with applied attributes
     func applying(attributes: [Key: Any]) -> NSAttributedString {
+        guard !string.isEmpty else { return self }
+
         let copy = NSMutableAttributedString(attributedString: self)
         copy.addAttributes(attributes, range: NSRange(0..<length))
         return copy
