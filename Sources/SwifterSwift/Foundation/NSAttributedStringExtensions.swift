@@ -14,14 +14,6 @@ import AppKit
 // MARK: - Properties
 
 public extension NSAttributedString {
-    #if canImport(UIKit)
-    private typealias Font = UIFont
-    #endif
-
-    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
-    private typealias Font = NSFont
-    #endif
-
     /// SwifterSwift: Bolded string using the system font.
     #if !os(Linux)
     var bolded: NSAttributedString {
