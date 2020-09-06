@@ -19,7 +19,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIViewController**:
   - Added `instantiate(from:bundle:identifier:)` function to `UIViewController` to make it easier to instantiate it from storyboard. [#860](https://github.com/SwifterSwift/SwifterSwift/pull/860) by [VatoKo](https://github.com/VatoKo)
 - **String**:
-  - Added `fullNSRange`, `range(from:)` and `nsRange(from:)` for converting between `Range<String.Index>` and `NSRange`. [#902](https://github.com/SwifterSwift/SwifterSwift/pull/902) by [guykogus](https://github.com/guykogus)
+  - Added `fullNSRange`, `range(from:)`, `nsRange(from:)` and `subscript` for converting between `Range<String.Index>` and `NSRange`. [#902](https://github.com/SwifterSwift/SwifterSwift/pull/902) by [guykogus](https://github.com/guykogus)
   - Overloaded Swift's 'contains' operator (`~=`) for `String` to check regex matching. [#858](https://github.com/SwifterSwift/SwifterSwift/pull/858) by [VatoKo](https://github.com/VatoKo)
   - `regexEscaped`, which returns an escaped string for inclusion in a regex pattern
 - **DispatchQueue**:

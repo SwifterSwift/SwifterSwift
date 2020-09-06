@@ -1286,7 +1286,7 @@ public extension String {
     /// SwifterSwift: Accesses a contiguous subrange of the collection’s elements.
     /// - Parameter nsRange: A range of the collection’s indices. The bounds of the range must be valid indices of the collection.
     /// - Returns: A slice of the receiving string.
-    subscript(nsRange bounds: NSRange) -> Substring {
+    subscript(bounds: NSRange) -> Substring {
         guard let range = Range(bounds, in: self) else { fatalError("Failed to find range \(bounds) in \(self)") }
         return self[range]
     }

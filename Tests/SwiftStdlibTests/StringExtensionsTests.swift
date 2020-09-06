@@ -897,9 +897,9 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testNSRangeSubscript() {
-        XCTAssertEqual(helloWorld[nsRange: NSRange(location: 0, length: 0)], "")
-        XCTAssertEqual(String(helloWorld[nsRange: NSRange(location: 0, length: 12)]), helloWorld)
-        XCTAssertEqual(String(helloWorld[nsRange: NSRange(location: 6, length: 6)]), "World!")
-        XCTAssertEqual(String(flower[nsRange: NSRange(location: 0, length: 2)]), flower)
+        XCTAssertEqual(helloWorld[NSRange(location: 0, length: 0)], "")
+        XCTAssertEqual(String(helloWorld[NSRange(location: 0, length: 12)]), helloWorld)
+        XCTAssertEqual(String(helloWorld[NSRange(location: 6, length: 6)]), "World!")
+        XCTAssertEqual(String(flower[NSRange(location: 0, length: 2)]), flower)
     }
 }
