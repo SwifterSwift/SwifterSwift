@@ -20,4 +20,28 @@ public extension StringProtocol {
             .map { (lhs: Character, _: Character) in lhs }
             .reversed())
     }
+
+    #if canImport(Foundation)
+    /// SwifterSwift: Returns a new string in which all occurrences of a regex pattern in a specified range of the receiver are replaced by the template.
+    /// - Parameter ofPattern: Regex pattern to replace.
+    /// - Parameter template: The regex template to replace the pattern.
+    /// - Parameter options: Options to use when matching the regex. Only .regularExpression, .anchored .and caseInsensitive are supported.
+    /// - Parameter searchRange: The range in the receiver in which to search.
+    /// - Returns: A new string in which all occurrences of regex pattern in searchRange of the receiver are replaced by template.
+    func replacingOccurrences<Target, Replacement>(
+        ofPattern pattern: Target,
+        withTemplate template: Replacement,
+        options: String.CompareOptions = [.regularExpression],
+        range searchRange: Range<Self.Index>? = nil) -> String where Target: StringProtocol,
+        Replacement: StringProtocol {
+        assert(
+            options.isStrictSubset(of: [.regularExpression, .anchored, .caseInsensitive]),
+            "Invalid options for regular expression replacement")
+        return replacingOccurrences(
+            of: pattern,
+            with: template,
+            options: options.union(.regularExpression),
+            range: searchRange)
+    }
+    #endif
 }
