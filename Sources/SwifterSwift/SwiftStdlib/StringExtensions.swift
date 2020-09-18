@@ -1168,14 +1168,6 @@ public extension String {
 // MARK: - NSAttributedString
 
 public extension String {
-    #if canImport(UIKit)
-    private typealias Font = UIFont
-    #endif
-
-    #if canImport(AppKit) && !targetEnvironment(macCatalyst)
-    private typealias Font = NSFont
-    #endif
-
     #if os(iOS) || os(macOS)
     /// SwifterSwift: Bold string.
     var bold: NSAttributedString {
