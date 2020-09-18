@@ -437,7 +437,7 @@ public extension String {
     /// SwifterSwift: Check if the given string spelled correctly
     var isSpelledCorrectly: Bool {
         let checker = UITextChecker()
-        let range = NSRange(location: 0, length: utf16.count)
+        let range = NSRange(startIndex..<endIndex, in: self)
 
         let misspelledRange = checker.rangeOfMisspelledWord(
             in: self,
@@ -1255,6 +1255,9 @@ public extension String {
         return NSString(string: self)
     }
 
+    /// SwifterSwift: The full `NSRange` of the string.
+    var fullNSRange: NSRange { NSRange(startIndex..<endIndex, in: self) }
+
     /// SwifterSwift: NSString lastPathComponent.
     var lastPathComponent: String {
         return (self as NSString).lastPathComponent
@@ -1280,6 +1283,21 @@ public extension String {
         return (self as NSString).pathComponents
     }
 
+    /// SwifterSwift: Convert an `NSRange` into `Range<String.Index>`.
+    /// - Parameter nsRange: The `NSRange` within the receiver.
+    /// - Returns: The equivalent `Range<String.Index>` of `nsRange` found within the receiving string.
+    func range(from nsRange: NSRange) -> Range<Index> {
+        guard let range = Range(nsRange, in: self) else { fatalError("Failed to find range \(nsRange) in \(self)") }
+        return range
+    }
+
+    /// SwifterSwift: Convert a `Range<String.Index>` into `NSRange`.
+    /// - Parameter range: The `Range<String.Index>` within the receiver.
+    /// - Returns: The equivalent `NSRange` of `range` found within the receiving string.
+    func nsRange(from range: Range<Index>) -> NSRange {
+        return NSRange(range, in: self)
+    }
+
     /// SwifterSwift: NSString appendingPathComponent(str: String)
     ///
     /// - Note: This method only works with file paths (not, for example, string representations of URLs.
@@ -1296,6 +1314,14 @@ public extension String {
     /// - Returns: a new string made by appending to the receiver an extension separator followed by ext (if applicable).
     func appendingPathExtension(_ str: String) -> String? {
         return (self as NSString).appendingPathExtension(str)
+    }
+
+    /// SwifterSwift: Accesses a contiguous subrange of the collection’s elements.
+    /// - Parameter nsRange: A range of the collection’s indices. The bounds of the range must be valid indices of the collection.
+    /// - Returns: A slice of the receiving string.
+    subscript(bounds: NSRange) -> Substring {
+        guard let range = Range(bounds, in: self) else { fatalError("Failed to find range \(bounds) in \(self)") }
+        return self[range]
     }
 }
 
