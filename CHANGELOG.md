@@ -74,6 +74,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Fixed a bug: When the length of a string is 0, calling truncated method will crash. [#866](https://github.com/SwifterSwift/SwifterSwift/pull/866) by [phil zhang](https://github.com/philCc)
 - **UITextField**
   - Fixed a bug:UITextField `addPaddingLeftIcon` doesn't work on iOS 13[#876](https://github.com/SwifterSwift/SwifterSwift/issues/876) by [Jayxiang](https://github.com/Jayxiang)
+- **UIImage**
+  - Fixed a bug:UIImage `rotated(by:)` lose origin scale, result in image blurred[#904](https://github.com/SwifterSwift/SwifterSwift/pull/904) by [yanpanpan](https://github.com/yanpanpan)
 
 ### Security
 
