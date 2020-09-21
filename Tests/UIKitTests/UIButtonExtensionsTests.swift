@@ -149,6 +149,7 @@ final class UIButtonExtensionsTests: XCTestCase {
         let image = UIImage(color: .green, size: CGSize(width: 10, height: 10))
         button.setTitleForAllStates("Title")
         button.setImageForAllStates(image)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
 
         XCTAssertNotNil(button.imageView)
         XCTAssertNotNil(button.titleLabel)

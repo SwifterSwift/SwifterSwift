@@ -179,7 +179,7 @@ public extension UIButton {
                 let imageSize = imageView?.image?.size,
                 let text = titleLabel?.text,
                 let font = titleLabel?.font else { return }
-            
+
             let titleSize = text.size(withAttributes: [.font: font])
             let titleOffset = -(imageSize.height + spacing)
             let imageOffset = -(titleSize.height + spacing)
