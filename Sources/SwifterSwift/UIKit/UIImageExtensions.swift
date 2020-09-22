@@ -169,7 +169,7 @@ public extension UIImage {
                                      width: destRect.width.rounded(),
                                      height: destRect.height.rounded())
 
-        UIGraphicsBeginImageContextWithOptions(roundedDestRect.size, /*opaque=*/false, scale)
+        UIGraphicsBeginImageContextWithOptions(roundedDestRect.size, false, scale)
         guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
 
         contextRef.translateBy(x: roundedDestRect.width / 2, y: roundedDestRect.height / 2)
