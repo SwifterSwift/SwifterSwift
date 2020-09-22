@@ -29,7 +29,7 @@ public extension UIAlertController {
             #endif
         }
     }
-
+    
     /// SwifterSwift: Add an action to Alert
     ///
     /// - Parameters:
@@ -49,7 +49,7 @@ public extension UIAlertController {
         addAction(action)
         return action
     }
-
+    
     /// SwifterSwift: Add a text field to Alert
     ///
     /// - Parameters:
@@ -94,7 +94,7 @@ public extension UIAlertController {
             view.tintColor = color
         }
     }
-
+    
     /// SwifterSwift: Create new error alert view controller from Error with default OK action.
     ///
     /// - Parameters:
@@ -115,6 +115,26 @@ public extension UIAlertController {
             view.tintColor = color
         }
     }
+    
+    /// SwifterSwift: Create new error alert view controller from LocalizedError with default OK action.
+    ///
+    /// - Parameters:
+    ///   - title: alert controller's title (default is "Error").
+    ///   - message: error to set alert controller's message to it's recoverySuggestion.
+ 
+    convenience init(localizedError: LocalizedError) {
+        let title = localizedError.errorDescription
+        let message = localizedError.recoverySuggestion
+        
+        self.init(title: title,
+                  message:message,
+                  preferredStyle:.alert)
+    }
 }
+
+
+
+
+
 
 #endif
