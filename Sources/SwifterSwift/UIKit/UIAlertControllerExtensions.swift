@@ -131,10 +131,4 @@ public extension UIAlertController {
                   preferredStyle:.alert)
     }
 }
-
-
-
-
-
-
 #endif

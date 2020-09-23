@@ -211,5 +211,4 @@ final class UIViewControllerExtensionsTests: XCTestCase {
     }
     #endif
 }
-
 #endif

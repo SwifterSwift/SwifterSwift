@@ -96,29 +96,21 @@ final class UIAlertControllerExtensionsTests: XCTestCase {
     }
     
     func testLocalizeErrorAlert() {
-        
-        let alert = UIAlertController(localizedError: CustomError.netWorkError)
+        enum CustomError: Error, LocalizedError {
+            case networkError
+            var errorDescription: String? {
+                return "Wrong URL"
+            }
+            var recoverySuggestion: String? {
+                return "Make sure you don't make any typo"
+            }
+        }
+        let networkError = CustomError.networkError
+        let alert = UIAlertController(localizedError: networkError)
         XCTAssertNotNil(alert)
         
         XCTAssertEqual(alert.title, "Wrong URL")
         XCTAssertEqual(alert.message, "Make sure you don't make any typo")
     }
-
-    
 }
-
-    enum CustomError: Error {
-        case netWorkError
-    }
-
-    extension CustomError: LocalizedError {
-        var errorDescription: String? {
-            return "Wrong URL"
-        }
-    
-    var recoverySuggestion: String? {
-        return "Make sure you don't make any typo"
-        }
-    }
-
 #endif
