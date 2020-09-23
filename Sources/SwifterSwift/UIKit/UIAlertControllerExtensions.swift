@@ -121,7 +121,6 @@ public extension UIAlertController {
     /// - Parameters:
     ///   - title: alert controller's title (default is "Error").
     ///   - message: error to set alert controller's message to it's recoverySuggestion.
- 
     convenience init(localizedError: LocalizedError) {
         let title = localizedError.errorDescription
         let message = localizedError.recoverySuggestion
@@ -131,4 +130,5 @@ public extension UIAlertController {
                   preferredStyle:.alert)
     }
 }
+
 #endif

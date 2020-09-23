@@ -61,11 +61,10 @@ final class UIAlertControllerExtensionsTests: XCTestCase {
         XCTAssertEqual(alertController.title, "Title")
         XCTAssertEqual(alertController.message, "Message")
         XCTAssertEqual(alertController.view.tintColor, .blue)
-        
         XCTAssertEqual(alertController.actions.count, 1)
         
         let defaultAction = alertController.actions.first
-        
+
         XCTAssertEqual(defaultAction?.title, "Ok")
         XCTAssertEqual(defaultAction?.style, .default)
     }
@@ -86,7 +85,6 @@ final class UIAlertControllerExtensionsTests: XCTestCase {
         XCTAssertEqual(alertController.title, "Title")
         XCTAssertEqual(alertController.message, error.localizedDescription)
         XCTAssertEqual(alertController.view.tintColor, .red)
-        
         XCTAssertEqual(alertController.actions.count, 1)
         
         let defaultAction = alertController.actions.first
@@ -107,10 +105,11 @@ final class UIAlertControllerExtensionsTests: XCTestCase {
         }
         let networkError = CustomError.networkError
         let alert = UIAlertController(localizedError: networkError)
+
         XCTAssertNotNil(alert)
-        
         XCTAssertEqual(alert.title, "Wrong URL")
         XCTAssertEqual(alert.message, "Make sure you don't make any typo")
     }
 }
+
 #endif
