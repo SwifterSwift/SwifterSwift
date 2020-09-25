@@ -14,10 +14,22 @@ import AppKit
 // MARK: - Properties
 
 public extension NSAttributedString {
-    #if os(iOS)
-    /// SwifterSwift: Bolded string.
+    /// SwifterSwift: Bolded string using the system font.
+    #if !os(Linux)
     var bolded: NSAttributedString {
-        return applying(attributes: [.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+        guard !string.isEmpty else { return self }
+
+        let pointSize: CGFloat
+        if let font = attribute(.font, at: 0, effectiveRange: nil) as? Font {
+            pointSize = font.pointSize
+        } else {
+            #if os(tvOS) || os(watchOS)
+            pointSize = Font.preferredFont(forTextStyle: .headline).pointSize
+            #else
+            pointSize = Font.systemFontSize
+            #endif
+        }
+        return applying(attributes: [.font: Font.boldSystemFont(ofSize: pointSize)])
     }
     #endif
 
@@ -28,45 +40,53 @@ public extension NSAttributedString {
     }
     #endif
 
-    #if os(iOS)
-    /// SwifterSwift: Italicized string.
+    #if canImport(UIKit)
+    /// SwifterSwift: Italicized string using the system font.
     var italicized: NSAttributedString {
-        return applying(attributes: [.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        guard !string.isEmpty else { return self }
+
+        let pointSize: CGFloat
+        if let font = attribute(.font, at: 0, effectiveRange: nil) as? UIFont {
+            pointSize = font.pointSize
+        } else {
+            #if os(tvOS) || os(watchOS)
+            pointSize = UIFont.preferredFont(forTextStyle: .headline).pointSize
+            #else
+            pointSize = UIFont.systemFontSize
+            #endif
+        }
+        return applying(attributes: [.font: UIFont.italicSystemFont(ofSize: pointSize)])
     }
     #endif
 
     #if !os(Linux)
     /// SwifterSwift: Struckthrough string.
     var struckthrough: NSAttributedString {
-        return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
+        return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue)])
     }
     #endif
 
-    #if !os(Linux)
     /// SwifterSwift: Dictionary of the attributes applied across the whole string
-    var attributes: [NSAttributedString.Key: Any] {
+    var attributes: [Key: Any] {
         guard length > 0 else { return [:] }
         return attributes(at: 0, effectiveRange: nil)
     }
-    #endif
 }
 
 // MARK: - Methods
 
 public extension NSAttributedString {
-    #if !os(Linux)
     /// SwifterSwift: Applies given attributes to the new instance of NSAttributedString initialized with self object
     ///
     /// - Parameter attributes: Dictionary of attributes
     /// - Returns: NSAttributedString with applied attributes
-    func applying(attributes: [NSAttributedString.Key: Any]) -> NSAttributedString {
-        let copy = NSMutableAttributedString(attributedString: self)
-        let range = (string as NSString).range(of: string)
-        copy.addAttributes(attributes, range: range)
+    func applying(attributes: [Key: Any]) -> NSAttributedString {
+        guard !string.isEmpty else { return self }
 
+        let copy = NSMutableAttributedString(attributedString: self)
+        copy.addAttributes(attributes, range: NSRange(0..<length))
         return copy
     }
-    #endif
 
     #if canImport(AppKit) || canImport(UIKit)
     /// SwifterSwift: Add color to NSAttributedString.
@@ -78,7 +98,6 @@ public extension NSAttributedString {
     }
     #endif
 
-    #if !os(Linux)
     /// SwifterSwift: Apply attributes to substrings matching a regular expression
     ///
     /// - Parameters:
@@ -86,7 +105,7 @@ public extension NSAttributedString {
     ///   - pattern: a regular expression to target
     ///   - options: The regular expression options that are applied to the expression during matching. See NSRegularExpression.Options for possible values.
     /// - Returns: An NSAttributedString with attributes applied to substrings matching the pattern
-    func applying(attributes: [NSAttributedString.Key: Any],
+    func applying(attributes: [Key: Any],
                   toRangesMatching pattern: String,
                   options: NSRegularExpression.Options = []) -> NSAttributedString {
         guard let pattern = try? NSRegularExpression(pattern: pattern, options: options) else { return self }
@@ -107,13 +126,12 @@ public extension NSAttributedString {
     ///   - attributes: Dictionary of attributes
     ///   - target: a subsequence string for the attributes to be applied to
     /// - Returns: An NSAttributedString with attributes applied on the target string
-    func applying<T: StringProtocol>(attributes: [NSAttributedString.Key: Any],
+    func applying<T: StringProtocol>(attributes: [Key: Any],
                                      toOccurrencesOf target: T) -> NSAttributedString {
         let pattern = "\\Q\(target)\\E"
 
         return applying(attributes: attributes, toRangesMatching: pattern)
     }
-    #endif
 }
 
 // MARK: - Operators
