@@ -612,6 +612,10 @@
 		F87AA5DA24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */; };
 		F87AA5DB24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */; };
 		F87AA5DC24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */; };
+		F887E9392505AB87006CB4F7 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887E9382505AB87006CB4F7 /* FontExtensions.swift */; };
+		F887E93A2505AB87006CB4F7 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887E9382505AB87006CB4F7 /* FontExtensions.swift */; };
+		F887E93B2505AB87006CB4F7 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887E9382505AB87006CB4F7 /* FontExtensions.swift */; };
+		F887E93C2505AB87006CB4F7 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F887E9382505AB87006CB4F7 /* FontExtensions.swift */; };
 		F8885CF324D2ECB3009C33C0 /* WKWebViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985C1B922479795B008AAB0E /* WKWebViewExtensionsTests.swift */; };
 		F88C491924AF73A400BA0503 /* TestStoryboard-tvOS.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F88C491824AF73A400BA0503 /* TestStoryboard-tvOS.storyboard */; };
 		F899FE7A24D01A2400F3BDE5 /* XCTestExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E62DA324D0187000BF35AE /* XCTestExtensionsTests.swift */; };
@@ -883,6 +887,7 @@
 		F854D2BE2423EBD0003A08A9 /* CATransform3DExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATransform3DExtensionsTests.swift; sourceTree = "<group>"; };
 		F87AA5D4241257E3005F5B28 /* NotificationCenterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtensions.swift; sourceTree = "<group>"; };
 		F87AA5D924125C19005F5B28 /* NotificationCenterExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenterExtensionsTests.swift; sourceTree = "<group>"; };
+		F887E9382505AB87006CB4F7 /* FontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
 		F88C491824AF73A400BA0503 /* TestStoryboard-tvOS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "TestStoryboard-tvOS.storyboard"; sourceTree = "<group>"; };
 		F8A710E823BF3EF100112DAD /* EdgeInsetsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsExtensions.swift; sourceTree = "<group>"; };
 		F8A710ED23BF3F8200112DAD /* EdgeInsetsExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsExtensionsTests.swift; sourceTree = "<group>"; };
@@ -953,6 +958,7 @@
 			children = (
 				0726D7761F7C199E0028CAB5 /* ColorExtensions.swift */,
 				F8A710E823BF3EF100112DAD /* EdgeInsetsExtensions.swift */,
+				F887E9382505AB87006CB4F7 /* FontExtensions.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1687,7 +1693,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = SwifterSwift;
 				TargetAttributes = {
 					07898B5C1F278D7600558C97 = {
@@ -1973,6 +1979,7 @@
 				CF30948A216AAC7A005609BC /* UIActivityExtensions.swift in Sources */,
 				07B7F1981F5EB42000E6F910 /* UIImageViewExtensions.swift in Sources */,
 				42F53FEC2039C5AC0070DC11 /* UIStackViewExtensions.swift in Sources */,
+				F887E9392505AB87006CB4F7 /* FontExtensions.swift in Sources */,
 				7832C2AF209BB19300224EED /* ComparableExtensions.swift in Sources */,
 				664CB9762171899800FC87B4 /* BinaryFloatingPointExtensions.swift in Sources */,
 				074C8D81224F86450050F040 /* MKMapViewExtensions.swift in Sources */,
@@ -2143,6 +2150,7 @@
 				9D806A662258D75A008E500A /* SCNBoxExtensions.swift in Sources */,
 				0782A5B523DA98C900E562C0 /* CLLocationArrayExtensions.swift in Sources */,
 				9D806A422258B931008E500A /* SCNVector3Extensions.swift in Sources */,
+				F887E93A2505AB87006CB4F7 /* FontExtensions.swift in Sources */,
 				07B7F1B21F5EB42000E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				9D806A5C2258D2B8008E500A /* SCNMaterialExtensions.swift in Sources */,
 				9D806A872258F624008E500A /* SCNGeometryExtensions.swift in Sources */,
@@ -2167,6 +2175,7 @@
 				A9AEB78720283ACC0021AACF /* FileManagerExtensions.swift in Sources */,
 				C7E027C62360942000F1061E /* KeyedDecodingContainerExtensions.swift in Sources */,
 				9D806A432258B931008E500A /* SCNVector3Extensions.swift in Sources */,
+				F887E93B2505AB87006CB4F7 /* FontExtensions.swift in Sources */,
 				07A1C449224FFE17003272E4 /* UIApplicationExtensions.swift in Sources */,
 				0770035920729B040095F09A /* MKPolylineExtensions.swift in Sources */,
 				9D806A7B2258E6A0008E500A /* SCNCapsuleExtensions.swift in Sources */,
@@ -2293,6 +2302,7 @@
 				F854D2B72423E1F1003A08A9 /* CAGradientLayerExtensions.swift in Sources */,
 				9D806A4E2258CFF8008E500A /* SCNSphereExtensions.swift in Sources */,
 				07B7F1E21F5EB43B00E6F910 /* SignedIntegerExtensions.swift in Sources */,
+				F887E93C2505AB87006CB4F7 /* FontExtensions.swift in Sources */,
 				07B7F1E51F5EB43B00E6F910 /* URLExtensions.swift in Sources */,
 				077BA0921F6BE83600D9C4AC /* UserDefaultsExtensions.swift in Sources */,
 				07B7F1DF1F5EB43B00E6F910 /* IntExtensions.swift in Sources */,
@@ -2638,6 +2648,7 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -2674,6 +2685,7 @@
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
