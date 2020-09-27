@@ -236,7 +236,6 @@ public extension UIButton {
         let titleSize = text.size(withAttributes: [.font: font])
         
         let titleOffset = -(imageSize.height + spacing)
-
         titleEdgeInsets = UIEdgeInsets(top: titleOffset, left: -imageSize.width, bottom: 0.0, right: 0.0)
 
         let imageOffset = -(titleSize.height + spacing)
