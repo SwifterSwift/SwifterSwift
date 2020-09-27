@@ -49,6 +49,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `widthConstraint`, `heightConstraint`, `leadingConstraint`, `trailingConstraint`, `topConstraint`, and `bottomConstraint` for finding specific constraints. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous]
 - **StringProtocol**
   - Added `replacingOccurrences(ofPattern:withTemplate:options:searchRange:)` as a more convenient way to replace patterns. [#901](https://github.com/SwifterSwift/SwifterSwift/pull/901) by [gurgeous](https://github.com/gurgeous)
+- **UIButton**
+  - Added `setImageLeftText(spacing:)`, `setImageRightText(spacing:)`, `setImageAboveText(spacing:)`, `setImageBelowText(spacing:)` to set image and text spacing [#903](https://github.com/SwifterSwift/SwifterSwift/pull/903) by [Jayxiang](https://github.com/Jayxiang)
 
 ### Changed
 - **NSAttributedString**:
@@ -64,6 +66,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Deprecated
 - **Sequence**:
   - Marked `map(by:)`, `compactMap(by:)`, `filter(by:)` as deprecated in favor use of Key Path expressions as functions feature in Swift 5.2. [#862](https://github.com/SwifterSwift/SwifterSwift/pull/862) by [Roman Podymov](https://github.com/RomanPodymov).
+- **UIButton**
+  - Marked `centerTextAndImage(imageAboveText:spacing:)` as deprecated. [#903](https://github.com/SwifterSwift/SwifterSwift/pull/903) by [Jayxiang](https://github.com/Jayxiang).
 
 ### Removed
 - **UIDatePicker**
