@@ -144,7 +144,7 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(button.titleForSelected, title)
     }
 
-    func testCenterTextAndImage() {
+    func testSetImageLeftText() {
         let button = UIButton(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         let image = UIImage(color: .green, size: CGSize(width: 10, height: 10))
         button.setTitleForAllStates("Title")
@@ -157,36 +157,75 @@ final class UIButtonExtensionsTests: XCTestCase {
         let spacing: CGFloat = 20
 
         // Image on the left of text
-        button.centerTextAndImage(spacing: spacing)
-        var imageFrame = button.imageView!.frame
-        var titleFrame = button.titleLabel!.frame
+        button.setImageLeftText(spacing: spacing)
+        let imageFrame = button.imageView!.frame
+        let titleFrame = button.titleLabel!.frame
 
         XCTAssert(titleFrame.midX > imageFrame.midX)
         XCTAssertEqual(titleFrame.midY, imageFrame.midY, accuracy: 1.0)
         XCTAssertEqual(titleFrame.minX - spacing, imageFrame.maxX, accuracy: 1.0)
+    }
+
+    func testSetImageRightText() {
+        let button = UIButton(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let image = UIImage(color: .green, size: CGSize(width: 10, height: 10))
+        button.setTitleForAllStates("Title")
+        button.setImageForAllStates(image)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+
+        XCTAssertNotNil(button.imageView)
+        XCTAssertNotNil(button.titleLabel)
+
+        let spacing: CGFloat = 20
 
         // Image on the right of text
-        button.centerTextAndImage(imageRightText: true, spacing: spacing)
-        imageFrame = button.imageView!.frame
-        titleFrame = button.titleLabel!.frame
+        button.setImageRightText(spacing: spacing)
+        let imageFrame = button.imageView!.frame
+        let titleFrame = button.titleLabel!.frame
 
         XCTAssert(titleFrame.midX < imageFrame.midX)
         XCTAssertEqual(titleFrame.midY, imageFrame.midY, accuracy: 1.0)
         XCTAssertEqual(imageFrame.minX - spacing, titleFrame.maxX, accuracy: 1.0)
+    }
+
+    func testSetImageAboveText() {
+        let button = UIButton(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let image = UIImage(color: .green, size: CGSize(width: 10, height: 10))
+        button.setTitleForAllStates("Title")
+        button.setImageForAllStates(image)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+
+        XCTAssertNotNil(button.imageView)
+        XCTAssertNotNil(button.titleLabel)
+
+        let spacing: CGFloat = 20
 
         // Image above text
-        button.centerTextAndImage(imageAboveText: true, spacing: spacing)
-        imageFrame = button.imageView!.frame
-        titleFrame = button.titleLabel!.frame
+        button.setImageAboveText(spacing: spacing)
+        let imageFrame = button.imageView!.frame
+        let titleFrame = button.titleLabel!.frame
 
         XCTAssert(titleFrame.midY > imageFrame.midY)
         XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
         XCTAssertEqual(titleFrame.minY - spacing, imageFrame.maxY, accuracy: 1.0)
+    }
+
+    func testSetImageBelowText() {
+        let button = UIButton(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
+        let image = UIImage(color: .green, size: CGSize(width: 10, height: 10))
+        button.setTitleForAllStates("Title")
+        button.setImageForAllStates(image)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+
+        XCTAssertNotNil(button.imageView)
+        XCTAssertNotNil(button.titleLabel)
+
+        let spacing: CGFloat = 20
 
         // Image below text
-        button.centerTextAndImage(imageAboveText: true, imageRightText: true, spacing: spacing)
-        imageFrame = button.imageView!.frame
-        titleFrame = button.titleLabel!.frame
+        button.setImageBelowText(spacing: spacing)
+        let imageFrame = button.imageView!.frame
+        let titleFrame = button.titleLabel!.frame
 
         XCTAssert(titleFrame.midY < imageFrame.midY)
         XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)

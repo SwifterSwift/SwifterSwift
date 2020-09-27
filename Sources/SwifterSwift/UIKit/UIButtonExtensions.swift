@@ -167,56 +167,83 @@ public extension UIButton {
         states.forEach { setTitle(title, for: $0) }
     }
 
-    /// SwifterSwift: Center align title text and image
+    /// SwifterSwift: Set image on the left text's spacing
+    ///
     /// - Parameters:
-    ///   - imageAboveText: set true to make image above title text, default is false
-    ///   - imageRightText: set true to make image on right or below of text, default is false, image on left of text
     ///   - spacing: spacing between title text and image.
-    func centerTextAndImage(imageAboveText: Bool = false, imageRightText: Bool = false, spacing: CGFloat) {
-        if imageAboveText {
-            // https://stackoverflow.com/questions/2451223/#7199529
-            guard
-                let imageSize = imageView?.image?.size,
-                let text = titleLabel?.text,
-                let font = titleLabel?.font else { return }
+    func setImageLeftText(spacing: CGFloat) {
+        let insetAmount = spacing / 2
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
+    }
 
-            let titleSize = text.size(withAttributes: [.font: font])
-            let titleOffset = -(imageSize.height + spacing)
-            let imageOffset = -(titleSize.height + spacing)
-            let edgeOffset = abs(titleSize.height - imageSize.height) / 2.0
-            if imageRightText {
-                titleEdgeInsets = UIEdgeInsets(top: titleOffset, left: -imageSize.width, bottom: 0.0, right: 0.0)
-                imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: imageOffset, right: -titleSize.width)
-                contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0.0, bottom: edgeOffset, right: 0.0)
-            } else {
-                titleEdgeInsets = UIEdgeInsets(top: 0.0, left: -imageSize.width, bottom: titleOffset, right: 0.0)
-                imageEdgeInsets = UIEdgeInsets(top: imageOffset, left: 0.0, bottom: 0.0, right: -titleSize.width)
-                contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0.0, bottom: edgeOffset, right: 0.0)
-            }
-        } else {
-            if imageRightText {
-                guard
-                    let imageSize = imageView?.image?.size,
-                    let text = titleLabel?.text,
-                    let font = titleLabel?.font else { return }
+    /// SwifterSwift: Set image on the right text
+    ///
+    /// - Parameters:
+    ///   - spacing: spacing between title text and image.
+    func setImageRightText(spacing: CGFloat) {
+        // https://stackoverflow.com/questions/2451223/#7199529
+        guard
+            let imageSize = imageView?.image?.size,
+            let text = titleLabel?.text,
+            let font = titleLabel?.font else { return }
 
-                let titleSize = text.size(withAttributes: [.font: font])
+        let titleSize = text.size(withAttributes: [.font: font])
 
-                let titleOffset = -(imageSize.width + spacing / 2)
-                titleEdgeInsets = UIEdgeInsets(top: 0, left: titleOffset, bottom: 0, right: -titleOffset)
-                
-                let imageOffset = -(titleSize.width + spacing / 2)
-                imageEdgeInsets = UIEdgeInsets(top: 0, left: -imageOffset, bottom: 0, right: imageOffset)
-                
-                let edgeOffset = abs(titleSize.width - imageSize.width) / 2.0
-                contentEdgeInsets = UIEdgeInsets(top: 0, left: edgeOffset, bottom: 0, right: edgeOffset)
-            } else {
-                let insetAmount = spacing / 2
-                imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
-                titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
-                contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
-            }
-        }
+        let titleOffset = -(imageSize.width + spacing / 2)
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: titleOffset, bottom: 0, right: -titleOffset)
+        
+        let imageOffset = -(titleSize.width + spacing / 2)
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: -imageOffset, bottom: 0, right: imageOffset)
+        
+        let edgeOffset = abs(titleSize.width - imageSize.width) / 2.0
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: edgeOffset, bottom: 0, right: edgeOffset)
+    }
+
+    /// SwifterSwift: Set image above text
+    ///
+    /// - Parameters:
+    ///   - spacing: spacing between title text and image.
+    func setImageAboveText(spacing: CGFloat) {
+        guard
+            let imageSize = imageView?.image?.size,
+            let text = titleLabel?.text,
+            let font = titleLabel?.font else { return }
+        
+        let titleSize = text.size(withAttributes: [.font: font])
+
+        let titleOffset = -(imageSize.height + spacing)
+        titleEdgeInsets = UIEdgeInsets(top: 0.0, left: -imageSize.width, bottom: titleOffset, right: 0.0)
+        
+        let imageOffset = -(titleSize.height + spacing)
+        imageEdgeInsets = UIEdgeInsets(top: imageOffset, left: 0.0, bottom: 0.0, right: -titleSize.width)
+        
+        let edgeOffset = abs(titleSize.height - imageSize.height) / 2.0
+        contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0.0, bottom: edgeOffset, right: 0.0)
+    }
+
+    /// SwifterSwift: Set image below text
+    ///
+    /// - Parameters:
+    ///   - spacing: spacing between title text and image.
+    func setImageBelowText(spacing: CGFloat) {
+        guard
+            let imageSize = imageView?.image?.size,
+            let text = titleLabel?.text,
+            let font = titleLabel?.font else { return }
+        
+        let titleSize = text.size(withAttributes: [.font: font])
+        
+        let titleOffset = -(imageSize.height + spacing)
+
+        titleEdgeInsets = UIEdgeInsets(top: titleOffset, left: -imageSize.width, bottom: 0.0, right: 0.0)
+
+        let imageOffset = -(titleSize.height + spacing)
+        imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: imageOffset, right: -titleSize.width)
+
+        let edgeOffset = abs(titleSize.height - imageSize.height) / 2.0
+        contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0.0, bottom: edgeOffset, right: 0.0)
     }
 }
 
