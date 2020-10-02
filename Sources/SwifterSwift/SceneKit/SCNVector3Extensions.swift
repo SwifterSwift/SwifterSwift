@@ -29,6 +29,10 @@ public extension SCNVector3 {
     var length: SceneKitFloat {
         return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
     }
+    
+    func normalize() -> SCNVector3 {
+        return SCNVector3(simd.normalize(SIMD3<SceneKitFloat>(self)))
+    }
 }
 
 // MARK: - Operators
