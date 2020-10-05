@@ -34,7 +34,7 @@ public extension SCNVector3 {
     ///
     ///     SCNVector3(2, 3, 6).normal  -> SCNVector3(2/7, 3/7, 6/7)
     ///
-    var normal: SCNVector3 {
+    var normalized: SCNVector3 {
         self / self.length
     }
 }
@@ -148,6 +148,7 @@ public extension SCNVector3 {
     ///   - scalar: scalar value.
     /// - Returns: result of division of the given CGPoint with the scalar.
     static func /= (vector: inout SCNVector3, scalar: SceneKitFloat) {
+        // swiftlint:disable:next shorthand_operator
         vector = vector / scalar
     }
 
