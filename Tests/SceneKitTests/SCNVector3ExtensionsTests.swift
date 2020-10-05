@@ -20,14 +20,14 @@ final class SceneKitTests: XCTestCase {
     }
 
     func testNormaized() {
-        let v1Norm = vector1.normalized
-        XCTAssertEqual(v1Norm.length, 1)
+        let v3Norm = SCNVector3(3, -5, 0.125).normalized
+        XCTAssertEqual(v3Norm.length, 1)
         
-        let vector3 = SCNVector3(4, 4, 2)
-        let v3Norm = vector3.normalized
-        XCTAssertEqual(v3Norm.x, 4/6)
-        XCTAssertEqual(v3Norm.x, v3Norm.y)
-        XCTAssertEqual(v3Norm.z, 2/6)
+        let vector4 = SCNVector3(4, 4, 2)
+        let v4Norm = vector4.normalized
+        XCTAssertEqual(v4Norm.x, 0.6666666)
+        XCTAssertEqual(v4Norm.x, v4Norm.y)
+        XCTAssertEqual(v4Norm.z, 0.3333333)
     }
     
     func testAdd() {
