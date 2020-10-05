@@ -35,7 +35,7 @@ public extension SCNVector3 {
     ///     SCNVector3(2, 3, 6).normalized  -> SCNVector3(2/7, 3/7, 6/7)
     ///
     var normalized: SCNVector3 {
-        SCNVector3(normalize(SIMD3<Float>(self)))
+        SCNVector3(x / length, y / length, z / length)
     }
 }
 
