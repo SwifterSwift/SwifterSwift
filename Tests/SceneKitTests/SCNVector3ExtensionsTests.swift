@@ -20,13 +20,14 @@ final class SceneKitTests: XCTestCase {
     }
 
     func testNormaize() {
-        let v1Norm = vector1.normalize()
+        let v1Norm = vector1.normalized
         XCTAssertEqual(v1Norm.length, 1)
         
-        let vector3 = SCNVector3(1,1,1)
-        let v3Norm = vector3.normalize()
+        let vector3 = SCNVector3(4,4,2)
+        let v3Norm = vector3.normalized
+        XCTAssertEqual(v3Norm.x, 4/6)
         XCTAssertEqual(v3Norm.x, v3Norm.y)
-        XCTAssertEqual(v3Norm.y, v3Norm.z)
+        XCTAssertEqual(v3Norm.z, 2/6)
     }
     
     func testAdd() {
@@ -65,6 +66,22 @@ final class SceneKitTests: XCTestCase {
     func testMultiplyScalarFirst() {
         let result = 3 * vector1
         XCTAssertEqual(result, SCNVector3(30, -60, 90))
+    }
+    
+    func testDivide() {
+        let result = vector1 / 10
+        XCTAssertEqual(result, SCNVector3(1, -2, 3))
+    }
+
+    func testDivideEqual() {
+        var vector = vector1
+        vector /= 10
+        XCTAssertEqual(vector, SCNVector3(1, -2, 3))
+    }
+
+    func testDivideScalarFirst() {
+        let result = 10 / vector1
+        XCTAssertEqual(result, SCNVector3(1, -2, 3))
     }
 }
 

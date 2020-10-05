@@ -30,8 +30,12 @@ public extension SCNVector3 {
         return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
     }
     
-    func normalize() -> SCNVector3 {
-        return SCNVector3(simd.normalize(SIMD3<SceneKitFloat>(self)))
+    /// SwifterSwift: Returns the unit or normalized vector where `length = 1`.
+    ///
+    ///     SCNVector3(2, 3, 6).normal  -> SCNVector3(2/7, 3/7, 6/7)
+    ///
+    var normal: SCNVector3 {
+        self / self.length
     }
 }
 
@@ -121,6 +125,42 @@ public extension SCNVector3 {
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
     static func * (scalar: SceneKitFloat, vector: SCNVector3) -> SCNVector3 {
         return SCNVector3(vector.x * scalar, vector.y * scalar, vector.z * scalar)
+    }
+    
+    /// SwifterSwift: Divide a SCNVector3 with a scalar
+    ///
+    ///     SCNVector3(10, 20, -30) / 3 -> SCNVector3(3/10, 0.15, -30)
+    ///
+    /// - Parameters:
+    ///   - vector: SCNVector3 to divide.
+    ///   - scalar: scalar value.
+    /// - Returns: result of division of the given SCNVector3 with the scalar.
+    static func / (vector: SCNVector3, scalar: SceneKitFloat) -> SCNVector3 {
+        return SCNVector3(vector.x / scalar, vector.y / scalar, vector.z / scalar)
+    }
+
+    /// SwifterSwift: Divide self with a scalar
+    ///
+    ///     SCNVector3(10, 20, -30) /= 3 -> SCNVector3(3/10, 0.15, -30)
+    ///
+    /// - Parameters:
+    ///   - vector: self.
+    ///   - scalar: scalar value.
+    /// - Returns: result of division of the given CGPoint with the scalar.
+    static func /= (vector: inout SCNVector3, scalar: SceneKitFloat) {
+        vector = vector / scalar
+    }
+
+    /// SwifterSwift: Divide a scalar with a SCNVector3
+    ///
+    ///     3 / SCNVector3(10, 20, -30) -> SCNVector3(3/10, 0.15, -30)
+    ///
+    /// - Parameters:
+    ///   - scalar: scalar value.
+    ///   - vector: SCNVector3 to divide.
+    /// - Returns: result of division of the given CGPoint with the scalar.
+    static func / (scalar: SceneKitFloat, vector: SCNVector3) -> SCNVector3 {
+        return SCNVector3(vector.x / scalar, vector.y / scalar, vector.z / scalar)
     }
 }
 
