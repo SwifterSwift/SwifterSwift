@@ -192,7 +192,7 @@ public extension UIButton {
 
         let titleOffset = -(imageSize.width + spacing / 2)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: titleOffset, bottom: 0, right: -titleOffset)
-        
+
         let imageOffset = -(titleSize.width + spacing / 2)
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -imageOffset, bottom: 0, right: imageOffset)
     }
@@ -206,12 +206,12 @@ public extension UIButton {
             let imageSize = imageView?.image?.size,
             let text = titleLabel?.text,
             let font = titleLabel?.font else { return }
-        
+
         let titleSize = text.size(withAttributes: [.font: font])
 
         let titleOffset = -(imageSize.height + spacing)
         titleEdgeInsets = UIEdgeInsets(top: 0.0, left: -imageSize.width, bottom: titleOffset, right: 0.0)
-        
+
         let imageOffset = -(titleSize.height + spacing)
         imageEdgeInsets = UIEdgeInsets(top: imageOffset, left: 0.0, bottom: 0.0, right: -titleSize.width)
     }
@@ -225,9 +225,9 @@ public extension UIButton {
             let imageSize = imageView?.image?.size,
             let text = titleLabel?.text,
             let font = titleLabel?.font else { return }
-        
+
         let titleSize = text.size(withAttributes: [.font: font])
-        
+
         let titleOffset = -(imageSize.height + spacing)
         titleEdgeInsets = UIEdgeInsets(top: titleOffset, left: -imageSize.width, bottom: 0.0, right: 0.0)
 
