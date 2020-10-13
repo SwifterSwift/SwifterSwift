@@ -175,7 +175,6 @@ public extension UIButton {
         let insetAmount = spacing / 2
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
-        contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
     }
 
     /// SwifterSwift: Set image on the right text
@@ -196,9 +195,6 @@ public extension UIButton {
         
         let imageOffset = -(titleSize.width + spacing / 2)
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -imageOffset, bottom: 0, right: imageOffset)
-        
-        let edgeOffset = abs(titleSize.width - imageSize.width) / 2.0
-        contentEdgeInsets = UIEdgeInsets(top: 0, left: edgeOffset, bottom: 0, right: edgeOffset)
     }
 
     /// SwifterSwift: Set image above text
@@ -218,9 +214,6 @@ public extension UIButton {
         
         let imageOffset = -(titleSize.height + spacing)
         imageEdgeInsets = UIEdgeInsets(top: imageOffset, left: 0.0, bottom: 0.0, right: -titleSize.width)
-        
-        let edgeOffset = abs(titleSize.height - imageSize.height) / 2.0
-        contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0.0, bottom: edgeOffset, right: 0.0)
     }
 
     /// SwifterSwift: Set image below text
@@ -240,9 +233,6 @@ public extension UIButton {
 
         let imageOffset = -(titleSize.height + spacing)
         imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: imageOffset, right: -titleSize.width)
-
-        let edgeOffset = abs(titleSize.height - imageSize.height) / 2.0
-        contentEdgeInsets = UIEdgeInsets(top: edgeOffset, left: 0.0, bottom: edgeOffset, right: 0.0)
     }
 }
 
