@@ -189,6 +189,33 @@ public extension Dictionary {
             }
         }
     }
+    
+    /// SwifterSwift: Filters out a new dictionary based on spericied `keys`
+    ///
+    ///        var dict =  ["key1": 1, "key2": 2, "key3": 3, "key4": 4]
+    ///        dict["key1", "key3", "key4"] -> ["key1": 1, "key3": 3, "key4": 4]
+    ///        dict["key2"] -> ["key2": 2]
+    ///
+    /// - Note: A new copy of a dictionary is created. if none of the keys are found an empty dictionary will be returned
+    ///
+    /// - Complexity: O(K), _K  is the length of the keys array and O(K) space.
+    ///
+    /// - Parameter keys: An array of keys to the desired value.
+    ///
+    /// - Returns: A new dictionary that contains specified  keys only . if none of the keys exists an empty dictioanry will be returned.
+    subscript(withKeys keys: Key...) ->  [Key: Value]{
+        
+        let uniqueKeys = keys.withoutDuplicates()
+        let newDict = uniqueKeys.reduce(into: [Key: Value]()) { res, item in
+            if let value = self[item] {
+                res[item] = value
+            }
+        }
+        
+        return newDict
+        
+        
+    }
 }
 
 // MARK: - Operators
