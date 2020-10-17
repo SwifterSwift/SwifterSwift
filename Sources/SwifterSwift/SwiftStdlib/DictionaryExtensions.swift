@@ -204,9 +204,7 @@ public extension Dictionary {
     ///
     /// - Returns: A new dictionary that contains specified  keys only . if none of the keys exists an empty dictioanry will be returned.
     subscript(withKeys keys: Key...) ->  [Key: Value]{
-        
-        let uniqueKeys = keys.withoutDuplicates()
-        let newDict = uniqueKeys.reduce(into: [Key: Value]()) { res, item in
+        let newDict = keys.reduce(into: [Key: Value]()) { res, item in
             if let value = self[item] {
                 res[item] = value
             }
