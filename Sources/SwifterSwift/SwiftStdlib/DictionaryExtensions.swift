@@ -203,7 +203,7 @@ public extension Dictionary {
     /// - Parameter keys: An array of keys to the desired value.
     ///
     /// - Returns: A new dictionary that contains specified  keys only . if none of the keys exists an empty dictioanry will be returned.
-    subscript(withKeys keys: Key...) ->  [Key: Value]{
+    subscript(withKeys keys: Key...) ->  [Key: Value] {
         let newDict = keys.reduce(into: [Key: Value]()) { res, item in
             if let value = self[item] {
                 res[item] = value
