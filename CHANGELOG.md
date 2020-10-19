@@ -8,6 +8,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Rename `shadowColor`, `shadowOffset`, `shadowOpacity` and `shadowRadius` to `layerShadowColor`, `layerShadowOffset`, `layerShadowOpacity` and `layerShadowRadius` to avoid naming colisions with subclasses properties defined in other modules e.g. UIKit. [#897](https://github.com/SwifterSwift/SwifterSwift/pull/897) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 ### Added
+- **Dictionary**
+    - Added `pick(keys:)`
+    [#911](https://github.com/SwifterSwift/SwifterSwift/pull/911) by [MaratIbragimov](https://github.com/MaratIbragimov)
 - **UIScrollView**
   - Added `visibleRect`, `scrollToTop(animated:)`, `scrollToLeft(animated:)`, `scrollToBottom(animated:)`, `scrollToRight(animated:)`, `scrollUp(animated:)`, `scrollLeft(animated:)`, `scrollDown(animated:)`, `scrollRight(animated:)`. [#888](https://github.com/SwifterSwift/SwifterSwift/pull/888) by [guykogus](https://github.com/guykogus)
 - **XCTest**
