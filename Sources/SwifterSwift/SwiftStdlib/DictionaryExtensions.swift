@@ -189,27 +189,24 @@ public extension Dictionary {
             }
         }
     }
-    
-    /// SwifterSwift: Filters out a new dictionary based on spericied `keys`
+
+    /// SwifterSwift: Creates a new dictionary using specified keys
     ///
     ///        var dict =  ["key1": 1, "key2": 2, "key3": 3, "key4": 4]
-    ///        dict["key1", "key3", "key4"] -> ["key1": 1, "key3": 3, "key4": 4]
-    ///        dict["key2"] -> ["key2": 2]
+    ///        dict.pick(keys: ["key1", "key3", "key4"]) -> ["key1": 1, "key3": 3, "key4": 4]
+    ///        dict.pick(keys: ["key2"]) -> ["key2": 2]
     ///
-    /// - Note: A new copy of a dictionary is created. if none of the keys are found an empty dictionary will be returned
+    /// - Note: Creats a new instance of Dictionary. If none of the keys was found in the original dictionary, an empty dictionary will be returned.
     ///
     /// - Complexity: O(K), _K  is the length of the keys array and O(K) space.
     ///
     /// - Parameter keys: An array of keys to the desired value.
     ///
     /// - Returns: A new dictionary that contains specified  keys only . if none of the keys exists an empty dictioanry will be returned.
-    subscript(withKeys keys: Key...) -> [Key: Value] {
-        let newDict = keys.reduce(into: [Key: Value]()) { res, item in
-            if let value = self[item] {
-                res[item] = value
-            }
+    func pick(keys: [Key]) -> [Key: Value] {
+        keys.reduce(into: [Key: Value]()) { result, item in
+            result[item] = self[item]
         }
-        return newDict
     }
 }
 

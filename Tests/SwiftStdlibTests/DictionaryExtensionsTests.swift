@@ -163,20 +163,16 @@ final class DictionaryExtensionsTests: XCTestCase {
             [6: ["Bryant"], 5: ["James"], 4: ["Wade", "John"], 0: ["", ""]])
         XCTAssertEqual(Dictionary(grouping: array3, by: \String.count), [:])
     }
-    
+
     func testGetByKeys() {
         let dict = ["James": 100,
                     "Wade": 200,
                     "Bryant": 500,
                     "John": 600,
                     "Jack": 1000]
-        
-        let res = dict[withKeys: "James", "Wade", "Jack"]
+        let res = dict.pick(keys: ["James", "Wade", "Jack"])
         XCTAssertEqual(res, ["James": 100, "Wade": 200, "Jack": 1000])
-        
-        
-        let noResults = dict[withKeys: "Michael", "Joe", "Christian"]
+        let noResults = dict.pick(keys: ["Michael", "Joe", "Christian"])
         XCTAssertTrue(noResults.isEmpty)
-    
     }
 }
