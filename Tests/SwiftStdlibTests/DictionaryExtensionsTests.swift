@@ -170,9 +170,22 @@ final class DictionaryExtensionsTests: XCTestCase {
                     "Bryant": 500,
                     "John": 600,
                     "Jack": 1000]
-        let res = dict.pick(keys: ["James", "Wade", "Jack"])
-        XCTAssertEqual(res, ["James": 100, "Wade": 200, "Jack": 1000])
+        let picked = dict.pick(keys: ["James", "Wade", "Jack"])
+        XCTAssertEqual(picked, ["James": 100, "Wade": 200, "Jack": 1000])
         let noResults = dict.pick(keys: ["Michael", "Joe", "Christian"])
         XCTAssertTrue(noResults.isEmpty)
+
+        let optionalValuesDict = ["James": 100,
+                                  "Wade": nil,
+                                  "Bryant": 500,
+                                  "John": nil,
+                                  "Jack": 1000]
+
+        let pickedWithOptioanls = optionalValuesDict.pick(keys: ["James", "Bryant", "John"])
+        XCTAssertEqual(pickedWithOptioanls, ["James": Optional(100), "Bryant": Optional(500), "John": nil])
+
+        let emptyDict = [String: Int]()
+        let emptyPick = emptyDict.pick(keys: ["James", "Bryant", "John"])
+        XCTAssertTrue(emptyPick.isEmpty)
     }
 }

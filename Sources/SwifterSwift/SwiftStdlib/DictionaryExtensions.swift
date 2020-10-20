@@ -110,6 +110,23 @@ public extension Dictionary {
     func compactMapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)?) rethrows -> [K: V] {
         return [K: V](uniqueKeysWithValues: try compactMap(transform))
     }
+
+    /// SwifterSwift: Creates a new dictionary using specified keys
+    ///
+    ///        var dict =  ["key1": 1, "key2": 2, "key3": 3, "key4": 4]
+    ///        dict.pick(keys: ["key1", "key3", "key4"]) -> ["key1": 1, "key3": 3, "key4": 4]
+    ///        dict.pick(keys: ["key2"]) -> ["key2": 2]
+    ///
+    /// - Complexity: O(K), where _K_  is the length of the keys array and O(K) space.
+    ///
+    /// - Parameter keys: An array of keys to the desired value.
+    ///
+    /// - Returns: A new dictionary that contains specified  keys only . if none of the keys exists an empty dictioanry will be returned.
+    func pick(keys: [Key]) -> [Key: Value] {
+        keys.reduce(into: [Key: Value]()) { result, item in
+            result[item] = self[item]
+        }
+    }
 }
 
 // MARK: - Methods (Value: Equatable)
@@ -187,25 +204,6 @@ public extension Dictionary {
                     return self[first] = nested as? Value
                 }
             }
-        }
-    }
-
-    /// SwifterSwift: Creates a new dictionary using specified keys
-    ///
-    ///        var dict =  ["key1": 1, "key2": 2, "key3": 3, "key4": 4]
-    ///        dict.pick(keys: ["key1", "key3", "key4"]) -> ["key1": 1, "key3": 3, "key4": 4]
-    ///        dict.pick(keys: ["key2"]) -> ["key2": 2]
-    ///
-    /// - Note: Creats a new instance of Dictionary. If none of the keys was found in the original dictionary, an empty dictionary will be returned.
-    ///
-    /// - Complexity: O(K), _K  is the length of the keys array and O(K) space.
-    ///
-    /// - Parameter keys: An array of keys to the desired value.
-    ///
-    /// - Returns: A new dictionary that contains specified  keys only . if none of the keys exists an empty dictioanry will be returned.
-    func pick(keys: [Key]) -> [Key: Value] {
-        keys.reduce(into: [Key: Value]()) { result, item in
-            result[item] = self[item]
         }
     }
 }
