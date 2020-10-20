@@ -97,7 +97,22 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(tuple.1, [1, 3, 5])
     }
 
-    func testContains() {
+    func testContainsEquatable() {
+        struct Foo: Equatable, ExpressibleByIntegerLiteral {
+            let value: Int
+
+            init(integerLiteral value: Int) { self.value = value }
+        }
+
+        XCTAssert([Foo]().contains([]))
+        XCTAssertFalse([Foo]().contains([1, 2]))
+        XCTAssert(([1, 2, 3] as [Foo]).contains([1, 2]))
+        XCTAssert(([1, 2, 3] as [Foo]).contains([2, 3]))
+        XCTAssert(([1, 2, 3] as [Foo]).contains([1, 3]))
+        XCTAssertFalse(([1, 2, 3] as [Foo]).contains([4, 5]))
+    }
+
+    func testContainsHashable() {
         XCTAssert([Int]().contains([]))
         XCTAssertFalse([Int]().contains([1, 2]))
         XCTAssert([1, 2, 3].contains([1, 2]))
