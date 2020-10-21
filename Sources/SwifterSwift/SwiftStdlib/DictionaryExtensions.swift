@@ -121,7 +121,7 @@ public extension Dictionary {
     ///
     /// - Parameter keys: An array of keys to the desired value.
     ///
-    /// - Returns: A new dictionary that contains specified  keys only . if none of the keys exists an empty dictioanry will be returned.
+    /// - Returns: A new dictionary that contains specified keys only. If none of the keys exists an empty dictionary will be returned.
     func pick(keys: [Key]) -> [Key: Value] {
         keys.reduce(into: [Key: Value]()) { result, item in
             result[item] = self[item]
