@@ -38,10 +38,16 @@ public extension Sequence {
     ///
     ///        [2, 2, 4, 7].last(where: {$0 % 2 == 0}) -> 4
     ///
-    /// - Parameter condition: condition to evaluate each element against.
+    /// - Parameter predicate: condition to evaluate each element against.
     /// - Returns: the last element in the array matching the specified condition. (optional)
-    func last(where condition: (Element) throws -> Bool) rethrows -> Element? {
-        return try reversed().first(where: condition)
+    func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
+        var lastElement: Element?
+        for element in self {
+            if try predicate(element) {
+                lastElement = element
+            }
+        }
+        return lastElement
     }
 
     /// SwifterSwift: Filter elements based on a rejection condition.

@@ -7,6 +7,64 @@ private enum SequenceTestError: Error {
     case closureThrows
 }
 
+/// Use a `LinkedList` for testing an ordered, unidirectional `Sequence`
+struct LinkedList<T>: Sequence, ExpressibleByArrayLiteral {
+    fileprivate class Node {
+        let value: T
+        var next: Node?
+
+        init(value: T) {
+            self.value = value
+        }
+    }
+
+    struct Iterator: IteratorProtocol {
+        private var node: Node?
+
+        fileprivate init(node: Node?) {
+            self.node = node
+        }
+
+        mutating func next() -> T? {
+            defer { node = node?.next }
+            return node?.value
+        }
+    }
+
+    // MARK: LinkedList
+
+    private var head: Node?
+    private var tail: Node?
+
+    init<S>(_ elements: S) where S: Sequence, Self.Element == S.Element {
+        for element in elements {
+            append(element)
+        }
+    }
+
+    mutating func append(_ value: T) {
+        let node = Node(value: value)
+        if let tail = tail {
+            tail.next = node
+        } else {
+            head = node
+        }
+        tail = node
+    }
+
+    // MARK: Sequence
+
+    func makeIterator() -> Iterator {
+        return Iterator(node: head)
+    }
+
+    // MARK: ExpressibleByArrayLiteral
+
+    init(arrayLiteral elements: T...) {
+        self.init(elements)
+    }
+}
+
 final class SequenceExtensionsTests: XCTestCase {
     func testAllMatch() {
         let collection = [2, 4, 6, 8, 10, 12]
@@ -24,10 +82,10 @@ final class SequenceExtensionsTests: XCTestCase {
     }
 
     func testLastWhere() {
-        let array = [1, 1, 2, 1, 1, 1, 2, 1, 4, 1]
-        let element = array.last { $0 % 2 == 0 }
-        XCTAssertEqual(element, 4)
-        XCTAssertNil([Int]().last { $0 % 2 == 0 })
+        let list = LinkedList([1, 1, 2, 1, 1, 1, 2, 1, 4, 1])
+        XCTAssertEqual(list.last { $0 % 2 == 0 }, 4)
+        XCTAssertNil(list.last { $0 == 0 })
+        XCTAssertNil(LinkedList<Int>().last { $0 % 2 == 0 })
     }
 
     func testRejectWhere() {
