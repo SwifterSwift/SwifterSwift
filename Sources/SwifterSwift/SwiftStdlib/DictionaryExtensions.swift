@@ -119,7 +119,7 @@ public extension Dictionary {
     ///
     /// - Complexity: O(K), where _K_  is the length of the keys array and O(K) space.
     ///
-    /// - Parameter keys: Parameter keys: An array of keys of the entries that will be in the resulting dictionary.
+    /// - Parameter keys: An array of keys of the entries that will be in the resulting dictionary.
     ///
     /// - Returns: A new dictionary that contains specified keys only. If none of the keys exists an empty dictionary will be returned.
     func pick(keys: [Key]) -> [Key: Value] {

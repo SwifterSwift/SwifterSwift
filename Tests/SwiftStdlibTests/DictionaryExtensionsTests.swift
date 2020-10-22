@@ -176,8 +176,7 @@ final class DictionaryExtensionsTests: XCTestCase {
         XCTAssertEqual(picked, ["James": 100, "Wade": 200, "Jack": 1000])
         XCTAssertTrue(empty1.isEmpty)
         XCTAssertTrue(empty2.isEmpty)
-       
-        
+
         let optionalValuesDict = ["James": 100,
                                   "Wade": nil,
                                   "Bryant": 500,
@@ -190,7 +189,5 @@ final class DictionaryExtensionsTests: XCTestCase {
         let emptyDict = [String: Int]()
         let empty3 = emptyDict.pick(keys: ["James", "Bryant", "John"])
         XCTAssertTrue(empty3.isEmpty)
-        
-        
     }
 }
