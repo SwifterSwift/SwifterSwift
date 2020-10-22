@@ -27,7 +27,7 @@ final class SceneKitTests: XCTestCase {
         let v4Norm = vector4.normalized
         XCTAssertEqual(v4Norm.x, 4 / 6)
         XCTAssertEqual(v4Norm.x, v4Norm.y)
-        XCTAssertEqual(v4Norm.z, 2/6)
+        XCTAssertEqual(v4Norm.z, 2 / 6)
     }
     
     func testAdd() {
