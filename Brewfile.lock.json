@@ -69,7 +69,7 @@
         "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "2ead2d7574778b5d236b241f8e760e6eeb8cf22d",
         "CLT": "",
-        "Xcode": "12.2",
+        "Xcode": "11.7",
         "macOS": "10.15.6"
       }
     }
