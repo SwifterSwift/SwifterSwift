@@ -14,14 +14,14 @@ jobs:
     runs-on: macos-latest
     env:
       PROJECT: SwifterSwift.xcodeproj
-      DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_11.7.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
       run: bundle install
     - name: Brew Upgrade
       run: |
-        brew update
+        brew update-reset
         brew bundle --no-upgrade
     - name: Test iOS
       run: |
@@ -64,7 +64,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: SwiftLint
         run: |
-          brew update
+          brew update-reset
           brew bundle --no-upgrade
           swiftlint
   CocoaPods:
@@ -74,7 +74,7 @@ jobs:
       matrix:
         platform: ['ios', 'macos', 'tvos', 'watchos']
     env:
-      DEVELOPER_DIR: /Applications/Xcode_11.4.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_11.7.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
