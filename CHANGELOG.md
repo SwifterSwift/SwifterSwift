@@ -50,7 +50,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **StringProtocol**
   - Added `replacingOccurrences(ofPattern:withTemplate:options:searchRange:)` as a more convenient way to replace patterns. [#901](https://github.com/SwifterSwift/SwifterSwift/pull/901) by [gurgeous](https://github.com/gurgeous)
 - **UIButton**
-  - Added `setImageLeftText(spacing:)`, `setImageRightText(spacing:)`, `setImageAboveText(spacing:)`, `setImageBelowText(spacing:)` to set image and text spacing [#903](https://github.com/SwifterSwift/SwifterSwift/pull/903) by [Jayxiang](https://github.com/Jayxiang)
+  - Added `setImageLeftOfText(spacing:)`, `setImageRightOfText(spacing:)`, `setImageAboveText(spacing:)`, `setImageBelowText(spacing:)` to set image and text spacing [#903](https://github.com/SwifterSwift/SwifterSwift/pull/903) by [Jayxiang](https://github.com/Jayxiang)
 
 ### Changed
 - **NSAttributedString**:
@@ -67,7 +67,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Sequence**:
   - Marked `map(by:)`, `compactMap(by:)`, `filter(by:)` as deprecated in favor use of Key Path expressions as functions feature in Swift 5.2. [#862](https://github.com/SwifterSwift/SwifterSwift/pull/862) by [Roman Podymov](https://github.com/RomanPodymov).
 - **UIButton**
-  - Marked `centerTextAndImage(imageAboveText:spacing:)` as deprecated in favor of new added methods `setImageLeftText(spacing:)`, `setImageRightText(spacing:)`, `setImageAboveText(spacing:)`, `setImageBelowText(spacing:)`. [#903](https://github.com/SwifterSwift/SwifterSwift/pull/903) by [Jayxiang](https://github.com/Jayxiang).
+  - Marked `centerTextAndImage(imageAboveText:spacing:)` as deprecated in favor of new added methods `setImageLeftOfText(spacing:)`, `setImageRightOfText(spacing:)`, `setImageAboveText(spacing:)`, `setImageBelowText(spacing:)`. [#903](https://github.com/SwifterSwift/SwifterSwift/pull/903) by [Jayxiang](https://github.com/Jayxiang).
 
 ### Removed
 - **UIDatePicker**

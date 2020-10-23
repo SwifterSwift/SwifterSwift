@@ -167,21 +167,21 @@ public extension UIButton {
         states.forEach { setTitle(title, for: $0) }
     }
 
-    /// SwifterSwift: Set image on the left text's spacing
+    /// SwifterSwift: Set the image to the left of the text
     ///
     /// - Parameters:
     ///   - spacing: spacing between title text and image.
-    func setImageLeftText(spacing: CGFloat) {
+    func setImageLeftOfText(spacing: CGFloat) {
         let insetAmount = spacing / 2
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
     }
 
-    /// SwifterSwift: Set image on the right text
+    /// SwifterSwift: Set the image to the right of the text
     ///
     /// - Parameters:
     ///   - spacing: spacing between title text and image.
-    func setImageRightText(spacing: CGFloat) {
+    func setImageRightOfText(spacing: CGFloat) {
         // https://stackoverflow.com/questions/2451223/#7199529
         guard
             let imageSize = imageView?.image?.size,
@@ -197,7 +197,7 @@ public extension UIButton {
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -imageOffset, bottom: 0, right: imageOffset)
     }
 
-    /// SwifterSwift: Set image above text
+    /// SwifterSwift: Set the image above the text
     ///
     /// - Parameters:
     ///   - spacing: spacing between title text and image.
@@ -216,7 +216,7 @@ public extension UIButton {
         imageEdgeInsets = UIEdgeInsets(top: imageOffset, left: 0.0, bottom: 0.0, right: -titleSize.width)
     }
 
-    /// SwifterSwift: Set image below text
+    /// SwifterSwift: Set the image below the text
     ///
     /// - Parameters:
     ///   - spacing: spacing between title text and image.

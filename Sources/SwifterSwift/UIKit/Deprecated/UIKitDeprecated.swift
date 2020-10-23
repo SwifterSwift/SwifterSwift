@@ -8,12 +8,12 @@ public extension UIButton {
     /// - Parameters:
     ///   - imageAboveText: set true to make image above title text, default is false, image on left of text
     ///   - spacing: spacing between title text and image.
-    @available(*, deprecated, message: "Please use setImageLeftText() or setImageAboveText() instead.")
+    @available(*, deprecated, message: "Please use setImageLeftOfText() or setImageAboveText() instead.")
     func centerTextAndImage(imageAboveText: Bool = false, spacing: CGFloat) {
         if imageAboveText {
             setImageAboveText(spacing: spacing)
         } else {
-            setImageLeftText(spacing: spacing)
+            setImageLeftOfText(spacing: spacing)
         }
     }
 }

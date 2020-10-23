@@ -157,11 +157,11 @@ final class UIButtonExtensionsTests: XCTestCase {
         let spacing: CGFloat = 20
 
         // Image on the left of text
-        button.setImageLeftText(spacing: spacing)
+        button.setImageLeftOfText(spacing: spacing)
         let imageFrame = button.imageView!.frame
         let titleFrame = button.titleLabel!.frame
 
-        XCTAssert(titleFrame.midX > imageFrame.midX)
+        XCTAssert(titleFrame.minX > imageFrame.maxX)
         XCTAssertEqual(titleFrame.midY, imageFrame.midY, accuracy: 1.0)
         XCTAssertEqual(titleFrame.minX - spacing, imageFrame.maxX, accuracy: 1.0)
     }
@@ -179,11 +179,11 @@ final class UIButtonExtensionsTests: XCTestCase {
         let spacing: CGFloat = 20
 
         // Image on the right of text
-        button.setImageRightText(spacing: spacing)
+        button.setImageRightOfText(spacing: spacing)
         let imageFrame = button.imageView!.frame
         let titleFrame = button.titleLabel!.frame
 
-        XCTAssert(titleFrame.midX < imageFrame.midX)
+        XCTAssert(titleFrame.minX < imageFrame.maxX)
         XCTAssertEqual(titleFrame.midY, imageFrame.midY, accuracy: 1.0)
         XCTAssertEqual(imageFrame.minX - spacing, titleFrame.maxX, accuracy: 1.0)
     }
