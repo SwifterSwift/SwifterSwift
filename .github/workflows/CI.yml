@@ -64,7 +64,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: SwiftLint
         run: |
-          brew update
+          brew update --force --verbose
           brew bundle --no-upgrade
           swiftlint
   CocoaPods:
