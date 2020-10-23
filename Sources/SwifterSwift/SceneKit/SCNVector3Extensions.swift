@@ -35,7 +35,8 @@ public extension SCNVector3 {
     ///     SCNVector3(2, 3, 6).normalized  -> SCNVector3(2/7, 3/7, 6/7)
     ///
     var normalized: SCNVector3 {
-        SCNVector3(x / length, y / length, z / length)
+        let len = sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
+        return SCNVector3(x / len, y / len, z / len)
     }
 }
 
@@ -149,19 +150,7 @@ public extension SCNVector3 {
     /// - Returns: result of division of the given CGPoint with the scalar.
     static func /= (vector: inout SCNVector3, scalar: SceneKitFloat) {
         // swiftlint:disable:next shorthand_operator
-        vector = vector / scalar
-    }
-
-    /// SwifterSwift: Divide a scalar with a SCNVector3
-    ///
-    ///     3 / SCNVector3(10, 20, -30) -> SCNVector3(3/10, 0.15, -30)
-    ///
-    /// - Parameters:
-    ///   - scalar: scalar value.
-    ///   - vector: SCNVector3 to divide.
-    /// - Returns: result of division of the given CGPoint with the scalar.
-    static func / (scalar: SceneKitFloat, vector: SCNVector3) -> SCNVector3 {
-        return SCNVector3(vector.x / scalar, vector.y / scalar, vector.z / scalar)
+        vector = SCNVector3(vector.x / scalar, vector.y / scalar, vector.z / scalar)
     }
 }
 
