@@ -172,10 +172,8 @@ final class DictionaryExtensionsTests: XCTestCase {
                     "Jack": 1000]
         let picked = dict.pick(keys: ["James", "Wade", "Jack"])
         let empty1 = dict.pick(keys: ["Pippen", "Rodman"])
-        let empty2 = dict.pick(keys: ["Michael", "Joe", "Christian"])
         XCTAssertEqual(picked, ["James": 100, "Wade": 200, "Jack": 1000])
         XCTAssertTrue(empty1.isEmpty)
-        XCTAssertTrue(empty2.isEmpty)
 
         let optionalValuesDict = ["James": 100,
                                   "Wade": nil,

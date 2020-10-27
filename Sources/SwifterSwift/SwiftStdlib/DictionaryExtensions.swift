@@ -117,11 +117,11 @@ public extension Dictionary {
     ///        dict.pick(keys: ["key1", "key3", "key4"]) -> ["key1": 1, "key3": 3, "key4": 4]
     ///        dict.pick(keys: ["key2"]) -> ["key2": 2]
     ///
-    /// - Complexity: O(K), where _K_  is the length of the keys array and O(K) space.
+    /// - Complexity: O(K), where _K_ is the length of the keys array.
     ///
-    /// - Parameter keys: An array of keys of the entries that will be in the resulting dictionary.
+    /// - Parameter keys: An array of keys that will be the entries in the resulting dictionary.
     ///
-    /// - Returns: A new dictionary that contains specified keys only. If none of the keys exists an empty dictionary will be returned.
+    /// - Returns: A new dictionary that contains the specified keys only. If none of the keys exist, an empty dictionary will be returned.
     func pick(keys: [Key]) -> [Key: Value] {
         keys.reduce(into: [Key: Value]()) { result, item in
             result[item] = self[item]
