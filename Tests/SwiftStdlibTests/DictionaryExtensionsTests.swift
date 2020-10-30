@@ -163,4 +163,29 @@ final class DictionaryExtensionsTests: XCTestCase {
             [6: ["Bryant"], 5: ["James"], 4: ["Wade", "John"], 0: ["", ""]])
         XCTAssertEqual(Dictionary(grouping: array3, by: \String.count), [:])
     }
+
+    func testGetByKeys() {
+        let dict = ["James": 100,
+                    "Wade": 200,
+                    "Bryant": 500,
+                    "John": 600,
+                    "Jack": 1000]
+        let picked = dict.pick(keys: ["James", "Wade", "Jack"])
+        let empty1 = dict.pick(keys: ["Pippen", "Rodman"])
+        XCTAssertEqual(picked, ["James": 100, "Wade": 200, "Jack": 1000])
+        XCTAssertTrue(empty1.isEmpty)
+
+        let optionalValuesDict = ["James": 100,
+                                  "Wade": nil,
+                                  "Bryant": 500,
+                                  "John": nil,
+                                  "Jack": 1000]
+
+        let pickedWithOptionals = optionalValuesDict.pick(keys: ["James", "Bryant", "John"])
+        XCTAssertEqual(pickedWithOptionals, ["James": Optional(100), "Bryant": Optional(500), "John": nil])
+
+        let emptyDict = [String: Int]()
+        let empty3 = emptyDict.pick(keys: ["James", "Bryant", "John"])
+        XCTAssertTrue(empty3.isEmpty)
+    }
 }
