@@ -72,12 +72,6 @@ final class SceneKitTests: XCTestCase {
         let result = vector1 / 10
         XCTAssertEqual(result, SCNVector3(1, -2, 3))
     }
-
-    func testDivideEqual() {
-        var vector = vector1
-        vector /= 10
-        XCTAssertEqual(vector, SCNVector3(1, -2, 3))
-    }
 }
 
 extension SCNVector3: Equatable {
