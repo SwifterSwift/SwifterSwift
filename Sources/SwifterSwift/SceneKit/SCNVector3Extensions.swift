@@ -35,8 +35,8 @@ public extension SCNVector3 {
     ///     SCNVector3(2, 3, 6).normalized  -> SCNVector3(2/7, 3/7, 6/7)
     ///
     var normalized: SCNVector3 {
-        let len = sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
-        return SCNVector3(x / len, y / len, z / len)
+        let length = sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
+        return SCNVector3(x / length, y / length, z / length)
     }
 }
 
