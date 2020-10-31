@@ -8,6 +8,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Rename `shadowColor`, `shadowOffset`, `shadowOpacity` and `shadowRadius` to `layerShadowColor`, `layerShadowOffset`, `layerShadowOpacity` and `layerShadowRadius` to avoid naming colisions with subclasses properties defined in other modules e.g. UIKit. [#897](https://github.com/SwifterSwift/SwifterSwift/pull/897) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 ### Added
+- **SCN3Vector**
+  - Added `normalized` method, and basic division functions (`SCNVector3 / scalar`, and `SCNVector3 /= scalar`. [#908](https://github.com/SwifterSwift/SwifterSwift/pull/908) by [thisIsTheFoxe](https://github.com/thisisthefoxe)
+- **Dictionary**
+  - Added `pick(keys:)` to pick part of a dictioanry with specified keys. [#911](https://github.com/SwifterSwift/SwifterSwift/pull/911) by [MaratIbragimov](https://github.com/MaratIbragimov)
 - **UIScrollView**
   - Added `visibleRect`, `scrollToTop(animated:)`, `scrollToLeft(animated:)`, `scrollToBottom(animated:)`, `scrollToRight(animated:)`, `scrollUp(animated:)`, `scrollLeft(animated:)`, `scrollDown(animated:)`, `scrollRight(animated:)`. [#888](https://github.com/SwifterSwift/SwifterSwift/pull/888) by [guykogus](https://github.com/guykogus)
 - **XCTest**
