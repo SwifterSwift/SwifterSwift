@@ -52,8 +52,9 @@ public extension SCNVector3 {
     ///   - rhs: SCNVector3 to add.
     /// - Returns: result of addition of the two given SCNVector3s.
     static func + (lhs: SCNVector3, rhs: SCNVector3) -> SCNVector3 {
-        return SCNVector3(lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z)
-    }
+        var result = lhs
+        result += rhs
+        return result
 
     /// SwifterSwift: Add a SCNVector3 to self.
     ///
@@ -63,8 +64,9 @@ public extension SCNVector3 {
     ///   - lhs: self
     ///   - rhs: SCNVector3 to add.
     static func += (lhs: inout SCNVector3, rhs: SCNVector3) {
-        // swiftlint:disable:next shorthand_operator
-        lhs = lhs + rhs
+        lhs.x += rhs.x
+        lhs.y += rhs.y
+        lhs.z += rhs.z
     }
 
     /// SwifterSwift: Subtract two SCNVector3s.
@@ -76,7 +78,9 @@ public extension SCNVector3 {
     ///   - rhs: SCNVector3 to subtract.
     /// - Returns: result of subtract of the two given SCNVector3s.
     static func - (lhs: SCNVector3, rhs: SCNVector3) -> SCNVector3 {
-        return SCNVector3(lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z)
+        var result = lhs
+        result -= rhs
+        return result
     }
 
     /// SwifterSwift: Subtract a SCNVector3 from self.
@@ -87,8 +91,9 @@ public extension SCNVector3 {
     ///   - lhs: self
     ///   - rhs: SCNVector3 to subtract.
     static func -= (lhs: inout SCNVector3, rhs: SCNVector3) {
-        // swiftlint:disable:next shorthand_operator
-        lhs = lhs - rhs
+        lhs.x -= rhs.x
+        lhs.y -= rhs.y
+        lhs.z -= rhs.z
     }
 
     /// SwifterSwift: Multiply a SCNVector3 with a scalar
@@ -100,7 +105,9 @@ public extension SCNVector3 {
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given SCNVector3 with the scalar.
     static func * (vector: SCNVector3, scalar: SceneKitFloat) -> SCNVector3 {
-        return SCNVector3(vector.x * scalar, vector.y * scalar, vector.z * scalar)
+        var result = vector
+        result *= scalar
+        return result
     }
 
     /// SwifterSwift: Multiply self with a scalar
@@ -112,8 +119,9 @@ public extension SCNVector3 {
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
     static func *= (vector: inout SCNVector3, scalar: SceneKitFloat) {
-        // swiftlint:disable:next shorthand_operator
-        vector = vector * scalar
+        vector.x *= scalar
+        vector.y *= scalar
+        vector.z *= scalar
     }
 
     /// SwifterSwift: Multiply a scalar with a SCNVector3
@@ -125,7 +133,9 @@ public extension SCNVector3 {
     ///   - vector: SCNVector3 to multiply.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
     static func * (scalar: SceneKitFloat, vector: SCNVector3) -> SCNVector3 {
-        return SCNVector3(vector.x * scalar, vector.y * scalar, vector.z * scalar)
+        var result = vector
+        result *= scalar
+        return result
     }
     
     /// SwifterSwift: Divide a SCNVector3 with a scalar
@@ -137,7 +147,9 @@ public extension SCNVector3 {
     ///   - scalar: scalar value.
     /// - Returns: result of division of the given SCNVector3 with the scalar.
     static func / (vector: SCNVector3, scalar: SceneKitFloat) -> SCNVector3 {
-        return SCNVector3(vector.x / scalar, vector.y / scalar, vector.z / scalar)
+        var result = vector
+        result /= scalar
+        return result
     }
 
     /// SwifterSwift: Divide self with a scalar
@@ -149,7 +161,9 @@ public extension SCNVector3 {
     ///   - scalar: scalar value.
     /// - Returns: result of division of the given CGPoint with the scalar.
     static func /= (vector: inout SCNVector3, scalar: SceneKitFloat) {
-        vector = SCNVector3(vector.x / scalar, vector.y / scalar, vector.z / scalar)
+        vector.x /= scalar
+        vector.y /= scalar
+        vector.z /= scalar
     }
 }
 

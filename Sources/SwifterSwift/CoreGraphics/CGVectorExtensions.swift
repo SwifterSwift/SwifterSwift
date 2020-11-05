@@ -51,7 +51,9 @@ public extension CGVector {
     ///   - scalar: The scale by which the vector will be multiplied
     /// - Returns: The vector with its magnitude scaled
     static func * (vector: CGVector, scalar: CGFloat) -> CGVector {
-        return CGVector(dx: vector.dx * scalar, dy: vector.dy * scalar)
+        var result = vector
+        result *= scalar
+        return result
     }
 
     /// SwifterSwift: Multiplies a scalar and a vector (commutative).
@@ -64,7 +66,9 @@ public extension CGVector {
     ///   - vector: The vector to be multiplied
     /// - Returns: The vector with its magnitude scaled
     static func * (scalar: CGFloat, vector: CGVector) -> CGVector {
-        return CGVector(dx: scalar * vector.dx, dy: scalar * vector.dy)
+        var result = vector
+        result *= scalar
+        return result
     }
 
     /// SwifterSwift: Compound assignment operator for vector-scalr multiplication
@@ -76,8 +80,8 @@ public extension CGVector {
     ///   - vector: The vector to be multiplied
     ///   - scalar: The scale by which the vector will be multiplied
     static func *= (vector: inout CGVector, scalar: CGFloat) {
-        // swiftlint:disable:next shorthand_operator
-        vector = vector * scalar
+        vector.dx *= scalar
+        vector.dy *= scalar
     }
 
     /// SwifterSwift: Negates the vector. The direction is reversed, but magnitude remains the same.

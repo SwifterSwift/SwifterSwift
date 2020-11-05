@@ -225,7 +225,7 @@ public extension Dictionary {
     /// - Returns: An dictionary with keys and values from both.
     static func + (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
         var result = lhs
-        rhs.forEach { result[$0] = $1 }
+        result += rhs
         return result
     }
 
@@ -260,7 +260,7 @@ public extension Dictionary {
     /// - Returns: a new dictionary with keys removed.
     static func - <S: Sequence>(lhs: [Key: Value], keys: S) -> [Key: Value] where S.Element == Key {
         var result = lhs
-        result.removeAll(keys: keys)
+        result -= rhs
         return result
     }
 

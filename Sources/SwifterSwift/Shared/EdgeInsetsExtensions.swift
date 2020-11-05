@@ -140,10 +140,9 @@ public extension EdgeInsets {
     ///   - rhs: The right-hand expression
     /// - Returns: A new `EdgeInsets` instance where the values of `lhs` and `rhs` are added together.
     static func + (_ lhs: EdgeInsets, _ rhs: EdgeInsets) -> EdgeInsets {
-        return EdgeInsets(top: lhs.top + rhs.top,
-                          left: lhs.left + rhs.left,
-                          bottom: lhs.bottom + rhs.bottom,
-                          right: lhs.right + rhs.right)
+        var result = lhs
+        result += rhs
+        return result
     }
 
     /// SwifterSwift: Add all the properties of two `EdgeInsets` to the left-hand instance.
