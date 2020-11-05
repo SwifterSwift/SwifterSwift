@@ -149,7 +149,7 @@ public extension CGSize {
     ///   - lhs: CGSize to subtract from.
     ///   - tuple: tuple value.
     /// - Returns: The result comes from the subtract of the given CGSize and tuple.
-    static func - (lhs: CGSize, tuple: (width: CGFloat, heoght: CGFloat)) -> CGSize {
+    static func - (lhs: CGSize, tuple: (width: CGFloat, height: CGFloat)) -> CGSize {
         var result = lhs
         result -= tuple
         return result
