@@ -256,11 +256,11 @@ public extension Dictionary {
     ///
     /// - Parameters:
     ///   - lhs: dictionary
-    ///   - rhs: array with the keys to be removed.
+    ///   - keys: array with the keys to be removed.
     /// - Returns: a new dictionary with keys removed.
     static func - <S: Sequence>(lhs: [Key: Value], keys: S) -> [Key: Value] where S.Element == Key {
         var result = lhs
-        result -= rhs
+        result -= keys
         return result
     }
 
@@ -274,7 +274,7 @@ public extension Dictionary {
     ///
     /// - Parameters:
     ///   - lhs: dictionary
-    ///   - rhs: array with the keys to be removed.
+    ///   - keys: array with the keys to be removed.
     static func -= <S: Sequence>(lhs: inout [Key: Value], keys: S) where S.Element == Key {
         lhs.removeAll(keys: keys)
     }

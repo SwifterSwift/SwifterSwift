@@ -55,6 +55,7 @@ public extension SCNVector3 {
         var result = lhs
         result += rhs
         return result
+    }
 
     /// SwifterSwift: Add a SCNVector3 to self.
     ///
