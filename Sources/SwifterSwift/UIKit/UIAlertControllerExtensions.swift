@@ -16,6 +16,7 @@ public extension UIAlertController {
     ///   - animated: set true to animate presentation of alert controller (default is true).
     ///   - vibrate: set true to vibrate the device while presenting the alert (default is false).
     ///   - completion: an optional completion handler to be called after presenting alert controller (default is nil).
+    @available(iOSApplicationExtension, unavailable)
     func show(animated: Bool = true, vibrate: Bool = false, completion: (() -> Void)? = nil) {
         #if targetEnvironment(macCatalyst)
         let window = UIApplication.shared.windows.last
