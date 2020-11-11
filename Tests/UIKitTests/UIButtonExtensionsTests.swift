@@ -144,7 +144,7 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(button.titleForSelected, title)
     }
 
-    func testSetImageLeftText() {
+    func testSetImageLeftOfText() {
         let button = UIButton(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         let image = UIImage(color: .green, size: CGSize(width: 10, height: 10))
         button.setTitleForAllStates("Title")
@@ -158,15 +158,17 @@ final class UIButtonExtensionsTests: XCTestCase {
 
         // Image on the left of text
         button.setImageLeftOfText(spacing: spacing)
+        button.sizeToFit()
         let imageFrame = button.imageView!.frame
         let titleFrame = button.titleLabel!.frame
 
-        XCTAssert(titleFrame.minX > imageFrame.maxX)
         XCTAssertEqual(titleFrame.midY, imageFrame.midY, accuracy: 1.0)
         XCTAssertEqual(titleFrame.minX - spacing, imageFrame.maxX, accuracy: 1.0)
+        XCTAssertEqual(imageFrame.minX, button.bounds.minX, accuracy: 1.0)
+        XCTAssertEqual(titleFrame.maxX, button.bounds.maxX, accuracy: 1.0)
     }
 
-    func testSetImageRightText() {
+    func testSetImageRightOfText() {
         let button = UIButton(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         let image = UIImage(color: .green, size: CGSize(width: 10, height: 10))
         button.setTitleForAllStates("Title")
@@ -180,12 +182,14 @@ final class UIButtonExtensionsTests: XCTestCase {
 
         // Image on the right of text
         button.setImageRightOfText(spacing: spacing)
+        button.sizeToFit()
         let imageFrame = button.imageView!.frame
         let titleFrame = button.titleLabel!.frame
 
-        XCTAssert(titleFrame.minX < imageFrame.maxX)
         XCTAssertEqual(titleFrame.midY, imageFrame.midY, accuracy: 1.0)
         XCTAssertEqual(imageFrame.minX - spacing, titleFrame.maxX, accuracy: 1.0)
+        XCTAssertEqual(imageFrame.maxX, button.bounds.maxX, accuracy: 1.0)
+        XCTAssertEqual(titleFrame.minX, button.bounds.minX, accuracy: 1.0)
     }
 
     func testSetImageAboveText() {
@@ -202,12 +206,14 @@ final class UIButtonExtensionsTests: XCTestCase {
 
         // Image above text
         button.setImageAboveText(spacing: spacing)
+        button.sizeToFit()
         let imageFrame = button.imageView!.frame
         let titleFrame = button.titleLabel!.frame
 
-        XCTAssert(titleFrame.midY > imageFrame.midY)
         XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
         XCTAssertEqual(titleFrame.minY - spacing, imageFrame.maxY, accuracy: 1.0)
+        XCTAssertEqual(imageFrame.minY, button.bounds.minY, accuracy: 1.0)
+        XCTAssertEqual(titleFrame.maxY, button.bounds.maxY, accuracy: 1.0)
     }
 
     func testSetImageBelowText() {
@@ -224,12 +230,14 @@ final class UIButtonExtensionsTests: XCTestCase {
 
         // Image below text
         button.setImageBelowText(spacing: spacing)
+        button.sizeToFit()
         let imageFrame = button.imageView!.frame
         let titleFrame = button.titleLabel!.frame
 
-        XCTAssert(titleFrame.midY < imageFrame.midY)
         XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
         XCTAssertEqual(imageFrame.minY - spacing, titleFrame.maxY, accuracy: 1.0)
+        XCTAssertEqual(imageFrame.maxY, button.bounds.maxY, accuracy: 1.0)
+        XCTAssertEqual(titleFrame.minY, button.bounds.minY, accuracy: 1.0)
     }
 }
 

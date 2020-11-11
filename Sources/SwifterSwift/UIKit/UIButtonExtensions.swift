@@ -175,6 +175,7 @@ public extension UIButton {
         let insetAmount = spacing / 2
         imageEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
         titleEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
     }
 
     /// SwifterSwift: Set the image to the right of the text
@@ -182,19 +183,12 @@ public extension UIButton {
     /// - Parameters:
     ///   - spacing: spacing between title text and image.
     func setImageRightOfText(spacing: CGFloat) {
-        // https://stackoverflow.com/questions/2451223/#7199529
-        guard
-            let imageSize = imageView?.image?.size,
-            let text = titleLabel?.text,
-            let font = titleLabel?.font else { return }
+        semanticContentAttribute = .forceRightToLeft
 
-        let titleSize = text.size(withAttributes: [.font: font])
-
-        let titleOffset = -(imageSize.width + spacing / 2)
-        titleEdgeInsets = UIEdgeInsets(top: 0, left: titleOffset, bottom: 0, right: -titleOffset)
-
-        let imageOffset = -(titleSize.width + spacing / 2)
-        imageEdgeInsets = UIEdgeInsets(top: 0, left: -imageOffset, bottom: 0, right: imageOffset)
+        let insetAmount = spacing / 2
+        imageEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: -insetAmount)
+        titleEdgeInsets = UIEdgeInsets(top: 0, left: -insetAmount, bottom: 0, right: insetAmount)
+        contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
     }
 
     /// SwifterSwift: Set the image above the text
@@ -214,6 +208,9 @@ public extension UIButton {
 
         let imageOffset = -(titleSize.height + spacing)
         imageEdgeInsets = UIEdgeInsets(top: imageOffset, left: 0.0, bottom: 0.0, right: -titleSize.width)
+
+        let verticalInsets = (min(imageSize.height, titleSize.height) + spacing) / 2
+        contentEdgeInsets = UIEdgeInsets(top: verticalInsets, left: 0.0, bottom: verticalInsets, right: 0.0)
     }
 
     /// SwifterSwift: Set the image below the text
@@ -233,6 +230,9 @@ public extension UIButton {
 
         let imageOffset = -(titleSize.height + spacing)
         imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: imageOffset, right: -titleSize.width)
+
+        let verticalInsets = (min(imageSize.height, titleSize.height) + spacing) / 2
+        contentEdgeInsets = UIEdgeInsets(top: verticalInsets, left: 0.0, bottom: verticalInsets, right: 0.0)
     }
 }
 
