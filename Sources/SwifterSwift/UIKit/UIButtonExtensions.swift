@@ -207,7 +207,8 @@ public extension UIButton {
         titleEdgeInsets = UIEdgeInsets(top: 0.0, left: -imageSize.width, bottom: titleOffset, right: 0.0)
 
         let imageOffset = -(titleSize.height + spacing)
-        imageEdgeInsets = UIEdgeInsets(top: imageOffset, left: 0.0, bottom: 0.0, right: -titleSize.width)
+        let horizontalOffset = (bounds.width - imageSize.width) / 2
+        imageEdgeInsets = UIEdgeInsets(top: imageOffset, left: horizontalOffset, bottom: 0.0, right: horizontalOffset)
 
         let verticalInsets = (min(imageSize.height, titleSize.height) + spacing) / 2
         contentEdgeInsets = UIEdgeInsets(top: verticalInsets, left: 0.0, bottom: verticalInsets, right: 0.0)
@@ -229,7 +230,8 @@ public extension UIButton {
         titleEdgeInsets = UIEdgeInsets(top: titleOffset, left: -imageSize.width, bottom: 0.0, right: 0.0)
 
         let imageOffset = -(titleSize.height + spacing)
-        imageEdgeInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: imageOffset, right: -titleSize.width)
+        let horizontalOffset = (bounds.width - imageSize.width) / 2
+        imageEdgeInsets = UIEdgeInsets(top: 0.0, left: horizontalOffset, bottom: imageOffset, right: horizontalOffset)
 
         let verticalInsets = (min(imageSize.height, titleSize.height) + spacing) / 2
         contentEdgeInsets = UIEdgeInsets(top: verticalInsets, left: 0.0, bottom: verticalInsets, right: 0.0)
