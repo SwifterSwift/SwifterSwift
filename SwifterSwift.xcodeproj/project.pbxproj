@@ -523,6 +523,12 @@
 		9DC844A32349E1EE00E1571A /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC844A22349E1EE00E1571A /* UIColorExtensions.swift */; };
 		9DC844A62349E27600E1571A /* NSColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC844A42349E24600E1571A /* NSColorExtensions.swift */; };
 		9DC844A82349E28100E1571A /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC844A22349E1EE00E1571A /* UIColorExtensions.swift */; };
+		A7F70FAD256BBADD0082B499 /* NSUbiquitousKeyValueStoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F70FAC256BBADD0082B499 /* NSUbiquitousKeyValueStoreTest.swift */; };
+		A7F70FAE256BBADD0082B499 /* NSUbiquitousKeyValueStoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F70FAC256BBADD0082B499 /* NSUbiquitousKeyValueStoreTest.swift */; };
+		A7F70FAF256BBADD0082B499 /* NSUbiquitousKeyValueStoreTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F70FAC256BBADD0082B499 /* NSUbiquitousKeyValueStoreTest.swift */; };
+		A7F70FBF256BBB110082B499 /* NSUbiquitousKeyValueStoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F70FBE256BBB110082B499 /* NSUbiquitousKeyValueStoreExtensions.swift */; };
+		A7F70FC0256BBB110082B499 /* NSUbiquitousKeyValueStoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F70FBE256BBB110082B499 /* NSUbiquitousKeyValueStoreExtensions.swift */; };
+		A7F70FC1256BBB110082B499 /* NSUbiquitousKeyValueStoreExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F70FBE256BBB110082B499 /* NSUbiquitousKeyValueStoreExtensions.swift */; };
 		A94AA78720280F9100E229A5 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA78620280F9100E229A5 /* FileManagerExtensions.swift */; };
 		A94AA78A202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */; };
 		A94AA78B202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */; };
@@ -850,6 +856,8 @@
 		9DC29CF32349E7E200F5CAAD /* UIColorExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensionsTests.swift; sourceTree = "<group>"; };
 		9DC844A22349E1EE00E1571A /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		9DC844A42349E24600E1571A /* NSColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtensions.swift; sourceTree = "<group>"; };
+		A7F70FAC256BBADD0082B499 /* NSUbiquitousKeyValueStoreTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUbiquitousKeyValueStoreTest.swift; sourceTree = "<group>"; };
+		A7F70FBE256BBB110082B499 /* NSUbiquitousKeyValueStoreExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUbiquitousKeyValueStoreExtensions.swift; sourceTree = "<group>"; };
 		A94AA78620280F9100E229A5 /* FileManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensionsTests.swift; sourceTree = "<group>"; };
 		B22EB2B620E9E720001EAE70 /* RangeReplaceableCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeReplaceableCollectionExtensions.swift; sourceTree = "<group>"; };
@@ -1094,6 +1102,7 @@
 				07B7F1621F5EB41600E6F910 /* NSAttributedStringExtensions.swift */,
 				9D4914821F85138E00F3868F /* NSPredicateExtensions.swift */,
 				F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */,
+				A7F70FBE256BBB110082B499 /* NSUbiquitousKeyValueStoreExtensions.swift */,
 				07B7F1781F5EB41600E6F910 /* URLExtensions.swift */,
 				077BA0891F6BE81F00D9C4AC /* URLRequestExtensions.swift */,
 				077BA08E1F6BE83600D9C4AC /* UserDefaultsExtensions.swift */,
@@ -1179,6 +1188,7 @@
 				07C50D291F5EB03200F46E5A /* NSAttributedStringExtensionsTests.swift */,
 				9D4914881F8515D100F3868F /* NSPredicateExtensionsTests.swift */,
 				F8C1AE73225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift */,
+				A7F70FAC256BBADD0082B499 /* NSUbiquitousKeyValueStoreTest.swift */,
 				07C50D071F5EB03200F46E5A /* URLExtensionsTests.swift */,
 				077BA0941F6BE98500D9C4AC /* URLRequestExtensionsTests.swift */,
 				077BA0991F6BE99F00D9C4AC /* UserDefaultsExtensionsTests.swift */,
@@ -2010,6 +2020,7 @@
 				9D4914831F85138E00F3868F /* NSPredicateExtensions.swift in Sources */,
 				07B7F2131F5EB43C00E6F910 /* FloatExtensions.swift in Sources */,
 				18C8E5DE2074C58100F8AF51 /* SequenceExtensions.swift in Sources */,
+				A7F70FBF256BBB110082B499 /* NSUbiquitousKeyValueStoreExtensions.swift in Sources */,
 				E5E5EB3A2350EED400B04C42 /* CAGradientLayerExtensions.swift in Sources */,
 				07B7F2121F5EB43C00E6F910 /* DoubleExtensions.swift in Sources */,
 				07B7F2171F5EB43C00E6F910 /* OptionalExtensions.swift in Sources */,
@@ -2102,6 +2113,7 @@
 				734308082108E4630029CD16 /* CGVectorExtensions.swift in Sources */,
 				F8DED22624EAA2070068F758 /* UIScrollViewExtensions.swift in Sources */,
 				07B7F1BC1F5EB42000E6F910 /* UIViewControllerExtensions.swift in Sources */,
+				A7F70FC0256BBB110082B499 /* NSUbiquitousKeyValueStoreExtensions.swift in Sources */,
 				F8A710EA23BF3F7300112DAD /* EdgeInsetsExtensions.swift in Sources */,
 				07B7F2371F5EB45200E6F910 /* CGSizeExtensions.swift in Sources */,
 				07B7F1FB1F5EB43C00E6F910 /* CharacterExtensions.swift in Sources */,
@@ -2254,6 +2266,7 @@
 				9DC844A62349E27600E1571A /* NSColorExtensions.swift in Sources */,
 				07B7F2231F5EB44600E6F910 /* CGSizeExtensions.swift in Sources */,
 				664CB9792171899800FC87B4 /* BinaryFloatingPointExtensions.swift in Sources */,
+				A7F70FC1256BBB110082B499 /* NSUbiquitousKeyValueStoreExtensions.swift in Sources */,
 				9D806A632258D503008E500A /* SCNPlaneExtensions.swift in Sources */,
 				07B7F1E11F5EB43B00E6F910 /* OptionalExtensions.swift in Sources */,
 				9D9784DE1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */,
@@ -2404,6 +2417,7 @@
 				86B3F7AE208D3DF300BC297B /* UIScrollViewExtensionsTests.swift in Sources */,
 				18C8E5E32074C67000F8AF51 /* SequenceExtensionsTests.swift in Sources */,
 				116090B424187D8100DDCD01 /* CGRectExtensionsTests.swift in Sources */,
+				A7F70FAD256BBADD0082B499 /* NSUbiquitousKeyValueStoreTest.swift in Sources */,
 				07C50D5D1F5EB05000F46E5A /* DictionaryExtensionsTests.swift in Sources */,
 				748B191F23B4F4FA0030FABB /* SKProductTests.swift in Sources */,
 				07C50D5B1F5EB05000F46E5A /* DataExtensionsTests.swift in Sources */,
@@ -2471,6 +2485,7 @@
 				8D4B4250212972E7002A5923 /* UILayoutPriorityExtensionsTests.swift in Sources */,
 				07C50D871F5EB06000F46E5A /* CGFloatExtensionsTests.swift in Sources */,
 				9D806AA42258FF98008E500A /* SCNPlaneExtensionsTests.swift in Sources */,
+				A7F70FAE256BBADD0082B499 /* NSUbiquitousKeyValueStoreTest.swift in Sources */,
 				9D806AA02258FF1A008E500A /* SCNSphereExtensionsTests.swift in Sources */,
 				664CB973217186E900FC87B4 /* BidirectionalCollectionExtensionsTests.swift in Sources */,
 				07C50D541F5EB04700F46E5A /* UITextViewExtensionsTests.swift in Sources */,
@@ -2537,6 +2552,7 @@
 				078916E020760DA700AC0665 /* SignedIntegerExtensionsTests.swift in Sources */,
 				F87AA5DC24125C19005F5B28 /* NotificationCenterExtensionsTests.swift in Sources */,
 				07C50D861F5EB05800F46E5A /* NSViewExtensionsTests.swift in Sources */,
+				A7F70FAF256BBADD0082B499 /* NSUbiquitousKeyValueStoreTest.swift in Sources */,
 				F854D2B92423E1FE003A08A9 /* CAGradientLayerExtensionsTests.swift in Sources */,
 				07C50D851F5EB05800F46E5A /* NSAttributedStringExtensionsTests.swift in Sources */,
 				07C50D7C1F5EB05100F46E5A /* IntExtensionsTests.swift in Sources */,
