@@ -362,10 +362,8 @@ public extension Color {
 
 public extension Color {
     /// SwifterSwift: Brand identity color of popular social media platform.
-    struct Social {
+    enum Social {
         // https://www.lockedowndesign.com/social-media-colors/
-
-        private init() {}
 
         /// SwifterSwift: red: 59, green: 89, blue: 152
         public static let facebook = Color(red: 59, green: 89, blue: 152)!
@@ -455,10 +453,8 @@ public extension Color {
 public extension Color {
     // swiftlint:disable type_body_length
     /// SwifterSwift: Google Material design colors palette.
-    struct Material {
+    enum Material {
         // https://material.google.com/style/color.html
-
-        private init() {}
 
         /// SwifterSwift: color red500
         public static let red = red500
@@ -1291,10 +1287,8 @@ public extension Color {
 
 public extension Color {
     /// SwifterSwift: CSS colors.
-    struct CSS {
+    enum CSS {
         // http://www.w3schools.com/colors/colors_names.asp
-
-        private init() {}
 
         /// SwifterSwift: hex #F0F8FF
         public static let aliceBlue = Color(hex: 0xF0F8FF)!
@@ -1746,7 +1740,7 @@ public extension Color {
 
 public extension Color {
     /// SwifterSwift: Flat UI colors
-    struct FlatUI {
+    enum FlatUI {
         // http://flatuicolors.com.
 
         /// SwifterSwift: hex #1ABC9C

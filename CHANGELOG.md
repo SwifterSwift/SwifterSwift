@@ -66,6 +66,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `addPaddingRight`,`addPaddingRightIcon`extension,[#878](https://github.com/SwifterSwift/SwifterSwift/pull/878) by [Jayxiang](https://github.com/Jayxiang)
 - **UIAlertController**:
   - Mark `show` method as unavailable for `iOSAppExtension` targets. [#918](https://github.com/SwifterSwift/SwifterSwift/pull/918) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+- **ColorExtension**:
+  - Use `enum` to declare namespace instead of using `struct`. Thus private initailizer is no longer needed. [#927] by [Shiva Huang](https://github.com/ShivaHuang)
 
 ### Deprecated
 - **Sequence**:
@@ -86,6 +88,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Fixed a bug:UITextField `addPaddingLeftIcon` doesn't work on iOS 13[#876](https://github.com/SwifterSwift/SwifterSwift/issues/876) by [Jayxiang](https://github.com/Jayxiang)
 - **UIImage**
   - Fixed a bug:UIImage `rotated(by:)` lose origin scale, result in image blurred[#904](https://github.com/SwifterSwift/SwifterSwift/pull/904) by [yanpanpan](https://github.com/yanpanpan)
+- **ColorExtension**:
+  - Fixed a bug: `Color.FlatUI` can be initialized. by [Shiva Huang](https://github.com/ShivaHuang)
 
 ### Security
 
