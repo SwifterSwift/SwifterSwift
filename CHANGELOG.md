@@ -67,7 +67,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIAlertController**:
   - Mark `show` method as unavailable for `iOSAppExtension` targets. [#918](https://github.com/SwifterSwift/SwifterSwift/pull/918) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - **ColorExtension**:
-  - Use `enum` to declare namespace instead of using `struct`. Thus private initailizer is no longer needed. by [Shiva Huang](https://github.com/ShivaHuang)
+  - Use `enum` to declare namespace instead of using `struct`. Thus private initailizer is no longer needed. [#927] by [Shiva Huang](https://github.com/ShivaHuang)
 
 ### Deprecated
 - **Sequence**:
