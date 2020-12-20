@@ -7,6 +7,12 @@ private enum SequenceTestError: Error {
     case closureThrows
 }
 
+struct TestValue: Equatable, ExpressibleByIntegerLiteral {
+    let value: Int
+
+    init(integerLiteral value: Int) { self.value = value }
+}
+
 final class SequenceExtensionsTests: XCTestCase {
     func testAllMatch() {
         let collection = [2, 4, 6, 8, 10, 12]
@@ -21,13 +27,6 @@ final class SequenceExtensionsTests: XCTestCase {
     func testNoneMatch() {
         let collection = [3, 5, 7, 9, 11, 13]
         XCTAssert(collection.none { $0 % 2 == 0 })
-    }
-
-    func testLastWhere() {
-        let array = [1, 1, 2, 1, 1, 1, 2, 1, 4, 1]
-        let element = array.last { $0 % 2 == 0 }
-        XCTAssertEqual(element, 4)
-        XCTAssertNil([Int]().last { $0 % 2 == 0 })
     }
 
     func testRejectWhere() {
@@ -97,7 +96,16 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(tuple.1, [1, 3, 5])
     }
 
-    func testContains() {
+    func testContainsEquatable() {
+        XCTAssert([TestValue]().contains([]))
+        XCTAssertFalse([TestValue]().contains([1, 2]))
+        XCTAssert(([1, 2, 3] as [TestValue]).contains([1, 2]))
+        XCTAssert(([1, 2, 3] as [TestValue]).contains([2, 3]))
+        XCTAssert(([1, 2, 3] as [TestValue]).contains([1, 3]))
+        XCTAssertFalse(([1, 2, 3] as [TestValue]).contains([4, 5]))
+    }
+
+    func testContainsHashable() {
         XCTAssert([Int]().contains([]))
         XCTAssertFalse([Int]().contains([1, 2]))
         XCTAssert([1, 2, 3].contains([1, 2]))
@@ -187,22 +195,6 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(first30Age, array1.first)
 
         let missingPerson = array1.first(where: \.name, equals: "Tom")
-
-        XCTAssertNil(missingPerson)
-    }
-
-    func testLastByKeyPath() {
-        let array1 = [
-            Person(name: "John", age: 30, location: Location(city: "Boston")),
-            Person(name: "Jan", age: 22, location: nil),
-            Person(name: "Roman", age: 30, location: Location(city: "Moscow"))
-        ]
-
-        let last30Age = array1.last(where: \.age, equals: 30)
-
-        XCTAssertEqual(last30Age, array1.last)
-
-        let missingPerson = array1.last(where: \.name, equals: "Tom")
 
         XCTAssertNil(missingPerson)
     }

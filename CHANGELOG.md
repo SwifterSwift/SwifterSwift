@@ -4,6 +4,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 ### Breaking Change
+- **Sequence**
+  - Remove `last(where:)` and move `last(where:equals:)` to `BidirectionalCollection`, since it only makes semantic sense for ordered sequences. [#912](https://github.com/SwifterSwift/SwifterSwift/pull/912) by [guykogus](https://github.com/guykogus)
 - **UIView**
   - Rename `shadowColor`, `shadowOffset`, `shadowOpacity` and `shadowRadius` to `layerShadowColor`, `layerShadowOffset`, `layerShadowOpacity` and `layerShadowRadius` to avoid naming colisions with subclasses properties defined in other modules e.g. UIKit. [#897](https://github.com/SwifterSwift/SwifterSwift/pull/897) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
@@ -34,6 +36,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **RangeReplaceableCollection**:
   - `subscript(offset:)` and `subscript(range:)` to access and replace elements by the index offsets. [#826](https://github.com/SwifterSwift/SwifterSwift/pull/826) by [guykogus](https://github.com/guykogus)
 - **Sequence**:
+  - Added `contains(_:)` for `Hashable` elements for performance improvement. [#912](https://github.com/SwifterSwift/SwifterSwift/pull/912) by [guykogus](https://github.com/guykogus)
   - Added `first(where:equals:)` to find the first element of the sequence with having property by given key path equals to given value. [#836](https://github.com/SwifterSwift/SwifterSwift/pull/836) by [hamtiko](https://github.com/hamtiko)
   - Added `last(where:equals:)` to find the last element of the sequence with having property by given key path equals to given value. [#838](https://github.com/SwifterSwift/SwifterSwift/pull/838) by [hamtiko](https://github.com/hamtiko)
 - **SKNode**:
