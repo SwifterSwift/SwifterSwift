@@ -34,22 +34,6 @@ public extension Sequence {
         return try contains { try condition($0) }
     }
 
-    /// SwifterSwift: Get last element that satisfies a conditon.
-    ///
-    ///        [2, 2, 4, 7].last(where: {$0 % 2 == 0}) -> 4
-    ///
-    /// - Parameter predicate: condition to evaluate each element against.
-    /// - Returns: the last element in the array matching the specified condition. (optional)
-    func last(where predicate: (Element) throws -> Bool) rethrows -> Element? {
-        var lastElement: Element?
-        for element in self {
-            if try predicate(element) {
-                lastElement = element
-            }
-        }
-        return lastElement
-    }
-
     /// SwifterSwift: Filter elements based on a rejection condition.
     ///
     ///        [2, 2, 4, 7].reject(where: {$0 % 2 == 0}) -> [7]
@@ -245,16 +229,6 @@ public extension Sequence {
     /// - Returns: The first element of the collection that has property by given key path equals to given `value` or `nil` if there is no such element.
     func first<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Element? {
         return first { $0[keyPath: keyPath] == value }
-    }
-
-    /// SwifterSwift: Returns the last element of the sequence with having property by given key path equals to given `value`.
-    ///
-    /// - Parameters:
-    ///   - keyPath: The `KeyPath` of property for `Element` to compare.
-    ///   - value: The value to compare with `Element` property
-    /// - Returns: The last element of the collection that has property by given key path equals to given `value` or `nil` if there is no such element.
-    func last<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Element? {
-        return reversed().first { $0[keyPath: keyPath] == value }
     }
 }
 

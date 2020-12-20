@@ -7,62 +7,10 @@ private enum SequenceTestError: Error {
     case closureThrows
 }
 
-/// Use a `LinkedList` for testing an ordered, unidirectional `Sequence`
-struct LinkedList<T>: Sequence, ExpressibleByArrayLiteral {
-    fileprivate class Node {
-        let value: T
-        var next: Node?
+struct TestValue: Equatable, ExpressibleByIntegerLiteral {
+    let value: Int
 
-        init(value: T) {
-            self.value = value
-        }
-    }
-
-    struct Iterator: IteratorProtocol {
-        private var node: Node?
-
-        fileprivate init(node: Node?) {
-            self.node = node
-        }
-
-        mutating func next() -> T? {
-            defer { node = node?.next }
-            return node?.value
-        }
-    }
-
-    // MARK: LinkedList
-
-    private var head: Node?
-    private var tail: Node?
-
-    init<S>(_ elements: S) where S: Sequence, Self.Element == S.Element {
-        for element in elements {
-            append(element)
-        }
-    }
-
-    mutating func append(_ value: T) {
-        let node = Node(value: value)
-        if let tail = tail {
-            tail.next = node
-        } else {
-            head = node
-        }
-        tail = node
-    }
-
-    // MARK: Sequence
-
-    func makeIterator() -> Iterator {
-        return Iterator(node: head)
-    }
-
-    // MARK: ExpressibleByArrayLiteral
-
-    init(arrayLiteral elements: T...) {
-        self.init(elements)
-    }
+    init(integerLiteral value: Int) { self.value = value }
 }
 
 final class SequenceExtensionsTests: XCTestCase {
@@ -79,13 +27,6 @@ final class SequenceExtensionsTests: XCTestCase {
     func testNoneMatch() {
         let collection = [3, 5, 7, 9, 11, 13]
         XCTAssert(collection.none { $0 % 2 == 0 })
-    }
-
-    func testLastWhere() {
-        let list = LinkedList([1, 1, 2, 1, 1, 1, 2, 1, 4, 1])
-        XCTAssertEqual(list.last { $0 % 2 == 0 }, 4)
-        XCTAssertNil(list.last { $0 == 0 })
-        XCTAssertNil(LinkedList<Int>().last { $0 % 2 == 0 })
     }
 
     func testRejectWhere() {
@@ -156,18 +97,12 @@ final class SequenceExtensionsTests: XCTestCase {
     }
 
     func testContainsEquatable() {
-        struct Foo: Equatable, ExpressibleByIntegerLiteral {
-            let value: Int
-
-            init(integerLiteral value: Int) { self.value = value }
-        }
-
-        XCTAssert([Foo]().contains([]))
-        XCTAssertFalse([Foo]().contains([1, 2]))
-        XCTAssert(([1, 2, 3] as [Foo]).contains([1, 2]))
-        XCTAssert(([1, 2, 3] as [Foo]).contains([2, 3]))
-        XCTAssert(([1, 2, 3] as [Foo]).contains([1, 3]))
-        XCTAssertFalse(([1, 2, 3] as [Foo]).contains([4, 5]))
+        XCTAssert([TestValue]().contains([]))
+        XCTAssertFalse([TestValue]().contains([1, 2]))
+        XCTAssert(([1, 2, 3] as [TestValue]).contains([1, 2]))
+        XCTAssert(([1, 2, 3] as [TestValue]).contains([2, 3]))
+        XCTAssert(([1, 2, 3] as [TestValue]).contains([1, 3]))
+        XCTAssertFalse(([1, 2, 3] as [TestValue]).contains([4, 5]))
     }
 
     func testContainsHashable() {
@@ -260,22 +195,6 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(first30Age, array1.first)
 
         let missingPerson = array1.first(where: \.name, equals: "Tom")
-
-        XCTAssertNil(missingPerson)
-    }
-
-    func testLastByKeyPath() {
-        let array1 = [
-            Person(name: "John", age: 30, location: Location(city: "Boston")),
-            Person(name: "Jan", age: 22, location: nil),
-            Person(name: "Roman", age: 30, location: Location(city: "Moscow"))
-        ]
-
-        let last30Age = array1.last(where: \.age, equals: 30)
-
-        XCTAssertEqual(last30Age, array1.last)
-
-        let missingPerson = array1.last(where: \.name, equals: "Tom")
 
         XCTAssertNil(missingPerson)
     }

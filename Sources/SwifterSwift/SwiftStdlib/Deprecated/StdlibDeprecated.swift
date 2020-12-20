@@ -99,4 +99,18 @@ public extension Sequence {
     func filter(by keyPath: KeyPath<Element, Bool>) -> [Element] {
         return filter { $0[keyPath: keyPath] }
     }
+
+    /// SwifterSwift: Get last element that satisfies a conditon.
+    ///
+    ///        [2, 2, 4, 7].last(where: {$0 % 2 == 0}) -> 4
+    ///
+    /// - Parameter condition: condition to evaluate each element against.
+    /// - Returns: the last element in the array matching the specified condition. (optional)
+    @available(*, deprecated, message: "For an unordered sequence using `last` instead of `first` is equal.")
+    func last(where condition: (Element) throws -> Bool) rethrows -> Element? {
+        for element in reversed() {
+            if try condition(element) { return element }
+        }
+        return nil
+    }
 }
