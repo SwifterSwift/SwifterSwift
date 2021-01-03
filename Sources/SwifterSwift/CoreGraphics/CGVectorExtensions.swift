@@ -76,8 +76,8 @@ public extension CGVector {
     ///   - vector: The vector to be multiplied
     ///   - scalar: The scale by which the vector will be multiplied
     static func *= (vector: inout CGVector, scalar: CGFloat) {
-        // swiftlint:disable:next shorthand_operator
-        vector = vector * scalar
+        vector.dx *= scalar
+        vector.dy *= scalar
     }
 
     /// SwifterSwift: Negates the vector. The direction is reversed, but magnitude remains the same.
