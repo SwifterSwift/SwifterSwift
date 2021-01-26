@@ -9,7 +9,7 @@ public extension Measurement where UnitType == UnitAngle {
     /// SwifterSwift:  Create a Measurement for an angle with a specified value in degrees.
     /// - Parameter value: The quantity of the angle in degree.
     /// - Returns: Measurement for an angle with unit degrees.
-    static func degree(_ value: Double) -> Measurement {
+    static func degrees(_ value: Double) -> Measurement {
         Measurement(value: value, unit: .degrees)
     }
 
