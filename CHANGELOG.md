@@ -56,6 +56,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `widthConstraint`, `heightConstraint`, `leadingConstraint`, `trailingConstraint`, `topConstraint`, and `bottomConstraint` for finding specific constraints. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous]
 - **StringProtocol**
   - Added `replacingOccurrences(ofPattern:withTemplate:options:searchRange:)` as a more convenient way to replace patterns. [#901](https://github.com/SwifterSwift/SwifterSwift/pull/901) by [gurgeous](https://github.com/gurgeous)
+- **Measurement**
+  - Added `.degree(_:)`, `arcMinutes(_:)`, `arcSeconds(_:)`, `radians(_:)`, `gradians(_:)` and `revolutions(_:)`  to conveniently initialize measurement with corresponding unit. by [#936](https://github.com/SwifterSwift/SwifterSwift/pull/936) [Shiva Huang](https://github.com/ShivaHuang)
 
 ### Changed
 - **NSAttributedString**:
@@ -63,14 +65,13 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `applying(attributes:)` changed access modifier from `fileprivate` to `public`. [#832](https://github.com/SwifterSwift/SwifterSwift/pull/832) by [cHaLkdusT](https://github.com/cHaLkdusT)
 - **Color**:
   - Refactored `init(light:dark:)` to remove deployment target version restrictions. [#844](https://github.com/SwifterSwift/SwifterSwift/pull/844) by [VincentSit](https://github.com/vincentsit).
+  - Use `enum` to declare namespace instead of using `struct`. Thus private initailizer is no longer needed. [#927](https://github.com/SwifterSwift/SwifterSwift/pull/927) by [Shiva Huang](https://github.com/ShivaHuang)
 - **CAGradientLayer**:
   - In `init(colors:locations:startPoint:endPoint:type:)` added default values to `startPoint` and `endPoint`. [#864](https://github.com/SwifterSwift/SwifterSwift/pull/864) by [guykogus](https://github.com/guykogus)
 - **UITextField**:
   - Added `addPaddingRight`,`addPaddingRightIcon`extension,[#878](https://github.com/SwifterSwift/SwifterSwift/pull/878) by [Jayxiang](https://github.com/Jayxiang)
 - **UIAlertController**:
   - Mark `show` method as unavailable for `iOSAppExtension` targets. [#918](https://github.com/SwifterSwift/SwifterSwift/pull/918) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
-- **ColorExtension**:
-  - Use `enum` to declare namespace instead of using `struct`. Thus private initailizer is no longer needed. [#927] by [Shiva Huang](https://github.com/ShivaHuang)
 
 ### Deprecated
 - **Sequence**:
