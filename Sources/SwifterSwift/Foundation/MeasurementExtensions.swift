@@ -1,4 +1,4 @@
-// MeasurementExtensions.swift - Copyright 2020 SwifterSwift
+// MeasurementExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
