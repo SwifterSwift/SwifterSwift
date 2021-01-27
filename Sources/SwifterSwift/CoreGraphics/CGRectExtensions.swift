@@ -31,7 +31,7 @@ public extension CGRect {
     ///   - size: new size to be applied
     ///   - anchor: specified anchor, a point in normalized coordinates -
     ///     '(0, 0)' is the top left corner of rect，'(1, 1)' is the bottom right corner of rect,
-    ///     defaults to '(0.5, 0.5)'. excample:
+    ///     defaults to '(0.5, 0.5)'. Example:
     ///
     ///          anchor = CGPoint(x: 0.0, y: 1.0):
     ///

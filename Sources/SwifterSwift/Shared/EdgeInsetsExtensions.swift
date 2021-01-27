@@ -58,7 +58,7 @@ public extension EdgeInsets {
 // MARK: - Methods
 
 public extension EdgeInsets {
-    /// SwifterSwift: Creates an `EdgeInsets` with the inset value applied to all (top, bottom, right, left)
+    /// SwifterSwift: Creates an `EdgeInsets` with the inset value applied to all (top, bottom, right, left).
     ///
     /// - Parameter inset: Inset to be applied in all the edges.
     init(inset: CGFloat) {

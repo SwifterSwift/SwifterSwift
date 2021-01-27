@@ -10,7 +10,7 @@ public extension UIBezierPath {
     ///
     /// - Parameters:
     ///   - from: The point from which to path should start.
-    ///   - to: The point where the path should end.
+    ///   - otherPoint: The point where the path should end.
     convenience init(from: CGPoint, to otherPoint: CGPoint) {
         self.init()
         move(to: from)

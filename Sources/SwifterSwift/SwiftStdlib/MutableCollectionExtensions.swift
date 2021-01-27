@@ -55,8 +55,9 @@ public extension MutableCollection where Self: RandomAccessCollection {
 public extension MutableCollection {
     /// SwifterSwift: Assign a given value to a field `keyPath` of all elements in the collection.
     ///
-    /// - Parameter value: The new value of the field
-    /// - Parameter keyPath: The actual field of the element
+    /// - Parameters:
+    ///   - value: The new value of the field
+    ///   - keyPath: The actual field of the element
     mutating func assignToAll<Value>(value: Value, by keyPath: WritableKeyPath<Element, Value>) {
         for idx in indices {
             self[idx][keyPath: keyPath] = value

@@ -844,7 +844,7 @@ public extension Date {
 
     /// SwifterSwift: get number of seconds between two date
     ///
-    /// - Parameter date: date to compate self to.
+    /// - Parameter date: date to compare self to.
     /// - Returns: number of seconds between self and given date.
     func secondsSince(_ date: Date) -> Double {
         return timeIntervalSince(date)
@@ -852,7 +852,7 @@ public extension Date {
 
     /// SwifterSwift: get number of minutes between two date
     ///
-    /// - Parameter date: date to compate self to.
+    /// - Parameter date: date to compare self to.
     /// - Returns: number of minutes between self and given date.
     func minutesSince(_ date: Date) -> Double {
         return timeIntervalSince(date) / 60
@@ -860,7 +860,7 @@ public extension Date {
 
     /// SwifterSwift: get number of hours between two date
     ///
-    /// - Parameter date: date to compate self to.
+    /// - Parameter date: date to compare self to.
     /// - Returns: number of hours between self and given date.
     func hoursSince(_ date: Date) -> Double {
         return timeIntervalSince(date) / 3600
@@ -868,7 +868,7 @@ public extension Date {
 
     /// SwifterSwift: get number of days between two date
     ///
-    /// - Parameter date: date to compate self to.
+    /// - Parameter date: date to compare self to.
     /// - Returns: number of days between self and given date.
     func daysSince(_ date: Date) -> Double {
         return timeIntervalSince(date) / (3600 * 24)

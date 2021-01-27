@@ -27,8 +27,8 @@ public extension Optional {
     ///        try print(bar.unwrapped(or: MyError.notFound)) -> "bar"
     ///
     /// - Parameter error: The error to throw if the optional is `nil`.
-    /// - Returns: The value wrapped by the optional.
     /// - Throws: The error passed in.
+    /// - Returns: The value wrapped by the optional.
     func unwrapped(or error: Error) throws -> Wrapped {
         guard let wrapped = self else { throw error }
         return wrapped
@@ -95,7 +95,7 @@ public extension Optional where Wrapped: Collection {
         return collection.isEmpty
     }
 
-    /// SwifterSwift: Returns the collection only if it is not nill and not empty.
+    /// SwifterSwift: Returns the collection only if it is not nil and not empty.
     var nonEmpty: Wrapped? {
         guard let collection = self else { return nil }
         guard !collection.isEmpty else { return nil }

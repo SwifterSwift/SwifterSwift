@@ -1,7 +1,7 @@
 // SequenceExtensions.swift - Copyright 2020 SwifterSwift
 
 public extension Sequence {
-    /// SwifterSwift: Check if all elements in collection match a conditon.
+    /// SwifterSwift: Check if all elements in collection match a condition.
     ///
     ///        [2, 2, 4].all(matching: {$0 % 2 == 0}) -> true
     ///        [1,2, 2, 4].all(matching: {$0 % 2 == 0}) -> false
@@ -12,7 +12,7 @@ public extension Sequence {
         return try !contains { try !condition($0) }
     }
 
-    /// SwifterSwift: Check if no elements in collection match a conditon.
+    /// SwifterSwift: Check if no elements in collection match a condition.
     ///
     ///        [2, 2, 4].none(matching: {$0 % 2 == 0}) -> false
     ///        [1, 3, 5, 7].none(matching: {$0 % 2 == 0}) -> true
@@ -23,7 +23,7 @@ public extension Sequence {
         return try !contains { try condition($0) }
     }
 
-    /// SwifterSwift: Check if any element in collection match a conditon.
+    /// SwifterSwift: Check if any element in collection match a condition.
     ///
     ///        [2, 2, 4].any(matching: {$0 % 2 == 0}) -> false
     ///        [1, 3, 5, 7].any(matching: {$0 % 2 == 0}) -> true
@@ -215,7 +215,7 @@ public extension Sequence {
     ///     ["James", "Wade", "Bryant"].sum(for: \.count) -> 15
     ///
     /// - Parameter keyPath: Key path of the `AdditiveArithmetic` property.
-    /// - Returns: The sum of the `AdditiveArithmetic` propertys at `keyPath`.
+    /// - Returns: The sum of the `AdditiveArithmetic` properties at `keyPath`.
     func sum<T: AdditiveArithmetic>(for keyPath: KeyPath<Element, T>) -> T {
         // Inspired by: https://swiftbysundell.com/articles/reducers-in-swift/
         return reduce(.zero) { $0 + $1[keyPath: keyPath] }

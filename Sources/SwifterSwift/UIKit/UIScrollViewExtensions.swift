@@ -8,7 +8,7 @@ import UIKit
 public extension UIScrollView {
     /// SwifterSwift: Takes a snapshot of an entire ScrollView
     ///
-    ///    AnySubclassOfUIScroolView().snapshot
+    ///    AnySubclassOfUIScrollView().snapshot
     ///    UITableView().snapshot
     ///
     /// - Returns: Snapshot as UIimage for rendered ScrollView

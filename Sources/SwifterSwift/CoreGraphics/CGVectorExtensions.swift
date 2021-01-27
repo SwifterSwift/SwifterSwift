@@ -30,7 +30,7 @@ public extension CGVector {
     ///
     /// - Parameters:
     ///     - angle: The angle of rotation (in radians) counterclockwise from the positive x-axis.
-    ///     - magnitude: The lenth of the vector.
+    ///     - magnitude: The length of the vector.
     ///
     init(angle: CGFloat, magnitude: CGFloat) {
         // https://www.grc.nasa.gov/WWW/K-12/airplane/vectpart.html
@@ -67,7 +67,7 @@ public extension CGVector {
         return CGVector(dx: scalar * vector.dx, dy: scalar * vector.dy)
     }
 
-    /// SwifterSwift: Compound assignment operator for vector-scalr multiplication
+    /// SwifterSwift: Compound assignment operator for vector-scalar multiplication
     ///
     ///     var vector = CGVector(dx: 1, dy: 1)
     ///     vector *= 2

@@ -81,7 +81,7 @@ public prefix func ± <T: FloatingPoint>(number: T) -> (T, T) {
 prefix operator √
 /// SwifterSwift: Square root of float.
 ///
-/// - Parameter float: float value to find square root for
+/// - Parameter float: float value to find square root for.
 /// - Returns: square root of given float.
 public prefix func √ <T>(float: T) -> T where T: FloatingPoint {
     // http://nshipster.com/swift-operators/

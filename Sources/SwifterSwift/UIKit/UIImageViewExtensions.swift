@@ -12,7 +12,7 @@ public extension UIImageView {
     ///   - url: URL of image.
     ///   - contentMode: imageView content mode (default is .scaleAspectFit).
     ///   - placeHolder: optional placeholder image
-    ///   - completionHandler: optional completion handler to run when download finishs (default is nil).
+    ///   - completionHandler: optional completion handler to run when download finishes (default is nil).
     func download(
         from url: URL,
         contentMode: UIView.ContentMode = .scaleAspectFit,
@@ -36,7 +36,7 @@ public extension UIImageView {
         }.resume()
     }
 
-    /// SwifterSwift: Make image view blurry
+    /// SwifterSwift: Make image view blurry.
     ///
     /// - Parameter style: UIBlurEffectStyle (default is .light).
     func blur(withStyle style: UIBlurEffect.Style = .light) {
@@ -48,7 +48,7 @@ public extension UIImageView {
         clipsToBounds = true
     }
 
-    /// SwifterSwift: Blurred version of an image view
+    /// SwifterSwift: Blurred version of an image view.
     ///
     /// - Parameter style: UIBlurEffectStyle (default is .light).
     /// - Returns: blurred version of self.

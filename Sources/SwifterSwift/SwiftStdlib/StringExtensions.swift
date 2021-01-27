@@ -970,8 +970,9 @@ public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: Verify if string matches the regex.
     ///
-    /// - Parameter regex: Regex to verify.
-    /// - Parameter options: The matching options to use.
+    /// - Parameters:
+    ///   - regex: Regex to verify.
+    ///   - options: The matching options to use.
     /// - Returns: `true` if string matches the regex.
     func matches(regex: NSRegularExpression, options: NSRegularExpression.MatchingOptions = []) -> Bool {
         let range = NSRange(startIndex..<endIndex, in: self)
@@ -982,8 +983,9 @@ public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: Overload Swift's 'contains' operator for matching regex pattern
     ///
-    /// - Parameter lhs: String to check on regex pattern.
-    /// - Parameter rhs: Regex pattern to match against.
+    /// - Parameters:
+    ///   - lhs: String to check on regex pattern.
+    ///   - rhs: Regex pattern to match against.
     /// - Returns: true if string matches the pattern.
     static func ~= (lhs: String, rhs: String) -> Bool {
         return lhs.range(of: rhs, options: .regularExpression) != nil
@@ -993,8 +995,9 @@ public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: Overload Swift's 'contains' operator for matching regex
     ///
-    /// - Parameter lhs: String to check on regex.
-    /// - Parameter rhs: Regex to match against.
+    /// - Parameters:
+    ///   - lhs: String to check on regex.
+    ///   - rhs: Regex to match against.
     /// - Returns: `true` if there is at least one match for the regex in the string.
     static func ~= (lhs: String, rhs: NSRegularExpression) -> Bool {
         let range = NSRange(lhs.startIndex..<lhs.endIndex, in: lhs)
@@ -1004,10 +1007,11 @@ public extension String {
 
     #if canImport(Foundation)
     /// SwifterSwift: Returns a new string in which all occurrences of a regex in a specified range of the receiver are replaced by the template.
-    /// - Parameter regex: Regex to replace.
-    /// - Parameter template: The template to replace the regex.
-    /// - Parameter options: The matching options to use
-    /// - Parameter searchRange: The range in the receiver in which to search.
+    /// - Parameters:
+    ///   - regex Regex to replace.
+    ///   - template: The template to replace the regex.
+    ///   - options: The matching options to use
+    ///   - searchRange: The range in the receiver in which to search.
     /// - Returns: A new string in which all occurrences of regex in searchRange of the receiver are replaced by template.
     func replacingOccurrences(
         of regex: NSRegularExpression,
@@ -1024,8 +1028,9 @@ public extension String {
     ///   "hue".padStart(10) -> "       hue"
     ///   "hue".padStart(10, with: "br") -> "brbrbrbhue"
     ///
-    /// - Parameter length: The target length to pad.
-    /// - Parameter string: Pad string. Default is " ".
+    /// - Parameters:
+    ///   - length: The target length to pad.
+    ///   - string: Pad string. Default is " ".
     @discardableResult
     mutating func padStart(_ length: Int, with string: String = " ") -> String {
         self = paddingStart(length, with: string)
@@ -1037,8 +1042,9 @@ public extension String {
     ///   "hue".paddingStart(10) -> "       hue"
     ///   "hue".paddingStart(10, with: "br") -> "brbrbrbhue"
     ///
-    /// - Parameter length: The target length to pad.
-    /// - Parameter string: Pad string. Default is " ".
+    /// - Parameters:
+    ///   - length: The target length to pad.
+    ///   - string: Pad string. Default is " ".
     /// - Returns: The string with the padding on the start.
     func paddingStart(_ length: Int, with string: String = " ") -> String {
         guard count < length else { return self }
@@ -1060,8 +1066,9 @@ public extension String {
     ///   "hue".padEnd(10) -> "hue       "
     ///   "hue".padEnd(10, with: "br") -> "huebrbrbrb"
     ///
-    /// - Parameter length: The target length to pad.
-    /// - Parameter string: Pad string. Default is " ".
+    /// - Parameters:
+    ///   - length: The target length to pad.
+    ///   - string: Pad string. Default is " ".
     @discardableResult
     mutating func padEnd(_ length: Int, with string: String = " ") -> String {
         self = paddingEnd(length, with: string)
@@ -1073,8 +1080,9 @@ public extension String {
     ///   "hue".paddingEnd(10) -> "hue       "
     ///   "hue".paddingEnd(10, with: "br") -> "huebrbrbrb"
     ///
-    /// - Parameter length: The target length to pad.
-    /// - Parameter string: Pad string. Default is " ".
+    /// - Parameters:
+    ///   - length: The target length to pad.
+    ///   - string: Pad string. Default is " ".
     /// - Returns: The string with the padding on the end.
     func paddingEnd(_ length: Int, with string: String = " ") -> String {
         guard count < length else { return self }

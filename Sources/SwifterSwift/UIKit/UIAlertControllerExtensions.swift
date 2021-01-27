@@ -31,14 +31,14 @@ public extension UIAlertController {
         }
     }
 
-    /// SwifterSwift: Add an action to Alert
+    /// SwifterSwift: Add an action to Alert.
     ///
     /// - Parameters:
-    ///   - title: action title
-    ///   - style: action style (default is UIAlertActionStyle.default)
-    ///   - isEnabled: isEnabled status for action (default is true)
-    ///   - handler: optional action handler to be called when button is tapped (default is nil)
-    /// - Returns: action created by this method
+    ///   - title: action title.
+    ///   - style: action style (default is UIAlertActionStyle.default).
+    ///   - isEnabled: isEnabled status for action (default is true).
+    ///   - handler: optional action handler to be called when button is tapped (default is nil).
+    /// - Returns: action created by this method.
     @discardableResult
     func addAction(
         title: String,
@@ -51,13 +51,13 @@ public extension UIAlertController {
         return action
     }
 
-    /// SwifterSwift: Add a text field to Alert
+    /// SwifterSwift: Add a text field to Alert.
     ///
     /// - Parameters:
-    ///   - text: text field text (default is nil)
-    ///   - placeholder: text field placeholder text (default is nil)
-    ///   - editingChangedTarget: an optional target for text field's editingChanged
-    ///   - editingChangedSelector: an optional selector for text field's editingChanged
+    ///   - text: text field text (default is nil).
+    ///   - placeholder: text field placeholder text (default is nil).
+    ///   - editingChangedTarget: an optional target for text field's editingChanged.
+    ///   - editingChangedSelector: an optional selector for text field's editingChanged.
     func addTextField(
         text: String? = nil,
         placeholder: String? = nil,
@@ -81,8 +81,8 @@ public extension UIAlertController {
     /// - Parameters:
     ///   - title: alert controller's title.
     ///   - message: alert controller's message (default is nil).
-    ///   - defaultActionButtonTitle: default action button title (default is "OK")
-    ///   - tintColor: alert controller's tint color (default is nil)
+    ///   - defaultActionButtonTitle: default action button title (default is "OK").
+    ///   - tintColor: alert controller's tint color (default is nil).
     convenience init(
         title: String,
         message: String? = nil,
@@ -101,8 +101,9 @@ public extension UIAlertController {
     /// - Parameters:
     ///   - title: alert controller's title (default is "Error").
     ///   - error: error to set alert controller's message to it's localizedDescription.
-    ///   - defaultActionButtonTitle: default action button title (default is "OK")
-    ///   - tintColor: alert controller's tint color (default is nil)
+    ///   - defaultActionButtonTitle: default action button title (default is "OK").
+    ///   - preferredStyle: type of alert to display (default is .alert).
+    ///   - tintColor: alert controller's tint color (default is nil).
     convenience init(
         title: String = "Error",
         error: Error,

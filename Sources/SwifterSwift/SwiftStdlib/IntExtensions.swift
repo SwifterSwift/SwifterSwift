@@ -23,7 +23,7 @@ public extension Int {
         return Double.pi * Double(self) / 180.0
     }
 
-    /// SwifterSwift: Degree value of radian input
+    /// SwifterSwift: Degree value of radian input.
     var radiansToDegrees: Double {
         return Double(self) * 180 / Double.pi
     }
@@ -50,7 +50,7 @@ public extension Int {
     }
     #endif
 
-    /// SwifterSwift: String formatted for values over ±1000 (example: 1k, -2k, 100k, 1kk, -5kk..)
+    /// SwifterSwift: String formatted for values over ±1000 (example: 1k, -2k, 100k, 1kk, -5kk..).
     var kFormatted: String {
         var sign: String {
             return self >= 0 ? "" : "-"
@@ -94,7 +94,7 @@ public extension Int {
 
 public extension Int {
     /// SwifterSwift: check if given integer prime or not. Warning: Using big numbers can be computationally expensive!
-    /// - Returns: true or false depending on prime-ness
+    /// - Returns: true or false depending on prime-ness.
     func isPrime() -> Bool {
         // To improve speed on latter loop :)
         if self == 2 { return true }
@@ -139,7 +139,7 @@ public extension Int {
         return romanValue
     }
 
-    /// SwifterSwift: Rounds to the closest multiple of n
+    /// SwifterSwift: Rounds to the closest multiple of n.
     func roundToNearest(_ number: Int) -> Int {
         return number == 0 ? self : Int(round(Double(self) / Double(number))) * number
     }
@@ -192,7 +192,7 @@ func ± (lhs: Int, rhs: Int) -> (Int, Int) {
 prefix operator ±
 /// SwifterSwift: Tuple of plus-minus operation.
 ///
-/// - Parameter int: integer number
+/// - Parameter int: integer number.
 /// - Returns: tuple of plus-minus operation (example: ± 2 -> (2, -2)).
 public prefix func ± (int: Int) -> (Int, Int) {
     // http://nshipster.com/swift-operators/
