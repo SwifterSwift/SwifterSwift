@@ -81,7 +81,7 @@
         "macOS": "10.15.6"
       },
       "big_sur": {
-        "HOMEBREW_VERSION": "2.7.7-34-g0a46e34",
+        "HOMEBREW_VERSION": "2.7.7",
         "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "7dcbcf2f4a86ad8c92d705905ca892a313340bd3",
         "CLT": "11.0.33.12",
