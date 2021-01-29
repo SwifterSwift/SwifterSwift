@@ -474,8 +474,8 @@ public extension UIView {
     /// SwifterSwift: Add Visual Format constraints.
     ///
     /// - Parameters:
-    ///   - withFormat: visual Format language
-    ///   - views: array of views which will be accessed starting with index 0 (example: [v0], [v1], [v2]..)
+    ///   - withFormat: visual Format language.
+    ///   - views: array of views which will be accessed starting with index 0 (example: [v0], [v1], [v2]..).
     @available(iOS 9, *) func addConstraints(withFormat: String, views: UIView...) {
         // https://videos.letsbuildthatapp.com/
         var viewsDictionary: [String: UIView] = [:]
@@ -508,16 +508,16 @@ public extension UIView {
     /// SwifterSwift: Add anchors from any side of the current view into the specified anchors and returns the newly added constraints.
     ///
     /// - Parameters:
-    ///   - top: current view's top anchor will be anchored into the specified anchor
-    ///   - left: current view's left anchor will be anchored into the specified anchor
-    ///   - bottom: current view's bottom anchor will be anchored into the specified anchor
-    ///   - right: current view's right anchor will be anchored into the specified anchor
-    ///   - topConstant: current view's top anchor margin
-    ///   - leftConstant: current view's left anchor margin
-    ///   - bottomConstant: current view's bottom anchor margin
-    ///   - rightConstant: current view's right anchor margin
-    ///   - widthConstant: current view's width
-    ///   - heightConstant: current view's height
+    ///   - top: current view's top anchor will be anchored into the specified anchor.
+    ///   - left: current view's left anchor will be anchored into the specified anchor.
+    ///   - bottom: current view's bottom anchor will be anchored into the specified anchor.
+    ///   - right: current view's right anchor will be anchored into the specified anchor.
+    ///   - topConstant: current view's top anchor margin.
+    ///   - leftConstant: current view's left anchor margin.
+    ///   - bottomConstant: current view's bottom anchor margin.
+    ///   - rightConstant: current view's right anchor margin.
+    ///   - widthConstant: current view's width.
+    ///   - heightConstant: current view's height.
     /// - Returns: array of newly added constraints (if applicable).
     @available(iOS 9, *)
     @discardableResult

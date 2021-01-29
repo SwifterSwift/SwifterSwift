@@ -252,11 +252,11 @@ public extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
-    /// SwifterSwift: UImage with background color
+    /// SwifterSwift: UImage with background color.
     ///
     /// - Parameters:
-    ///   - backgroundColor: Color to use as background color
-    /// - Returns: UIImage with a background color that is visible where alpha < 1
+    ///   - backgroundColor: Color to use as background color.
+    /// - Returns: UIImage with a background color that is visible where alpha < 1.
     func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage {
         #if !os(watchOS)
         if #available(tvOS 10.0, *) {
@@ -280,11 +280,11 @@ public extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
-    /// SwifterSwift: UIImage with rounded corners
+    /// SwifterSwift: UIImage with rounded corners.
     ///
     /// - Parameters:
-    ///   - radius: corner radius (optional), resulting image will be round if unspecified
-    /// - Returns: UIImage with all corners rounded
+    ///   - radius: corner radius (optional), resulting image will be round if unspecified.
+    /// - Returns: UIImage with all corners rounded.
     func withRoundedCorners(radius: CGFloat? = nil) -> UIImage? {
         let maxRadius = min(size.width, size.height) / 2
         let cornerRadius: CGFloat

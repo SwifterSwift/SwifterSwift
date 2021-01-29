@@ -34,17 +34,17 @@ public extension Optional {
         return wrapped
     }
 
-    /// SwifterSwift: Runs a block to Wrapped if not nil
+    /// SwifterSwift: Runs a block to Wrapped if not nil.
     ///
     ///		let foo: String? = nil
     ///		foo.run { unwrappedFoo in
-    ///			// block will never run sice foo is nill
+    ///			// block will never run since foo is nil
     ///			print(unwrappedFoo)
     ///		}
     ///
     ///		let bar: String? = "bar"
     ///		bar.run { unwrappedBar in
-    ///			// block will run sice bar is not nill
+    ///			// block will run since bar is not nil
     ///			print(unwrappedBar) -> "bar"
     ///		}
     ///

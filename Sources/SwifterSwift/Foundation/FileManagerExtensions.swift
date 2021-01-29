@@ -9,8 +9,8 @@ public extension FileManager {
     /// - Parameters:
     ///   - path: JSON file path.
     ///   - readingOptions: JSONSerialization reading options.
-    /// - Returns: Optional dictionary.
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
+    /// - Returns: Optional dictionary.
     func jsonFromFile(
         atPath path: String,
         readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {
@@ -27,8 +27,8 @@ public extension FileManager {
     ///   - filename: File to read.
     ///   - bundleClass: Bundle where the file is associated.
     ///   - readingOptions: JSONSerialization reading options.
-    /// - Returns: Optional dictionary.
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
+    /// - Returns: Optional dictionary.
     func jsonFromFile(
         withFilename filename: String,
         at bundleClass: AnyClass? = nil,
@@ -56,8 +56,8 @@ public extension FileManager {
     ///     let tempFile1URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
     ///     let tempFile2URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
     ///
-    /// - Returns: A URL to a new directory for saving temporary files.
     /// - Throws: An error if a temporary directory cannot be found or created.
+    /// - Returns: A URL to a new directory for saving temporary files.
     func createTemporaryDirectory() throws -> URL {
         #if !os(Linux)
         let temporaryDirectoryURL: URL

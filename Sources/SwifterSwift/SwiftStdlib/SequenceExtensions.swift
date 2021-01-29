@@ -225,7 +225,7 @@ public extension Sequence {
     ///
     /// - Parameters:
     ///   - keyPath: The `KeyPath` of property for `Element` to compare.
-    ///   - value: The value to compare with `Element` property
+    ///   - value: The value to compare with `Element` property.
     /// - Returns: The first element of the collection that has property by given key path equals to given `value` or `nil` if there is no such element.
     func first<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Element? {
         return first { $0[keyPath: keyPath] == value }

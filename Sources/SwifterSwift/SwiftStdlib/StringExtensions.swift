@@ -242,7 +242,7 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Check if string is a valid Swift number. Note: In North America, "." is the decimal separator, while in many parts of Europe "," is used,
+    /// SwifterSwift: Check if string is a valid Swift number. Note: In North America, "." is the decimal separator, while in many parts of Europe "," is used.
     ///
     ///		"123".isNumeric -> true
     ///     "1.3".isNumeric -> true (en_US)
@@ -407,7 +407,7 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Escaped string for inclusion in a regular expression pattern
+    /// SwifterSwift: Escaped string for inclusion in a regular expression pattern.
     ///
     /// "hello ^$ there" -> "hello \\^\\$ there"
     ///
@@ -427,14 +427,14 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Check if the given string contains only white spaces
+    /// SwifterSwift: Check if the given string contains only white spaces.
     var isWhitespace: Bool {
         return trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     #endif
 
     #if os(iOS) || os(tvOS)
-    /// SwifterSwift: Check if the given string spelled correctly
+    /// SwifterSwift: Check if the given string spelled correctly.
     var isSpelledCorrectly: Bool {
         let checker = UITextChecker()
         let range = NSRange(startIndex..<endIndex, in: self)
@@ -541,7 +541,7 @@ public extension String {
     }
 
     #if canImport(Foundation)
-    /// SwifterSwift: an array of all words in a string
+    /// SwifterSwift: an array of all words in a string.
     ///
     ///		"Swift is amazing".words() -> ["Swift", "is", "amazing"]
     ///
@@ -787,7 +787,7 @@ public extension String {
     /// - Parameters:
     ///   - index: string index the slicing should start from.
     ///   - length: amount of characters to be sliced after given index.
-    /// - Returns: sliced substring of length number of characters (if applicable) (example: "Hello World".slicing(from: 6, length: 5) -> "World")
+    /// - Returns: sliced substring of length number of characters (if applicable) (example: "Hello World".slicing(from: 6, length: 5) -> "World").
     func slicing(from index: Int, length: Int) -> String? {
         guard length >= 0, index >= 0, index < count else { return nil }
         guard index.advanced(by: length) <= count else {
@@ -981,7 +981,7 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Overload Swift's 'contains' operator for matching regex pattern
+    /// SwifterSwift: Overload Swift's 'contains' operator for matching regex pattern.
     ///
     /// - Parameters:
     ///   - lhs: String to check on regex pattern.
@@ -993,7 +993,7 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Overload Swift's 'contains' operator for matching regex
+    /// SwifterSwift: Overload Swift's 'contains' operator for matching regex.
     ///
     /// - Parameters:
     ///   - lhs: String to check on regex.
@@ -1306,7 +1306,7 @@ public extension String {
         return NSRange(range, in: self)
     }
 
-    /// SwifterSwift: NSString appendingPathComponent(str: String)
+    /// SwifterSwift: NSString appendingPathComponent(str: String).
     ///
     /// - Note: This method only works with file paths (not, for example, string representations of URLs.
     ///   See NSString [appendingPathComponent(_:)](https://developer.apple.com/documentation/foundation/nsstring/1417069-appendingpathcomponent)
@@ -1316,7 +1316,7 @@ public extension String {
         return (self as NSString).appendingPathComponent(str)
     }
 
-    /// SwifterSwift: NSString appendingPathExtension(str: String)
+    /// SwifterSwift: NSString appendingPathExtension(str: String).
     ///
     /// - Parameter str: The extension to append to the receiver.
     /// - Returns: a new string made by appending to the receiver an extension separator followed by ext (if applicable).

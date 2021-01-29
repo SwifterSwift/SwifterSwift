@@ -6,7 +6,7 @@ import MapKit
 #if !os(watchOS)
 @available(tvOS 9.2, *)
 public extension MKMapView {
-    /// SwifterSwift: Dequeue reusable MKAnnotationView using class type
+    /// SwifterSwift: Dequeue reusable MKAnnotationView using class type.
     ///
     /// - Parameters:
     ///   - name: MKAnnotationView type.
@@ -15,7 +15,7 @@ public extension MKMapView {
         return dequeueReusableAnnotationView(withIdentifier: String(describing: name)) as? T
     }
 
-    /// SwifterSwift: Register MKAnnotationView using class type
+    /// SwifterSwift: Register MKAnnotationView using class type.
     ///
     /// - Parameter name: MKAnnotationView type.
     @available(iOS 11.0, tvOS 11.0, macOS 10.13, *)
@@ -23,7 +23,7 @@ public extension MKMapView {
         register(T.self, forAnnotationViewWithReuseIdentifier: String(describing: name))
     }
 
-    /// SwifterSwift: Dequeue reusable MKAnnotationView using class type
+    /// SwifterSwift: Dequeue reusable MKAnnotationView using class type.
     ///
     /// - Parameters:
     ///   - name: MKAnnotationView type.

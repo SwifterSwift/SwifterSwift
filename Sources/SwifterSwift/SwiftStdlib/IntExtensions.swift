@@ -164,7 +164,7 @@ func ** (lhs: Int, rhs: Int) -> Double {
 prefix operator √
 /// SwifterSwift: Square root of integer.
 ///
-/// - Parameter int: integer value to find square root for
+/// - Parameter int: integer value to find square root for.
 /// - Returns: square root of given integer.
 public prefix func √ (int: Int) -> Double {
     // http://nshipster.com/swift-operators/

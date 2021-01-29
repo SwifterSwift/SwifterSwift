@@ -17,16 +17,16 @@ public extension NSPredicate {
 public extension NSPredicate {
     /// SwifterSwift: Returns a new predicate formed by AND-ing the argument to the predicate.
     ///
-    /// - Parameter predicate: NSPredicate
-    /// - Returns: NSCompoundPredicate
+    /// - Parameter predicate: NSPredicate.
+    /// - Returns: NSCompoundPredicate.
     func and(_ predicate: NSPredicate) -> NSCompoundPredicate {
         return NSCompoundPredicate(andPredicateWithSubpredicates: [self, predicate])
     }
 
     /// SwifterSwift: Returns a new predicate formed by OR-ing the argument to the predicate.
     ///
-    /// - Parameter predicate: NSPredicate
-    /// - Returns: NSCompoundPredicate
+    /// - Parameter predicate: NSPredicate.
+    /// - Returns: NSCompoundPredicate.
     func or(_ predicate: NSPredicate) -> NSCompoundPredicate {
         return NSCompoundPredicate(orPredicateWithSubpredicates: [self, predicate])
     }
