@@ -373,6 +373,26 @@ public extension UIView {
     /// SwifterSwift: Rotate view by angle on relative axis.
     ///
     /// - Parameters:
+    ///   - angle: Angle to rotate view by.
+    ///   - animated: Set `true` to animate rotation (default is `true`).
+    ///   - duration: Animation duration in seconds (default is 1 second).
+    ///   - completion: Optional completion handler to run with animation finishes (default is nil).
+    @available(watchOS 3.0, tvOS 10.0, *)
+    func rotate(
+        by angle: Measurement<UnitAngle>,
+        animated: Bool = false,
+        duration: TimeInterval = 1,
+        completion: ((Bool) -> Void)? = nil) {
+        let aDuration = animated ? duration : 0
+        let radians = CGFloat(angle.converted(to: .radians).value)
+        UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
+            self.transform = self.transform.rotated(by: radians)
+        }, completion: completion)
+    }
+
+    /// SwifterSwift: Rotate view by angle on relative axis.
+    ///
+    /// - Parameters:
     ///   - angle: angle to rotate view by.
     ///   - type: type of the rotation angle.
     ///   - animated: set true to animate rotation (default is true).

@@ -252,6 +252,29 @@ final class UIViewExtensionsTests: XCTestCase {
         waitForExpectations(timeout: 0.5)
     }
 
+    func testRotateBy() {
+        let view1 = UIView()
+        let transform1 = CGAffineTransform(rotationAngle: 2)
+        view1.rotate(by: .init(value: 2, unit: .radians), animated: false, duration: 0, completion: nil)
+        XCTAssertEqual(view1.transform, transform1)
+
+        let view2 = UIView()
+        let transform2 = CGAffineTransform(rotationAngle: .pi * 90.0 / 180.0)
+        view2.rotate(by: .init(value: 90, unit: .degrees), animated: false, duration: 0, completion: nil)
+        XCTAssertEqual(view2.transform, transform2)
+
+        let rotateExpectation = expectation(description: "view rotated")
+        
+        let view3 = UIView()
+        let transform3 = CGAffineTransform(rotationAngle: 2)
+
+        view3.rotate(by: .init(value: 2, unit: .radians), animated: true, duration: 0.5) { _ in
+            rotateExpectation.fulfill()
+        }
+        XCTAssertEqual(view3.transform, transform3)
+        waitForExpectations(timeout: 0.5)
+    }
+
     func testRotateByAngle() {
         let view1 = UIView()
         let transform1 = CGAffineTransform(rotationAngle: 2)
