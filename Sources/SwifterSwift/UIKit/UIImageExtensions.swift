@@ -6,12 +6,12 @@ import UIKit
 // MARK: - Properties
 
 public extension UIImage {
-    /// SwifterSwift: Size in bytes of UIImage
+    /// SwifterSwift: Size in bytes of UIImage.
     var bytesSize: Int {
         return jpegData(compressionQuality: 1)?.count ?? 0
     }
 
-    /// SwifterSwift: Size in kilo bytes of UIImage
+    /// SwifterSwift: Size in kilo bytes of UIImage.
     var kilobytesSize: Int {
         return (jpegData(compressionQuality: 1)?.count ?? 0) / 1024
     }
@@ -27,7 +27,7 @@ public extension UIImage {
     }
 
     #if canImport(CoreImage)
-    /// SwifterSwift: Average color for this image
+    /// SwifterSwift: Average color for this image.
     func averageColor() -> UIColor? {
         // https://stackoverflow.com/questions/26330924
         guard let ciImage = ciImage ?? CIImage(image: self) else { return nil }
@@ -219,11 +219,12 @@ public extension UIImage {
         return newImage
     }
 
-    /// SwifterSwift: UIImage tinted with color
+    /// SwifterSwift: UIImage tinted with color.
     ///
     /// - Parameters:
     ///   - color: color to tint image with.
-    ///   - blendMode: how to blend the tint
+    ///   - blendMode: how to blend the tint.
+    ///   - alpha: alpha value used to draw.
     /// - Returns: UIImage tinted with given color.
     func tint(_ color: UIColor, blendMode: CGBlendMode, alpha: CGFloat = 1.0) -> UIImage {
         let drawRect = CGRect(origin: .zero, size: size)
@@ -251,11 +252,11 @@ public extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
-    /// SwifterSwift: UImage with background color
+    /// SwifterSwift: UImage with background color.
     ///
     /// - Parameters:
-    ///   - backgroundColor: Color to use as background color
-    /// - Returns: UIImage with a background color that is visible where alpha < 1
+    ///   - backgroundColor: Color to use as background color.
+    /// - Returns: UIImage with a background color that is visible where alpha < 1.
     func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage {
         #if !os(watchOS)
         if #available(tvOS 10.0, *) {
@@ -279,11 +280,11 @@ public extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
-    /// SwifterSwift: UIImage with rounded corners
+    /// SwifterSwift: UIImage with rounded corners.
     ///
     /// - Parameters:
-    ///   - radius: corner radius (optional), resulting image will be round if unspecified
-    /// - Returns: UIImage with all corners rounded
+    ///   - radius: corner radius (optional), resulting image will be round if unspecified.
+    /// - Returns: UIImage with all corners rounded.
     func withRoundedCorners(radius: CGFloat? = nil) -> UIImage? {
         let maxRadius = min(size.width, size.height) / 2
         let cornerRadius: CGFloat
@@ -306,15 +307,15 @@ public extension UIImage {
 
     /// SwifterSwift: Base 64 encoded PNG data of the image.
     ///
-    /// - returns: Base 64 encoded PNG data of the image as a String.
+    /// - Returns: Base 64 encoded PNG data of the image as a String.
     func pngBase64String() -> String? {
         return pngData()?.base64EncodedString()
     }
 
     /// SwifterSwift: Base 64 encoded JPEG data of the image.
     ///
-    /// - parameter compressionQuality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality).
-    /// - returns: Base 64 encoded JPEG data of the image as a String.
+    /// - Parameter: compressionQuality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality).
+    /// - Returns: Base 64 encoded JPEG data of the image as a String.
     func jpegBase64String(compressionQuality: CGFloat) -> String? {
         return jpegData(compressionQuality: compressionQuality)?.base64EncodedString()
     }

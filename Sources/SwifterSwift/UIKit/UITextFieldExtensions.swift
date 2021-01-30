@@ -146,8 +146,8 @@ public extension UITextField {
     /// SwifterSwift: Add padding to the left of the textfield rect.
     ///
     /// - Parameters:
-    ///   - image: left image
-    ///   - padding: amount of padding between icon and the left of textfield
+    ///   - image: left image.
+    ///   - padding: amount of padding between icon and the left of textfield.
     func addPaddingLeftIcon(_ image: UIImage, padding: CGFloat) {
         let iconView = UIView(frame: CGRect(x: 0, y: 0, width: image.size.width + padding, height: image.size.height))
         let imageView = UIImageView(image: image)
@@ -161,8 +161,8 @@ public extension UITextField {
     /// SwifterSwift: Add padding to the right of the textfield rect.
     ///
     /// - Parameters:
-    ///   - image: right image
-    ///   - padding: amount of padding between icon and the right of textfield
+    ///   - image: right image.
+    ///   - padding: amount of padding between icon and the right of textfield.
     func addPaddingRightIcon(_ image: UIImage, padding: CGFloat) {
         let iconView = UIView(frame: CGRect(x: 0, y: 0, width: image.size.width + padding, height: image.size.height))
         let imageView = UIImageView(image: image)

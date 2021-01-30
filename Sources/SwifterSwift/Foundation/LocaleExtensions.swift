@@ -29,6 +29,7 @@ public extension Locale {
     /// - Parameter isoRegionCode: The IOS region code.
     ///
     /// Adapted from https://stackoverflow.com/a/30403199/1627511
+    /// - Returns: A flag emoji string for the given region code (optional).
     static func flagEmoji(forRegionCode isoRegionCode: String) -> String? {
         #if !os(Linux)
         guard isoRegionCodes.contains(isoRegionCode) else { return nil }

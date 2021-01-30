@@ -525,7 +525,7 @@ public extension Date {
     ///
     /// - Parameters:
     ///   - component: component type.
-    ///   - value: multiples of compnenet to add.
+    ///   - value: multiples of component to add.
     mutating func add(_ component: Calendar.Component, value: Int) {
         if let date = calendar.date(byAdding: component, value: value, to: self) {
             self = date
@@ -543,7 +543,7 @@ public extension Date {
     ///
     /// - Parameters:
     ///   - component: component type.
-    ///   - value: new value of compnenet to change.
+    ///   - value: new value of component to change.
     /// - Returns: original date after changing given component to given value.
     func changing(_ component: Calendar.Component, value: Int) -> Date? {
         switch component {
@@ -776,7 +776,7 @@ public extension Date {
         return dateFormatter.string(from: self)
     }
 
-    /// SwifterSwift: Time string from date
+    /// SwifterSwift: Time string from date.
     ///
     /// 	Date().timeString(ofStyle: .short) -> "7:37 PM"
     /// 	Date().timeString(ofStyle: .medium) -> "7:37:02 PM"
@@ -844,7 +844,7 @@ public extension Date {
 
     /// SwifterSwift: get number of seconds between two date
     ///
-    /// - Parameter date: date to compate self to.
+    /// - Parameter date: date to compare self to.
     /// - Returns: number of seconds between self and given date.
     func secondsSince(_ date: Date) -> Double {
         return timeIntervalSince(date)
@@ -852,7 +852,7 @@ public extension Date {
 
     /// SwifterSwift: get number of minutes between two date
     ///
-    /// - Parameter date: date to compate self to.
+    /// - Parameter date: date to compare self to.
     /// - Returns: number of minutes between self and given date.
     func minutesSince(_ date: Date) -> Double {
         return timeIntervalSince(date) / 60
@@ -860,7 +860,7 @@ public extension Date {
 
     /// SwifterSwift: get number of hours between two date
     ///
-    /// - Parameter date: date to compate self to.
+    /// - Parameter date: date to compare self to.
     /// - Returns: number of hours between self and given date.
     func hoursSince(_ date: Date) -> Double {
         return timeIntervalSince(date) / 3600
@@ -868,18 +868,18 @@ public extension Date {
 
     /// SwifterSwift: get number of days between two date
     ///
-    /// - Parameter date: date to compate self to.
+    /// - Parameter date: date to compare self to.
     /// - Returns: number of days between self and given date.
     func daysSince(_ date: Date) -> Double {
         return timeIntervalSince(date) / (3600 * 24)
     }
 
-    /// SwifterSwift: check if a date is between two other dates
+    /// SwifterSwift: check if a date is between two other dates.
     ///
     /// - Parameters:
     ///   - startDate: start date to compare self to.
     ///   - endDate: endDate date to compare self to.
-    ///   - includeBounds: true if the start and end date should be included (default is false)
+    ///   - includeBounds: true if the start and end date should be included (default is false).
     /// - Returns: true if the date is between the two given dates.
     func isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool {
         if includeBounds {
@@ -888,13 +888,13 @@ public extension Date {
         return startDate.compare(self).rawValue * compare(endDate).rawValue > 0
     }
 
-    /// SwifterSwift: check if a date is a number of date components of another date
+    /// SwifterSwift: check if a date is a number of date components of another date.
     ///
     /// - Parameters:
-    ///   - value: number of times component is used in creating range
+    ///   - value: number of times component is used in creating range.
     ///   - component: Calendar.Component to use.
     ///   - date: Date to compare self to.
-    /// - Returns: true if the date is within a number of components of another date
+    /// - Returns: true if the date is within a number of components of another date.
     func isWithin(_ value: UInt, _ component: Calendar.Component, of date: Date) -> Bool {
         let components = calendar.dateComponents([component], from: self, to: date)
         let componentValue = components.value(for: component)!
@@ -1020,7 +1020,7 @@ public extension Date {
         self.init(timeIntervalSince1970: unixTimestamp)
     }
 
-    /// SwifterSwift: Create date object from Int literal
+    /// SwifterSwift: Create date object from Int literal.
     ///
     ///     let date = Date(integerLiteral: 2017_12_25) // "2017-12-25 00:00:00 +0000"
     /// - Parameter value: Int value, e.g. 20171225, or 2017_12_25 etc.

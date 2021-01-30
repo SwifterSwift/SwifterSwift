@@ -5,16 +5,18 @@ import QuartzCore
 
 public extension CAGradientLayer {
     /// SwifterSwift: Creates a CAGradientLayer with the specified colors, location, startPoint, endPoint, and type.
-    /// - Parameter colors: An array of colors defining the color of each gradient stop
-    /// - Parameter locations: An array of NSNumber defining the location of each
+    ///
+    /// - Parameters:
+    ///   - colors: An array of colors defining the color of each gradient stop.
+    ///   - locations: An array of NSNumber defining the location of each
     ///                gradient stop as a value in the range [0,1]. The values must be
     ///                monotonically increasing. If a nil array is given, the stops are
     ///                assumed to spread uniformly across the [0,1] range. When rendered,
     ///                the colors are mapped to the output colorspace before being
-    ///                interpolated. (default is nil)
-    /// - Parameter startPoint: start point corresponds to the first gradient stop (I.e. [0,0] is the bottom-corner of the layer, [1,1] is the top-right corner.)
-    /// - Parameter endPoint: end point corresponds to the last gradient stop
-    /// - Parameter type: The kind of gradient that will be drawn. Currently, the only allowed values are `axial' (the default value), `radial', and `conic'.
+    ///                interpolated (default is nil).
+    ///   - startPoint: start point corresponds to the first gradient stop (I.e. [0,0] is the bottom-corner of the layer, [1,1] is the top-right corner).
+    ///   - endPoint: end point corresponds to the last gradient stop
+    ///   - type: The kind of gradient that will be drawn. Currently, the only allowed values are `axial' (the default value), `radial', and `conic'.
     convenience init(colors: [Color],
                      locations: [CGFloat]? = nil,
                      startPoint: CGPoint = CGPoint(x: 0.5, y: 0),

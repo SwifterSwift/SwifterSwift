@@ -67,9 +67,9 @@ public extension UITableView {
         tableHeaderView = nil
     }
 
-    /// SwifterSwift: Dequeue reusable UITableViewCell using class name
+    /// SwifterSwift: Dequeue reusable UITableViewCell using class name.
     ///
-    /// - Parameter name: UITableViewCell type
+    /// - Parameter name: UITableViewCell type.
     /// - Returns: UITableViewCell object with associated class name.
     func dequeueReusableCell<T: UITableViewCell>(withClass name: T.Type) -> T {
         guard let cell = dequeueReusableCell(withIdentifier: String(describing: name)) as? T else {
@@ -79,7 +79,7 @@ public extension UITableView {
         return cell
     }
 
-    /// SwifterSwift: Dequeue reusable UITableViewCell using class name for indexPath
+    /// SwifterSwift: Dequeue reusable UITableViewCell using class name for indexPath.
     ///
     /// - Parameters:
     ///   - name: UITableViewCell type.
@@ -93,9 +93,9 @@ public extension UITableView {
         return cell
     }
 
-    /// SwifterSwift: Dequeue reusable UITableViewHeaderFooterView using class name
+    /// SwifterSwift: Dequeue reusable UITableViewHeaderFooterView using class name.
     ///
-    /// - Parameter name: UITableViewHeaderFooterView type
+    /// - Parameter name: UITableViewHeaderFooterView type.
     /// - Returns: UITableViewHeaderFooterView object with associated class name.
     func dequeueReusableHeaderFooterView<T: UITableViewHeaderFooterView>(withClass name: T.Type) -> T {
         guard let headerFooterView = dequeueReusableHeaderFooterView(withIdentifier: String(describing: name)) as? T else {
@@ -105,7 +105,7 @@ public extension UITableView {
         return headerFooterView
     }
 
-    /// SwifterSwift: Register UITableViewHeaderFooterView using class name
+    /// SwifterSwift: Register UITableViewHeaderFooterView using class name.
     ///
     /// - Parameters:
     ///   - nib: Nib file used to create the header or footer view.
@@ -114,21 +114,21 @@ public extension UITableView {
         register(nib, forHeaderFooterViewReuseIdentifier: String(describing: name))
     }
 
-    /// SwifterSwift: Register UITableViewHeaderFooterView using class name
+    /// SwifterSwift: Register UITableViewHeaderFooterView using class name.
     ///
-    /// - Parameter name: UITableViewHeaderFooterView type
+    /// - Parameter name: UITableViewHeaderFooterView type.
     func register<T: UITableViewHeaderFooterView>(headerFooterViewClassWith name: T.Type) {
         register(T.self, forHeaderFooterViewReuseIdentifier: String(describing: name))
     }
 
-    /// SwifterSwift: Register UITableViewCell using class name
+    /// SwifterSwift: Register UITableViewCell using class name.
     ///
-    /// - Parameter name: UITableViewCell type
+    /// - Parameter name: UITableViewCell type.
     func register<T: UITableViewCell>(cellWithClass name: T.Type) {
         register(T.self, forCellReuseIdentifier: String(describing: name))
     }
 
-    /// SwifterSwift: Register UITableViewCell using class name
+    /// SwifterSwift: Register UITableViewCell using class name.
     ///
     /// - Parameters:
     ///   - nib: Nib file used to create the tableView cell.
@@ -154,10 +154,10 @@ public extension UITableView {
         register(UINib(nibName: identifier, bundle: bundle), forCellReuseIdentifier: identifier)
     }
 
-    /// SwifterSwift: Check whether IndexPath is valid within the tableView
+    /// SwifterSwift: Check whether IndexPath is valid within the tableView.
     ///
-    /// - Parameter indexPath: An IndexPath to check
-    /// - Returns: Boolean value for valid or invalid IndexPath
+    /// - Parameter indexPath: An IndexPath to check.
+    /// - Returns: Boolean value for valid or invalid IndexPath.
     func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
         return indexPath.section >= 0 &&
             indexPath.row >= 0 &&
@@ -165,12 +165,12 @@ public extension UITableView {
             indexPath.row < numberOfRows(inSection: indexPath.section)
     }
 
-    /// SwifterSwift: Safely scroll to possibly invalid IndexPath
+    /// SwifterSwift: Safely scroll to possibly invalid IndexPath.
     ///
     /// - Parameters:
-    ///   - indexPath: Target IndexPath to scroll to
-    ///   - scrollPosition: Scroll position
-    ///   - animated: Whether to animate or not
+    ///   - indexPath: Target IndexPath to scroll to.
+    ///   - scrollPosition: Scroll position.
+    ///   - animated: Whether to animate or not.
     func safeScrollToRow(at indexPath: IndexPath, at scrollPosition: UITableView.ScrollPosition, animated: Bool) {
         guard indexPath.section < numberOfSections else { return }
         guard indexPath.row < numberOfRows(inSection: indexPath.section) else { return }

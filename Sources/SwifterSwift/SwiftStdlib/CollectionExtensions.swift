@@ -65,7 +65,7 @@ public extension Collection {
     ///     [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
     ///
     /// - Parameter condition: condition to evaluate each element against.
-    /// - Returns: all indices where the specified condition evaluates to true. (optional)
+    /// - Returns: all indices where the specified condition evaluates to true (optional).
     func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
         let indices = try self.indices.filter { try condition(self[$0]) }
         return indices.isEmpty ? nil : indices

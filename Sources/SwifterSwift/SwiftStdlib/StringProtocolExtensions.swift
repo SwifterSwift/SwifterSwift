@@ -10,7 +10,7 @@ public extension StringProtocol {
     /// - Parameters:
     ///     - Parameter aString: The string with which to compare the receiver.
     ///     - Parameter options: Options for the comparison.
-    /// - Returns: The longest common suffix of the receiver and the given String
+    /// - Returns: The longest common suffix of the receiver and the given String.
     func commonSuffix<T: StringProtocol>(with aString: T, options: String.CompareOptions = []) -> String {
         return String(zip(reversed(), aString.reversed())
             .lazy
@@ -23,10 +23,11 @@ public extension StringProtocol {
 
     #if canImport(Foundation)
     /// SwifterSwift: Returns a new string in which all occurrences of a regex pattern in a specified range of the receiver are replaced by the template.
-    /// - Parameter ofPattern: Regex pattern to replace.
-    /// - Parameter template: The regex template to replace the pattern.
-    /// - Parameter options: Options to use when matching the regex. Only .regularExpression, .anchored .and caseInsensitive are supported.
-    /// - Parameter searchRange: The range in the receiver in which to search.
+    /// - Parameters:
+    ///   - pattern: Regex pattern to replace.
+    ///   - template: The regex template to replace the pattern.
+    ///   - options: Options to use when matching the regex. Only .regularExpression, .anchored .and caseInsensitive are supported.
+    ///   - searchRange: The range in the receiver in which to search.
     /// - Returns: A new string in which all occurrences of regex pattern in searchRange of the receiver are replaced by template.
     func replacingOccurrences<Target, Replacement>(
         ofPattern pattern: Target,

@@ -270,7 +270,7 @@ public extension UIView {
     ///   - color: shadow color (default is #137992).
     ///   - radius: shadow radius (default is 3).
     ///   - offset: shadow offset (default is .zero).
-    ///   - opacity: shadow opacity (default is 0.5). It will also be affected by the `alpha` of `backgroundColor`
+    ///   - opacity: shadow opacity (default is 0.5). It will also be affected by the `alpha` of `backgroundColor`.
     func addShadow(
         ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0),
         radius: CGFloat = 3,
@@ -294,7 +294,7 @@ public extension UIView {
     ///
     /// - Parameters:
     ///   - duration: animation duration in seconds (default is 1 second).
-    ///   - completion: optional completion handler to run with animation finishes (default is nil)
+    ///   - completion: optional completion handler to run with animation finishes (default is nil).
     func fadeIn(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         if isHidden {
             isHidden = false
@@ -308,7 +308,7 @@ public extension UIView {
     ///
     /// - Parameters:
     ///   - duration: animation duration in seconds (default is 1 second).
-    ///   - completion: optional completion handler to run with animation finishes (default is nil)
+    ///   - completion: optional completion handler to run with animation finishes (default is nil).
     func fadeOut(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         if isHidden {
             isHidden = false
@@ -437,7 +437,7 @@ public extension UIView {
     /// SwifterSwift: Shake view.
     ///
     /// - Parameters:
-    ///   - direction: shake direction (horizontal or vertical), (default is .horizontal)
+    ///   - direction: shake direction (horizontal or vertical), (default is .horizontal).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - animationType: shake animation type (default is .easeOut).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
@@ -474,8 +474,8 @@ public extension UIView {
     /// SwifterSwift: Add Visual Format constraints.
     ///
     /// - Parameters:
-    ///   - withFormat: visual Format language
-    ///   - views: array of views which will be accessed starting with index 0 (example: [v0], [v1], [v2]..)
+    ///   - withFormat: visual Format language.
+    ///   - views: array of views which will be accessed starting with index 0 (example: [v0], [v1], [v2]..).
     func addConstraints(withFormat: String, views: UIView...) {
         // https://videos.letsbuildthatapp.com/
         var viewsDictionary: [String: UIView] = [:]
@@ -507,16 +507,16 @@ public extension UIView {
     /// SwifterSwift: Add anchors from any side of the current view into the specified anchors and returns the newly added constraints.
     ///
     /// - Parameters:
-    ///   - top: current view's top anchor will be anchored into the specified anchor
-    ///   - left: current view's left anchor will be anchored into the specified anchor
-    ///   - bottom: current view's bottom anchor will be anchored into the specified anchor
-    ///   - right: current view's right anchor will be anchored into the specified anchor
-    ///   - topConstant: current view's top anchor margin
-    ///   - leftConstant: current view's left anchor margin
-    ///   - bottomConstant: current view's bottom anchor margin
-    ///   - rightConstant: current view's right anchor margin
-    ///   - widthConstant: current view's width
-    ///   - heightConstant: current view's height
+    ///   - top: current view's top anchor will be anchored into the specified anchor.
+    ///   - left: current view's left anchor will be anchored into the specified anchor.
+    ///   - bottom: current view's bottom anchor will be anchored into the specified anchor.
+    ///   - right: current view's right anchor will be anchored into the specified anchor.
+    ///   - topConstant: current view's top anchor margin.
+    ///   - leftConstant: current view's left anchor margin.
+    ///   - bottomConstant: current view's bottom anchor margin.
+    ///   - rightConstant: current view's right anchor margin.
+    ///   - widthConstant: current view's width.
+    ///   - heightConstant: current view's height.
     /// - Returns: array of newly added constraints (if applicable).
     @discardableResult
     func anchor(
@@ -586,7 +586,7 @@ public extension UIView {
         }
     }
 
-    /// SwifterSwift: Anchor center X and Y into current view's superview
+    /// SwifterSwift: Anchor center X and Y into current view's superview.
     func anchorCenterSuperview() {
         // https://videos.letsbuildthatapp.com/
         anchorCenterXToSuperview()
@@ -618,9 +618,9 @@ public extension UIView {
     /// and attribute. This will enumerate ancestors since constraints are
     /// always added to the common ancestor.
     ///
-    /// - Parameter attribute: the attribute to find
-    /// - Parameter at: the view to find
-    /// - Returns: matching constraint
+    /// - Parameter attribute: the attribute to find.
+    /// - Parameter at: the view to find.
+    /// - Returns: matching constraint.
     func findConstraint(attribute: NSLayoutConstraint.Attribute, for view: UIView) -> NSLayoutConstraint? {
         let constraint = constraints.first {
             ($0.firstAttribute == attribute && $0.firstItem as? UIView == view) ||
@@ -629,32 +629,32 @@ public extension UIView {
         return constraint ?? superview?.findConstraint(attribute: attribute, for: view)
     }
 
-    /// SwifterSwift: First width constraint for this view
+    /// SwifterSwift: First width constraint for this view.
     var widthConstraint: NSLayoutConstraint? {
         findConstraint(attribute: .width, for: self)
     }
 
-    /// SwifterSwift: First height constraint for this view
+    /// SwifterSwift: First height constraint for this view.
     var heightConstraint: NSLayoutConstraint? {
         findConstraint(attribute: .height, for: self)
     }
 
-    /// SwifterSwift: First leading constraint for this view
+    /// SwifterSwift: First leading constraint for this view.
     var leadingConstraint: NSLayoutConstraint? {
         findConstraint(attribute: .leading, for: self)
     }
 
-    /// SwifterSwift: First trailing constraint for this view
+    /// SwifterSwift: First trailing constraint for this view.
     var trailingConstraint: NSLayoutConstraint? {
         findConstraint(attribute: .trailing, for: self)
     }
 
-    /// SwifterSwift: First top constraint for this view
+    /// SwifterSwift: First top constraint for this view.
     var topConstraint: NSLayoutConstraint? {
         findConstraint(attribute: .top, for: self)
     }
 
-    /// SwifterSwift: First bottom constraint for this view
+    /// SwifterSwift: First bottom constraint for this view.
     var bottomConstraint: NSLayoutConstraint? {
         findConstraint(attribute: .bottom, for: self)
     }

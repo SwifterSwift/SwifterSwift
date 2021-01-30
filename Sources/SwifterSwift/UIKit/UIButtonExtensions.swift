@@ -167,9 +167,9 @@ public extension UIButton {
         states.forEach { setTitle(title, for: $0) }
     }
 
-    /// SwifterSwift: Center align title text and image
+    /// SwifterSwift: Center align title text and image.
     /// - Parameters:
-    ///   - imageAboveText: set true to make image above title text, default is false, image on left of text
+    ///   - imageAboveText: set true to make image above title text, default is false, image on left of text.
     ///   - spacing: spacing between title text and image.
     func centerTextAndImage(imageAboveText: Bool = false, spacing: CGFloat) {
         if imageAboveText {

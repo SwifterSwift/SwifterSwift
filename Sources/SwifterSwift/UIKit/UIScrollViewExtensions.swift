@@ -6,12 +6,12 @@ import UIKit
 // MARK: - Methods
 
 public extension UIScrollView {
-    /// SwifterSwift: Takes a snapshot of an entire ScrollView
+    /// SwifterSwift: Takes a snapshot of an entire ScrollView.
     ///
-    ///    AnySubclassOfUIScroolView().snapshot
+    ///    AnySubclassOfUIScrollView().snapshot
     ///    UITableView().snapshot
     ///
-    /// - Returns: Snapshot as UIimage for rendered ScrollView
+    /// - Returns: Snapshot as UIImage for rendered ScrollView.
     var snapshot: UIImage? {
         // Original Source: https://gist.github.com/thestoics/1204051
         UIGraphicsBeginImageContextWithOptions(contentSize, false, 0)

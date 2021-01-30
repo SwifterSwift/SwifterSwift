@@ -33,7 +33,7 @@ public extension RangeReplaceableCollection {
     ///     [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
     ///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
     ///
-    /// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start becom the end.
+    /// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start become the end.
     /// - Returns: The new rotated collection.
     func rotated(by places: Int) -> Self {
         // Inspired by: https://ruby-doc.org/core-2.2.0/Array.html#method-i-rotate

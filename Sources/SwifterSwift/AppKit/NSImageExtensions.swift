@@ -6,7 +6,7 @@ import AppKit
 // MARK: - Methods
 
 public extension NSImage {
-    /// SwifterSwift: NSImage scaled to maximum size with respect to aspect ratio
+    /// SwifterSwift: NSImage scaled to maximum size with respect to aspect ratio.
     ///
     /// - Parameter maxSize: maximum size
     /// - Returns: scaled NSImage

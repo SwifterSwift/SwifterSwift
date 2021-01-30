@@ -11,7 +11,7 @@ import UIKit
 // MARK: - Properties
 
 public extension URL {
-    /// SwifterSwift: Dictionary of the URL's query parameters
+    /// SwifterSwift: Dictionary of the URL's query parameters.
     var queryParameters: [String: String]? {
         guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false),
             let queryItems = components.queryItems else { return nil }

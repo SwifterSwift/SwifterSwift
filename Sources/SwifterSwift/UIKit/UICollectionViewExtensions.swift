@@ -147,12 +147,12 @@ public extension UICollectionView {
         register(UINib(nibName: identifier, bundle: bundle), forCellWithReuseIdentifier: identifier)
     }
 
-    /// SwifterSwift: Safely scroll to possibly invalid IndexPath
+    /// SwifterSwift: Safely scroll to possibly invalid IndexPath.
     ///
     /// - Parameters:
-    ///   - indexPath: Target IndexPath to scroll to
-    ///   - scrollPosition: Scroll position
-    ///   - animated: Whether to animate or not
+    ///   - indexPath: Target IndexPath to scroll to.
+    ///   - scrollPosition: Scroll position.
+    ///   - animated: Whether to animate or not.
     func safeScrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
         guard indexPath.item >= 0,
             indexPath.section >= 0,
@@ -163,10 +163,10 @@ public extension UICollectionView {
         scrollToItem(at: indexPath, at: scrollPosition, animated: animated)
     }
 
-    /// SwifterSwift: Check whether IndexPath is valid within the CollectionView
+    /// SwifterSwift: Check whether IndexPath is valid within the CollectionView.
     ///
-    /// - Parameter indexPath: An IndexPath to check
-    /// - Returns: Boolean value for valid or invalid IndexPath
+    /// - Parameter indexPath: An IndexPath to check.
+    /// - Returns: Boolean value for valid or invalid IndexPath.
     func isValidIndexPath(_ indexPath: IndexPath) -> Bool {
         return indexPath.section >= 0 &&
             indexPath.item >= 0 &&

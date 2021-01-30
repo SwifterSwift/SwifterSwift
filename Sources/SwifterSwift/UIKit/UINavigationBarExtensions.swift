@@ -9,7 +9,7 @@ public extension UINavigationBar {
     /// SwifterSwift: Set Navigation Bar title, title color and font.
     ///
     /// - Parameters:
-    ///   - font: title font
+    ///   - font: title font.
     ///   - color: title text color (default is .black).
     func setTitleFont(_ font: UIFont, color: UIColor = .black) {
         var attrs = [NSAttributedString.Key: Any]()
@@ -31,11 +31,11 @@ public extension UINavigationBar {
         shadowImage = UIImage()
     }
 
-    /// SwifterSwift: Set navigationBar background and text colors
+    /// SwifterSwift: Set navigationBar background and text colors.
     ///
     /// - Parameters:
-    ///   - background: backgound color
-    ///   - text: text color
+    ///   - background: background color.
+    ///   - text: text color.
     func setColors(background: UIColor, text: UIColor) {
         isTranslucent = false
         backgroundColor = background

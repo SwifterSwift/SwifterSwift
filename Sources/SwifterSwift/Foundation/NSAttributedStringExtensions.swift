@@ -66,7 +66,7 @@ public extension NSAttributedString {
     }
     #endif
 
-    /// SwifterSwift: Dictionary of the attributes applied across the whole string
+    /// SwifterSwift: Dictionary of the attributes applied across the whole string.
     var attributes: [Key: Any] {
         guard length > 0 else { return [:] }
         return attributes(at: 0, effectiveRange: nil)
@@ -76,10 +76,10 @@ public extension NSAttributedString {
 // MARK: - Methods
 
 public extension NSAttributedString {
-    /// SwifterSwift: Applies given attributes to the new instance of NSAttributedString initialized with self object
+    /// SwifterSwift: Applies given attributes to the new instance of NSAttributedString initialized with self object.
     ///
-    /// - Parameter attributes: Dictionary of attributes
-    /// - Returns: NSAttributedString with applied attributes
+    /// - Parameter attributes: Dictionary of attributes.
+    /// - Returns: NSAttributedString with applied attributes.
     func applying(attributes: [Key: Any]) -> NSAttributedString {
         guard !string.isEmpty else { return self }
 
@@ -98,13 +98,13 @@ public extension NSAttributedString {
     }
     #endif
 
-    /// SwifterSwift: Apply attributes to substrings matching a regular expression
+    /// SwifterSwift: Apply attributes to substrings matching a regular expression.
     ///
     /// - Parameters:
-    ///   - attributes: Dictionary of attributes
-    ///   - pattern: a regular expression to target
+    ///   - attributes: Dictionary of attributes.
+    ///   - pattern: a regular expression to target.
     ///   - options: The regular expression options that are applied to the expression during matching. See NSRegularExpression.Options for possible values.
-    /// - Returns: An NSAttributedString with attributes applied to substrings matching the pattern
+    /// - Returns: An NSAttributedString with attributes applied to substrings matching the pattern.
     func applying(attributes: [Key: Any],
                   toRangesMatching pattern: String,
                   options: NSRegularExpression.Options = []) -> NSAttributedString {
@@ -120,12 +120,12 @@ public extension NSAttributedString {
         return result
     }
 
-    /// SwifterSwift: Apply attributes to occurrences of a given string
+    /// SwifterSwift: Apply attributes to occurrences of a given string.
     ///
     /// - Parameters:
-    ///   - attributes: Dictionary of attributes
-    ///   - target: a subsequence string for the attributes to be applied to
-    /// - Returns: An NSAttributedString with attributes applied on the target string
+    ///   - attributes: Dictionary of attributes.
+    ///   - target: a subsequence string for the attributes to be applied to.
+    /// - Returns: An NSAttributedString with attributes applied on the target string.
     func applying<T: StringProtocol>(attributes: [Key: Any],
                                      toOccurrencesOf target: T) -> NSAttributedString {
         let pattern = "\\Q\(target)\\E"

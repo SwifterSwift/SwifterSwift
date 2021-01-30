@@ -8,7 +8,7 @@ import CoreLocation
 public extension CLVisit {
     /// SwifterSwift: Retrieves a visit's location.
     ///
-    /// - Returns: CLLocation
+    /// - Returns: CLLocation.
     var location: CLLocation {
         return CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
     }

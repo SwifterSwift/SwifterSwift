@@ -51,7 +51,7 @@ public extension Color {
     // swiftlint:enable large_tuple
 
     // swiftlint:disable large_tuple
-    /// SwifterSwift: RGB components for a Color represented as CGFloat numbers (between 0 and 1)
+    /// SwifterSwift: RGB components for a Color represented as CGFloat numbers (between 0 and 1).
     ///
     ///     UIColor.red.rgbComponents.red -> 1.0
     ///     NSColor.green.rgbComponents.green -> 1.0
@@ -123,7 +123,7 @@ public extension Color {
     }
 
     #if !os(watchOS)
-    /// SwifterSwift: CoreImage.CIColor (read-only)
+    /// SwifterSwift: CoreImage.CIColor (read-only).
     var coreImageColor: CoreImage.CIColor? {
         return CoreImage.CIColor(color: self)
     }
@@ -174,14 +174,14 @@ public extension Color {
 // MARK: - Methods
 
 public extension Color {
-    /// SwifterSwift: Blend two Colors
+    /// SwifterSwift: Blend two Colors.
     ///
     /// - Parameters:
     ///   - color1: first color to blend
     ///   - intensity1: intensity of first color (default is 0.5)
     ///   - color2: second color to blend
     ///   - intensity2: intensity of second color (default is 0.5)
-    /// - Returns: Color created by blending first and seond colors.
+    /// - Returns: Color created by blending first and second colors.
     static func blend(_ color1: Color, intensity1: CGFloat = 0.5, with color2: Color,
                       intensity2: CGFloat = 0.5) -> Color {
         // http://stackoverflow.com/questions/27342715/blend-uicolors-in-swift
@@ -225,13 +225,13 @@ public extension Color {
         return Color(red: red, green: green, blue: blue, alpha: alpha)
     }
 
-    /// SwifterSwift: Lighten a color
+    /// SwifterSwift: Lighten a color.
     ///
     ///     let color = Color(red: r, green: g, blue: b, alpha: a)
     ///     let lighterColor: Color = color.lighten(by: 0.2)
     ///
-    /// - Parameter percentage: Percentage by which to lighten the color
-    /// - Returns: A lightened color
+    /// - Parameter percentage: Percentage by which to lighten the color.
+    /// - Returns: A lightened color.
     func lighten(by percentage: CGFloat = 0.2) -> Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
@@ -242,13 +242,13 @@ public extension Color {
                      alpha: alpha)
     }
 
-    /// SwifterSwift: Darken a color
+    /// SwifterSwift: Darken a color.
     ///
     ///     let color = Color(red: r, green: g, blue: b, alpha: a)
     ///     let darkerColor: Color = color.darken(by: 0.2)
     ///
-    /// - Parameter percentage: Percentage by which to darken the color
-    /// - Returns: A darkened color
+    /// - Parameter percentage: Percentage by which to darken the color.
+    /// - Returns: A darkened color.
     func darken(by percentage: CGFloat = 0.2) -> Color {
         // https://stackoverflow.com/questions/38435308/swift-get-lighter-and-darker-color-variations-for-a-given-uicolor
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
