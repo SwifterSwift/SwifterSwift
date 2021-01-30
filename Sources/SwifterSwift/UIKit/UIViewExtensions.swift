@@ -476,7 +476,7 @@ public extension UIView {
     /// - Parameters:
     ///   - withFormat: visual Format language
     ///   - views: array of views which will be accessed starting with index 0 (example: [v0], [v1], [v2]..)
-    @available(iOS 9, *) func addConstraints(withFormat: String, views: UIView...) {
+    func addConstraints(withFormat: String, views: UIView...) {
         // https://videos.letsbuildthatapp.com/
         var viewsDictionary: [String: UIView] = [:]
         for (index, view) in views.enumerated() {
@@ -492,7 +492,6 @@ public extension UIView {
     }
 
     /// SwifterSwift: Anchor all sides of the view into it's superview.
-    @available(iOS 9, *)
     func fillToSuperview() {
         // https://videos.letsbuildthatapp.com/
         translatesAutoresizingMaskIntoConstraints = false
@@ -519,7 +518,6 @@ public extension UIView {
     ///   - widthConstant: current view's width
     ///   - heightConstant: current view's height
     /// - Returns: array of newly added constraints (if applicable).
-    @available(iOS 9, *)
     @discardableResult
     func anchor(
         top: NSLayoutYAxisAnchor? = nil,
@@ -569,7 +567,6 @@ public extension UIView {
     /// SwifterSwift: Anchor center X into current view's superview with a constant margin value.
     ///
     /// - Parameter constant: constant of the anchor constraint (default is 0).
-    @available(iOS 9, *)
     func anchorCenterXToSuperview(constant: CGFloat = 0) {
         // https://videos.letsbuildthatapp.com/
         translatesAutoresizingMaskIntoConstraints = false
@@ -581,7 +578,6 @@ public extension UIView {
     /// SwifterSwift: Anchor center Y into current view's superview with a constant margin value.
     ///
     /// - Parameter withConstant: constant of the anchor constraint (default is 0).
-    @available(iOS 9, *)
     func anchorCenterYToSuperview(constant: CGFloat = 0) {
         // https://videos.letsbuildthatapp.com/
         translatesAutoresizingMaskIntoConstraints = false
@@ -591,7 +587,6 @@ public extension UIView {
     }
 
     /// SwifterSwift: Anchor center X and Y into current view's superview
-    @available(iOS 9, *)
     func anchorCenterSuperview() {
         // https://videos.letsbuildthatapp.com/
         anchorCenterXToSuperview()
