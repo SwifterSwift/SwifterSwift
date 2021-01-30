@@ -8,7 +8,7 @@ import CoreLocation
 public extension Array where Element: CLLocation {
     /// SwifterSwift: Calculates the sum of distances between each location in the array based on the curvature of the earth.
     ///
-    /// - Parameter unitLength: The unit of length to return the distance in.
+    /// - Parameter unit: The unit of length to return the distance in.
     /// - Returns: The distance in the specified unit.
     @available(tvOS 10.0, macOS 10.12, watchOS 3.0, *)
     func distance(unitLength unit: UnitLength) -> Measurement<UnitLength> {

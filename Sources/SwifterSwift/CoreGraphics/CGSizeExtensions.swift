@@ -97,7 +97,7 @@ public extension CGSize {
     ///     // sizeA = CGPoint(width: 8, height: 14)
     ///
     /// - Parameters:
-    ///   - lhs: self.
+    ///   - lhs: `self`.
     ///   - rhs: CGSize to add.
     static func += (lhs: inout CGSize, rhs: CGSize) {
         lhs.width += rhs.width
@@ -111,7 +111,7 @@ public extension CGSize {
     ///     // result = CGSize(width: 8, height: 14)
     ///
     /// - Parameters:
-    ///   - lhs: self.
+    ///   - lhs: `self`.
     ///   - tuple: tuple value.
     static func += (lhs: inout CGSize, tuple: (width: CGFloat, height: CGFloat)) {
         lhs.width += tuple.width
@@ -155,7 +155,7 @@ public extension CGSize {
     ///     // sizeA = CGPoint(width: 2, height: 6)
     ///
     /// - Parameters:
-    ///   - lhs: self.
+    ///   - lhs: `self`.
     ///   - rhs: CGSize to subtract.
     static func -= (lhs: inout CGSize, rhs: CGSize) {
         lhs.width -= rhs.width
@@ -169,7 +169,7 @@ public extension CGSize {
     ///     // result = CGSize(width: 3, height: 6)
     ///
     /// - Parameters:
-    ///   - lhs: self.
+    ///   - lhs: `self`.
     ///   - tuple: tuple value.
     static func -= (lhs: inout CGSize, tuple: (width: CGFloat, height: CGFloat)) {
         lhs.width -= tuple.width
@@ -227,7 +227,7 @@ public extension CGSize {
     ///     // result = CGSize(width: 15, height: 40)
     ///
     /// - Parameters:
-    ///   - lhs: self.
+    ///   - lhs: `self`.
     ///   - rhs: CGSize to multiply.
     static func *= (lhs: inout CGSize, rhs: CGSize) {
         lhs.width *= rhs.width
@@ -241,7 +241,7 @@ public extension CGSize {
     ///     // result = CGSize(width: 15, height: 30)
     ///
     /// - Parameters:
-    ///   - lhs: self.
+    ///   - lhs: `self`.
     ///   - scalar: scalar value.
     static func *= (lhs: inout CGSize, scalar: CGFloat) {
         lhs.width *= scalar

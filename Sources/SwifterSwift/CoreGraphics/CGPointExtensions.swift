@@ -62,7 +62,7 @@ public extension CGPoint {
     ///     // point1 = CGPoint(x: 40, y: 40)
     ///
     /// - Parameters:
-    ///   - lhs: self.
+    ///   - lhs: `self`.
     ///   - rhs: CGPoint to add.
     static func += (lhs: inout CGPoint, rhs: CGPoint) {
         lhs.x += rhs.x
@@ -92,7 +92,7 @@ public extension CGPoint {
     ///     // point1 = CGPoint(x: -20, y: -20)
     ///
     /// - Parameters:
-    ///   - lhs: self.
+    ///   - lhs: `self`.
     ///   - rhs: CGPoint to subtract.
     static func -= (lhs: inout CGPoint, rhs: CGPoint) {
         lhs.x -= rhs.x
@@ -120,7 +120,7 @@ public extension CGPoint {
     ///     // point1 = CGPoint(x: 50, y: 50)
     ///
     /// - Parameters:
-    ///   - point: self.
+    ///   - point: `self`.
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
     static func *= (point: inout CGPoint, scalar: CGFloat) {

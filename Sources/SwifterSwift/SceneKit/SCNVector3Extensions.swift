@@ -60,7 +60,7 @@ public extension SCNVector3 {
     ///     SCNVector3(10, 10, 10) += SCNVector3(10, 20, -30) -> SCNVector3(20, 30, -20)
     ///
     /// - Parameters:
-    ///   - lhs: self
+    ///   - lhs: `self`.
     ///   - rhs: SCNVector3 to add.
     static func += (lhs: inout SCNVector3, rhs: SCNVector3) {
         lhs.x += rhs.x
@@ -85,7 +85,7 @@ public extension SCNVector3 {
     ///     SCNVector3(10, 10, 10) -= SCNVector3(10, 20, -30) -> SCNVector3(0, -10, 40)
     ///
     /// - Parameters:
-    ///   - lhs: self.
+    ///   - lhs: `self`.
     ///   - rhs: SCNVector3 to subtract.
     static func -= (lhs: inout SCNVector3, rhs: SCNVector3) {
         lhs.x -= rhs.x
@@ -110,7 +110,7 @@ public extension SCNVector3 {
     ///     SCNVector3(10, 20, -30) *= 3 -> SCNVector3(30, 60, -90)
     ///
     /// - Parameters:
-    ///   - vector: self.
+    ///   - vector: `self`.
     ///   - scalar: scalar value.
     /// - Returns: result of multiplication of the given CGPoint with the scalar.
     static func *= (vector: inout SCNVector3, scalar: SceneKitFloat) {
@@ -148,7 +148,7 @@ public extension SCNVector3 {
     ///     SCNVector3(10, 20, -30) /= 3 -> SCNVector3(3/10, 0.15, -30)
     ///
     /// - Parameters:
-    ///   - vector: self.
+    ///   - vector: `self`.
     ///   - scalar: scalar value.
     /// - Returns: result of division of the given CGPoint with the scalar.
     static func /= (vector: inout SCNVector3, scalar: SceneKitFloat) {
