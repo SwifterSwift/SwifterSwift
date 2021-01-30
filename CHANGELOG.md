@@ -49,7 +49,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `isStandGoalMet`, `isExerciseTimeGoalMet`, and `isEnergyBurnedGoalMet`. [#875](https://github.com/SwifterSwift/SwifterSwift/pull/875) by [lhygilbert](https://github.com/lhygilbert)
 - **UIView**:
   - Added `masksToBounds` (IBInspectable) extension. [#877](https://github.com/SwifterSwift/SwifterSwift/pull/877) by [hamtiko](https://github.com/hamtiko)
-  - Added `rotate(by:animated:duration:completion:)` to rotate a view by angle presented by `Measurement<UnitAngle>`.
+  - Added `rotate(by:animated:duration:completion:)` to rotate a view by angle presented by `Measurement<UnitAngle>`. [#940](https://github.com/SwifterSwift/SwifterSwift/pull/940) by [Shiva Huang](https://github.com/ShivaHuang)
 - **UIImage**
   - Added `averageColor`, which calculates the average UIColor for an entire image. [#884](https://github.com/SwifterSwift/SwifterSwift/pull/884) by [gurgeous](https://github.com/gurgeous)
   - Added `loadFromNib(withClass:)`, which loads a UIView of a particular type from a nib file. [#885](https://github.com/SwifterSwift/SwifterSwift/pull/885) by [gurgeous](https://github.com/gurgeous)
@@ -78,7 +78,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Sequence**:
   - Marked `map(by:)`, `compactMap(by:)`, `filter(by:)` as deprecated in favor use of Key Path expressions as functions feature in Swift 5.2. [#862](https://github.com/SwifterSwift/SwifterSwift/pull/862) by [Roman Podymov](https://github.com/RomanPodymov).
 - **UIView**:
-  - Marked `AngleUnit`, `rotate(byAngle:ofType:animated:duration:completion:)` and `rotate(toAngle:ofType:animated:duration:completion:)` as deprecated in favor of using `rotate(by:animated:duration:completion:)`, which takes `Measurement<UnitAngle>` to present the angle to rotate.
+  - Marked `AngleUnit`, `rotate(byAngle:ofType:animated:duration:completion:)` and `rotate(toAngle:ofType:animated:duration:completion:)` as deprecated in favor of using `rotate(by:animated:duration:completion:)`, which takes `Measurement<UnitAngle>` to present the angle to rotate. [#940](https://github.com/SwifterSwift/SwifterSwift/pull/940) by [Shiva Huang](https://github.com/ShivaHuang)
 
 ### Removed
 - **UIDatePicker**
