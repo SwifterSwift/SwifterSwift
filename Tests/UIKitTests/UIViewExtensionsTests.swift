@@ -255,7 +255,7 @@ final class UIViewExtensionsTests: XCTestCase {
     func testRotateBy() {
         let view1 = UIView()
         let transform1 = CGAffineTransform(rotationAngle: 2)
-        view1.rotate(by: .init(value: 2, unit: .radians), animated: false, duration: 0, completion: nil)
+        view1.rotate(by: .radians(2), animated: false, duration: 0, completion: nil)
         XCTAssertEqual(view1.transform, transform1)
 
         let view2 = UIView()
