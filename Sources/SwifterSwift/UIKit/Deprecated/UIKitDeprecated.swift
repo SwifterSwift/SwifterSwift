@@ -20,11 +20,11 @@ public extension UIView {
     /// SwifterSwift: Rotate view by angle on relative axis.
     ///
     /// - Parameters:
-    ///   - angle: angle to rotate view by.
-    ///   - type: type of the rotation angle.
-    ///   - animated: set true to animate rotation (default is true).
-    ///   - duration: animation duration in seconds (default is 1 second).
-    ///   - completion: optional completion handler to run with animation finishes (default is nil).
+    ///   - angle: Angle to rotate view by.
+    ///   - type: Type of the rotation angle.
+    ///   - animated: Set `true` to animate rotation (default is `false`).
+    ///   - duration: Animation duration in seconds (default is `1` second).
+    ///   - completion: Optional completion handler to run with animation finishes (default is `nil`).
     @available(*, deprecated, message: "Use rotate(by:animated:duration:completion:) instead.")
     func rotate(
         byAngle angle: CGFloat,
@@ -42,11 +42,11 @@ public extension UIView {
     /// SwifterSwift: Rotate view to angle on fixed axis.
     ///
     /// - Parameters:
-    ///   - angle: angle to rotate view to.
-    ///   - type: type of the rotation angle.
-    ///   - animated: set true to animate rotation (default is false).
-    ///   - duration: animation duration in seconds (default is 1 second).
-    ///   - completion: optional completion handler to run with animation finishes (default is nil).
+    ///   - angle: Angle to rotate view to.
+    ///   - type: Type of the rotation angle.
+    ///   - animated: Set `true` to animate rotation (default is `false`).
+    ///   - duration: Animation duration in seconds (default is `1` second).
+    ///   - completion: Optional completion handler to run with animation finishes (default is `nil`).
     @available(*, deprecated, message: "Use rotate(by:animated:duration:completion:) instead.")
     func rotate(
         toAngle angle: CGFloat,

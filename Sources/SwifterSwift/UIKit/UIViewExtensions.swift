@@ -362,9 +362,9 @@ public extension UIView {
     ///
     /// - Parameters:
     ///   - angle: Angle to rotate view by.
-    ///   - animated: Set `true` to animate rotation (default is `true`).
-    ///   - duration: Animation duration in seconds (default is 1 second).
-    ///   - completion: Optional completion handler to run with animation finishes (default is nil).
+    ///   - animated: Set `true` to animate rotation (default is `false`).
+    ///   - duration: Animation duration in seconds (default is `1` second).
+    ///   - completion: Optional completion handler to run with animation finishes (default is `nil`).
     @available(watchOS 3.0, tvOS 10.0, *)
     func rotate(
         by angle: Measurement<UnitAngle>,
