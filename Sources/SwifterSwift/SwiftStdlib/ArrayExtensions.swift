@@ -131,3 +131,50 @@ public extension Array where Element: Equatable {
         return filter { set.insert($0[keyPath: path]).inserted }
     }
 }
+
+public extension Array {
+    /// The inheritance system is UIButton -> UIControl -> UIView
+    /// Both U type and U subclasses will be matched
+    ///
+    ///     [UIButton(), UIControl(),UIView()]
+    ///         .filter(kindOf: UIControl.self) ->
+    ///     [<UIButton: 0x7fa710cf54c0>, <UIControl: 0x7fa671429950>]
+    /// - Parameter : A data type
+    /// - Returns: A set of the elements that isIncluded allows.
+    func filter<U>(kindOf _: U.Type) -> [U] {
+        var result = [U]()
+        for case let e as U in self {
+            result.append(e)
+        }
+        return result
+    }
+
+    /// Only match U type, subclass will not match
+    ///
+    ///     [UIButton(), UIControl(), UIView()]
+    ///         .filter(memberOf: UIControl.self)) ->
+    ///     [<UIControl: 0x7fba09816c90>]
+    /// - Parameter t: A data type
+    /// - Returns: A set of the elements that isIncluded allows.
+    func filter<U>(memberOf t: U.Type) -> [U] {
+        var result = [U]()
+        for e in self where String(describing: type(of: e)) == String(describing: t) {
+            result.append(e as! U)
+        }
+        return result
+    }
+
+    /// Inferred from the return value type, it has the same function as filter<U>(kindOf type: U.Type)
+    ///
+    ///      let array: [UIView] = [UIButton(), UIControl(), UIView()]
+    ///      let res: [UIControl] = array.filterRetType()
+    ///      res  ->   [<UIButton: 0x7fc0a3c27820>, <UIControl: 0x7fc0a3c27ee0>]
+    /// - Returns: A set of the elements that isIncluded allows.
+    func filterRetType<U>() -> [U] {
+        var result = [U]()
+        for case let e as U in self {
+            result.append(e)
+        }
+        return result
+    }
+}
