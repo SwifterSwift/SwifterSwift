@@ -351,6 +351,9 @@ final class ColorExtensionsTests: XCTestCase {
     func testFailableInit() {
         var color = Color(hexString: "0xFFFFFF")
         XCTAssertNotNil(color)
+        
+        color = Color(hexString: "0XFFAABB")
+        XCTAssertNotNil(color)
 
         color = Color(hexString: "#FFFFFF")
         XCTAssertNotNil(color)
