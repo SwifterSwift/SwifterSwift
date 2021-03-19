@@ -305,8 +305,9 @@ public extension Color {
     ///   - transparency: optional transparency value (default is 1).
     convenience init?(hexString: String, transparency: CGFloat = 1) {
         var string = ""
-        if hexString.lowercased().hasPrefix("0x") {
-            string = hexString.lowercased().replacingOccurrences(of: "0x", with: "")
+        let lowercaseHexString = hexString.lowercased()
+        if lowercaseHexString.hasPrefix("0x") {
+            string = lowercaseHexString.replacingOccurrences(of: "0x", with: "")
         } else if hexString.hasPrefix("#") {
             string = hexString.replacingOccurrences(of: "#", with: "")
         } else {
