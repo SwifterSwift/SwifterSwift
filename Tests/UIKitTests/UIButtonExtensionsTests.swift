@@ -170,7 +170,7 @@ final class UIButtonExtensionsTests: XCTestCase {
         titleFrame = button.titleLabel!.frame
 
         XCTAssert(titleFrame.midY > imageFrame.midY)
-        XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.0)
+        XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.5)
         XCTAssertEqual(titleFrame.minY - spacing, imageFrame.maxY, accuracy: 1.0)
     }
 }

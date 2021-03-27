@@ -18,9 +18,13 @@ extension WKWebView {
     /// - Parameter urlString: The string specifying the URL to navigate to.
     /// - Returns: A new navigation for given `urlString`.
     @discardableResult
-    public func loadURLString(_ urlString: String) -> WKNavigation? {
+    public func loadURLString(_ urlString: String, timeout: TimeInterval? = nil) -> WKNavigation? {
         guard let url = URL(string: urlString) else { return nil }
-        return load(URLRequest(url: url))
+        var request = URLRequest(url: url)
+        if let timeout = timeout {
+          request.timeoutInterval = timeout
+        }
+        return load(request)
     }
 }
 

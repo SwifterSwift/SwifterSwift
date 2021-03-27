@@ -1,5 +1,7 @@
 // HKActivitySummaryExtensions.swift - Copyright 2020 SwifterSwift
-
+// HeathKit is not available for tvOS, available only on iOS 8.0+ Mac Catalyst 13.0+ watchOS 2.0+
+// See: https://developer.apple.com/documentation/healthkit
+#if !os(tvOS)
 #if canImport(HealthKit)
 import HealthKit
 
@@ -16,5 +18,5 @@ public extension HKActivitySummary {
     /// SwifterSwift: Check if active energy goal is met.
     var isEnergyBurnedGoalMet: Bool { activeEnergyBurnedGoal.compare(activeEnergyBurned) != .orderedDescending }
 }
-
+#endif
 #endif

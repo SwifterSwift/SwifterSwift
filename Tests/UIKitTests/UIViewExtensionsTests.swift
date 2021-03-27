@@ -313,12 +313,19 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(view1.transform, view2.transform)
         XCTAssertEqual(view1.transform, view3.transform)
     }
-
+  
+    #if os(tvOS)
+    func testLoadFromNib() {
+        let bundle = Bundle(for: UIViewExtensionsTests.self)
+        XCTAssertNotNil(UIView.loadFromNib(named: "UIImageViewTvOS", bundle: bundle))
+    }
+    #else
     func testLoadFromNib() {
         let bundle = Bundle(for: UIViewExtensionsTests.self)
         XCTAssertNotNil(UIView.loadFromNib(named: "UIImageView", bundle: bundle))
         XCTAssertNotNil(UIView.loadFromNib(withClass: UIImageView.self, bundle: bundle))
     }
+    #endif
 
     func testRemoveSubviews() {
         let view = UIView()

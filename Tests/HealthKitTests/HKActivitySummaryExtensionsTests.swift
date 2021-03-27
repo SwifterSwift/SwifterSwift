@@ -2,7 +2,7 @@
 
 @testable import SwifterSwift
 import XCTest
-
+#if !os(tvOS)
 #if canImport(HealthKit)
 import HealthKit
 
@@ -53,4 +53,5 @@ class HKActivitySummaryExtensionsTests: XCTestCase {
     }
 }
 
+#endif
 #endif
