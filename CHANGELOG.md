@@ -3,17 +3,19 @@
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
 ## Upcoming Release
+
+## [v5.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/5.3.0)
 ### Breaking Change
 - **Sequence**
   - Remove `last(where:)` and move `last(where:equals:)` to `BidirectionalCollection`, since it only makes semantic sense for ordered sequences. [#912](https://github.com/SwifterSwift/SwifterSwift/pull/912) by [guykogus](https://github.com/guykogus)
 - **UIView**
-  - Rename `shadowColor`, `shadowOffset`, `shadowOpacity` and `shadowRadius` to `layerShadowColor`, `layerShadowOffset`, `layerShadowOpacity` and `layerShadowRadius` to avoid naming colisions with subclasses properties defined in other modules e.g. UIKit. [#897](https://github.com/SwifterSwift/SwifterSwift/pull/897) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - Rename `shadowColor`, `shadowOffset`, `shadowOpacity` and `shadowRadius` to `layerShadowColor`, `layerShadowOffset`, `layerShadowOpacity` and `layerShadowRadius` to avoid naming collisions with subclasses properties defined in other modules e.g. UIKit. [#897](https://github.com/SwifterSwift/SwifterSwift/pull/897) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 ### Added
 - **SCN3Vector**
   - Added `normalized` method, and basic division functions (`SCNVector3 / scalar`, and `SCNVector3 /= scalar`. [#908](https://github.com/SwifterSwift/SwifterSwift/pull/908) by [thisIsTheFoxe](https://github.com/thisisthefoxe)
 - **Dictionary**
-  - Added `pick(keys:)` to pick part of a dictioanry with specified keys. [#911](https://github.com/SwifterSwift/SwifterSwift/pull/911) by [MaratIbragimov](https://github.com/MaratIbragimov)
+  - Added `pick(keys:)` to pick part of a dictionary with specified keys. [#911](https://github.com/SwifterSwift/SwifterSwift/pull/911) by [MaratIbragimov](https://github.com/MaratIbragimov)
 - **UIScrollView**
   - Added `visibleRect`, `scrollToTop(animated:)`, `scrollToLeft(animated:)`, `scrollToBottom(animated:)`, `scrollToRight(animated:)`, `scrollUp(animated:)`, `scrollLeft(animated:)`, `scrollDown(animated:)`, `scrollRight(animated:)`. [#888](https://github.com/SwifterSwift/SwifterSwift/pull/888) by [guykogus](https://github.com/guykogus)
 - **XCTest**
@@ -65,7 +67,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `applying(attributes:)` changed access modifier from `fileprivate` to `public`. [#832](https://github.com/SwifterSwift/SwifterSwift/pull/832) by [cHaLkdusT](https://github.com/cHaLkdusT)
 - **Color**:
   - Refactored `init(light:dark:)` to remove deployment target version restrictions. [#844](https://github.com/SwifterSwift/SwifterSwift/pull/844) by [VincentSit](https://github.com/vincentsit).
-  - Use `enum` to declare namespace instead of using `struct`. Thus private initailizer is no longer needed. [#927](https://github.com/SwifterSwift/SwifterSwift/pull/927) by [Shiva Huang](https://github.com/ShivaHuang)
+  - Use `enum` to declare namespace instead of using `struct`. Thus private initializer is no longer needed. [#927](https://github.com/SwifterSwift/SwifterSwift/pull/927) by [Shiva Huang](https://github.com/ShivaHuang)
 - **CAGradientLayer**:
   - In `init(colors:locations:startPoint:endPoint:type:)` added default values to `startPoint` and `endPoint`. [#864](https://github.com/SwifterSwift/SwifterSwift/pull/864) by [guykogus](https://github.com/guykogus)
 - **UITextField**:
@@ -75,7 +77,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Deprecated
 - **Sequence**:
-  - Marked `map(by:)`, `compactMap(by:)`, `filter(by:)` as deprecated in favor use of Key Path expressions as functions feature in Swift 5.2. [#862](https://github.com/SwifterSwift/SwifterSwift/pull/862) by [Roman Podymov](https://github.com/RomanPodymov).
+  - Marked `map(by:)`, `compactMap(by:)`, `filter(by:)` as deprecated in favor use of Key Path expressions as functions feature in Swift 5.3. [#862](https://github.com/SwifterSwift/SwifterSwift/pull/862) by [Roman Podymov](https://github.com/RomanPodymov).
 
 ### Removed
 - **UIDatePicker**

@@ -8,4 +8,4 @@
 --importgrouping testable-top
 --nospaceoperators ..<,...
 --maxwidth 120
---swiftversion 5.2
+--swiftversion 5.3

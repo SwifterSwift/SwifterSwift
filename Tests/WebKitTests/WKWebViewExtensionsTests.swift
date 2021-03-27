@@ -48,7 +48,7 @@ final class WKWebViewExtensionsTests: XCTestCase {
         let failureExpectation = WebViewFailureExpectation(description: "Dead URL string", webView: webView)
 
         let deadURLString = "https://deadurl.com"
-        let navigation = webView.loadURLString(deadURLString)
+        let navigation = webView.loadURLString(deadURLString, timeout: 5.0)
 
         XCTAssertNotNil(navigation)
 

@@ -427,7 +427,7 @@
 		8D4B424D212972AE002A5923 /* UILayoutPriorityExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4B424B212972AE002A5923 /* UILayoutPriorityExtensions.swift */; };
 		8D4B424F212972E7002A5923 /* UILayoutPriorityExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4B424E212972E7002A5923 /* UILayoutPriorityExtensionsTests.swift */; };
 		8D4B4250212972E7002A5923 /* UILayoutPriorityExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4B424E212972E7002A5923 /* UILayoutPriorityExtensionsTests.swift */; };
-		8D50E52224D0D76400972E2D /* UIImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D50E52024D0D73E00972E2D /* UIImageView.xib */; };
+		8D50E52224D0D76400972E2D /* UIImageViewTvOS.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D50E52024D0D73E00972E2D /* UIImageViewTvOS.xib */; };
 		8D50E52324D0D76B00972E2D /* UIImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D50E51E24D0D71E00972E2D /* UIImageView.xib */; };
 		90693551208B4F9400407C4D /* UIGestureRecognizerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90693550208B4F9400407C4D /* UIGestureRecognizerExtensions.swift */; };
 		90693555208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90693554208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift */; };
@@ -824,7 +824,7 @@
 		8D4B424B212972AE002A5923 /* UILayoutPriorityExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILayoutPriorityExtensions.swift; sourceTree = "<group>"; };
 		8D4B424E212972E7002A5923 /* UILayoutPriorityExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILayoutPriorityExtensionsTests.swift; sourceTree = "<group>"; };
 		8D50E51E24D0D71E00972E2D /* UIImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIImageView.xib; sourceTree = "<group>"; };
-		8D50E52024D0D73E00972E2D /* UIImageView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIImageView.xib; sourceTree = "<group>"; };
+		8D50E52024D0D73E00972E2D /* UIImageViewTvOS.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UIImageViewTvOS.xib; sourceTree = "<group>"; };
 		90693550208B4F9400407C4D /* UIGestureRecognizerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtensions.swift; sourceTree = "<group>"; };
 		90693554208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGestureRecognizerExtensionsTests.swift; sourceTree = "<group>"; };
 		985C1B8E24797694008AAB0E /* WKWebViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewExtensions.swift; sourceTree = "<group>"; };
@@ -1386,7 +1386,7 @@
 		8D50E51D24D0D6FB00972E2D /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				8D50E52024D0D73E00972E2D /* UIImageView.xib */,
+				8D50E52024D0D73E00972E2D /* UIImageViewTvOS.xib */,
 			);
 			path = tvOS;
 			sourceTree = "<group>";
@@ -1688,7 +1688,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = SwifterSwift;
 				TargetAttributes = {
 					07898B5C1F278D7600558C97 = {
@@ -1800,7 +1800,7 @@
 			files = (
 				CAC5EBD02125273100AB27EC /* TestImage.png in Resources */,
 				CAC5EBCE2125272A00AB27EC /* test.json in Resources */,
-				8D50E52224D0D76400972E2D /* UIImageView.xib in Resources */,
+				8D50E52224D0D76400972E2D /* UIImageViewTvOS.xib in Resources */,
 				CAC5EBCD2125272400AB27EC /* big_buck_bunny_720p_1mb.mp4 in Resources */,
 				F88C491924AF73A400BA0503 /* TestStoryboard-tvOS.storyboard in Resources */,
 			);
@@ -2761,7 +2761,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 5.2.0;
+				MARKETING_VERSION = 5.3.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-iOS";
@@ -2832,7 +2832,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 5.2.0;
+				MARKETING_VERSION = 5.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-iOS";
 				PRODUCT_NAME = SwifterSwift;
@@ -2907,7 +2907,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 5.2.0;
+				MARKETING_VERSION = 5.3.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-tvOS";
@@ -2978,7 +2978,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 5.2.0;
+				MARKETING_VERSION = 5.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-tvOS";
 				PRODUCT_NAME = SwifterSwift;
@@ -3055,7 +3055,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 5.2.0;
+				MARKETING_VERSION = 5.3.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-watchOS";
@@ -3127,7 +3127,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 5.2.0;
+				MARKETING_VERSION = 5.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-watchOS";
 				PRODUCT_NAME = SwifterSwift;
@@ -3203,9 +3203,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 5.2.0;
+				MARKETING_VERSION = 5.3.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-macOS";
@@ -3274,9 +3275,10 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MARKETING_VERSION = 5.2.0;
+				MARKETING_VERSION = 5.3.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-macOS";
 				PRODUCT_NAME = SwifterSwift;
@@ -3343,7 +3345,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -3405,7 +3407,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-iOSTests";
@@ -3472,6 +3474,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -3534,6 +3537,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-tvOSTests";
@@ -3601,8 +3605,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-macOSTests";
@@ -3662,8 +3667,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.swifterswift.SwifterSwift-macOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
