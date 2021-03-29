@@ -28,6 +28,7 @@ public extension UIRefreshControl {
         // https://stackoverflow.com/questions/14718850/14719658#14719658
         guard let scrollView = superview as? UIScrollView else {
             assert(false, "Refresh control does not belong to a scroll view")
+            return
         }
 
         beginRefreshing()
