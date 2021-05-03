@@ -156,6 +156,22 @@ final class UITextFieldExtensionsTests: XCTestCase {
         textfield.addPaddingRightIcon(image, padding: 5)
         XCTAssertEqual(textfield.rightView?.frame.width, image.size.width + 5)
     }
+    
+    func testAddInputAccessoryView() {
+        // GIVEN
+        let textField = UITextField()
+        textField.frame = CGRect(x: 0, y: 0, width: 100, height: 44)
+        
+        // WHEN
+        textField.addInputAccessoryView(title: "Done", target: self)
+        
+        // THEN
+        guard let toolBar = textField.inputAccessoryView as? UIToolbar, let doneButton = toolBar.items?[1] else {
+            XCTFail("Expecting done button within toolbar")
+            return
+        }
+        XCTAssertEqual(doneButton.title, "Done")
+    }
 }
 
 #endif
