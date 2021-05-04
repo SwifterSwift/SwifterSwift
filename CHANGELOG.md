@@ -60,6 +60,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `replacingOccurrences(ofPattern:withTemplate:options:searchRange:)` as a more convenient way to replace patterns. [#901](https://github.com/SwifterSwift/SwifterSwift/pull/901) by [gurgeous](https://github.com/gurgeous)
 - **Measurement**
   - Added `.degrees(_:)`, `arcMinutes(_:)`, `arcSeconds(_:)`, `radians(_:)`, `gradians(_:)` and `revolutions(_:)`  to conveniently initialize measurement with corresponding unit. [#936](https://github.com/SwifterSwift/SwifterSwift/pull/936) by [Shiva Huang](https://github.com/ShivaHuang)
+  - **UITextField**
+    - added `addInputAccessoryView` extension to add tool bar to the UITextField. [#954](https://github.com/SwifterSwift/SwifterSwift/pull/954) by [Randhir Kumar](https://github.com/randhirkumar65)
 
 ### Changed
 - **NSAttributedString**:
