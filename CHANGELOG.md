@@ -75,7 +75,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIAlertController**:
   - Mark `show` method as unavailable for `iOSAppExtension` targets. [#918](https://github.com/SwifterSwift/SwifterSwift/pull/918) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 - **UIRefreshControl**:
-  - Add `beginRefreshing(animated:, sendAction:)` that works inside any `UIScrollView` and not only `UITableView`. [#949](https://github.com/SwifterSwift/SwifterSwift/pull/949) by [yonat](https://github.com/yonat)
+  - Add `beginRefreshing(animated:sendAction:)` that works inside any `UIScrollView` and not only `UITableView`. [#949](https://github.com/SwifterSwift/SwifterSwift/pull/949) by [yonat](https://github.com/yonat)
 
 ### Deprecated
 - **Sequence**:

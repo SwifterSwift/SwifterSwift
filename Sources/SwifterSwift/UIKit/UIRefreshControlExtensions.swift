@@ -16,7 +16,13 @@ public extension UIRefreshControl {
         // https://stackoverflow.com/questions/14718850/14719658#14719658
         assert(superview == tableView, "Refresh control does not belong to the receiving table view")
 
-        beginRefreshing(animated: animated, sendAction: sendAction)
+        beginRefreshing()
+        let offsetPoint = CGPoint(x: 0, y: -frame.height)
+        tableView.setContentOffset(offsetPoint, animated: animated)
+
+        if sendAction {
+            sendActions(for: .valueChanged)
+        }
     }
 
     /// SwifterSwift: Programmatically begin refresh control inside of UIScrollView.
