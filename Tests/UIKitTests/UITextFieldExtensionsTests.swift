@@ -157,20 +157,32 @@ final class UITextFieldExtensionsTests: XCTestCase {
         XCTAssertEqual(textfield.rightView?.frame.width, image.size.width + 5)
     }
     
-    func testAddInputAccessoryView() {
+    func testAddToolbar() {
         // GIVEN
-        let textField = UITextField()
-        textField.frame = CGRect(x: 0, y: 0, width: 100, height: 44)
-        
+        let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
+        let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
+        let addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+
         // WHEN
-        textField.addInputAccessoryView(title: "Done", target: self)
+    
+        textField.addToolbar(items: [doneBarButtonItem, addBarButtonItem])
         
         // THEN
-        guard let toolBar = textField.inputAccessoryView as? UIToolbar, let doneButton = toolBar.items?[1] else {
-            XCTFail("Expecting done button within toolbar")
+        
+        guard let toolBar = textField.inputAccessoryView as? UIToolbar else {
+            XCTFail("Expecting toolbar added to textfield accessory view")
             return
         }
-        XCTAssertEqual(doneButton.title, "Done")
+        
+        guard let doneBarButton = toolBar.items?.first,
+              let addBarButton = toolBar.items?[1] else {
+            XCTFail("Expecting toolbar added to textfield accessory view")
+            return
+        }
+        
+        // assert added bar buttons
+        XCTAssertEqual(doneBarButton, doneBarButtonItem)
+        XCTAssertEqual(addBarButton, addBarButtonItem)
     }
 }
 
