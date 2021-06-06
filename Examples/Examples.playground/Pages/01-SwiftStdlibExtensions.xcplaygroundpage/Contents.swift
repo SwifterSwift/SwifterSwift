@@ -1,4 +1,4 @@
-// Contents.swift - Copyright 2021 SwifterSwift
+//: [Table of Contents](00-ToC)
 
 //: [Previous](@previous)
 
