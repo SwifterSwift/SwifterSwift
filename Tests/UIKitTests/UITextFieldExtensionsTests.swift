@@ -158,16 +158,11 @@ final class UITextFieldExtensionsTests: XCTestCase {
     }
     
     func testAddToolbar() {
-        // GIVEN
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
         let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
         let addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-
-        // WHEN
-    
-        textField.addToolbar(items: [doneBarButtonItem, addBarButtonItem])
         
-        // THEN
+        textField.addToolbar(items: [doneBarButtonItem, addBarButtonItem])
         
         guard let toolBar = textField.inputAccessoryView as? UIToolbar else {
             XCTFail("Expecting toolbar added to textfield accessory view")
@@ -179,8 +174,6 @@ final class UITextFieldExtensionsTests: XCTestCase {
             XCTFail("Expecting toolbar added to textfield accessory view")
             return
         }
-        
-        // assert added bar buttons
         XCTAssertEqual(doneBarButton, doneBarButtonItem)
         XCTAssertEqual(addBarButton, addBarButtonItem)
     }
