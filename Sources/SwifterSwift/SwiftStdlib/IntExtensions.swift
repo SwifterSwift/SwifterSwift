@@ -1,4 +1,4 @@
-// IntExtensions.swift - Copyright 2020 SwifterSwift
+// IntExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
@@ -155,7 +155,7 @@ infix operator **: PowerPrecedence
 ///   - lhs: base integer.
 ///   - rhs: exponent integer.
 /// - Returns: exponentiation result (example: 2 ** 3 = 8).
-func ** (lhs: Int, rhs: Int) -> Double {
+public func ** (lhs: Int, rhs: Int) -> Double {
     // http://nshipster.com/swift-operators/
     return pow(Double(lhs), Double(rhs))
 }
@@ -181,7 +181,7 @@ infix operator ±
 ///   - lhs: integer number.
 ///   - rhs: integer number.
 /// - Returns: tuple of plus-minus operation (example: 2 ± 3 -> (5, -1)).
-func ± (lhs: Int, rhs: Int) -> (Int, Int) {
+public func ± (lhs: Int, rhs: Int) -> (Int, Int) {
     // http://nshipster.com/swift-operators/
     return (lhs + rhs, lhs - rhs)
 }
