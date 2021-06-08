@@ -171,7 +171,7 @@ final class UITextFieldExtensionsTests: XCTestCase {
         
         guard let doneBarButton = toolBar.items?.first,
               let addBarButton = toolBar.items?[1] else {
-            XCTFail("Expecting toolbar added to textfield accessory view")
+            XCTFail("Expecting done and add bar button added to textfield accessory view")
             return
         }
         XCTAssertEqual(doneBarButton, doneBarButtonItem)
