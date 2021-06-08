@@ -58,9 +58,6 @@ let json = dict.jsonString(prettify: true)
 // Returns CamelCase of string
 "Some variable nAme".camelCased
 
-// Check if string is in valid email format
-"someone@somewebsite.com".isEmail
-
 // Check if string contains at least one letter and one number
 "123abc".isAlphaNumeric
 
