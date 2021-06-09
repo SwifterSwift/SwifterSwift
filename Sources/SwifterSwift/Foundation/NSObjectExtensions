@@ -5,20 +5,14 @@ import Foundation
 
 public extension NSObject{
     /// SwifterSwift: class name.
-    class var named: String {
+    class var className: String {
         let array = NSStringFromClass(self).components(separatedBy: ".")
-        if let name =  array.last {
-            return name
-        }
-        return ""
+        return array.last ?? ""
     }
     
     /// SwifterSwift: class name.
-    var named: String {
+    var className: String {
         let array = NSStringFromClass(type(of: self)).components(separatedBy: ".")
-        if let name =  array.last {
-            return name
-        }
-        return ""
+        return array.last ?? ""
     }
 }
