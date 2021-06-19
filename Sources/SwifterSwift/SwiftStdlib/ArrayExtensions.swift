@@ -45,6 +45,30 @@ public extension Array {
             return thisIndex < otherIndex
         }
     }
+    
+    /**
+     SwifterSwift: Adds a new element at the end of the array, mutates the array in place
+     - Parameter newElements: The optional element to append to the array
+     */
+    @discardableResult
+    mutating func append(_ newElement: Self.Element?) -> [Element]
+        {
+            guard let newElement = newElement else {return self}
+            self.append(newElement)
+            return self
+        }
+    
+    /**
+     SwifterSwift: Adds the elements of a sequence to the end of the array, mutates the array in place
+     - Parameter newElements: The optional sequence to append to the array
+     */
+    @discardableResult
+    mutating func append<S>(contentsOf newElements: S?) -> [Element] where Element == S.Element, S : Sequence
+    {
+        guard let newElements = newElements else {return self}
+        self.append(contentsOf: newElements)
+        return self
+    }
 }
 
 // MARK: - Methods (Equatable)

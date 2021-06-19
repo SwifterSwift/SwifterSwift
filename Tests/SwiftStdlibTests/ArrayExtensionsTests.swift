@@ -115,4 +115,30 @@ final class ArrayExtensionsTests: XCTestCase {
         ]
         XCTAssertEqual(arrayWithoutDuplicatesNHashable, arrayWithoutDuplicatesNHashablePrepared)
     }
+    
+    func testAppendElement() {
+        var testArray = ["h", "e", "l", "l", "o"]
+        let optionalString: String? = "f"
+        let resultArray = testArray.append(optionalString)
+        XCTAssertEqual(testArray, ["h", "e", "l", "l", "o", "f"])
+        XCTAssertEqual(resultArray, ["h", "e", "l", "l", "o", "f"])
+        
+        let nilString: String? = nil
+        testArray.append(nilString)
+        XCTAssertEqual(testArray, ["h", "e", "l", "l", "o", "f"])
+        
+    }
+    
+    func testAppendSequence() {
+        var testEmptyArray: [Double] = []
+        let numbersToAppend: [Double]? = [69.0, 68.0, 67.0]
+        let resultArray = testEmptyArray.append(contentsOf: numbersToAppend)
+        XCTAssertEqual(testEmptyArray, numbersToAppend)
+        XCTAssertEqual(numbersToAppend, resultArray)
+        
+        var testStringArray: [String] = ["h", "e", "l", "l", "o"]
+        let nilArray: [String]? = nil
+        testStringArray.append(contentsOf: nilArray)
+        XCTAssertEqual(testStringArray, ["h", "e", "l", "l", "o"])
+    }
 }
