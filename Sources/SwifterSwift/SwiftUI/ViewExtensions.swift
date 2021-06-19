@@ -10,14 +10,14 @@ import Foundation
 import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-extension View {
+public extension View {
     
     /**
      Modifier to erase a SwiftUI `View` type into `AnyView`
      
      An `AnyView` allows changing the type of view used in a given view hierarchy. Whenever the type of view used with an AnyView changes, the old hierarchy is destroyed and a new hierarchy is created for the new type.
      */
-    @usableFromInline func eraseToAnyView() -> AnyView {
+    @inlinable func eraseToAnyView() -> AnyView {
         AnyView(self)
     }
 }
