@@ -37,6 +37,14 @@ public extension URL {
         guard let string = string else { return nil }
         self.init(string: string, relativeTo: url)
     }
+    
+    /**
+    SwifterSwift: Initializes a forced unwrapped `URL` from string. Can potentially crash if string is invalid.
+     - Parameter unsafeString: The URL string used to initialize the `URL`object.
+     */
+    init(unsafeString: String) {
+        self.init(string: unsafeString)!
+    }
 }
 
 // MARK: - Methods
