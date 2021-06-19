@@ -13,9 +13,11 @@ import SwiftUI
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 class ViewExtensionTests: XCTestCase {
     func testEraseToAnyView() {
+        #if !os(macOS)
         let typeErasedView = UIHostingController(rootView: TestView().eraseToAnyView())
         let anyView = UIHostingController(rootView: AnyView(TestView()))
         XCTAssertEqual(typeErasedView.view.screenshot, anyView.view.screenshot)
+        #endif
     }
 }
 
