@@ -61,7 +61,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Measurement**
   - Added `.degrees(_:)`, `arcMinutes(_:)`, `arcSeconds(_:)`, `radians(_:)`, `gradians(_:)` and `revolutions(_:)`  to conveniently initialize measurement with corresponding unit. [#936](https://github.com/SwifterSwift/SwifterSwift/pull/936) by [Shiva Huang](https://github.com/ShivaHuang)
 - **URL**
-  - Added the `(unsafeString: String)` initializer for `URL` as a more conviniently to construct unsafe `URL`s from `String` by [jevonmao](https://github.com/jevonmao)
+  - Added the `(unsafeString: String)` initializer for `URL` as a more conveniently to construct unsafe `URL`s from `String` by [jevonmao](https://github.com/jevonmao)
   
 ### Changed
 - **NSAttributedString**:
