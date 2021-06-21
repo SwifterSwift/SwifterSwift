@@ -40,7 +40,7 @@ public extension RangeReplaceableCollection {
         var copy = self
         return copy.rotate(by: places)
     }
-
+    
     ///  SwifterSwift: Rotate the collection by the given places.
     ///
     ///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
@@ -66,7 +66,7 @@ public extension RangeReplaceableCollection {
         }
         return self
     }
-
+    
     /// SwifterSwift: Removes the first element of the collection which satisfies the given predicate.
     ///
     ///        [1, 2, 2, 3, 4, 2, 5].removeFirst { $0 % 2 == 0 } -> [1, 2, 3, 4, 2, 5]
@@ -79,14 +79,14 @@ public extension RangeReplaceableCollection {
         guard let index = try firstIndex(where: predicate) else { return nil }
         return remove(at: index)
     }
-
+    
     /// SwifterSwift: Remove a random value from the collection.
     @discardableResult
     mutating func removeRandomElement() -> Element? {
         guard let randomIndex = indices.randomElement() else { return nil }
         return remove(at: randomIndex)
     }
-
+    
     /// SwifterSwift: Keep elements of Array while condition is true.
     ///
     ///        [0, 2, 4, 7].keep(while: { $0 % 2 == 0 }) -> [0, 2, 4]
@@ -101,7 +101,7 @@ public extension RangeReplaceableCollection {
         }
         return self
     }
-
+    
     /// SwifterSwift: Take element of Array while condition is true.
     ///
     ///        [0, 2, 4, 7, 6, 8].take( where: {$0 % 2 == 0}) -> [0, 2, 4]
@@ -111,7 +111,7 @@ public extension RangeReplaceableCollection {
     func take(while condition: (Element) throws -> Bool) rethrows -> Self {
         return Self(try prefix(while: condition))
     }
-
+    
     /// SwifterSwift: Skip elements of Array while condition is true.
     ///
     ///        [0, 2, 4, 7, 6, 8].skip( where: {$0 % 2 == 0}) -> [6, 8]
@@ -122,7 +122,7 @@ public extension RangeReplaceableCollection {
         guard let idx = try firstIndex(where: { try !condition($0) }) else { return Self() }
         return Self(self[idx...])
     }
-
+    
     /// SwifterSwift: Remove all duplicate elements using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Equatable.
@@ -136,7 +136,7 @@ public extension RangeReplaceableCollection {
             return true
         }
     }
-
+    
     /// SwifterSwift: Remove all duplicate elements using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Hashable.
@@ -144,7 +144,7 @@ public extension RangeReplaceableCollection {
         var set = Set<E>()
         removeAll { !set.insert($0[keyPath: path]).inserted }
     }
-
+    
     /// SwifterSwift: Accesses the element at the specified position.
     ///
     /// - Parameter offset: The offset position of the element to access. `offset` must be a valid index offset of the collection that is not equal to the `endIndex` property.
@@ -157,7 +157,7 @@ public extension RangeReplaceableCollection {
             replaceSubrange(offsetIndex..<index(after: offsetIndex), with: [newValue])
         }
     }
-
+    
     /// SwifterSwift: Accesses a contiguous subrange of the collection’s elements.
     ///
     /// - Parameter range: A range of the collection’s indices offsets. The bounds of the range must be valid indices of the collection.
@@ -179,19 +179,17 @@ public extension RangeReplaceableCollection {
      SwifterSwift: Adds a new element at the end of the array, mutates the array in place
      - Parameter newElements: The optional element to append to the array
      */
-    mutating func appendIfNonNil(_ newElement: Self.Element?)
-        {
-            guard let newElement = newElement else {return}
-            self.append(newElement)
-        }
+    mutating func appendIfNonNil(_ newElement: Element?) {
+        guard let newElement = newElement else {return}
+        self.append(newElement)
+    }
     
     /**
      SwifterSwift: Adds the elements of a sequence to the end of the array, mutates the array in place
      - Parameter newElements: The optional sequence to append to the array
      */
-    mutating func appendIfNonNil<S>(contentsOf newElements: S?) where Element == S.Element, S : Sequence
-        {
-            guard let newElements = newElements else {return}
-            self.append(contentsOf: newElements)
-        }
+    mutating func appendIfNonNil<S>(contentsOf newElements: S?) where Element == S.Element, S : Sequence {
+        guard let newElements = newElements else {return}
+        self.append(contentsOf: newElements)
+    }
 }
