@@ -180,8 +180,8 @@ public extension RangeReplaceableCollection {
      - Parameter newElements: The optional element to append to the array
      */
     mutating func appendIfNonNil(_ newElement: Self.Element?) {
-            guard let newElement = newElement else {return}
-            self.append(newElement)
+        guard let newElement = newElement else {return}
+        self.append(newElement)
     }
     
     /**
