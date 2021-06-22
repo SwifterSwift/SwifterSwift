@@ -3,7 +3,7 @@
 // MARK: - Initializers
 
 public extension RangeReplaceableCollection {
-/// SwifterSwift: Creates a new collection of a given size where for each position of the collection the value will be the result of a call of the given expression.
+    /// SwifterSwift: Creates a new collection of a given size where for each position of the collection the value will be the result of a call of the given expression.
     ///
     ///     let values = Array(expression: "Value", count: 3)
     ///     print(values)
@@ -25,22 +25,23 @@ public extension RangeReplaceableCollection {
 }
 
 // MARK: - Methods
+
 public extension RangeReplaceableCollection {
-    ///  SwifterSwift: Returns a new rotated collection by the given places.
+    ///  SwifterSwift: Returns a new rotated collection by the given places.
     ///
     ///     [1, 2, 3, 4].rotated(by: 1) -> [4,1,2,3]
     ///     [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
     ///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
     ///
     /// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start become the end.
-    /// - Returns: The new rotated collection.
+    /// - Returns: The new rotated collection.
     func rotated(by places: Int) -> Self {
         // Inspired by: https://ruby-doc.org/core-2.2.0/Array.html#method-i-rotate
         var copy = self
         return copy.rotate(by: places)
     }
 
-    ///  SwifterSwift: Rotate the collection by the given places.
+    ///  SwifterSwift: Rotate the collection by the given places.
     ///
     ///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
     ///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
@@ -178,9 +179,9 @@ public extension RangeReplaceableCollection {
      SwifterSwift: Adds a new element at the end of the array, mutates the array in place
      - Parameter newElements: The optional element to append to the array
      */
-    mutating func appendIfNonNil(_ newElement: Element?) {
-        guard let newElement = newElement else {return}
-        self.append(newElement)
+    mutating func appendIfNonNil(_ newElement: Self.Element?) {
+            guard let newElement = newElement else {return}
+            self.append(newElement)
     }
     
     /**
@@ -188,7 +189,7 @@ public extension RangeReplaceableCollection {
      - Parameter newElements: The optional sequence to append to the array
      */
     mutating func appendIfNonNil<S>(contentsOf newElements: S?) where Element == S.Element, S : Sequence {
-        guard let newElements = newElements else {return}
-        self.append(contentsOf: newElements)
+            guard let newElements = newElements else {return}
+            self.append(contentsOf: newElements)
     }
 }
