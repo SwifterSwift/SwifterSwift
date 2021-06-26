@@ -156,7 +156,8 @@ final class UITextFieldExtensionsTests: XCTestCase {
         textfield.addPaddingRightIcon(image, padding: 5)
         XCTAssertEqual(textfield.rightView?.frame.width, image.size.width + 5)
     }
-    
+
+    #if os(iOS)
     func testAddToolbar() {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
         let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
@@ -177,6 +178,7 @@ final class UITextFieldExtensionsTests: XCTestCase {
         XCTAssertEqual(doneBarButton, doneBarButtonItem)
         XCTAssertEqual(addBarButton, addBarButtonItem)
     }
+    #endif
 }
 
 #endif
