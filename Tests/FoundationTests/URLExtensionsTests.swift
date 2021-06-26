@@ -102,6 +102,12 @@ final class URLExtensionsTests: XCTestCase {
             XCTAssertEqual(url.droppedScheme()?.absoluteString, expected, "input url: \(input)")
         }
     }
+    
+    func testStringInitializer() throws {
+        let testURL = try XCTUnwrap(URL(string: "https://google.com"))
+        let extensionURL = URL(unsafeString: "https://google.com")
+        XCTAssertEqual(testURL, extensionURL)
+    }
 }
 
 #endif
