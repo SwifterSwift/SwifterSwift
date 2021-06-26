@@ -172,6 +172,20 @@ public extension UITextField {
         rightView = iconView
         rightViewMode = .always
     }
+    
+    /// Add tool bars to the textfield input accessory view.
+    /// - Parameters:
+    ///   - items: The items to present in the toolbar.
+    ///   - height: The height of the toolbar.
+    #if os(iOS)
+    @discardableResult
+    func addToolbar(items: [UIBarButtonItem]?, height: CGFloat = 44) -> UIToolbar {
+        let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: height))
+        toolBar.setItems(items, animated: false)
+        inputAccessoryView = toolBar
+        return toolBar
+    }
+    #endif
 }
 
 #endif
