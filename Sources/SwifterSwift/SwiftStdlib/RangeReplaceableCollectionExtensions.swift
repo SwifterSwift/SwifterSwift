@@ -177,10 +177,10 @@ public extension RangeReplaceableCollection {
     
     /**
      SwifterSwift: Adds a new element at the end of the array, mutates the array in place
-     - Parameter newElements: The optional element to append to the array
+     - Parameter newElement: The optional element to append to the array
      */
     mutating func appendIfNonNil(_ newElement: Self.Element?) {
-        guard let newElement = newElement else {return}
+        guard let newElement = newElement else { return }
         self.append(newElement)
     }
     
