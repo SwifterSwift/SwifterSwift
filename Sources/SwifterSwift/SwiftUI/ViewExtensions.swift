@@ -20,4 +20,5 @@ public extension View {
     @inlinable func eraseToAnyView() -> AnyView {
         AnyView(self)
     }
+
 }
