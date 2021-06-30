@@ -6,19 +6,22 @@
 //  Copyright © 2021 SwifterSwift. All rights reserved.
 //
 
-import Foundation
+#if canImport(SwiftUI)
 import SwiftUI
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public extension View {
     
     /**
-     Modifier to erase a SwiftUI `View` type into `AnyView`
+     SwifterSwift: Modifier to erase a SwiftUI `View` type into `AnyView`
      
-     An `AnyView` allows changing the type of view used in a given view hierarchy. Whenever the type of view used with an AnyView changes, the old hierarchy is destroyed and a new hierarchy is created for the new type.
+     An `AnyView` allows changing the type of view used in a given view hierarchy.
+     Whenever the type of view used with an AnyView changes, the old hierarchy is
+     destroyed and a new hierarchy is created for the new type.
      */
-    @inlinable func eraseToAnyView() -> AnyView {
+    func anyView() -> AnyView {
         AnyView(self)
     }
 
 }
+#endif
