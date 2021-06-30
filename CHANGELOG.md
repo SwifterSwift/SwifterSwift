@@ -133,7 +133,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `init(grouping:by:)` to initialize a dictionary by grouping sequence from a hashable `KeyPath`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
 - **RangeReplaceableCollection**:
   - Added `removeDuplicates(keyPath:)` for removing duplicate elements based on key path. [#737](https://github.com/SwifterSwift/SwifterSwift/pull/737) by [Ilya Glushchuk](https://github.com/iglushchuk).
-  - Added `appendIfNonNil(_:)` and `appendIfNonNil(contentsOf:)` methods that can append optional elements and sequences, by [jevonmao](https://github.com/jevonmao)
+  - Added `appendIfNonNil(_:)` and `appendIfNonNil(contentsOf:)` methods that can append optional elements and sequences. [#966](https://github.com/SwifterSwift/SwifterSwift/pull/966)  by [jevonmao](https://github.com/jevonmao)
 - **Color**:
   - Added `init(light:dark:)` to create an NSColor/UIColor with different variations for light and dark mode. Only available in iOS/tvOS 13.0, macOS 10.15. [#722](https://github.com/SwifterSwift/SwifterSwift/pull/722) by [MaxHaertwig](https://github.com/maxhaertwig).
 - **String**:
