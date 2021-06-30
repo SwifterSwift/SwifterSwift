@@ -61,7 +61,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Measurement**
   - Added `.degrees(_:)`, `arcMinutes(_:)`, `arcSeconds(_:)`, `radians(_:)`, `gradians(_:)` and `revolutions(_:)`  to conveniently initialize measurement with corresponding unit. [#936](https://github.com/SwifterSwift/SwifterSwift/pull/936) by [Shiva Huang](https://github.com/ShivaHuang)
 - **SwiftUI**
-  - Added the  `eraseToAnyView()` modifier as as shortcut for `AnyView()` to conveniently erase any SwiftUI `View` to `AnyView` by [jevonmao](https://github.com/jevonmao)
+  - Added the `eraseToAnyView()` modifier as as shortcut for `AnyView(_:)` to conveniently erase any SwiftUI `View` to `AnyView`. [#963](https://github.com/SwifterSwift/SwifterSwift/pull/963) by [jevonmao](https://github.com/jevonmao)
+- **UITextField**
+  - Added `addToolbar(items:height:)` to add a toolbar to a `UITextField`. [#954](https://github.com/SwifterSwift/SwifterSwift/pull/954) by [Randhir Kumar](https://github.com/randhirkumar65)
+- **URL**
+  - Added the `(unsafeString: String)` initializer for `URL` as a more conveniently to construct unsafe `URL`s from `String` by [jevonmao](https://github.com/jevonmao)
 
 ### Changed
 - **NSAttributedString**:
@@ -76,6 +80,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `addPaddingRight`,`addPaddingRightIcon`extension,[#878](https://github.com/SwifterSwift/SwifterSwift/pull/878) by [Jayxiang](https://github.com/Jayxiang)
 - **UIAlertController**:
   - Mark `show` method as unavailable for `iOSAppExtension` targets. [#918](https://github.com/SwifterSwift/SwifterSwift/pull/918) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+- **UIRefreshControl**:
+  - Add `beginRefreshing(animated:sendAction:)` that works inside any `UIScrollView` and not only `UITableView`. [#949](https://github.com/SwifterSwift/SwifterSwift/pull/949) by [yonat](https://github.com/yonat)
 
 ### Deprecated
 - **Sequence**:
