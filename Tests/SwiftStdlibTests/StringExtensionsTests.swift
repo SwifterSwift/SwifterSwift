@@ -17,6 +17,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("SGVsbG8gV29ybGQh".base64Decoded, helloWorld)
         XCTAssertEqual("http://example.com/xxx", "aHR0cDovL2V4YW1wbGUuY29tL3h4eA".base64Decoded)
         XCTAssertEqual(helloWorld, "SGVsbG\n8gV29ybGQh".base64Decoded)
+        XCTAssertEqual(helloWorld, "SGVsbG8gV29ybGQh\n".base64Decoded)
         XCTAssertNil(helloWorld.base64Decoded)
     }
 
