@@ -1,4 +1,4 @@
-// FloatingPointExtensions.swift - Copyright 2020 SwifterSwift
+// FloatingPointExtensions.swift - Copyright 2021 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -57,7 +57,7 @@ infix operator ±
 ///   - lhs: number.
 ///   - rhs: number.
 /// - Returns: tuple of plus-minus operation ( 2.5 ± 1.5 -> (4, 1)).
-func ± <T: FloatingPoint>(lhs: T, rhs: T) -> (T, T) {
+public func ± <T: FloatingPoint>(lhs: T, rhs: T) -> (T, T) {
     // http://nshipster.com/swift-operators/
     return (lhs + rhs, lhs - rhs)
 }
