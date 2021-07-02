@@ -25,6 +25,11 @@ public extension String {
     ///		"SGVsbG8gV29ybGQh".base64Decoded = Optional("Hello World!")
     ///
     var base64Decoded: String? {
+        if let data = Data(base64Encoded: self,
+                           options: .ignoreUnknownCharacters) {
+            return String(data: data, encoding: .utf8)
+        }
+        
         let remainder = count % 4
 
         var padding = ""
