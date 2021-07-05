@@ -71,6 +71,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Color**:
   - Refactored `init(light:dark:)` to remove deployment target version restrictions. [#844](https://github.com/SwifterSwift/SwifterSwift/pull/844) by [VincentSit](https://github.com/vincentsit).
   - Use `enum` to declare namespace instead of using `struct`. Thus private initializer is no longer needed. [#927](https://github.com/SwifterSwift/SwifterSwift/pull/927) by [Shiva Huang](https://github.com/ShivaHuang)
+  - Add `init?(argbHexString:)` to support the common ARGB format used in Android. [#971](https://github.com/SwifterSwift/SwifterSwift/pull/971) by [yonat](https://github.com/yonat)
 - **CAGradientLayer**:
   - In `init(colors:locations:startPoint:endPoint:type:)` added default values to `startPoint` and `endPoint`. [#864](https://github.com/SwifterSwift/SwifterSwift/pull/864) by [guykogus](https://github.com/guykogus)
 - **UITextField**:
