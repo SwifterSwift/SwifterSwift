@@ -10,6 +10,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Remove `last(where:)` and move `last(where:equals:)` to `BidirectionalCollection`, since it only makes semantic sense for ordered sequences. [#912](https://github.com/SwifterSwift/SwifterSwift/pull/912) by [guykogus](https://github.com/guykogus)
 - **UIView**
   - Rename `shadowColor`, `shadowOffset`, `shadowOpacity` and `shadowRadius` to `layerShadowColor`, `layerShadowOffset`, `layerShadowOpacity` and `layerShadowRadius` to avoid naming collisions with subclasses properties defined in other modules e.g. UIKit. [#897](https://github.com/SwifterSwift/SwifterSwift/pull/897) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - Rename `borderColor`, `borderWidth` and `cornerRadius` to `layerBorderColor`, `layerBorderWidth`, and `layerCornerRadius` to avoid naming collisions with subclasses properties defined in other modules e.g. UIKit. [#972](https://github.com/SwifterSwift/SwifterSwift/pull/972) by [Jayxiang](https://github.com/Jayxiang)
 
 ### Added
 - **SCN3Vector**
