@@ -536,7 +536,7 @@ public extension Date {
     /// SwifterSwift: Date by changing value of calendar component.
     ///
     ///     let date = Date() // "Jan 12, 2017, 7:07 PM"
-    ///     let date2 = date.changing(.minute, value: 10) // "Jan 12, 2017, 6:10 PM"
+    ///     let date2 = date.changing(.minute, value: 10) // "Jan 12, 2017, 7:10 PM"
     ///     let date3 = date.changing(.day, value: 4) // "Jan 4, 2017, 7:07 PM"
     ///     let date4 = date.changing(.month, value: 2) // "Feb 12, 2017, 7:07 PM"
     ///     let date5 = date.changing(.year, value: 2000) // "Jan 12, 2000, 7:07 PM"
