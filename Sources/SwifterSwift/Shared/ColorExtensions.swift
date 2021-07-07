@@ -341,11 +341,14 @@ public extension Color {
 
         if string.count <= 4 { // convert hex to long format if in short format
             var str = ""
-            string.forEach { str.append(String(repeating: String($0), count: 2)) }
+            for character in string {
+                str.append(String(repeating: String(character), count: 2))
+            }
             string = str
         }
 
         guard let hexValue = Int(string, radix: 16) else { return nil }
+
         let hasAlpha = string.count == 8
 
         let alpha = hasAlpha ? (hexValue >> 24) & 0xFF : 0xFF
