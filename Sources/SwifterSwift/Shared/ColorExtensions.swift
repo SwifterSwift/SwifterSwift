@@ -332,6 +332,33 @@ public extension Color {
         self.init(red: red, green: green, blue: blue, transparency: trans)
     }
 
+    /// SwifterSwift: Create Color from hexadecimal string in the format ARGB (alpha-red-green-blue).
+    ///
+    /// - Parameters:
+    ///   - argbHexString: hexadecimal string (examples: 7FEDE7F6, 0x7FEDE7F6, #7FEDE7F6, #f0ff, 0xFF0F, ..).
+    convenience init?(argbHexString: String) {
+        var string = argbHexString.replacingOccurrences(of: "0x", with: "").replacingOccurrences(of: "#", with: "")
+
+        if string.count <= 4 { // convert hex to long format if in short format
+            var str = ""
+            for character in string {
+                str.append(String(repeating: String(character), count: 2))
+            }
+            string = str
+        }
+
+        guard let hexValue = Int(string, radix: 16) else { return nil }
+
+        let hasAlpha = string.count == 8
+
+        let alpha = hasAlpha ? (hexValue >> 24) & 0xFF : 0xFF
+        let red = (hexValue >> 16) & 0xFF
+        let green = (hexValue >> 8) & 0xFF
+        let blue = hexValue & 0xFF
+
+        self.init(red: red, green: green, blue: blue, transparency: CGFloat(alpha) / 255)
+    }
+
     /// SwifterSwift: Create Color from a complementary of a Color (if applicable).
     ///
     /// - Parameter color: color of which opposite color is desired.
