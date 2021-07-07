@@ -11,22 +11,22 @@ final class UIViewExtensionsTests: XCTestCase {
     func testBorderColor() {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let view = UIView(frame: frame)
-        view.borderColor = nil
-        XCTAssertNil(view.borderColor)
-        view.borderColor = UIColor.red
+        view.layerBorderColor = nil
+        XCTAssertNil(view.layerBorderColor)
+        view.layerBorderColor = UIColor.red
         XCTAssertNotNil(view.layer.borderColor)
-        XCTAssertEqual(view.borderColor!, UIColor.red)
+        XCTAssertEqual(view.layerBorderColor!, UIColor.red)
         XCTAssertEqual(view.layer.borderColor!.uiColor, UIColor.red)
     }
 
     func testBorderWidth() {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let view = UIView(frame: frame)
-        view.borderWidth = 0
+        view.layerBorderWidth = 0
         XCTAssertEqual(view.layer.borderWidth, 0)
 
-        view.borderWidth = 5
-        XCTAssertEqual(view.borderWidth, 5)
+        view.layerBorderWidth = 5
+        XCTAssertEqual(view.layerBorderWidth, 5)
     }
 
     func testCornerRadius() {
@@ -34,8 +34,8 @@ final class UIViewExtensionsTests: XCTestCase {
         let view = UIView(frame: frame)
         XCTAssertEqual(view.layer.cornerRadius, 0)
 
-        view.cornerRadius = 50
-        XCTAssertEqual(view.cornerRadius, 50)
+        view.layerCornerRadius = 50
+        XCTAssertEqual(view.layerCornerRadius, 50)
     }
 
     func testFirstResponder() {
