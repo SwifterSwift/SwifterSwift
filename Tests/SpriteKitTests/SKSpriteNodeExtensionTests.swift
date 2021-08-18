@@ -6,7 +6,6 @@ import XCTest
 #if canImport(SpriteKit)
 import SpriteKit
 
-
 final class SKSpriteNodeExtensionTests: XCTestCase {
 
     func testAspectFill() {
