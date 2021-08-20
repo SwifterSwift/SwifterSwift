@@ -12,12 +12,19 @@ public extension SKSpriteNode {
     ///
     /// - Parameter fillSize: fill size to use for aspect ratio calculation.
     func aspectFill(to fillSize: CGSize) {
-        if let texture = self.texture {
-            let horizontalRatio = fillSize.width / texture.size().width
-            let verticalRatio = fillSize.height / texture.size().height
+        if let textureSize = self.texture?.size() {
+            let width = textureSize.width
+            let height = textureSize.height
+
+            // Avoid division by 0.
+            guard width > 0, height > 0 else {
+                return
+            }
+
+            let horizontalRatio = fillSize.width / width
+            let verticalRatio = fillSize.height / height
             let ratio = horizontalRatio < verticalRatio ? horizontalRatio : verticalRatio
-            size = CGSize(width: texture.size().width * ratio,
-                          height: texture.size().height * ratio)
+            size = CGSize(width: width * ratio, height: height * ratio)
         }
     }
 }
