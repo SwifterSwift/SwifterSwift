@@ -24,6 +24,21 @@ final class SKSpriteNodeExtensionTests: XCTestCase {
         XCTAssertEqual(node.size.width, 100, accuracy: accuracy)
         XCTAssertEqual(node.size.height, 23.2, accuracy: accuracy)
     }
+
+    func testAspectFillWithEmptyImage() {
+        let scene = SKScene(size: CGSize(width: 750, height: 1334))
+        let node = SKSpriteNode()
+        let image = UIImage(color: .clear, size: .zero)
+
+        node.size = CGSize(width: 300, height: 300)
+        node.texture = SKTexture(image: image)
+        scene.addChild(node)
+
+        let accuracy = CGFloat(0.01)
+        node.aspectFill(to: CGSize(width: 100, height: 100))
+        XCTAssertEqual(node.size.width, 300, accuracy: accuracy)
+        XCTAssertEqual(node.size.height, 300, accuracy: accuracy)
+    }
 }
 
 #endif
