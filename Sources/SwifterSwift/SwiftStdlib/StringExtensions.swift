@@ -837,6 +837,23 @@ public extension String {
         return self
     }
 
+    /// SwifterSwift: Slice given string from a start character to an end character (if applicable).
+    ///
+    ///		var str = "Hello Slice World"
+    ///		str.slice(from: "Hello", to: "World")
+    ///		print(str) // prints "Slice"
+    ///
+    /// - Parameters:
+    ///   - start: string the slicing should start from.
+    ///   - end: string the slicing should end at.
+	func slice(start: String, end: String) -> String? {
+		return (range(of: start)?.upperBound).flatMap { substringFrom in
+		(range(of: end, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
+			String(self[substringFrom..<substringTo])
+			}
+		}
+	}
+
     /// SwifterSwift: Slice given string from a start index (if applicable).
     ///
     ///		var str = "Hello World"
