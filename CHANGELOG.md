@@ -58,7 +58,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `findConstraint` for finding an existing constraint. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous]
   - Added `widthConstraint`, `heightConstraint`, `leadingConstraint`, `trailingConstraint`, `topConstraint`, and `bottomConstraint` for finding specific constraints. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous]
   **Date**:
-  - Added `daysRemaining(in:)`, which returns the number of days remaining in various `Calendar.Components`. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/990) by [pbeyer08](https://github.com/pbeyer08)
+  - Added `daysRemaining(in:)`, which returns the number of days remaining in various `Calendar.Components`. [#982](https://github.com/SwifterSwift/SwifterSwift/pull/982) by [pbeyer08](https://github.com/pbeyer08)
 - **StringProtocol**
   - Added `replacingOccurrences(ofPattern:withTemplate:options:searchRange:)` as a more convenient way to replace patterns. [#901](https://github.com/SwifterSwift/SwifterSwift/pull/901) by [gurgeous](https://github.com/gurgeous)
 - **Measurement**
