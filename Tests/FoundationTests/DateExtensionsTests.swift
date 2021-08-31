@@ -989,6 +989,29 @@ final class DateExtensionsTests: XCTestCase {
         let tomorrowCheck = Calendar.current.date(byAdding: .day, value: 1, to: date)
         XCTAssertEqual(tomorrow, tomorrowCheck)
     }
+	
+	func testDaysRemaining() {
+		XCTAssertNil(Date().daysRemaining(in:.calendar))
+		XCTAssertNil(Date().daysRemaining(in:.quarter))
+		
+		// Year tests
+		XCTAssertEqual(Date(year: 2016, month: 1, day: 1, hour: 1)?.daysRemaining(in: .year), 365)	// leap
+		XCTAssertEqual(Date(year: 2017, month: 1, day: 1, hour: 1)?.daysRemaining(in: .year), 364)
+		XCTAssertEqual(Date(year: 2017, month: 12, day: 30, hour: 1)?.daysRemaining(in: .year), 1)
+		XCTAssertEqual(Date(year: 2017, month: 12, day: 31, hour: 1)?.daysRemaining(in: .year), 0)
+		
+		// Month tests
+		XCTAssertEqual(Date(year: 2016, month: 2, day: 1, hour: 1)?.daysRemaining(in: .month), 28)	// leap
+		XCTAssertEqual(Date(year: 2017, month: 2, day: 1, hour: 1)?.daysRemaining(in: .month), 27)
+		XCTAssertEqual(Date(year: 2017, month: 12, day: 21, hour: 1)?.daysRemaining(in: .month), 10)
+		
+		// Week tests
+		XCTAssertEqual(Date(year: 2021, month: 8, day: 31, hour: 1)?.daysRemaining(in: .weekOfMonth), 4)
+		XCTAssertEqual(Date(year: 2021, month: 8, day: 31, hour: 1)?.daysRemaining(in: .weekOfYear), 4)
+		XCTAssertEqual(Date(year: 2021, month: 9, day: 11, hour: 1)?.daysRemaining(in: .weekOfYear), 0)
+		XCTAssertEqual(Date(year: 2020, month: 2, day: 23, hour: 1)?.daysRemaining(in: .weekOfMonth), 6)  // leap
+
+	}
 }
 
 #endif

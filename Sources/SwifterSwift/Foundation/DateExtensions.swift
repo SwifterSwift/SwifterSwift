@@ -900,6 +900,24 @@ public extension Date {
         let componentValue = components.value(for: component)!
         return abs(componentValue) <= value
     }
+		
+	/// SwifterSwift: calculate number of full days remaining in various supported Calendar.Components.
+	///
+	/// - Parameters:
+	///   - component: Calendar.Component to use.
+	/// - Returns: number of days remaining in that Calendar.Component, nil if unsupported.
+	func daysRemaining(in component: Calendar.Component) -> Int? {
+		switch component {
+			case .month, .year, .weekOfMonth, .weekOfYear:
+				if let endOfComponent = self.end(of: component) {
+					let daysRemaining = endOfComponent.daysSince(self)
+					return Int(daysRemaining)
+				}
+			default:
+				()
+		}
+		return nil
+	}
 
     /// SwifterSwift: Returns a random date within the specified range.
     ///
