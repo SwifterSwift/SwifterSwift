@@ -326,8 +326,8 @@ public extension UIImage {
     ///   - color: Color of image.
     /// - Returns: UIImage with color.
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    func alwaysOriginal(withColor: UIColor) -> UIImage {
-        return withTintColor(withColor, renderingMode: .alwaysOriginal)
+    func withAlwaysOriginalTintColor(_ color: UIColor) -> UIImage {
+        return withTintColor(color, renderingMode: .alwaysOriginal)
     }
 }
 

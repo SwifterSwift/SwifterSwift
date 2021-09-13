@@ -244,9 +244,9 @@ final class UIImageExtensionsTests: XCTestCase {
     }
 
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
-    func testAlwaysOriginalWithColor() {
+    func testWithAlwaysOriginalTintColor() {
         let image = UIImage(color: .blue, size: CGSize(width: 20, height: 20))
-        XCTAssertEqual(image.alwaysOriginal(withColor: .red), image.withTintColor(.red, renderingMode: .alwaysOriginal))
+        XCTAssertEqual(image.withAlwaysOriginalTintColor(.red), image.withTintColor(.red, renderingMode: .alwaysOriginal))
     }
 }
 

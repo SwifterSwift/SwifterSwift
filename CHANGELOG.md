@@ -52,11 +52,12 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `isStandGoalMet`, `isExerciseTimeGoalMet`, and `isEnergyBurnedGoalMet`. [#875](https://github.com/SwifterSwift/SwifterSwift/pull/875) by [lhygilbert](https://github.com/lhygilbert)
 - **UIView**:
   - Added `masksToBounds` (IBInspectable) extension. [#877](https://github.com/SwifterSwift/SwifterSwift/pull/877) by [hamtiko](https://github.com/hamtiko)
+  - Added `loadFromNib(withClass:)`, which loads a UIView of a particular type from a nib file. [#885](https://github.com/SwifterSwift/SwifterSwift/pull/885) by [gurgeous](https://github.com/gurgeous)
+  - Added `findConstraint` for finding an existing constraint. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous](https://github.com/gurgeous)
+  - Added `widthConstraint`, `heightConstraint`, `leadingConstraint`, `trailingConstraint`, `topConstraint`, and `bottomConstraint` for finding specific constraints. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous](https://github.com/gurgeous)
 - **UIImage**
   - Added `averageColor`, which calculates the average UIColor for an entire image. [#884](https://github.com/SwifterSwift/SwifterSwift/pull/884) by [gurgeous](https://github.com/gurgeous)
-  - Added `loadFromNib(withClass:)`, which loads a UIView of a particular type from a nib file. [#885](https://github.com/SwifterSwift/SwifterSwift/pull/885) by [gurgeous](https://github.com/gurgeous)
-  - Added `findConstraint` for finding an existing constraint. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous]
-  - Added `widthConstraint`, `heightConstraint`, `leadingConstraint`, `trailingConstraint`, `topConstraint`, and `bottomConstraint` for finding specific constraints. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous]
+  - Added `withAlwaysOriginalTintColor(_:)` returns a new version of the image with a tint color that uses the .alwaysOriginal rendering mode. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [jayxiang][https://github.com/jayxiang]
 - **StringProtocol**
   - Added `replacingOccurrences(ofPattern:withTemplate:options:searchRange:)` as a more convenient way to replace patterns. [#901](https://github.com/SwifterSwift/SwifterSwift/pull/901) by [gurgeous](https://github.com/gurgeous)
 - **Measurement**
