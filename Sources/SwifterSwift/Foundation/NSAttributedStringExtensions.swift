@@ -180,4 +180,22 @@ public extension NSAttributedString {
     }
 }
 
+public extension Array where Element: NSAttributedString {
+    // https://stackoverflow.com/questions/32830519/is-there-joinwithseparator-for-attributed-strings
+    func joined(separator: NSAttributedString) -> NSAttributedString {
+        var isFirst = true
+        return reduce(into: NSMutableAttributedString()) { result, element in
+            if isFirst {
+                isFirst = false
+            } else {
+                result.append(separator)
+            }
+            result.append(element)
+        }
+    }
+
+    func joined(separator: String) -> NSAttributedString {
+        joined(separator: NSAttributedString(string: separator))
+    }
+}
 #endif
