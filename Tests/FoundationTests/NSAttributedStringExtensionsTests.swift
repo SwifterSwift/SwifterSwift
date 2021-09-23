@@ -358,6 +358,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             range: .init(location: "Hello".count, length: " ".count)
         )
         XCTAssertEqual([string1, string2, string3].joined(separator: ""), expectation)
+        XCTAssertEqual([].joined(separator: NSAttributedString(string: "Hello")), NSAttributedString(string: ""))
     }
 }
 
