@@ -187,13 +187,10 @@ public extension Array where Element: NSAttributedString {
     /// - Returns: NSAttributedString with applied attributes.
     // https://stackoverflow.com/questions/32830519/is-there-joinwithseparator-for-attributed-strings
     func joined(separator: NSAttributedString) -> NSAttributedString {
-        var isFirst = true
-        return reduce(into: NSMutableAttributedString()) { result, element in
-            if isFirst {
-                isFirst = false
-            } else {
-                result.append(separator)
-            }
+        guard let firstElt = self.first else { return NSMutableAttributedString() }
+        var mStr = NSMutableAttributedString(firstElt)
+        return dropFirst().reduce(into: mStr) { result, element in
+            result.append(separator)
             result.append(element)
         }
     }
