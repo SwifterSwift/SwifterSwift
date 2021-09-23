@@ -66,7 +66,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **URL**
   - Added the `(unsafeString: String)` initializer for `URL` as a more conveniently to construct unsafe `URL`s from `String` by [jevonmao](https://github.com/jevonmao)
 - **NSAttributedString**
-  - Added `Array.joined(separator:)` to create a new `NSAttributedString` by concatenating the elements of the sequence, adding the given separator between each element. [#983](https://github.com/SwifterSwift/SwifterSwift/pull/983) by [Roman Podymov](https://github.com/RomanPodymov).
+  - Added `Array.joined(separator:)` to create a new `NSAttributedString` by concatenating the elements of the sequence, adding the given separator between each element. [#985](https://github.com/SwifterSwift/SwifterSwift/pull/985) by [Roman Podymov](https://github.com/RomanPodymov).
 ### Changed
 - **NSAttributedString**:
   - `bolded` maintains font size and works on all platforms except Linux. `italicized` maintains font size and works on all platforms except Linux and macOS. [#900](https://github.com/SwifterSwift/SwifterSwift/pull/900) by [guykogus](https://github.com/guykogus)
