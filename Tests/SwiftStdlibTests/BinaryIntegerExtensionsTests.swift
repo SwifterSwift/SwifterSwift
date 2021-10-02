@@ -6,7 +6,7 @@ import XCTest
 final class BinaryIntegerExtensionsTests: XCTestCase {
     func testBytes() {
         let zero = Int32.zero.bytes
-        assert(zero == Array(repeating: 0, count: 32 / 8))
+        XCTAssertEqual(zero, Array(repeating: 0, count: 4))
 
         let negativeOne = Int8(-1).bytes
         assert(negativeOne == [0xFF])
