@@ -33,7 +33,7 @@ public extension BinaryInteger {
     ///     // prints "-3"
     ///
     /// - Parameter bytes: An array of bytes representing the value of the integer.
-    init?(_ bytes: [UInt8]) {
+    init?(bytes: [UInt8]) {
         // https://stackoverflow.com/a/43518567/9506784
         precondition(bytes.count <= MemoryLayout<Self>.size,
                      "Integer with a \(bytes.count) byte binary representation of '\(bytes.map({ String($0, radix: 2) }).joined(separator: " "))' overflows when stored into a \(MemoryLayout<Self>.size) byte '\(Self.self)'")
