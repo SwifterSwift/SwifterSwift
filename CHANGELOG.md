@@ -22,7 +22,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **XCTest**
   - Added `XCTAssertEqual(_:_:accuracy:_:file:line:)` for checking if `Color` objects are equal within a given level of accuracy. [#889](https://github.com/SwifterSwift/SwifterSwift/pull/889) by [guykogus](https://github.com/guykogus)
 - **BinaryInteger**
-  - Added `bytes` and `init(_ bytes:)` to make it easier to work with bytes aka `UInt8`. [#987](https://github.com/SwifterSwift/SwifterSwift/pull/987) by [thisIsTheFoxe](https://github.com/thisisthefoxe)
+  - Added `bytes` and `init?(bytes:)` to make it easier to work with bytes (as `[UInt8]`). [#987](https://github.com/SwifterSwift/SwifterSwift/pull/987) by [thisIsTheFoxe](https://github.com/thisisthefoxe)
 - **FloatingPoint**
   - Moved the square root operator `√` from `Double` and `Float` to make it generic. [#880](https://github.com/SwifterSwift/SwifterSwift/pull/880) by [guykogus](https://github.com/guykogus)
 - **Collection**
