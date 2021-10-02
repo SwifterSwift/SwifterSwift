@@ -3,12 +3,32 @@
 #if canImport(Foundation)
 import Foundation
 
+// MARK: - Properties
+
+public extension BinaryInteger {
+    /// SwifterSwift: The raw bytes of the integer.
+    ///
+    ///     var number = Int16(-128)
+    ///     print(number.bytes)
+    ///     // prints "[255, 128]"
+    ///
+    var bytes: [UInt8] {
+        var result = [UInt8]()
+        var value = self
+        for _ in 0..<MemoryLayout<Self>.size {
+            result.append(UInt8(truncatingIfNeeded: value))
+            value >>= 8
+        }
+        return result.reversed()
+    }
+}
+
 // MARK: - Initializers
 
 public extension BinaryInteger {
     /// SwifterSwift: Creates a `BinaryInteger` from a raw byte representaion.
     ///
-    ///     var number = Int16([0xFF, 0b11111101])
+    ///     var number = Int16([0xFF, 0b1111_1101])
     ///     print(number!)
     ///     // prints "-3"
     ///
