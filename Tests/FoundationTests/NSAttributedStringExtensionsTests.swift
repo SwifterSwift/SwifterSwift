@@ -319,7 +319,9 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual(string1.string, "Test Appending")
         #endif
     }
-    
+
+    // MARK: - func joined(separator:)
+
     func testJoinedWithEmptySeparator() {
         #if canImport(AppKit) || canImport(UIKit)
         let string1 = NSAttributedString(
@@ -359,6 +361,48 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             range: NSRange(location: "Hello".count, length: " ".count)
         )
         XCTAssertEqual([string1, string2, string3].joined(separator: ""), expectation)
+        #endif
+    }
+
+    func testJoinedWithEmptyAttributedSeparator() {
+        #if canImport(AppKit) || canImport(UIKit)
+        let string1 = NSAttributedString(
+            string: "Hello",
+            attributes: [
+                .strokeWidth: NSNumber(value: 1),
+                .kern: NSNumber(value: 2)
+            ]
+        )
+        let string2 = NSAttributedString(
+            string: " ",
+            attributes: [
+                .expansion: NSNumber(value: 3),
+                .obliqueness: NSNumber(value: 4)
+            ]
+        )
+        let string3 = NSAttributedString(string: "World", attributes: [:])
+        let expectation = NSMutableAttributedString(string: "Hello World", attributes: [:])
+        expectation.addAttribute(
+            .strokeWidth,
+            value: NSNumber(value: 1),
+            range: NSRange(location: 0, length: "Hello".count)
+        )
+        expectation.addAttribute(
+            .kern,
+            value: NSNumber(value: 2),
+            range: NSRange(location: 0, length: "Hello".count)
+        )
+        expectation.addAttribute(
+            .expansion,
+            value: NSNumber(value: 3),
+            range: NSRange(location: "Hello".count, length: " ".count)
+        )
+        expectation.addAttribute(
+            .obliqueness,
+            value: NSNumber(value: 4),
+            range: NSRange(location: "Hello".count, length: " ".count)
+        )
+        XCTAssertEqual([string1, string2, string3].joined(separator: NSAttributedString(string: "")), expectation)
         #endif
     }
 
@@ -413,7 +457,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual([string1, string2, string3].joined(separator: " non empty "), expectation)
         #endif
     }
-    
+
     func testEmptyArrayJoinedWithSeparator() {
         XCTAssertEqual([].joined(separator: NSAttributedString(string: "Hello")), NSAttributedString(string: ""))
     }
