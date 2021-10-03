@@ -196,9 +196,9 @@ public extension Array where Element: NSAttributedString {
 
     func joined(separator: String) -> NSAttributedString {
         guard let firstElement = first else { return NSMutableAttributedString(string: "") }
-        let attributedSeparator = NSAttributedString(string: separator)
+        let attributedStringSeparator = NSAttributedString(string: separator)
         return dropFirst().reduce(into: NSMutableAttributedString(attributedString: firstElement)) { result, element in
-            result.append(attributedSeparator)
+            result.append(attributedStringSeparator)
             result.append(element)
         }
     }
