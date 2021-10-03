@@ -49,7 +49,28 @@ public extension UIStackView {
     /// - Parameters:
     ///   - view1: first view to swap.
     ///   - view2: second view to swap.
-    func swap(_ view1: UIView, _ view2: UIView) {
+    ///   - animated: set true to animate swap (default is true).
+    ///   - duration: animation duration in seconds (default is 1 second).
+    ///   - delay: animation delay in seconds (default is 1 second).
+    ///   - options: animation options (default is AnimationOptions.curveLinear).
+    ///   - completion: optional completion handler to run with animation finishes (default is nil).
+    func swap(_ view1: UIView, _ view2: UIView,
+              animated: Bool = false,
+              duration: TimeInterval = 0.25,
+              delay: TimeInterval = 0,
+              options: UIView.AnimationOptions = .curveLinear,
+              completion: ((Bool) -> Void)? = nil) {
+        if animated {
+            UIView.animate(withDuration: duration, delay: delay, options: options, animations: {
+                self.swap(view1, view2)
+                self.layoutIfNeeded()
+            }, completion: completion)
+        } else {
+            swap(view1, view2)
+        }
+    }
+
+    private func swap(_ view1: UIView, _ view2: UIView) {
         guard let view1Index = arrangedSubviews.firstIndex(of: view1),
               let view2Index = arrangedSubviews.firstIndex(of: view2)
         else { return }

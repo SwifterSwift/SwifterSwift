@@ -73,6 +73,14 @@ final class UIStackViewExtensionsTest: XCTestCase {
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view3), 0)
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view4), 3)
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view5), 1)
+        
+        let swapExpectation = expectation(description: "views swapped")
+        stack.swap(view4, view3, animated: true, duration: 0.5) { _ in
+            swapExpectation.fulfill()
+        }
+        XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view3), 3)
+        XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view4), 0)
+        waitForExpectations(timeout: 0.5)
     }
     
 }
