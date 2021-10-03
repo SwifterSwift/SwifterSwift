@@ -44,6 +44,21 @@ public extension UIStackView {
             removeArrangedSubview(view)
         }
     }
+    
+    /// SwifterSwift: Exchanges two views of the arranged subviews.
+    /// - Parameters:
+    ///   - view1: first view to swap.
+    ///   - view2: second view to swap.
+    func swap(_ view1: UIView, _ view2: UIView) {
+        guard let view1Index = arrangedSubviews.firstIndex(of: view1),
+              let view2Index = arrangedSubviews.firstIndex(of: view2)
+        else { return }
+        removeArrangedSubview(view1)
+        insertArrangedSubview(view1, at: view2Index)
+
+        removeArrangedSubview(view2)
+        insertArrangedSubview(view2, at: view1Index)
+    }
 }
 
 #endif
