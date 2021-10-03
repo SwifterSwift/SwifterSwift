@@ -9,26 +9,26 @@ final class BinaryIntegerExtensionsTests: XCTestCase {
         XCTAssertEqual(zero, Array(repeating: 0, count: 4))
 
         let negativeOne = Int8(-1).bytes
-        assert(negativeOne == [0xFF])
+        XCTAssertEqual(negativeOne, [0xFF])
 
         let threeHundred = Int16(300).bytes
-        assert(threeHundred == [1, 0b0010_1100])
+        XCTAssertEqual(threeHundred, [1, 0b0010_1100])
 
         let uint64Max = UInt64.max.bytes
-        assert(uint64Max == Array(repeating: 0xFF, count: 64 / 8))
+        XCTAssertEqual(uint64Max, Array(repeating: 0xFF, count: 8))
     }
 
     func testInitBytes() {
-        let zero = Int8([0])
-        assert(zero == 0)
+        let zero = Int8(bytes: [0])
+        XCTAssertEqual(zero, 0)
         
-        let negativeOne = Int16([0b1111_1111, 0b1111_1111])
-        assert(negativeOne == -1)
+        let negativeOne = Int16(bytes: [0b1111_1111, 0b1111_1111])
+        XCTAssertEqual(negativeOne, -1)
 
-        let fortyTwo = Int16([0, 0b0010_1010])
-        assert(fortyTwo == 42)
+        let fortyTwo = Int16(bytes: [0, 0b0010_1010])
+        XCTAssertEqual(fortyTwo, 42)
 
-        let uint64Max = UInt64(Array(repeating: 0xFF, count: 64 / 8))
-        assert(uint64Max == UInt64.max)
+        let uint64Max = UInt64(bytes: Array(repeating: 0xFF, count: 8))
+        XCTAssertEqual(uint64Max, UInt64.max)
     }
 }

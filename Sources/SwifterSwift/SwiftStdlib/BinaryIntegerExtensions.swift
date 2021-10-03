@@ -1,8 +1,5 @@
 // BinaryIntegerExtensions.swift - Copyright 2021 SwifterSwift
 
-#if canImport(Foundation)
-import Foundation
-
 // MARK: - Properties
 
 public extension BinaryInteger {
@@ -14,6 +11,7 @@ public extension BinaryInteger {
     ///
     var bytes: [UInt8] {
         var result = [UInt8]()
+        result.reserveCapacity(MemoryLayout<Self>.size)
         var value = self
         for _ in 0..<MemoryLayout<Self>.size {
             result.append(UInt8(truncatingIfNeeded: value))
@@ -28,7 +26,7 @@ public extension BinaryInteger {
 public extension BinaryInteger {
     /// SwifterSwift: Creates a `BinaryInteger` from a raw byte representaion.
     ///
-    ///     var number = Int16([0xFF, 0b1111_1101])
+    ///     var number = Int16(bytes: [0xFF, 0b1111_1101])
     ///     print(number!)
     ///     // prints "-3"
     ///
@@ -45,5 +43,3 @@ public extension BinaryInteger {
         self.init(exactly: value)
     }
 }
-
-#endif
