@@ -321,6 +321,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     }
     
     func testJoinedWithSeparator() {
+        #if canImport(AppKit) || canImport(UIKit)
         let string1 = NSAttributedString(
             string: "Hello",
             attributes: [
@@ -340,25 +341,26 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         expectation.addAttribute(
             .strokeWidth,
             value: NSNumber(value: 1),
-            range: .init(location: 0, length: "Hello".count)
+            range: NSRange(location: 0, length: "Hello".count)
         )
         expectation.addAttribute(
             .kern,
             value: NSNumber(value: 2),
-            range: .init(location: 0, length: "Hello".count)
+            range: NSRange(location: 0, length: "Hello".count)
         )
         expectation.addAttribute(
             .expansion,
             value: NSNumber(value: 3),
-            range: .init(location: "Hello".count, length: " ".count)
+            range: NSRange(location: "Hello".count, length: " ".count)
         )
         expectation.addAttribute(
             .obliqueness,
             value: NSNumber(value: 4),
-            range: .init(location: "Hello".count, length: " ".count)
+            range: NSRange(location: "Hello".count, length: " ".count)
         )
         XCTAssertEqual([string1, string2, string3].joined(separator: ""), expectation)
         XCTAssertEqual([].joined(separator: NSAttributedString(string: "Hello")), NSAttributedString(string: ""))
+        #endif
     }
 }
 
