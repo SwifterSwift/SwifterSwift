@@ -368,6 +368,13 @@
 		58253514259CF23B00407B78 /* MeasurementExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58253511259CF23B00407B78 /* MeasurementExtensions.swift */; };
 		58253515259CF23B00407B78 /* MeasurementExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58253511259CF23B00407B78 /* MeasurementExtensions.swift */; };
 		5C88FBEC234CC1280065A942 /* NSColorExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88FBEB234CC1280065A942 /* NSColorExtensionsTests.swift */; };
+		658A02F2270F01C500DBA951 /* MKMultiPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A02F1270F01C500DBA951 /* MKMultiPointExtensions.swift */; };
+		658A02F3270F01D200DBA951 /* MKMultiPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A02F1270F01C500DBA951 /* MKMultiPointExtensions.swift */; };
+		658A02F4270F01D200DBA951 /* MKMultiPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A02F1270F01C500DBA951 /* MKMultiPointExtensions.swift */; };
+		658A02F5270F01D300DBA951 /* MKMultiPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A02F1270F01C500DBA951 /* MKMultiPointExtensions.swift */; };
+		658A02F7270F024700DBA951 /* MKMultiPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A02F6270F024700DBA951 /* MKMultiPointTests.swift */; };
+		658A02F8270F024B00DBA951 /* MKMultiPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A02F6270F024700DBA951 /* MKMultiPointTests.swift */; };
+		658A02F9270F024C00DBA951 /* MKMultiPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A02F6270F024700DBA951 /* MKMultiPointTests.swift */; };
 		664CB96D2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB96C2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift */; };
 		664CB96E2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB96C2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift */; };
 		664CB96F2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 664CB96C2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift */; };
@@ -814,6 +821,8 @@
 		58253511259CF23B00407B78 /* MeasurementExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementExtensions.swift; sourceTree = "<group>"; };
 		5C88FBEB234CC1280065A942 /* NSColorExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtensionsTests.swift; sourceTree = "<group>"; };
 		5E36CB6424AC9909007727DA /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		658A02F1270F01C500DBA951 /* MKMultiPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMultiPointExtensions.swift; sourceTree = "<group>"; };
+		658A02F6270F024700DBA951 /* MKMultiPointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMultiPointTests.swift; sourceTree = "<group>"; };
 		664CB96C2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalCollectionExtensions.swift; sourceTree = "<group>"; };
 		664CB971217186E900FC87B4 /* BidirectionalCollectionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidirectionalCollectionExtensionsTests.swift; sourceTree = "<group>"; };
 		664CB9752171899800FC87B4 /* BinaryFloatingPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BinaryFloatingPointExtensions.swift; sourceTree = "<group>"; };
@@ -1390,6 +1399,7 @@
 			children = (
 				074C8D80224F86450050F040 /* MKMapViewExtensions.swift */,
 				784C752E2051BD26001C48DD /* MKPolylineExtensions.swift */,
+				658A02F1270F01C500DBA951 /* MKMultiPointExtensions.swift */,
 			);
 			path = MapKit;
 			sourceTree = "<group>";
@@ -1399,6 +1409,7 @@
 			children = (
 				D9F36CF523521F440057258F /* MKMapViewTests.swift */,
 				784C75362051BE1D001C48DD /* MKPolylineTests.swift */,
+				658A02F6270F024700DBA951 /* MKMultiPointTests.swift */,
 			);
 			path = MapKitTests;
 			sourceTree = "<group>";
@@ -2015,6 +2026,7 @@
 				17A4B79326CCFFAE007D299F /* SKSpriteNodeExtensions.swift in Sources */,
 				077BA08F1F6BE83600D9C4AC /* UserDefaultsExtensions.swift in Sources */,
 				07B7F1A11F5EB42000E6F910 /* UISwitchExtensions.swift in Sources */,
+				658A02F2270F01C500DBA951 /* MKMultiPointExtensions.swift in Sources */,
 				0722CB3820C2E46C00C6C1B6 /* UIWindowExtensions.swift in Sources */,
 				07B7F1A41F5EB42000E6F910 /* UITextFieldExtensions.swift in Sources */,
 				07B7F20B1F5EB43C00E6F910 /* ArrayExtensions.swift in Sources */,
@@ -2170,6 +2182,7 @@
 				0782A5B523DA98C900E562C0 /* CLLocationArrayExtensions.swift in Sources */,
 				9D806A422258B931008E500A /* SCNVector3Extensions.swift in Sources */,
 				F887E93A2505AB87006CB4F7 /* FontExtensions.swift in Sources */,
+				658A02F3270F01D200DBA951 /* MKMultiPointExtensions.swift in Sources */,
 				07B7F1B21F5EB42000E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				9D806A5C2258D2B8008E500A /* SCNMaterialExtensions.swift in Sources */,
 				9D806A872258F624008E500A /* SCNGeometryExtensions.swift in Sources */,
@@ -2255,6 +2268,7 @@
 				07B7F1EE1F5EB43B00E6F910 /* DoubleExtensions.swift in Sources */,
 				9D806A762258E0D8008E500A /* SCNConeExtensions.swift in Sources */,
 				07B7F1F31F5EB43B00E6F910 /* OptionalExtensions.swift in Sources */,
+				658A02F4270F01D200DBA951 /* MKMultiPointExtensions.swift in Sources */,
 				074EAF1D1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */,
 				18C8E5E02074C60C00F8AF51 /* SequenceExtensions.swift in Sources */,
 				07B7F1BE1F5EB42200E6F910 /* UIAlertControllerExtensions.swift in Sources */,
@@ -2297,6 +2311,7 @@
 				9D806A632258D503008E500A /* SCNPlaneExtensions.swift in Sources */,
 				07B7F1E11F5EB43B00E6F910 /* OptionalExtensions.swift in Sources */,
 				9D9784DE1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */,
+				658A02F5270F01D300DBA951 /* MKMultiPointExtensions.swift in Sources */,
 				664CB9702171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */,
 				07B7F2221F5EB44600E6F910 /* CGPointExtensions.swift in Sources */,
 				9D806A442258B931008E500A /* SCNVector3Extensions.swift in Sources */,
@@ -2413,6 +2428,7 @@
 				0782A5B223DA98C000E562C0 /* CLLocationArrayExtensionsTests.swift in Sources */,
 				F850972424AF72690007F74D /* MyViewController.swift in Sources */,
 				9D806A472258B9BB008E500A /* SCNVector3ExtensionsTests.swift in Sources */,
+				658A02F7270F024700DBA951 /* MKMultiPointTests.swift in Sources */,
 				07C50D8C1F5EB06000F46E5A /* CGFloatExtensionsTests.swift in Sources */,
 				42F53FF02039C7140070DC11 /* UIStackViewExtensionsTests.swift in Sources */,
 				07C50D3E1F5EB04700F46E5A /* UITextViewExtensionsTests.swift in Sources */,
@@ -2483,6 +2499,7 @@
 				078916DB2076077000AC0665 /* FloatingPointExtensionsTests.swift in Sources */,
 				F8C1AE75225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */,
 				07C50D4E1F5EB04700F46E5A /* UISliderExtensionsTests.swift in Sources */,
+				658A02F8270F024B00DBA951 /* MKMultiPointTests.swift in Sources */,
 				07C50D451F5EB04700F46E5A /* ColorExtensionsTests.swift in Sources */,
 				784C75382051BE1D001C48DD /* MKPolylineTests.swift in Sources */,
 				07C50D491F5EB04700F46E5A /* UINavigationBarExtensionTests.swift in Sources */,
@@ -2630,6 +2647,7 @@
 				F8A710F123BF3F8600112DAD /* EdgeInsetsExtensionsTests.swift in Sources */,
 				116090B624187D8100DDCD01 /* CGRectExtensionsTests.swift in Sources */,
 				07FE50471F891C95000766AA /* SignedNumericExtensionsTests.swift in Sources */,
+				658A02F9270F024C00DBA951 /* MKMultiPointTests.swift in Sources */,
 				985C1B942479795B008AAB0E /* WKWebViewExtensionsTests.swift in Sources */,
 				A94AA78C202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */,
 				9D806AA12258FF1A008E500A /* SCNSphereExtensionsTests.swift in Sources */,
