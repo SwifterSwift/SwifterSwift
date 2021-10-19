@@ -474,6 +474,26 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableViewCell.self), tableViewCell)
         XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableView.self), tableView)
     }
+  
+  func testSubviewsOfType() {
+      //Test view with subviews with no subviews
+      XCTAssertEqual(UIView().subviews(ofType: UILabel.self), [])
+          
+      //Test view with subviews that have subviews
+      let parentView = UIView()
+    
+      let childView = UIView()
+      let childViewSubViews = [UILabel(), UIButton(), UITextView(), UILabel(), UIImageView()]
+      childView.addSubviews(childViewSubViews)
+    
+      let childView2 = UIView()
+      let childView2SubViews = [UISegmentedControl(), UILabel(), UITextView(), UIImageView()]
+      childView2.addSubviews(childView2SubViews)
+    
+      parentView.addSubviews([childView, childView2])
+    
+      XCTAssertEqual(parentView.subviews(ofType: UILabel.self), [childViewSubViews[0], childViewSubViews[3], childView2SubViews[1]] as? [UILabel])
+  }
 
     func testFindConstraint() {
         let view = UIView()
