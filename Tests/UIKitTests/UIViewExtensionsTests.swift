@@ -492,7 +492,9 @@ final class UIViewExtensionsTests: XCTestCase {
     
       parentView.addSubviews([childView, childView2])
     
-      XCTAssertEqual(parentView.subviews(ofType: UILabel.self), [childViewSubViews[0], childViewSubViews[3], childView2SubViews[1]] as? [UILabel])
+      let expected = [childViewSubViews[0], childViewSubViews[3], childView2SubViews[1]]
+      XCTAssertEqual(parentView.subviews(ofType: UILabel.self), expected)
+      XCTAssertEqual(parentView.subviews(ofType: UISlider.self), [])
   }
 
     func testFindConstraint() {
