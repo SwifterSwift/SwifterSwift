@@ -69,6 +69,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `addToolbar(items:height:)` to add a toolbar to a `UITextField`. [#954](https://github.com/SwifterSwift/SwifterSwift/pull/954) by [Randhir Kumar](https://github.com/randhirkumar65)
 - **URL**
   - Added the `(unsafeString: String)` initializer for `URL` as a more conveniently to construct unsafe `URL`s from `String` by [jevonmao](https://github.com/jevonmao)
+- **MKMultiPoint**
+  - Added `.coordinates` property, to return an array of coordinates for the provided `MKMultiPoint`. [#990](https://github.com/SwifterSwift/SwifterSwift/pull/990) by [@rizwankce](https://github.com/rizwankce).
+
 ### Changed
 - **NSAttributedString**:
   - `bolded` maintains font size and works on all platforms except Linux. `italicized` maintains font size and works on all platforms except Linux and macOS. [#900](https://github.com/SwifterSwift/SwifterSwift/pull/900) by [guykogus](https://github.com/guykogus)
@@ -95,6 +98,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Removed
 - **UIDatePicker**
   - Disabled `textColor` when compiling for target `macCatalyst` as it will crash. [#864](https://github.com/SwifterSwift/SwifterSwift/pull/864) by [guykogus](https://github.com/guykogus)
+- **MKPolyline**
+  - Removed `.coordinates` property, in favour of `.coordinates` property from `MKMultiPoint`. Since `MKPolyline` extends from `MKMultiPoint` it should work fine. [#990](https://github.com/SwifterSwift/SwifterSwift/pull/990) by [@rizwankce](https://github.com/rizwankce).
 
 ### Fixed
 - **Collection**
