@@ -619,7 +619,7 @@ public extension UIView {
         for subview in subviews {
             if let view = subview as? T {
                 views.append(view)
-            } else {
+            } else if !subview.subviews.isEmpty {
                 views.append(contentsOf: subview.subviews(ofType: T.self))
             }
         }
