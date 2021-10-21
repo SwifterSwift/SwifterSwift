@@ -54,7 +54,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `isStandGoalMet`, `isExerciseTimeGoalMet`, and `isEnergyBurnedGoalMet`. [#875](https://github.com/SwifterSwift/SwifterSwift/pull/875) by [lhygilbert](https://github.com/lhygilbert)
 - **UIView**:
   - Added `masksToBounds` (IBInspectable) extension. [#877](https://github.com/SwifterSwift/SwifterSwift/pull/877) by [hamtiko](https://github.com/hamtiko)
-  - Added `subviews(ofType:)` extension. [#993](https://github.com/SwifterSwift/SwifterSwift/pull/993) by [ashercoelho](https://github.com/ashercoelho)
+  - Added `UIView.subviews(ofType:)` extension which returns all the subviews of a given type recursively in the view hierarchy rooted on the view it its called. [#993](https://github.com/SwifterSwift/SwifterSwift/pull/993) by [ashercoelho](https://github.com/ashercoelho)
 - **UIImage**
   - Added `averageColor`, which calculates the average UIColor for an entire image. [#884](https://github.com/SwifterSwift/SwifterSwift/pull/884) by [gurgeous](https://github.com/gurgeous)
   - Added `loadFromNib(withClass:)`, which loads a UIView of a particular type from a nib file. [#885](https://github.com/SwifterSwift/SwifterSwift/pull/885) by [gurgeous](https://github.com/gurgeous)
