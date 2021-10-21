@@ -476,10 +476,10 @@ final class UIViewExtensionsTests: XCTestCase {
     }
   
   func testSubviewsOfType() {
-      //Test view with subviews with no subviews
+      // Test view with subviews with no subviews
       XCTAssertEqual(UIView().subviews(ofType: UILabel.self), [])
           
-      //Test view with subviews that have subviews
+      // Test view with subviews that have subviews
       let parentView = UIView()
     
       let childView = UIView()
@@ -494,7 +494,7 @@ final class UIViewExtensionsTests: XCTestCase {
     
       let expected = [childViewSubViews[0], childViewSubViews[3], childView2SubViews[1]]
       XCTAssertEqual(parentView.subviews(ofType: UILabel.self), expected)
-      XCTAssertEqual(parentView.subviews(ofType: UISlider.self), [])
+      XCTAssertEqual(parentView.subviews(ofType: UISwitch.self), [])
   }
 
     func testFindConstraint() {
