@@ -610,7 +610,8 @@ public extension UIView {
         return ancestorView(where: { $0 is T }) as? T
     }
   
-    /// SwifterSwift: Return all subviews with a specified type
+    /// SwifterSwift: Returns all the subviews of a given type recursively in the
+    /// view hierarchy rooted on the view it its called.
     ///
     /// - Parameter ofType: Class of the view to search.
     /// - Returns: All subviews with a specified type.
