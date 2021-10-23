@@ -28,17 +28,6 @@ final class MKPolylineTests: XCTestCase {
             XCTAssertEqual(coordinate1.longitude, coordinate2.longitude, accuracy: 0.000000001)
         }
     }
-
-    func testCoordinates() {
-        let polyline = MKPolyline(coordinates: coordinates)
-
-        XCTAssertEqual(coordinates.count, polyline.coordinates.count)
-
-        for (coordinate1, coordinate2) in zip(coordinates, polyline.coordinates) {
-            XCTAssertEqual(coordinate1.latitude, coordinate2.latitude, accuracy: 0.000000001)
-            XCTAssertEqual(coordinate1.longitude, coordinate2.longitude, accuracy: 0.000000001)
-        }
-    }
 }
 
 #endif
