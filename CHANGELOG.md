@@ -54,7 +54,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `isStandGoalMet`, `isExerciseTimeGoalMet`, and `isEnergyBurnedGoalMet`. [#875](https://github.com/SwifterSwift/SwifterSwift/pull/875) by [lhygilbert](https://github.com/lhygilbert)
 - **UIView**:
   - Added `masksToBounds` (IBInspectable) extension. [#877](https://github.com/SwifterSwift/SwifterSwift/pull/877) by [hamtiko](https://github.com/hamtiko)
-  - **UIStackView**:
+  - Added `UIView.subviews(ofType:)` extension which returns all the subviews of a given type recursively in the view hierarchy rooted on the view it its called. [#993](https://github.com/SwifterSwift/SwifterSwift/pull/993) by [ashercoelho](https://github.com/ashercoelho)
   - Added `UIStackView.swap(_ view1:, _ view2:)` extension which exchanges two views that are arranged in the stack. [#989](https://github.com/SwifterSwift/SwifterSwift/pull/989) by [salahamassi](https://github.com/salahamassi)
 - **UIImage**
   - Added `averageColor`, which calculates the average UIColor for an entire image. [#884](https://github.com/SwifterSwift/SwifterSwift/pull/884) by [gurgeous](https://github.com/gurgeous)
