@@ -80,7 +80,7 @@ final class UIStackViewExtensionsTest: XCTestCase {
         }
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view3), 3)
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view4), 0)
-        waitForExpectations(timeout: 0.5)
+        waitForExpectations(timeout: 1.0)
     }
     
 }
