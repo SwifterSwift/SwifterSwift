@@ -60,25 +60,24 @@ public extension UIStackView {
               delay: TimeInterval = 0,
               options: UIView.AnimationOptions = .curveLinear,
               completion: ((Bool) -> Void)? = nil) {
+        func swapViews(_ view1: UIView, _ view2: UIView) {
+            guard let view1Index = arrangedSubviews.firstIndex(of: view1),
+                  let view2Index = arrangedSubviews.firstIndex(of: view2)
+            else { return }
+            removeArrangedSubview(view1)
+            insertArrangedSubview(view1, at: view2Index)
+
+            removeArrangedSubview(view2)
+            insertArrangedSubview(view2, at: view1Index)
+        }
         if animated {
             UIView.animate(withDuration: duration, delay: delay, options: options, animations: {
-                self.swap(view1, view2)
+                swapViews(view1, view2)
                 self.layoutIfNeeded()
             }, completion: completion)
         } else {
-            swap(view1, view2)
+            swapViews(view1, view2)
         }
-    }
-
-    private func swap(_ view1: UIView, _ view2: UIView) {
-        guard let view1Index = arrangedSubviews.firstIndex(of: view1),
-              let view2Index = arrangedSubviews.firstIndex(of: view2)
-        else { return }
-        removeArrangedSubview(view1)
-        insertArrangedSubview(view1, at: view2Index)
-
-        removeArrangedSubview(view2)
-        insertArrangedSubview(view2, at: view1Index)
     }
 }
 
