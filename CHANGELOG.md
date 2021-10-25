@@ -55,7 +55,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIView**:
   - Added `masksToBounds` (IBInspectable) extension. [#877](https://github.com/SwifterSwift/SwifterSwift/pull/877) by [hamtiko](https://github.com/hamtiko)
   - **UIStackView**:
-  - Added `swap(_ view1:, _ view2:)` extension. [#989](https://github.com/SwifterSwift/SwifterSwift/pull/989) by [salahamassi](https://github.com/salahamassi)
+  - Added `UIStackView.swap(_ view1:, _ view2:)` extension which exchanges two views that are arranged in the stack. [#989](https://github.com/SwifterSwift/SwifterSwift/pull/989) by [salahamassi](https://github.com/salahamassi)
 - **UIImage**
   - Added `averageColor`, which calculates the average UIColor for an entire image. [#884](https://github.com/SwifterSwift/SwifterSwift/pull/884) by [gurgeous](https://github.com/gurgeous)
   - Added `loadFromNib(withClass:)`, which loads a UIView of a particular type from a nib file. [#885](https://github.com/SwifterSwift/SwifterSwift/pull/885) by [gurgeous](https://github.com/gurgeous)
