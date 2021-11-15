@@ -44,6 +44,41 @@ public extension UIStackView {
             removeArrangedSubview(view)
         }
     }
+    
+    /// SwifterSwift: Exchanges two views of the arranged subviews.
+    /// - Parameters:
+    ///   - view1: first view to swap.
+    ///   - view2: second view to swap.
+    ///   - animated: set true to animate swap (default is true).
+    ///   - duration: animation duration in seconds (default is 1 second).
+    ///   - delay: animation delay in seconds (default is 1 second).
+    ///   - options: animation options (default is AnimationOptions.curveLinear).
+    ///   - completion: optional completion handler to run with animation finishes (default is nil).
+    func swap(_ view1: UIView, _ view2: UIView,
+              animated: Bool = false,
+              duration: TimeInterval = 0.25,
+              delay: TimeInterval = 0,
+              options: UIView.AnimationOptions = .curveLinear,
+              completion: ((Bool) -> Void)? = nil) {
+        func swapViews(_ view1: UIView, _ view2: UIView) {
+            guard let view1Index = arrangedSubviews.firstIndex(of: view1),
+                  let view2Index = arrangedSubviews.firstIndex(of: view2)
+            else { return }
+            removeArrangedSubview(view1)
+            insertArrangedSubview(view1, at: view2Index)
+
+            removeArrangedSubview(view2)
+            insertArrangedSubview(view2, at: view1Index)
+        }
+        if animated {
+            UIView.animate(withDuration: duration, delay: delay, options: options, animations: {
+                swapViews(view1, view2)
+                self.layoutIfNeeded()
+            }, completion: completion)
+        } else {
+            swapViews(view1, view2)
+        }
+    }
 }
 
 #endif
