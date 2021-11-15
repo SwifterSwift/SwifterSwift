@@ -319,6 +319,16 @@ public extension UIImage {
     func jpegBase64String(compressionQuality: CGFloat) -> String? {
         return jpegData(compressionQuality: compressionQuality)?.base64EncodedString()
     }
+
+    /// SwifterSwift: UIImage with color uses .alwaysOriginal rendering mode.
+    ///
+    /// - Parameters:
+    ///   - color: Color of image.
+    /// - Returns: UIImage with color.
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+    func withAlwaysOriginalTintColor(_ color: UIColor) -> UIImage {
+        return withTintColor(color, renderingMode: .alwaysOriginal)
+    }
 }
 
 // MARK: - Initializers
