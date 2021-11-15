@@ -609,6 +609,23 @@ public extension UIView {
     func ancestorView<T: UIView>(withClass _: T.Type) -> T? {
         return ancestorView(where: { $0 is T }) as? T
     }
+  
+    /// SwifterSwift: Returns all the subviews of a given type recursively in the
+    /// view hierarchy rooted on the view it its called.
+    ///
+    /// - Parameter ofType: Class of the view to search.
+    /// - Returns: All subviews with a specified type.
+    func subviews<T>(ofType _: T.Type) -> [T] {
+        var views = [T]()
+        for subview in subviews {
+            if let view = subview as? T {
+                views.append(view)
+            } else if !subview.subviews.isEmpty {
+                views.append(contentsOf: subview.subviews(ofType: T.self))
+            }
+        }
+        return views
+    }
 }
 
 // MARK: - Constraints

@@ -57,6 +57,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `loadFromNib(withClass:)`, which loads a UIView of a particular type from a nib file. [#885](https://github.com/SwifterSwift/SwifterSwift/pull/885) by [gurgeous](https://github.com/gurgeous)
   - Added `findConstraint` for finding an existing constraint. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous](https://github.com/gurgeous)
   - Added `widthConstraint`, `heightConstraint`, `leadingConstraint`, `trailingConstraint`, `topConstraint`, and `bottomConstraint` for finding specific constraints. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous](https://github.com/gurgeous)
+  - Added `UIView.subviews(ofType:)` extension which returns all the subviews of a given type recursively in the view hierarchy rooted on the view it its called. [#993](https://github.com/SwifterSwift/SwifterSwift/pull/993) by [ashercoelho](https://github.com/ashercoelho)
+  - Added `UIStackView.swap(_ view1:, _ view2:)` extension which exchanges two views that are arranged in the stack. [#989](https://github.com/SwifterSwift/SwifterSwift/pull/989) by [salahamassi](https://github.com/salahamassi)
 - **UIImage**
   - Added `averageColor`, which calculates the average UIColor for an entire image. [#884](https://github.com/SwifterSwift/SwifterSwift/pull/884) by [gurgeous](https://github.com/gurgeous)
   - Added `withAlwaysOriginalTintColor(_:)` returns a new version of the image with a tint color that uses the .alwaysOriginal rendering mode. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [jayxiang][https://github.com/jayxiang]
@@ -70,6 +72,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added the `(unsafeString: String)` initializer for `URL` as a more conveniently to construct unsafe `URL`s from `String` by [jevonmao](https://github.com/jevonmao)
 - **MKMultiPoint**
   - Added `.coordinates` property, to return an array of coordinates for the provided `MKMultiPoint`. [#990](https://github.com/SwifterSwift/SwifterSwift/pull/990) by [@rizwankce](https://github.com/rizwankce).
+- **NSAttributedString**
+  - Added `Array.joined(separator:)` to create a new `NSAttributedString` by concatenating the elements of the sequence, adding the given separator between each element. [#985](https://github.com/SwifterSwift/SwifterSwift/pull/985) by [Roman Podymov](https://github.com/RomanPodymov).
 
 ### Changed
 - **NSAttributedString**:

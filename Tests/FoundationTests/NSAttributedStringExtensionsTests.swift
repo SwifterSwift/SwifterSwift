@@ -319,6 +319,106 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual(string1.string, "Test Appending")
         #endif
     }
+
+    // MARK: - func joined(separator:)
+
+    #if canImport(AppKit) || canImport(UIKit)
+    private let firstStringToJoin = "Hello"
+    private let secondStringToJoin = " "
+    private let thirdStringToJoin = "World"
+
+    private var stringsToJoin: [NSAttributedString] {
+        let string1 = NSAttributedString(
+            string: firstStringToJoin,
+            attributes: [
+                .strokeWidth: NSNumber(value: 1),
+                .kern: NSNumber(value: 2)
+            ]
+        )
+        let string2 = NSAttributedString(
+            string: secondStringToJoin,
+            attributes: [
+                .expansion: NSNumber(value: 3),
+                .obliqueness: NSNumber(value: 4)
+            ]
+        )
+        let string3 = NSAttributedString(string: thirdStringToJoin, attributes: [:])
+        return [string1, string2, string3]
+    }
+
+    private func expectedAttrbiutedString(
+        with separator: String,
+        separatorAttrbiutes: [NSAttributedString.Key: Any]
+    ) -> NSAttributedString {
+        let expectation = NSMutableAttributedString(
+            string: firstStringToJoin + separator + secondStringToJoin + separator + thirdStringToJoin,
+            attributes: [:]
+        )
+
+        expectation.addAttributes([
+            .strokeWidth: NSNumber(value: 1),
+            .kern: NSNumber(value: 2)
+        ], range: NSRange(location: 0, length: firstStringToJoin.count))
+
+        expectation.addAttributes(
+            separatorAttrbiutes,
+            range: NSRange(location: firstStringToJoin.count, length: separator.count)
+        )
+
+        expectation.addAttributes([
+            .expansion: NSNumber(value: 3),
+            .obliqueness: NSNumber(value: 4)
+        ], range: NSRange(location: (firstStringToJoin + separator).count, length: secondStringToJoin.count))
+
+        expectation.addAttributes(
+            separatorAttrbiutes,
+            range: NSRange(location: (firstStringToJoin + separator + secondStringToJoin).count, length: separator.count)
+        )
+
+        return expectation
+    }
+
+    func testJoinedWithEmptySeparator() {
+        XCTAssertEqual(
+            stringsToJoin.joined(separator: ""),
+            expectedAttrbiutedString(with: "", separatorAttrbiutes: [:])
+        )
+    }
+
+    func testJoinedWithEmptyAttributedSeparator() {
+        XCTAssertEqual(
+            stringsToJoin.joined(separator: NSAttributedString(string: "")),
+            expectedAttrbiutedString(with: "", separatorAttrbiutes: [:])
+        )
+    }
+
+    func testJoinedWithNonEmptySeparator() {
+        XCTAssertEqual(
+            stringsToJoin.joined(separator: " non empty "),
+            expectedAttrbiutedString(with: " non empty ", separatorAttrbiutes: [:])
+        )
+    }
+
+    func testJoinedWithNonEmptyAttributedSeparator() {
+        XCTAssertEqual(
+            stringsToJoin.joined(separator: NSAttributedString(string: " non empty ", attributes: [
+                .expansion: NSNumber(value: 3),
+                .obliqueness: NSNumber(value: 4)
+            ])),
+            expectedAttrbiutedString(with: " non empty ", separatorAttrbiutes: [
+                .expansion: NSNumber(value: 3),
+                .obliqueness: NSNumber(value: 4)
+            ])
+        )
+    }
+
+    func testEmptyArrayJoinedWithSeparator() {
+        XCTAssertEqual(
+            [].joined(separator: NSAttributedString(string: "Hello")),
+            NSAttributedString(string: "")
+        )
+    }
+    #endif
 }
 
 #endif
