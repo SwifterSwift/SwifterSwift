@@ -326,7 +326,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     private let firstStringToJoin = "Hello"
     private let secondStringToJoin = " "
     private let thirdStringToJoin = "World"
-    
+
     private var stringsToJoin: [NSAttributedString] {
         let string1 = NSAttributedString(
             string: firstStringToJoin,
@@ -345,7 +345,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let string3 = NSAttributedString(string: thirdStringToJoin, attributes: [:])
         return [string1, string2, string3]
     }
-    
+
     private func expectedAttrbiutedString(
         with separator: String,
         separatorAttrbiutes: [NSAttributedString.Key: Any]
@@ -354,7 +354,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             string: firstStringToJoin + separator + secondStringToJoin + separator + thirdStringToJoin,
             attributes: [:]
         )
-        
+
         expectation.addAttributes([
             .strokeWidth: NSNumber(value: 1),
             .kern: NSNumber(value: 2)
@@ -377,37 +377,29 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
         return expectation
     }
-    #endif
-    
+
     func testJoinedWithEmptySeparator() {
-        #if canImport(AppKit) || canImport(UIKit)
         XCTAssertEqual(
             stringsToJoin.joined(separator: ""),
             expectedAttrbiutedString(with: "", separatorAttrbiutes: [:])
         )
-        #endif
     }
 
     func testJoinedWithEmptyAttributedSeparator() {
-        #if canImport(AppKit) || canImport(UIKit)
         XCTAssertEqual(
             stringsToJoin.joined(separator: NSAttributedString(string: "")),
             expectedAttrbiutedString(with: "", separatorAttrbiutes: [:])
         )
-        #endif
     }
 
     func testJoinedWithNonEmptySeparator() {
-        #if canImport(AppKit) || canImport(UIKit)
         XCTAssertEqual(
             stringsToJoin.joined(separator: " non empty "),
             expectedAttrbiutedString(with: " non empty ", separatorAttrbiutes: [:])
         )
-        #endif
     }
 
     func testJoinedWithNonEmptyAttributedSeparator() {
-        #if canImport(AppKit) || canImport(UIKit)
         XCTAssertEqual(
             stringsToJoin.joined(separator: NSAttributedString(string: " non empty ", attributes: [
                 .expansion: NSNumber(value: 3),
@@ -418,15 +410,15 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
                 .obliqueness: NSNumber(value: 4)
             ])
         )
-        #endif
     }
-    
+
     func testEmptyArrayJoinedWithSeparator() {
         XCTAssertEqual(
             [].joined(separator: NSAttributedString(string: "Hello")),
             NSAttributedString(string: "")
         )
     }
+    #endif
 }
 
 #endif
