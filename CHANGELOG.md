@@ -74,6 +74,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `.coordinates` property, to return an array of coordinates for the provided `MKMultiPoint`. [#990](https://github.com/SwifterSwift/SwifterSwift/pull/990) by [@rizwankce](https://github.com/rizwankce).
 - **NSAttributedString**
   - Added `Array.joined(separator:)` to create a new `NSAttributedString` by concatenating the elements of the sequence, adding the given separator between each element. [#985](https://github.com/SwifterSwift/SwifterSwift/pull/985) by [Roman Podymov](https://github.com/RomanPodymov).
+- **UIButton**
+  - Added `setAttributedTitleForAllStates`, `attributedTitleForDisabled`, `attributedTitleForHighlighted`, `attributedTitleForNormal` and `attributedTitleForSelected` for convenient work with attributed strings. [#1001](https://github.com/SwifterSwift/SwifterSwift/pull/1001) by [Roman Podymov](https://github.com/RomanPodymov).
 
 ### Changed
 - **NSAttributedString**:
