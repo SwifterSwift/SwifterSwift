@@ -137,6 +137,46 @@ public extension UIButton {
             setTitle(newValue, for: .selected)
         }
     }
+    
+    /// SwifterSwift: Attributed title of disabled state for button.
+    var attributedTitleForDisabled: NSAttributedString? {
+        get {
+            return attributedTitle(for: .disabled)
+        }
+        set {
+            setAttributedTitle(newValue, for: .disabled)
+        }
+    }
+
+    /// SwifterSwift: Attributed title of highlighted state for button.
+    var attributedTitleForHighlighted: NSAttributedString? {
+        get {
+            return attributedTitle(for: .highlighted)
+        }
+        set {
+            setAttributedTitle(newValue, for: .highlighted)
+        }
+    }
+
+    /// SwifterSwift: Attributed title of normal state for button.
+    var attributedTitleForNormal: NSAttributedString? {
+        get {
+            return attributedTitle(for: .normal)
+        }
+        set {
+            setAttributedTitle(newValue, for: .normal)
+        }
+    }
+
+    /// SwifterSwift: Attributed title of selected state for button.
+    var attributedTitleForSelected: NSAttributedString? {
+        get {
+            return attributedTitle(for: .selected)
+        }
+        set {
+            setAttributedTitle(newValue, for: .selected)
+        }
+    }
 }
 
 // MARK: - Methods
@@ -167,6 +207,13 @@ public extension UIButton {
         states.forEach { setTitle(title, for: $0) }
     }
 
+    /// SwifterSwift: Set attributed title for all states.
+    ///
+    /// - Parameter title: title string.
+    func setAttributedTitleForAllStates(_ title: NSAttributedString) {
+        states.forEach { setAttributedTitle(title, for: $0) }
+    }
+    
     /// SwifterSwift: Center align title text and image.
     /// - Parameters:
     ///   - imageAboveText: set true to make image above title text, default is false, image on left of text.

@@ -110,6 +110,42 @@ final class UIButtonExtensionsTests: XCTestCase {
         button.titleForSelected = title
         XCTAssertEqual(button.titleForSelected, title)
     }
+    
+    func testAttributedTitleForDisabled() {
+        let button = UIButton()
+        XCTAssertEqual(button.attributedTitleForDisabled, button.attributedTitle(for: .disabled))
+
+        let title = NSAttributedString(string: "Disabled", attributes: [.foregroundColor:UIColor.yellow, .backgroundColor:UIColor.green])
+        button.attributedTitleForDisabled = title
+        XCTAssertEqual(button.attributedTitleForDisabled, title)
+    }
+
+    func testAttributedTitleForHighlighted() {
+        let button = UIButton()
+        XCTAssertEqual(button.attributedTitleForHighlighted, button.attributedTitle(for: .highlighted))
+
+        let title = NSAttributedString(string: "Highlighted", attributes: [.foregroundColor:UIColor.yellow, .backgroundColor:UIColor.green])
+        button.attributedTitleForHighlighted = title
+        XCTAssertEqual(button.attributedTitleForHighlighted, title)
+    }
+
+    func testAttributedTitleForNormal() {
+        let button = UIButton()
+        XCTAssertEqual(button.attributedTitleForNormal, button.attributedTitle(for: .normal))
+
+        let title = NSAttributedString(string: "Normal", attributes: [.foregroundColor:UIColor.yellow, .backgroundColor:UIColor.green])
+        button.attributedTitleForNormal = title
+        XCTAssertEqual(button.attributedTitleForNormal, title)
+    }
+
+    func testAttributedTitleForSelected() {
+        let button = UIButton()
+        XCTAssertEqual(button.attributedTitleForSelected, button.attributedTitle(for: .selected))
+
+        let title = NSAttributedString(string: "Selected", attributes: [.foregroundColor:UIColor.yellow, .backgroundColor:UIColor.green])
+        button.attributedTitleForSelected = title
+        XCTAssertEqual(button.attributedTitleForSelected, title)
+    }
 
     func testSetImageForAllStates() {
         let button = UIButton()
@@ -172,6 +208,17 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssert(titleFrame.midY > imageFrame.midY)
         XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.5)
         XCTAssertEqual(titleFrame.minY - spacing, imageFrame.maxY, accuracy: 1.0)
+    }
+    
+    func testSetAttrbiutedTitleForAllStates() {
+        let button = UIButton()
+        let title = NSAttributedString(string: "Title", attributes: [.foregroundColor:UIColor.yellow, .backgroundColor:UIColor.green])
+        button.setAttributedTitleForAllStates(title)
+
+        XCTAssertEqual(button.attributedTitleForDisabled, title)
+        XCTAssertEqual(button.attributedTitleForHighlighted, title)
+        XCTAssertEqual(button.attributedTitleForNormal, title)
+        XCTAssertEqual(button.attributedTitleForSelected, title)
     }
 }
 
