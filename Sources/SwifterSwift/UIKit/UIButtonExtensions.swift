@@ -9,173 +9,109 @@ public extension UIButton {
     /// SwifterSwift: Image of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     var imageForDisabled: UIImage? {
-        get {
-            return image(for: .disabled)
-        }
-        set {
-            setImage(newValue, for: .disabled)
-        }
+        get { image(for: .disabled) }
+        set { setImage(newValue, for: .disabled) }
     }
 
     /// SwifterSwift: Image of highlighted state for button; also inspectable from Storyboard.
     @IBInspectable
     var imageForHighlighted: UIImage? {
-        get {
-            return image(for: .highlighted)
-        }
-        set {
-            setImage(newValue, for: .highlighted)
-        }
+        get { image(for: .highlighted) }
+        set { setImage(newValue, for: .highlighted) }
     }
 
     /// SwifterSwift: Image of normal state for button; also inspectable from Storyboard.
     @IBInspectable
     var imageForNormal: UIImage? {
-        get {
-            return image(for: .normal)
-        }
-        set {
-            setImage(newValue, for: .normal)
-        }
+        get { image(for: .normal) }
+        set { setImage(newValue, for: .normal) }
     }
 
     /// SwifterSwift: Image of selected state for button; also inspectable from Storyboard.
     @IBInspectable
     var imageForSelected: UIImage? {
-        get {
-            return image(for: .selected)
-        }
-        set {
-            setImage(newValue, for: .selected)
-        }
+        get { image(for: .selected) }
+        set { setImage(newValue, for: .selected) }
     }
 
     /// SwifterSwift: Title color of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleColorForDisabled: UIColor? {
-        get {
-            return titleColor(for: .disabled)
-        }
-        set {
-            setTitleColor(newValue, for: .disabled)
-        }
+        get { titleColor(for: .disabled) }
+        set { setTitleColor(newValue, for: .disabled) }
     }
 
     /// SwifterSwift: Title color of highlighted state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleColorForHighlighted: UIColor? {
-        get {
-            return titleColor(for: .highlighted)
-        }
-        set {
-            setTitleColor(newValue, for: .highlighted)
-        }
+        get { titleColor(for: .highlighted) }
+        set { setTitleColor(newValue, for: .highlighted) }
     }
 
     /// SwifterSwift: Title color of normal state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleColorForNormal: UIColor? {
-        get {
-            return titleColor(for: .normal)
-        }
-        set {
-            setTitleColor(newValue, for: .normal)
-        }
+        get { titleColor(for: .normal) }
+        set { setTitleColor(newValue, for: .normal) }
     }
 
     /// SwifterSwift: Title color of selected state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleColorForSelected: UIColor? {
-        get {
-            return titleColor(for: .selected)
-        }
-        set {
-            setTitleColor(newValue, for: .selected)
-        }
+        get { titleColor(for: .selected) }
+        set { setTitleColor(newValue, for: .selected) }
     }
 
     /// SwifterSwift: Title of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleForDisabled: String? {
-        get {
-            return title(for: .disabled)
-        }
-        set {
-            setTitle(newValue, for: .disabled)
-        }
+        get { title(for: .disabled) }
+        set { setTitle(newValue, for: .disabled) }
     }
 
     /// SwifterSwift: Title of highlighted state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleForHighlighted: String? {
-        get {
-            return title(for: .highlighted)
-        }
-        set {
-            setTitle(newValue, for: .highlighted)
-        }
+        get { title(for: .highlighted) }
+        set { setTitle(newValue, for: .highlighted) }
     }
 
     /// SwifterSwift: Title of normal state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleForNormal: String? {
-        get {
-            return title(for: .normal)
-        }
-        set {
-            setTitle(newValue, for: .normal)
-        }
+        get { title(for: .normal) }
+        set { setTitle(newValue, for: .normal) }
     }
 
     /// SwifterSwift: Title of selected state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleForSelected: String? {
-        get {
-            return title(for: .selected)
-        }
-        set {
-            setTitle(newValue, for: .selected)
-        }
+        get { title(for: .selected) }
+        set { setTitle(newValue, for: .selected) }
     }
     
     /// SwifterSwift: Attributed title of disabled state for button.
     var attributedTitleForDisabled: NSAttributedString? {
-        get {
-            return attributedTitle(for: .disabled)
-        }
-        set {
-            setAttributedTitle(newValue, for: .disabled)
-        }
+        get { attributedTitle(for: .disabled) }
+        set { setAttributedTitle(newValue, for: .disabled) }
     }
 
     /// SwifterSwift: Attributed title of highlighted state for button.
     var attributedTitleForHighlighted: NSAttributedString? {
-        get {
-            return attributedTitle(for: .highlighted)
-        }
-        set {
-            setAttributedTitle(newValue, for: .highlighted)
-        }
+        get { attributedTitle(for: .highlighted) }
+        set { setAttributedTitle(newValue, for: .highlighted) }
     }
 
     /// SwifterSwift: Attributed title of normal state for button.
     var attributedTitleForNormal: NSAttributedString? {
-        get {
-            return attributedTitle(for: .normal)
-        }
-        set {
-            setAttributedTitle(newValue, for: .normal)
-        }
+        get { attributedTitle(for: .normal) }
+        set { setAttributedTitle(newValue, for: .normal) }
     }
 
     /// SwifterSwift: Attributed title of selected state for button.
     var attributedTitleForSelected: NSAttributedString? {
-        get {
-            return attributedTitle(for: .selected)
-        }
-        set {
-            setAttributedTitle(newValue, for: .selected)
-        }
+        get { attributedTitle(for: .selected) }
+        set { setAttributedTitle(newValue, for: .selected) }
     }
 }
 
@@ -183,7 +119,7 @@ public extension UIButton {
 
 public extension UIButton {
     private var states: [UIControl.State] {
-        return [.normal, .selected, .highlighted, .disabled]
+        [.normal, .selected, .highlighted, .disabled]
     }
 
     /// SwifterSwift: Set image for all states.
