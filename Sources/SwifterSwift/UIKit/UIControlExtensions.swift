@@ -13,6 +13,7 @@ public extension UIControl {
     ///   - event: Event to perform action for.
     ///   - action: Action to perform.
     func on(_ event: UIControl.Event, perform action: @escaping () -> Void) {
+        // https://stackoverflow.com/a/41438789/9014720
         @objc final class ClosureSleeve: NSObject {
             private let closure: () -> Void
             init (_ closure: @escaping () -> Void) {
