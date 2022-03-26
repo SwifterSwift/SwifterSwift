@@ -336,10 +336,13 @@ public extension UIImage {
 public extension UIImage {
     /// SwifterSwift: Create UIImage from color and size.
     ///
+    ///    let redImage = UIImage(color: .red)
+    ///    let blueImage = UIImage(color: .blue, size: CGSize(width: 20, height: 20))
+    ///
     /// - Parameters:
     ///   - color: image fill color.
     ///   - size: image size.
-    convenience init(color: UIColor, size: CGSize) {
+    convenience init(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
         UIGraphicsBeginImageContextWithOptions(size, false, 1)
 
         defer {
