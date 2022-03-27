@@ -49,6 +49,14 @@ public extension UIView {
         /// SwifterSwift: easeInOut animation.
         case easeInOut
     }
+
+    /// SwifterSwift: Apply gradient directions
+    enum GradientDirection {
+        case topToBottom
+        case bottomToTop
+        case leftToRight
+        case rightToLeft
+    }
 }
 
 // MARK: - Properties
@@ -469,6 +477,45 @@ public extension UIView {
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0]
         layer.add(animation, forKey: "shake")
         CATransaction.commit()
+    }
+
+    /// SwifterSwift: Apply Gradient Colors.
+    ///
+    ///     view.applyGradient(
+    ///         colors: [UIColor.red.cgColor, UIColor.blue.cgColor],
+    ///         locations: [0.0, 1.0],
+    ///         direction: .topToBottom
+    ///     )
+    ///
+    /// - Parameters:
+    ///   - colors: An array of colors defining the color of each gradient stop.
+    ///   - locations: An array of NSNumber defining the location of each
+    ///                gradient stop as a value in the range [0,1]. The values must be
+    ///                monotonically increasing.
+    ///   - direction: Enumeration type describing the direction of the gradient.
+    func applyGradient(colors: [Any]?, locations: [NSNumber]? = [0.0, 1.0], direction: GradientDirection = .topToBottom) {
+        // <https://github.com/swiftdevcenter/GradientColorExample>
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.bounds
+        gradientLayer.colors = colors
+        gradientLayer.locations = locations
+
+        switch direction {
+        case .topToBottom:
+            gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
+            gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
+        case .bottomToTop:
+            gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
+            gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
+        case .leftToRight:
+            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
+            gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+        case .rightToLeft:
+            gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.5)
+            gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.5)
+        }
+
+        layer.addSublayer(gradientLayer)
     }
 
     /// SwifterSwift: Add Visual Format constraints.

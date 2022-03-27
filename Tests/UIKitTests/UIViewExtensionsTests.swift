@@ -313,6 +313,22 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(view1.transform, view2.transform)
         XCTAssertEqual(view1.transform, view3.transform)
     }
+
+    func testApplyGradient() {
+        let frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+        let view = UIView(frame: frame)
+
+        let colors = [UIColor.red.cgColor, UIColor.blue.cgColor, UIColor.green.cgColor]
+        let locations: [NSNumber] = [0.2, 0.5, 1.0]
+        view.applyGradient(colors: colors, locations: locations, direction: .topToBottom)
+
+        guard let gradientLayer = view.layer.sublayers?.first as? CAGradientLayer else {
+            XCTFail("Test Apply Gradient Failure.")
+            return
+        }
+        XCTAssertEqual(gradientLayer.colors?.count, colors.count)
+        XCTAssertEqual(gradientLayer.locations, locations)
+    }
   
     #if os(tvOS)
     func testLoadFromNib() {
