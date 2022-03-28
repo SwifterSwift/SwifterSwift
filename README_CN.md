@@ -15,79 +15,62 @@
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Slack Channel](https://img.shields.io/badge/Slack-SwifterSwift-green.svg)](https://join.slack.com/t/swifterswift/shared_invite/zt-s6dl4g2e-R5V5baIawGpdUz2heShjiQ)
 
-SwifterSwift is a collection of **over 500 native Swift extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS, watchOS and Linux.
+SwifterSwift 是 **500 多个原生 Swift 扩展的集合**，为 iOS、macOS、tvOS、watchOS 和 Linux 提供了（超过 500 个）适用于各种原生数据类型、UIKit 和 Cocoa 类的便捷方法、语法糖和性能改进。
 
-[简体中文](README_CN.md)
+### [v5.3 有什么新功能?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v530)
 
-### [Whats New in v5.3?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v530)
-
-## Requirements
+## 要求
 
 - **iOS** 10.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+ / **Ubuntu** 14.04+
 - Swift 5.0+
 
-## Looking to use SwifterSwift for older versions of Swift
+## 希望将 SwifterSwift 用于旧版本的 Swift
 
-SwifterSwift is Swift v5.0+ compatible starting from v5
+SwifterSwift 从 v5 开始兼容 Swift v5.0+
 
-- To use with **Swift 3 / Xcode 8.x** please ensure you are using [**`v3.1.1`**](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.1.1).
-- To use with **Swift 3.2 / Xcode 9.x** please ensure you are using [**`v3.2.0`**](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.2.0).
+- 要与 **Swift 3 / Xcode 8.x** 一起使用，请确保您使用的是 [**`v3.1.1`**](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.1.1)。
+- 要与 Swift 3.2 / Xcode 9.x 一起使用，请确保您使用的是 [**`v3.2.0`**](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.2.0)。
 
-## Installation
+## 安装
 
 <details>
 <summary>CocoaPods</summary>
 </br>
-<p>To integrate SwifterSwift into your Xcode project using <a href="http://cocoapods.org">CocoaPods</a>, specify it in your <code>Podfile</code>:</p>
-
-<h4>- Integrate All extensions (recommended):</h4>
+<p>要使用 <a href="http://cocoapods.org">CocoaPods</a> 将 SwifterSwift 集成到您的 Xcode 项目，请在您的 <code>Podfile</code> 中设置:</p>
+<h4>- 集成所有扩展（推荐）:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift'</code></pre>
-
-<h4>- Integrate SwiftStdlib extensions only:</h4>
+<h4>- 仅集成 SwiftStdlib 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/SwiftStdlib'</code></pre>
-
-<h4>- Integrate Foundation extensions only:</h4>
+<h4>- 仅集成 Foundation 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/Foundation'</code></pre>
-
-<h4>- Integrate UIKit extensions only:</h4>
+<h4>- 仅集成 UIKit 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/UIKit'</code></pre>
-
-<h4>- Integrate AppKit extensions only:</h4>
+<h4>- 仅集成 AppKit 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/AppKit'</code></pre>
-
-<h4>- Integrate MapKit extensions only:</h4>
+<h4>- 仅集成 MapKit 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/MapKit'</code></pre>
-
-<h4>- Integrate CoreGraphics extensions only:</h4>
+<h4>- 仅集成 CoreGraphics 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/CoreGraphics'</code></pre>
-
-<h4>- Integrate CoreLocation extensions only:</h4>
+<h4>- 仅集成 CoreLocation 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/CoreLocation'</code></pre>
-
-<h4>- Integrate SpriteKit extensions only:</h4>
+<h4>- 仅集成 SpriteKit 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/SpriteKit'</code></pre>
-
-<h4>- Integrate SceneKit extensions only:</h4>
+<h4>- 仅集成 SceneKit 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/SceneKit'</code></pre>
-
-<h4>- Integrate StoreKit extensions only:</h4>
+<h4>- 仅集成 StoreKit 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/StoreKit'</code></pre>
-
-<h4>- Integrate Dispatch extensions only:</h4>
+<h4>- 仅集成 Dispatch 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/Dispatch'</code></pre>
-
-<h4>- Integrate WebKit extensions only:</h4>
+<h4>- 仅集成 WebKit 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/WebKit'</code></pre>
-
-<h4>- Integrate HealthKit extensions only:</h4>
+<h4>- 仅集成 HealthKit 扩展:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/HealthKit'</code></pre>
 </details>
 
 <details>
 <summary>Carthage</summary>
 </br>
-<p>To integrate SwifterSwift into your Xcode project using <a href="https://github.com/Carthage/Carthage">Carthage</a>, specify it in your <code>Cartfile</code>:</p>
-
+<p>要使用 <a href="https://github.com/Carthage/Carthage">Carthage</a> 将 SwifterSwift 集成到您的 Xcode 项目中，请在您的 <code>Cartfile</code> 中设置:</p>
 <pre><code class="ogdl language-ogdl">github "SwifterSwift/SwifterSwift" ~&gt; 5.3
 </code></pre>
 </details>
@@ -95,10 +78,8 @@ SwifterSwift is Swift v5.0+ compatible starting from v5
 <details>
 <summary>Swift Package Manager</summary>
 </br>
-<p>You can use <a href="https://swift.org/package-manager">The Swift Package Manager</a> to install <code>SwifterSwift</code> by adding the proper description to your <code>Package.swift</code> file:</p>
-
+<p>你可以使用 <a href="https://swift.org/package-manager">The Swift Package Manager</a> 来安装 SwifterSwift，请在你的 <code>Package.swift</code> 文件中添加正确的描述:</p>
 <pre><code class="swift language-swift">import PackageDescription
-
 let package = Package(
     name: "YOUR_PROJECT_NAME",
     targets: [],
@@ -107,37 +88,33 @@ let package = Package(
     ]
 )
 </code></pre>
-
-<p>Next, add <code>SwifterSwift</code> to your targets dependencies like so:</p>
+<p>接下来，将 <code>SwifterSwift</code> 添加到您的 targets 依赖项中，如下所示:</p>
 <pre><code class="swift language-swift">.target(
     name: "YOUR_TARGET_NAME",
     dependencies: [
         "SwifterSwift",
     ]
 ),</code></pre>
-<p>Then run <code>swift package update</code>.</p>
-
-<p>Note that the <a href="https://swift.org/package-manager">Swift Package Manager</a> doesn't support building for iOS/tvOS/macOS/watchOS apps – see Accio in the next section for that.
+<p>然后运行 <code>swift package update</code>。</p>
+<p>请注意，<a href="https://swift.org/package-manager">Swift Package Manager</a> 不支持为 iOS/tvOS/macOS/watchOS 应用程序编译 - 请参阅下一节中的 Accio。
 </details>
-
 
 <details>
 <summary>Accio</summary>
-<p><a href="https://github.com/JamitLabs/Accio">Accio</a> is a dependency manager based on SwiftPM which can build frameworks for iOS/macOS/tvOS/watchOS. Therefore the integration steps are exactly the same as described above. Once your <code>Package.swift</code> file is configured, you need to run <code>accio update</code> instead of <code>swift package update</code> though.</p>
+<p><a href="https://github.com/JamitLabs/Accio">Accio</a> 是一个基于 SwiftPM 的依赖管理器，可以为 iOS/macOS/tvOS/watchOS 构建框架。因此，集成步骤与上述完全相同。一旦你的 <code>Package.swift</code> 文件被配置，你需要运行 <code>accio update</code> 而不是 <code>swift package update</code>。</p>
 </details>
 
-
 <details>
-<summary>Manually</summary>
+<summary>手动</summary>
 </br>
-<p>Add the <a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift">SwifterSwift</a> folder to your Xcode project to use all extensions, or a specific extension.</p>
-<p>For your test targets you can also add the <a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Tests/XCTest">XCTest</a> folder.</p>
+<p>将 <a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift">SwifterSwift</a> 文件夹添加到您的 Xcode 项目以使用所有扩展或特定扩展。</p>
+<p>对于您的 test targets，您还可以添加 <a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Tests/XCTest">XCTest</a> 文件夹。</p>
 </details>
 
-## List of All Extensions
+## 所有扩展列表
 
 <details>
-<summary>SwiftStdlib Extensions</summary>
+<summary>SwiftStdlib 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/ArrayExtensions.swift"><code>Array extensions</code></a></li>
@@ -162,9 +139,8 @@ let package = Package(
 </ul>
 </details>
 
-
 <details>
-<summary>Foundation Extensions</summary>
+<summary>Foundation 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/CalendarExtensions.swift"><code>Calendar extensions</code></a></li>
@@ -180,9 +156,8 @@ let package = Package(
 </ul>
 </details>
 
-
 <details>
-<summary>UIKit Extensions</summary>
+<summary>UIKit 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIActivityExtensions.swift"><code>UIActivity extensions</code></a></li>
@@ -221,9 +196,8 @@ let package = Package(
 </ul>
 </details>
 
-
 <details>
-<summary>AppKit Extensions</summary>
+<summary>AppKit 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Shared/ColorExtensions.swift"><code>NSColor extensions</code></a></li>
@@ -233,7 +207,7 @@ let package = Package(
 </details>
 
 <details>
-<summary>CoreGraphics Extensions</summary>
+<summary>CoreGraphics 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGColorExtensions.swift"><code>CGColor extensions</code></a></li>
@@ -246,7 +220,7 @@ let package = Package(
 </details>
 
 <details>
-<summary>CoreLocation Extensions</summary>
+<summary>CoreLocation 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreLocation/CLLocationExtensions.swift"><code>CLLocation extensions</code></a></li>
@@ -255,7 +229,7 @@ let package = Package(
 </details>
 
 <details>
-<summary>CoreAnimation Extensions</summary>
+<summary>CoreAnimation 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreAnimation/CAGradientLayerExtensions.swift"><code>CAGradientLayer extensions</code></a></li>
@@ -263,7 +237,7 @@ let package = Package(
 </details>
 
 <details>
-<summary>MapKit Extensions</summary>
+<summary>MapKit 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/MapKit/MKMapViewExtensions.swift"><code>MKMapView extensions</code></a></li>
@@ -272,7 +246,7 @@ let package = Package(
 </details>
 
 <details>
-<summary>SpriteKit Extensions</summary>
+<summary>SpriteKit 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SpriteKit/SKNodeExtensions.swift"><code>SKNode extensions</code></a></li>
@@ -280,7 +254,7 @@ let package = Package(
 </details>
 
 <details>
-<summary>SceneKit Extensions</summary>
+<summary>SceneKit 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNBoxExtensions.swift"><code>SCNBox extensions</code></a></li>
@@ -297,7 +271,7 @@ let package = Package(
 </details>
 
 <details>
-<summary>StoreKit Extensions</summary>
+<summary>StoreKit 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/StoreKit/SKProductExtensions.swift"><code>SKProduct extensions</code></a></li>
@@ -305,7 +279,7 @@ let package = Package(
 </details>
 
 <details>
-<summary>Dispatch Extensions</summary>
+<summary>Dispatch 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/Dispatch/DispatchQueueExtensions.swift"><code>DispatchQueue extensions</code></a></li>
@@ -313,7 +287,7 @@ let package = Package(
 </details>
 
 <details>
-<summary>WebKit Extensions</summary>
+<summary>WebKit 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/WebKit/WKWebViewExtensions.swift"><code>WKWebView extensions</code></a></li>
@@ -321,7 +295,7 @@ let package = Package(
 </details>
 
 <details>
-<summary>HealthKit Extensions</summary>
+<summary>HealthKit 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/HealthKit/HKActivitySummaryExtensions.swift"><code>HKActivitySummary extensions</code></a></li>
@@ -329,42 +303,40 @@ let package = Package(
 </details>
 
 <details>
-<summary>XCTest Extensions</summary>
+<summary>XCTest 扩展</summary>
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Tests/XCTest/XCTestExtensions.swift"><code>XCTest extensions</code></a></li>
 </ul>
 </details>
 
-## How cool is this?
+## 这有多酷？
 
-SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original Swift API design guidelines.
+SwifterSwift 是一个包含 **500 多个属性和方法**的库，旨在扩展 Swift 的功能和生产力，并忠实于原生的 Swift API 设计指南。
 
-Check Examples.playground from the project for some cool examples!
+查看项目中的 Examples.playground 以获取一些很酷的示例！
 
-## Documentation
+## 文档
 
-Documentation for all extensions, with examples, is available at [swifterswift.com/docs](http://swifterswift.com/docs)
+所有扩展的文档和示例都在 [swifterswift.com/docs](http://swifterswift.com/docs)
 
-## Get involved
+## 参与其中
 
-We want your feedback.
-Please refer to [contributing guidelines](https://github.com/SwifterSwift/SwifterSwift/tree/master/CONTRIBUTING.md) before participating.
+我们希望得到您的反馈。参与前请参阅 [contributing guidelines](https://github.com/SwifterSwift/SwifterSwift/tree/master/CONTRIBUTING.md)。
 
-## Slack Channel: [![Slack](https://slackin-ppvrggbpgn.now.sh/badge.svg)](https://slackin-ppvrggbpgn.now.sh/)
+## Slack 频道: [![Slack](https://slackin-ppvrggbpgn.now.sh/badge.svg)](https://slackin-ppvrggbpgn.now.sh/)
 
-It is always nice to talk with other people using SwifterSwift and exchange experiences, so come [join our Slack channel](https://slackin-ppvrggbpgn.now.sh/).
+使用 SwifterSwift 与其他人交谈并交流经验总是很愉快，所以[加入我们的 Slack 频道](https://slackin-ppvrggbpgn.now.sh/)吧。
 
-## Thanks
+## 鸣谢
 
-Special thanks to:
+特别感谢：
 
-- [Steven Deutsch](https://github.com/SD10), [Luciano Almeida](https://github.com/LucianoPAlmeida) and [Guy Kogus](https://github.com/guykogus) for their latest contributions to extensions, docs and tests.
-- [Paweł Urbanek](https://github.com/pawurb) for adding tvOS, watchOS, and macOS initial support and helping with extensions.
-- [Mert Akengin](https://github.com/pvtmert) and [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing [project website](http://swifterswift.com) and logo.
-- [Abdul Rahman Dabbour](https://github.com/ardabbour) for helping document the project.
-- Many thanks to all other [contributors](https://github.com/SwifterSwift/SwifterSwift/graphs/contributors) of this project.
+- [Steven Deutsch](https://github.com/SD10), [Luciano Almeida](https://github.com/LucianoPAlmeida) 和 [Guy Kogus](https://github.com/guykogus) 对扩展、文档和测试的最新贡献。
+- [Paweł Urbanek](https://github.com/pawurb) 添加了 tvOS、watchOS 和 macOS 的初始化支持和帮助扩展。
+- [Mert Akengin](https://github.com/pvtmert) 和 [Bashar Ghadanfar](https://www.behance.net/lionbytes) 设计了 [project website](http://swifterswift.com) 和 logo.
+- 非常感谢这个项目的所有其他[贡献者](https://github.com/SwifterSwift/SwifterSwift/graphs/contributors)。
 
-## License
+## License 协议
 
-SwifterSwift is released under the MIT license. See [LICENSE](https://github.com/SwifterSwift/SwifterSwift/blob/master/LICENSE) for more information.
+SwifterSwift 在 MIT 许可协议下发布的。有关更多信息，请参阅 [LICENSE](https://github.com/SwifterSwift/SwifterSwift/blob/master/LICENSE)。
