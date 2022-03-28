@@ -95,6 +95,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Add `beginRefreshing(animated:sendAction:)` that works inside any `UIScrollView` and not only `UITableView`. [#949](https://github.com/SwifterSwift/SwifterSwift/pull/949) by [yonat](https://github.com/yonat)
 - **SKSpriteNode**:
     - Added `aspectFill(to:)` to size SKSpriteNode with respect to aspect ratio. [#490](https://github.com/SwifterSwift/SwifterSwift/pull/490) by [erikdrobne](https://github.com/erikdrobne).
+- **UIImage**
+    -  Updated `init(color: size:)` to add a default value for the `size` parameter by [Andy0570](https://github.com/Andy0570).
+
 
 ### Deprecated
 - **Sequence**:
@@ -432,7 +435,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added scalar multiplication of CGFloat and CGVector via standard multiplication operator (\*). [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
   - Added negation of vectors via prefix (-) operator. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
   - Added `init(angle:magnitude:)` to create vectors based on their angle and magnitude. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
--**UIRefreshControl**:
+- **UIRefreshControl**:
   - `beginRefresh(in tableView:, animated:, sendAction:)` UIRefreshControl extension to begin refresh programatically. [#525](https://github.com/SwifterSwift/SwifterSwift/pull/525) by [ratulSharker](https://github.com/ratulSharker)
 - **Dictionary**:
   - Added `removeValueForRandomKey()` to remove a value for a random key from a dictionary. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [MaxHaertwig](https://github.com/maxhaertwig).

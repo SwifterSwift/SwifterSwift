@@ -336,18 +336,23 @@ public extension UIImage {
 public extension UIImage {
     /// SwifterSwift: Create UIImage from color and size.
     ///
+    ///     let redImage = UIImage(color: .red)
+    ///     let blueImage = UIImage(color: .blue, size: CGSize(width: 20, height: 20))
+    ///
     /// - Parameters:
     ///   - color: image fill color.
     ///   - size: image size.
-    convenience init(color: UIColor, size: CGSize) {
-        UIGraphicsBeginImageContextWithOptions(size, false, 1)
+    convenience init(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        // https://stackoverflow.com/questions/26542035/create-uiimage-with-solid-color-in-swift
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 1)
 
         defer {
             UIGraphicsEndImageContext()
         }
 
         color.setFill()
-        UIRectFill(CGRect(origin: .zero, size: size))
+        UIRectFill(rect)
 
         guard let aCgImage = UIGraphicsGetImageFromCurrentImageContext()?.cgImage else {
             self.init()

@@ -248,6 +248,15 @@ final class UIImageExtensionsTests: XCTestCase {
         let image = UIImage(color: .blue, size: CGSize(width: 20, height: 20))
         XCTAssertEqual(image.withAlwaysOriginalTintColor(.red), image.withTintColor(.red, renderingMode: .alwaysOriginal))
     }
+
+    func testCreateImageWithSolidColor() {
+        let redImage = UIImage(color: .red)
+        let size = CGSize(width: 10, height: 10)
+        let blueImage = UIImage(color: .red, size: size)
+
+        XCTAssertNotNil(redImage)
+        XCTAssertEqual(blueImage.size, size)
+    }
 }
 
 #endif
