@@ -1,4 +1,4 @@
-// DateExtensions.swift - Copyright 2020 SwifterSwift
+// DateExtensions.swift - Copyright 2022 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -49,10 +49,7 @@ public extension Date {
 
 public extension Date {
     /// SwifterSwift: User’s current calendar.
-    var calendar: Calendar {
-        // Workaround to segfault on corelibs foundation https://bugs.swift.org/browse/SR-10147
-        return Calendar(identifier: Calendar.current.identifier)
-    }
+    var calendar: Calendar { Calendar.current }
 
     /// SwifterSwift: Era.
     ///

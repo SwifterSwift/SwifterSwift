@@ -1,4 +1,4 @@
-// MKMultiPointTests.swift - Copyright 2020 SwifterSwift
+// MKMultiPointTests.swift - Copyright 2022 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -8,6 +8,7 @@ import MapKit
 
 import struct CoreLocation.CLLocationCoordinate2D
 
+@available(tvOS 9.2, *)
 final class MKMultiPointTests: XCTestCase {
     let coordinates = [
         (37.330514, -121.888863),

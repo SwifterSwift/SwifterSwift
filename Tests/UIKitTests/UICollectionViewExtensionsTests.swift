@@ -1,4 +1,4 @@
-// UICollectionViewExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UICollectionViewExtensionsTests.swift - Copyright 2022 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -20,7 +20,7 @@ final class UICollectionViewExtensionsTests: XCTestCase {
         let collection = UICollectionView(
             frame: CGRect(x: 0, y: 0, width: 10, height: 15),
             collectionViewLayout: layout)
-        if #available(iOS 11, *) {
+        if #available(iOS 11, tvOS 11, *) {
             collection.insetsLayoutMarginsFromSafeArea = false
         }
         collection.contentInset = .zero
