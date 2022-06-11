@@ -118,6 +118,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Fixed a bug:UITextField `addPaddingLeftIcon` doesn't work on iOS 13[#876](https://github.com/SwifterSwift/SwifterSwift/issues/876) by [Jayxiang](https://github.com/Jayxiang)
 - **UIImage**
   - Fixed a bug:UIImage `rotated(by:)` lose origin scale, result in image blurred[#904](https://github.com/SwifterSwift/SwifterSwift/pull/904) by [yanpanpan](https://github.com/yanpanpan)
+- **UIView**
+  - Fixed `rotate(toAngle)` to rotate _to_ an angle instead of _by_ an angle, as raised in [#935](https://github.com/SwifterSwift/SwifterSwift/pull/935). [#1019](https://github.com/SwifterSwift/SwifterSwift/pull/1019) by [guykogus](https://github.com/guykogus)
 - **ColorExtension**:
   - Fixed a bug: `Color.FlatUI` can be initialized. by [Shiva Huang](https://github.com/ShivaHuang)
   - Fixed `Color.init?(hexString: String, transparency: CGFloat = 1)` was not handling uppercase `0X` in hex prefix [#947](https://github.com/SwifterSwift/SwifterSwift/pull/947) by [Zero.D.Saber](https://github.com/faimin)
