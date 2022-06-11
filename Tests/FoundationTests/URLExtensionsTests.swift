@@ -1,4 +1,4 @@
-// URLExtensionsTests.swift - Copyright 2020 SwifterSwift
+// URLExtensionsTests.swift - Copyright 2022 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -65,12 +65,20 @@ final class URLExtensionsTests: XCTestCase {
         let url = URL(string: "https://domain.com/path/other/")!
         let result = url.deletingAllPathComponents()
         XCTAssertEqual(result.absoluteString, "https://domain.com/")
+
+        let pathlessURL = URL(string: "https://domain.com")!
+        let pathlessResult = pathlessURL.deletingAllPathComponents()
+        XCTAssertEqual(pathlessResult.absoluteString, "https://domain.com")
     }
 
     func testDeleteAllPathComponents() {
         var url = URL(string: "https://domain.com/path/other/")!
         url.deleteAllPathComponents()
         XCTAssertEqual(url.absoluteString, "https://domain.com/")
+
+        var pathlessURL = URL(string: "https://domain.com")!
+        pathlessURL.deleteAllPathComponents()
+        XCTAssertEqual(pathlessURL.absoluteString, "https://domain.com")
     }
 
     #if os(iOS) || os(tvOS)
@@ -102,7 +110,7 @@ final class URLExtensionsTests: XCTestCase {
             XCTAssertEqual(url.droppedScheme()?.absoluteString, expected, "input url: \(input)")
         }
     }
-    
+
     func testStringInitializer() throws {
         let testURL = try XCTUnwrap(URL(string: "https://google.com"))
         let extensionURL = URL(unsafeString: "https://google.com")

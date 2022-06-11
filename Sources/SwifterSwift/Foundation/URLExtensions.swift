@@ -1,4 +1,4 @@
-// URLExtensions.swift - Copyright 2020 SwifterSwift
+// URLExtensions.swift - Copyright 2022 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -14,7 +14,7 @@ public extension URL {
     /// SwifterSwift: Dictionary of the URL's query parameters.
     var queryParameters: [String: String]? {
         guard let components = URLComponents(url: self, resolvingAgainstBaseURL: false),
-            let queryItems = components.queryItems else { return nil }
+              let queryItems = components.queryItems else { return nil }
 
         var items: [String: String] = [:]
 
@@ -37,11 +37,11 @@ public extension URL {
         guard let string = string else { return nil }
         self.init(string: string, relativeTo: url)
     }
-    
+
     /**
-    SwifterSwift: Initializes a forced unwrapped `URL` from string. Can potentially crash if string is invalid.
-     - Parameter unsafeString: The URL string used to initialize the `URL`object.
-     */
+     SwifterSwift: Initializes a forced unwrapped `URL` from string. Can potentially crash if string is invalid.
+      - Parameter unsafeString: The URL string used to initialize the `URL`object.
+      */
     init(unsafeString: String) {
         self.init(string: unsafeString)!
     }
@@ -97,6 +97,8 @@ public extension URL {
     ///
     /// - Returns: URL with all path components removed.
     func deletingAllPathComponents() -> URL {
+        guard !pathComponents.isEmpty else { return self }
+
         var url: URL = self
         for _ in 0..<pathComponents.count - 1 {
             url.deleteLastPathComponent()
@@ -110,6 +112,8 @@ public extension URL {
     ///        url.deleteAllPathComponents()
     ///        print(url) // prints "https://domain.com/"
     mutating func deleteAllPathComponents() {
+        guard !pathComponents.isEmpty else { return }
+
         for _ in 0..<pathComponents.count - 1 {
             deleteLastPathComponent()
         }
