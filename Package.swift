@@ -21,5 +21,5 @@ let package = Package(
             dependencies: ["SwifterSwift"],
             path: "Tests",
             exclude: ["Info.plist"],
-            resources: [.process("ResourcesTests")])
+            resources: [.process("ResourcesTests/Resources")])
     ])

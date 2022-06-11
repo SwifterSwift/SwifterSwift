@@ -1417,6 +1417,7 @@
 		8D50E51D24D0D6FB00972E2D /* tvOS */ = {
 			isa = PBXGroup;
 			children = (
+				F88C491824AF73A400BA0503 /* TestStoryboard-tvOS.storyboard */,
 				8D50E52024D0D73E00972E2D /* UIImageViewTvOS.xib */,
 			);
 			path = tvOS;
@@ -1483,17 +1484,8 @@
 		CAC5EBBE2125270A00AB27EC /* ResourcesTests */ = {
 			isa = PBXGroup;
 			children = (
-				8D50E51D24D0D6FB00972E2D /* tvOS */,
-				CAC5EBC52125270A00AB27EC /* big_buck_bunny_720p_1mb.mp4 */,
-				CAC5EBC22125270A00AB27EC /* test.json */,
-				CAC5EBBF2125270A00AB27EC /* TestImage.png */,
-				CAC5EBC02125270A00AB27EC /* TestStoryboard.storyboard */,
-				F88C491824AF73A400BA0503 /* TestStoryboard-tvOS.storyboard */,
-				CAC5EBC12125270A00AB27EC /* UICollectionViewCell.xib */,
-				8D50E51E24D0D71E00972E2D /* UIImageView.xib */,
-				CAC5EBC32125270A00AB27EC /* UITableViewCell.xib */,
-				CAC5EBC42125270A00AB27EC /* UITableViewHeaderFooterView.xib */,
-				5E36CB6424AC9909007727DA /* MyViewController.swift */,
+				F8830FC3285478EC00C1D802 /* Resources */,
+				F8830FC2285478EC00C1D802 /* Sources */,
 			);
 			path = ResourcesTests;
 			sourceTree = "<group>";
@@ -1523,6 +1515,30 @@
 				F854D2BE2423EBD0003A08A9 /* CATransform3DExtensionsTests.swift */,
 			);
 			path = CoreAnimationTests;
+			sourceTree = "<group>";
+		};
+		F8830FC2285478EC00C1D802 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5E36CB6424AC9909007727DA /* MyViewController.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F8830FC3285478EC00C1D802 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D50E51D24D0D6FB00972E2D /* tvOS */,
+				CAC5EBC52125270A00AB27EC /* big_buck_bunny_720p_1mb.mp4 */,
+				CAC5EBC22125270A00AB27EC /* test.json */,
+				CAC5EBBF2125270A00AB27EC /* TestImage.png */,
+				CAC5EBC02125270A00AB27EC /* TestStoryboard.storyboard */,
+				CAC5EBC12125270A00AB27EC /* UICollectionViewCell.xib */,
+				8D50E51E24D0D71E00972E2D /* UIImageView.xib */,
+				CAC5EBC32125270A00AB27EC /* UITableViewCell.xib */,
+				CAC5EBC42125270A00AB27EC /* UITableViewHeaderFooterView.xib */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		F8E62DA224D0184E00BF35AE /* XCTestTests */ = {

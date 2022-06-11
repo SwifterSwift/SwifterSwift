@@ -1,4 +1,4 @@
-// MyViewController.swift - Copyright 2020 SwifterSwift
+// MyViewController.swift - Copyright 2022 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
