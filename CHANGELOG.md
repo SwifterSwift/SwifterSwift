@@ -121,6 +121,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **ColorExtension**:
   - Fixed a bug: `Color.FlatUI` can be initialized. by [Shiva Huang](https://github.com/ShivaHuang)
   - Fixed `Color.init?(hexString: String, transparency: CGFloat = 1)` was not handling uppercase `0X` in hex prefix [#947](https://github.com/SwifterSwift/SwifterSwift/pull/947) by [Zero.D.Saber](https://github.com/faimin)
+- **URLExtension**
+  - Fixed `deletingAllPathComponents()` and `deleteAllPathComponents` to handle empty paths, as raised in [#1012](https://github.com/SwifterSwift/SwifterSwift/pull/1012). [#1018](https://github.com/SwifterSwift/SwifterSwift/pull/1018) by [guykogus](https://github.com/guykogus)
 
 ### Security
 
