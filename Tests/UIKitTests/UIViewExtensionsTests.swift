@@ -1,4 +1,4 @@
-// UIViewExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UIViewExtensionsTests.swift - Copyright 2022 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -254,47 +254,43 @@ final class UIViewExtensionsTests: XCTestCase {
 
     func testRotateByAngle() {
         let view1 = UIView()
-        let transform1 = CGAffineTransform(rotationAngle: 2)
-        view1.rotate(byAngle: 2, ofType: .radians, animated: false, duration: 0, completion: nil)
-        XCTAssertEqual(view1.transform, transform1)
+        view1.rotate(byAngle: 1, ofType: .radians, animated: false, duration: 0, completion: nil)
+        XCTAssertEqual(view1.transform, CGAffineTransform(rotationAngle: 1), accuracy: 0.00001)
+        view1.rotate(byAngle: 1, ofType: .radians, animated: false, duration: 0, completion: nil)
+        XCTAssertEqual(view1.transform, CGAffineTransform(rotationAngle: 2), accuracy: 0.00001)
 
         let view2 = UIView()
-        let transform2 = CGAffineTransform(rotationAngle: .pi * 90.0 / 180.0)
         view2.rotate(byAngle: 90, ofType: .degrees, animated: false, duration: 0, completion: nil)
-        XCTAssertEqual(view2.transform, transform2)
+        XCTAssertEqual(view2.transform, CGAffineTransform(rotationAngle: .pi / 2.0))
 
         let rotateExpectation = expectation(description: "view rotated")
-
         let view3 = UIView()
-        let transform3 = CGAffineTransform(rotationAngle: 2)
-
         view3.rotate(byAngle: 2, ofType: .radians, animated: true, duration: 0.5) { _ in
             rotateExpectation.fulfill()
         }
-        XCTAssertEqual(view3.transform, transform3)
+        XCTAssertEqual(view3.transform, CGAffineTransform(rotationAngle: 2))
         waitForExpectations(timeout: 0.5)
     }
 
     func testRotateToAngle() {
         let view1 = UIView()
-        let transform1 = CGAffineTransform(rotationAngle: 2)
-        view1.rotate(toAngle: 2, ofType: .radians, animated: false, duration: 0, completion: nil)
-        XCTAssertEqual(view1.transform, transform1)
+        view1.rotate(toAngle: 1, ofType: .radians, animated: false, duration: 0, completion: nil)
+        XCTAssertEqual(view1.transform, CGAffineTransform(rotationAngle: 1))
+        view1.rotate(toAngle: 0, ofType: .radians, animated: false, duration: 0, completion: nil)
+        XCTAssertEqual(view1.transform, CGAffineTransform(rotationAngle: 0))
 
         let view2 = UIView()
-        let transform2 = CGAffineTransform(rotationAngle: .pi * 90.0 / 180.0)
         view2.rotate(toAngle: 90, ofType: .degrees, animated: false, duration: 0, completion: nil)
-        XCTAssertEqual(view2.transform, transform2)
+        XCTAssertEqual(view2.transform, CGAffineTransform(rotationAngle: .pi / 2.0))
+        view2.rotate(toAngle: 30, ofType: .degrees, animated: false, duration: 0, completion: nil)
+        XCTAssertEqual(view2.transform, CGAffineTransform(rotationAngle: .pi / 6.0), accuracy: 0.00001)
 
         let rotateExpectation = expectation(description: "view rotated")
-
         let view3 = UIView()
-        let transform3 = CGAffineTransform(rotationAngle: 2)
-
         view3.rotate(toAngle: 2, ofType: .radians, animated: true, duration: 0.5) { _ in
             rotateExpectation.fulfill()
         }
-        XCTAssertEqual(view3.transform, transform3)
+        XCTAssertEqual(view3.transform, CGAffineTransform(rotationAngle: 2))
         waitForExpectations(timeout: 0.5)
     }
 
@@ -313,7 +309,7 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(view1.transform, view2.transform)
         XCTAssertEqual(view1.transform, view3.transform)
     }
-  
+
     #if os(tvOS)
     func testLoadFromNib() {
         let bundle = Bundle(for: UIViewExtensionsTests.self)
@@ -474,28 +470,28 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableViewCell.self), tableViewCell)
         XCTAssertEqual(buttonSubview.ancestorView(withClass: UITableView.self), tableView)
     }
-  
-  func testSubviewsOfType() {
-      // Test view with subviews with no subviews
-      XCTAssertEqual(UIView().subviews(ofType: UILabel.self), [])
-          
-      // Test view with subviews that have subviews
-      let parentView = UIView()
-    
-      let childView = UIView()
-      let childViewSubViews = [UILabel(), UIButton(), UITextView(), UILabel(), UIImageView()]
-      childView.addSubviews(childViewSubViews)
-    
-      let childView2 = UIView()
-      let childView2SubViews = [UISegmentedControl(), UILabel(), UITextView(), UIImageView()]
-      childView2.addSubviews(childView2SubViews)
-    
-      parentView.addSubviews([childView, childView2])
-    
-      let expected = [childViewSubViews[0], childViewSubViews[3], childView2SubViews[1]]
-      XCTAssertEqual(parentView.subviews(ofType: UILabel.self), expected)
-      XCTAssertEqual(parentView.subviews(ofType: UITableViewCell.self), [])
-  }
+
+    func testSubviewsOfType() {
+        // Test view with subviews with no subviews
+        XCTAssertEqual(UIView().subviews(ofType: UILabel.self), [])
+
+        // Test view with subviews that have subviews
+        let parentView = UIView()
+
+        let childView = UIView()
+        let childViewSubViews = [UILabel(), UIButton(), UITextView(), UILabel(), UIImageView()]
+        childView.addSubviews(childViewSubViews)
+
+        let childView2 = UIView()
+        let childView2SubViews = [UISegmentedControl(), UILabel(), UITextView(), UIImageView()]
+        childView2.addSubviews(childView2SubViews)
+
+        parentView.addSubviews([childView, childView2])
+
+        let expected = [childViewSubViews[0], childViewSubViews[3], childView2SubViews[1]]
+        XCTAssertEqual(parentView.subviews(ofType: UILabel.self), expected)
+        XCTAssertEqual(parentView.subviews(ofType: UITableViewCell.self), [])
+    }
 
     func testFindConstraint() {
         let view = UIView()
