@@ -1,4 +1,4 @@
-// ArrayExtensionsTests.swift - Copyright 2020 SwifterSwift
+// ArrayExtensionsTests.swift - Copyright 2022 SwifterSwift
 
 @testable import SwifterSwift
 //
@@ -45,7 +45,6 @@ final class ArrayExtensionsTests: XCTestCase {
         let candidate2 = [2, 5, 3, 6, 1, 4]
         XCTAssertEqual(candidate2.sorted(like: order1, keyPath: \.self), [1, 2, 3, 4, 5, 6])
 
-        // swiftlint:disable:next nesting
         struct TestStruct { let prop: String }
         let order3 = ["1", "2", "3", "4", "5"]
         let candidate3 = [
@@ -115,24 +114,24 @@ final class ArrayExtensionsTests: XCTestCase {
         ]
         XCTAssertEqual(arrayWithoutDuplicatesNHashable, arrayWithoutDuplicatesNHashablePrepared)
     }
-    
+
     func testAppendElement() {
         var testArray = ["h", "e", "l", "l", "o"]
         let optionalString: String? = "f"
         testArray.appendIfNonNil(optionalString)
         XCTAssertEqual(testArray, ["h", "e", "l", "l", "o", "f"])
-        
+
         let nilString: String? = nil
         testArray.appendIfNonNil(nilString)
         XCTAssertEqual(testArray, ["h", "e", "l", "l", "o", "f"])
     }
-    
+
     func testAppendSequence() {
         var testEmptyArray: [Double] = []
         let numbersToAppend: [Double]? = [69.0, 68.0, 67.0]
         testEmptyArray.appendIfNonNil(contentsOf: numbersToAppend)
         XCTAssertEqual(testEmptyArray, numbersToAppend)
-        
+
         var testStringArray: [String] = ["h", "e", "l", "l", "o"]
         let nilArray: [String]? = nil
         testStringArray.appendIfNonNil(contentsOf: nilArray)

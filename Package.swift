@@ -14,14 +14,12 @@ let package = Package(
     products: [
         .library(name: "SwifterSwift", targets: ["SwifterSwift"])
     ],
-    dependencies: [],
     targets: [
-        .target(name: "SwifterSwift", dependencies: []),
+        .target(name: "SwifterSwift"),
         .testTarget(
-            name: "SwifterSwiftTests", 
-            dependencies: ["SwifterSwift"], 
-            path: "Tests", 
-            exclude: ["Info.plist"], 
-            resources: [.process("ResourcesTests")]
-        )
+            name: "SwifterSwiftTests",
+            dependencies: ["SwifterSwift"],
+            path: "Tests",
+            exclude: ["Info.plist"],
+            resources: [.process("ResourcesTests/Resources")])
     ])

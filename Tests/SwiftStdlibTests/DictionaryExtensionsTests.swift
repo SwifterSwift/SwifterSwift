@@ -1,4 +1,4 @@
-// DictionaryExtensionsTests.swift - Copyright 2020 SwifterSwift
+// DictionaryExtensionsTests.swift - Copyright 2022 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -84,8 +84,8 @@ final class DictionaryExtensionsTests: XCTestCase {
     }
 
     func testOperatorPlus() {
-        let dict: [String: String] = ["key1": "value1"]
-        let dict2: [String: String] = ["key2": "value2"]
+        let dict = ["key1": "value1"]
+        let dict2 = ["key2": "value2"]
         let result = dict + dict2
         XCTAssert(result.keys.contains("key1"))
         XCTAssert(result.keys.contains("key2"))
@@ -100,8 +100,8 @@ final class DictionaryExtensionsTests: XCTestCase {
     }
 
     func testOperatorPlusEqual() {
-        var dict: [String: String] = ["key1": "value1"]
-        let dict2: [String: String] = ["key2": "value2"]
+        var dict = ["key1": "value1"]
+        let dict2 = ["key2": "value2"]
         dict += dict2
         XCTAssert(dict.keys.contains("key1"))
         XCTAssert(dict.keys.contains("key2"))
@@ -126,7 +126,6 @@ final class DictionaryExtensionsTests: XCTestCase {
     }
 
     func testCompactMapKeysAndValues() {
-        // swiftlint:disable:next nesting
         enum IntWord: String {
             case zero
             case one

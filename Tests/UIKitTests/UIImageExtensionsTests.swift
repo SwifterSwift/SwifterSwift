@@ -1,4 +1,4 @@
-// UIImageExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UIImageExtensionsTests.swift - Copyright 2022 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -7,6 +7,7 @@ import XCTest
 import UIKit
 
 final class UIImageExtensionsTests: XCTestCase {
+    @available(tvOS 10.0, *)
     func testAverageColor() {
         let size = CGSize(width: 10, height: 5)
 
@@ -246,7 +247,9 @@ final class UIImageExtensionsTests: XCTestCase {
     @available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     func testWithAlwaysOriginalTintColor() {
         let image = UIImage(color: .blue, size: CGSize(width: 20, height: 20))
-        XCTAssertEqual(image.withAlwaysOriginalTintColor(.red), image.withTintColor(.red, renderingMode: .alwaysOriginal))
+        XCTAssertEqual(
+            image.withAlwaysOriginalTintColor(.red),
+            image.withTintColor(.red, renderingMode: .alwaysOriginal))
     }
 }
 

@@ -1,9 +1,9 @@
-// NSColorExtensionsTests.swift - Copyright 2020 SwifterSwift
+// NSColorExtensionsTests.swift - Copyright 2022 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 
 final class NSColorExtensionsTests: XCTestCase {
