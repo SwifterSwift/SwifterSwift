@@ -34,6 +34,40 @@ public extension UILabel {
         label.sizeToFit()
         return label.frame.height
     }
+    
+    
+    /// SwifterSwift: Add attribute to UILabel
+    /// - Parameters:
+    ///   - range: The range of the string to apply attributes
+    func attribute(textIn range: Range<String.Index>?, _ attributes: [NSAttributedString.Key : Any]) {
+        guard let range = range else {
+            NSLog("Could not get the text range")
+            return
+        }
+        guard let text = text else {
+            NSLog("Could not get the text property")
+            return
+        }
+        let attributedString = NSMutableAttributedString(string: text)
+        attributedString.addAttributes(attributes, range: NSRange(range, in: text))
+        attributedText = attributedString
+    }
+    
+    /// SwifterSwift: Add attribute to UILabel
+    /// - Parameters:
+    ///   - ranges: The ranges of the strings to apply attributes
+    func attribute(textIn ranges: Array<Range<String.Index>?>, _ attributes: [NSAttributedString.Key : Any]) {
+        guard let text = text else {
+            NSLog("Could not get the text property")
+            return
+        }
+        let finalRanges = ranges.compactMap { $0 }
+        let attributedString = NSMutableAttributedString(string: text)
+        for range in finalRanges {        
+            attributedString.addAttributes(attributes, range: NSRange(range, in: text))
+        }
+        attributedText = attributedString
+    }
 }
 
 #endif
