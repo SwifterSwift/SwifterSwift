@@ -7,9 +7,6 @@ This document contains information and guidelines about contributing to this pro
 - [Asking Questions](#asking-questions)
 - [Ways to Contribute](#ways-to-contribute)
 - [Adding new Extensions](#adding-new-extensions)
-- [Adding Tests](#adding-tests)
-- [Adding documentation](#adding-documentation)
-- [Adding changelog entries](#adding-changelog-entries)
 - [Reporting Issues](#reporting-issues)
 
 ---
@@ -17,7 +14,7 @@ This document contains information and guidelines about contributing to this pro
 ## Asking Questions
 
 We don't use GitHub as a support forum.
-For any usage questions that are not specific to the project itself, please ask on [Stack Overflow](https://stackoverflow.com) instead with the tag SwifterSwift.
+For any usage questions that are not specific to the project itself, please ask on [Stack Overflow](https://stackoverflow.com) instead, with the tag SwifterSwift.
 By doing so, you'll be more likely to quickly solve your problem, and you'll allow anyone else with the same question to find the answer.
 This also allows us to focus on improving the project for others.
 
@@ -30,7 +27,7 @@ You can contribute to the project in a variety of ways:
 - Improve documentation 🙏
 - Add more extensions 👍
 - Add missing unit tests 😅
-- Fixing or reporting bugs 😱
+- Fix or report bugs 😱
 
 If you're new to Open Source or Swift the SwifterSwift community is a great place to get involved.
 
@@ -42,157 +39,245 @@ If you're new to Open Source or Swift the SwifterSwift community is a great plac
 
 Please refer to the following rules before submitting a pull request with your new extensions:
 
-- Make sure no similar extension already exist in SwifterSwift.
-- Add your contributions to [**master branch**](https://github.com/SwifterSwift/SwifterSwift/tree/master):
-  - by doing this we can merge new pull-requests into **master** branch as soon as they are accepted, and add them to the next releases once they are fully tested.
-- Mention the original source of extension source (if possible) as a comment inside extension:
+- Make sure no similar extension already exists in SwifterSwift.
+- Add your contributions to [**master branch**](https://github.com/SwifterSwift/SwifterSwift/tree/master), by doing so we can merge new pull requests as soon as they are accepted, and add them to the next releases once they are fully tested.
+- A pull request should preferably only add **one extension** at a time.
 
- ```swift
-public extension SomeType {
+For an extension to be suitable for SwifterSwift, it has to fulfill the following conditions:
 
-    public name: SomeType {
-        // https://stackoverflow.com/somepage
-        // .. code
+### 1. Clarity
+- Extension names should be in English and as clear as possible.
+- Code should be readable and easy to reason about. Refer to [Swift’s API Design Guidelines]([https://www.swift.org/documentation/api-design-guidelines/](https://www.swift.org/documentation/api-design-guidelines/)) for more details.
+
+### 2. No dependencies
+- We do not allow 3rd party dependencies in SwifterSwift.
+- Extensions can not rely on each other. We prefer code duplication over-abstraction in this project. That makes it easier to reason about a single extension individually.
+- Ideally, copy-pasting any single extension into another codebase should be possible.
+
+Allowed:
+
+```swift
+public extension Foo {
+	var bar: Bar { ... }
+}
+```
+
+Not allowed:
+
+```swift
+public extension Foo {
+	func bar() -> Bar { /* ... */ }
+	func baz() {
+      let bar = bar()
+      // ...
+  }
+}
+```
+
+### 3. Public extensions
+- Extension should be **public**:
+
+Example:
+```swift
+public extension Foo {
+	var bar: Bar { ... }
+}
+```
+
+- Avoid adding unnecessary `public` keywords for unites in an extension:
+
+```swift
+public extension Foo {
+	public var bar: Bar { ... }
+}
+```
+
+### 4. Examples of allowed code
+- Basically, anything that can be expressed in a single extension and does not expose a new type is allowed.
+
+Examples where `Foo` is the extended type:
+
+Get-only property:
+```swift
+public extension Foo {
+	var bar: Bar {
+        // ...
     }
-
 }
- ```
-
-- A pull request should only add one extension at a time.
-- Do not use an existing SwifterSwift extension inside another SwifterSwift extension. All extensions should be able to be copied and pasted and work immediately without having to copy another extension.
-- All extensions should follow [Swift API Design Guidelines](https://developer.apple.com/videos/play/wwdc2016/403/)
-- Always declare extensions as **public**.
-- All extensions names should be as clear as possible.
-- All extensions should be well documented. see [Adding documentation](#adding-documentation)
-- Avoid using custom classes and objects the goal for this library is to extend the standards types available natively in Swift, iOS, macOS, watchOS, tvOS and Linux.
-- Extensions could be:
-  - Enums
-  - Instance properties & type properties
-  - Instance methods & type methods
-  - Initializers
-  - Structs
-- All extensions should be tested. See [Adding Tests](#adding-tests) to know more.
-- Files are named based on the type that the contained extensions extend.
-  - (example: all String extensions are found in "**StringExtensions.swift**" file)
-- Add [subspec](https://github.com/SwifterSwift/SwifterSwift/blob/master/SwifterSwift.podspec) if you submit extensions for a module that is not presented in podspec file yet.
-- Extensions and tests are ordered inside files in the following order:
-
-```swift
-// MARK: - enums
-public enum {
-    // ...
-}
-
-// MARK: - Properties
-public extension SomeType {}
-
-// MARK: - Methods
-public extension SomeType {}
-
-// MARK: - Initializers
-public extension SomeType {}
 ```
 
----
+Static get-only property:
 
-## Adding Tests
+```swift
+public extension Foo {
+	static var bar: Bar {
+        // ...
+    }
+}
+```
 
-Please follow these guidelines before submitting a pull request with new tests:
+Get/set property:
 
-- Every extended SwifterSwift type should have one specific subclass of XCTestCase.
+```swift
+public extension Foo {
+	var bar: Bar {
+        get { /* ... */ }
+        set { /* ... */ }
+
+    }
+}
+```
+
+Static get/set property:
+
+```swift
+public extension Foo {
+	static var bar: Bar {
+        get { /* ... */ }
+        set { /* ... */ }
+
+    }
+}
+```
+
+Method:
+
+```swift
+public extension Foo {
+	func bar() {
+        // ...
+    }
+}
+```
+
+Static method:
+
+```swift
+public extension Foo {
+	static func bar() {
+        // ...
+    }
+}
+```
+
+Initializer:
+
+```swift
+public extension Foo {
+    init(bar: Bar) {
+        // ...
+    }
+}
+```
+
+Failable initializer:
+
+```swift
+public extension Foo {
+    init?(bar: Bar) {
+        // ...
+    }
+}
+```
+
+Operators and precedence groups:
+
+```swift
+precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
+infix operator **: PowerPrecedence
+public func ** (x: Decimal, y: Int) -> Decimal {
+    return pow(x, y)
+}
+```
+
+### 5. Examples of disallowed code
+- Introducing new types, including protocols, classes, actors, structs, or enums.
+- Protocol conformance. Example:
+
+```swift
+extension Foo: Codable {
+    // ...
+}
+```
+
+- Global functions (except operators):
+
+```swift
+public func bar() {
+    // ...
+}
+```
+
+- Introducing new types in an extension:
+
+```swift
+public extension Foo {
+  struct Bar {
+    // ...
+  }
+}
+```
+
+### 6. Documentation
+- Extensions should be well documented with an example —if possible—.
+- Documentation should always start with the prefix **SwifterSwift:**
+- Extensions should be fully documented in English and as clear as possible.
+- In Xcode select the extension and use the shortcut `command` + `alt` + `/` to create a documentation template. or use the following template:
+
+```swift
+/// SwifterSwift: <Description>.
+///
+///    <Example Code>
+///
+/// - Parameter <Parameter>: <Description>.
+/// - Throws: <Error>
+/// - Returns: <Description>
+```
+
+- Mention the source —if possible— as a comment inside the extension:
+
+```swift
+public extension Foo {
+	var bar: Bar {
+		// https://stackoverflow.com/...
+		// ...
+	}
+}
+```
+
+### 7. Tested
+- Every extended type should have a matching test case. Example:
+
+For the following extension of type `Bar` defined in framework `Foo`:
+
+> Sources/Foo/BarExtensions.swift
+
+```swift
+import Foo
+
+public extension Bar {
+    var baz: Baz { /* ... */ }
+}
+```
+
+The matching test case is:
+
+> Tests/Foo/BarExtensionsTests.swift
+
+```swift
+import Foo
+
+final class BarExtensionsTests: XCTestCase {
+    func testBaz() {
+        // ...
+    }
+}
+```
+
 - There should be a one to one relationship between methods/properties and their backing tests.
-- Tests should be named using the same API of the extension it backs.
-  - (example: `DateExtensions` method `isBetween` is named `testIsBetween`)
-- All test files are named based on the extensions which it tests.
-  - (example: all String extensions tests are found in "**StringExtensionsTests.swift**" file)
-- The subclass should be marked as final.
-- All extensions files and test files have a one to one relationship.
-  - (example: all tests for "**StringExtensions.swift**" are found in the "**StringExtensionsTests.swift**" file)
-- SwifterSwift source files should not be added to the test target directly, but you should rather import SwifterSwift into the test target by using: @testable import SwifterSwift
-- Tests are ordered inside files in the same order as extensions. See [Adding new Extensions](#adding-new-extensions) to know more.
-
----
-
-## Adding documentation
-
-Use the following template to add documentation for extensions
-> Replace placeholders inside <>
-
-> Remove any extra lines, eg. if method does not return any value, delete the `- Returns:` line
-
-### Documentation template for units with single parameter
-
-```swift
-/// SwifterSwift: <Description>.
-///
-///    <Example Code>
-///
-/// - Parameter <Paramenter>: <Description>.
-/// - Throws: <Error>
-/// - Returns: <Description>
-```
-
-### Documentation template for units with multiple parameters
-
-```swift
-/// SwifterSwift: <Description>.
-///
-///    <Example Code>
-///
-/// - Parameters:
-///   - <Paramenter>: <Description>.
-///   - <Paramenter>: <Description>.
-/// - Throws: <Error>
-/// - Returns: <Description>
-```
-
-### Documentation template for enums
-
-```swift
-/// SwifterSwift: <Description>.
-///
-/// - <Case1>: <Description>
-/// - <Case2>: <Description>
-/// - <Case3>: <Description>
-/// - <Case4>: <Description>
-```
-
-### Documentation Examples
-
-```swift
-
-/// SwifterSwift: Sum of all elements in array.
-///
-///    [1, 2, 3, 4, 5].sum() -> 15
-///
-/// - Returns: Sum of the array's elements.
-func sum() -> Element {
-    // ...
-}
-
-/// SwifterSwift: Date by changing value of calendar component.
-///
-/// - Parameters:
-///   - component: component type.
-///   - value: new value of component to change.
-/// - Returns: original date after changing given component to given value.
-func changing(_ component: Calendar.Component, value: Int) -> Date? {
-    // ...
-}
-
-```
-
-### Power Tip
-
-In Xcode select a method and press `command` + `alt` + `/` to create a documentation template!
-
----
-
-## Adding changelog entries
-
-The [Changelog](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md) is a file which contains a curated, chronologically ordered list of notable changes for each version of a project. Please make sure to add a changelog entry describing your contribution to it every time there is a notable change.
-
-The [Changelog Guidelines](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG_GUIDELINES.md) contains instructions for maintaining (or adding new entries) to the Changelog.
+- Tests should be named using the same API of the extension it backs, example: `DateExtensions`'s method `isBetween` is named `testIsBetween`.
+- Test case classes should be marked as final.
+- SwifterSwift source files should not be added to the test target directly, but you should rather import SwifterSwift into the test target by using: `@testable import SwifterSwift`
 
 ---
 
@@ -202,8 +287,7 @@ A great way to contribute to the project is to send a detailed issue when you en
 We always appreciate a well-written, thorough bug report.
 
 Check that the project [issues page](https://github.com/SwifterSwift/SwifterSwift/issues) doesn't already include that problem or suggestion before submitting an issue.
-If you find a match, add a quick "**+1**" or "**I have this problem too**".
-Doing this helps prioritize the most common problems and requests.
+If you find a match, add a quick "**+1**" or "**I have this problem too**". Doing this helps prioritize the most common problems and requests.
 
 **When reporting issues, please include the following:**
 
