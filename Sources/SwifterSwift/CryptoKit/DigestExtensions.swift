@@ -1,6 +1,6 @@
 // DigestExtensions.swift - Copyright 2022 SwifterSwift
 
-#if canImport(CoreLocation)
+#if canImport(CryptoKit)
 import CryptoKit
 
 @available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
