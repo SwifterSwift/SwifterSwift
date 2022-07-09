@@ -58,6 +58,11 @@ Pod::Spec.new do |s|
     sp.source_files  = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/CoreAnimation/*.swift'
   end
 
+  # CryptoKit Extensions
+  s.subspec 'CryptoKit' do |sp|
+    sp.source_files  = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/CryptoKit/*.swift'
+  end
+
   # MapKit Extensions
   s.subspec 'MapKit' do |sp|
     sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/MapKit/*.swift'
