@@ -8,10 +8,13 @@ public extension Digest {
 
     // MARK: - Properties
 
-    /// SwifterSwift: Hexadecimal value string (read-only)
+    /// SwifterSwift: Hexadecimal value string (read-only, Complexity: O(N), _N_ being the amount of bytes.)
     var hexString: String {
-        let bytes: [UInt8] = Array(makeIterator())
-        return Data(bytes).map { String(format: "%02X", $0) }.joined()
+        var result = ""
+        for byte in self {
+            result += String(format: "%02X", byte)
+        }
+        return result
     }
 }
 #endif
