@@ -64,6 +64,9 @@ SwifterSwift is Swift v5.0+ compatible starting from v5
 <h4>- Integrate CoreLocation extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/CoreLocation'</code></pre>
 
+<h4>- Integrate CryptoKit extensions only:</h4>
+<pre><code class="ruby language-ruby">pod 'SwifterSwift/CryptoKit'</code></pre>
+
 <h4>- Integrate SpriteKit extensions only:</h4>
 <pre><code class="ruby language-ruby">pod 'SwifterSwift/SpriteKit'</code></pre>
 
@@ -259,6 +262,14 @@ let package = Package(
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreAnimation/CAGradientLayerExtensions.swift"><code>CAGradientLayer extensions</code></a></li>
+</ul>
+</details>
+
+<details>
+<summary>CryptoKit Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CryptoKit/DigestExtensions.swift"><code>Digest extensions</code></a></li>
 </ul>
 </details>
 
