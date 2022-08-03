@@ -7,4 +7,5 @@
 //
 
 /// Typealias for defining handlers in generic way.
+/// - parameter T: Type of desired handler.
 public typealias GenericHandler<T> = (T) -> Void
