@@ -135,7 +135,22 @@ public extension UIButton {
     func setTitleColorForAllStates(_ color: UIColor) {
         states.forEach { setTitleColor(color, for: $0) }
     }
-
+    
+    /// SwifterSwift: Set background color for state
+    ///
+    /// - Parameter color: UIColor.
+    func setBackgroundColor(_ color: UIColor, forState: UIControl.State) {
+        self.clipsToBounds = true  // add this to maintain corner radius
+        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
+        if let context = UIGraphicsGetCurrentContext() {
+            context.setFillColor(color.cgColor)
+            context.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
+            let colorImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+            self.setBackgroundImage(colorImage, for: forState)
+        }
+    }
+    
     /// SwifterSwift: Set title for all states.
     ///
     /// - Parameter title: title string.
