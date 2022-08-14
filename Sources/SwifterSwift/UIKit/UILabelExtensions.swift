@@ -39,11 +39,7 @@ public extension UILabel {
     /// SwifterSwift: Add attribute to UILabel
     /// - Parameters:
     ///   - range: The range of the string to apply attributes
-    func attribute(textIn range: Range<String.Index>?, _ attributes: [NSAttributedString.Key : Any]) {
-        guard let range = range else {
-            NSLog("Could not get the text range")
-            return
-        }
+    func addAttributes(_ attributes: [NSAttributedString.Key : Any], in range: Range<String.Index>) {
         guard let text = text else {
             NSLog("Could not get the text property")
             return
@@ -56,14 +52,13 @@ public extension UILabel {
     /// SwifterSwift: Add attribute to UILabel
     /// - Parameters:
     ///   - ranges: The ranges of the strings to apply attributes
-    func attribute(textIn ranges: Array<Range<String.Index>?>, _ attributes: [NSAttributedString.Key : Any]) {
+    func addAttributes(_ attributes: [NSAttributedString.Key : Any], in ranges: Array<Range<String.Index>>) {
         guard let text = text else {
             NSLog("Could not get the text property")
             return
         }
-        let finalRanges = ranges.compactMap { $0 }
         let attributedString = NSMutableAttributedString(string: text)
-        for range in finalRanges {        
+        for range in ranges {
             attributedString.addAttributes(attributes, range: NSRange(range, in: text))
         }
         attributedText = attributedString

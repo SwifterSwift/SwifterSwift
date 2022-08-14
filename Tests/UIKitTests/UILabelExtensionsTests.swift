@@ -35,6 +35,13 @@ final class UILabelExtensionsTests: XCTestCase {
         XCTAssert(label.requiredHeight < 100)
         #endif
     }
+    
+    func testAttributes() {
+        let text = "Example of attributed text"
+        let label = UILabel()
+        label.text = text
+        label.addAttributes([.foregroundColor : UIColor.blue], in: text.range(of: "attributed")!)
+    }
 }
 
 #endif
