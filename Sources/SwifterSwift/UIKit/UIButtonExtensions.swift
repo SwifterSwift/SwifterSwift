@@ -185,14 +185,14 @@ public extension UIButton {
     ///   - color: UIColor.
     ///   - forState: set the UIControl.State for the desired color.
     func setBackgroundColor(color: UIColor, forState: UIControl.State) {
-        self.clipsToBounds = true  // maintain corner radius
+        clipsToBounds = true  // maintain corner radius
         UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
         if let context = UIGraphicsGetCurrentContext() {
             context.setFillColor(color.cgColor)
             context.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
             let colorImage = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
-            self.setBackgroundImage(colorImage, for: forState)
+            setBackgroundImage(colorImage, for: forState)
         }
     }
 }
