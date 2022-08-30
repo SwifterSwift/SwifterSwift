@@ -182,7 +182,7 @@ public extension UIButton {
     
     /// SwifterSwift: Set background color for specified state.
     /// - Parameters:
-    ///   - color: UIColor.
+    ///   - color: The color of the image that will be set as background for the button in the given state.
     ///   - forState: set the UIControl.State for the desired color.
     func setBackgroundColor(color: UIColor, forState: UIControl.State) {
         clipsToBounds = true  // maintain corner radius
