@@ -220,6 +220,18 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(button.attributedTitleForNormal, title)
         XCTAssertEqual(button.attributedTitleForSelected, title)
     }
+    
+    func testSetBackgroundColorForState() {
+        let button = UIButton()
+        let color = UIColor.green
+        
+        button.setBackgroundColor(color: color, forState: .highlighted)
+        
+        let highlightedBackgroundImage = button.backgroundImage(for: .highlighted)
+        let averageColor = highlightedBackgroundImage!.averageColor()!
+        
+        XCTAssertEqual(averageColor, color, accuracy: 1.0)
+    }
 }
 
 #endif
