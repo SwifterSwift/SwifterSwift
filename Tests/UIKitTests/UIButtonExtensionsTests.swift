@@ -230,7 +230,7 @@ final class UIButtonExtensionsTests: XCTestCase {
         let highlightedBackgroundImage = button.backgroundImage(for: .highlighted)
         let averageColor = highlightedBackgroundImage!.averageColor()!
         
-        XCTAssertEqual(averageColor, color, accuracy: 1.0)
+        XCTAssertEqual(averageColor, color, accuracy: 0.0001)
     }
 }
 
