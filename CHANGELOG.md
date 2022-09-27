@@ -4,6 +4,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 
+### Fixed
+- **Date**
+  - fixed incorrect calculation in `nearestTenMinutes` , to align with other `nearest*` date calculations.  [#1034](https://github.com/SwifterSwift/SwifterSwift/pull/1034) by [mmdock](https://github.com/mmdock)
+
 ## [v5.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/5.3.0)
 ### Breaking Change
 - **Sequence**
