@@ -491,6 +491,30 @@ public extension Date {
     var unixTimestamp: Double {
         return timeIntervalSince1970
     }
+    
+    /// SwifterSwift: Which day of the year
+    ///
+    ///     Date().dayInYear -> 276
+    ///
+    var dayInYear: Int {
+        return Calendar.current.ordinality(of: .day, in: .year, for: self)!
+    }
+
+    /// SwifterSwift: Total days in the year
+    ///
+    ///     Date().numberOfDaysInYear -> 365
+    ///
+    var numberOfDaysInYear: Int {
+        return Calendar.current.range(of: .day, in: .year, for: self)!.upperBound - 1
+    }
+
+    /// SwifterSwift: No. of days left in the year
+    ///
+    ///     Date().numberOfDaysLeftInYear -> 89
+    ///
+    var numberOfDaysLeftInYear: Int {
+        return numberOfDaysInYear - dayInYear
+    }
 }
 
 // MARK: - Methods
