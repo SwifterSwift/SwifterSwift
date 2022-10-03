@@ -241,8 +241,8 @@ public extension Sequence {
     /// - Returns: A sequence of the intermediate results calling `combine` on successive elements of self and an acuumulator
     func scan(initial: Element, combine: (Element, Element) throws -> Element) rethrows -> [Element] {
         var accu = initial
-        return try map { e in
-            accu = try combine(accu, e)
+        return try map { element in
+            accu = try combine(accu, element)
             return accu
         }
     }
