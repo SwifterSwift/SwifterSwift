@@ -230,6 +230,22 @@ public extension Sequence {
     func first<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Element? {
         return first { $0[keyPath: keyPath] == value }
     }
+
+    /// SwifterSwift: Return a sequence where every value is equal to combine called on the previous element, and the current element.
+    ///
+    ///        [1, 2, 3].scan(0, combine: +) -> [1, 3, 6]
+    ///        ["a", "b", "c"].scan("", combine: +) -> ["a", "ab", "abc"]
+    ///
+    /// - Parameter initial: Initial result
+    /// - Parameter combine: A closure that takes as its arguments the previous value returned by the closure and the next element
+    /// - Returns: A sequence of the intermediate results calling `combine` on successive elements of self and an acuumulator
+    func scan(initial: Element, combine: (Element, Element) throws -> Element) rethrows -> [Element] {
+        var accu = initial
+        return try map { e in
+            accu = try combine(accu, e)
+            return accu
+        }
+    }
 }
 
 public extension Sequence where Element: Equatable {
