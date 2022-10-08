@@ -9,8 +9,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `setBackgroundColor(_:for:)` method for setting background color for the specified UI state. [#1041](https://github.com/SwifterSwift/SwifterSwift/pull/1041) by [TwizzyIndy](https://github.com/TwizzyIndy)
 
 ### Fixed
- - **Digest**
-   - `DigestExtensions.swift` would not compile on Xcode 14 due to an `ambiguous use of 'makeIterator()'` error. [#1042](https://github.com/SwifterSwift/SwifterSwift/issues/1042) by [theedov](https://github.com/theedov)
+- **Date**
+  - Fixed incorrect calculation in `nearestTenMinutes` to align with other `nearest*` date calculations. [#1034](https://github.com/SwifterSwift/SwifterSwift/pull/1034) by [mmdock](https://github.com/mmdock)
+- **Digest**
+  - `DigestExtensions.swift` would not compile on Xcode 14 due to an `ambiguous use of 'makeIterator()'` error. [#1042](https://github.com/SwifterSwift/SwifterSwift/issues/1042) by [theedov](https://github.com/theedov)
 
 ## [v5.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/5.3.0)
 ### Breaking Change

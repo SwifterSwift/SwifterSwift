@@ -398,8 +398,11 @@ final class DateExtensionsTests: XCTestCase {
         let date3 = date.adding(.minute, value: 7) // adding 7 minutes
         XCTAssertEqual(date3.nearestFiveMinutes, date3.adding(.minute, value: -2))
 
-        let date4 = date.adding(.hour, value: 1).adding(.minute, value: 2) // adding 1 hour and 2 minutes
-        XCTAssertEqual(date4.nearestFiveMinutes, date.adding(.hour, value: 1))
+        let date4 = date.adding(.minute, value: 2)
+        XCTAssertEqual(date4.nearestFiveMinutes, date)
+        
+        let date5 = date.adding(.minute, value: 3)
+        XCTAssertEqual(date5.nearestFiveMinutes, date.adding(.minute, value: 5))
     }
 
     func testNearestTenMinutes() {
@@ -414,6 +417,9 @@ final class DateExtensionsTests: XCTestCase {
 
         let date4 = date.adding(.hour, value: 1).adding(.minute, value: 2) // adding 1 hour and 2 minutes
         XCTAssertEqual(date4.nearestTenMinutes, date.adding(.hour, value: 1))
+        
+        let date5 = date.adding(.minute, value: 5) // adding 5 minutes
+        XCTAssertEqual(date5.nearestTenMinutes, date.adding(.minute, value: 10))
     }
 
     func testNearestQuarterHour() {
@@ -428,6 +434,12 @@ final class DateExtensionsTests: XCTestCase {
 
         let date4 = date.adding(.hour, value: 1).adding(.minute, value: 2) // adding 1 hour and 2 minutes
         XCTAssertEqual(date4.nearestQuarterHour, date.adding(.hour, value: 1))
+        
+        let date5 = date.adding(.minute, value: 8) // adding 8 minutes
+        XCTAssertEqual(date5.nearestQuarterHour, date.adding(.minute, value: 15))
+        
+        let date6 = date.adding(.minute, value: 7) // adding 7 minutes
+        XCTAssertEqual(date6.nearestQuarterHour, date)
     }
 
     func testNearestHalfHour() {
@@ -442,6 +454,9 @@ final class DateExtensionsTests: XCTestCase {
 
         let date4 = date.adding(.hour, value: 1).adding(.minute, value: 2) // adding 1 hour and 2 minutes
         XCTAssertEqual(date4.nearestHalfHour, date.adding(.hour, value: 1))
+        
+        let date5 = date.adding(.minute, value: 15) // adding 15 minutes
+        XCTAssertEqual(date5.nearestHalfHour, date.adding(.minute, value: 30))
     }
 
     func testNearestHour() {
@@ -453,6 +468,9 @@ final class DateExtensionsTests: XCTestCase {
 
         let date3 = date.adding(.minute, value: 34) // adding 34 minutes
         XCTAssertEqual(date3.nearestHour, date.adding(.hour, value: 1))
+        
+        let date4 = date.adding(.minute, value: 30) // adding 30 minutes
+        XCTAssertEqual(date4.nearestHour, date.adding(.hour, value: 1))
     }
 
     func testUnixTimestamp() {
