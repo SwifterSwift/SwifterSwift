@@ -199,11 +199,11 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertNil(missingPerson)
     }
 
-    func testScan() {
-        let scanInt = [1, 2, 3].scan(initial: 0, combine: +)
+    func testCumulate() {
+        let scanInt = [1, 2, 3].cumulate(0, +)
         XCTAssertEqual(scanInt, [1, 3, 6])
 
-        let scanString = ["a", "b", "c"].scan(initial: "", combine: +)
+        let scanString = ["a", "b", "c"].cumulate("", +)
         XCTAssertEqual(scanString, ["a", "ab", "abc"])
     }
 }

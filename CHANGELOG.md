@@ -8,7 +8,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIButton**
   - Added `setBackgroundColor(_:for:)` method for setting background color for the specified UI state. [#1041](https://github.com/SwifterSwift/SwifterSwift/pull/1041) by [TwizzyIndy](https://github.com/TwizzyIndy)
 - **Sequence**
-  - Added `scan(initial:combine:)` method [#1050](https://github.com/SwifterSwift/SwifterSwift/pull/1050) by [cHaLkdusT](https://github.com/cHaLkdusT)
+  - Added `cumulate(::)` method. [#1050](https://github.com/SwifterSwift/SwifterSwift/pull/1050) by [cHaLkdusT](https://github.com/cHaLkdusT)
 
 ### Fixed
  - **Digest**
