@@ -121,6 +121,10 @@ public extension UIViewController {
     ///
     ///  - Throws: assertionFailure occur when SF Symbol is not found
     func setTabBarImage(SFImageName: String, title: String) {
+        guard tabBarItem.isEnabled else {
+            assertionFailure("tabBar is not enabled: reason could be UIViewController not embedded in TabBarViewController")
+            return
+        }
         let configuration = UIImage.SymbolConfiguration(scale: .large)
         guard let image = UIImage(systemName: SFImageName, withConfiguration: configuration) else {
             assertionFailure("Please provide correct SF Symbol name")
