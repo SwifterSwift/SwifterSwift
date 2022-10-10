@@ -131,6 +131,17 @@ final class UIViewControllerExtensionsTests: XCTestCase {
 
         XCTAssertNil(childViewController.parent)
     }
+    
+    func testSetTabBarImage() {
+        let viewController = UIViewController()
+        let imageName = "sun.max"
+        let title = "Sun"
+        viewController.setTabBarImage(SFImageName: imageName, title: title)
+        let testImage = UIImage(systemName: imageName, withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+        
+        XCTAssertEqual(viewController.tabBarItem.image?.isSymbolImage, testImage?.isSymbolImage)
+        XCTAssertEqual(viewController.tabBarItem.title, title)
+    }
 
     #if os(iOS)
     func testPresentPopover() {
