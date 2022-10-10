@@ -463,6 +463,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIViewController**
   - Added `addChildViewController(_:toContainerView)` to easily add child view controllers. Accepts a `UIViewController` and a `UIView` to add the child's view to.
   - Added `removeViewAndControllerFromParentViewController()` to remove a `UIViewController` from its parent.
+  - Added `setTabBarImage(SFImageName:, title:)` to set an SF Symbol Image as tabBarItem image when UIViewController is embedded in UITabBarViewController
 - **NSView**
   - Added `backgroundColor` which allows to change backgroundColor of NSView [#702](https://github.com/SwifterSwift/SwifterSwift/pull/702) by [RomanPodymov](https://github.com/RomanPodymov)
 - **UIEdgeInsets**
