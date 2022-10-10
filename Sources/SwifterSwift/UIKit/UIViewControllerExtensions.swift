@@ -111,6 +111,19 @@ public extension UIViewController {
         removeFromParent()
         view.removeFromSuperview()
     }
+    
+    /// SwifterSwift: Helper method to set tabBarItem when UIViewController is added to a UITabBarViewController with image from SF Symbol
+    ///  - Parameters:
+    ///     - imageName: the SF Symbol name.
+    ///     - title: the tab bar title.
+    func setTabBarImage(SFImageName: String, title: String) {
+        let configuration = UIImage.SymbolConfiguration(scale: .large)
+        guard let image = UIImage(systemName: SFImageName, withConfiguration: configuration) else {
+            assertionFailure("Please provide correct SF Symbol name")
+            return
+        }
+        tabBarItem = UITabBarItem(title: title, image: image, tag: 0)
+    }
 
     #if os(iOS)
     /// SwifterSwift: Helper method to present a UIViewController as a popover.
