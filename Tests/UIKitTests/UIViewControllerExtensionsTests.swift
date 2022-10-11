@@ -135,17 +135,13 @@ final class UIViewControllerExtensionsTests: XCTestCase {
     @available(iOS 13.0, *)
     func testSetTabBarImage() {
         let viewController = UIViewController()
-        let systemName = "sun.max"
-        let title = "Sun"
+        let systemName = "message.fill"
+        let title = "Message"
+        let configuration = UIImage.SymbolConfiguration(scale: .large)
         
-        viewController.tabBarItem.isEnabled = false // test error path when isEnabled is false
-        XCTAssertFalse(viewController.setTabBarImage(systemName: systemName, title: title))
+        let testImage = UIImage(systemName: systemName, withConfiguration: configuration)
+        viewController.setTabBarImage(systemName: systemName,configuration: configuration , title: title)
         
-        viewController.tabBarItem.isEnabled = true // test error path when passing improper image name
-        XCTAssertFalse(viewController.setTabBarImage(systemName: "SUN.MAX", title: title))
-        let testImage = UIImage(systemName: systemName, withConfiguration: UIImage.SymbolConfiguration(scale: .large))
-        
-        XCTAssertTrue(viewController.setTabBarImage(systemName: systemName, title: title))
         XCTAssertEqual(viewController.tabBarItem.image?.isSymbolImage, testImage?.isSymbolImage)
         XCTAssertEqual(viewController.tabBarItem.title, title)
     }

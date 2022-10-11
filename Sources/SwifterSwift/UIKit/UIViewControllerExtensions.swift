@@ -113,24 +113,20 @@ public extension UIViewController {
     }
     
     /// SwifterSwift: Helper method to set tabBarItem when UIViewController is added to a UITabBarViewController with image from SF Symbol
-    ///  - Example: UIViewController.setTabBarImage(SFImageName: "message.fill", title: "Messages")
+    ///  - Example: viewController.setTabBarImage(systemName: "message.fill", title: "Messages")
     ///
     ///  - Parameters:
     ///     - imageName: the SF Symbol name.
     ///     - title: the tab bar title.
-    ///
-    ///  - Throws: assertionFailure occur when SF Symbol is not found
     @available(iOS 13.0, *)
-    func setTabBarImage(systemName: String, title: String) -> Bool {
-        guard tabBarItem.isEnabled else {
-            return false
-        } // By default isEnabled attribute is set to true
-        let configuration = UIImage.SymbolConfiguration(scale: .large)
+    func setTabBarImage(
+        systemName: String,
+        configuration: UIImage.SymbolConfiguration = .init(scale: .large),
+        title: String? = nil) {
         guard let image = UIImage(systemName: systemName, withConfiguration: configuration) else {
-            return false
+            return
         }
-        tabBarItem = UITabBarItem(title: title, image: image, tag: 0)
-        return true
+            tabBarItem = UITabBarItem(title: title ?? tabBarItem.title, image: image, tag: tabBarItem.tag)
     }
 
     #if os(iOS)
