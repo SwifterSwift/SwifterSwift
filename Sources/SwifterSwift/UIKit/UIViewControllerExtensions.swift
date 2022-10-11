@@ -120,17 +120,17 @@ public extension UIViewController {
     ///     - title: the tab bar title.
     ///
     ///  - Throws: assertionFailure occur when SF Symbol is not found
-    func setTabBarImage(SFImageName: String, title: String) {
+    @available(iOS 13.0, *)
+    func setTabBarImage(systemName: String, title: String) -> Bool {
         guard tabBarItem.isEnabled else {
-            assertionFailure("tabBar is not enabled: reason could be UIViewController not embedded in TabBarViewController")
-            return
-        }
+            return false
+        } // By default isEnabled attribute is set to true
         let configuration = UIImage.SymbolConfiguration(scale: .large)
-        guard let image = UIImage(systemName: SFImageName, withConfiguration: configuration) else {
-            assertionFailure("Please provide correct SF Symbol name")
-            return
+        guard let image = UIImage(systemName: systemName, withConfiguration: configuration) else {
+            return false
         }
         tabBarItem = UITabBarItem(title: title, image: image, tag: 0)
+        return true
     }
 
     #if os(iOS)
