@@ -7,7 +7,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **UIButton**
   - Added `setBackgroundColor(_:for:)` method for setting background color for the specified UI state. [#1041](https://github.com/SwifterSwift/SwifterSwift/pull/1041) by [TwizzyIndy](https://github.com/TwizzyIndy)
-
+  - Added `setTabBarImage(systemName:configuration:title:)` to set an SF Symbol Image as `tabBarItem` image when `UIViewController` is embedded in `UITabBarViewController`.
 ### Fixed
 - **Date**
   - Fixed incorrect calculation in `nearestTenMinutes` to align with other `nearest*` date calculations. [#1034](https://github.com/SwifterSwift/SwifterSwift/pull/1034) by [mmdock](https://github.com/mmdock)
@@ -461,7 +461,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `addGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to add multiple gesture recognizers to a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
   - Added `removeGestureRecognizers(_:)` which accepts an array of `UIGestureRecognizer` to remove multiple gesture recognizers from a view with one call. [#523](https://github.com/SwifterSwift/SwifterSwift/pull/523) by [moyerr](https://github.com/moyerr)
 - **UIViewController**
-  - Added `setTabBarImage(systemName:configuration:title:)` to set an SF Symbol Image as `tabBarItem` image when `UIViewController` is embedded in `UITabBarViewController`.
   - Added `addChildViewController(_:toContainerView)` to easily add child view controllers. Accepts a `UIViewController` and a `UIView` to add the child's view to.
   - Added `removeViewAndControllerFromParentViewController()` to remove a `UIViewController` from its parent.
 - **NSView**
