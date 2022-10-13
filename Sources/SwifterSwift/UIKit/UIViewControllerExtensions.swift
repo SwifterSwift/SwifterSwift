@@ -118,7 +118,7 @@ public extension UIViewController {
     ///  - Parameters:
     ///     - imageName: the SF Symbol name.
     ///     - title: the tab bar title.
-    @available(iOS 13.0, *)
+    @available(iOS 13.0, *)  @available(tvOS 13.0, *)
     func setTabBarImage(
         systemName: String,
         configuration: UIImage.SymbolConfiguration = .init(scale: .large),

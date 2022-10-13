@@ -132,16 +132,19 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertNil(childViewController.parent)
     }
     
-    @available(iOS 13.0, *)
+    @available(iOS 13.0, *) @available(tvOS 13.0, *)
     func testSetTabBarImage() {
         let viewController = UIViewController()
         let systemName = "message.fill"
         let title = "Message"
         let configuration = UIImage.SymbolConfiguration(scale: .large)
         
+        viewController.setTabBarImage(systemName: "Nil",title: "Nil")
+        XCTAssertNil(viewController.tabBarItem.image)
+        
         let testImage = UIImage(systemName: systemName, withConfiguration: configuration)
         viewController.setTabBarImage(systemName: systemName,configuration: configuration , title: title)
-        
+    
         XCTAssertEqual(viewController.tabBarItem.image?.isSymbolImage, testImage?.isSymbolImage)
         XCTAssertEqual(viewController.tabBarItem.title, title)
     }
