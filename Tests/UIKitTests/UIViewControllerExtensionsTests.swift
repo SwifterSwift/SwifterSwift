@@ -142,10 +142,9 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         viewController.setTabBarImage(systemName: "Nil",title: "Nil")
         XCTAssertNil(viewController.tabBarItem.image)
         
-        let testImage = UIImage(systemName: systemName, withConfiguration: configuration)
-        viewController.setTabBarImage(systemName: systemName,configuration: configuration , title: title)
-    
-        XCTAssertEqual(viewController.tabBarItem.image?.isSymbolImage, testImage?.isSymbolImage)
+        viewController.setTabBarImage(systemName: systemName, configuration: configuration, title: title)
+
+        XCTAssertEqual(viewController.tabBarItem.image?.isSymbolImage, true)
         XCTAssertEqual(viewController.tabBarItem.title, title)
     }
 

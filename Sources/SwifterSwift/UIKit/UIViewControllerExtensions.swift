@@ -116,7 +116,7 @@ public extension UIViewController {
     ///  - Example: viewController.setTabBarImage(systemName: "message.fill", title: "Messages")
     ///
     ///  - Parameters:
-    ///     - imageName: the SF Symbol name.
+    ///     - systemName: the SF Symbol name.
     ///     - configuration: UIImage.SymbolConfiguration by defualt is scaled to large
     ///     - title: the tab bar title.
     @available(iOS 13.0, *)  @available(tvOS 13.0, *)
@@ -127,7 +127,7 @@ public extension UIViewController {
         guard let image = UIImage(systemName: systemName, withConfiguration: configuration) else {
             return
         }
-            tabBarItem = UITabBarItem(title: title ?? tabBarItem.title, image: image, tag: tabBarItem.tag)
+        tabBarItem = UITabBarItem(title: title ?? tabBarItem.title, image: image, tag: tabBarItem.tag)
     }
 
     #if os(iOS)
