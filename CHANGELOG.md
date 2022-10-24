@@ -7,8 +7,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **UIButton**
   - Added `setBackgroundColor(_:for:)` method for setting background color for the specified UI state. [#1041](https://github.com/SwifterSwift/SwifterSwift/pull/1041) by [TwizzyIndy](https://github.com/TwizzyIndy)
+- **UIViewController**
   - Added `setTabBarImage(systemName:configuration:title:)` to set an SF Symbol Image as `tabBarItem` image when `UIViewController` is embedded in `UITabBarViewController`.
-  
+
 ### Fixed
 - **Date**
   - Fixed incorrect calculation in `nearestTenMinutes` to align with other `nearest*` date calculations. [#1034](https://github.com/SwifterSwift/SwifterSwift/pull/1034) by [mmdock](https://github.com/mmdock)
