@@ -20,16 +20,16 @@ public extension NSAttributedString {
         guard !string.isEmpty else { return self }
 
         let pointSize: CGFloat
-        if let font = attribute(.font, at: 0, effectiveRange: nil) as? Font {
+        if let font = attribute(.font, at: 0, effectiveRange: nil) as? SFFont {
             pointSize = font.pointSize
         } else {
             #if os(tvOS) || os(watchOS)
-            pointSize = Font.preferredFont(forTextStyle: .headline).pointSize
+            pointSize = SFFont.preferredFont(forTextStyle: .headline).pointSize
             #else
-            pointSize = Font.systemFontSize
+            pointSize = SFFont.systemFontSize
             #endif
         }
-        return applying(attributes: [.font: Font.boldSystemFont(ofSize: pointSize)])
+        return applying(attributes: [.font: SFFont.boldSystemFont(ofSize: pointSize)])
     }
     #endif
 

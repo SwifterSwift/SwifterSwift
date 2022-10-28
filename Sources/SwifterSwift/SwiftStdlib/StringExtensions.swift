@@ -1186,7 +1186,7 @@ public extension String {
     var bold: NSAttributedString {
         return NSMutableAttributedString(
             string: self,
-            attributes: [.font: Font.boldSystemFont(ofSize: Font.systemFontSize)])
+            attributes: [.font: SFFont.boldSystemFont(ofSize: SFFont.systemFontSize)])
     }
     #endif
 
