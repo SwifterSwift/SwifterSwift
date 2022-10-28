@@ -61,13 +61,13 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
         out = string.applying(attributes: [
             .strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue),
-            .foregroundColor: Color.red
+            .foregroundColor: SFColor.red
         ])
         attributes = out.attributes(at: 0, effectiveRange: nil)
         XCTAssertEqual(attributes.count, 2)
         XCTAssertEqual(attributes[.strikethroughStyle] as! NSNumber, // swiftlint:disable:this force_cast
                        NSNumber(value: NSUnderlineStyle.single.rawValue))
-        XCTAssertEqual(attributes[.foregroundColor] as! Color, .red) // swiftlint:disable:this force_cast
+        XCTAssertEqual(attributes[.foregroundColor] as! SFColor, .red) // swiftlint:disable:this force_cast
         #endif
     }
 
@@ -77,15 +77,15 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         var out = string.colored(with: .red)
         var attributes = out.attributes(at: 0, effectiveRange: nil)
         let filteredAttributes = attributes.filter { (key, value) -> Bool in
-            return (key == NSAttributedString.Key.foregroundColor && (value as? Color) == .red)
+            return (key == NSAttributedString.Key.foregroundColor && (value as? SFColor) == .red)
         }
 
         XCTAssertEqual(filteredAttributes.count, 1)
 
         out = out.colored(with: .blue)
         attributes = out.attributes(at: 0, effectiveRange: nil)
-        XCTAssertEqual(attributes[NSAttributedString.Key.foregroundColor] as? Color, .blue)
-        XCTAssertNotEqual(attributes[NSAttributedString.Key.foregroundColor] as? Color, .red)
+        XCTAssertEqual(attributes[NSAttributedString.Key.foregroundColor] as? SFColor, .blue)
+        XCTAssertNotEqual(attributes[NSAttributedString.Key.foregroundColor] as? SFColor, .red)
         #endif
     }
 
