@@ -1,1 +1,2 @@
 brew "swiftformat"
+brew "ruby"
