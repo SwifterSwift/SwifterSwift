@@ -10,8 +10,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Array**
   - Added `init(count:element:)` initializer for creating an array of a given size with a closure. [#1051](https://github.com/SwifterSwift/SwifterSwift/pull/1051) by [viktart](https://github.com/viktart)
 ### Fixed
- - **Digest**
-   - `DigestExtensions.swift` would not compile on Xcode 14 due to an `ambiguous use of 'makeIterator()'` error. [#1042](https://github.com/SwifterSwift/SwifterSwift/issues/1042) by [theedov](https://github.com/theedov)
+- **Date**
+  - Fixed incorrect calculation in `nearestTenMinutes` to align with other `nearest*` date calculations. [#1034](https://github.com/SwifterSwift/SwifterSwift/pull/1034) by [mmdock](https://github.com/mmdock)
+- **Digest**
+  - `DigestExtensions.swift` would not compile on Xcode 14 due to an `ambiguous use of 'makeIterator()'` error. [#1042](https://github.com/SwifterSwift/SwifterSwift/issues/1042) by [theedov](https://github.com/theedov)
 
 ## [v5.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/5.3.0)
 ### Breaking Change
