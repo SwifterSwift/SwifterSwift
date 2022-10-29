@@ -23,6 +23,7 @@ jobs:
       run: |
         brew update-reset
         brew bundle --no-upgrade
+        export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
     - name: Test iOS
       run: |
         xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
