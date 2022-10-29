@@ -43,7 +43,7 @@ jobs:
         bash <(curl -s https://codecov.io/bash) -cF tvos -J 'SwifterSwift'
       env:
           SCHEME: SwifterSwift-tvOS
-          DESTINATION: platform=tvOS Simulator,name=Apple TV 4K (at 1080p)
+          DESTINATION: platform=tvOS Simulator,name=Apple TV
     - name: Build WatchOS
       run: xcodebuild clean build -project $PROJECT -scheme $SCHEME -destination "$DESTINATION"
       env:
