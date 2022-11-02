@@ -364,7 +364,7 @@ Please refer to [contributing guidelines](https://github.com/SwifterSwift/Swifte
 
 ## Slack Channel: [![Slack](https://img.shields.io/badge/Slack-SwifterSwift-green.svg)](https://join.slack.com/t/swifterswift/shared_invite/zt-s6dl4g2e-R5V5baIawGpdUz2heShjiQ)
 
-It is always nice to talk with other people using SwifterSwift and exchange experiences, so come [join our Slack channel](https://join.slack.com/t/swifterswift/shared_invite/zt-s6dl4g2e-R5V5baIawGpdUz2heShjiQ).
+It is always nice to talk with other people using SwifterSwift and exchange experiences, so come [join our Slack channel](https://swifterswift.slack.com).
 
 ## Thanks
 
