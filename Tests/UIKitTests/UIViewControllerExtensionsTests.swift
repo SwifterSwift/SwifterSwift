@@ -132,7 +132,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertNil(childViewController.parent)
     }
     
-    @available(iOS 13, tvOS 13.0, *) 
+    @available(iOS 13, tvOS 13.0, *)
     func testSetTabBarImage() {
         let viewController = UIViewController()
         let systemName = "message.fill"
