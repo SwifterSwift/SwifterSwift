@@ -28,7 +28,7 @@ public extension SCNSphere {
     /// - Parameters:
     ///   - radius: The radius of the sphere in its local coordinate space.
     ///   - color: The color of the geometry's material.
-    convenience init(radius: CGFloat, color: Color) {
+    convenience init(radius: CGFloat, color: SFColor) {
         self.init(radius: radius, material: SCNMaterial(color: color))
     }
 
@@ -47,7 +47,7 @@ public extension SCNSphere {
     /// - Parameters:
     ///   - diameter: The diameter of the sphere in its local coordinate space.
     ///   - color: The color of the geometry's material.
-    convenience init(diameter: CGFloat, color: Color) {
+    convenience init(diameter: CGFloat, color: SFColor) {
         self.init(diameter: diameter, material: SCNMaterial(color: color))
     }
 }
