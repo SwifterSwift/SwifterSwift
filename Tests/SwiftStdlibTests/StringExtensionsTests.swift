@@ -799,7 +799,7 @@ final class StringExtensionsTests: XCTestCase {
             in: NSRange(location: 0, length: coloredString.length))
         XCTAssertNotNil(attrs[NSAttributedString.Key.foregroundColor])
 
-        guard let color = attrs[.foregroundColor] as? Color else {
+        guard let color = attrs[.foregroundColor] as? SFColor else {
             XCTFail("Unable to find color in testColored")
             return
         }

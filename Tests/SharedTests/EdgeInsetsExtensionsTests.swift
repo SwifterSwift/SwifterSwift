@@ -7,17 +7,17 @@ import XCTest
 
 final class EdgeInsetsExtensionsTests: XCTestCase {
     func testHorizontal() {
-        let inset = EdgeInsets(top: 30.0, left: 5.0, bottom: 5.0, right: 10.0)
+        let inset = SFEdgeInsets(top: 30.0, left: 5.0, bottom: 5.0, right: 10.0)
         XCTAssertEqual(inset.horizontal, 15.0)
     }
 
     func testVertical() {
-        let inset = EdgeInsets(top: 10.0, left: 10.0, bottom: 5.0, right: 10.0)
+        let inset = SFEdgeInsets(top: 10.0, left: 10.0, bottom: 5.0, right: 10.0)
         XCTAssertEqual(inset.vertical, 15.0)
     }
 
     func testInitInset() {
-        let inset = EdgeInsets(inset: 5.0)
+        let inset = SFEdgeInsets(inset: 5.0)
         XCTAssertEqual(inset.top, 5.0)
         XCTAssertEqual(inset.bottom, 5.0)
         XCTAssertEqual(inset.right, 5.0)
@@ -25,7 +25,7 @@ final class EdgeInsetsExtensionsTests: XCTestCase {
     }
 
     func testInitVerticalHorizontal() {
-        let inset = EdgeInsets(horizontal: 20.0, vertical: 10.0)
+        let inset = SFEdgeInsets(horizontal: 20.0, vertical: 10.0)
         XCTAssertEqual(inset.top, 5.0)
         XCTAssertEqual(inset.bottom, 5.0)
         XCTAssertEqual(inset.right, 10.0)
@@ -33,7 +33,7 @@ final class EdgeInsetsExtensionsTests: XCTestCase {
     }
 
     func testInsetByTop() {
-        let inset = EdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        let inset = SFEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         let insetByTop = inset.insetBy(top: 5.0)
         XCTAssertNotEqual(inset, insetByTop)
         XCTAssertEqual(insetByTop.top, 15.0)
@@ -50,7 +50,7 @@ final class EdgeInsetsExtensionsTests: XCTestCase {
     }
 
     func testInsetByLeft() {
-        let inset = EdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        let inset = SFEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         let insetByLeft = inset.insetBy(left: 5.0)
         XCTAssertNotEqual(inset, insetByLeft)
         XCTAssertEqual(insetByLeft.top, 10.0)
@@ -67,7 +67,7 @@ final class EdgeInsetsExtensionsTests: XCTestCase {
     }
 
     func testInsetByBottom() {
-        let inset = EdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        let inset = SFEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         let insetByBottom = inset.insetBy(bottom: 5.0)
         XCTAssertNotEqual(inset, insetByBottom)
         XCTAssertEqual(insetByBottom.top, 10.0)
@@ -84,7 +84,7 @@ final class EdgeInsetsExtensionsTests: XCTestCase {
     }
 
     func testInsetByRight() {
-        let inset = EdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        let inset = SFEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         let insetByRight = inset.insetBy(right: 5.0)
         XCTAssertNotEqual(inset, insetByRight)
         XCTAssertEqual(insetByRight.top, 10.0)
@@ -101,7 +101,7 @@ final class EdgeInsetsExtensionsTests: XCTestCase {
     }
 
     func testInsetByHorizontal() {
-        let inset = EdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        let inset = SFEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         let insetByHorizontal = inset.insetBy(horizontal: 5.0)
         XCTAssertNotEqual(inset, insetByHorizontal)
         XCTAssertEqual(insetByHorizontal.left, 12.5)
@@ -118,7 +118,7 @@ final class EdgeInsetsExtensionsTests: XCTestCase {
     }
 
     func testInsetByVertical() {
-        let inset = EdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        let inset = SFEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         let insetByVertical = inset.insetBy(vertical: 5.0)
         XCTAssertNotEqual(inset, insetByVertical)
         XCTAssertEqual(insetByVertical.left, 10.0)
@@ -135,7 +135,7 @@ final class EdgeInsetsExtensionsTests: XCTestCase {
     }
 
     func testInsetComposing() {
-        let inset = EdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        let inset = SFEdgeInsets(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
         let composedInset = inset.insetBy(bottom: 5.0).insetBy(horizontal: 5.0)
         XCTAssertNotEqual(inset, composedInset)
         XCTAssertEqual(composedInset.left, 12.5)
@@ -152,32 +152,32 @@ final class EdgeInsetsExtensionsTests: XCTestCase {
     }
 
     func testAddition() {
-        XCTAssertEqual(EdgeInsets.zero + EdgeInsets.zero, EdgeInsets.zero)
+        XCTAssertEqual(SFEdgeInsets.zero + SFEdgeInsets.zero, SFEdgeInsets.zero)
 
-        let insets1 = EdgeInsets(top: 1, left: 2, bottom: 3, right: 4)
-        let insets2 = EdgeInsets(top: 5, left: 6, bottom: 7, right: 8)
-        let expected = EdgeInsets(top: 6, left: 8, bottom: 10, right: 12)
+        let insets1 = SFEdgeInsets(top: 1, left: 2, bottom: 3, right: 4)
+        let insets2 = SFEdgeInsets(top: 5, left: 6, bottom: 7, right: 8)
+        let expected = SFEdgeInsets(top: 6, left: 8, bottom: 10, right: 12)
         XCTAssertEqual(insets1 + insets2, expected)
 
-        let negativeInsets1 = EdgeInsets(top: -1, left: -2, bottom: -3, right: -4)
-        let negativeInsets2 = EdgeInsets(top: -5, left: -6, bottom: -7, right: -8)
-        let negativeExpected = EdgeInsets(top: -6, left: -8, bottom: -10, right: -12)
+        let negativeInsets1 = SFEdgeInsets(top: -1, left: -2, bottom: -3, right: -4)
+        let negativeInsets2 = SFEdgeInsets(top: -5, left: -6, bottom: -7, right: -8)
+        let negativeExpected = SFEdgeInsets(top: -6, left: -8, bottom: -10, right: -12)
         XCTAssertEqual(negativeInsets1 + negativeInsets2, negativeExpected)
     }
 
     func testInPlaceAddition() {
-        var zero = EdgeInsets.zero
-        zero += EdgeInsets.zero
-        XCTAssertEqual(zero, EdgeInsets.zero)
+        var zero = SFEdgeInsets.zero
+        zero += SFEdgeInsets.zero
+        XCTAssertEqual(zero, SFEdgeInsets.zero)
 
-        var insets = EdgeInsets(top: 1, left: 2, bottom: 3, right: 4)
-        insets += EdgeInsets(top: 5, left: 6, bottom: 7, right: 8)
-        let expected = EdgeInsets(top: 6, left: 8, bottom: 10, right: 12)
+        var insets = SFEdgeInsets(top: 1, left: 2, bottom: 3, right: 4)
+        insets += SFEdgeInsets(top: 5, left: 6, bottom: 7, right: 8)
+        let expected = SFEdgeInsets(top: 6, left: 8, bottom: 10, right: 12)
         XCTAssertEqual(insets, expected)
 
-        var negativeInsets = EdgeInsets(top: -1, left: -2, bottom: -3, right: -4)
-        negativeInsets += EdgeInsets(top: -5, left: -6, bottom: -7, right: -8)
-        let negativeExpected = EdgeInsets(top: -6, left: -8, bottom: -10, right: -12)
+        var negativeInsets = SFEdgeInsets(top: -1, left: -2, bottom: -3, right: -4)
+        negativeInsets += SFEdgeInsets(top: -5, left: -6, bottom: -7, right: -8)
+        let negativeExpected = SFEdgeInsets(top: -6, left: -8, bottom: -10, right: -12)
         XCTAssertEqual(negativeInsets, negativeExpected)
     }
 }
