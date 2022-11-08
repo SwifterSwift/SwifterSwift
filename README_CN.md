@@ -326,7 +326,7 @@ SwifterSwift 是一个包含 **500 多个属性和方法**的库，旨在扩展 
 
 ## Slack 频道: [![Slack](https://img.shields.io/badge/Slack-SwifterSwift-green.svg)](https://swifterswift.slack.com)
 
-使用 SwifterSwift 与其他人交谈并交流经验总是很愉快，所以[加入我们的 Slack 频道](swifterswift.slack.com)吧。
+使用 SwifterSwift 与其他人交谈并交流经验总是很愉快，所以[加入我们的 Slack 频道](https://swifterswift.slack.com)吧。
 
 ## 鸣谢
 
