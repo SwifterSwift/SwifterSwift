@@ -3,6 +3,13 @@
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
 ## Upcoming Release
+### Breaking Change
+- **Color**
+  - Renamed typealias `Color` typealias to `SFColor` to fix namespace conflicts with swiftUI's `Color` Type. [#1055](https://github.com/SwifterSwift/SwifterSwift/pull/1055) by [MussaCharles](https://github.com/MussaCharles)
+- **EdgeInsets**
+  - Renamed `EdgeInsets` typealias to `SFEdgeInsets` to fix namespace conflicts with swiftUI's `EdgeInsets` Type. [#1055](https://github.com/SwifterSwift/SwifterSwift/pull/1055) by [MussaCharles](https://github.com/MussaCharles)
+- **Font**
+  - Renamed `Font` typealias to `SFFont` to fix namespace conflicts with swiftUI's `Font` Type. [#1055](https://github.com/SwifterSwift/SwifterSwift/pull/1055) by [MussaCharles](https://github.com/MussaCharles)
 
 ### Added
 - **UIButton**

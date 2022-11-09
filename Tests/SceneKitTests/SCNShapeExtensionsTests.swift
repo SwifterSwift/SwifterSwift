@@ -23,7 +23,7 @@ final class SCNShapeExtensionsTests: XCTestCase {
     func testInitWithColor() {
         let color = UIColor.red
         let shape = SCNShape(path: UIBezierPath(rect: rect), extrusionDepth: 1, color: color)
-        XCTAssertEqual(shape.materials[0].diffuse.contents as? Color, color)
+        XCTAssertEqual(shape.materials[0].diffuse.contents as? SFColor, color)
     }
     #endif
 }

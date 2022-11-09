@@ -9,17 +9,17 @@ final class XCTestExtensionsTests: XCTestCase {
         XCTAssertEqual(.blue, .blue, accuracy: 0)
 
         let accuracy = CGFloat(0.1)
-        XCTAssertEqual(Color(red: 0, green: 0, blue: 0, alpha: 0),
-                       Color(red: accuracy, green: 0, blue: 0, alpha: 0),
+        XCTAssertEqual(SFColor(red: 0, green: 0, blue: 0, alpha: 0),
+                       SFColor(red: accuracy, green: 0, blue: 0, alpha: 0),
                        accuracy: accuracy)
-        XCTAssertEqual(Color(red: 0, green: 0, blue: 0, alpha: 0),
-                       Color(red: 0, green: accuracy, blue: 0, alpha: 0),
+        XCTAssertEqual(SFColor(red: 0, green: 0, blue: 0, alpha: 0),
+                       SFColor(red: 0, green: accuracy, blue: 0, alpha: 0),
                        accuracy: accuracy)
-        XCTAssertEqual(Color(red: 0, green: 0, blue: 0, alpha: 0),
-                       Color(red: 0, green: 0, blue: accuracy, alpha: 0),
+        XCTAssertEqual(SFColor(red: 0, green: 0, blue: 0, alpha: 0),
+                       SFColor(red: 0, green: 0, blue: accuracy, alpha: 0),
                        accuracy: accuracy)
-        XCTAssertEqual(Color(red: 0, green: 0, blue: 0, alpha: 0),
-                       Color(red: 0, green: 0, blue: 0, alpha: accuracy),
+        XCTAssertEqual(SFColor(red: 0, green: 0, blue: 0, alpha: 0),
+                       SFColor(red: 0, green: 0, blue: 0, alpha: accuracy),
                        accuracy: accuracy)
     }
     #endif
