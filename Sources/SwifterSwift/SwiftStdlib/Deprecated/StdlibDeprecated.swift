@@ -1,4 +1,4 @@
-// StdlibDeprecated.swift - Copyright 2020 SwifterSwift
+// StdlibDeprecated.swift - Copyright 2022 SwifterSwift
 
 private func optionalCompareAscending<T: Comparable>(path1: T?, path2: T?) -> Bool {
     guard let path1 = path1, let path2 = path2 else { return false }
@@ -73,7 +73,8 @@ public extension Array {
 }
 
 public extension Sequence {
-    /// SwifterSwift: Returns an array containing the results of mapping the given key path over the sequence’s elements.
+    /// SwifterSwift: Returns an array containing the results of mapping the given key path over the sequence’s
+    /// elements.
     ///
     /// - Parameter keyPath: Key path to map.
     /// - Returns: An array containing the results of mapping.
@@ -82,7 +83,8 @@ public extension Sequence {
         return map { $0[keyPath: keyPath] }
     }
 
-    /// SwifterSwift: Returns an array containing the non-nil results of mapping the given key path over the sequence’s elements.
+    /// SwifterSwift: Returns an array containing the non-nil results of mapping the given key path over the sequence’s
+    /// elements.
     ///
     /// - Parameter keyPath: Key path to map.
     /// - Returns: An array containing the non-nil results of mapping.
@@ -91,7 +93,8 @@ public extension Sequence {
         return compactMap { $0[keyPath: keyPath] }
     }
 
-    /// SwifterSwift: Returns an array containing the results of filtering the sequence’s elements by a boolean key path.
+    /// SwifterSwift: Returns an array containing the results of filtering the sequence’s elements by a boolean key
+    /// path.
     ///
     /// - Parameter keyPath: Boolean key path. If it's value is `true` the element will be added to result.
     /// - Returns: An array containing filtered elements.
@@ -108,9 +111,6 @@ public extension Sequence {
     /// - Returns: the last element in the array matching the specified condition. (optional)
     @available(*, deprecated, message: "For an unordered sequence using `last` instead of `first` is equal.")
     func last(where condition: (Element) throws -> Bool) rethrows -> Element? {
-        for element in reversed() {
-            if try condition(element) { return element }
-        }
-        return nil
+        return try reversed().first { try condition($0) }
     }
 }

@@ -1,4 +1,4 @@
-// SequenceExtensions.swift - Copyright 2020 SwifterSwift
+// SequenceExtensions.swift - Copyright 2022 SwifterSwift
 
 public extension Sequence {
     /// SwifterSwift: Check if all elements in collection match a condition.
@@ -114,7 +114,8 @@ public extension Sequence {
     ///     [2, 2, 4, 7].single(where: {$0 % 2 == 0}) -> nil
     ///
     /// - Parameter condition: condition to evaluate each element against.
-    /// - Returns: The only element in the array matching the specified condition. If there are more matching elements, nil is returned. (optional)
+    /// - Returns: The only element in the array matching the specified condition. If there are more matching elements,
+    /// nil is returned. (optional)
     func single(where condition: (Element) throws -> Bool) rethrows -> Element? {
         var singleElement: Element?
         for element in self where try condition(element) {
@@ -140,7 +141,8 @@ public extension Sequence {
         return try filter { set.insert(try transform($0)).inserted }
     }
 
-    ///  SwifterSwift: Separates all items into 2 lists based on a given predicate. The first list contains all items for which the specified condition evaluates to true. The second list contains those that don't.
+    ///  SwifterSwift: Separates all items into 2 lists based on a given predicate. The first list contains all items
+    /// for which the specified condition evaluates to true. The second list contains those that don't.
     ///
     ///     let (even, odd) = [0, 1, 2, 3, 4, 5].divided { $0 % 2 == 0 }
     ///     let (minors, adults) = people.divided { $0.age < 18 }
@@ -153,6 +155,7 @@ public extension Sequence {
         var nonMatching = [Element]()
 
         for element in self {
+            // swiftlint:disable:next void_function_in_ternary
             try condition(element) ? matching.append(element) : nonMatching.append(element)
         }
         return (matching, nonMatching)
@@ -175,7 +178,8 @@ public extension Sequence {
         return sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
     }
 
-    /// SwifterSwift: Returns a sorted sequence based on two key paths. The second one will be used in case the values of the first one match.
+    /// SwifterSwift: Returns a sorted sequence based on two key paths. The second one will be used in case the values
+    /// of the first one match.
     ///
     /// - Parameters:
     ///     - keyPath1: Key path to sort by. Must be Comparable.
@@ -190,7 +194,8 @@ public extension Sequence {
         }
     }
 
-    /// SwifterSwift: Returns a sorted sequence based on three key paths. Whenever the values of one key path match, the next one will be used.
+    /// SwifterSwift: Returns a sorted sequence based on three key paths. Whenever the values of one key path match, the
+    /// next one will be used.
     ///
     /// - Parameters:
     ///     - keyPath1: Key path to sort by. Must be Comparable.
@@ -221,12 +226,14 @@ public extension Sequence {
         return reduce(.zero) { $0 + $1[keyPath: keyPath] }
     }
 
-    /// SwifterSwift: Returns the first element of the sequence with having property by given key path equals to given `value`.
+    /// SwifterSwift: Returns the first element of the sequence with having property by given key path equals to given
+    /// `value`.
     ///
     /// - Parameters:
     ///   - keyPath: The `KeyPath` of property for `Element` to compare.
     ///   - value: The value to compare with `Element` property.
-    /// - Returns: The first element of the collection that has property by given key path equals to given `value` or `nil` if there is no such element.
+    /// - Returns: The first element of the collection that has property by given key path equals to given `value` or
+    /// `nil` if there is no such element.
     func first<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Element? {
         return first { $0[keyPath: keyPath] == value }
     }
@@ -267,12 +274,7 @@ public extension Sequence where Element: Hashable {
     /// - Returns: true if the receiver contains duplicates.
     func containsDuplicates() -> Bool {
         var set = Set<Element>()
-        for element in self {
-            if !set.insert(element).inserted {
-                return true
-            }
-        }
-        return false
+        return contains { !set.insert($0).inserted }
     }
 
     /// SwifterSwift: Getting the duplicated elements in a sequence.
