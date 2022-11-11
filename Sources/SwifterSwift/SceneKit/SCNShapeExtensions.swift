@@ -29,7 +29,7 @@ public extension SCNShape {
     ///   - path: The two-dimensional path forming the basis of the shape.
     ///   - extrusionDepth: The thickness of the extruded shape along the z-axis.
     ///   - color: The color of the geometry's material.
-    convenience init(path: UIBezierPath, extrusionDepth: CGFloat, color: Color) {
+    convenience init(path: UIBezierPath, extrusionDepth: CGFloat, color: SFColor) {
         self.init(path: path, extrusionDepth: extrusionDepth)
         materials = [SCNMaterial(color: color)]
     }
