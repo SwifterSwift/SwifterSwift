@@ -1,6 +1,5 @@
 // HKActivitySummaryExtensions.swift - Copyright 2022 SwifterSwift
 
-// HKActivitySummaryExtensions.swift - Copyright 2020 SwifterSwift
 // HeathKit is not available for tvOS, available only on iOS 8.0+ Mac Catalyst 13.0+ watchOS 2.0+
 // See: https://developer.apple.com/documentation/healthkit
 #if !os(tvOS)
