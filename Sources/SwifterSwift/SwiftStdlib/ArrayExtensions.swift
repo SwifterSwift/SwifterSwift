@@ -5,7 +5,7 @@
 public extension Array {
     /// SwifterSwift: Creates an array with specified number of elements, for each element it calls specified closure.
     /// - Parameters:
-    ///   - numberOfElements: The number of elements in the new array.
+    ///   - count: The number of elements in the new array.
     ///   - element: A closure that initializes each element.
     ///     - Parameter *index*: An index of initialized element in the array.
     ///     - Returns: element of the array.
