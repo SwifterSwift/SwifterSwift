@@ -6,13 +6,13 @@ import XCTest
 #if canImport(UIKit)
 import UIKit
 /// SwifterSwift: Color
-public typealias Color = UIColor
+public typealias SFColor = UIColor
 #endif
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 /// SwifterSwift: Color
-public typealias Color = NSColor
+public typealias SFColor = NSColor
 #endif
 
 #if canImport(AppKit) || canImport(UIKit)
@@ -24,15 +24,15 @@ public typealias Color = NSColor
 ///   - message: An optional description of the failure.
 ///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
 ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
-public func XCTAssertEqual(_ expression1: @autoclosure () throws -> Color,
-                           _ expression2: @autoclosure () throws -> Color,
+public func XCTAssertEqual(_ expression1: @autoclosure () throws -> SFColor,
+                           _ expression2: @autoclosure () throws -> SFColor,
                            accuracy: CGFloat,
                            _ message: @autoclosure () -> String = "",
                            file: StaticString = #file,
                            line: UInt = #line) {
-    var color1: Color!
+    var color1: SFColor!
     XCTAssertNoThrow(color1 = try expression1(), message(), file: file, line: line)
-    var color2: Color!
+    var color2: SFColor!
     XCTAssertNoThrow(color2 = try expression2(), message(), file: file, line: line)
     var red1: CGFloat = 0, green1: CGFloat = 0, blue1: CGFloat = 0, alpha1: CGFloat = 0
     var red2: CGFloat = 0, green2: CGFloat = 0, blue2: CGFloat = 0, alpha2: CGFloat = 0

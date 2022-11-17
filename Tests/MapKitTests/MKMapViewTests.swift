@@ -34,7 +34,7 @@ final class MKMapViewTests: XCTestCase {
     func testWithEmptyItemArray() {
         let mapView = MKMapView()
         let meter = 500.0
-        let edgePadding = EdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+        let edgePadding = SFEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         let previous = mapView.visibleMapRect
         mapView.zoom(to: [], meter: meter, edgePadding: edgePadding, animated: true)
 
@@ -45,7 +45,7 @@ final class MKMapViewTests: XCTestCase {
         let mapView = MKMapView()
         let meter = 500.0
         let oneItemArray = [CLLocationCoordinate2D(latitude: 36.9751, longitude: 38.4243)]
-        let edgePadding = EdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+        let edgePadding = SFEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         mapView.zoom(to: oneItemArray, meter: meter, edgePadding: edgePadding, animated: true)
 
         let firstPoint = MKMapPoint(oneItemArray.first!)
@@ -55,7 +55,7 @@ final class MKMapViewTests: XCTestCase {
     func testWithMultiItemArray() {
         let mapView = MKMapView()
         let meter = 500.0
-        let edgePadding = EdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
+        let edgePadding = SFEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         let multiItemArray = [CLLocationCoordinate2D(latitude: 36.9751, longitude: 38.4243),
                               CLLocationCoordinate2D(latitude: 37.06622, longitude: 37.38332),
                               CLLocationCoordinate2D(latitude: 41.00527, longitude: 28.97696)]
