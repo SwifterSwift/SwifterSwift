@@ -27,7 +27,8 @@ warn('This pull request is marked as Work in Progress. DO NOT MERGE!') if github
 
 # Xcode summary
 def summary(platform:)
-    xcode_summary.report "xcodebuild-#{platform}.json"
+    # TODO: This is failing in CI step, commenting(since is only summary info) to unblock builds but we need to investigate.
+    # xcode_summary.report "xcodebuild-#{platform}.json"
 end
   
 def label_tests_summary(label:, platform:) 

@@ -40,7 +40,7 @@ public extension SCNPlane {
     ///   - width: The width of the plane along the x-axis of its local coordinate space.
     ///   - height: The height of the plane along the y-axis of its local coordinate space.
     ///   - color: The color of the geometry's material.
-    convenience init(width: CGFloat, height: CGFloat, color: Color) {
+    convenience init(width: CGFloat, height: CGFloat, color: SFColor) {
         self.init(width: width, height: height)
         materials = [SCNMaterial(color: color)]
     }
@@ -50,7 +50,7 @@ public extension SCNPlane {
     /// - Parameters:
     ///   - width: The width and height of the plane along the x-axis and y-axis of its local coordinate space.
     ///   - color: The color of the geometry's material.
-    convenience init(width: CGFloat, color: Color) {
+    convenience init(width: CGFloat, color: SFColor) {
         self.init(width: width, height: width)
         materials = [SCNMaterial(color: color)]
     }
