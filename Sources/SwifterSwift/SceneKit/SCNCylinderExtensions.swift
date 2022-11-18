@@ -43,7 +43,7 @@ public extension SCNCylinder {
     ///   - radius: The radius of the cylinder’s circular cross section in the x- and z-axis dimensions of its local coordinate space.
     ///   - height: The height of the cylinder along the y-axis of its local coordinate space.
     ///   - color: The color of the geometry's material.
-    convenience init(radius: CGFloat, height: CGFloat, color: Color) {
+    convenience init(radius: CGFloat, height: CGFloat, color: SFColor) {
         self.init(radius: radius, height: height)
         materials = [SCNMaterial(color: color)]
     }
@@ -54,7 +54,7 @@ public extension SCNCylinder {
     ///   - diameter: The diameter of the cylinder’s circular cross section in the x- and z-axis dimensions of its local coordinate space.
     ///   - height: The height of the cylinder along the y-axis of its local coordinate space.
     ///   - color: The color of the geometry's material.
-    convenience init(diameter: CGFloat, height: CGFloat, color: Color) {
+    convenience init(diameter: CGFloat, height: CGFloat, color: SFColor) {
         self.init(radius: diameter / 2, height: height)
         materials = [SCNMaterial(color: color)]
     }

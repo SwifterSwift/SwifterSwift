@@ -14,7 +14,7 @@ jobs:
     runs-on: macos-latest
     env:
       PROJECT: SwifterSwift.xcodeproj
-      DEVELOPER_DIR: /Applications/Xcode_12.4.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_13.1.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -43,12 +43,12 @@ jobs:
         bash <(curl -s https://codecov.io/bash) -cF tvos -J 'SwifterSwift'
       env:
           SCHEME: SwifterSwift-tvOS
-          DESTINATION: platform=tvOS Simulator,name=Apple TV 4K (at 1080p)
+          DESTINATION: platform=tvOS Simulator,name=Apple TV
     - name: Build WatchOS
       run: xcodebuild clean build -project $PROJECT -scheme $SCHEME -destination "$DESTINATION"
       env:
           SCHEME: SwifterSwift-watchOS
-          DESTINATION: name=Apple Watch Series 5 - 40mm
+          DESTINATION: platform=watchOS Simulator,name=Apple Watch Series 5 - 40mm
   
     - name: Danger Swift
       # Hack to by pass the key invalidation mechanism
@@ -74,7 +74,7 @@ jobs:
       matrix:
         platform: ['ios', 'macos', 'tvos', 'watchos']
     env:
-      DEVELOPER_DIR: /Applications/Xcode_12.4.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_13.1.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install

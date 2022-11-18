@@ -362,9 +362,9 @@ Documentation for all extensions, with examples, is available at [swifterswift.c
 We want your feedback.
 Please refer to [contributing guidelines](https://github.com/SwifterSwift/SwifterSwift/tree/master/CONTRIBUTING.md) before participating.
 
-## Slack Channel: [![Slack](https://slackin-ppvrggbpgn.now.sh/badge.svg)](https://slackin-ppvrggbpgn.now.sh/)
+## Slack Channel: [![Slack](https://img.shields.io/badge/Slack-SwifterSwift-green.svg)](https://swifterswift.slack.com)
 
-It is always nice to talk with other people using SwifterSwift and exchange experiences, so come [join our Slack channel](https://slackin-ppvrggbpgn.now.sh/).
+It is always nice to talk with other people using SwifterSwift and exchange experiences, so come [join our Slack channel](https://swifterswift.slack.com).
 
 ## Thanks
 
