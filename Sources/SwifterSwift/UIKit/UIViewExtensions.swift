@@ -483,7 +483,7 @@ public extension UIView {
     /// SwifterSwift: Apply Gradient Colors.
     ///
     ///     view.applyGradient(
-    ///         colors: [UIColor.red.cgColor, UIColor.blue.cgColor],
+    ///         colors: [.red, .blue],
     ///         locations: [0.0, 1.0],
     ///         direction: .topToBottom
     ///     )
