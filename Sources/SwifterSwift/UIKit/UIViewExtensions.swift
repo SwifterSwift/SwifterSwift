@@ -497,7 +497,7 @@ public extension UIView {
     func applyGradient(colors: [Color]?, locations: [CGFloat]? = [0.0, 1.0], direction: GradientDirection = .topToBottom) {
         // <https://github.com/swiftdevcenter/GradientColorExample>
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.bounds
+        gradientLayer.frame = bounds
         gradientLayer.colors = colors?.map { $0.cgColor }
         gradientLayer.locations = locations?.map { NSNumber(value: $0) }
 
