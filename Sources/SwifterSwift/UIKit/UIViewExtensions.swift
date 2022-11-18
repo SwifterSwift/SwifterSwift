@@ -498,8 +498,8 @@ public extension UIView {
         // <https://github.com/swiftdevcenter/GradientColorExample>
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = self.bounds
-        gradientLayer.colors = colors
-        gradientLayer.locations = locations
+        gradientLayer.colors = colors?.map { $0.cgColor }
+        gradientLayer.locations = locations?.map { NSNumber(value: $0) }
 
         switch direction {
         case .topToBottom:
