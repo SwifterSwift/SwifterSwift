@@ -483,7 +483,7 @@ public extension UIView {
     /// SwifterSwift: Apply Gradient Colors.
     ///
     ///     view.applyGradient(
-    ///         colors: [UIColor.red.cgColor, UIColor.blue.cgColor],
+    ///         colors: [.red, .blue],
     ///         locations: [0.0, 1.0],
     ///         direction: .topToBottom
     ///     )
@@ -494,12 +494,12 @@ public extension UIView {
     ///                gradient stop as a value in the range [0,1]. The values must be
     ///                monotonically increasing.
     ///   - direction: Enumeration type describing the direction of the gradient.
-    func applyGradient(colors: [Any]?, locations: [NSNumber]? = [0.0, 1.0], direction: GradientDirection = .topToBottom) {
+    func applyGradient(colors: [Color]?, locations: [CGFloat]? = [0.0, 1.0], direction: GradientDirection = .topToBottom) {
         // <https://github.com/swiftdevcenter/GradientColorExample>
         let gradientLayer = CAGradientLayer()
-        gradientLayer.frame = self.bounds
-        gradientLayer.colors = colors
-        gradientLayer.locations = locations
+        gradientLayer.frame = bounds
+        gradientLayer.colors = colors?.map { $0.cgColor }
+        gradientLayer.locations = locations?.map { NSNumber(value: $0) }
 
         switch direction {
         case .topToBottom:
