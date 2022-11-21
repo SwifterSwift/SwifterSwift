@@ -9,10 +9,10 @@ public extension Array {
     ///   - element: A closure that initializes each element.
     ///     - Parameter *index*: An index of initialized element in the array.
     ///     - Returns: element of the array.
-    init(count: Int, element: (Int) -> Element) {
-        self.init(unsafeUninitializedCapacity: count) { buffer, initializedCount in
+    init(count: Int, element: (Int) throws -> Element) rethrows {
+        try self.init(unsafeUninitializedCapacity: count) { buffer, initializedCount in
             for index in 0..<count {
-                buffer.baseAddress?.advanced(by: index).initialize(to: element(index))
+                try buffer.baseAddress?.advanced(by: index).initialize(to: element(index))
             }
             initializedCount = count
         }
