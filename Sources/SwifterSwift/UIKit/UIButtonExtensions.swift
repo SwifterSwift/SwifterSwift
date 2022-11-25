@@ -119,7 +119,7 @@ public extension UIButton {
 
 public extension UIButton {
     private var states: [UIControl.State] {
-        [.normal, .selected, .highlighted, .disabled]
+        [.normal, .selected, .highlighted, .disabled, .focused]
     }
 
     /// SwifterSwift: Set image for all states.
