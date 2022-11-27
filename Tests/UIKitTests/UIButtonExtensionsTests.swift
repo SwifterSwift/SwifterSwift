@@ -175,7 +175,7 @@ final class UIButtonExtensionsTests: XCTestCase {
 
     func testAttributedTitleForFocused() {
         let button = UIButton()
-        XCTAssertEqual(button.attributedTitleForFocused, button.attributedTitle(for: .selected))
+        XCTAssertEqual(button.attributedTitleForFocused, button.attributedTitle(for: .focused))
 
         let title = NSAttributedString(string: "Focused", attributes: [.foregroundColor:UIColor.yellow, .backgroundColor:UIColor.green])
         button.attributedTitleForFocused = title
