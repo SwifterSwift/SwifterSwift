@@ -14,6 +14,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **UIButton**
   - Added `setBackgroundColor(_:for:)` method for setting background color for the specified UI state. [#1041](https://github.com/SwifterSwift/SwifterSwift/pull/1041) by [TwizzyIndy](https://github.com/TwizzyIndy)
+  - Added `imageForFocused`, `titleColorForFocused`, `titleForFocused`, `attributedTitleForFocused` to handle focused state. [#1063](https://github.com/SwifterSwift/SwifterSwift/pull/1063) by [Roman Podymov](https://github.com/RomanPodymov)
 - **Array**
   - Added `init(count:element:)` initializer for creating an array of a given size with a closure. [#1051](https://github.com/SwifterSwift/SwifterSwift/pull/1051) by [viktart](https://github.com/viktart)
 
