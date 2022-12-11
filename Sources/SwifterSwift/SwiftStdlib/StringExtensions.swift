@@ -473,6 +473,9 @@ public extension String {
 
     #if canImport(Foundation)
     /// SwifterSwift: Double value from string (if applicable).
+    /// ⚠️ this method will returns nil if the decimal has more than one digits and the device's Settings -> Region is set to some countries(ex Cambodia):
+    /// let doubleInCambodia = "8.32".double(locale: Locale(identifier: "km_KH"))
+    /// doubleInCambodia = nil
     ///
     /// - Parameter locale: Locale (default is Locale.current)
     /// - Returns: Optional Double value from given string.
@@ -482,6 +485,14 @@ public extension String {
         formatter.allowsFloats = true
         return formatter.number(from: self)?.doubleValue
     }
+    
+    /// SwifterSwift: Double value from string.
+    ///
+    /// - Returns: Optional Double value from given string.
+    func doubleValue() -> Double? {
+        return Double(self)
+    }
+    
     #endif
 
     #if canImport(CoreGraphics) && canImport(Foundation)
