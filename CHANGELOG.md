@@ -21,6 +21,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Changed
 - **UIButton**:
   - Add `.focused` to `UIButton.states`. [#1062](https://github.com/SwifterSwift/SwifterSwift/pull/1062) by [Roman Podymov](https://github.com/RomanPodymov).
+- **Date**:
+  - Remove some exclamation marks and use guard to unwrap values. 
+    [#1065](https://github.com/SwifterSwift/SwifterSwift/pull/1065) by [PinYuanChen](https://github.com/PinYuanChen)
 
 ### Fixed
 - **Date**
