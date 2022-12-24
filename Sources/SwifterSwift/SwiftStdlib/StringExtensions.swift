@@ -635,6 +635,38 @@ public extension String {
         return String(self[lowerIndex..<upperIndex])
     }
 
+    /// SwifterSwift: Safely subscript string from a given position.
+    ///
+    ///        "Hello World!"[safeFrom: 6] -> "world!"
+    ///        "Hello World!"[safeFrom: 21] -> nil
+    ///
+    /// - Parameter safeFrom: position.
+    subscript(safeFrom lowerBound: Int) -> String? {
+        guard lowerBound >= 0,
+            let lowerIndex = index(startIndex, offsetBy: lowerBound, limitedBy: endIndex) else {
+            return nil
+        }
+
+        return String(self[lowerIndex..<endIndex])
+    }
+    
+    /// SwifterSwift: Safely subscript string to a given position.
+    ///
+    ///        "Hello World!"[safeTo: 6] -> "Hello "
+    ///        "Hello World!"[safeTo: 110] -> "Hello world!"
+    ///
+    /// - Parameter safeFrom: position.
+    subscript(safeTo upperBound: Int) -> String? {
+        guard upperBound >= 0 else {
+            return nil
+        }
+        guard let upperIndex = index(startIndex, offsetBy: upperBound, limitedBy: endIndex) else {
+            return self
+        }
+
+        return String(self[startIndex..<upperIndex])
+    }
+    
     #if os(iOS) || os(macOS)
     /// SwifterSwift: Copy string to global pasteboard.
     ///

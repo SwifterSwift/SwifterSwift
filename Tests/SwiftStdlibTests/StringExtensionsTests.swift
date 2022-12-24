@@ -341,17 +341,17 @@ final class StringExtensionsTests: XCTestCase {
         let str = "Hello world!"
         XCTAssertEqual(str[safe: 1], "e")
         XCTAssertNil(str[safe: 18])
-
+        
         XCTAssertNil(str[safe: -5..<5])
         XCTAssertNil(str[safe: -5...5])
-
+        
         XCTAssertEqual(str[safe: 0..<0], "")
         XCTAssertEqual(str[safe: 0..<4], "Hell")
         XCTAssertEqual(str[safe: 1..<5], "ello")
         XCTAssertEqual(str[safe: 7..<7], "")
         XCTAssertNil(str[safe: 10..<18])
         XCTAssertEqual(str[safe: 11..<12], "!")
-
+        
         XCTAssertEqual(str[safe: 0...0], "H")
         XCTAssertEqual(str[safe: 0...4], "Hello")
         XCTAssertEqual(str[safe: 1...5], "ello ")
@@ -359,32 +359,44 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNil(str[safe: 10...18])
         XCTAssertEqual(str[safe: 11...11], "!")
         XCTAssertNil(str[safe: 11...12])
-
+        
         let oneCharStr = "a"
         XCTAssertEqual(oneCharStr[safe: 0..<0], "")
         XCTAssertEqual(oneCharStr[safe: 0..<1], "a")
         XCTAssertNil(oneCharStr[safe: 0..<2])
         XCTAssertEqual(oneCharStr[safe: 1..<1], "")
         XCTAssertNil(oneCharStr[safe: 1..<2])
-
+        
         XCTAssertEqual(oneCharStr[safe: 0...0], "a")
         XCTAssertNil(oneCharStr[safe: 0...1])
         XCTAssertNil(oneCharStr[safe: 0...2])
         XCTAssertNil(oneCharStr[safe: 1...1])
         XCTAssertNil(oneCharStr[safe: 1...2])
-
+        
         // Empty string
         XCTAssertEqual(""[safe: 0..<0], "")
         XCTAssertNil(""[safe: 0..<1])
         XCTAssertNil(""[safe: 1..<1])
         XCTAssertNil(""[safe: 1..<2])
         XCTAssertNil(""[safe: 2..<3])
-
+        
         XCTAssertNil(""[safe: 0...0])
         XCTAssertNil(""[safe: 0...1])
         XCTAssertNil(""[safe: 1..<1])
         XCTAssertNil(""[safe: 1...2])
         XCTAssertNil(""[safe: 2...3])
+        
+        // safe from / safe to
+        XCTAssertEqual(str[safeFrom: 6], "world!")
+        XCTAssertNil(str[safeFrom: 21])
+        XCTAssertNil(str[safeFrom: -1])
+        XCTAssertNil(""[safeFrom: 6])
+        XCTAssertNil(""[safeFrom: -1])
+        XCTAssertEqual(str[safeTo: 6], "Hello ")
+        XCTAssertEqual(str[safeTo: 110], "Hello world!")
+        XCTAssertNil(str[safeTo: -1])
+        XCTAssertEqual(""[safeTo: 6], "")
+        XCTAssertNil(""[safeTo: -1])
     }
 
     func testCopyToPasteboard() {
