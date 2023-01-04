@@ -378,6 +378,116 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssert(view.gestureRecognizers!.isEmpty)
     }
 
+    func testApplyGradient() {
+        // topToBottom
+        let view0 = UIView()
+        XCTAssertNil(view0.layer.sublayers)
+        view0.applyGradient(
+            colors: [.red, .orange, .green, .blue],
+            locations: [0.0, 0.333, 0.667, 1.0],
+            direction: .topToBottom
+        )
+        XCTAssertNotNil(view0.layer.sublayers)
+        if let sublayers = view0.layer.sublayers as? [CAGradientLayer] {
+            XCTAssertEqual(sublayers.count, 1)
+            XCTAssertTrue(sublayers[0].startPoint.x.isEqual(to: 0.5))
+            XCTAssertTrue(sublayers[0].startPoint.y.isEqual(to: 0.0))
+            XCTAssertTrue(sublayers[0].endPoint.x.isEqual(to: 0.5))
+            XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 1.0))
+            XCTAssertEqual(sublayers[0].colors?.count, 4)
+            XCTAssertEqual(sublayers[0].colors?[0] as! CGColor, UIColor.red.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[1] as! CGColor, UIColor.orange.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[2] as! CGColor, UIColor.green.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[3] as! CGColor, UIColor.blue.cgColor)
+            XCTAssertEqual(sublayers[0].locations?.count, 4)
+            XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
+            XCTAssertNotNil(sublayers[0].locations?[1].isEqual(to: 0.333))
+            XCTAssertNotNil(sublayers[0].locations?[2].isEqual(to: 0.667))
+            XCTAssertNotNil(sublayers[0].locations?[3].isEqual(to: 1.0))
+        }
+
+        // bottomToTop
+        let view1 = UIView()
+        XCTAssertNil(view1.layer.sublayers)
+        view1.applyGradient(
+            colors: [.red, .orange, .green, .blue],
+            locations: [0.0, 0.333, 0.667, 1.0],
+            direction: .bottomToTop
+        )
+        XCTAssertNotNil(view1.layer.sublayers)
+        if let sublayers = view1.layer.sublayers as? [CAGradientLayer] {
+            XCTAssertEqual(sublayers.count, 1)
+            XCTAssertTrue(sublayers[0].startPoint.x.isEqual(to: 0.5))
+            XCTAssertTrue(sublayers[0].startPoint.y.isEqual(to: 1.0))
+            XCTAssertTrue(sublayers[0].endPoint.x.isEqual(to: 0.5))
+            XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 0.0))
+            XCTAssertEqual(sublayers[0].colors?.count, 4)
+            XCTAssertEqual(sublayers[0].colors?[0] as! CGColor, UIColor.red.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[1] as! CGColor, UIColor.orange.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[2] as! CGColor, UIColor.green.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[3] as! CGColor, UIColor.blue.cgColor)
+            XCTAssertEqual(sublayers[0].locations?.count, 4)
+            XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
+            XCTAssertNotNil(sublayers[0].locations?[1].isEqual(to: 0.333))
+            XCTAssertNotNil(sublayers[0].locations?[2].isEqual(to: 0.667))
+            XCTAssertNotNil(sublayers[0].locations?[3].isEqual(to: 1.0))
+        }
+
+        // leftToRight
+        let view2 = UIView()
+        XCTAssertNil(view2.layer.sublayers)
+        view2.applyGradient(
+            colors: [.red, .orange, .green, .blue],
+            locations: [0.0, 0.333, 0.667, 1.0],
+            direction: .leftToRight
+        )
+        XCTAssertNotNil(view2.layer.sublayers)
+        if let sublayers = view2.layer.sublayers as? [CAGradientLayer] {
+            XCTAssertEqual(sublayers.count, 1)
+            XCTAssertTrue(sublayers[0].startPoint.x.isEqual(to: 0.0))
+            XCTAssertTrue(sublayers[0].startPoint.y.isEqual(to: 0.5))
+            XCTAssertTrue(sublayers[0].endPoint.x.isEqual(to: 1.0))
+            XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 0.5))
+            XCTAssertEqual(sublayers[0].colors?.count, 4)
+            XCTAssertEqual(sublayers[0].colors?[0] as! CGColor, UIColor.red.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[1] as! CGColor, UIColor.orange.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[2] as! CGColor, UIColor.green.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[3] as! CGColor, UIColor.blue.cgColor)
+            XCTAssertEqual(sublayers[0].locations?.count, 4)
+            XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
+            XCTAssertNotNil(sublayers[0].locations?[1].isEqual(to: 0.333))
+            XCTAssertNotNil(sublayers[0].locations?[2].isEqual(to: 0.667))
+            XCTAssertNotNil(sublayers[0].locations?[3].isEqual(to: 1.0))
+        }
+
+        // rightToLeft
+        let view3 = UIView()
+        XCTAssertNil(view3.layer.sublayers)
+        view3.applyGradient(
+            colors: [.red, .orange, .green, .blue],
+            locations: [0.0, 0.333, 0.667, 1.0],
+            direction: .rightToLeft
+        )
+        XCTAssertNotNil(view3.layer.sublayers)
+        if let sublayers = view3.layer.sublayers as? [CAGradientLayer] {
+            XCTAssertEqual(sublayers.count, 1)
+            XCTAssertTrue(sublayers[0].startPoint.x.isEqual(to: 1.0))
+            XCTAssertTrue(sublayers[0].startPoint.y.isEqual(to: 0.5))
+            XCTAssertTrue(sublayers[0].endPoint.x.isEqual(to: 0.0))
+            XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 0.5))
+            XCTAssertEqual(sublayers[0].colors?.count, 4)
+            XCTAssertEqual(sublayers[0].colors?[0] as! CGColor, UIColor.red.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[1] as! CGColor, UIColor.orange.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[2] as! CGColor, UIColor.green.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[3] as! CGColor, UIColor.blue.cgColor)
+            XCTAssertEqual(sublayers[0].locations?.count, 4)
+            XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
+            XCTAssertNotNil(sublayers[0].locations?[1].isEqual(to: 0.333))
+            XCTAssertNotNil(sublayers[0].locations?[2].isEqual(to: 0.667))
+            XCTAssertNotNil(sublayers[0].locations?[3].isEqual(to: 1.0))
+        }
+    }
+
     func testAnchor() {
         let view = UIView()
         let subview = UIView()
