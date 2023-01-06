@@ -1,5 +1,24 @@
 // ArrayExtensions.swift - Copyright 2020 SwifterSwift
 
+// MARK: - Initializers
+
+public extension Array {
+    /// SwifterSwift: Creates an array with specified number of elements, for each element it calls specified closure.
+    /// - Parameters:
+    ///   - count: The number of elements in the new array.
+    ///   - element: A closure that initializes each element.
+    ///     - Parameter *index*: An index of initialized element in the array.
+    ///     - Returns: element of the array.
+    init(count: Int, element: (Int) throws -> Element) rethrows {
+        try self.init(unsafeUninitializedCapacity: count) { buffer, initializedCount in
+            for index in 0..<count {
+                try buffer.baseAddress?.advanced(by: index).initialize(to: element(index))
+            }
+            initializedCount = count
+        }
+    }
+}
+
 // MARK: - Methods
 
 public extension Array {

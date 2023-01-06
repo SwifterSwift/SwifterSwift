@@ -43,6 +43,15 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(button.imageForSelected, newImage)
     }
 
+    func testImageForFocused() {
+        let button = UIButton()
+        XCTAssertEqual(button.imageForFocused, button.image(for: .focused))
+
+        let newImage = UIImage()
+        button.imageForFocused = newImage
+        XCTAssertEqual(button.imageForFocused, newImage)
+    }
+    
     func testTitleColorForDisabled() {
         let button = UIButton()
         XCTAssertEqual(button.titleColorForDisabled, button.titleColor(for: .disabled))
@@ -75,6 +84,14 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(button.titleColorForSelected, .green)
     }
 
+    func testTitleColorForFocused() {
+        let button = UIButton()
+        XCTAssertEqual(button.titleColorForFocused, button.titleColor(for: .focused))
+
+        button.titleColorForFocused = .green
+        XCTAssertEqual(button.titleColorForFocused, .green)
+    }
+    
     func testTitleForDisabled() {
         let button = UIButton()
         XCTAssertEqual(button.titleForDisabled, button.title(for: .disabled))
@@ -109,6 +126,15 @@ final class UIButtonExtensionsTests: XCTestCase {
         let title = "Selected"
         button.titleForSelected = title
         XCTAssertEqual(button.titleForSelected, title)
+    }
+    
+    func testTitleForFocused() {
+        let button = UIButton()
+        XCTAssertEqual(button.titleForFocused, button.title(for: .focused))
+
+        let title = "Focused"
+        button.titleForFocused = title
+        XCTAssertEqual(button.titleForFocused, title)
     }
     
     func testAttributedTitleForDisabled() {
@@ -147,37 +173,49 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(button.attributedTitleForSelected, title)
     }
 
+    func testAttributedTitleForFocused() {
+        let button = UIButton()
+        XCTAssertEqual(button.attributedTitleForFocused, button.attributedTitle(for: .focused))
+
+        let title = NSAttributedString(string: "Focused", attributes: [.foregroundColor:UIColor.yellow, .backgroundColor:UIColor.green])
+        button.attributedTitleForFocused = title
+        XCTAssertEqual(button.attributedTitleForFocused, title)
+    }
+    
     func testSetImageForAllStates() {
         let button = UIButton()
         let image = UIImage()
         button.setImageForAllStates(image)
-
+        
         XCTAssertEqual(button.imageForDisabled, image)
         XCTAssertEqual(button.imageForHighlighted, image)
         XCTAssertEqual(button.imageForNormal, image)
         XCTAssertEqual(button.imageForSelected, image)
+        XCTAssertEqual(button.imageForFocused, image)
     }
 
     func testSetTitleColorForAllStates() {
         let button = UIButton()
         let color = UIColor.green
         button.setTitleColorForAllStates(color)
-
+        
         XCTAssertEqual(button.titleColorForDisabled, color)
         XCTAssertEqual(button.titleColorForHighlighted, color)
         XCTAssertEqual(button.titleColorForNormal, color)
         XCTAssertEqual(button.titleColorForSelected, color)
+        XCTAssertEqual(button.titleColorForFocused, color)
     }
 
     func testSetTitleForAllStates() {
         let button = UIButton()
         let title = "Title"
         button.setTitleForAllStates(title)
-
+        
         XCTAssertEqual(button.titleForDisabled, title)
         XCTAssertEqual(button.titleForHighlighted, title)
         XCTAssertEqual(button.titleForNormal, title)
         XCTAssertEqual(button.titleForSelected, title)
+        XCTAssertEqual(button.titleForFocused, title)
     }
 
     func testCenterTextAndImage() {
@@ -219,6 +257,7 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(button.attributedTitleForHighlighted, title)
         XCTAssertEqual(button.attributedTitleForNormal, title)
         XCTAssertEqual(button.attributedTitleForSelected, title)
+        XCTAssertEqual(button.attributedTitleForFocused, title)
     }
     
     func testSetBackgroundColorForState() {
