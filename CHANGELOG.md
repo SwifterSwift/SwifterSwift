@@ -17,6 +17,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `imageForFocused`, `titleColorForFocused`, `titleForFocused`, `attributedTitleForFocused` to handle focused state. [#1063](https://github.com/SwifterSwift/SwifterSwift/pull/1063) by [Roman Podymov](https://github.com/RomanPodymov)
 - **Array**
   - Added `init(count:element:)` initializer for creating an array of a given size with a closure. [#1051](https://github.com/SwifterSwift/SwifterSwift/pull/1051) by [viktart](https://github.com/viktart)
+- **String**
+  - Added a simpler conversion between String and Double. [#1064](https://github.com/SwifterSwift/SwifterSwift/pull/1064) by [westfort4july](https://github.com/westfort4July)
 
 ### Changed
 - **UIButton**:

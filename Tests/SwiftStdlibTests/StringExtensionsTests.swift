@@ -288,6 +288,20 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNil("8s".double())
         #endif
     }
+    
+    func testDoubleValue() {
+        XCTAssertNotNil("8".doubleValue())
+        XCTAssertEqual("8".doubleValue(), 8)
+
+        XCTAssertNotNil("8.23".doubleValue())
+        XCTAssertEqual("8.23".doubleValue(), 8.23)
+
+        #if os(Linux)
+        XCTAssertEqual("8s".doubleValue(), 8)
+        #else
+        XCTAssertNil("8s".doubleValue())
+        #endif
+    }
 
     func testCgFloat() {
         #if !os(Linux)
