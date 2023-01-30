@@ -6,6 +6,10 @@ import XCTest
 #if canImport(Foundation)
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 final class URLSessionExtensionsTests: XCTestCase {
     func testDataSync() {
         let gemfileContent = "source 'https://rubygems.org'\n\n" +

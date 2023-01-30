@@ -3,6 +3,10 @@
 #if canImport(Foundation)
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 // MARK: - Methods
 
 public extension URLSession {
