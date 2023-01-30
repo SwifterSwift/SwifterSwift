@@ -20,9 +20,8 @@ final class URLSessionExtensionsTests: XCTestCase {
         var data: Data!
         var response: URLResponse!
         XCTAssertNoThrow((data, response) = try URLSession.shared.dataSync(with: URLRequest(url: url)))
-        XCTAssertNotNil(data)
         let httpResponse = response as? HTTPURLResponse
-        let content = String(data: data!, encoding: .utf8)
+        let content = String(data: data, encoding: .utf8)
         XCTAssertEqual(content, gemfileContent)
         XCTAssertNotNil(httpResponse)
         XCTAssertEqual(httpResponse!.statusCode, 200)
