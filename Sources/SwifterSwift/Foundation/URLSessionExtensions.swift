@@ -16,13 +16,12 @@ public extension URLSession {
         var response: URLResponse!
         var error: Error?
         let semaphore = DispatchSemaphore(value: 0)
-        let dataTask = dataTask(with: request) { receivedData, receivedResponse, recievedError in
+        dataTask(with: request) { receivedData, receivedResponse, recievedError in
             data = receivedData
             response = receivedResponse
             error = recievedError
             semaphore.signal()
-        }
-        dataTask.resume()        
+        }.resume()
         _ = semaphore.wait(timeout: .distantFuture)
         if let error = error {
             throw error
