@@ -24,7 +24,7 @@ final class URLSessionExtensionsTests: XCTestCase {
         XCTAssertNotNil(data)
         XCTAssertNotNil(response)
         let httpResponse = response as? HTTPURLResponse
-        let content = String(data: data, encoding: .utf8)
+        let content = String(data: data!, encoding: .utf8)
         XCTAssertEqual(content, gemfileContent)
         XCTAssertNotNil(httpResponse)
         XCTAssertEqual(httpResponse!.statusCode, 200)
