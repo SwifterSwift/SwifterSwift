@@ -21,8 +21,8 @@ final class URLSessionExtensionsTests: XCTestCase {
             "gem 'fastlane'\n" +
             "gem 'cocoapods'"
         let url = URL(string: "https://raw.githubusercontent.com/SwifterSwift/SwifterSwift/5.3.0/Gemfile")!
-        var data: Data!
-        var response: URLResponse!
+        var data: Data?
+        var response: URLResponse?
         XCTAssertNoThrow((data, response) = try URLSession.shared.dataSync(with: URLRequest(url: url)))
         let httpResponse = response as? HTTPURLResponse
         let content = String(data: data, encoding: .utf8)
