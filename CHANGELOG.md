@@ -18,7 +18,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Array**
   - Added `init(count:element:)` initializer for creating an array of a given size with a closure. [#1051](https://github.com/SwifterSwift/SwifterSwift/pull/1051) by [viktart](https://github.com/viktart)
 - **URLSession**
-  - Added `dataSync(for request: URLRequest) throws -> (Data, URLResponse)` to make requests synchronously. [#1076](https://github.com/SwifterSwift/SwifterSwift/pull/1076) by [Roman Podymov](https://github.com/RomanPodymov)
+  - Added `dataSync(for:)` to make requests synchronously. [#1076](https://github.com/SwifterSwift/SwifterSwift/pull/1076) by [Roman Podymov](https://github.com/RomanPodymov)
 
 ### Changed
 - **UIButton**:
