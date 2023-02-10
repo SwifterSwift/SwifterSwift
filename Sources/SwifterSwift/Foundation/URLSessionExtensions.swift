@@ -1,11 +1,8 @@
 // URLSessionExtensions.swift - Copyright 2023 SwifterSwift
 
-#if canImport(Foundation)
+#if canImport(Foundation) && canImport(FoundationNetworking)
 import Foundation
-
-#if canImport(FoundationNetworking)
 import FoundationNetworking
-#endif
 
 // MARK: - Methods
 
