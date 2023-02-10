@@ -3,12 +3,9 @@
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(Foundation)
+#if canImport(Foundation) && canImport(FoundationNetworking)
 import Foundation
-
-#if canImport(FoundationNetworking)
 import FoundationNetworking
-#endif
 
 final class URLSessionExtensionsTests: XCTestCase {
     func testDataSync() {
@@ -24,6 +21,8 @@ final class URLSessionExtensionsTests: XCTestCase {
         var data: Data?
         var response: URLResponse?
         XCTAssertNoThrow((data, response) = try URLSession.shared.dataSync(with: URLRequest(url: url)))
+        XCTAssertNotNil(data)
+        XCTAssertNotNil(response)
         let httpResponse = response as? HTTPURLResponse
         let content = String(data: data, encoding: .utf8)
         XCTAssertEqual(content, gemfileContent)
