@@ -7,7 +7,7 @@ import FoundationNetworking
 // MARK: - Methods
 
 public extension URLSession {
-    /// SwifterSwift: synchronious version of `func dataTask(with request: URLRequest, completionHandler: @escaping @Sendable (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask`
+    /// SwifterSwift: synchronous version of `dataTask(with:completionHandler:)`
     ///
     /// - Parameter request: A URL request object that provides the URL, cache policy, request type, body data or body stream, and so on.
     /// - Returns: The data returned by the server; An object that provides response metadata, such as HTTP headers and status code. If you are making an HTTP or HTTPS request, the returned object is actually an HTTPURLResponse object.
