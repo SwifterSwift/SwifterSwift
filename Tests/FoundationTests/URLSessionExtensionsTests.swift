@@ -3,9 +3,12 @@
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(Foundation) && canImport(FoundationNetworking)
+#if canImport(Foundation)
 import Foundation
+
+#if canImport(FoundationNetworking)
 import FoundationNetworking
+#endif
 
 final class URLSessionExtensionsTests: XCTestCase {
     func testDataSync() {
