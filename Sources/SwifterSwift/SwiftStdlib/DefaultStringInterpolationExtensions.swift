@@ -17,7 +17,7 @@ public extension DefaultStringInterpolation {
     ///     token = 0
     ///     print("\(token, placeholder: "-")")
     ///     // Prints "0"
-    ///     print("\(token, placeholder: "-", predicate: { $0 > 0} )")
+    ///     print("\(token, placeholder: "-", where: { $0 > 0} )")
     ///     // Prints "-"
     ///
     /// - Parameters:
@@ -29,7 +29,7 @@ public extension DefaultStringInterpolation {
     ///                this parameter.
     mutating func appendInterpolation<T>(_ value: T?,
                                          placeholder: @autoclosure () -> String,
-                                         predicate: ((T) throws -> Bool)? = nil) rethrows
+                                         where predicate: ((T) throws -> Bool)? = nil) rethrows
     {
         switch value {
         case .some(let value) where try predicate?(value) != false:

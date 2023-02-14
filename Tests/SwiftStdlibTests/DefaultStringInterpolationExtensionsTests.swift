@@ -9,9 +9,9 @@ final class DefaultStringInterpolationExtensionsTests: XCTestCase {
         var token: Int?
         XCTAssertEqual("\(token, placeholder: "-")", "-")
         XCTAssertEqual("\(token, placeholder: "*")", "*")
-        XCTAssertEqual("\(token, placeholder: "-", predicate: { $0 > 0 })", "-")
+        XCTAssertEqual("\(token, placeholder: "-", where: { $0 > 0 })", "-")
         token = 0
         XCTAssertEqual("\(token, placeholder: "-")", "0")
-        XCTAssertEqual("\(token, placeholder: "-", predicate: { $0 > 0 })", "-")
+        XCTAssertEqual("\(token, placeholder: "-", where: { $0 > 0 })", "-")
     }
 }
