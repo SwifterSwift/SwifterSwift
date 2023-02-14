@@ -1,9 +1,5 @@
 // DefaultStringInterpolationExtensions.swift - Copyright 2023 SwifterSwift
 
-#if canImport(Foundation)
-import Foundation
-#endif
-
 public extension DefaultStringInterpolation {
     /// SwifterSwift: Interpolates the given value's textual representation
     /// into the string literal being created if the value is not `nil` and the
