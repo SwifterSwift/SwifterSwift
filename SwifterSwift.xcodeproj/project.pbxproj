@@ -367,6 +367,13 @@
 		58253513259CF23B00407B78 /* MeasurementExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58253511259CF23B00407B78 /* MeasurementExtensions.swift */; };
 		58253514259CF23B00407B78 /* MeasurementExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58253511259CF23B00407B78 /* MeasurementExtensions.swift */; };
 		58253515259CF23B00407B78 /* MeasurementExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58253511259CF23B00407B78 /* MeasurementExtensions.swift */; };
+		5898A74228D1D7C200261630 /* DefaultStringInterpolationExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAE63128CF2C53001935A2 /* DefaultStringInterpolationExtensionsTests.swift */; };
+		5898A74328D1D7C300261630 /* DefaultStringInterpolationExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAE63128CF2C53001935A2 /* DefaultStringInterpolationExtensionsTests.swift */; };
+		5898A74428D1D7C400261630 /* DefaultStringInterpolationExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAE63128CF2C53001935A2 /* DefaultStringInterpolationExtensionsTests.swift */; };
+		58CAE62928CF2935001935A2 /* DefaultStringInterpolationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAE62828CF2935001935A2 /* DefaultStringInterpolationExtensions.swift */; };
+		58CAE62A28CF2935001935A2 /* DefaultStringInterpolationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAE62828CF2935001935A2 /* DefaultStringInterpolationExtensions.swift */; };
+		58CAE62B28CF2935001935A2 /* DefaultStringInterpolationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAE62828CF2935001935A2 /* DefaultStringInterpolationExtensions.swift */; };
+		58CAE62C28CF2935001935A2 /* DefaultStringInterpolationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58CAE62828CF2935001935A2 /* DefaultStringInterpolationExtensions.swift */; };
 		5C88FBEC234CC1280065A942 /* NSColorExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88FBEB234CC1280065A942 /* NSColorExtensionsTests.swift */; };
 		658A02F2270F01C500DBA951 /* MKMultiPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A02F1270F01C500DBA951 /* MKMultiPointExtensions.swift */; };
 		658A02F3270F01D200DBA951 /* MKMultiPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 658A02F1270F01C500DBA951 /* MKMultiPointExtensions.swift */; };
@@ -833,6 +840,8 @@
 		42F53FEB2039C5AC0070DC11 /* UIStackViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensions.swift; sourceTree = "<group>"; };
 		42F53FEF2039C7140070DC11 /* UIStackViewExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackViewExtensionsTests.swift; sourceTree = "<group>"; };
 		58253511259CF23B00407B78 /* MeasurementExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementExtensions.swift; sourceTree = "<group>"; };
+		58CAE62828CF2935001935A2 /* DefaultStringInterpolationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStringInterpolationExtensions.swift; sourceTree = "<group>"; };
+		58CAE63128CF2C53001935A2 /* DefaultStringInterpolationExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStringInterpolationExtensionsTests.swift; sourceTree = "<group>"; };
 		5C88FBEB234CC1280065A942 /* NSColorExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColorExtensionsTests.swift; sourceTree = "<group>"; };
 		5E36CB6424AC9909007727DA /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		658A02F1270F01C500DBA951 /* MKMultiPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MKMultiPointExtensions.swift; sourceTree = "<group>"; };
@@ -1020,6 +1029,8 @@
 				07B7F1681F5EB41600E6F910 /* CharacterExtensions.swift */,
 				07B7F1691F5EB41600E6F910 /* CollectionExtensions.swift */,
 				7832C2AE209BB19300224EED /* ComparableExtensions.swift */,
+				D951E8A923D04DBE00F2CD0B /* DecodableExtensions.swift */,
+				58CAE62828CF2935001935A2 /* DefaultStringInterpolationExtensions.swift */,
 				07B7F16E1F5EB41600E6F910 /* DictionaryExtensions.swift */,
 				07B7F16F1F5EB41600E6F910 /* DoubleExtensions.swift */,
 				07B7F1701F5EB41600E6F910 /* FloatExtensions.swift */,
@@ -1034,7 +1045,6 @@
 				9D9784DA1FCAE3D200D988E7 /* StringProtocolExtensions.swift */,
 				B2A0DABF2336DA87002B0BC5 /* MutableCollectionExtensions.swift */,
 				C7E027C32360942000F1061E /* KeyedDecodingContainerExtensions.swift */,
-				D951E8A923D04DBE00F2CD0B /* DecodableExtensions.swift */,
 			);
 			path = SwiftStdlib;
 			sourceTree = "<group>";
@@ -1051,6 +1061,7 @@
 				07C50CFD1F5EB03200F46E5A /* CollectionExtensionsTests.swift */,
 				7832C2B3209BB32500224EED /* ComparableExtensionsTests.swift */,
 				D951E8AE23D04E4600F2CD0B /* DecodableExtensionsTests.swift */,
+				58CAE63128CF2C53001935A2 /* DefaultStringInterpolationExtensionsTests.swift */,
 				07C50D001F5EB03200F46E5A /* DictionaryExtensionsTests.swift */,
 				07C50D011F5EB03200F46E5A /* DoubleExtensionsTests.swift */,
 				07C50D021F5EB03200F46E5A /* FloatExtensionsTests.swift */,
@@ -2049,6 +2060,7 @@
 				07B7F1A71F5EB42000E6F910 /* UIViewExtensions.swift in Sources */,
 				07B7F1991F5EB42000E6F910 /* UILabelExtensions.swift in Sources */,
 				752AC7A020BC975E00659E76 /* SKNodeExtensions.swift in Sources */,
+				58CAE62928CF2935001935A2 /* DefaultStringInterpolationExtensions.swift in Sources */,
 				985C1B8F24797694008AAB0E /* WKWebViewExtensions.swift in Sources */,
 				9D9784DB1FCAE3D200D988E7 /* StringProtocolExtensions.swift in Sources */,
 				F8A710E923BF3EF100112DAD /* EdgeInsetsExtensions.swift in Sources */,
@@ -2207,6 +2219,7 @@
 				734308082108E4630029CD16 /* CGVectorExtensions.swift in Sources */,
 				F8DED22624EAA2070068F758 /* UIScrollViewExtensions.swift in Sources */,
 				07B7F1BC1F5EB42000E6F910 /* UIViewControllerExtensions.swift in Sources */,
+				58CAE62A28CF2935001935A2 /* DefaultStringInterpolationExtensions.swift in Sources */,
 				F8A710EA23BF3F7300112DAD /* EdgeInsetsExtensions.swift in Sources */,
 				07B7F2371F5EB45200E6F910 /* CGSizeExtensions.swift in Sources */,
 				07B7F1FB1F5EB43C00E6F910 /* CharacterExtensions.swift in Sources */,
@@ -2329,6 +2342,7 @@
 				658A02F4270F01D200DBA951 /* MKMultiPointExtensions.swift in Sources */,
 				074EAF1D1F7BA68B00C74636 /* UIFontExtensions.swift in Sources */,
 				18C8E5E02074C60C00F8AF51 /* SequenceExtensions.swift in Sources */,
+				58CAE62B28CF2935001935A2 /* DefaultStringInterpolationExtensions.swift in Sources */,
 				07B7F1BE1F5EB42200E6F910 /* UIAlertControllerExtensions.swift in Sources */,
 				8AC39B6528790A6B0041A56C /* DigestExtensions.swift in Sources */,
 				07B7F2281F5EB45100E6F910 /* CGColorExtensions.swift in Sources */,
@@ -2409,6 +2423,7 @@
 				0782A5B723DA98CA00E562C0 /* CLLocationArrayExtensions.swift in Sources */,
 				07A494E723C7CAAA00DFCBFC /* CLVisitExtensions.swift in Sources */,
 				07B7F2201F5EB44600E6F910 /* CGColorExtensions.swift in Sources */,
+				58CAE62C28CF2935001935A2 /* DefaultStringInterpolationExtensions.swift in Sources */,
 				0726D77C1F7C24840028CAB5 /* ColorExtensions.swift in Sources */,
 				07B7F1D51F5EB43B00E6F910 /* ArrayExtensions.swift in Sources */,
 				7832C2B2209BB19300224EED /* ComparableExtensions.swift in Sources */,
@@ -2460,6 +2475,7 @@
 				07C50D331F5EB04700F46E5A /* UINavigationBarExtensionTests.swift in Sources */,
 				07C50D401F5EB04700F46E5A /* UIViewExtensionsTests.swift in Sources */,
 				E5E5EB3D2350F40200B04C42 /* CAGradientLayerExtensionsTests.swift in Sources */,
+				5898A74228D1D7C200261630 /* DefaultStringInterpolationExtensionsTests.swift in Sources */,
 				90693555208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift in Sources */,
 				07C50D311F5EB04700F46E5A /* UIImageViewExtensionsTests.swift in Sources */,
 				07C50D2C1F5EB04600F46E5A /* UIBarButtonExtensionsTests.swift in Sources */,
@@ -2625,6 +2641,7 @@
 				07C50D8A1F5EB06000F46E5A /* CLLocationExtensionsTests.swift in Sources */,
 				07C50D881F5EB06000F46E5A /* CGPointExtensionsTests.swift in Sources */,
 				07C50D551F5EB04700F46E5A /* UIViewControllerExtensionsTests.swift in Sources */,
+				5898A74328D1D7C300261630 /* DefaultStringInterpolationExtensionsTests.swift in Sources */,
 				07C50D531F5EB04700F46E5A /* UITextFieldExtensionsTests.swift in Sources */,
 				07C50D721F5EB05100F46E5A /* URLExtensionsTests.swift in Sources */,
 				07C50D411F5EB04700F46E5A /* UIAlertControllerExtensionsTests.swift in Sources */,
@@ -2654,6 +2671,7 @@
 				734307FE2108C85E0029CD16 /* CGVectorExtensionsTests.swift in Sources */,
 				9D49148B1F8515D100F3868F /* NSPredicateExtensionsTests.swift in Sources */,
 				07C50D731F5EB05100F46E5A /* ArrayExtensionsTests.swift in Sources */,
+				5898A74428D1D7C400261630 /* DefaultStringInterpolationExtensionsTests.swift in Sources */,
 				664CB97D21718B1D00FC87B4 /* BinaryFloatingPointExtensionsTests.swift in Sources */,
 				0782A5B423DA98C100E562C0 /* CLLocationArrayExtensionsTests.swift in Sources */,
 				07C50D7E1F5EB05100F46E5A /* OptionalExtensionsTests.swift in Sources */,
