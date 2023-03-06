@@ -494,7 +494,7 @@ public extension UIView {
     ///                gradient stop as a value in the range [0,1]. The values must be
     ///                monotonically increasing.
     ///   - direction: Enumeration type describing the direction of the gradient.
-    func applyGradient(colors: [Color]?, locations: [CGFloat]? = [0.0, 1.0], direction: GradientDirection = .topToBottom) {
+    func applyGradient(colors: [Color], locations: [CGFloat] = [0.0, 1.0], direction: GradientDirection = .topToBottom) {
         // <https://github.com/swiftdevcenter/GradientColorExample>
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
