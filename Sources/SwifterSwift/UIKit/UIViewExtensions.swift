@@ -56,6 +56,19 @@ public extension UIView {
         case bottomToTop
         case leftToRight
         case rightToLeft
+
+        var gradientEndpoint: (CGPoint, CGPoint) {
+            switch self {
+            case .topToBottom:
+                return (CGPoint(x: 0.5, y: 0.0), CGPoint(x: 0.5, y: 1.0))
+            case .bottomToTop:
+                return (CGPoint(x: 0.5, y: 1.0), CGPoint(x: 0.5, y: 0.0))
+            case .leftToRight:
+                return (CGPoint(x: 0.0, y: 0.5), CGPoint(x: 1.0, y: 0.5))
+            case .rightToLeft:
+                return (CGPoint(x: 1.0, y: 0.5), CGPoint(x: 0.0, y: 0.5))
+            }
+        }
     }
 }
 
@@ -480,42 +493,28 @@ public extension UIView {
         CATransaction.commit()
     }
 
-    /// SwifterSwift: Apply Gradient Colors.
+    /// SwifterSwift: Add Gradient Colors.
     ///
-    ///     view.applyGradient(
+    ///     view.addGradient(
     ///         colors: [.red, .blue],
     ///         locations: [0.0, 1.0],
     ///         direction: .topToBottom
     ///     )
     ///
     /// - Parameters:
-    ///   - colors: An array of colors defining the color of each gradient stop.
+    ///   - colors: An array of `SFColor` defining the color of each gradient stop.
     ///   - locations: An array of `CGFloat` defining the location of each
-    ///                gradient stop as a value in the range [0,1]. The values must be
+    ///                gradient stop as a value in the range [0, 1]. The values must be
     ///                monotonically increasing.
     ///   - direction: Enumeration type describing the direction of the gradient.
-    func applyGradient(colors: [Color], locations: [CGFloat] = [0.0, 1.0], direction: GradientDirection = .topToBottom) {
+    func addGradient(colors: [SFColor], locations: [CGFloat] = [0.0, 1.0], direction: GradientDirection = .topToBottom) {
         // <https://github.com/swiftdevcenter/GradientColorExample>
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
-        gradientLayer.colors = colors?.map { $0.cgColor }
-        gradientLayer.locations = locations?.map { NSNumber(value: $0) }
-
-        switch direction {
-        case .topToBottom:
-            gradientLayer.startPoint = CGPoint(x: 0.5, y: 0.0)
-            gradientLayer.endPoint = CGPoint(x: 0.5, y: 1.0)
-        case .bottomToTop:
-            gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
-            gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
-        case .leftToRight:
-            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-            gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
-        case .rightToLeft:
-            gradientLayer.startPoint = CGPoint(x: 1.0, y: 0.5)
-            gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.5)
-        }
-
+        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.locations = locations.map { NSNumber(value: $0) }
+        gradientLayer.startPoint = direction.gradientEndpoint.0
+        gradientLayer.endPoint = direction.gradientEndpoint.1
         layer.addSublayer(gradientLayer)
     }
 
