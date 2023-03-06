@@ -490,7 +490,7 @@ public extension UIView {
     ///
     /// - Parameters:
     ///   - colors: An array of colors defining the color of each gradient stop.
-    ///   - locations: An array of NSNumber defining the location of each
+    ///   - locations: An array of `CGFloat` defining the location of each
     ///                gradient stop as a value in the range [0,1]. The values must be
     ///                monotonically increasing.
     ///   - direction: Enumeration type describing the direction of the gradient.
