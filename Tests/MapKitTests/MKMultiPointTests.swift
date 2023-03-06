@@ -30,11 +30,11 @@ final class MKMultiPointTests: XCTestCase {
     }
 
     func testCoordinatesForPolygon() {
-        let ploygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
+        let polygon = MKPolygon(coordinates: coordinates, count: coordinates.count)
 
-        XCTAssertEqual(coordinates.count, ploygon.coordinates.count)
+        XCTAssertEqual(coordinates.count, polygon.coordinates.count)
 
-        for (coordinate1, coordinate2) in zip(coordinates, ploygon.coordinates) {
+        for (coordinate1, coordinate2) in zip(coordinates, polygon.coordinates) {
             XCTAssertEqual(coordinate1.latitude, coordinate2.latitude, accuracy: 0.000000001)
             XCTAssertEqual(coordinate1.longitude, coordinate2.longitude, accuracy: 0.000000001)
         }

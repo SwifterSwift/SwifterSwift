@@ -4,7 +4,7 @@ public extension MutableCollection where Self: RandomAccessCollection {
     /// SwifterSwift: Sort the collection based on a keypath and a compare function.
     ///
     /// - Parameter keyPath: Key path to sort by. The key path type must be Comparable.
-    /// - Parameter compare: Comparation function that will determine the ordering.
+    /// - Parameter compare: Comparison function that will determine the ordering.
     mutating func sort<T>(by keyPath: KeyPath<Element, T>, with compare: (T, T) -> Bool) {
         sort { compare($0[keyPath: keyPath], $1[keyPath: keyPath]) }
     }

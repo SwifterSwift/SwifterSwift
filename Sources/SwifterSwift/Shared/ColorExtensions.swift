@@ -1811,7 +1811,7 @@ public extension SFColor {
         public static let carrot = SFColor(hex: 0xE67E22)!
 
         /// SwifterSwift: hex #D35400
-        public static let pumkin = SFColor(hex: 0xD35400)!
+        public static let pumpkin = SFColor(hex: 0xD35400)!
 
         /// SwifterSwift: hex #E74C3C
         public static let alizarin = SFColor(hex: 0xE74C3C)!
@@ -1829,7 +1829,7 @@ public extension SFColor {
         public static let asbestos = SFColor(hex: 0x7F8C8D)!
 
         /// SwifterSwift: hex #95A5A6
-        public static let concerte = SFColor(hex: 0x95A5A6)!
+        public static let concrete = SFColor(hex: 0x95A5A6)!
     }
 
     // swiftlint:enable type_body_length

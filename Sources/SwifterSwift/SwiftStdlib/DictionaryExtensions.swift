@@ -242,7 +242,7 @@ public extension Dictionary {
     /// - Parameters:
     ///   - lhs: dictionary.
     ///   - rhs: dictionary.
-    static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
+    static func += (lhs: input [Key: Value], rhs: [Key: Value]) {
         rhs.forEach { lhs[$0] = $1 }
     }
 
@@ -275,7 +275,7 @@ public extension Dictionary {
     /// - Parameters:
     ///   - lhs: dictionary.
     ///   - keys: array with the keys to be removed.
-    static func -= <S: Sequence>(lhs: inout [Key: Value], keys: S) where S.Element == Key {
+    static func -= <S: Sequence>(lhs: input [Key: Value], keys: S) where S.Element == Key {
         lhs.removeAll(keys: keys)
     }
 }

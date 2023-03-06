@@ -874,7 +874,7 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertFalse(Date().isWithin(1, .calendar, of: Date()))
     }
 
-    func testNewDateFromComponenets() {
+    func testNewDateFromComponents() {
         let date = Date(
             calendar: Date().calendar,
             timeZone: NSTimeZone.default,

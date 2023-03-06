@@ -63,7 +63,7 @@ public extension Optional {
     /// - Parameters:
     ///   - lhs: Any?
     ///   - rhs: Any?
-    static func ??= (lhs: inout Optional, rhs: Optional) {
+    static func ??= (lhs: input Optional, rhs: Optional) {
         guard let rhs = rhs else { return }
         lhs = rhs
     }
@@ -79,7 +79,7 @@ public extension Optional {
     /// - Parameters:
     ///   - lhs: Any?
     ///   - rhs: Any?
-    static func ?= (lhs: inout Optional, rhs: @autoclosure () -> Optional) {
+    static func ?= (lhs: input Optional, rhs: @autoclosure () -> Optional) {
         if lhs == nil {
             lhs = rhs()
         }
