@@ -33,10 +33,10 @@ public extension DefaultStringInterpolation {
     {
         switch value {
         case .some(let value) where try predicate?(value) != false:
-            appendLiteral("\(value)")
+            appendInterpolation(value)
 
         default:
-            appendLiteral(placeholder())
+            appendInterpolation(placeholder())
         }
     }
 }
