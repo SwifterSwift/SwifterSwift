@@ -758,7 +758,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `slicing(i:)` is deprecated, use `string[safe: i]` instead.
   - `slicing(from: to:)` is deprecated, use `string[safe: start..<end]`.
   - `firstIndex(of:)` is deprecated, use the natives `index(of: Character)` or `range(of: StringProtocol)` instead.
-  - `split(by:)` is deprecated,  use the native `split(separator: )` instead.
+  - `splitted(by:)` is deprecated,  use the native `split(separator: )` instead.
   - `reversed() -> String` is deprecated, use the Swift 4 new `reversed() -> ReversedCollection<String>`. [#305](https://github.com/SwifterSwift/SwifterSwift/pull/305) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida).
 - **Date**
   - `weekday` is now a _get-only_ property.
