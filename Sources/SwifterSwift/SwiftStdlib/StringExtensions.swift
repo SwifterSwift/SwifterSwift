@@ -553,8 +553,8 @@ public extension String {
     /// - Returns: The words contained in a string.
     func words() -> [String] {
         // https://stackoverflow.com/questions/42822838
-        let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
-        let comps = components(separatedBy: chararacterSet)
+        let characterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
+        let comps = components(separatedBy: characterSet)
         return comps.filter { !$0.isEmpty }
     }
     #endif
@@ -567,8 +567,8 @@ public extension String {
     /// - Returns: The count of words contained in a string.
     func wordCount() -> Int {
         // https://stackoverflow.com/questions/42822838
-        let chararacterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
-        let comps = components(separatedBy: chararacterSet)
+        let characterSet = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
+        let comps = components(separatedBy: characterSet)
         let words = comps.filter { !$0.isEmpty }
         return words.count
     }

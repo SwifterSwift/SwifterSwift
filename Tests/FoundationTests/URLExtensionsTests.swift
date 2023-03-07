@@ -53,11 +53,11 @@ final class URLExtensionsTests: XCTestCase {
         let url = URL(string: "https://google.com?code=12345&empty")!
 
         let codeResult = url.queryValue(for: "code")
-        let emtpyResult = url.queryValue(for: "empty")
+        let emptyResult = url.queryValue(for: "empty")
         let otherResult = url.queryValue(for: "other")
 
         XCTAssertEqual(codeResult, "12345")
-        XCTAssertNil(emtpyResult)
+        XCTAssertNil(emptyResult)
         XCTAssertNil(otherResult)
     }
 

@@ -19,10 +19,10 @@ public extension URLSession {
         var response: URLResponse!
         var error: Error?
         let semaphore = DispatchSemaphore(value: 0)
-        dataTask(with: request) { receivedData, receivedResponse, recievedError in
+        dataTask(with: request) { receivedData, receivedResponse, receivedError in
             data = receivedData
             response = receivedResponse
-            error = recievedError
+            error = receivedError
             semaphore.signal()
         }.resume()
         _ = semaphore.wait(timeout: .distantFuture)

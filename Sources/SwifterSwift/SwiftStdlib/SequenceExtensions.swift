@@ -164,7 +164,7 @@ public extension Sequence {
     /// SwifterSwift: Return a sorted array based on a key path and a compare function.
     ///
     /// - Parameter keyPath: Key path to sort by.
-    /// - Parameter compare: Comparation function that will determine the ordering.
+    /// - Parameter compare: Comparison function that will determine the ordering.
     /// - Returns: The sorted array.
     func sorted<T>(by keyPath: KeyPath<Element, T>, with compare: (T, T) -> Bool) -> [Element] {
         return sorted { compare($0[keyPath: keyPath], $1[keyPath: keyPath]) }
