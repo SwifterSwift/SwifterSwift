@@ -553,7 +553,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **String**:
   - Added `firstCharacterUppercased()` method to return a string with only the first character uppercased. [#505](https://github.com/SwifterSwift/SwifterSwift/pull/505) by [happiehappie](https://github.com/happiehappie)
 - **UITextView**:
-  - Added `wrapToContent()` method which will remove insets, offsets, paddings which lies within UITextView's `bounds` and `containSize`. [#458](https://github.com/SwifterSwift/SwifterSwift/pull/458) by [ratulSharker](https://github.com/ratulSharker)
+  - Added `wrapToContent()` method which will remove insets, offsets, paddings which lies within UITextView's `bounds` and `contentSize`. [#458](https://github.com/SwifterSwift/SwifterSwift/pull/458) by [ratulSharker](https://github.com/ratulSharker)
 - **URL**
   - Added `deletingAllPathComponents()` and `deleteAllPathComponents()` to delete all path components from a URL. [#441](https://github.com/SwifterSwift/SwifterSwift/pull/441) by [setoelkahfi](https://github.com/setoelkahfi).
   - Added `queryValue(for:)` to get the value of a query key from a URL. [#467](https://github.com/SwifterSwift/SwifterSwift/pull/467) by [jdisho](https://github.com/jdisho).
