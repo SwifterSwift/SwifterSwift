@@ -19,7 +19,7 @@ final class SceneKitTests: XCTestCase {
         XCTAssertEqual(vector.length, 7)
     }
 
-    func testNormaized() {
+    func testNormalized() {
         let v3Norm = SCNVector3(3, -5, 0.125).normalized
         XCTAssertEqual(v3Norm.length, 1)
         
@@ -41,12 +41,12 @@ final class SceneKitTests: XCTestCase {
         XCTAssertEqual(vector, SCNVector3(30, -20, 20))
     }
 
-    func testSubstract() {
+    func testSubtract() {
         let result = vector1 - vector2
         XCTAssertEqual(result, SCNVector3(-10, -20, 40))
     }
 
-    func testSubstractEqual() {
+    func testSubtractEqual() {
         var vector = vector1
         vector -= vector2
         XCTAssertEqual(vector, SCNVector3(-10, -20, 40))

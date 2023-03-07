@@ -103,7 +103,7 @@ public extension Sequence {
         return filter { $0[keyPath: keyPath] }
     }
 
-    /// SwifterSwift: Get last element that satisfies a conditon.
+    /// SwifterSwift: Get last element that satisfies a condition.
     ///
     ///        [2, 2, 4, 7].last(where: {$0 % 2 == 0}) -> 4
     ///

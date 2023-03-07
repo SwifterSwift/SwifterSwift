@@ -27,7 +27,7 @@ public extension UITabBar {
         backgroundImage = UIImage()
         isTranslucent = false
 
-        // selectedBackgoundColor
+        // selectedBackgroundColor
         guard let barItems = items else {
             return
         }

@@ -24,7 +24,7 @@ public extension BinaryInteger {
 // MARK: - Initializers
 
 public extension BinaryInteger {
-    /// SwifterSwift: Creates a `BinaryInteger` from a raw byte representaion.
+    /// SwifterSwift: Creates a `BinaryInteger` from a raw byte representation.
     ///
     ///     var number = Int16(bytes: [0xFF, 0b1111_1101])
     ///     print(number!)
