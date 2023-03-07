@@ -242,7 +242,7 @@ public extension Dictionary {
     /// - Parameters:
     ///   - lhs: dictionary.
     ///   - rhs: dictionary.
-    static func += (lhs: input [Key: Value], rhs: [Key: Value]) {
+    static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
         rhs.forEach { lhs[$0] = $1 }
     }
 
