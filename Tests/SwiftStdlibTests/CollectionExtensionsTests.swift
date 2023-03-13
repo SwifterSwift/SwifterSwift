@@ -142,9 +142,9 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertEqual([Int]().average(), 0)
     }
     
-    func testPairsWithOddNumberOfElementsInCollection() {
+    func testAdjacentPairsWithOddNumberOfElementsInCollection() {
         var pairs: [(Int, Int)] = []
-        for (first, second) in [1, 2, 3].pairs() {
+        for (first, second) in [1, 2, 3].adjacentPairs() {
             pairs.append((first, second))
         }
         XCTAssertEqual(pairs.count, 3)
@@ -156,9 +156,9 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertEqual(pairs[2].1, 3)
     }
     
-    func testPairsWithEvenNumberOfElementsInCollection() {
+    func testAdjacentPairsWithEvenNumberOfElementsInCollection() {
         var pairs: [(Int, Int)] = []
-        for (first, second) in [1, 2].pairs() {
+        for (first, second) in [1, 2].adjacentPairs() {
             pairs.append((first, second))
         }
         XCTAssertEqual(pairs.count, 1)
@@ -166,10 +166,10 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertEqual(pairs[0].1, 2)
     }
     
-    func testPairsWithEmptyCollection() {
+    func testAdjacentPairsWithEmptyCollection() {
         var pairs: [(Int, Int)] = []
         let array: [Int] = []
-        for (first, second) in array.pairs() {
+        for (first, second) in array.adjacentPairs() {
             pairs.append((first, second))
         }
         XCTAssertEqual(pairs.count, 0)
