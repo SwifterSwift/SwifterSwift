@@ -96,7 +96,7 @@ public extension Collection {
     ///        }
     ///
     ///
-    /// - Returns: a sequence with tuple(unique pair) as Element type.
+    /// - Returns: a sequence of adjacent pairs of elements from this collection.
     func adjacentPairs() -> AnySequence<(Element, Element)> {
         guard var index1 = index(startIndex, offsetBy: 0, limitedBy: endIndex),
               var index2 = index(index1, offsetBy: 1, limitedBy: endIndex) else {
