@@ -154,7 +154,7 @@ final class CollectionExtensionsTests: XCTestCase {
     }
     
     func testAdjacentPairsWithEvenNumberOfElementsInCollection() {
-        let pairs: [(Int, Int)] = Array([1, 2].adjacentPairs())
+        let pairs = Array([1, 2].adjacentPairs())
         XCTAssertEqual(pairs.count, 1)
         XCTAssertEqual(pairs[0].0, 1)
         XCTAssertEqual(pairs[0].1, 2)
