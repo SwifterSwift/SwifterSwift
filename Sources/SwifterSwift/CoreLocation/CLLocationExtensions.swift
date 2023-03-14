@@ -63,6 +63,30 @@ public extension CLLocation {
 
         return (degrees + 360).truncatingRemainder(dividingBy: 360)
     }
+    
+    /// SwifterSwift: Check the distance between the start and end is less than or equal to the distance(=parameters).
+    ///
+    /// - Parameters:
+    ///   - from: Start location.
+    ///   - to: End location.
+    ///   - distance: Distance to check
+    ///   - unitLength: The unit of length. Default value is meters.
+    /// - Returns: True if the distance between the start and end is less than or equal to the distance(=parameters).
+    static func inRange(from start: CLLocation, to end: CLLocation, distance: Double, unitLength unit: UnitLength = .meters) -> Bool {
+        let distance = Measurement(value: distance, unit: unit).converted(to: .meters).value
+        return start.distance(from: end) <= distance
+    }
+    
+    /// SwifterSwift: Check the distance to end is less than or equal to the distance(=parameters).
+    ///
+    /// - Parameters:
+    ///   - to: End location.
+    ///   - distance: Distance to check
+    ///   - unitLength: The unit of length. Default value is meters.
+    /// - Returns: True if the distance between the start and end is less than or equal to the distance(=parameters).
+    func inRange(to: CLLocation, distance: Double, unitLength unit: UnitLength = .meters) -> Bool {
+        return CLLocation.inRange(from: self, to: to, distance: distance, unitLength: unit)
+    }
 }
 
 #endif
