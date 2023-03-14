@@ -26,6 +26,18 @@ final class CLLocationExtensionsTests: XCTestCase {
 
         XCTAssertEqual(bearing, 105.619, accuracy: 0.001)
     }
+    
+    func testInRange() {
+        let aLoc = CLLocation(latitude: 37.575803, longitude: 126.976807)
+        let bLoc = CLLocation(latitude: 37.572931, longitude: 126.976834)
+    
+        XCTAssertEqual(CLLocation.inRange(from: aLoc, to: bLoc, distance: 320), true)
+        XCTAssertEqual(aLoc.inRange(to: bLoc, distance: 320), true)
+        XCTAssertEqual(CLLocation.inRange(from: aLoc, to: bLoc, distance: 1050, unitLength: .feet), true)
+        
+        XCTAssertEqual(CLLocation.inRange(from: aLoc, to: bLoc, distance: 300), false)
+        XCTAssertEqual(CLLocation.inRange(from: aLoc, to: bLoc, distance: 1000, unitLength: .feet), false)
+    }
 }
 
 #endif
