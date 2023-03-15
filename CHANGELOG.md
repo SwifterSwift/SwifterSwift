@@ -176,7 +176,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Conform to `Equatable` when `Wrapped` is `RawRepresentable` and its `RawValue` is `Equatable`. [#804](https://github.com/SwifterSwift/SwifterSwift/pull/804) by [guykogus](https://github.com/guykogus)
 - **CoreLocation**:
   - Added `Array where Element: CLLocation extension` and added `distance(unitLength:)` function. [#799](https://github.com/SwifterSwift/SwifterSwift/pull/799) by [trevorphillips](https://github.com/trevorphillips)
-  - Added `inRange(from: to: distance: unitLength: = .meters)` function [#1095](https://github.com/SwifterSwift/SwifterSwift/pull/1095) by [never-better](https://github.com/never-better)
+  - Added `inRange(of:radius:unit:=.meters)` function [#1095](https://github.com/SwifterSwift/SwifterSwift/pull/1095) by [never-better](https://github.com/never-better)
 - **Decodable**:
   - Added `init?(data:decoder:)` to decode `Decodable` (Codable) type models. [#797](https://github.com/SwifterSwift/SwifterSwift/pull/797) by [Mustafa GUNES](https://github.com/mustafagunes).
 - **CLVisit**:
