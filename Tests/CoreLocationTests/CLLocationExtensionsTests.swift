@@ -31,12 +31,11 @@ final class CLLocationExtensionsTests: XCTestCase {
         let aLoc = CLLocation(latitude: 37.575803, longitude: 126.976807)
         let bLoc = CLLocation(latitude: 37.572931, longitude: 126.976834)
     
-        XCTAssertEqual(CLLocation.inRange(from: aLoc, to: bLoc, distance: 320), true)
-        XCTAssertEqual(aLoc.inRange(to: bLoc, distance: 320), true)
-        XCTAssertEqual(CLLocation.inRange(from: aLoc, to: bLoc, distance: 1050, unitLength: .feet), true)
+        XCTAssertEqual(aLoc.inRange(of: bLoc, radius: 320), true)
+        XCTAssertEqual(aLoc.inRange(of: bLoc, radius: 1050, unitLength: .feet), true)
         
-        XCTAssertEqual(CLLocation.inRange(from: aLoc, to: bLoc, distance: 300), false)
-        XCTAssertEqual(CLLocation.inRange(from: aLoc, to: bLoc, distance: 1000, unitLength: .feet), false)
+        XCTAssertEqual(aLoc.inRange(of: bLoc, radius: 300), false)
+        XCTAssertEqual(aLoc.inRange(of: bLoc, radius: 1000, unitLength: .feet), false)
     }
 }
 
