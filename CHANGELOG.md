@@ -58,6 +58,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Collection**
   - Added `fullRange` to get the entire range of indices in a collection. [#902](https://github.com/SwifterSwift/SwifterSwift/pull/902) by [guykogus](https://github.com/guykogus)
   - Moved `indices(of:)` from `RandomAccessCollection` to find the indices of an element. [#863](https://github.com/SwifterSwift/SwifterSwift/pull/863) by [guykogus](https://github.com/guykogus)
+  - Added `adjacentPairs` to generate unique pair of elements in a collection
+        [#1094](https://github.com/SwifterSwift/SwifterSwift/pull/1094) by [boudhayan](https://github.com/boudhayan)
 - **UIViewController**:
   - Added `instantiate(from:bundle:identifier:)` function to `UIViewController` to make it easier to instantiate it from storyboard. [#860](https://github.com/SwifterSwift/SwifterSwift/pull/860) by [VatoKo](https://github.com/VatoKo)
 - **String**:
