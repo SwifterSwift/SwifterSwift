@@ -515,8 +515,10 @@ public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: Returns a localized string, with an optional comment for translators.
     ///
-    ///        "Hello world".localized -> Hallo Welt
+    ///        "Hello world".localized() -> Hallo Welt
     ///
+    /// - Parameter comment: Optional comment for translators.
+    /// - Returns: Localized string.
     func localized(comment: String = "") -> String {
         return NSLocalizedString(self, comment: comment)
     }
