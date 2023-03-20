@@ -517,7 +517,7 @@ public extension String {
     ///
     ///        "Hello world".localized() -> Hallo Welt
     ///
-    /// - Parameter comment: Comment for translators.
+    /// - Parameter comment: Optional comment for translators.
     /// - Returns: Localized string.
     func localized(comment: String = "") -> String {
         return NSLocalizedString(self, comment: comment)
