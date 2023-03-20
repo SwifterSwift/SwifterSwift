@@ -141,4 +141,27 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertEqual([1, 2, 3, 4, 5].average(), 3)
         XCTAssertEqual([Int]().average(), 0)
     }
+    
+    func testAdjacentPairsWithOddNumberOfElementsInCollection() {
+        let pairs = Array([1, 2, 3].adjacentPairs())
+        XCTAssertEqual(pairs.count, 3)
+        XCTAssertEqual(pairs[0].0, 1)
+        XCTAssertEqual(pairs[0].1, 2)
+        XCTAssertEqual(pairs[1].0, 1)
+        XCTAssertEqual(pairs[1].1, 3)
+        XCTAssertEqual(pairs[2].0, 2)
+        XCTAssertEqual(pairs[2].1, 3)
+    }
+    
+    func testAdjacentPairsWithEvenNumberOfElementsInCollection() {
+        let pairs = Array([1, 2].adjacentPairs())
+        XCTAssertEqual(pairs.count, 1)
+        XCTAssertEqual(pairs[0].0, 1)
+        XCTAssertEqual(pairs[0].1, 2)
+    }
+    
+    func testAdjacentPairsWithEmptyCollection() {
+        let pairs = Array([Int]().adjacentPairs())
+        XCTAssertEqual(pairs.count, 0)
+    }
 }
