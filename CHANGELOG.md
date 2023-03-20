@@ -470,7 +470,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added negation of vectors via prefix (-) operator. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
   - Added `init(angle:magnitude:)` to create vectors based on their angle and magnitude. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
 - **UIRefreshControl**:
-  - `beginRefresh(in tableView:, animated:, sendAction:)` UIRefreshControl extension to begin refresh programatically. [#525](https://github.com/SwifterSwift/SwifterSwift/pull/525) by [ratulSharker](https://github.com/ratulSharker)
+  - `beginRefresh(in tableView:, animated:, sendAction:)` UIRefreshControl extension to begin refresh programmatically. [#525](https://github.com/SwifterSwift/SwifterSwift/pull/525) by [ratulSharker](https://github.com/ratulSharker)
 - **Dictionary**:
   - Added `removeValueForRandomKey()` to remove a value for a random key from a dictionary. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [MaxHaertwig](https://github.com/maxhaertwig).
   - Added `mapKeysAndValues(_:)` to map a `Dictionary` into a `Dictionary` with different (or same) `Key` and `Value` types. [#546](https://github.com/SwifterSwift/SwifterSwift/pull/546) by [guykogus](https://github.com/guykogus)
