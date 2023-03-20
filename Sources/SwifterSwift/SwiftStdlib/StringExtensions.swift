@@ -524,6 +524,17 @@ public extension String {
     }
     #endif
 
+    #if canImport(Foundation)
+    /// SwifterSwift: Returns a format localized string
+    /// - Parameters:
+    ///   - comment: Optional comment for translators
+    ///   - arguments: Arguments used by format
+    /// - Returns: Format localized string.
+    func formatLocalized(comment: String = "", _ arguments: CVarArg...) -> String {
+        return String(format: localized(comment: comment), arguments)
+    }
+    #endif
+
     /// SwifterSwift: The most common character in string.
     ///
     ///		"This is a test, since e is appearing everywhere e should be the common character".mostCommonCharacter() -> "e"
