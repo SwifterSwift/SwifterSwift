@@ -64,7 +64,7 @@ public extension CLLocation {
         return (degrees + 360).truncatingRemainder(dividingBy: 360)
     }
 
-    /// SwifterSwift: Check the distance to end is less than or equal to the distance(=parameters).
+    /// SwifterSwift: Check the distance to end is less than or equal to the `distance`.
     ///
     /// - Parameters:
     ///   - location: End location.
