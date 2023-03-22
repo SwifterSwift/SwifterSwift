@@ -50,25 +50,19 @@ public extension UIView {
         case easeInOut
     }
 
-    /// SwifterSwift: Apply gradient directions
-    enum GradientDirection {
-        case topToBottom
-        case bottomToTop
-        case leftToRight
-        case rightToLeft
+    /// SwifterSwift: Add gradient directions
+    struct GradientDirection {
+        static let topToBottom = GradientDirection(startPoint: CGPoint(x: 0.5, y: 0.0),
+                                                   endPoint: CGPoint(x: 0.5, y: 1.0))
+        static let bottomToTop = GradientDirection(startPoint: CGPoint(x: 0.5, y: 1.0),
+                                                   endPoint: CGPoint(x: 0.5, y: 0.0))
+        static let leftToRight = GradientDirection(startPoint: CGPoint(x: 0.0, y: 0.5),
+                                                   endPoint: CGPoint(x: 1.0, y: 0.5))
+        static let rightToLeft = GradientDirection(startPoint: CGPoint(x: 1.0, y: 0.5),
+                                                   endPoint: CGPoint(x: 0.0, y: 0.5))
 
-        var gradientEndpoint: (CGPoint, CGPoint) {
-            switch self {
-            case .topToBottom:
-                return (CGPoint(x: 0.5, y: 0.0), CGPoint(x: 0.5, y: 1.0))
-            case .bottomToTop:
-                return (CGPoint(x: 0.5, y: 1.0), CGPoint(x: 0.5, y: 0.0))
-            case .leftToRight:
-                return (CGPoint(x: 0.0, y: 0.5), CGPoint(x: 1.0, y: 0.5))
-            case .rightToLeft:
-                return (CGPoint(x: 1.0, y: 0.5), CGPoint(x: 0.0, y: 0.5))
-            }
-        }
+        let startPoint: CGPoint
+        let endPoint: CGPoint
     }
 }
 
@@ -506,15 +500,15 @@ public extension UIView {
     ///   - locations: An array of `CGFloat` defining the location of each
     ///                gradient stop as a value in the range [0, 1]. The values must be
     ///                monotonically increasing.
-    ///   - direction: Enumeration type describing the direction of the gradient.
-    func addGradient(colors: [SFColor], locations: [CGFloat] = [0.0, 1.0], direction: GradientDirection = .topToBottom) {
+    ///   - direction: Struct type describing the direction of the gradient.
+    func addGradient(colors: [SFColor], locations: [CGFloat] = [0.0, 1.0], direction: GradientDirection) {
         // <https://github.com/swiftdevcenter/GradientColorExample>
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
         gradientLayer.colors = colors.map { $0.cgColor }
         gradientLayer.locations = locations.map { NSNumber(value: $0) }
-        gradientLayer.startPoint = direction.gradientEndpoint.0
-        gradientLayer.endPoint = direction.gradientEndpoint.1
+        gradientLayer.startPoint = direction.startPoint
+        gradientLayer.endPoint = direction.endPoint
         layer.addSublayer(gradientLayer)
     }
 
