@@ -525,10 +525,13 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Returns a format localized string
+    /// SwifterSwift: Returns a format localized string.
+    ///
+    ///    "%d Swift %d Objective-C".formatLocalized(1, 2) -> 1 Swift 2 Objectiv-C
+    ///
     /// - Parameters:
-    ///   - comment: Optional comment for translators
-    ///   - arguments: Arguments used by format
+    ///   - comment: Optional comment for translators.
+    ///   - arguments: Arguments used by format.
     /// - Returns: Format localized string.
     func formatLocalized(comment: String = "", _ arguments: CVarArg...) -> String {
         let format = localized(comment: comment)
