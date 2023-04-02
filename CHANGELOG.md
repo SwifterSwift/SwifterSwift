@@ -33,6 +33,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `DigestExtensions.swift` would not compile on Xcode 14 due to an `ambiguous use of 'makeIterator()'` error. [#1042](https://github.com/SwifterSwift/SwifterSwift/issues/1042) by [theedov](https://github.com/theedov)
 - **NotificationCenter**
   - Fixed warning in `observeOnce` that about capture in sendable closure.
+- **UINavigationBar**
+  - Change the methods of UINavigationBarExtensions to use UINavigationBarAppearance for support iOS 15 and later versions.
 ---
 
 ## [v5.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/5.3.0)
