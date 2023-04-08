@@ -31,7 +31,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Fixed incorrect calculation in `nearestTenMinutes` to align with other `nearest*` date calculations. [#1034](https://github.com/SwifterSwift/SwifterSwift/pull/1034) by [mmdock](https://github.com/mmdock)
 - **Digest**
   - `DigestExtensions.swift` would not compile on Xcode 14 due to an `ambiguous use of 'makeIterator()'` error. [#1042](https://github.com/SwifterSwift/SwifterSwift/issues/1042) by [theedov](https://github.com/theedov)
-
+- **NotificationCenter**
+  - Fixed warning in `observeOnce` that about capture in sendable closure.
 ---
 
 ## [v5.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/5.3.0)
@@ -58,6 +59,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Collection**
   - Added `fullRange` to get the entire range of indices in a collection. [#902](https://github.com/SwifterSwift/SwifterSwift/pull/902) by [guykogus](https://github.com/guykogus)
   - Moved `indices(of:)` from `RandomAccessCollection` to find the indices of an element. [#863](https://github.com/SwifterSwift/SwifterSwift/pull/863) by [guykogus](https://github.com/guykogus)
+  - Added `adjacentPairs` to generate unique pair of elements in a collection
+        [#1094](https://github.com/SwifterSwift/SwifterSwift/pull/1094) by [boudhayan](https://github.com/boudhayan)
 - **UIViewController**:
   - Added `instantiate(from:bundle:identifier:)` function to `UIViewController` to make it easier to instantiate it from storyboard. [#860](https://github.com/SwifterSwift/SwifterSwift/pull/860) by [VatoKo](https://github.com/VatoKo)
 - **String**:

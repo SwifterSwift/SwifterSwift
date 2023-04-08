@@ -87,6 +87,39 @@ public extension Collection {
             start = end
         }
     }
+    
+    /// SwifterSwift: Unique pair of elements in a collection.
+    ///
+    ///        let array = [1, 2, 3]
+    ///        for (first, second) in array.adjacentPairs() {
+    ///            print(first, second) // print: (1, 2) (1, 3) (2, 3)
+    ///        }
+    ///
+    ///
+    /// - Returns: a sequence of adjacent pairs of elements from this collection.
+    func adjacentPairs() -> AnySequence<(Element, Element)> {
+        guard var index1 = index(startIndex, offsetBy: 0, limitedBy: endIndex),
+              var index2 = index(index1, offsetBy: 1, limitedBy: endIndex) else {
+            return AnySequence {
+                EmptyCollection.Iterator()
+            }
+        }
+        return AnySequence {
+            AnyIterator {
+                if index1 >= endIndex || index2 >= endIndex {
+                    return nil
+                }
+                defer {
+                    index2 = self.index(after: index2)
+                    if index2 >= endIndex {
+                        index1 = self.index(after: index1)
+                        index2 = self.index(after: index1)
+                    }
+                }
+                return (self[index1], self[index2])
+            }
+        }
+    }
 }
 
 // MARK: - Methods (Equatable)
