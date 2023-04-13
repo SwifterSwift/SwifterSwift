@@ -600,7 +600,7 @@ public extension UIView {
             anchors.append(heightAnchor.constraint(equalToConstant: heightConstant))
         }
 
-        anchors.forEach { $0.isActive = true }
+        NSLayoutConstraint.activate(anchors)
 
         return anchors
     }
