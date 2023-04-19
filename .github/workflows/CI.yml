@@ -83,7 +83,7 @@ jobs:
       run: bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=${{ matrix.platform }} 
       
   Linux:
-    runs-on: [ubuntu-18.04] 
+    runs-on: [ubuntu-20.04] 
     container: swift:5.3.3
     steps:
       - uses: actions/checkout@v1
