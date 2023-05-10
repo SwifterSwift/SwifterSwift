@@ -3,7 +3,7 @@
  
  SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original API design guidelines.
  
- You can find examples of some extenstions and try them out in this playground:
+ You can find examples of some extensions and try them out in this playground:
  
  * [SwiftStdlib extensions](01-SwiftStdlibExtensions)
  * [Foundation extensions](02-FoundationExtensions)

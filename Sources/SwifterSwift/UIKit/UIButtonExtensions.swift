@@ -34,6 +34,13 @@ public extension UIButton {
         set { setImage(newValue, for: .selected) }
     }
 
+    /// SwifterSwift: Image of focused state for button; also inspectable from Storyboard.
+    @IBInspectable
+    var imageForFocused: UIImage? {
+        get { image(for: .focused) }
+        set { setImage(newValue, for: .focused) }
+    }
+    
     /// SwifterSwift: Title color of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleColorForDisabled: UIColor? {
@@ -62,6 +69,13 @@ public extension UIButton {
         set { setTitleColor(newValue, for: .selected) }
     }
 
+    /// SwifterSwift: Title color of focused state for button; also inspectable from Storyboard.
+    @IBInspectable
+    var titleColorForFocused: UIColor? {
+        get { titleColor(for: .focused) }
+        set { setTitleColor(newValue, for: .focused) }
+    }
+    
     /// SwifterSwift: Title of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleForDisabled: String? {
@@ -90,6 +104,13 @@ public extension UIButton {
         set { setTitle(newValue, for: .selected) }
     }
     
+    /// SwifterSwift: Title of focused state for button; also inspectable from Storyboard.
+    @IBInspectable
+    var titleForFocused: String? {
+        get { title(for: .focused) }
+        set { setTitle(newValue, for: .focused) }
+    }
+    
     /// SwifterSwift: Attributed title of disabled state for button.
     var attributedTitleForDisabled: NSAttributedString? {
         get { attributedTitle(for: .disabled) }
@@ -113,13 +134,19 @@ public extension UIButton {
         get { attributedTitle(for: .selected) }
         set { setAttributedTitle(newValue, for: .selected) }
     }
+    
+    /// SwifterSwift: Attributed title of focused state for button.
+    var attributedTitleForFocused: NSAttributedString? {
+        get { attributedTitle(for: .focused) }
+        set { setAttributedTitle(newValue, for: .focused) }
+    }
 }
 
 // MARK: - Methods
 
 public extension UIButton {
     private var states: [UIControl.State] {
-        [.normal, .selected, .highlighted, .disabled]
+        [.normal, .selected, .highlighted, .disabled, .focused]
     }
 
     /// SwifterSwift: Set image for all states.

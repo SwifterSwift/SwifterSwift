@@ -146,7 +146,7 @@ public extension URL {
     ///     var thumbnail = url.thumbnail()
     ///     thumbnail = url.thumbnail(fromTime: 5)
     ///
-    ///     DisptachQueue.main.async {
+    ///     DispatchQueue.main.async {
     ///         someImageView.image = url.thumbnail()
     ///     }
     ///
