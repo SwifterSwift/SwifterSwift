@@ -11,7 +11,7 @@ class HKActivitySummaryExtensionsTests: XCTestCase {
     func testIsStandGoalMet() {
         let unit = HKUnit.count()
         let summary = HKActivitySummary()
-        if #available(iOS 16.0, *) {
+      if #available(iOS 16.0, watchOS 9.0, *) {
             summary.standHoursGoal = HKQuantity(unit: unit, doubleValue: 12)
         } else {
             summary.appleStandHoursGoal = HKQuantity(unit: unit, doubleValue: 12)
@@ -30,7 +30,7 @@ class HKActivitySummaryExtensionsTests: XCTestCase {
     func testIsExerciseTimeGoalMet() {
         let unit = HKUnit.minute()
         let summary = HKActivitySummary()
-        if #available(iOS 16.0, *) {
+        if #available(iOS 16.0, watchOS 9.0, *) {
             summary.exerciseTimeGoal = HKQuantity(unit: unit, doubleValue: 30)
         } else {
             summary.appleExerciseTimeGoal = HKQuantity(unit: unit, doubleValue: 30)

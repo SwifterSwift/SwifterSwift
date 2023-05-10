@@ -12,7 +12,7 @@ import HealthKit
 public extension HKActivitySummary {
     /// SwifterSwift: Check if stand goal is met.
     var isStandGoalMet: Bool {
-        if #available(iOS 16.0, *) {
+        if #available(iOS 16.0, watchOS 9.0, *) {
             return standHoursGoal == nil || standHoursGoal!.compare(appleStandHours) != .orderedDescending
         } else {
             return appleStandHoursGoal.compare(appleStandHours) != .orderedDescending
@@ -21,7 +21,7 @@ public extension HKActivitySummary {
 
     /// SwifterSwift: Check if exercise time goal is met.
     var isExerciseTimeGoalMet: Bool {
-        if #available(iOS 16.0, *) {
+        if #available(iOS 16.0, watchOS 9.0, *) {
             return exerciseTimeGoal == nil || exerciseTimeGoal!.compare(appleExerciseTime) != .orderedDescending
         } else {
             return appleExerciseTimeGoal.compare(appleExerciseTime) != .orderedDescending
