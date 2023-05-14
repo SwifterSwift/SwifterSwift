@@ -669,6 +669,8 @@
 		F8A710EF23BF3F8500112DAD /* EdgeInsetsExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A710ED23BF3F8200112DAD /* EdgeInsetsExtensionsTests.swift */; };
 		F8A710F023BF3F8500112DAD /* EdgeInsetsExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A710ED23BF3F8200112DAD /* EdgeInsetsExtensionsTests.swift */; };
 		F8A710F123BF3F8600112DAD /* EdgeInsetsExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A710ED23BF3F8200112DAD /* EdgeInsetsExtensionsTests.swift */; };
+		F8B4DFB3291EA77C0011BD90 /* HKActivitySummaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAEBCE224B0079700F61684 /* HKActivitySummaryExtensionsTests.swift */; };
+		F8B4DFB4291EA7880011BD90 /* HKActivitySummaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAEBCDF24B0045F00F61684 /* HKActivitySummaryExtensions.swift */; };
 		F8C1AE6F225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */; };
 		F8C1AE70225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */; };
 		F8C1AE71225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */; };
@@ -2367,6 +2369,7 @@
 			files = (
 				B2EEA14A211A7AC900EF7F8E /* RangeReplaceableCollectionExtensions.swift in Sources */,
 				074C8D83224F86450050F040 /* MKMapViewExtensions.swift in Sources */,
+				F8B4DFB4291EA7880011BD90 /* HKActivitySummaryExtensions.swift in Sources */,
 				07B7F1E01F5EB43B00E6F910 /* LocaleExtensions.swift in Sources */,
 				9D806A5E2258D2B8008E500A /* SCNMaterialExtensions.swift in Sources */,
 				07B7F1DA1F5EB43B00E6F910 /* DateExtensions.swift in Sources */,
@@ -2691,6 +2694,7 @@
 				07C50D851F5EB05800F46E5A /* NSAttributedStringExtensionsTests.swift in Sources */,
 				9E9F42BC298733E000A0BD60 /* URLSessionExtensionsTests.swift in Sources */,
 				07C50D7C1F5EB05100F46E5A /* IntExtensionsTests.swift in Sources */,
+				F8B4DFB3291EA77C0011BD90 /* HKActivitySummaryExtensionsTests.swift in Sources */,
 				F8C1AE76225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */,
 				07C50D791F5EB05100F46E5A /* DictionaryExtensionsTests.swift in Sources */,
 				C7E027CB2360958B00F1061E /* KeyedDecodingContainerExtensionsTests.swift in Sources */,
