@@ -91,7 +91,7 @@ public extension Optional {
 public extension Optional where Wrapped: Collection {
     /// SwifterSwift: Check if optional is nil or empty collection.
     var isNilOrEmpty: Bool {
-        return (self == nil || self!.isEmpty)
+        return (self == nil || (self?.isEmpty ?? true))
     }
 
     /// SwifterSwift: Returns the collection only if it is not nil and not empty.
