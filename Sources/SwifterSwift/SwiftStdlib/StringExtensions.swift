@@ -535,7 +535,7 @@ public extension String {
     /// - Returns: Format localized string.
     func formatLocalized(comment: String = "", _ arguments: CVarArg...) -> String {
         let format = localized(comment: comment)
-        return String(format: format, arguments: Array(arguments))
+        return String(format: format, arguments: arguments)
     }
     #endif
 
