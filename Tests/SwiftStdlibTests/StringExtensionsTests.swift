@@ -706,18 +706,6 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNil(String(base64: "hello"))
     }
 
-    func testInitRandomOfLength() {
-        let str1 = String(randomOfLength: 10)
-        XCTAssertEqual(str1.count, 10)
-
-        let str2 = String(randomOfLength: 10)
-        XCTAssertEqual(str2.count, 10)
-
-        XCTAssertNotEqual(str1, str2)
-
-        XCTAssertEqual(String(randomOfLength: 0), "")
-    }
-
     func testBold() {
         #if canImport(Foundation) && os(macOS)
         let boldString = "hello".bold

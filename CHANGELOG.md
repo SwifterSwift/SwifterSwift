@@ -11,6 +11,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Font**
   - Renamed `Font` typealias to `SFFont` to fix namespace conflicts with swiftUI's `Font` Type. [#1055](https://github.com/SwifterSwift/SwifterSwift/pull/1055) by [MussaCharles](https://github.com/MussaCharles)
 
+### Deprecated
+- **String**
+  - `init(randomOfLength:)` deprecated in favor of `String.random(ofLength:)`. [#1115](https://github.com/SwifterSwift/SwifterSwift/issues/1115) by [guykogus](https://github.com/guykogus)
+
 ### Added
 - **UIButton**
   - Added `setBackgroundColor(_:for:)` method for setting background color for the specified UI state. [#1041](https://github.com/SwifterSwift/SwifterSwift/pull/1041) by [TwizzyIndy](https://github.com/TwizzyIndy)
