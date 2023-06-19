@@ -93,6 +93,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `widthConstraint`, `heightConstraint`, `leadingConstraint`, `trailingConstraint`, `topConstraint`, and `bottomConstraint` for finding specific constraints. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous](https://github.com/gurgeous)
   - Added `UIView.subviews(ofType:)` extension which returns all the subviews of a given type recursively in the view hierarchy rooted on the view it its called. [#993](https://github.com/SwifterSwift/SwifterSwift/pull/993) by [ashercoelho](https://github.com/ashercoelho)
   - Added `UIStackView.swap(_ view1:, _ view2:)` extension which exchanges two views that are arranged in the stack. [#989](https://github.com/SwifterSwift/SwifterSwift/pull/989) by [salahamassi](https://github.com/salahamassi)
+  - Added `addGradient(colors:locations:direction:)` extension to apply gradient color. [#1039](https://github.com/SwifterSwift/SwifterSwift/pull/1039) by [Andy0570](https://github.com/Andy0570)
 - **UIImage**
   - Added `averageColor`, which calculates the average UIColor for an entire image. [#884](https://github.com/SwifterSwift/SwifterSwift/pull/884) by [gurgeous](https://github.com/gurgeous)
   - Added `withAlwaysOriginalTintColor(_:)` returns a new version of the image with a tint color that uses the .alwaysOriginal rendering mode. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [jayxiang][https://github.com/jayxiang]
@@ -472,7 +473,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added scalar multiplication of CGFloat and CGVector via standard multiplication operator (\*). [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
   - Added negation of vectors via prefix (-) operator. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
   - Added `init(angle:magnitude:)` to create vectors based on their angle and magnitude. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
--**UIRefreshControl**:
+- **UIRefreshControl**:
   - `beginRefresh(in tableView:, animated:, sendAction:)` UIRefreshControl extension to begin refresh programmatically. [#525](https://github.com/SwifterSwift/SwifterSwift/pull/525) by [ratulSharker](https://github.com/ratulSharker)
 - **Dictionary**:
   - Added `removeValueForRandomKey()` to remove a value for a random key from a dictionary. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [MaxHaertwig](https://github.com/maxhaertwig).
