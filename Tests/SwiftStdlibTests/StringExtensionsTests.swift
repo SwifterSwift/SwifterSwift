@@ -587,21 +587,32 @@ final class StringExtensionsTests: XCTestCase {
 
     #if canImport(Foundation)
     func testPatternMatchOperator() {
-        XCTAssert("123" ~= "\\d{3}")
-        XCTAssertFalse("dasda" ~= "\\d{3}")
-        XCTAssertFalse("notanemail.com" ~= emailPattern)
-        XCTAssert("email@mail.com" ~= emailPattern)
-        XCTAssert("hat" ~= "[a-z]at")
-        XCTAssertFalse("" ~= "[a-z]at")
-        XCTAssert("" ~= "[a-z]*")
-        XCTAssertFalse("" ~= "[0-9]+")
+        XCTAssert("\\d{3}" ~= "123")
+        XCTAssertFalse("\\d{3}" ~= "dasda")
+        XCTAssertFalse(emailPattern ~= "notanemail.com")
+        XCTAssert(emailPattern ~= "email@mail.com")
+        XCTAssert("[a-z]at" ~= "hat")
+        XCTAssertFalse("[a-z]at" ~= "")
+        XCTAssert("[a-z]*" ~= "")
+        XCTAssertFalse("[0-9]+" ~= "")
     }
     #endif
 
     func testRegexMatchOperator() throws {
         let regex = try NSRegularExpression(pattern: "\\d{3}")
-        XCTAssert("123" ~= regex)
-        XCTAssertFalse("abc" ~= regex)
+        XCTAssert(regex ~= "123")
+        XCTAssertFalse(regex ~= "abc")
+
+        // https://github.com/SwifterSwift/SwifterSwift/issues/1109
+        let codeString = "0"
+        switch codeString {
+        case "101":
+            XCTAssert(codeString == "101") //  Not pass here.
+        case "0":
+            XCTAssert(codeString == "0")
+        default:
+            XCTExpectFailure("Switch string value, not matching the correct result.")
+        }
     }
 
     func testPadStart() {
