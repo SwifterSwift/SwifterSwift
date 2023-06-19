@@ -14,7 +14,7 @@ jobs:
     runs-on: macos-latest
     env:
       PROJECT: SwifterSwift.xcodeproj
-      DEVELOPER_DIR: /Applications/Xcode_13.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -48,7 +48,7 @@ jobs:
       run: xcodebuild clean build -project $PROJECT -scheme $SCHEME -destination "$DESTINATION"
       env:
           SCHEME: SwifterSwift-watchOS
-          DESTINATION: platform=watchOS Simulator,name=Apple Watch Series 5 - 40mm
+          DESTINATION: platform=watchOS Simulator,name=Apple Watch Series 5 (40mm)
   
     - name: Danger Swift
       # Hack to by pass the key invalidation mechanism
@@ -74,7 +74,7 @@ jobs:
       matrix:
         platform: ['ios', 'macos', 'tvos', 'watchos']
     env:
-      DEVELOPER_DIR: /Applications/Xcode_13.1.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -83,7 +83,7 @@ jobs:
       run: bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=${{ matrix.platform }} 
       
   Linux:
-    runs-on: [ubuntu-18.04] 
+    runs-on: [ubuntu-20.04] 
     container: swift:5.3.3
     steps:
       - uses: actions/checkout@v1
