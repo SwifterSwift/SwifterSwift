@@ -527,7 +527,7 @@ public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: Returns a format localized string.
     ///
-    ///    "%d Swift %d Objective-C".formatLocalized(1, 2) -> 1 Swift 2 Objectiv-C
+    ///    "%d Swift %d Objective-C".formatLocalized(1, 2) -> 1 Swift 2 Objective-C
     ///
     /// - Parameters:
     ///   - comment: Optional comment for translators.
