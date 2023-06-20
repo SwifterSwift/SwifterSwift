@@ -613,6 +613,17 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertFalse("[a-z]at" ~= "")
         XCTAssert("[a-z]*" ~= "")
         XCTAssertFalse("[0-9]+" ~= "")
+
+        // https://github.com/SwifterSwift/SwifterSwift/issues/1109
+        let codeString = "0"
+        switch codeString {
+        case "101":
+            XCTAssert(codeString == "101")
+        case "0":
+            XCTAssert(codeString == "0")
+        default:
+            XCTFail("Switch string value, not matching the correct result.")
+        }
     }
     #endif
 
@@ -620,17 +631,6 @@ final class StringExtensionsTests: XCTestCase {
         let regex = try NSRegularExpression(pattern: "\\d{3}")
         XCTAssert(regex ~= "123")
         XCTAssertFalse(regex ~= "abc")
-
-        // https://github.com/SwifterSwift/SwifterSwift/issues/1109
-        let codeString = "0"
-        switch codeString {
-        case "101":
-            XCTAssert(codeString == "101") //  Not pass here.
-        case "0":
-            XCTAssert(codeString == "0")
-        default:
-            XCTExpectFailure("Switch string value, not matching the correct result.")
-        }
     }
 
     func testPadStart() {
