@@ -23,6 +23,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `init(count:element:)` initializer for creating an array of a given size with a closure. [#1051](https://github.com/SwifterSwift/SwifterSwift/pull/1051) by [viktart](https://github.com/viktart)
 - **DefaultStringInterpolation**
   - Added `appendInterpolation(_:placeholder:predicate:)` method for providing placeholder string if interpolated value is `nil` or the optional predicate closure returns `false`. [#1074](https://github.com/SwifterSwift/SwifterSwift/pull/1074) by [Shiva Huang](https://github.com/ShivaHuang)
+- **URL**
+  - Added `allQueryParameters`, `appendingQueryParameters(_:)` and `appendQueryParameters(_:)` for using `URLQueryItem`, as an addition to the `[String: String]` variants, to handle `nil`-value query parameters. [#1116](https://github.com/SwifterSwift/SwifterSwift/issues/1116) by [guykogus](https://github.com/guykogus)
 - **URLSession**
   - Added `dataSync(for:)` to make requests synchronously. [#1076](https://github.com/SwifterSwift/SwifterSwift/pull/1076) by [Roman Podymov](https://github.com/RomanPodymov)
 
