@@ -10,6 +10,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Renamed `EdgeInsets` typealias to `SFEdgeInsets` to fix namespace conflicts with swiftUI's `EdgeInsets` Type. [#1055](https://github.com/SwifterSwift/SwifterSwift/pull/1055) by [MussaCharles](https://github.com/MussaCharles)
 - **Font**
   - Renamed `Font` typealias to `SFFont` to fix namespace conflicts with swiftUI's `Font` Type. [#1055](https://github.com/SwifterSwift/SwifterSwift/pull/1055) by [MussaCharles](https://github.com/MussaCharles)
+- **String**
+  - Reversed the parameters for the `~=` operator in order to not break the default implementation, which causes issues in `switch` statements, for example. [#1113](https://github.com/SwifterSwift/SwifterSwift/issues/1113) by [guykogus](https://github.com/guykogus)
 
 ### Deprecated
 - **String**
