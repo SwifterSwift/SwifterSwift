@@ -39,6 +39,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Add `@available(macOS 13.0)` to fix compilation on macOS. [#1059](https://github.com/SwifterSwift/SwifterSwift/issues/1059) by [guykogus](https://github.com/guykogus)
 - **NotificationCenter**
   - Fixed warning in `observeOnce` that about capture in sendable closure.
+- **String**
+  - Fixed `subscript(safe:)` to correctly check for valid ranges of different types. [#1114](https://github.com/SwifterSwift/SwifterSwift/issues/1114) by [guykogus](https://github.com/guykogus)
 
 ## [v5.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/5.3.0)
 ### Breaking Change
