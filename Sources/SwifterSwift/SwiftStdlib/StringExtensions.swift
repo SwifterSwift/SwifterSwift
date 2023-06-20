@@ -622,19 +622,74 @@ public extension String {
     ///        "Hello World!"[safe: 6..<11] -> "World"
     ///        "Hello World!"[safe: 21..<110] -> nil
     ///
+    /// - Parameter range: Range expression.
+    subscript(safe range: Range<Int>) -> String? {
+        guard range.lowerBound >= 0,
+              range.upperBound <= count else {
+            return nil
+        }
+
+        return String(self[range])
+    }
+
+    /// SwifterSwift: Safely subscript string within a given range.
+    ///
     ///        "Hello World!"[safe: 6...11] -> "World!"
     ///        "Hello World!"[safe: 21...110] -> nil
     ///
     /// - Parameter range: Range expression.
-    subscript<R>(safe range: R) -> String? where R: RangeExpression, R.Bound == Int {
-        let range = range.relative(to: Int.min..<Int.max)
+    subscript(safe range: ClosedRange<Int>) -> String? {
         guard range.lowerBound >= 0,
-            let lowerIndex = index(startIndex, offsetBy: range.lowerBound, limitedBy: endIndex),
-            let upperIndex = index(startIndex, offsetBy: range.upperBound, limitedBy: endIndex) else {
+              range.upperBound < count else {
             return nil
         }
 
-        return String(self[lowerIndex..<upperIndex])
+        return String(self[range])
+    }
+
+    /// SwifterSwift: Safely subscript string within a given range.
+    ///
+    ///        "Hello World!"[safe: ..<5] -> "Hello"
+    ///        "Hello World!"[safe: ..<(-110)] -> nil
+    ///
+    /// - Parameter range: Range expression.
+    subscript(safe range: PartialRangeUpTo<Int>) -> String? {
+        guard range.upperBound >= 0,
+              range.upperBound <= count else {
+            return nil
+        }
+
+        return String(self[range])
+    }
+
+    /// SwifterSwift: Safely subscript string within a given range.
+    ///
+    ///        "Hello World!"[safe: ...10] -> "Hello World"
+    ///        "Hello World!"[safe: ...110] -> nil
+    ///
+    /// - Parameter range: Range expression.
+    subscript(safe range: PartialRangeThrough<Int>) -> String? {
+        guard range.upperBound >= 0,
+              range.upperBound < count else {
+            return nil
+        }
+
+        return String(self[range])
+    }
+
+    /// SwifterSwift: Safely subscript string within a given range.
+    ///
+    ///        "Hello World!"[safe: 6...] -> "World!"
+    ///        "Hello World!"[safe: 50...] -> nil
+    ///
+    /// - Parameter range: Range expression.
+    subscript(safe range: PartialRangeFrom<Int>) -> String? {
+        guard range.lowerBound >= 0,
+              range.lowerBound < count else {
+            return nil
+        }
+
+        return String(self[range])
     }
 
     #if os(iOS) || os(macOS)
@@ -995,7 +1050,7 @@ public extension String {
     ///   - rhs: Regex pattern to match against.
     /// - Returns: true if string matches the pattern.
     static func ~= (lhs: String, rhs: String) -> Bool {
-        return lhs.range(of: rhs, options: .regularExpression) != nil
+        return rhs.range(of: lhs, options: .regularExpression) != nil
     }
     #endif
 
@@ -1006,9 +1061,9 @@ public extension String {
     ///   - lhs: String to check on regex.
     ///   - rhs: Regex to match against.
     /// - Returns: `true` if there is at least one match for the regex in the string.
-    static func ~= (lhs: String, rhs: NSRegularExpression) -> Bool {
-        let range = NSRange(lhs.startIndex..<lhs.endIndex, in: lhs)
-        return rhs.firstMatch(in: lhs, range: range) != nil
+    static func ~= (lhs: NSRegularExpression, rhs: String) -> Bool {
+        let range = NSRange(rhs.startIndex..<rhs.endIndex, in: rhs)
+        return lhs.firstMatch(in: rhs, range: range) != nil
     }
     #endif
 
@@ -1157,25 +1212,6 @@ public extension String {
         self.init(str)
     }
     #endif
-
-    /// SwifterSwift: Create a new random string of given length.
-    ///
-    ///		String(randomOfLength: 10) -> "gY8r3MHvlQ"
-    ///
-    /// - Parameter length: number of characters in string.
-    init(randomOfLength length: Int) {
-        guard length > 0 else {
-            self.init()
-            return
-        }
-
-        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        var randomString = ""
-        for _ in 1...length {
-            randomString.append(base.randomElement()!)
-        }
-        self = randomString
-    }
 }
 
 #if !os(Linux)

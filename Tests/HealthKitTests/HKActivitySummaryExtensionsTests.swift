@@ -1,4 +1,4 @@
-// HKActivitySummaryExtensionsTests.swift - Copyright 2020 SwifterSwift
+// HKActivitySummaryExtensionsTests.swift - Copyright 2022 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -6,11 +6,16 @@ import XCTest
 #if canImport(HealthKit)
 import HealthKit
 
+@available(macOS 13.0, watchOS 2.2, *)
 class HKActivitySummaryExtensionsTests: XCTestCase {
     func testIsStandGoalMet() {
         let unit = HKUnit.count()
         let summary = HKActivitySummary()
-        summary.appleStandHoursGoal = HKQuantity(unit: unit, doubleValue: 12)
+      if #available(iOS 16.0, watchOS 9.0, *) {
+            summary.standHoursGoal = HKQuantity(unit: unit, doubleValue: 12)
+        } else {
+            summary.appleStandHoursGoal = HKQuantity(unit: unit, doubleValue: 12)
+        }
 
         summary.appleStandHours = HKQuantity(unit: unit, doubleValue: 6)
         XCTAssertFalse(summary.isStandGoalMet)
@@ -25,7 +30,11 @@ class HKActivitySummaryExtensionsTests: XCTestCase {
     func testIsExerciseTimeGoalMet() {
         let unit = HKUnit.minute()
         let summary = HKActivitySummary()
-        summary.appleExerciseTimeGoal = HKQuantity(unit: unit, doubleValue: 30)
+        if #available(iOS 16.0, watchOS 9.0, *) {
+            summary.exerciseTimeGoal = HKQuantity(unit: unit, doubleValue: 30)
+        } else {
+            summary.appleExerciseTimeGoal = HKQuantity(unit: unit, doubleValue: 30)
+        }
 
         summary.appleExerciseTime = HKQuantity(unit: unit, doubleValue: 6)
         XCTAssertFalse(summary.isExerciseTimeGoalMet)
