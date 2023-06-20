@@ -1212,25 +1212,6 @@ public extension String {
         self.init(str)
     }
     #endif
-
-    /// SwifterSwift: Create a new random string of given length.
-    ///
-    ///		String(randomOfLength: 10) -> "gY8r3MHvlQ"
-    ///
-    /// - Parameter length: number of characters in string.
-    init(randomOfLength length: Int) {
-        guard length > 0 else {
-            self.init()
-            return
-        }
-
-        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        var randomString = ""
-        for _ in 1...length {
-            randomString.append(base.randomElement()!)
-        }
-        self = randomString
-    }
 }
 
 #if !os(Linux)
