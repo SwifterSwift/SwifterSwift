@@ -31,6 +31,17 @@ public extension UINavigationController {
         pushViewController(viewController, animated: true)
         CATransaction.commit()
     }
+    
+    /// SwifterSwift: Push ViewController with hide Bottom Bar.
+    ///
+    /// - Parameters:
+    ///   - viewController: viewController to push.
+    ///   - hideBottomBar: set this true parameter to hide bottom bar (like a tab bar).
+    
+    func pushViewController(_ viewController: UIViewController, hideBottomBar:Bool){
+        viewController.hidesBottomBarWhenPushed = hideBottomBar
+        pushViewController(viewController, animated: true)
+    }
 
     /// SwifterSwift: Make navigation controller's navigation bar transparent.
     ///
