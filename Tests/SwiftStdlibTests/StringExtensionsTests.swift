@@ -360,6 +360,24 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(str[safe: 11...11], "!")
         XCTAssertNil(str[safe: 11...12])
 
+        XCTAssertNil(str[safe: ...(-1)])
+        XCTAssertEqual(str[safe: ...0], "H")
+        XCTAssertEqual(str[safe: ...4], "Hello")
+        XCTAssertEqual(str[safe: ...11], "Hello world!")
+        XCTAssertNil(str[safe: ...12])
+
+        XCTAssertNil(str[safe: ..<(-1)])
+        XCTAssertEqual(str[safe: ..<0], "")
+        XCTAssertEqual(str[safe: ..<5], "Hello")
+        XCTAssertEqual(str[safe: ..<12], "Hello world!")
+        XCTAssertNil(str[safe: ..<13])
+
+        XCTAssertNil(str[safe: (-1)...])
+        XCTAssertEqual(str[safe: 0...], "Hello world!")
+        XCTAssertEqual(str[safe: 6...], "world!")
+        XCTAssertEqual(str[safe: 11...], "!")
+        XCTAssertNil(str[safe: 12...])
+
         let oneCharStr = "a"
         XCTAssertEqual(oneCharStr[safe: 0..<0], "")
         XCTAssertEqual(oneCharStr[safe: 0..<1], "a")
@@ -715,18 +733,6 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil(String(base64: "SGVsbG8gV29ybGQh"))
         XCTAssertEqual(String(base64: "SGVsbG8gV29ybGQh"), "Hello World!")
         XCTAssertNil(String(base64: "hello"))
-    }
-
-    func testInitRandomOfLength() {
-        let str1 = String(randomOfLength: 10)
-        XCTAssertEqual(str1.count, 10)
-
-        let str2 = String(randomOfLength: 10)
-        XCTAssertEqual(str2.count, 10)
-
-        XCTAssertNotEqual(str1, str2)
-
-        XCTAssertEqual(String(randomOfLength: 0), "")
     }
 
     func testBold() {
