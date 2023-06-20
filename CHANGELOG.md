@@ -34,7 +34,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **NotificationCenter**
   - Fixed warning in `observeOnce` that about capture in sendable closure.
 - **UINavigationBar**
-  - Change the methods of UINavigationBarExtensions to use UINavigationBarAppearance for support iOS 15 and later versions.
+  - Change `setTitleFont(_:color:)` and `setColors(background:text:)` to support iOS 15+. [#1105](https://github.com/SwifterSwift/SwifterSwift/pull/1105) by [TTOzzi](https://github.com/TTOzzi)
 ---
 
 ## [v5.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/5.3.0)
