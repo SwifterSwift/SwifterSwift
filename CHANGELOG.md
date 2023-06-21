@@ -43,6 +43,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Add `@available(macOS 13.0)` to fix compilation on macOS. [#1059](https://github.com/SwifterSwift/SwifterSwift/issues/1059) by [guykogus](https://github.com/guykogus)
 - **NotificationCenter**
   - Fixed warning in `observeOnce` that about capture in sendable closure.
+- **UINavigationBar**
+  - Change `setTitleFont(_:color:)` and `setColors(background:text:)` to support iOS 15+. [#1105](https://github.com/SwifterSwift/SwifterSwift/pull/1105) by [TTOzzi](https://github.com/TTOzzi)
 - **String**
   - Fixed `subscript(safe:)` to correctly check for valid ranges of different types. [#1114](https://github.com/SwifterSwift/SwifterSwift/issues/1114) by [guykogus](https://github.com/guykogus)
 
