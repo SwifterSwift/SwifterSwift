@@ -19,7 +19,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 **UINavigationController**
-  - Added `pushViewController(_ viewController:, hideBottomBar:)` method for hide bottom bar when push any UIViewController.by [imdkhairul](https://github.com/imdkhairul)
+  - Added `pushViewController(_:hidesBottomBar:animated:)` for hiding the bottom bar when pushing any `UIViewController`. [#1117](https://github.com/SwifterSwift/SwifterSwift/issues/1117) [imdkhairul](https://github.com/imdkhairul)
 - **UIButton**
   - Added `setBackgroundColor(_:for:)` method for setting background color for the specified UI state. [#1041](https://github.com/SwifterSwift/SwifterSwift/pull/1041) by [TwizzyIndy](https://github.com/TwizzyIndy)
   - Added `imageForFocused`, `titleColorForFocused`, `titleForFocused`, `attributedTitleForFocused` to handle focused state. [#1063](https://github.com/SwifterSwift/SwifterSwift/pull/1063) by [Roman Podymov](https://github.com/RomanPodymov)
