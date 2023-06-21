@@ -157,10 +157,12 @@ public extension Date {
 
     /// SwifterSwift: Weekday.
     ///
-    /// 	Date().weekday -> 5 // fifth day in the current week.
+    /// The weekday units are the numbers 1 through N (where for the Gregorian calendar N=7 and 1 is Sunday).
+    ///
+    /// 	Date().weekday -> 5 // fifth day in the current week, e.g. Thursday in the Gregorian calendar
     ///
     var weekday: Int {
-        return calendar.component(.weekday, from: self)
+        calendar.component(.weekday, from: self)
     }
 
     /// SwifterSwift: Hour.
