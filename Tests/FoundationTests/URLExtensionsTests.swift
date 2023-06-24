@@ -7,14 +7,13 @@ import XCTest
 import Foundation
 
 final class URLExtensionsTests: XCTestCase {
-    var url = URL(string: "https://www.google.com")!
-    let params = ["q": "swifter swift"]
-    let queryUrl = URL(string: "https://www.google.com?q=swifter%20swift")!
+    let params = ["foo": "bar"]
+    let queryUrl = URL(string: "https://www.google.com?q=swifter%20swift&steve=jobs&empty")!
+    let queryUrlWithParams = URL(string: "https://www.google.com?q=swifter%20swift&steve=jobs&empty&foo=bar")!
 
     func testQueryParameters() {
-        let url = URL(string: "https://www.google.com?q=swifter%20swift&steve=jobs&empty")!
-        guard let parameters = url.queryParameters else {
-            XCTAssert(false)
+        guard let parameters = queryUrl.queryParameters else {
+            XCTFail("Failed to extract query parameters from \(queryUrl)")
             return
         }
 
@@ -22,6 +21,18 @@ final class URLExtensionsTests: XCTestCase {
         XCTAssertEqual(parameters["q"], "swifter swift")
         XCTAssertEqual(parameters["steve"], "jobs")
         XCTAssertNil(parameters["empty"])
+    }
+
+    func testAllQueryParameters() {
+        guard let parameters = queryUrl.allQueryParameters else {
+            XCTFail("Failed to extract query parameters from \(queryUrl)")
+            return
+        }
+
+        XCTAssertEqual(parameters.count, 3)
+        XCTAssertEqual(parameters[0], URLQueryItem(name: "q", value: "swifter swift"))
+        XCTAssertEqual(parameters[1], URLQueryItem(name: "steve", value: "jobs"))
+        XCTAssertEqual(parameters[2], URLQueryItem(name: "empty", value: nil))
     }
 
     func testOptionalStringInitializer() {
@@ -41,12 +52,13 @@ final class URLExtensionsTests: XCTestCase {
     }
 
     func testAppendingQueryParameters() {
-        XCTAssertEqual(url.appendingQueryParameters(params), queryUrl)
+        XCTAssertEqual(queryUrl.appendingQueryParameters(params), queryUrlWithParams)
     }
 
     func testAppendQueryParameters() {
+        var url = queryUrl
         url.appendQueryParameters(params)
-        XCTAssertEqual(url, queryUrl)
+        XCTAssertEqual(url, queryUrlWithParams)
     }
 
     func testValueForQueryKey() {
