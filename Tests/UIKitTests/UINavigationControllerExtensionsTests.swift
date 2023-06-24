@@ -54,14 +54,18 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
         XCTAssertEqual(color!, .red)
     }
     
-    func testHideBottomBar(){
+    func testHideBottomBar() {
         let rootVC = UIViewController()
         let navigationController = UINavigationController(rootViewController: rootVC)
         let vcToPush = UIViewController()
         let tabVC = UITabBarController()
         tabVC.viewControllers = [navigationController]
-        navigationController.pushViewController(vcToPush, hideBottomBar: true)
-        XCTAssertEqual(vcToPush.hidesBottomBarWhenPushed, true)
+        navigationController.pushViewController(vcToPush, hideBottomBar: true, animated: true)
+        XCTAssert(vcToPush.hidesBottomBarWhenPushed)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1){
+            XCTAssert(tabVC.tabBar.isHidden)
+        }
+
     }
 }
 #endif
