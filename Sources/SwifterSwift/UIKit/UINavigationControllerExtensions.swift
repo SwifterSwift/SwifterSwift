@@ -32,14 +32,15 @@ public extension UINavigationController {
         CATransaction.commit()
     }
     
-    /// SwifterSwift: Push ViewController with hide Bottom Bar.
+    /// SwifterSwift: Pushes a view controller while hiding or showing the bottom bar.
     ///
     /// - Parameters:
-    ///   - viewController: viewController to push.
-    ///   - hideBottomBar: set this true parameter to hide bottom bar (like a tab bar).
+    ///   - viewController: The view controller to push.
+    ///   - hidesBottomBar: If `true`, hides the bottom bar (e.g. tab bar).
+    ///   - animated: Specify `true` to animate the transition.
     
-    func pushViewController(_ viewController: UIViewController, hideBottomBar:Bool, animated:Bool) {
-        viewController.hidesBottomBarWhenPushed = hideBottomBar
+    func pushViewController(_ viewController: UIViewController, hidesBottomBar: Bool, animated: Bool) {
+        viewController.hidesBottomBarWhenPushed = hidesBottomBar
         pushViewController(viewController, animated: animated)
     }
 
