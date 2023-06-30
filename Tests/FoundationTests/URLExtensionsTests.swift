@@ -95,7 +95,7 @@ final class URLExtensionsTests: XCTestCase {
 
     #if os(iOS) || os(tvOS)
     func testThumbnail() {
-        XCTAssertNil(url.thumbnail())
+        XCTAssertNil(queryUrl.thumbnail())
 
         let videoUrl = Bundle(for: URLExtensionsTests.self)
             .url(forResource: "big_buck_bunny_720p_1mb", withExtension: "mp4")!
