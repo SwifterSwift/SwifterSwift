@@ -49,6 +49,21 @@ public extension UIView {
         /// SwifterSwift: easeInOut animation.
         case easeInOut
     }
+
+    /// SwifterSwift: Add gradient directions
+    struct GradientDirection {
+        static let topToBottom = GradientDirection(startPoint: CGPoint(x: 0.5, y: 0.0),
+                                                   endPoint: CGPoint(x: 0.5, y: 1.0))
+        static let bottomToTop = GradientDirection(startPoint: CGPoint(x: 0.5, y: 1.0),
+                                                   endPoint: CGPoint(x: 0.5, y: 0.0))
+        static let leftToRight = GradientDirection(startPoint: CGPoint(x: 0.0, y: 0.5),
+                                                   endPoint: CGPoint(x: 1.0, y: 0.5))
+        static let rightToLeft = GradientDirection(startPoint: CGPoint(x: 1.0, y: 0.5),
+                                                   endPoint: CGPoint(x: 0.0, y: 0.5))
+
+        let startPoint: CGPoint
+        let endPoint: CGPoint
+    }
 }
 
 // MARK: - Properties
@@ -470,6 +485,31 @@ public extension UIView {
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0]
         layer.add(animation, forKey: "shake")
         CATransaction.commit()
+    }
+
+    /// SwifterSwift: Add Gradient Colors.
+    ///
+    ///     view.addGradient(
+    ///         colors: [.red, .blue],
+    ///         locations: [0.0, 1.0],
+    ///         direction: .topToBottom
+    ///     )
+    ///
+    /// - Parameters:
+    ///   - colors: An array of `SFColor` defining the color of each gradient stop.
+    ///   - locations: An array of `CGFloat` defining the location of each
+    ///                gradient stop as a value in the range [0, 1]. The values must be
+    ///                monotonically increasing.
+    ///   - direction: Struct type describing the direction of the gradient.
+    func addGradient(colors: [SFColor], locations: [CGFloat] = [0.0, 1.0], direction: GradientDirection) {
+        // <https://github.com/swiftdevcenter/GradientColorExample>
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
+        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.locations = locations.map { NSNumber(value: $0) }
+        gradientLayer.startPoint = direction.startPoint
+        gradientLayer.endPoint = direction.endPoint
+        layer.addSublayer(gradientLayer)
     }
 
     /// SwifterSwift: Add Visual Format constraints.
