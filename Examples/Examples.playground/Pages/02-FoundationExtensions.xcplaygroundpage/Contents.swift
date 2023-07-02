@@ -44,3 +44,6 @@ Date().dayName(ofStyle: .full)
 Date().monthName(ofStyle: .threeLetters)
 
 //: [Next](@next)
+
+let formattedDateTime = Date().getFormatDate(format: .fullDateTime)
+print(formattedDateTime) // Example output: 2023-06-29 14:30:00

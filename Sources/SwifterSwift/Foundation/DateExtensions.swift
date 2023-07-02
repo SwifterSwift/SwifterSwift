@@ -43,6 +43,27 @@ public extension Date {
         /// SwifterSwift: Full month name.
         case full
     }
+    
+    /// SwifterSwift: we have three predefined cases (fullDateTime, shortDate, time) that represent commonly used date formats.
+    enum DateFormat {
+        case fullDateTime
+        case shortDate
+        case time
+        case custom(String)
+        
+        var getString: String {
+            switch self {
+            case .fullDateTime:
+                return "yyyy-MM-dd HH:mm:ss"
+            case .shortDate:
+                return "yyyy-MM-dd"
+            case .time:
+                return "HH:mm:ss"
+            case .custom(let customFormat):
+                return customFormat
+            }
+        }
+    }
 }
 
 // MARK: - Properties
@@ -1028,6 +1049,15 @@ public extension Date {
         formatter.dateFormat = "yyyyMMdd"
         guard let date = formatter.date(from: String(value)) else { return nil }
         self = date
+    }
+    
+    /// SwifterSwift: Get formatted date in string to display.
+    ///  We have added getString property in enum instead of here because it will help to achieve SOLID `O` principle which is open to extend and close to modify.
+    /// - Parameter format:
+    func getFormatDate(format: DateFormat) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format.getString
+        return dateFormatter.string(from: self)
     }
 }
 
