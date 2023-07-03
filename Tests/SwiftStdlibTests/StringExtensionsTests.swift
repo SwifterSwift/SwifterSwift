@@ -313,8 +313,8 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testFormatLocalized() {
-        XCTAssertEqual("%d Swift %d Objective-C".formatLocalized(1, 2), NSLocalizedString("1 Swift 2 Objective-C", comment: ""))
-        XCTAssertEqual("%d Swift %d Objective-C".formatLocalized(comment: "comment", 1, 2), NSLocalizedString("1 Swift 2 Objective-C", comment: "comment"))
+        XCTAssertEqual("%d Swift %d Objective-C".formatLocalized(1, 2), "1 Swift 2 Objective-C")
+        XCTAssertEqual("%d Swift %d Objective-C".formatLocalized(comment: "comment", 1, 2), "1 Swift 2 Objective-C")
     }
 
     func testMostCommonCharacter() {
