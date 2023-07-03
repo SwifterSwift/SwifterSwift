@@ -39,7 +39,6 @@ public extension UINavigationController {
     ///   - viewController: The view controller to push.
     ///   - hidesBottomBar: If `true`, hides the bottom bar (e.g. tab bar).
     ///   - animated: Specify `true` to animate the transition.
-    
     func pushViewController(_ viewController: UIViewController, hidesBottomBar: Bool, animated: Bool) {
         viewController.hidesBottomBarWhenPushed = hidesBottomBar
         pushViewController(viewController, animated: animated)
