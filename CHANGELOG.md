@@ -26,7 +26,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **DefaultStringInterpolation**
   - Added `appendInterpolation(_:placeholder:predicate:)` method for providing placeholder string if interpolated value is `nil` or the optional predicate closure returns `false`. [#1074](https://github.com/SwifterSwift/SwifterSwift/pull/1074) by [Shiva Huang](https://github.com/ShivaHuang)
 - **String**
-  - Added `formatLocalized(comment:arguments:)` method to format localized strings easily.
+  - Added `formatLocalized(comment:arguments:)` method to format localized strings easily. [#1100](https://github.com/SwifterSwift/SwifterSwift/pull/1100) by [makcakir](https://github.com/makcakir)
 - **URL**
   - Added `allQueryParameters`, `appendingQueryParameters(_:)` and `appendQueryParameters(_:)` for using `URLQueryItem`, as an addition to the `[String: String]` variants, to handle `nil`-value query parameters. [#1116](https://github.com/SwifterSwift/SwifterSwift/issues/1116) by [guykogus](https://github.com/guykogus)
 - **URLSession**
