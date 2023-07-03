@@ -54,6 +54,7 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
         XCTAssertEqual(color!, .red)
     }
     
+#if !os(tvOS)
     func testHideBottomBar() {
         let rootVC = UIViewController()
         let navigationController = UINavigationController(rootViewController: rootVC)
@@ -64,5 +65,7 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
         XCTAssert(vcToPush.hidesBottomBarWhenPushed)
         XCTAssert(tabVC.tabBar.isHidden)
     }
+#endif
+    
 }
 #endif

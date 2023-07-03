@@ -31,7 +31,8 @@ public extension UINavigationController {
         pushViewController(viewController, animated: true)
         CATransaction.commit()
     }
-    
+
+#if !os(tvOS)
     /// SwifterSwift: Pushes a view controller while hiding or showing the bottom bar.
     ///
     /// - Parameters:
@@ -43,7 +44,8 @@ public extension UINavigationController {
         viewController.hidesBottomBarWhenPushed = hidesBottomBar
         pushViewController(viewController, animated: animated)
     }
-
+#endif
+    
     /// SwifterSwift: Make navigation controller's navigation bar transparent.
     ///
     /// - Parameter tint: tint color (default is .white).
