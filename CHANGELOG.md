@@ -10,6 +10,12 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Renamed `EdgeInsets` typealias to `SFEdgeInsets` to fix namespace conflicts with swiftUI's `EdgeInsets` Type. [#1055](https://github.com/SwifterSwift/SwifterSwift/pull/1055) by [MussaCharles](https://github.com/MussaCharles)
 - **Font**
   - Renamed `Font` typealias to `SFFont` to fix namespace conflicts with swiftUI's `Font` Type. [#1055](https://github.com/SwifterSwift/SwifterSwift/pull/1055) by [MussaCharles](https://github.com/MussaCharles)
+- **String**
+  - Reversed the parameters for the `~=` operator in order to not break the default implementation, which causes issues in `switch` statements, for example. [#1113](https://github.com/SwifterSwift/SwifterSwift/issues/1113) by [guykogus](https://github.com/guykogus)
+
+### Deprecated
+- **String**
+  - `init(randomOfLength:)` deprecated in favor of `String.random(ofLength:)`. [#1115](https://github.com/SwifterSwift/SwifterSwift/issues/1115) by [guykogus](https://github.com/guykogus)
 
 ### Added
 - **UIButton**
@@ -19,6 +25,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `init(count:element:)` initializer for creating an array of a given size with a closure. [#1051](https://github.com/SwifterSwift/SwifterSwift/pull/1051) by [viktart](https://github.com/viktart)
 - **DefaultStringInterpolation**
   - Added `appendInterpolation(_:placeholder:predicate:)` method for providing placeholder string if interpolated value is `nil` or the optional predicate closure returns `false`. [#1074](https://github.com/SwifterSwift/SwifterSwift/pull/1074) by [Shiva Huang](https://github.com/ShivaHuang)
+- **URL**
+  - Added `allQueryParameters`, `appendingQueryParameters(_:)` and `appendQueryParameters(_:)` for using `URLQueryItem`, as an addition to the `[String: String]` variants, to handle `nil`-value query parameters. [#1116](https://github.com/SwifterSwift/SwifterSwift/issues/1116) by [guykogus](https://github.com/guykogus)
 - **URLSession**
   - Added `dataSync(for:)` to make requests synchronously. [#1076](https://github.com/SwifterSwift/SwifterSwift/pull/1076) by [Roman Podymov](https://github.com/RomanPodymov)
 
@@ -31,9 +39,14 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Fixed incorrect calculation in `nearestTenMinutes` to align with other `nearest*` date calculations. [#1034](https://github.com/SwifterSwift/SwifterSwift/pull/1034) by [mmdock](https://github.com/mmdock)
 - **Digest**
   - `DigestExtensions.swift` would not compile on Xcode 14 due to an `ambiguous use of 'makeIterator()'` error. [#1042](https://github.com/SwifterSwift/SwifterSwift/issues/1042) by [theedov](https://github.com/theedov)
+- **HKActivitySummary**
+  - Add `@available(macOS 13.0)` to fix compilation on macOS. [#1059](https://github.com/SwifterSwift/SwifterSwift/issues/1059) by [guykogus](https://github.com/guykogus)
 - **NotificationCenter**
   - Fixed warning in `observeOnce` that about capture in sendable closure.
----
+- **UINavigationBar**
+  - Change `setTitleFont(_:color:)` and `setColors(background:text:)` to support iOS 15+. [#1105](https://github.com/SwifterSwift/SwifterSwift/pull/1105) by [TTOzzi](https://github.com/TTOzzi)
+- **String**
+  - Fixed `subscript(safe:)` to correctly check for valid ranges of different types. [#1114](https://github.com/SwifterSwift/SwifterSwift/issues/1114) by [guykogus](https://github.com/guykogus)
 
 ## [v5.3.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/5.3.0)
 ### Breaking Change
@@ -92,6 +105,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `widthConstraint`, `heightConstraint`, `leadingConstraint`, `trailingConstraint`, `topConstraint`, and `bottomConstraint` for finding specific constraints. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [gurgeous](https://github.com/gurgeous)
   - Added `UIView.subviews(ofType:)` extension which returns all the subviews of a given type recursively in the view hierarchy rooted on the view it its called. [#993](https://github.com/SwifterSwift/SwifterSwift/pull/993) by [ashercoelho](https://github.com/ashercoelho)
   - Added `UIStackView.swap(_ view1:, _ view2:)` extension which exchanges two views that are arranged in the stack. [#989](https://github.com/SwifterSwift/SwifterSwift/pull/989) by [salahamassi](https://github.com/salahamassi)
+  - Added `addGradient(colors:locations:direction:)` extension to apply gradient color. [#1039](https://github.com/SwifterSwift/SwifterSwift/pull/1039) by [Andy0570](https://github.com/Andy0570)
 - **UIImage**
   - Added `averageColor`, which calculates the average UIColor for an entire image. [#884](https://github.com/SwifterSwift/SwifterSwift/pull/884) by [gurgeous](https://github.com/gurgeous)
   - Added `withAlwaysOriginalTintColor(_:)` returns a new version of the image with a tint color that uses the .alwaysOriginal rendering mode. [#886](https://github.com/SwifterSwift/SwifterSwift/pull/886) by [jayxiang][https://github.com/jayxiang]
@@ -472,7 +486,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added scalar multiplication of CGFloat and CGVector via standard multiplication operator (\*). [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
   - Added negation of vectors via prefix (-) operator. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
   - Added `init(angle:magnitude:)` to create vectors based on their angle and magnitude. [#527](https://github.com/SwifterSwift/SwifterSwift/pull/527) by [moyerr](https://github.com/moyerr)
--**UIRefreshControl**:
+- **UIRefreshControl**:
   - `beginRefresh(in tableView:, animated:, sendAction:)` UIRefreshControl extension to begin refresh programmatically. [#525](https://github.com/SwifterSwift/SwifterSwift/pull/525) by [ratulSharker](https://github.com/ratulSharker)
 - **Dictionary**:
   - Added `removeValueForRandomKey()` to remove a value for a random key from a dictionary. [#497](https://github.com/SwifterSwift/SwifterSwift/pull/497) by [MaxHaertwig](https://github.com/maxhaertwig).
