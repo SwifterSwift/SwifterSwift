@@ -27,6 +27,7 @@ final class CLLocationExtensionsTests: XCTestCase {
         XCTAssertEqual(bearing, 105.619, accuracy: 0.001)
     }
     
+    @available(macOS 10.12, tvOS 10.0, watchOS 3.0, *)
     func testInRange() {
         let aLoc = CLLocation(latitude: 37.575803, longitude: 126.976807)
         let bLoc = CLLocation(latitude: 37.572931, longitude: 126.976834)

@@ -64,14 +64,14 @@ public extension CLLocation {
         return (degrees + 360).truncatingRemainder(dividingBy: 360)
     }
 
-    /// SwifterSwift: Check the distance to end is less than or equal to the `distance`.
+    /// SwifterSwift: Check the distance to `location` is less than or equal to `radius`.
     ///
     /// - Parameters:
     ///   - location: End location.
-    ///   - distance: Range limit distance.
-    ///   - unitLength: The unit of length. Default value is meters.
-    /// - Returns: `true` if the distance between the start and end is less than or equal to the given `distance`.
-    @available(iOS 10.0, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
+    ///   - radius: Range limit distance.
+    ///   - unit: The unit of length. Default value is `.meters`.
+    /// - Returns: `true` if the distance between the receiver and `location` is less than or equal to the given `radius`.
+    @available(iOS 10.12, macOS 10.12, tvOS 10.0, watchOS 3.0, *)
     func isInRange(of location: CLLocation, radius: Double, unitLength unit: UnitLength = .meters) -> Bool {
         let distance = Measurement(value: radius, unit: unit).converted(to: .meters).value
         return self.distance(from: location) <= distance
