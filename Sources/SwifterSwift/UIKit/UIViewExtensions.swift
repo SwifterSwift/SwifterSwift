@@ -406,28 +406,6 @@ public extension UIView {
         }, completion: completion)
     }
 
-    /// SwifterSwift: Rotate view to angle on fixed axis.
-    ///
-    /// - Parameters:
-    ///   - angle: angle to rotate view to.
-    ///   - type: type of the rotation angle.
-    ///   - animated: set true to animate rotation (default is false).
-    ///   - duration: animation duration in seconds (default is 1 second).
-    ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func rotate(
-        toAngle angle: CGFloat,
-        ofType type: AngleUnit,
-        animated: Bool = false,
-        duration: TimeInterval = 1,
-        completion: ((Bool) -> Void)? = nil) {
-        let angleWithType = (type == .degrees) ? .pi * angle / 180.0 : angle
-        let currentAngle = atan2(transform.b, transform.a)
-        let aDuration = animated ? duration : 0
-        UIView.animate(withDuration: aDuration, animations: {
-            self.transform = self.transform.rotated(by: angleWithType - currentAngle)
-        }, completion: completion)
-    }
-
     /// SwifterSwift: Scale view by offset.
     ///
     /// - Parameters:
