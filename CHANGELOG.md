@@ -31,6 +31,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `allQueryParameters`, `appendingQueryParameters(_:)` and `appendQueryParameters(_:)` for using `URLQueryItem`, as an addition to the `[String: String]` variants, to handle `nil`-value query parameters. [#1116](https://github.com/SwifterSwift/SwifterSwift/issues/1116) by [guykogus](https://github.com/guykogus)
 - **URLSession**
   - Added `dataSync(for:)` to make requests synchronously. [#1076](https://github.com/SwifterSwift/SwifterSwift/pull/1076) by [Roman Podymov](https://github.com/RomanPodymov)
+- **Publisher**
+  - Added `combineLatest(_:_:_:_:)` to combine 5 publishers. [Heecheon Park](https://github.com/heecheon92)
+  - Added `combineLatest(_:_:_:_:_ transform:)` to combine 5 publishers and invoke a closure upon receiving output from any of the publishers. [Heecheon Park](https://github.com/heecheon92)
 
 ### Changed
 - **UIButton**:
