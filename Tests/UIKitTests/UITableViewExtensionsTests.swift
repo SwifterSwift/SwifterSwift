@@ -17,6 +17,20 @@ final class UITableViewExtensionsTests: XCTestCase {
         emptyTableView.dataSource = self
         tableView.reloadData()
     }
+    
+    func testSetupEmptyState() {
+        tableView.setupEmptyState(title: "test",
+                                  image: "image",
+                                  font: .boldSystemFont(ofSize: 16),
+                                  alignment: .center,
+                                  color: .black)
+        XCTAssertNotNil(tableView.backgroundView)
+    }
+    
+    func testRemoveEmptyState() {
+        tableView.removeEmptyState()
+        XCTAssertNil(tableView.backgroundView)
+    }
 
     func testIndexPathForLastRow() {
         XCTAssertNotNil(tableView.indexPathForLastRow)
