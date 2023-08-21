@@ -6,6 +6,44 @@ import UIKit
 // MARK: - Initializers
 
 public extension UIStackView {
+    private class BackgroundView: UIView { }
+    
+    /// SwifterSwift: Add background color to UIStackView
+    var backgroundViewColor: UIColor? {
+        get {
+            if #available(iOS 14.0, *) {
+                return backgroundColor
+            } else {
+                for subview in subviews {
+                    if subview is BackgroundView {
+                        return subview.backgroundColor
+                    }
+                }
+                return nil
+            }
+        }
+        set {
+            if #available(iOS 14.0, *) {
+                backgroundColor = newValue
+            } else {
+                if let existingBackgroundView = subviews.first(where: { $0 is BackgroundView }) {
+                    existingBackgroundView.backgroundColor = newValue
+                } else {
+                    let backgroundView = BackgroundView()
+                    backgroundView.backgroundColor = newValue
+                    insertSubview(backgroundView, at: 0)
+                    backgroundView.translatesAutoresizingMaskIntoConstraints = false
+                    NSLayoutConstraint.activate([
+                        backgroundView.topAnchor.constraint(equalTo: topAnchor),
+                        backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                        backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                        backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor)
+                    ])
+                }
+            }
+        }
+    }
+    
     /// SwifterSwift: Initialize an UIStackView with an array of UIView and common parameters.
     ///
     ///     let stackView = UIStackView(arrangedSubviews: [UIView(), UIView()], axis: .vertical)
