@@ -14,7 +14,7 @@ public extension UIStackView {
             if #available(iOS 14.0, *) {
                 return backgroundColor
             } else {
-               return subviews.first(where: { $0 is BackgroundView })?.backgroundColor
+                return subviews.first(where: { $0 is BackgroundView })?.backgroundColor
             }
         }
         set {
@@ -55,13 +55,13 @@ public extension UIStackView {
         spacing: CGFloat = 0.0,
         alignment: UIStackView.Alignment = .fill,
         distribution: UIStackView.Distribution = .fill) {
-        self.init(arrangedSubviews: arrangedSubviews)
-        self.axis = axis
-        self.spacing = spacing
-        self.alignment = alignment
-        self.distribution = distribution
-    }
-
+            self.init(arrangedSubviews: arrangedSubviews)
+            self.axis = axis
+            self.spacing = spacing
+            self.alignment = alignment
+            self.distribution = distribution
+        }
+    
     /// SwifterSwift: Adds array of views to the end of the arrangedSubviews array.
     ///
     /// - Parameter views: views array.
@@ -70,7 +70,7 @@ public extension UIStackView {
             addArrangedSubview(view)
         }
     }
-
+    
     /// SwifterSwift: Removes all views in stack’s array of arranged subviews.
     func removeArrangedSubviews() {
         for view in arrangedSubviews {
@@ -99,7 +99,7 @@ public extension UIStackView {
             else { return }
             removeArrangedSubview(view1)
             insertArrangedSubview(view1, at: view2Index)
-
+            
             removeArrangedSubview(view2)
             insertArrangedSubview(view2, at: view1Index)
         }
