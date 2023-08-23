@@ -14,12 +14,7 @@ public extension UIStackView {
             if #available(iOS 14.0, *) {
                 return backgroundColor
             } else {
-                for subview in subviews {
-                    if subview is BackgroundView {
-                        return subview.backgroundColor
-                    }
-                }
-                return nil
+               return subviews.first(where: { $0 is BackgroundView })?.backgroundColor
             }
         }
         set {
