@@ -6,6 +6,39 @@ import UIKit
 // MARK: - Initializers
 
 public extension UIStackView {
+    private class BackgroundView: UIView { }
+    
+    /// SwifterSwift: Add background color to UIStackView
+    var backgroundViewColor: UIColor? {
+        get {
+            if #available(iOS 14.0, *) {
+                return backgroundColor
+            } else {
+                return subviews.first(where: { $0 is BackgroundView })?.backgroundColor
+            }
+        }
+        set {
+            if #available(iOS 14.0, *) {
+                backgroundColor = newValue
+            } else {
+                if let existingBackgroundView = subviews.first(where: { $0 is BackgroundView }) {
+                    existingBackgroundView.backgroundColor = newValue
+                } else {
+                    let backgroundView = BackgroundView()
+                    backgroundView.backgroundColor = newValue
+                    insertSubview(backgroundView, at: 0)
+                    backgroundView.translatesAutoresizingMaskIntoConstraints = false
+                    NSLayoutConstraint.activate([
+                        backgroundView.topAnchor.constraint(equalTo: topAnchor),
+                        backgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+                        backgroundView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                        backgroundView.trailingAnchor.constraint(equalTo: trailingAnchor)
+                    ])
+                }
+            }
+        }
+    }
+    
     /// SwifterSwift: Initialize an UIStackView with an array of UIView and common parameters.
     ///
     ///     let stackView = UIStackView(arrangedSubviews: [UIView(), UIView()], axis: .vertical)
@@ -22,13 +55,13 @@ public extension UIStackView {
         spacing: CGFloat = 0.0,
         alignment: UIStackView.Alignment = .fill,
         distribution: UIStackView.Distribution = .fill) {
-        self.init(arrangedSubviews: arrangedSubviews)
-        self.axis = axis
-        self.spacing = spacing
-        self.alignment = alignment
-        self.distribution = distribution
-    }
-
+            self.init(arrangedSubviews: arrangedSubviews)
+            self.axis = axis
+            self.spacing = spacing
+            self.alignment = alignment
+            self.distribution = distribution
+        }
+    
     /// SwifterSwift: Adds array of views to the end of the arrangedSubviews array.
     ///
     /// - Parameter views: views array.
@@ -37,7 +70,7 @@ public extension UIStackView {
             addArrangedSubview(view)
         }
     }
-
+    
     /// SwifterSwift: Removes all views in stack’s array of arranged subviews.
     func removeArrangedSubviews() {
         for view in arrangedSubviews {
@@ -66,7 +99,7 @@ public extension UIStackView {
             else { return }
             removeArrangedSubview(view1)
             insertArrangedSubview(view1, at: view2Index)
-
+            
             removeArrangedSubview(view2)
             insertArrangedSubview(view2, at: view1Index)
         }

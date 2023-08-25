@@ -31,6 +31,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `allQueryParameters`, `appendingQueryParameters(_:)` and `appendQueryParameters(_:)` for using `URLQueryItem`, as an addition to the `[String: String]` variants, to handle `nil`-value query parameters. [#1116](https://github.com/SwifterSwift/SwifterSwift/issues/1116) by [guykogus](https://github.com/guykogus)
 - **URLSession**
   - Added `dataSync(for:)` to make requests synchronously. [#1076](https://github.com/SwifterSwift/SwifterSwift/pull/1076) by [Roman Podymov](https://github.com/RomanPodymov)
+- **UIStackView**
+  - Added `backgroundViewColor` to add background color. [#1127](https://github.com/SwifterSwift/SwifterSwift/pull/1127) by [WZBbiao](https://github.com/WZBbiao)
 
 ### Changed
 - **UIButton**:
