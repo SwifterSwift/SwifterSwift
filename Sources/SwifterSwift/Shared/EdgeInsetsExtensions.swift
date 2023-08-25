@@ -1,6 +1,6 @@
 // EdgeInsetsExtensions.swift - Copyright 2020 SwifterSwift
 
-#if os(iOS) || os(tvOS) || os(watchOS)
+#if os(visionOS) || os(iOS) || os(tvOS) || os(watchOS)
 import UIKit
 /// SwifterSwift: EdgeInsets
 public typealias SFEdgeInsets = UIEdgeInsets
