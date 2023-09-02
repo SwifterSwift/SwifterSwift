@@ -17,7 +17,7 @@ final class UITableViewExtensionsTests: XCTestCase {
         emptyTableView.dataSource = self
         tableView.reloadData()
     }
-
+    
     func testIndexPathForLastRow() {
         XCTAssertNotNil(tableView.indexPathForLastRow)
         XCTAssertEqual(tableView.indexPathForLastRow, IndexPath(row: 7, section: 1))

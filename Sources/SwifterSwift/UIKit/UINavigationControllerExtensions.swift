@@ -18,7 +18,7 @@ public extension UINavigationController {
         popViewController(animated: animated)
         CATransaction.commit()
     }
-
+    
     /// SwifterSwift: Push ViewController with completion handler.
     ///
     /// - Parameters:

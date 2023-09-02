@@ -176,6 +176,7 @@ public extension UITableView {
         guard indexPath.row < numberOfRows(inSection: indexPath.section) else { return }
         scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
     }
+    
 }
 
 #endif
