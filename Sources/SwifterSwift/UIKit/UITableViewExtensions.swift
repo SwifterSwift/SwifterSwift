@@ -177,61 +177,6 @@ public extension UITableView {
         scrollToRow(at: indexPath, at: scrollPosition, animated: animated)
     }
     
-    /// SwifterSwift: Set an empty state with image and title for tableView when its empty.
-    ///
-    /// - Parameters:
-    ///   - title: Title to show.
-    ///   - image: Image to show.
-    ///   - font: Font for title.
-    ///   - alignment: Alignment for title.
-    ///   - color: Text color.
-    func setupEmptyState(title: String, image: String, font: UIFont?, alignment: NSTextAlignment?, color: UIColor?) {
-        
-        /// Main View
-        ///  - The container view that contains image and text.
-        let mainView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height))
-        mainView.backgroundColor = .clear
-        
-        /// ImageView
-        ///  - An imageView to show image.
-        let image = UIImage(named: image)?.withRenderingMode(.alwaysOriginal)
-        let imageView = UIImageView(image: image)
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        
-        /// Title Label
-        /// - A label to show the text.
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.textColor = color
-        titleLabel.textAlignment = alignment ?? .center
-        titleLabel.font = font
-        titleLabel.sizeToFit()
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        /// Add subviews
-        self.addSubview(mainView)
-        mainView.addSubview(imageView)
-        mainView.addSubview(titleLabel)
-        
-        /// Constraints
-        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: mainView, attribute: .centerX, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: mainView, attribute: .centerY, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: mainView, attribute: .width, multiplier: 0.3, constant: 0))
-        addConstraint(NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: mainView, attribute: .width, multiplier: 0.3, constant: 0))
-        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .centerX, relatedBy: .equal, toItem: imageView, attribute: .centerX, multiplier: 1, constant: 0))
-        addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: imageView, attribute: .bottom, multiplier: 1, constant: 16))
-        self.backgroundView = mainView
-        self.separatorStyle = .none
-    }
-    
-    /// SwifterSwift: Remove empty state and restore tableview to it's original background.
-    func removeEmptyState() {
-        self.backgroundView = nil
-        self.separatorStyle = .none
-    }
-    
 }
 
 #endif

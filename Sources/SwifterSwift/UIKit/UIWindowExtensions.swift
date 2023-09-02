@@ -35,15 +35,6 @@ public extension UIWindow {
                 completion?()
             })
         }
-    
-    /// SwifterSwift: Get the current KeyWindow.
-    static var keyWindow: UIWindow? {
-        if #available(iOS 13, *) {
-            return UIApplication.shared.windows.first { $0.isKeyWindow }
-        } else {
-            return UIApplication.shared.keyWindow
-        }
-    }
 }
 
 #endif

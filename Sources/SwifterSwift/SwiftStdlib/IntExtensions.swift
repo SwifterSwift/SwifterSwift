@@ -112,16 +112,6 @@ public extension Int {
         return true
     }
     
-    /// SwifterSwift: formats seconds (ex: 120) to 02:00
-    /// - Returns: a minute formatted string.
-    func formatSecondsToMinuteCountdownTimer() -> String {
-        let formatter = DateComponentsFormatter()
-        formatter.zeroFormattingBehavior = .pad
-        formatter.unitsStyle = .positional
-        formatter.allowedUnits = [.minute, .second]
-        return formatter.string(from: TimeInterval(self)) ?? "00:00"
-    }
-
     /// SwifterSwift: Roman numeral string from integer (if applicable).
     ///
     ///     10.romanNumeral() -> "X"
