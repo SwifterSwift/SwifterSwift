@@ -312,6 +312,11 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(helloWorld.localized(comment: "comment"), NSLocalizedString(helloWorld, comment: "comment"))
     }
 
+    func testFormatLocalized() {
+        XCTAssertEqual("%d Swift %d Objective-C".formatLocalized(1, 2), "1 Swift 2 Objective-C")
+        XCTAssertEqual("%d Swift %d Objective-C".formatLocalized(comment: "comment", 1, 2), "1 Swift 2 Objective-C")
+    }
+
     func testMostCommonCharacter() {
         let mostCommonCharacter = "This is a test, since e is appearing every where e should be the common character"
             .mostCommonCharacter
