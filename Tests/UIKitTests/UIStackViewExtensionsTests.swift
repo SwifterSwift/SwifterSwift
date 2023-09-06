@@ -88,6 +88,21 @@ final class UIStackViewExtensionsTest: XCTestCase {
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view4), 0)
         waitForExpectations(timeout: 1.0)
     }
+    
+    func testBackgroundViewColor() {
+        let stack = UIStackView()
+        stack.backgroundViewColor = nil
+        XCTAssertNil(stack.backgroundViewColor)
+        
+        stack.backgroundViewColor = .red
+        XCTAssertNotNil(stack.backgroundViewColor)
+        
+        XCTAssertEqual(stack.backgroundViewColor!, UIColor.red)
+        
+        if #available(iOS 14, *) {
+            XCTAssertEqual(stack.backgroundColor!, UIColor.red)
+        }
+    }
 }
 
 #endif
