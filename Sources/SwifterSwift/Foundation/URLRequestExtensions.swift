@@ -47,7 +47,7 @@ public extension URLRequest {
     }
 }
 
-// MARK: - Operators
+// MARK: - Methods
 
 public extension URLRequest {
     /// SwifterSwift: Duplicates the request and modifies the HTTP method (verb) for the request (i.e.: GET, POST, PUT)

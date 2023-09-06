@@ -63,7 +63,7 @@ final class URLRequestExtensionsTests: XCTestCase {
         XCTAssertEqual(planetaryRequest.curlString, planetaryNASAcURL)
     }
     
-    // MARK: - Operators
+    // MARK: - Methods
     
     func testMethod() throws {
         let url = URL(string: "https://api.server.com/")!
