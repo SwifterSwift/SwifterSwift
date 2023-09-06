@@ -62,6 +62,16 @@ final class URLRequestExtensionsTests: XCTestCase {
         let planetaryRequest = URLRequest(url: components!.url!)
         XCTAssertEqual(planetaryRequest.curlString, planetaryNASAcURL)
     }
+    
+    // MARK: - Methods
+    
+    func testMethod() throws {
+        let url = URL(string: "https://api.server.com/")!
+        let request = URLRequest(url: url)
+            .method("post")
+        XCTAssertEqual(request.url, url)
+        XCTAssertEqual(request.httpMethod, "POST")
+    }
 }
 
 #endif

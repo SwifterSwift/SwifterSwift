@@ -35,6 +35,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Fixed compilation error for `setColors(background:selectedBackground:item:selectedItem:)` when targeting visionOS platform. [#1126](https://github.com/SwifterSwift/SwifterSwift/pull/1126) by [MarcoEidinger](https://github.com/MarcoEidinger)
 - **URL**
   - Added `allQueryParameters`, `appendingQueryParameters(_:)` and `appendQueryParameters(_:)` for using `URLQueryItem`, as an addition to the `[String: String]` variants, to handle `nil`-value query parameters. [#1116](https://github.com/SwifterSwift/SwifterSwift/issues/1116) by [guykogus](https://github.com/guykogus)
+- **URLRequest**
+  - Added `method()` to duplicate the request and modify the HTTP method (verb) for the request (i.e.: GET, POST, PUT) [#1133](https://github.com/SwifterSwift/SwifterSwift/pull/1133) by [Ricardo Rauber](https://github.com/ricardorauber)
 - **URLSession**
   - Added `dataSync(for:)` to make requests synchronously. [#1076](https://github.com/SwifterSwift/SwifterSwift/pull/1076) by [Roman Podymov](https://github.com/RomanPodymov)
 - **UIStackView**
