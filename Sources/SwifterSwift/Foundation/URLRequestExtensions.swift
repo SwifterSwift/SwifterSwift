@@ -62,6 +62,21 @@ public extension URLRequest {
         request.httpMethod = methodString.uppercased()
         return request
     }
+    
+    /// SwifterSwift: Duplicates the request and set a header with key and value. It will use String(describing: value) as the value should be a string
+    ///
+    ///     let request = URLRequest(url: url)
+    ///         .header(name: "something", value: "interesting")
+    ///
+    /// - Parameters:
+    ///   - name: The name of the header
+    ///   - value: The value of the header
+    /// - Returns: The modified request
+    func header(name: String, value: Any) -> Self {
+        var request = self
+        request.setValue(String(describing: value), forHTTPHeaderField: name)
+        return request
+    }
 }
 
 #endif

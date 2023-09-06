@@ -72,6 +72,16 @@ final class URLRequestExtensionsTests: XCTestCase {
         XCTAssertEqual(request.url, url)
         XCTAssertEqual(request.httpMethod, "POST")
     }
+    
+    func testHeader() throws {
+        let url = URL(string: "https://api.server.com/")!
+        let request = URLRequest(url: url)
+            .header(name: "Content-Type", value: "application/json")
+            .header(name: "Number", value: 10)
+        XCTAssertNotNil(request.allHTTPHeaderFields)
+        XCTAssertEqual(request.allHTTPHeaderFields!["Content-Type"]!, "application/json")
+        XCTAssertEqual(Int(request.allHTTPHeaderFields!["Number"]!), 10)
+    }
 }
 
 #endif
