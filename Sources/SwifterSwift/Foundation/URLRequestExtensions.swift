@@ -63,18 +63,18 @@ public extension URLRequest {
         return request
     }
     
-    /// SwifterSwift: Duplicates the request and set a header with key and value. It will use String(describing: value) as the value should be a string
+    /// SwifterSwift: Duplicates the request and set a header with key and value
     ///
     ///     let request = URLRequest(url: url)
-    ///         .header(name: "something", value: "interesting")
+    ///         .header(name: "Content-Type", value: "application/json")
     ///
     /// - Parameters:
     ///   - name: The name of the header
     ///   - value: The value of the header
     /// - Returns: The modified request
-    func header(name: String, value: Any) -> Self {
+    func header(name: String, value: String) -> Self {
         var request = self
-        request.setValue(String(describing: value), forHTTPHeaderField: name)
+        request.setValue(value, forHTTPHeaderField: name)
         return request
     }
 }
