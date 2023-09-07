@@ -82,6 +82,17 @@ final class URLRequestExtensionsTests: XCTestCase {
         XCTAssertEqual(request.allHTTPHeaderFields!["Content-Type"]!, "application/json")
         XCTAssertEqual(Int(request.allHTTPHeaderFields!["Number"]!), 10)
     }
+    
+    func testHeaders() throws {
+        let url = URL(string: "https://api.server.com/")!
+        let request = URLRequest(url: url)
+            .headers([
+                "Content-Type": "application/json",
+                "Authorization": "Bear abcd"
+            ])
+        XCTAssertEqual(request.allHTTPHeaderFields?["Content-Type"], "application/json")
+        XCTAssertEqual(request.allHTTPHeaderFields?["Authorization"], "Bear abcd")
+    }
 }
 
 #endif

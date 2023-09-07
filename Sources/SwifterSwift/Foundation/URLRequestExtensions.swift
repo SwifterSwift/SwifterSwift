@@ -77,6 +77,24 @@ public extension URLRequest {
         request.setValue(value, forHTTPHeaderField: name)
         return request
     }
+    
+    /// SwifterSwift: Duplicates the request and set headers with a dictionary
+    ///
+    ///     let request = URLRequest(url: url)
+    ///         .headers([
+    ///             "Content-Type", value: "application/json",
+    ///             "Authorization": "Bear abcd"
+    ///         ])
+    ///
+    /// - Parameter headers: A dictionary with headers
+    /// - Returns: The modified request
+    func headers(_ headers: [String: String]) -> Self {
+        var request = self
+        for (key, value) in headers {
+            request.setValue(value, forHTTPHeaderField: key)
+        }
+        return request
+    }
 }
 
 #endif
