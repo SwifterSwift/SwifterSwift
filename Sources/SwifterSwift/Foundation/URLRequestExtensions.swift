@@ -82,7 +82,7 @@ public extension URLRequest {
     ///
     ///     let request = URLRequest(url: url)
     ///         .headers([
-    ///             "Content-Type", value: "application/json",
+    ///             "Content-Type": "application/json",
     ///             "Authorization": "Bear abcd"
     ///         ])
     ///
