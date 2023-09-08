@@ -36,9 +36,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **URL**
   - Added `allQueryParameters`, `appendingQueryParameters(_:)` and `appendQueryParameters(_:)` for using `URLQueryItem`, as an addition to the `[String: String]` variants, to handle `nil`-value query parameters. [#1116](https://github.com/SwifterSwift/SwifterSwift/issues/1116) by [guykogus](https://github.com/guykogus)
 - **URLRequest**
-  - Added `method()` to duplicate the request and modify the HTTP method (verb) for the request (i.e.: GET, POST, PUT) [#1133](https://github.com/SwifterSwift/SwifterSwift/pull/1133) by [Ricardo Rauber](https://github.com/ricardorauber)
-  - Added `header(name:, value:)` to duplicate the request and set a header with key and value. [#1134](https://github.com/SwifterSwift/SwifterSwift/pull/1134) by [Ricardo Rauber](https://github.com/ricardorauber)
-  - Added `headers()` to duplicate the request and set headers with key and value from a dictionary. [#1135](https://github.com/SwifterSwift/SwifterSwift/pull/1135) by [Ricardo Rauber](https://github.com/ricardorauber)
+  - Added `method(_:)` to duplicate the request and modify the HTTP method (verb) for the request (i.e.: GET, POST, PUT) [#1133](https://github.com/SwifterSwift/SwifterSwift/pull/1133) by [Ricardo Rauber](https://github.com/ricardorauber)
+  - Added `header(name:value:)` to duplicate the request and set a header with key and value. [#1134](https://github.com/SwifterSwift/SwifterSwift/pull/1134) by [Ricardo Rauber](https://github.com/ricardorauber)
+  - Added `headers(_:)` to duplicate the request and set headers with key and value from a dictionary. [#1135](https://github.com/SwifterSwift/SwifterSwift/pull/1135) by [Ricardo Rauber](https://github.com/ricardorauber)
 - **URLSession**
   - Added `dataSync(for:)` to make requests synchronously. [#1076](https://github.com/SwifterSwift/SwifterSwift/pull/1076) by [Roman Podymov](https://github.com/RomanPodymov)
 - **UIStackView**
