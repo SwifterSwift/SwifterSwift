@@ -1,4 +1,4 @@
-// NSRegularExpressionExtensions.swift - Copyright 2020 SwifterSwift
+// NSRegularExpressionExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -13,11 +13,14 @@ public extension NSRegularExpression {
     ///   - block: The Block enumerates the matches of the regular expression in the string.
     ///     The block takes three arguments and returns `Void`:
     ///   - result:
-    ///     An `NSTextCheckingResult` specifying the match. This result gives the overall matched range via its `range` property, and the range of each individual capture group via its `range(at:)` method. The range {NSNotFound, 0} is returned if one of the capture groups did not participate in this particular match.
+    ///     An `NSTextCheckingResult` specifying the match. This result gives the overall matched range via its `range`
+    /// property, and the range of each individual capture group via its `range(at:)` method. The range {NSNotFound, 0}
+    /// is returned if one of the capture groups did not participate in this particular match.
     ///   - flags:
     ///     The current state of the matching progress. See `NSRegularExpression.MatchingFlags` for the possible values.
     ///   - stop:
-    ///     A reference to a Boolean value. The Block can set the value to true to stop further processing of the array. The stop argument is an out-only argument. You should only ever set this Boolean to true within the Block.
+    ///     A reference to a Boolean value. The Block can set the value to true to stop further processing of the array.
+    /// The stop argument is an out-only argument. You should only ever set this Boolean to true within the Block.
     #if os(Linux)
     func enumerateMatches(in string: String,
                           options: MatchingOptions = [],
@@ -29,11 +32,11 @@ public extension NSRegularExpression {
         enumerateMatches(in: string,
                          options: options,
                          range: NSRange(range, in: string)) { result, flags, stop in
-                var shouldStop = false
-                block(result, flags, &shouldStop)
-                if shouldStop {
-                    stop.pointee = true
-                }
+            var shouldStop = false
+            block(result, flags, &shouldStop)
+            if shouldStop {
+                stop.pointee = true
+            }
         }
     }
     #else
@@ -45,11 +48,11 @@ public extension NSRegularExpression {
         enumerateMatches(in: string,
                          options: options,
                          range: NSRange(range, in: string)) { result, flags, stop in
-                var shouldStop = false
-                block(result, flags, &shouldStop)
-                if shouldStop {
-                    stop.pointee = true
-                }
+            var shouldStop = false
+            block(result, flags, &shouldStop)
+            if shouldStop {
+                stop.pointee = true
+            }
         }
     }
     #endif
@@ -60,7 +63,9 @@ public extension NSRegularExpression {
     ///   - string: The string to search.
     ///   - options: The matching options to use. See NSRegularExpression.MatchingOptions for possible values.
     ///   - range: The range of the string to search.
-    /// - Returns: An array of `NSTextCheckingResult` objects. Each result gives the overall matched range via its `range` property, and the range of each individual capture group via its `range(at:)` method. The range {NSNotFound, 0} is returned if one of the capture groups did not participate in this particular match.
+    /// - Returns: An array of `NSTextCheckingResult` objects. Each result gives the overall matched range via its
+    /// `range` property, and the range of each individual capture group via its `range(at:)` method. The range
+    /// {NSNotFound, 0} is returned if one of the capture groups did not participate in this particular match.
     func matches(in string: String,
                  options: MatchingOptions = [],
                  range: Range<String.Index>) -> [NSTextCheckingResult] {
@@ -90,7 +95,9 @@ public extension NSRegularExpression {
     ///   - string: The string to search.
     ///   - options: The matching options to use. See `NSRegularExpression.MatchingOptions` for possible values.
     ///   - range: The range of the string to search.
-    /// - Returns: An `NSTextCheckingResult` object. This result gives the overall matched range via its `range` property, and the range of each individual capture group via its `range(at:)` method. The range {NSNotFound, 0} is returned if one of the capture groups did not participate in this particular match.
+    /// - Returns: An `NSTextCheckingResult` object. This result gives the overall matched range via its `range`
+    /// property, and the range of each individual capture group via its `range(at:)` method. The range {NSNotFound, 0}
+    /// is returned if one of the capture groups did not participate in this particular match.
     func firstMatch(in string: String,
                     options: MatchingOptions = [],
                     range: Range<String.Index>) -> NSTextCheckingResult? {
@@ -99,7 +106,8 @@ public extension NSRegularExpression {
                           range: NSRange(range, in: string))
     }
 
-    /// SwifterSwift: Returns the range of the first match of the regular expression within the specified range of the string.
+    /// SwifterSwift: Returns the range of the first match of the regular expression within the specified range of the
+    /// string.
     ///
     /// - Parameters:
     ///   - string: The string to search.

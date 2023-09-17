@@ -1,4 +1,4 @@
-// ColorExtensions.swift - Copyright 2020 SwifterSwift
+// ColorExtensions.swift - Copyright 2023 SwifterSwift
 
 #if !os(Linux)
 
@@ -237,9 +237,9 @@ public extension SFColor {
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         return SFColor(red: min(red + percentage, 1.0),
-                     green: min(green + percentage, 1.0),
-                     blue: min(blue + percentage, 1.0),
-                     alpha: alpha)
+                       green: min(green + percentage, 1.0),
+                       blue: min(blue + percentage, 1.0),
+                       alpha: alpha)
     }
 
     /// SwifterSwift: Darken a color.
@@ -254,9 +254,9 @@ public extension SFColor {
         var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
         getRed(&red, green: &green, blue: &blue, alpha: &alpha)
         return SFColor(red: max(red - percentage, 0),
-                     green: max(green - percentage, 0),
-                     blue: max(blue - percentage, 0),
-                     alpha: alpha)
+                       green: max(green - percentage, 0),
+                       blue: max(blue - percentage, 0),
+                       alpha: alpha)
     }
 }
 

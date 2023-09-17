@@ -1,4 +1,4 @@
-// StringExtensions.swift - Copyright 2020 SwifterSwift
+// StringExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -29,7 +29,7 @@ public extension String {
                            options: .ignoreUnknownCharacters) {
             return String(data: data, encoding: .utf8)
         }
-        
+
         let remainder = count % 4
 
         var padding = ""
@@ -169,7 +169,7 @@ public extension String {
     ///     "Mama".isPalindrome -> false
     ///
     var isPalindrome: Bool {
-        let letters = filter { $0.isLetter }
+        let letters = filter(\.isLetter)
         guard !letters.isEmpty else { return false }
         let midIndex = letters.index(letters.startIndex, offsetBy: letters.count / 2)
         let firstHalf = letters[letters.startIndex..<midIndex]
@@ -180,7 +180,8 @@ public extension String {
     #if canImport(Foundation)
     /// SwifterSwift: Check if string is valid email format.
     ///
-    /// - Note: Note that this property does not validate the email address against an email server. It merely attempts to determine whether its format is suitable for an email address.
+    /// - Note: Note that this property does not validate the email address against an email server. It merely attempts
+    /// to determine whether its format is suitable for an email address.
     ///
     ///		"john@doe.com".isValidEmail -> true
     ///
@@ -247,7 +248,8 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Check if string is a valid Swift number. Note: In North America, "." is the decimal separator, while in many parts of Europe "," is used.
+    /// SwifterSwift: Check if string is a valid Swift number. Note: In North America, "." is the decimal separator,
+    /// while in many parts of Europe "," is used.
     ///
     ///		"123".isNumeric -> true
     ///     "1.3".isNumeric -> true (en_US)
@@ -864,7 +866,8 @@ public extension String {
     /// - Parameters:
     ///   - index: string index the slicing should start from.
     ///   - length: amount of characters to be sliced after given index.
-    /// - Returns: sliced substring of length number of characters (if applicable) (example: "Hello World".slicing(from: 6, length: 5) -> "World").
+    /// - Returns: sliced substring of length number of characters (if applicable) (example: "Hello World".slicing(from:
+    /// 6, length: 5) -> "World").
     func slicing(from index: Int, length: Int) -> String? {
         guard length >= 0, index >= 0, index < count else { return nil }
         guard index.advanced(by: length) <= count else {
@@ -1083,13 +1086,15 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Returns a new string in which all occurrences of a regex in a specified range of the receiver are replaced by the template.
+    /// SwifterSwift: Returns a new string in which all occurrences of a regex in a specified range of the receiver are
+    /// replaced by the template.
     /// - Parameters:
     ///   - regex Regex to replace.
     ///   - template: The template to replace the regex.
     ///   - options: The matching options to use
     ///   - searchRange: The range in the receiver in which to search.
-    /// - Returns: A new string in which all occurrences of regex in searchRange of the receiver are replaced by template.
+    /// - Returns: A new string in which all occurrences of regex in searchRange of the receiver are replaced by
+    /// template.
     func replacingOccurrences(
         of regex: NSRegularExpression,
         with template: String,
@@ -1377,13 +1382,15 @@ public extension String {
     /// SwifterSwift: NSString appendingPathExtension(str: String).
     ///
     /// - Parameter str: The extension to append to the receiver.
-    /// - Returns: a new string made by appending to the receiver an extension separator followed by ext (if applicable).
+    /// - Returns: a new string made by appending to the receiver an extension separator followed by ext (if
+    /// applicable).
     func appendingPathExtension(_ str: String) -> String? {
         return (self as NSString).appendingPathExtension(str)
     }
 
     /// SwifterSwift: Accesses a contiguous subrange of the collection’s elements.
-    /// - Parameter nsRange: A range of the collection’s indices. The bounds of the range must be valid indices of the collection.
+    /// - Parameter nsRange: A range of the collection’s indices. The bounds of the range must be valid indices of the
+    /// collection.
     /// - Returns: A slice of the receiving string.
     subscript(bounds: NSRange) -> Substring {
         guard let range = Range(bounds, in: self) else { fatalError("Failed to find range \(bounds) in \(self)") }

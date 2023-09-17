@@ -1,4 +1,4 @@
-// NSAttributedStringExtensions.swift - Copyright 2020 SwifterSwift
+// NSAttributedStringExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -103,7 +103,8 @@ public extension NSAttributedString {
     /// - Parameters:
     ///   - attributes: Dictionary of attributes.
     ///   - pattern: a regular expression to target.
-    ///   - options: The regular expression options that are applied to the expression during matching. See NSRegularExpression.Options for possible values.
+    ///   - options: The regular expression options that are applied to the expression during matching. See
+    /// NSRegularExpression.Options for possible values.
     /// - Returns: An NSAttributedString with attributes applied to substrings matching the pattern.
     func applying(attributes: [Key: Any],
                   toRangesMatching pattern: String,
@@ -148,7 +149,8 @@ public extension NSAttributedString {
         lhs = string
     }
 
-    /// SwifterSwift: Add a NSAttributedString to another NSAttributedString and return a new NSAttributedString instance.
+    /// SwifterSwift: Add a NSAttributedString to another NSAttributedString and return a new NSAttributedString
+    /// instance.
     ///
     /// - Parameters:
     ///   - lhs: NSAttributedString to add.
@@ -169,7 +171,8 @@ public extension NSAttributedString {
         lhs += NSAttributedString(string: rhs)
     }
 
-    /// SwifterSwift: Add a NSAttributedString to another NSAttributedString and return a new NSAttributedString instance.
+    /// SwifterSwift: Add a NSAttributedString to another NSAttributedString and return a new NSAttributedString
+    /// instance.
     ///
     /// - Parameters:
     ///   - lhs: NSAttributedString to add.
@@ -181,7 +184,8 @@ public extension NSAttributedString {
 }
 
 public extension Array where Element: NSAttributedString {
-    /// SwifterSwift: Returns a new `NSAttributedString` by concatenating the elements of the sequence, adding the given separator between each element.
+    /// SwifterSwift: Returns a new `NSAttributedString` by concatenating the elements of the sequence, adding the given
+    /// separator between each element.
     ///
     /// - Parameter separator: An `NSAttributedString` to add between the elements of the sequence.
     /// - Returns: NSAttributedString with applied attributes.

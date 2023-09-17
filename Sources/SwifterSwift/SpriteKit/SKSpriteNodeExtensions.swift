@@ -1,4 +1,4 @@
-// SKSpriteNodeExtensions.swift - Copyright 2021 SwifterSwift
+// SKSpriteNodeExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(SpriteKit)
 import SpriteKit
@@ -12,7 +12,7 @@ public extension SKSpriteNode {
     ///
     /// - Parameter fillSize: fill size to use for aspect ratio calculation.
     func aspectFill(to fillSize: CGSize) {
-        if let textureSize = self.texture?.size() {
+        if let textureSize = texture?.size() {
             let width = textureSize.width
             let height = textureSize.height
 

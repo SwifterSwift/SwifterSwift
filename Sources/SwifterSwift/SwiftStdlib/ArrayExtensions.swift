@@ -1,4 +1,4 @@
-// ArrayExtensions.swift - Copyright 2020 SwifterSwift
+// ArrayExtensions.swift - Copyright 2023 SwifterSwift
 
 // MARK: - Initializers
 
@@ -47,7 +47,8 @@ public extension Array {
         swapAt(index, otherIndex)
     }
 
-    /// SwifterSwift: Sort an array like another array based on a key path. If the other array doesn't contain a certain value, it will be sorted last.
+    /// SwifterSwift: Sort an array like another array based on a key path. If the other array doesn't contain a certain
+    /// value, it will be sorted last.
     ///
     ///        [MyStruct(x: 3), MyStruct(x: 1), MyStruct(x: 2)].sorted(like: [1, 2, 3], keyPath: \.x)
     ///            -> [MyStruct(x: 1), MyStruct(x: 2), MyStruct(x: 3)]

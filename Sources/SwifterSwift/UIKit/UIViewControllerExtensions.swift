@@ -1,4 +1,4 @@
-// UIViewControllerExtensions.swift - Copyright 2020 SwifterSwift
+// UIViewControllerExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -55,14 +55,18 @@ public extension UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
 
-    /// SwifterSwift: Helper method to display an alert on any UIViewController subclass. Uses UIAlertController to show an alert.
+    /// SwifterSwift: Helper method to display an alert on any UIViewController subclass. Uses UIAlertController to show
+    /// an alert.
     ///
     /// - Parameters:
     ///   - title: title of the alert.
     ///   - message: message/body of the alert.
-    ///   - buttonTitles: (Optional)list of button titles for the alert. Default button i.e "OK" will be shown if this parameter is nil.
-    ///   - highlightedButtonIndex: (Optional) index of the button from buttonTitles that should be highlighted. If this parameter is nil no button will be highlighted.
-    ///   - completion: (Optional) completion block to be invoked when any one of the buttons is tapped. It passes the index of the tapped button as an argument.
+    ///   - buttonTitles: (Optional)list of button titles for the alert. Default button i.e "OK" will be shown if this
+    /// parameter is nil.
+    ///   - highlightedButtonIndex: (Optional) index of the button from buttonTitles that should be highlighted. If this
+    /// parameter is nil no button will be highlighted.
+    ///   - completion: (Optional) completion block to be invoked when any one of the buttons is tapped. It passes the
+    /// index of the tapped button as an argument.
     /// - Returns: UIAlertController object (discardable).
     @discardableResult
     func showAlert(

@@ -1,4 +1,4 @@
-// SCNVector3Extensions.swift - Copyright 2020 SwifterSwift
+// SCNVector3Extensions.swift - Copyright 2023 SwifterSwift
 
 #if os(OSX)
 /// SwifterSwift: CGFloat.
@@ -29,7 +29,7 @@ public extension SCNVector3 {
     var length: SceneKitFloat {
         return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
     }
-    
+
     /// SwifterSwift: Returns the unit or normalized vector where `length = 1`.
     ///
     ///     SCNVector3(2, 3, 6).normalized  -> SCNVector3(2/7, 3/7, 6/7)
@@ -130,7 +130,7 @@ public extension SCNVector3 {
     static func * (scalar: SceneKitFloat, vector: SCNVector3) -> SCNVector3 {
         return SCNVector3(vector.x * scalar, vector.y * scalar, vector.z * scalar)
     }
-    
+
     /// SwifterSwift: Divide a SCNVector3 with a scalar.
     ///
     ///     SCNVector3(10, 20, -30) / 3 -> SCNVector3(3/10, 0.15, -30)

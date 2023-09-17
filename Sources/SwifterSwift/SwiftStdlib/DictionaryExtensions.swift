@@ -1,4 +1,4 @@
-// DictionaryExtensions.swift - Copyright 2020 SwifterSwift
+// DictionaryExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -96,19 +96,23 @@ public extension Dictionary {
     }
     #endif
 
-    /// SwifterSwift: Returns a dictionary containing the results of mapping the given closure over the sequence’s elements.
-    /// - Parameter transform: A mapping closure. `transform` accepts an element of this sequence as its parameter and returns a transformed value of the same or of a different type.
+    /// SwifterSwift: Returns a dictionary containing the results of mapping the given closure over the sequence’s
+    /// elements.
+    /// - Parameter transform: A mapping closure. `transform` accepts an element of this sequence as its parameter and
+    /// returns a transformed value of the same or of a different type.
     /// - Returns: A dictionary containing the transformed elements of this sequence.
     func mapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)) rethrows -> [K: V] {
-        return [K: V](uniqueKeysWithValues: try map(transform))
+        return try [K: V](uniqueKeysWithValues: map(transform))
     }
 
-    /// SwifterSwift: Returns a dictionary containing the non-`nil` results of calling the given transformation with each element of this sequence.
-    /// - Parameter transform: A closure that accepts an element of this sequence as its argument and returns an optional value.
+    /// SwifterSwift: Returns a dictionary containing the non-`nil` results of calling the given transformation with
+    /// each element of this sequence.
+    /// - Parameter transform: A closure that accepts an element of this sequence as its argument and returns an
+    /// optional value.
     /// - Returns: A dictionary of the non-`nil` results of calling `transform` with each element of the sequence.
     /// - Complexity: *O(m + n)*, where _m_ is the length of this sequence and _n_ is the length of the result.
     func compactMapKeysAndValues<K, V>(_ transform: ((key: Key, value: Value)) throws -> (K, V)?) rethrows -> [K: V] {
-        return [K: V](uniqueKeysWithValues: try compactMap(transform))
+        return try [K: V](uniqueKeysWithValues: compactMap(transform))
     }
 
     /// SwifterSwift: Creates a new dictionary using specified keys.
@@ -121,7 +125,8 @@ public extension Dictionary {
     ///
     /// - Parameter keys: An array of keys that will be the entries in the resulting dictionary.
     ///
-    /// - Returns: A new dictionary that contains the specified keys only. If none of the keys exist, an empty dictionary will be returned.
+    /// - Returns: A new dictionary that contains the specified keys only. If none of the keys exist, an empty
+    /// dictionary will be returned.
     func pick(keys: [Key]) -> [Key: Value] {
         keys.reduce(into: [Key: Value]()) { result, item in
             result[item] = self[item]

@@ -1,4 +1,4 @@
-// UISegmentedControlExtensions.swift - Copyright 2020 SwifterSwift
+// UISegmentedControlExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
