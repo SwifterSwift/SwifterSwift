@@ -37,6 +37,13 @@ public extension UITabBar {
         if let selectedbg = selectedBackground {
             let rect = CGSize(width: frame.width / CGFloat(barItems.count), height: frame.height)
             selectionIndicatorImage = { (color: UIColor, size: CGSize) -> UIImage in
+                if #available(tvOS 10.0, *) {
+                    return UIGraphicsImageRenderer(size: size).image { context in
+                        color.setFill()
+                        context.fill(context.format.bounds)
+                    }
+                }
+
                 UIGraphicsBeginImageContextWithOptions(size, false, 1)
                 color.setFill()
                 UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
@@ -53,20 +60,30 @@ public extension UITabBar {
                 guard let image = barItem.image else { continue }
 
                 barItem.image = { (image: UIImage, color: UIColor) -> UIImage in
-                    UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
-                    color.setFill()
-                    guard let context = UIGraphicsGetCurrentContext() else {
-                        return image
+                    guard let mask = image.cgImage else { return image }
+
+                    let actions = { (context: CGContext) in
+                        context.translateBy(x: 0, y: image.size.height)
+                        context.scaleBy(x: 1.0, y: -1.0)
+                        context.setBlendMode(CGBlendMode.normal)
+
+                        let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+                        context.clip(to: rect, mask: mask)
+                        context.fill(rect)
                     }
 
-                    context.translateBy(x: 0, y: image.size.height)
-                    context.scaleBy(x: 1.0, y: -1.0)
-                    context.setBlendMode(CGBlendMode.normal)
+                    if #available(tvOS 10.0, *) {
+                        let format = UIGraphicsImageRendererFormat()
+                        format.scale = image.scale
+                        return UIGraphicsImageRenderer(size: image.size, format: format).image {
+                            actions($0.cgContext)
+                        }
+                    }
 
-                    let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
-                    guard let mask = image.cgImage else { return image }
-                    context.clip(to: rect, mask: mask)
-                    context.fill(rect)
+                    UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+                    guard let context = UIGraphicsGetCurrentContext() else { return image }
+
+                    actions(context)
 
                     let newImage = UIGraphicsGetImageFromCurrentImageContext()!
                     UIGraphicsEndImageContext()
