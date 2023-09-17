@@ -346,6 +346,11 @@ public extension UIImage {
     ///   - color: image fill color.
     ///   - size: image size.
     convenience init(color: UIColor, size: CGSize) {
+        guard size != .zero else {
+            self.init()
+            return
+        }
+
         UIGraphicsBeginImageContextWithOptions(size, false, 1)
 
         defer {

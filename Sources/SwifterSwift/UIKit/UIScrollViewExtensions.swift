@@ -13,6 +13,19 @@ public extension UIScrollView {
     ///
     /// - Returns: Snapshot as UIImage for rendered ScrollView.
     var snapshot: UIImage? {
+        if #available(tvOS 10.0, *) {
+            let size = contentSize
+            guard size != .zero else { return nil }
+
+            // Original Source: https://gist.github.com/thestoics/1204051
+            return UIGraphicsImageRenderer(size: size).image { context in
+                let previousFrame = frame
+                frame = CGRect(origin: frame.origin, size: size)
+                layer.render(in: context.cgContext)
+                frame = previousFrame
+            }
+        }
+
         // Original Source: https://gist.github.com/thestoics/1204051
         UIGraphicsBeginImageContextWithOptions(contentSize, false, 0)
         defer {

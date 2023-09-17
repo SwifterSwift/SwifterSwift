@@ -119,7 +119,7 @@ public extension UIView {
 
     /// SwifterSwift: Check if view is in RTL format.
     var isRightToLeft: Bool {
-        if #available(iOS 10.0, macCatalyst 13.0, tvOS 10.0, *) {
+        if #available(macCatalyst 13.0, tvOS 10.0, *) {
             return effectiveUserInterfaceLayoutDirection == .rightToLeft
         } else {
             return false
@@ -128,6 +128,14 @@ public extension UIView {
 
     /// SwifterSwift: Take screenshot of view (if applicable).
     var screenshot: UIImage? {
+        if #available(tvOS 10.0, *) {
+            let size = layer.frame.size
+            guard size != .zero else { return nil }
+            return UIGraphicsImageRenderer(size: layer.frame.size).image { context in
+                layer.render(in: context.cgContext)
+            }
+        }
+
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
         defer {
             UIGraphicsEndImageContext()

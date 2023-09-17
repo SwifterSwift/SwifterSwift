@@ -214,7 +214,7 @@ public extension UIButton {
     func setBackgroundColor(color: UIColor, forState: UIControl.State) {
         clipsToBounds = true // maintain corner radius
 
-        if #available(iOS 10.0, tvOS 10.0, *) {
+        if #available(tvOS 10.0, *) {
             let colorImage = UIGraphicsImageRenderer(size: CGSize(width: 1, height: 1)).image { context in
                 color.setFill()
                 context.fill(CGRect(x: 0, y: 0, width: 1, height: 1))

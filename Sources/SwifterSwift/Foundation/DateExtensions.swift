@@ -899,7 +899,7 @@ public extension Date {
     /// - Returns: true if the date is within a number of components of another date.
     func isWithin(_ value: UInt, _ component: Calendar.Component, of date: Date) -> Bool {
         let components = calendar.dateComponents([component], from: self, to: date)
-        let componentValue = components.value(for: component)!
+        guard let componentValue = components.value(for: component) else { return false }
         return abs(componentValue) <= value
     }
 
