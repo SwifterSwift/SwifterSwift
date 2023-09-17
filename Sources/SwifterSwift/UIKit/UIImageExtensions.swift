@@ -346,9 +346,15 @@ public extension UIImage {
     ///   - color: image fill color.
     ///   - size: image size.
     convenience init(color: UIColor, size: CGSize) {
-        guard size != .zero else {
-            self.init()
-            return
+        if #available(tvOS 10.0, *) {
+            guard let image = UIGraphicsImageRenderer(size: size).image(actions: { context in
+                color.setFill()
+                context.fill(context.format.bounds)
+            }).cgImage else {
+                self.init()
+                return
+            }
+            self.init(cgImage: image)
         }
 
         UIGraphicsBeginImageContextWithOptions(size, false, 1)
