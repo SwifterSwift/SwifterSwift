@@ -1,4 +1,4 @@
-// UINavigationBarExtensionTests.swift - Copyright 2020 SwifterSwift
+// UINavigationBarExtensionTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -12,21 +12,23 @@ final class UINavigationBarExtensionsTests: XCTestCase {
         let helveticaFont = UIFont(name: "HelveticaNeue", size: 14)!
         navigationBar.setTitleFont(helveticaFont, color: .green)
         if #available(iOS 13.0, tvOS 13.0, *) {
-            let color = navigationBar.standardAppearance.titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
+            let color = navigationBar.standardAppearance
+                .titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
             XCTAssertEqual(color, .green)
-            
+
             let font = navigationBar.standardAppearance.titleTextAttributes[NSAttributedString.Key.font] as? UIFont
             XCTAssertEqual(font, helveticaFont)
-            
+
             navigationBar.setTitleFont(helveticaFont)
-            let defaultColor = navigationBar.standardAppearance.titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
+            let defaultColor = navigationBar.standardAppearance
+                .titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
             XCTAssertEqual(defaultColor, .black)
         } else {
             let color = navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor
             XCTAssertEqual(color, .green)
             let font = navigationBar.titleTextAttributes?[NSAttributedString.Key.font] as? UIFont
             XCTAssertEqual(font, helveticaFont)
-            
+
             navigationBar.setTitleFont(helveticaFont)
             let defaultColor = navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor
             XCTAssertEqual(defaultColor, .black)
@@ -38,18 +40,24 @@ final class UINavigationBarExtensionsTests: XCTestCase {
         navigationBar.makeTransparent(withTint: .red)
         if #available(iOS 13.0, tvOS 13.0, *) {
             XCTAssertEqual(navigationBar.tintColor, .red)
-            
-            let standardAppearanceColor = navigationBar.standardAppearance.titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
-            let scrollEdgeAppearanceColor = navigationBar.scrollEdgeAppearance?.titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
-            let compactAppearanceColor = navigationBar.compactAppearance?.titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
+
+            let standardAppearanceColor = navigationBar.standardAppearance
+                .titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
+            let scrollEdgeAppearanceColor = navigationBar.scrollEdgeAppearance?
+                .titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
+            let compactAppearanceColor = navigationBar.compactAppearance?
+                .titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
             XCTAssertEqual(standardAppearanceColor, .red)
             XCTAssertEqual(scrollEdgeAppearanceColor, .red)
             XCTAssertEqual(compactAppearanceColor, .red)
-            
+
             navigationBar.makeTransparent()
-            let standardAppearanceDefaultColor = navigationBar.standardAppearance.titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
-            let scrollEdgeAppearanceDefaultColor = navigationBar.scrollEdgeAppearance?.titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
-            let compactAppearanceDefaultColor = navigationBar.compactAppearance?.titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
+            let standardAppearanceDefaultColor = navigationBar.standardAppearance
+                .titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
+            let scrollEdgeAppearanceDefaultColor = navigationBar.scrollEdgeAppearance?
+                .titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
+            let compactAppearanceDefaultColor = navigationBar.compactAppearance?
+                .titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
             XCTAssertEqual(standardAppearanceDefaultColor, .white)
             XCTAssertEqual(scrollEdgeAppearanceDefaultColor, .white)
             XCTAssertEqual(compactAppearanceDefaultColor, .white)
@@ -60,7 +68,7 @@ final class UINavigationBarExtensionsTests: XCTestCase {
             XCTAssertEqual(navigationBar.tintColor, .red)
             let color = navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor
             XCTAssertEqual(color, .red)
-            
+
             navigationBar.makeTransparent()
             let defaultColor = navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor
             XCTAssertEqual(defaultColor, .white)
@@ -72,17 +80,20 @@ final class UINavigationBarExtensionsTests: XCTestCase {
         navigationBar.setColors(background: .blue, text: .green)
         if #available(iOS 13.0, tvOS 13.0, *) {
             XCTAssertEqual(navigationBar.tintColor, .green)
-            
+
             let standardAppearanceBackgroundColor = navigationBar.standardAppearance.backgroundColor
             let scrollEdgeAppearanceBackgroundColor = navigationBar.scrollEdgeAppearance?.backgroundColor
             let compactAppearanceBackgroundColor = navigationBar.compactAppearance?.backgroundColor
             XCTAssertEqual(standardAppearanceBackgroundColor, .blue)
             XCTAssertEqual(scrollEdgeAppearanceBackgroundColor, .blue)
             XCTAssertEqual(compactAppearanceBackgroundColor, .blue)
-            
-            let standardAppearanceTextColor = navigationBar.standardAppearance.titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
-            let scrollEdgeAppearanceTextColor = navigationBar.scrollEdgeAppearance?.titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
-            let compactAppearanceTextColor = navigationBar.compactAppearance?.titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
+
+            let standardAppearanceTextColor = navigationBar.standardAppearance
+                .titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
+            let scrollEdgeAppearanceTextColor = navigationBar.scrollEdgeAppearance?
+                .titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
+            let compactAppearanceTextColor = navigationBar.compactAppearance?
+                .titleTextAttributes[NSAttributedString.Key.foregroundColor] as? UIColor
             XCTAssertEqual(standardAppearanceTextColor, .green)
             XCTAssertEqual(scrollEdgeAppearanceTextColor, .green)
             XCTAssertEqual(compactAppearanceTextColor, .green)

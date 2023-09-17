@@ -1,4 +1,4 @@
-// IntExtensionsTests.swift - Copyright 2020 SwifterSwift
+// IntExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -103,7 +103,7 @@ final class IntExtensionsTests: XCTestCase {
     func testOperators() {
         XCTAssertEqual(5 ** 2, 25)
         XCTAssert((5 ± 2) == (3, 7) || (5 ± 2) == (7, 3))
-        XCTAssert((±2) == (2, -2) || (±2) == (-2, 2))
+        XCTAssert((±2) == (2, -2) || (-2, 2) == ±2)
         XCTAssertEqual(√25, 5.0)
     }
 }
