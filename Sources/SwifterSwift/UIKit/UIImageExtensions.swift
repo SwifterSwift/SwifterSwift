@@ -105,7 +105,7 @@ public extension UIImage {
         let size = CGSize(width: newWidth, height: toHeight)
         let rect = CGRect(origin: .zero, size: size)
 
-#if !os(watchOS)
+        #if !os(watchOS)
         if #available(tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
             format.scale = self.scale
@@ -113,7 +113,7 @@ public extension UIImage {
                 draw(in: rect)
             }
         }
-#endif
+        #endif
 
         UIGraphicsBeginImageContextWithOptions(size, opaque, self.scale)
         defer { UIGraphicsEndImageContext() }
@@ -133,7 +133,7 @@ public extension UIImage {
         let size = CGSize(width: toWidth, height: newHeight)
         let rect = CGRect(origin: .zero, size: size)
 
-#if !os(watchOS)
+        #if !os(watchOS)
         if #available(tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
             format.scale = self.scale
@@ -141,7 +141,7 @@ public extension UIImage {
                 draw(in: rect)
             }
         }
-#endif
+        #endif
 
         UIGraphicsBeginImageContextWithOptions(size, opaque, self.scale)
         defer { UIGraphicsEndImageContext() }
@@ -176,7 +176,7 @@ public extension UIImage {
                                  size: self.size))
         }
 
-#if !os(watchOS)
+        #if !os(watchOS)
         if #available(tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
             format.scale = self.scale
@@ -184,7 +184,7 @@ public extension UIImage {
                 actions($0.cgContext)
             }
         }
-#endif
+        #endif
 
         UIGraphicsBeginImageContextWithOptions(roundedDestRect.size, false, scale)
         defer { UIGraphicsEndImageContext() }
@@ -217,7 +217,7 @@ public extension UIImage {
                                  size: self.size))
         }
 
-#if !os(watchOS)
+        #if !os(watchOS)
         if #available(tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
             format.scale = self.scale
@@ -225,7 +225,7 @@ public extension UIImage {
                 actions($0.cgContext)
             }
         }
-#endif
+        #endif
 
         UIGraphicsBeginImageContextWithOptions(roundedDestRect.size, false, scale)
         defer { UIGraphicsEndImageContext() }
@@ -350,7 +350,7 @@ public extension UIImage {
             self.draw(in: rect)
         }
 
-#if !os(watchOS)
+        #if !os(watchOS)
         if #available(tvOS 10.0, *) {
             let format = UIGraphicsImageRendererFormat()
             format.scale = self.scale
@@ -358,7 +358,7 @@ public extension UIImage {
                 actions()
             }
         }
-#endif
+        #endif
 
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer { UIGraphicsEndImageContext() }
@@ -403,7 +403,7 @@ public extension UIImage {
     ///   - color: image fill color.
     ///   - size: image size.
     convenience init(color: UIColor, size: CGSize) {
-#if !os(watchOS)
+        #if !os(watchOS)
         if #available(tvOS 10.0, *) {
             guard let image = UIGraphicsImageRenderer(size: size).image(actions: { context in
                 color.setFill()
@@ -414,7 +414,7 @@ public extension UIImage {
             }
             self.init(cgImage: image)
         }
-#endif
+        #endif
 
         UIGraphicsBeginImageContextWithOptions(size, false, 1)
 
