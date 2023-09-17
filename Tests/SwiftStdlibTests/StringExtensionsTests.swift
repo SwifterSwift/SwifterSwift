@@ -223,12 +223,11 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testUrl() {
-        let encodedUrl = URL(string: "hello%20world")
         #if os(Linux)
-        XCTAssertEqual("hello world".url, encodedUrl)
+        XCTAssertNil("hello world".url)
         #else
         if #available(iOS 17.0, *) {
-            XCTAssertEqual("hello world".url, encodedUrl)
+            XCTAssertEqual("hello world".url, URL(string: "hello%20world"))
         } else {
             XCTAssertNil("hello world".url)
         }
