@@ -18,7 +18,6 @@ final class URLRequestExtensionsTests: XCTestCase {
         XCTAssertNotNil(request2)
         XCTAssertEqual(request1.url, request2!.url)
 
-
         if #unavailable(iOS 17.0) {
             let invalidURLString = "invalid url"
             XCTAssertNil(URLRequest(urlString: invalidURLString))
