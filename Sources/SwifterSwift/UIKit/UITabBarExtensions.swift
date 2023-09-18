@@ -63,6 +63,8 @@ public extension UITabBar {
                     guard let mask = image.cgImage else { return image }
 
                     let actions = { (context: CGContext) in
+                        color.setFill()
+
                         context.translateBy(x: 0, y: image.size.height)
                         context.scaleBy(x: 1.0, y: -1.0)
                         context.setBlendMode(CGBlendMode.normal)
