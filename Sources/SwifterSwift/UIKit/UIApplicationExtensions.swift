@@ -1,4 +1,4 @@
-// UIApplicationExtensions.swift - Copyright 2020 SwifterSwift
+// UIApplicationExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit)
 import UIKit

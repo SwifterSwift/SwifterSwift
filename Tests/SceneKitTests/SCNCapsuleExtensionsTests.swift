@@ -1,4 +1,4 @@
-// SCNCapsuleExtensionsTests.swift - Copyright 2020 SwifterSwift
+// SCNCapsuleExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

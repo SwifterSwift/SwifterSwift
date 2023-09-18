@@ -1,4 +1,4 @@
-// MKPolylineExtensions.swift - Copyright 2020 SwifterSwift
+// MKPolylineExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(MapKit) && !os(watchOS)
 import MapKit

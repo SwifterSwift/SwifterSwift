@@ -1,4 +1,4 @@
-// BinaryIntegerExtensionsTests.swift - Copyright 2021 SwifterSwift
+// BinaryIntegerExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -21,7 +21,7 @@ final class BinaryIntegerExtensionsTests: XCTestCase {
     func testInitBytes() {
         let zero = Int8(bytes: [0])
         XCTAssertEqual(zero, 0)
-        
+
         let negativeOne = Int16(bytes: [0b1111_1111, 0b1111_1111])
         XCTAssertEqual(negativeOne, -1)
 

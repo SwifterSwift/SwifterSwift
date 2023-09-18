@@ -1,4 +1,4 @@
-// CGAffineTransformExtensions.swift - Copyright 2020 SwifterSwift
+// CGAffineTransformExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics

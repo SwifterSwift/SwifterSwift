@@ -1,4 +1,4 @@
-// XCTestExtensions.swift - Copyright 2022 SwifterSwift
+// XCTestExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(XCTest)
 import XCTest
@@ -20,9 +20,11 @@ public typealias SFColor = NSColor
 /// - Parameters:
 ///   - expression1: A `Color`.
 ///   - expression2: A `Color`.
-///   - accuracy: Describes the maximum difference between `expression1` and `expression2` for these values to be considered equal.
+///   - accuracy: Describes the maximum difference between `expression1` and `expression2` for these values to be
+/// considered equal.
 ///   - message: An optional description of the failure.
-///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
+///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was
+/// called.
 ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
 public func XCTAssertEqual(_ expression1: @autoclosure () throws -> SFColor,
                            _ expression2: @autoclosure () throws -> SFColor,
@@ -50,9 +52,11 @@ public func XCTAssertEqual(_ expression1: @autoclosure () throws -> SFColor,
 /// - Parameters:
 ///   - expression1: A `CGAffineTransform`.
 ///   - expression2: A `CGAffineTransform`.
-///   - accuracy: Describes the maximum difference between `expression1` and `expression2` for these values to be considered equal.
+///   - accuracy: Describes the maximum difference between `expression1` and `expression2` for these values to be
+/// considered equal.
 ///   - message: An optional description of the failure.
-///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
+///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was
+/// called.
 ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
 public func XCTAssertEqual(_ expression1: @autoclosure () throws -> CGAffineTransform,
                            _ expression2: @autoclosure () throws -> CGAffineTransform,

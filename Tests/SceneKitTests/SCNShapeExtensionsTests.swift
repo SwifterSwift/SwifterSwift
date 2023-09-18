@@ -1,4 +1,4 @@
-// SCNShapeExtensionsTests.swift - Copyright 2020 SwifterSwift
+// SCNShapeExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
