@@ -12,7 +12,7 @@ final class FutureExtensionsTests: XCTestCase {
         case error
     }
     
-    #if canImport(_Concurrency)
+    #if swift(>=5.5) && canImport(_Concurrency)
     @available(iOS 13.00, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
     private func doSomething(value: Int) async -> Int {
         try? await Task.sleep(nanoseconds: 1_000_000 * 1)
@@ -46,10 +46,10 @@ final class FutureExtensionsTests: XCTestCase {
     func testInitAsync() {
         let expect = expectation(description: "")
         
-        #if canImport(Combine) && canImport(_Concurrency)
         guard #available(iOS 13.00, macOS 10.15, tvOS 13.0, watchOS 6.0, *) else {
             return
         }
+        #if canImport(Combine) && swift(>=5.5) && canImport(_Concurrency)
         cancellable = Just(100)
             .flatMap { [weak self] value in
                 Future<Int, Never> {
@@ -68,10 +68,10 @@ final class FutureExtensionsTests: XCTestCase {
     func testInitAsyncThrows() {
         let expect = expectation(description: "")
         
-        #if canImport(Combine) && canImport(_Concurrency)
         guard #available(iOS 13.00, macOS 10.15, tvOS 13.0, watchOS 6.0, *) else {
             return
         }
+        #if canImport(Combine) && swift(>=5.5) && canImport(_Concurrency)
         cancellable = Just(100)
             .setFailureType(to: Error.self)
             .flatMap { [weak self] value in
