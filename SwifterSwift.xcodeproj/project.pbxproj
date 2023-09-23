@@ -565,6 +565,11 @@
 		9E9F42BA298733DF00A0BD60 /* URLSessionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9F42B529872F5F00A0BD60 /* URLSessionExtensionsTests.swift */; };
 		9E9F42BB298733E000A0BD60 /* URLSessionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9F42B529872F5F00A0BD60 /* URLSessionExtensionsTests.swift */; };
 		9E9F42BC298733E000A0BD60 /* URLSessionExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9F42B529872F5F00A0BD60 /* URLSessionExtensionsTests.swift */; };
+		9EA118102ABF2FEC00AD3916 /* FutureExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA2662ABE0D7100FA4626 /* FutureExtensions.swift */; };
+		9EA118112ABF2FED00AD3916 /* FutureExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA2662ABE0D7100FA4626 /* FutureExtensions.swift */; };
+		9EA118122ABF2FED00AD3916 /* FutureExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA2662ABE0D7100FA4626 /* FutureExtensions.swift */; };
+		9EA118132ABF2FFE00AD3916 /* FutureExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA3752ABE0FEE00FA4626 /* FutureExtensionsTests.swift */; };
+		9EA118142ABF2FFF00AD3916 /* FutureExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA3752ABE0FEE00FA4626 /* FutureExtensionsTests.swift */; };
 		A94AA78720280F9100E229A5 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA78620280F9100E229A5 /* FileManagerExtensions.swift */; };
 		A94AA78A202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */; };
 		A94AA78B202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */; };
@@ -2245,6 +2250,7 @@
 				07B7F1B51F5EB42000E6F910 /* UISliderExtensions.swift in Sources */,
 				C7E027C52360942000F1061E /* KeyedDecodingContainerExtensions.swift in Sources */,
 				07A494E523C7CAAA00DFCBFC /* CLVisitExtensions.swift in Sources */,
+				9EA118122ABF2FED00AD3916 /* FutureExtensions.swift in Sources */,
 				F8C1AE70225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */,
 				07B7F1A91F5EB42000E6F910 /* UIBarButtonItemExtensions.swift in Sources */,
 				07B7F1B81F5EB42000E6F910 /* UITabBarExtensions.swift in Sources */,
@@ -2325,6 +2331,7 @@
 				07B7F1F11F5EB43B00E6F910 /* IntExtensions.swift in Sources */,
 				9D806A672258D75A008E500A /* SCNBoxExtensions.swift in Sources */,
 				664CB985217243D200FC87B4 /* DispatchQueueExtensions.swift in Sources */,
+				9EA118112ABF2FED00AD3916 /* FutureExtensions.swift in Sources */,
 				B2A0DAC22336DA87002B0BC5 /* MutableCollectionExtensions.swift in Sources */,
 				07B7F1ED1F5EB43B00E6F910 /* DictionaryExtensions.swift in Sources */,
 				07B7F22A1F5EB45100E6F910 /* CGPointExtensions.swift in Sources */,
@@ -2445,6 +2452,7 @@
 				9D806A682258D75A008E500A /* SCNBoxExtensions.swift in Sources */,
 				F854D2C52423ECF0003A08A9 /* CATransform3DExtensions.swift in Sources */,
 				F854D2B02423DF5A003A08A9 /* CGAffineTransformExtensions.swift in Sources */,
+				9EA118102ABF2FEC00AD3916 /* FutureExtensions.swift in Sources */,
 				985C1B9024797694008AAB0E /* WKWebViewExtensions.swift in Sources */,
 				278CA08D1F9A9232004918BD /* NSImageExtensions.swift in Sources */,
 				F8A710EC23BF3F7400112DAD /* EdgeInsetsExtensions.swift in Sources */,
@@ -2511,6 +2519,7 @@
 				07C50D331F5EB04700F46E5A /* UINavigationBarExtensionTests.swift in Sources */,
 				07C50D401F5EB04700F46E5A /* UIViewExtensionsTests.swift in Sources */,
 				E5E5EB3D2350F40200B04C42 /* CAGradientLayerExtensionsTests.swift in Sources */,
+				9EA118142ABF2FFF00AD3916 /* FutureExtensionsTests.swift in Sources */,
 				5898A74228D1D7C200261630 /* DefaultStringInterpolationExtensionsTests.swift in Sources */,
 				90693555208B545100407C4D /* UIGestureRecognizerExtensionsTests.swift in Sources */,
 				07C50D311F5EB04700F46E5A /* UIImageViewExtensionsTests.swift in Sources */,
@@ -2629,6 +2638,7 @@
 				077BA0BA1F6BEA6A00D9C4AC /* UserDefaultsExtensionsTests.swift in Sources */,
 				9D806A832258F56F008E500A /* SCNBoxExtensionsTests.swift in Sources */,
 				07C50D671F5EB05100F46E5A /* CharacterExtensionsTests.swift in Sources */,
+				9EA118132ABF2FFE00AD3916 /* FutureExtensionsTests.swift in Sources */,
 				9D49148A1F8515D100F3868F /* NSPredicateExtensionsTests.swift in Sources */,
 				07C50D651F5EB05100F46E5A /* ArrayExtensionsTests.swift in Sources */,
 				F8885CF324D2ECB3009C33C0 /* WKWebViewExtensionsTests.swift in Sources */,
