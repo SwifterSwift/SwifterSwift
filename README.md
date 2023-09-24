@@ -350,6 +350,14 @@ let package = Package(
 </ul>
 </details>
 
+<details>
+<summary>Combine Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/Combine/FutureExtensions.swift"><code>Future extensions</code></a></li>
+</ul>
+</details>
+
 ## How cool is this?
 
 SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original Swift API design guidelines.

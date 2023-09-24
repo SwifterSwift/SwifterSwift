@@ -18,6 +18,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `init(randomOfLength:)` deprecated in favor of `String.random(ofLength:)`. [#1115](https://github.com/SwifterSwift/SwifterSwift/issues/1115) by [guykogus](https://github.com/guykogus)
 
 ### Added
+- **Future**
+  - Added `init(asyncFunc:)` to create a `Future` from an `async` value. [#1139](https://github.com/SwifterSwift/SwifterSwift/pull/1139) by [RomanPodymov](https://github.com/RomanPodymov)
 - **UIButton**
   - Added `setBackgroundColor(_:for:)` method for setting background color for the specified UI state. [#1041](https://github.com/SwifterSwift/SwifterSwift/pull/1041) by [TwizzyIndy](https://github.com/TwizzyIndy)
   - Added `imageForFocused`, `titleColorForFocused`, `titleForFocused`, `attributedTitleForFocused` to handle focused state. [#1063](https://github.com/SwifterSwift/SwifterSwift/pull/1063) by [Roman Podymov](https://github.com/RomanPodymov)
