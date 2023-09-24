@@ -1,4 +1,4 @@
-// DecodableExtensions.swift - Copyright 2020 SwifterSwift
+// DecodableExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation

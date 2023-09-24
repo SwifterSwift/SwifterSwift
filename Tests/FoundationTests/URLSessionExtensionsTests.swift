@@ -33,7 +33,7 @@ final class URLSessionExtensionsTests: XCTestCase {
         XCTAssertEqual(httpResponse!.statusCode, 200)
         XCTAssertEqual(httpResponse!.url, url)
     }
-    
+
     func testDataSyncError() {
         let url = URL(string: "http://something.notexistingcountry/something")!
         XCTAssertThrowsError(_ = try URLSession.shared.dataSync(with: URLRequest(url: url)))

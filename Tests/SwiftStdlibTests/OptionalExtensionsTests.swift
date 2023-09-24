@@ -1,4 +1,4 @@
-// OptionalExtensionsTests.swift - Copyright 2020 SwifterSwift
+// OptionalExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -43,8 +43,8 @@ final class OptionalExtensionsTests: XCTestCase {
         let parameter1: String? = nil
         let parameter2: String? = "foo"
 
-        let key1: String = "key1"
-        let key2: String = "key2"
+        let key1 = "key1"
+        let key2 = "key2"
 
         var parameters = [String: String]()
 

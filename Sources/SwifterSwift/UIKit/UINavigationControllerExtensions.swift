@@ -1,4 +1,4 @@
-// UINavigationControllerExtensions.swift - Copyright 2020 SwifterSwift
+// UINavigationControllerExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit

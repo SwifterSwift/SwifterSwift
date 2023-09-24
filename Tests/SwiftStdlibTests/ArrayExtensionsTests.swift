@@ -1,4 +1,4 @@
-// ArrayExtensionsTests.swift - Copyright 2022 SwifterSwift
+// ArrayExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 //
@@ -16,7 +16,7 @@ final class ArrayExtensionsTests: XCTestCase {
         let array = [Int](count: 11) { $0 * $0 }
         XCTAssertEqual(squares, array)
     }
-    
+
     func testPrepend() {
         var arr = [2, 3, 4, 5]
         arr.prepend(1)

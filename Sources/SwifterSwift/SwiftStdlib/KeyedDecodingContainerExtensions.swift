@@ -1,4 +1,4 @@
-// KeyedDecodingContainerExtensions.swift - Copyright 2020 SwifterSwift
+// KeyedDecodingContainerExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation

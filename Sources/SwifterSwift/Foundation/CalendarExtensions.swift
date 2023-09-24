@@ -1,4 +1,4 @@
-// CalendarExtensions.swift - Copyright 2020 SwifterSwift
+// CalendarExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation

@@ -1,4 +1,4 @@
-// UIStoryboardExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UIStoryboardExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

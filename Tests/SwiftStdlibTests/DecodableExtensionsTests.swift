@@ -1,4 +1,4 @@
-// DecodableExtensionsTests.swift - Copyright 2020 SwifterSwift
+// DecodableExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -14,13 +14,15 @@ private struct City: Decodable {
 
 final class DecodableExtensionsTests: XCTestCase {
     private var mockJsonData: Data {
-        return #"{"id": 1, "name": "Şanlıurfa", "url": "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg"}"# .data(
-            using: .utf8)!
+        return #"{"id": 1, "name": "Şanlıurfa", "url": "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg"}"#
+            .data(
+                using: .utf8)!
     }
 
     private var invalidMockJsonData: Data {
-        return #"{"id": "1", "name": "Şanlıurfa", "url": "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg"}"# .data(
-            using: .utf8)!
+        return #"{"id": "1", "name": "Şanlıurfa", "url": "https://cdn.pixabay.com/photo/2017/09/27/20/55/sanliurfa-2793424_1280.jpg"}"#
+            .data(
+                using: .utf8)!
     }
 
     func testDecodeModel() {

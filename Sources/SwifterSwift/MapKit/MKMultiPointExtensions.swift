@@ -1,4 +1,4 @@
-// MKPolylineExtensions.swift - Copyright 2020 SwifterSwift
+// MKMultiPointExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(MapKit) && !os(watchOS)
 import MapKit
@@ -16,4 +16,3 @@ public extension MKMultiPoint {
 }
 
 #endif
-

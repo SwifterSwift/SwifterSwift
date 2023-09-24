@@ -1,4 +1,4 @@
-// UIBezierPathExtensions.swift - Copyright 2020 SwifterSwift
+// UIBezierPathExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit)
 import UIKit

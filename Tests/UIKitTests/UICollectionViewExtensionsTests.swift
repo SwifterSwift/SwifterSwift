@@ -1,4 +1,4 @@
-// UICollectionViewExtensionsTests.swift - Copyright 2022 SwifterSwift
+// UICollectionViewExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

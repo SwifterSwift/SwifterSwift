@@ -1,4 +1,4 @@
-// CollectionExtensionsTests.swift - Copyright 2020 SwifterSwift
+// CollectionExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -47,7 +47,7 @@ final class CollectionExtensionsTests: XCTestCase {
 
     func testForEachSlice() {
         // A slice with value zero
-        var iterations: Int = 0
+        var iterations = 0
         var array: [String] = ["james", "irving", "jordan", "jonshon", "iverson", "shaq"]
         array.forEach(slice: 0) { _ in
             iterations += 1
@@ -141,7 +141,7 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertEqual([1, 2, 3, 4, 5].average(), 3)
         XCTAssertEqual([Int]().average(), 0)
     }
-    
+
     func testAdjacentPairsWithOddNumberOfElementsInCollection() {
         let pairs = Array([1, 2, 3].adjacentPairs())
         XCTAssertEqual(pairs.count, 3)
@@ -152,14 +152,14 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertEqual(pairs[2].0, 2)
         XCTAssertEqual(pairs[2].1, 3)
     }
-    
+
     func testAdjacentPairsWithEvenNumberOfElementsInCollection() {
         let pairs = Array([1, 2].adjacentPairs())
         XCTAssertEqual(pairs.count, 1)
         XCTAssertEqual(pairs[0].0, 1)
         XCTAssertEqual(pairs[0].1, 2)
     }
-    
+
     func testAdjacentPairsWithEmptyCollection() {
         let pairs = Array([Int]().adjacentPairs())
         XCTAssertEqual(pairs.count, 0)

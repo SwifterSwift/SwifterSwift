@@ -1,4 +1,4 @@
-// UIStackViewExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UIStackViewExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -58,7 +58,7 @@ final class UIStackViewExtensionsTest: XCTestCase {
         stack.removeArrangedSubviews()
         XCTAssert(stack.arrangedSubviews.isEmpty)
     }
-    
+
     func testSwap() {
         let view1 = UIView()
         let view2 = UIView()
@@ -74,12 +74,11 @@ final class UIStackViewExtensionsTest: XCTestCase {
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view3), 0)
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view4), 3)
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view5), 1)
-        
+
         stack.swap(view5, view6)
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view5), 1)
         XCTAssertNil(stack.arrangedSubviews.firstIndex(of: view6))
 
-        
         let swapExpectation = expectation(description: "views swapped")
         stack.swap(view4, view3, animated: true, duration: 0.5) { _ in
             swapExpectation.fulfill()
@@ -87,6 +86,21 @@ final class UIStackViewExtensionsTest: XCTestCase {
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view3), 3)
         XCTAssertEqual(stack.arrangedSubviews.firstIndex(of: view4), 0)
         waitForExpectations(timeout: 1.0)
+    }
+
+    func testBackgroundViewColor() {
+        let stack = UIStackView()
+        stack.backgroundViewColor = nil
+        XCTAssertNil(stack.backgroundViewColor)
+
+        stack.backgroundViewColor = .red
+        XCTAssertNotNil(stack.backgroundViewColor)
+
+        XCTAssertEqual(stack.backgroundViewColor!, UIColor.red)
+
+        if #available(iOS 14, *) {
+            XCTAssertEqual(stack.backgroundColor!, UIColor.red)
+        }
     }
 }
 

@@ -1,4 +1,4 @@
-// UIRefreshControlExtensions.swift - Copyright 2020 SwifterSwift
+// UIRefreshControlExtensions.swift - Copyright 2023 SwifterSwift
 
 #if os(iOS)
 import UIKit
@@ -33,7 +33,7 @@ public extension UIRefreshControl {
     func beginRefreshing(animated: Bool, sendAction: Bool = false) {
         // https://stackoverflow.com/questions/14718850/14719658#14719658
         guard let scrollView = superview as? UIScrollView else {
-            assert(false, "Refresh control does not belong to a scroll view")
+            assertionFailure("Refresh control does not belong to a scroll view")
             return
         }
 
