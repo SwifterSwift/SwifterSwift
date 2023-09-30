@@ -3,9 +3,8 @@
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(Combine)
+#if canImport(Combine) && !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
 import Combine
-#endif
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 final class FutureExtensionsTests: XCTestCase {
@@ -13,21 +12,18 @@ final class FutureExtensionsTests: XCTestCase {
         case error
     }
 
-    private var cancellable: Any?
+    private var cancellable: AnyCancellable?
 
     override func tearDown() {
         super.tearDown()
 
-        #if canImport(Combine)
-        (cancellable as? AnyCancellable)?.cancel()
-        #endif
+        cancellable?.cancel()
         cancellable = nil
     }
 
     func testInitAsync() {
         let expect = expectation(description: "")
 
-        #if canImport(Combine) && !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
         cancellable = Just(100)
             .flatMap { [weak self] value in
                 Future<Int, Never> {
@@ -38,7 +34,6 @@ final class FutureExtensionsTests: XCTestCase {
                 XCTAssertEqual($0, 100)
                 expect.fulfill()
             }
-        #endif
 
         waitForExpectations(timeout: 1)
     }
@@ -46,7 +41,6 @@ final class FutureExtensionsTests: XCTestCase {
     func testInitAsyncThrows() {
         let expect = expectation(description: "")
 
-        #if canImport(Combine) && !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
         cancellable = Just(100)
             .setFailureType(to: Error.self)
             .flatMap { [weak self] value in
@@ -65,12 +59,10 @@ final class FutureExtensionsTests: XCTestCase {
                 XCTAssertEqual($0, 200)
                 expect.fulfill()
             })
-        #endif
 
         waitForExpectations(timeout: 1)
     }
 
-    #if !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
     private func doSomething(value: Int) async -> Int {
         try? await Task.sleep(nanoseconds: 1_000_000 * 1)
         return await withCheckedContinuation { continuation in
@@ -84,5 +76,6 @@ final class FutureExtensionsTests: XCTestCase {
             continuation.resume(with: shouldThrow ? .failure(FutureExtensionsTestsError.error) : .success(value))
         }
     }
-    #endif
 }
+
+#endif
