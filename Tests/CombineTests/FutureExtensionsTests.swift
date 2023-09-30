@@ -7,48 +7,26 @@ import XCTest
 import Combine
 #endif
 
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 final class FutureExtensionsTests: XCTestCase {
-    enum FutureExtensionsTestsError: Error {
+    private enum FutureExtensionsTestsError: Error {
         case error
     }
-    
-    #if !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
-    @available(iOS 13.00, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-    private func doSomething(value: Int) async -> Int {
-        try? await Task.sleep(nanoseconds: 1_000_000 * 1)
-        return await withCheckedContinuation { continuation in
-            continuation.resume(returning: value)
-        }
-    }
-
-    @available(iOS 13.00, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-    private func doSomethingThrows(value: Int, shouldThrow: Bool) async throws -> Int {
-        try? await Task.sleep(nanoseconds: 1_000_000 * 1)
-        return try await withCheckedThrowingContinuation { continuation in
-            continuation.resume(with: shouldThrow ? .failure(FutureExtensionsTestsError.error) : .success(value))
-        }
-    }
-    #endif
-    
+        
     private var cancellable: Any?
     
     override func tearDown() {
         super.tearDown()
         
         #if canImport(Combine)
-        if #available(iOS 13.00, macOS 10.15, tvOS 13.0, watchOS 6.0, *) {
-            (cancellable as? AnyCancellable)?.cancel()
-        }
-        cancellable = nil
+        (cancellable as? AnyCancellable)?.cancel()
         #endif
+        cancellable = nil
     }
     
     func testInitAsync() {
         let expect = expectation(description: "")
         
-        guard #available(iOS 13.00, macOS 10.15, tvOS 13.0, watchOS 6.0, *) else {
-            return
-        }
         #if canImport(Combine) && !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
         cancellable = Just(100)
             .flatMap { [weak self] value in
@@ -68,9 +46,6 @@ final class FutureExtensionsTests: XCTestCase {
     func testInitAsyncThrows() {
         let expect = expectation(description: "")
         
-        guard #available(iOS 13.00, macOS 10.15, tvOS 13.0, watchOS 6.0, *) else {
-            return
-        }
         #if canImport(Combine) && !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
         cancellable = Just(100)
             .setFailureType(to: Error.self)
@@ -94,4 +69,20 @@ final class FutureExtensionsTests: XCTestCase {
         
         waitForExpectations(timeout: 1)
     }
+    
+    #if !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
+    private func doSomething(value: Int) async -> Int {
+        try? await Task.sleep(nanoseconds: 1_000_000 * 1)
+        return await withCheckedContinuation { continuation in
+            continuation.resume(returning: value)
+        }
+    }
+
+    private func doSomethingThrows(value: Int, shouldThrow: Bool) async throws -> Int {
+        try? await Task.sleep(nanoseconds: 1_000_000 * 1)
+        return try await withCheckedThrowingContinuation { continuation in
+            continuation.resume(with: shouldThrow ? .failure(FutureExtensionsTestsError.error) : .success(value))
+        }
+    }
+    #endif
 }

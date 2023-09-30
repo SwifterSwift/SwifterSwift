@@ -5,7 +5,7 @@ import Combine
 
 // MARK: - Methods
 
-@available(iOS 13.00, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public extension Future where Failure == Error {
     #if !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
     /// Create a `Future` from an `async` function
@@ -25,7 +25,7 @@ public extension Future where Failure == Error {
     #endif
 }
 
-@available(iOS 13.00, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
+@available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public extension Future where Failure == Never {
     #if !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
     /// Create a `Future` from an `async` throwing function
