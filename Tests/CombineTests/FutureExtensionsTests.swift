@@ -12,21 +12,21 @@ final class FutureExtensionsTests: XCTestCase {
     private enum FutureExtensionsTestsError: Error {
         case error
     }
-        
+
     private var cancellable: Any?
-    
+
     override func tearDown() {
         super.tearDown()
-        
+
         #if canImport(Combine)
         (cancellable as? AnyCancellable)?.cancel()
         #endif
         cancellable = nil
     }
-    
+
     func testInitAsync() {
         let expect = expectation(description: "")
-        
+
         #if canImport(Combine) && !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
         cancellable = Just(100)
             .flatMap { [weak self] value in
@@ -39,13 +39,13 @@ final class FutureExtensionsTests: XCTestCase {
                 expect.fulfill()
             }
         #endif
-        
+
         waitForExpectations(timeout: 1)
     }
-    
+
     func testInitAsyncThrows() {
         let expect = expectation(description: "")
-        
+
         #if canImport(Combine) && !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
         cancellable = Just(100)
             .setFailureType(to: Error.self)
@@ -60,16 +60,16 @@ final class FutureExtensionsTests: XCTestCase {
                     .setFailureType(to: Error.self)
             }
             .sink(receiveCompletion: { _ in
-                
+
             }, receiveValue: {
                 XCTAssertEqual($0, 200)
                 expect.fulfill()
             })
         #endif
-        
+
         waitForExpectations(timeout: 1)
     }
-    
+
     #if !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
     private func doSomething(value: Int) async -> Int {
         try? await Task.sleep(nanoseconds: 1_000_000 * 1)
