@@ -1,6 +1,6 @@
-// EdgeInsetsExtensions.swift - Copyright 2020 SwifterSwift
+// EdgeInsetsExtensions.swift - Copyright 2023 SwifterSwift
 
-#if os(iOS) || os(tvOS) || os(watchOS)
+#if os(visionOS) || os(iOS) || os(tvOS) || os(watchOS)
 import UIKit
 /// SwifterSwift: EdgeInsets
 public typealias SFEdgeInsets = UIEdgeInsets
@@ -111,7 +111,8 @@ public extension SFEdgeInsets {
         return SFEdgeInsets(top: top, left: left, bottom: bottom, right: self.right + right)
     }
 
-    /// SwifterSwift: Creates an `EdgeInsets` based on current value and horizontal value equally divided and applied to right offset and left offset.
+    /// SwifterSwift: Creates an `EdgeInsets` based on current value and horizontal value equally divided and applied to
+    /// right offset and left offset.
     ///
     /// - Parameters:
     ///   - horizontal: Offset to be applied to right and left.
@@ -120,7 +121,8 @@ public extension SFEdgeInsets {
         return SFEdgeInsets(top: top, left: left + horizontal / 2, bottom: bottom, right: right + horizontal / 2)
     }
 
-    /// SwifterSwift: Creates an `EdgeInsets` based on current value and vertical value equally divided and applied to top and bottom.
+    /// SwifterSwift: Creates an `EdgeInsets` based on current value and vertical value equally divided and applied to
+    /// top and bottom.
     ///
     /// - Parameters:
     ///   - vertical: Offset to be applied to top and bottom.
@@ -141,9 +143,9 @@ public extension SFEdgeInsets {
     /// - Returns: A new `EdgeInsets` instance where the values of `lhs` and `rhs` are added together.
     static func + (_ lhs: SFEdgeInsets, _ rhs: SFEdgeInsets) -> SFEdgeInsets {
         return SFEdgeInsets(top: lhs.top + rhs.top,
-                          left: lhs.left + rhs.left,
-                          bottom: lhs.bottom + rhs.bottom,
-                          right: lhs.right + rhs.right)
+                            left: lhs.left + rhs.left,
+                            bottom: lhs.bottom + rhs.bottom,
+                            right: lhs.right + rhs.right)
     }
 
     /// SwifterSwift: Add all the properties of two `EdgeInsets` to the left-hand instance.

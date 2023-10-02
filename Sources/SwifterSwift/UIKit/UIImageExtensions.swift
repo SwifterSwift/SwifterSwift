@@ -1,4 +1,4 @@
-// UIImageExtensions.swift - Copyright 2020 SwifterSwift
+// UIImageExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit)
 import UIKit
@@ -63,7 +63,9 @@ public extension UIImage {
 public extension UIImage {
     /// SwifterSwift: Compressed UIImage from original UIImage.
     ///
-    /// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
+    /// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value
+    /// 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression
+    /// (or best quality), (default is 0.5).
     /// - Returns: optional UIImage (if applicable).
     func compressed(quality: CGFloat = 0.5) -> UIImage? {
         guard let data = jpegData(compressionQuality: quality) else { return nil }
@@ -72,7 +74,9 @@ public extension UIImage {
 
     /// SwifterSwift: Compressed UIImage data from original UIImage.
     ///
-    /// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
+    /// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value
+    /// 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression
+    /// (or best quality), (default is 0.5).
     /// - Returns: optional Data (if applicable).
     func compressedData(quality: CGFloat = 0.5) -> Data? {
         return jpegData(compressionQuality: quality)
@@ -314,7 +318,9 @@ public extension UIImage {
 
     /// SwifterSwift: Base 64 encoded JPEG data of the image.
     ///
-    /// - Parameter: compressionQuality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality).
+    /// - Parameter: compressionQuality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0.
+    /// The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least
+    /// compression (or best quality).
     /// - Returns: Base 64 encoded JPEG data of the image as a String.
     func jpegBase64String(compressionQuality: CGFloat) -> String? {
         return jpegData(compressionQuality: compressionQuality)?.base64EncodedString()
@@ -361,7 +367,9 @@ public extension UIImage {
     ///
     /// - Parameters:
     ///   - base64String: a base-64 `String`, representing the image
-    ///   - scale: The scale factor to assume when interpreting the image data created from the base-64 string. Applying a scale factor of 1.0 results in an image whose size matches the pixel-based dimensions of the image. Applying a different scale factor changes the size of the image as reported by the `size` property.
+    ///   - scale: The scale factor to assume when interpreting the image data created from the base-64 string. Applying
+    /// a scale factor of 1.0 results in an image whose size matches the pixel-based dimensions of the image. Applying a
+    /// different scale factor changes the size of the image as reported by the `size` property.
     convenience init?(base64String: String, scale: CGFloat = 1.0) {
         guard let data = Data(base64Encoded: base64String) else { return nil }
         self.init(data: data, scale: scale)
@@ -371,11 +379,17 @@ public extension UIImage {
     ///
     /// - Important:
     ///   Use this method to convert data:// URLs to UIImage objects.
-    ///   Don't use this synchronous initializer to request network-based URLs. For network-based URLs, this method can block the current thread for tens of seconds on a slow network, resulting in a poor user experience, and in iOS, may cause your app to be terminated.
-    ///   Instead, for non-file URLs, consider using this in an asynchronous way, using `dataTask(with:completionHandler:)` method of the URLSession class or a library such as `AlamofireImage`, `Kingfisher`, `SDWebImage`, or others to perform asynchronous network image loading.
+    ///   Don't use this synchronous initializer to request network-based URLs. For network-based URLs, this method can
+    /// block the current thread for tens of seconds on a slow network, resulting in a poor user experience, and in iOS,
+    /// may cause your app to be terminated.
+    ///   Instead, for non-file URLs, consider using this in an asynchronous way, using
+    /// `dataTask(with:completionHandler:)` method of the URLSession class or a library such as `AlamofireImage`,
+    /// `Kingfisher`, `SDWebImage`, or others to perform asynchronous network image loading.
     /// - Parameters:
     ///   - url: a `URL`, representing the image location
-    ///   - scale: The scale factor to assume when interpreting the image data created from the URL. Applying a scale factor of 1.0 results in an image whose size matches the pixel-based dimensions of the image. Applying a different scale factor changes the size of the image as reported by the `size` property.
+    ///   - scale: The scale factor to assume when interpreting the image data created from the URL. Applying a scale
+    /// factor of 1.0 results in an image whose size matches the pixel-based dimensions of the image. Applying a
+    /// different scale factor changes the size of the image as reported by the `size` property.
     convenience init?(url: URL, scale: CGFloat = 1.0) throws {
         let data = try Data(contentsOf: url)
         self.init(data: data, scale: scale)

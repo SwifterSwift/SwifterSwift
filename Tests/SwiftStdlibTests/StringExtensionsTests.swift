@@ -1,4 +1,4 @@
-// StringExtensionsTests.swift - Copyright 2020 SwifterSwift
+// StringExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -602,10 +602,10 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testRegexMatches() throws {
-        XCTAssertTrue("123".matches(regex: try NSRegularExpression(pattern: "\\d{3}")))
-        XCTAssertFalse("dasda".matches(regex: try NSRegularExpression(pattern: "\\d{3}")))
-        XCTAssertFalse("notanemail.com".matches(regex: try NSRegularExpression(pattern: emailPattern)))
-        XCTAssertTrue("email@mail.com".matches(regex: try NSRegularExpression(pattern: emailPattern)))
+        XCTAssertTrue(try "123".matches(regex: NSRegularExpression(pattern: "\\d{3}")))
+        XCTAssertFalse(try "dasda".matches(regex: NSRegularExpression(pattern: "\\d{3}")))
+        XCTAssertFalse(try "notanemail.com".matches(regex: NSRegularExpression(pattern: emailPattern)))
+        XCTAssertTrue(try "email@mail.com".matches(regex: NSRegularExpression(pattern: emailPattern)))
     }
 
     #if canImport(Foundation)
@@ -639,7 +639,7 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testPadStart() {
-        var str: String = "str"
+        var str = "str"
         str.padStart(10)
         XCTAssertEqual(str, "       str")
 
@@ -674,7 +674,7 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testPadEnd() {
-        var str: String = "str"
+        var str = "str"
         str.padEnd(10)
         XCTAssertEqual(str, "str       ")
 

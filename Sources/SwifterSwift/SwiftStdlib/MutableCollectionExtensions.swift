@@ -1,4 +1,4 @@
-// MutableCollectionExtensions.swift - Copyright 2020 SwifterSwift
+// MutableCollectionExtensions.swift - Copyright 2023 SwifterSwift
 
 public extension MutableCollection where Self: RandomAccessCollection {
     /// SwifterSwift: Sort the collection based on a keypath and a compare function.
@@ -16,7 +16,8 @@ public extension MutableCollection where Self: RandomAccessCollection {
         sort { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
     }
 
-    /// SwifterSwift: Sort the collection based on two key paths. The second one will be used in case the values of the first one match.
+    /// SwifterSwift: Sort the collection based on two key paths. The second one will be used in case the values of the
+    /// first one match.
     ///
     /// - Parameters:
     ///     - keyPath1: Key path to sort by. Must be Comparable.
@@ -31,7 +32,8 @@ public extension MutableCollection where Self: RandomAccessCollection {
         }
     }
 
-    /// SwifterSwift: Sort the collection based on three key paths. Whenever the values of one key path match, the next one will be used.
+    /// SwifterSwift: Sort the collection based on three key paths. Whenever the values of one key path match, the next
+    /// one will be used.
     ///
     /// - Parameters:
     ///     - keyPath1: Key path to sort by. Must be Comparable.

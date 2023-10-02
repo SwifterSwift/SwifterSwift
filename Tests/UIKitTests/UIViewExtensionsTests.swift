@@ -1,4 +1,4 @@
-// UIViewExtensionsTests.swift - Copyright 2022 SwifterSwift
+// UIViewExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -383,10 +383,9 @@ final class UIViewExtensionsTests: XCTestCase {
         let view0 = UIView()
         XCTAssertNil(view0.layer.sublayers)
         view0.addGradient(
-            colors:[.red, .orange, .green, .blue],
+            colors: [.red, .orange, .green, .blue],
             locations: [0.0, 0.333, 0.667, 1.0],
-            direction: .topToBottom
-        )
+            direction: .topToBottom)
         XCTAssertNotNil(view0.layer.sublayers)
         if let sublayers = view0.layer.sublayers as? [CAGradientLayer] {
             XCTAssertEqual(sublayers.count, 1)
@@ -414,8 +413,7 @@ final class UIViewExtensionsTests: XCTestCase {
         view1.addGradient(
             colors: [.red, .orange, .green, .blue],
             locations: [0.0, 0.333, 0.667, 1.0],
-            direction: .bottomToTop
-        )
+            direction: .bottomToTop)
         XCTAssertNotNil(view1.layer.sublayers)
         if let sublayers = view1.layer.sublayers as? [CAGradientLayer] {
             XCTAssertEqual(sublayers.count, 1)
@@ -443,8 +441,7 @@ final class UIViewExtensionsTests: XCTestCase {
         view2.addGradient(
             colors: [.red, .orange, .green, .blue],
             locations: [0.0, 0.333, 0.667, 1.0],
-            direction: .leftToRight
-        )
+            direction: .leftToRight)
         XCTAssertNotNil(view2.layer.sublayers)
         if let sublayers = view2.layer.sublayers as? [CAGradientLayer] {
             XCTAssertEqual(sublayers.count, 1)
@@ -472,8 +469,7 @@ final class UIViewExtensionsTests: XCTestCase {
         view3.addGradient(
             colors: [.red, .orange, .green, .blue],
             locations: [0.0, 0.333, 0.667, 1.0],
-            direction: .rightToLeft
-        )
+            direction: .rightToLeft)
         XCTAssertNotNil(view3.layer.sublayers)
         if let sublayers = view3.layer.sublayers as? [CAGradientLayer] {
             XCTAssertEqual(sublayers.count, 1)

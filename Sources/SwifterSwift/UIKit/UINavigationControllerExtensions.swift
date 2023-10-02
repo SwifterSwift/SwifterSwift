@@ -1,4 +1,4 @@
-// UINavigationControllerExtensions.swift - Copyright 2020 SwifterSwift
+// UINavigationControllerExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -32,6 +32,19 @@ public extension UINavigationController {
         CATransaction.commit()
     }
 
+#if !os(tvOS)
+    /// SwifterSwift: Pushes a view controller while hiding or showing the bottom bar.
+    ///
+    /// - Parameters:
+    ///   - viewController: The view controller to push.
+    ///   - hidesBottomBar: If `true`, hides the bottom bar (e.g. tab bar).
+    ///   - animated: Specify `true` to animate the transition.
+    func pushViewController(_ viewController: UIViewController, hidesBottomBar: Bool, animated: Bool) {
+        viewController.hidesBottomBarWhenPushed = hidesBottomBar
+        pushViewController(viewController, animated: animated)
+    }
+#endif
+    
     /// SwifterSwift: Make navigation controller's navigation bar transparent.
     ///
     /// - Parameter tint: tint color (default is .white).

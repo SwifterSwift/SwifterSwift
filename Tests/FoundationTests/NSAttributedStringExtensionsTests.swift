@@ -1,4 +1,4 @@
-// NSAttributedStringExtensionsTests.swift - Copyright 2020 SwifterSwift
+// NSAttributedStringExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -21,7 +21,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let unsizedAttributes = NSAttributedString(string: "Bolded").bolded.attributes
         XCTAssertEqual((unsizedAttributes[.font] as? SFFont)?.fontName, SFFont.boldSystemFont(ofSize: 1).fontName)
 
-        let sizedAttributes = NSAttributedString(string: "Bolded", attributes: [.font: SFFont.systemFont(ofSize: 12)]).bolded.attributes
+        let sizedAttributes = NSAttributedString(string: "Bolded", attributes: [.font: SFFont.systemFont(ofSize: 12)])
+            .bolded.attributes
         XCTAssertEqual((sizedAttributes[.font] as? SFFont), SFFont.boldSystemFont(ofSize: 12))
         #endif
     }
@@ -38,7 +39,9 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let unsizedAttributes = NSAttributedString(string: "Italicized").italicized.attributes
         XCTAssertEqual((unsizedAttributes[.font] as? UIFont)?.fontName, UIFont.italicSystemFont(ofSize: 1).fontName)
 
-        let sizedAttributes = NSAttributedString(string: "Italicized", attributes: [.font: SFFont.systemFont(ofSize: 12)]).italicized.attributes
+        let sizedAttributes = NSAttributedString(
+            string: "Italicized",
+            attributes: [.font: SFFont.systemFont(ofSize: 12)]).italicized.attributes
         XCTAssertEqual((sizedAttributes[.font] as? UIFont), UIFont.italicSystemFont(ofSize: 12))
         #endif
     }
@@ -46,7 +49,9 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     func testStruckthrough() {
         #if !os(macOS) && !os(Linux)
         let attributes = NSAttributedString(string: "Struck through").struckthrough.attributes
-        XCTAssertEqual((attributes[.strikethroughStyle] as? NSUnderlineStyle.RawValue), NSUnderlineStyle.single.rawValue)
+        XCTAssertEqual(
+            (attributes[.strikethroughStyle] as? NSUnderlineStyle.RawValue),
+            NSUnderlineStyle.single.rawValue)
         #endif
     }
 
@@ -76,8 +81,8 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let string = NSAttributedString(string: "Colored")
         var out = string.colored(with: .red)
         var attributes = out.attributes(at: 0, effectiveRange: nil)
-        let filteredAttributes = attributes.filter { (key, value) -> Bool in
-            return (key == NSAttributedString.Key.foregroundColor && (value as? SFColor) == .red)
+        let filteredAttributes = attributes.filter { key, value -> Bool in
+            return key == NSAttributedString.Key.foregroundColor && (value as? SFColor) == .red
         }
 
         XCTAssertEqual(filteredAttributes.count, 1)
@@ -231,7 +236,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
                         passed = false
                     }
                 }
-        }
+            }
 
         XCTAssert(passed)
         #endif
@@ -245,18 +250,18 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual(string.string, "Test Appending")
 
         var attributes = string.attributes(at: 0, effectiveRange: nil)
-        var filteredAttributes = attributes.filter { (key, value) -> Bool in
+        var filteredAttributes = attributes.filter { key, value -> Bool in
             var valid = false
             if key == NSAttributedString.Key.font, let value = value as? UIFont,
-                value == .italicSystemFont(ofSize: UIFont.systemFontSize) {
+               value == .italicSystemFont(ofSize: UIFont.systemFontSize) {
                 valid = true
             }
             if key == NSAttributedString.Key.underlineStyle, let value = value as? NSUnderlineStyle.RawValue,
-                value == NSUnderlineStyle.single.rawValue {
+               value == NSUnderlineStyle.single.rawValue {
                 valid = true
             }
             if key == NSAttributedString.Key.strikethroughStyle, let value = value as? NSUnderlineStyle.RawValue,
-                value == NSUnderlineStyle.single.rawValue {
+               value == NSUnderlineStyle.single.rawValue {
                 valid = true
             }
 
@@ -266,9 +271,9 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual(filteredAttributes.count, 3)
 
         attributes = string.attributes(at: 5, effectiveRange: nil)
-        filteredAttributes = attributes.filter { (key, value) -> Bool in
-            return (key == NSAttributedString.Key
-                .font && (value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize))
+        filteredAttributes = attributes.filter { key, value -> Bool in
+            return key == NSAttributedString.Key
+                .font && (value as? UIFont) == .boldSystemFont(ofSize: UIFont.systemFontSize)
         }
 
         XCTAssertEqual(filteredAttributes.count, 1)
@@ -287,7 +292,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
         XCTAssertEqual(attributes.count, 4)
 
-        let filteredAttributes = attributes.filter { (key, value) -> Bool in
+        let filteredAttributes = attributes.filter { key, value -> Bool in
             switch key {
             case NSAttributedString.Key.underlineStyle:
                 return (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.single.rawValue
@@ -333,27 +338,23 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             attributes: [
                 .strokeWidth: NSNumber(value: 1),
                 .kern: NSNumber(value: 2)
-            ]
-        )
+            ])
         let string2 = NSAttributedString(
             string: secondStringToJoin,
             attributes: [
                 .expansion: NSNumber(value: 3),
                 .obliqueness: NSNumber(value: 4)
-            ]
-        )
+            ])
         let string3 = NSAttributedString(string: thirdStringToJoin, attributes: [:])
         return [string1, string2, string3]
     }
 
     private func expectedAttrbiutedString(
         with separator: String,
-        separatorAttrbiutes: [NSAttributedString.Key: Any]
-    ) -> NSAttributedString {
+        separatorAttrbiutes: [NSAttributedString.Key: Any]) -> NSAttributedString {
         let expectation = NSMutableAttributedString(
             string: firstStringToJoin + separator + secondStringToJoin + separator + thirdStringToJoin,
-            attributes: [:]
-        )
+            attributes: [:])
 
         expectation.addAttributes([
             .strokeWidth: NSNumber(value: 1),
@@ -362,8 +363,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
         expectation.addAttributes(
             separatorAttrbiutes,
-            range: NSRange(location: firstStringToJoin.count, length: separator.count)
-        )
+            range: NSRange(location: firstStringToJoin.count, length: separator.count))
 
         expectation.addAttributes([
             .expansion: NSNumber(value: 3),
@@ -372,8 +372,9 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
         expectation.addAttributes(
             separatorAttrbiutes,
-            range: NSRange(location: (firstStringToJoin + separator + secondStringToJoin).count, length: separator.count)
-        )
+            range: NSRange(
+                location: (firstStringToJoin + separator + secondStringToJoin).count,
+                length: separator.count))
 
         return expectation
     }
@@ -381,22 +382,19 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
     func testJoinedWithEmptySeparator() {
         XCTAssertEqual(
             stringsToJoin.joined(separator: ""),
-            expectedAttrbiutedString(with: "", separatorAttrbiutes: [:])
-        )
+            expectedAttrbiutedString(with: "", separatorAttrbiutes: [:]))
     }
 
     func testJoinedWithEmptyAttributedSeparator() {
         XCTAssertEqual(
             stringsToJoin.joined(separator: NSAttributedString(string: "")),
-            expectedAttrbiutedString(with: "", separatorAttrbiutes: [:])
-        )
+            expectedAttrbiutedString(with: "", separatorAttrbiutes: [:]))
     }
 
     func testJoinedWithNonEmptySeparator() {
         XCTAssertEqual(
             stringsToJoin.joined(separator: " non empty "),
-            expectedAttrbiutedString(with: " non empty ", separatorAttrbiutes: [:])
-        )
+            expectedAttrbiutedString(with: " non empty ", separatorAttrbiutes: [:]))
     }
 
     func testJoinedWithNonEmptyAttributedSeparator() {
@@ -408,15 +406,13 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             expectedAttrbiutedString(with: " non empty ", separatorAttrbiutes: [
                 .expansion: NSNumber(value: 3),
                 .obliqueness: NSNumber(value: 4)
-            ])
-        )
+            ]))
     }
 
     func testEmptyArrayJoinedWithSeparator() {
         XCTAssertEqual(
             [].joined(separator: NSAttributedString(string: "Hello")),
-            NSAttributedString(string: "")
-        )
+            NSAttributedString(string: ""))
     }
     #endif
 }

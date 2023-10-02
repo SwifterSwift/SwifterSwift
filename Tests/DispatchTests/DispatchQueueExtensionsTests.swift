@@ -1,4 +1,4 @@
-// DispatchQueueExtensionsTests.swift - Copyright 2020 SwifterSwift
+// DispatchQueueExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

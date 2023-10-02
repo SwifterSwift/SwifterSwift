@@ -1,4 +1,4 @@
-// DateExtensions.swift - Copyright 2022 SwifterSwift
+// DateExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -247,7 +247,8 @@ public extension Date {
         }
         set {
             #if targetEnvironment(macCatalyst)
-            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a second
+            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a
+            // second
             let allowedRange = 0..<1_000_000_000
             #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
@@ -277,7 +278,8 @@ public extension Date {
         set {
             let nanoSeconds = newValue * 1_000_000
             #if targetEnvironment(macCatalyst)
-            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a second
+            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a
+            // second
             let allowedRange = 0..<1_000_000_000
             #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
@@ -548,7 +550,8 @@ public extension Date {
         switch component {
         case .nanosecond:
             #if targetEnvironment(macCatalyst)
-            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a second
+            // The `Calendar` implementation in `macCatalyst` does not know that a nanosecond is 1/1,000,000,000th of a
+            // second
             let allowedRange = 0..<1_000_000_000
             #else
             let allowedRange = calendar.range(of: .nanosecond, in: .second, for: self)!
@@ -922,7 +925,8 @@ public extension Date {
                     .timeIntervalSinceReferenceDate))
     }
 
-    /// SwifterSwift: Returns a random date within the specified range, using the given generator as a source for randomness.
+    /// SwifterSwift: Returns a random date within the specified range, using the given generator as a source for
+    /// randomness.
     ///
     /// - Parameters:
     ///   - range: The range in which to create a random date. `range` must not be empty.
@@ -935,7 +939,8 @@ public extension Date {
                 using: &generator))
     }
 
-    /// SwifterSwift: Returns a random date within the specified range, using the given generator as a source for randomness.
+    /// SwifterSwift: Returns a random date within the specified range, using the given generator as a source for
+    /// randomness.
     ///
     /// - Parameters:
     ///   - range: The range in which to create a random date.

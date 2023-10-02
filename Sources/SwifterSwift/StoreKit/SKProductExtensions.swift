@@ -1,4 +1,4 @@
-// SKProductExtensions.swift - Copyright 2020 SwifterSwift
+// SKProductExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(StoreKit)
 import StoreKit

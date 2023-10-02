@@ -1,10 +1,4 @@
-//
-//  StringDeprecated.swift
-//  SwifterSwift
-//
-//  Created by Guy Kogus on 19/6/23.
-//  Copyright © 2023 SwifterSwift
-//
+// StringDeprecated.swift - Copyright 2023 SwifterSwift
 
 extension String {
     /// SwifterSwift: Create a new random string of given length.

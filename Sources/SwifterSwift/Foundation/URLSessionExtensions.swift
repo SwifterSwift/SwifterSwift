@@ -12,8 +12,10 @@ import FoundationNetworking
 public extension URLSession {
     /// SwifterSwift: synchronous version of `dataTask(with:completionHandler:)`
     ///
-    /// - Parameter request: A URL request object that provides the URL, cache policy, request type, body data or body stream, and so on.
-    /// - Returns: The data returned by the server; An object that provides response metadata, such as HTTP headers and status code.
+    /// - Parameter request: A URL request object that provides the URL, cache policy, request type, body data or body
+    /// stream, and so on.
+    /// - Returns: The data returned by the server; An object that provides response metadata, such as HTTP headers and
+    /// status code.
     func dataSync(with request: URLRequest) throws -> (Data, URLResponse) {
         var data: Data!
         var response: URLResponse!

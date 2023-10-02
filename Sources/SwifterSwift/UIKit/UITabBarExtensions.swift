@@ -1,4 +1,4 @@
-// UITabBarExtensions.swift - Copyright 2020 SwifterSwift
+// UITabBarExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -25,7 +25,9 @@ public extension UITabBar {
         tintColor = selectedItem ?? tintColor
         // shadowImage = UIImage()
         backgroundImage = UIImage()
+        #if !os(visionOS)
         isTranslucent = false
+        #endif
 
         // selectedBackgroundColor
         guard let barItems = items else {

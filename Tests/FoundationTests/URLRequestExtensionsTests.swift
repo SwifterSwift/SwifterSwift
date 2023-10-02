@@ -1,4 +1,4 @@
-// URLRequestExtensionsTests.swift - Copyright 2020 SwifterSwift
+// URLRequestExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -61,6 +61,26 @@ final class URLRequestExtensionsTests: XCTestCase {
         XCTAssertNotNil(components?.url)
         let planetaryRequest = URLRequest(url: components!.url!)
         XCTAssertEqual(planetaryRequest.curlString, planetaryNASAcURL)
+    }
+
+    // MARK: - Methods
+
+    func testMethod() throws {
+        let url = URL(string: "https://api.server.com/")!
+        let request = URLRequest(url: url)
+            .method("post")
+        XCTAssertEqual(request.url, url)
+        XCTAssertEqual(request.httpMethod, "POST")
+    }
+
+    func testHeader() throws {
+        let url = URL(string: "https://api.server.com/")!
+        let request = URLRequest(url: url)
+            .header(name: "Content-Type", value: "application/json")
+            .header(name: "Number", value: "10")
+        XCTAssertNotNil(request.allHTTPHeaderFields)
+        XCTAssertEqual(request.allHTTPHeaderFields!["Content-Type"]!, "application/json")
+        XCTAssertEqual(Int(request.allHTTPHeaderFields!["Number"]!), 10)
     }
 }
 
