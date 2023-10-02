@@ -6,6 +6,9 @@
 //  Copyright © 2023 SwifterSwift
 //
 
+// swiftlint:disable identifier_name
+// swiftlint:disable large_tuple
+
 @testable import SwifterSwift
 import XCTest
 
@@ -17,8 +20,7 @@ final class PublisherExtensionsTests: XCTestCase {
 
     func testCombineLatest() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *) {
-            
-            var result: Array<(Int,Int,Int,Int,Int)> = []
+            var result: [(Int, Int, Int, Int, Int)] = []
 
             let p1 = PassthroughSubject<Int, Never>()
             let p2 = PassthroughSubject<Int, Never>()
@@ -54,23 +56,23 @@ final class PublisherExtensionsTests: XCTestCase {
             p5.send(55)
             
             XCTAssert(result.count == 4)
-            XCTAssert(result[0] == (1,2,3,4,5))
-            XCTAssert(result[1] == (11,2,3,4,5))
-            XCTAssert(result[2] == (11,22,3,4,5))
-            XCTAssert(result[3] == (11,22,3,4,55))
+            XCTAssert(result[0] == (1, 2, 3, 4, 5))
+            XCTAssert(result[1] == (11, 2, 3, 4, 5))
+            XCTAssert(result[2] == (11, 22, 3, 4, 5))
+            XCTAssert(result[3] == (11, 22, 3, 4, 55))
             
             p3.send(33)
             p4.send(44)
             XCTAssert(result.count == 6)
-            XCTAssert(result[4] == (11,22,33,4,55))
-            XCTAssert(result[5] == (11,22,33,44,55))
+            XCTAssert(result[4] == (11, 22, 33, 4, 55))
+            XCTAssert(result[5] == (11, 22, 33, 44, 55))
         }
     }
     
     func testCombineLatestTransform() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *) {
             
-            var result: Array<(Int,Int,Int?,Bool,String)> = []
+            var result: [(Int, Int, Int?, Bool, String)] = []
 
             let p1 = PassthroughSubject<Int, Never>()
             let p2 = PassthroughSubject<Int, Never>()
@@ -119,3 +121,6 @@ final class PublisherExtensionsTests: XCTestCase {
     }
 }
 #endif
+
+// swiftlint:enable large_tuple
+// swiftlint:enable identifier_name

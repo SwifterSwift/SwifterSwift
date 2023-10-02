@@ -6,6 +6,7 @@
 //  Copyright © 2023 SwifterSwift
 //
 
+// swiftlint:disable large_tuple
 #if canImport(Foundation) && canImport(Combine)
 import Foundation
 import Combine
@@ -119,3 +120,4 @@ public extension Publisher {
     }
 }
 #endif
+// swiftlint:enable large_tuple
