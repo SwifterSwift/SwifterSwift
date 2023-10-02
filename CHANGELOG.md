@@ -43,8 +43,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **URLSession**
   - Added `dataSync(for:)` to make requests synchronously. [#1076](https://github.com/SwifterSwift/SwifterSwift/pull/1076) by [Roman Podymov](https://github.com/RomanPodymov)
 - **Publisher**
-  - Added `combineLatest(_:_:_:_:)` to combine 5 publishers. [Heecheon Park](https://github.com/heecheon92)
-  - Added `combineLatest(_:_:_:_:_ transform:)` to combine 5 publishers and invoke a closure upon receiving output from any of the publishers. [Heecheon Park](https://github.com/heecheon92)
+  - Added `combineLatest(_:_:_:_:)` to combine 5 publishers. [#1140](https://github.com/SwifterSwift/SwifterSwift/issues/1140) by [Heecheon Park](https://github.com/heecheon92)
+  - Added `combineLatest(_:_:_:_:_ transform:)` to combine 5 publishers and invoke a closure upon receiving output from any of the publishers. [#1140](https://github.com/SwifterSwift/SwifterSwift/issues/1140) by [Heecheon Park](https://github.com/heecheon92)
 - **UIStackView**
   - Added `backgroundViewColor` to add background color. [#1127](https://github.com/SwifterSwift/SwifterSwift/pull/1127) by [WZBbiao](https://github.com/WZBbiao)
 
