@@ -22,7 +22,7 @@ final class FutureExtensionsTests: XCTestCase {
     }
 
     func testInitAsync() {
-        let expect = expectation(description: "")
+        let expect = expectation(description: "testInitAsync")
 
         cancellable = Just(100)
             .flatMap { [weak self] value in
