@@ -71,7 +71,7 @@ final class FutureExtensionsTests: XCTestCase {
     }
 
     private func doSomethingThrows(value: Int, shouldThrow: Bool) async throws -> Int {
-        try await Task.sleep(nanoseconds: 1_000_000 * 1)
+        try? await Task.sleep(nanoseconds: 1_000_000 * 1)
         return try await withCheckedThrowingContinuation { continuation in
             continuation.resume(with: shouldThrow ? .failure(FutureExtensionsTestsError.error) : .success(value))
         }
