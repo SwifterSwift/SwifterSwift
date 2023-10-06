@@ -378,6 +378,7 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssert(view.gestureRecognizers!.isEmpty)
     }
 
+    // swiftlint:disable:next function_body_length
     func testAddGradient() {
         // topToBottom
         let view0 = UIView()

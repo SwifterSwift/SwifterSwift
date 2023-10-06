@@ -52,6 +52,7 @@ public extension UIViewController {
 
     /// SwifterSwift: Unassign as listener from all notifications.
     func removeNotificationsObserver() {
+        // swiftlint:disable:next notification_center_detachment
         NotificationCenter.default.removeObserver(self)
     }
 

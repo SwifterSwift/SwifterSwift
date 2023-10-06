@@ -24,7 +24,7 @@ extension CATransform3D: Equatable {
         CATransform3DEqualToTransform(lhs, rhs)
     }
 
-    // swiftlint:disable missing_swifterswift_prefix
+    // swiftlint:enable missing_swifterswift_prefix
 }
 
 // MARK: - Static Properties
@@ -271,3 +271,5 @@ public extension CATransform3D {
 #endif
 
 #endif
+
+// swiftlint:enable identifier_name

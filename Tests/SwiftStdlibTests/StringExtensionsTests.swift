@@ -350,6 +350,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("Swift is amazing".toSlug(), "swift-is-amazing")
     }
 
+    // swiftlint:disable:next function_body_length
     func testSubscript() {
         let str = "Hello world!"
         XCTAssertEqual(str[safe: 1], "e")

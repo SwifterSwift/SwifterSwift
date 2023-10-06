@@ -533,7 +533,7 @@ public extension Date {
         }
     }
 
-    // swiftlint:disable cyclomatic_complexity function_body_length
+    // swiftlint:disable cyclomatic_complexity
     /// SwifterSwift: Date by changing value of calendar component.
     ///
     ///     let date = Date() // "Jan 12, 2017, 7:07 PM"
@@ -606,9 +606,9 @@ public extension Date {
             return calendar.date(bySetting: component, value: value, of: self)
         }
     }
+    // swiftlint:enable cyclomatic_complexity
 
     #if !os(Linux)
-    // swiftlint:enable cyclomatic_complexity, function_body_length
 
     /// SwifterSwift: Data at the beginning of calendar component.
     ///
@@ -654,7 +654,6 @@ public extension Date {
     }
     #endif
 
-    // swiftlint:disable function_body_length
     /// SwifterSwift: Date at the end of calendar component.
     ///
     ///     let date = Date() // "Jan 12, 2017, 7:27 PM"
@@ -718,8 +717,6 @@ public extension Date {
             return nil
         }
     }
-
-    // swiftlint:enable function_body_length
 
     /// SwifterSwift: Check if date is in current given calendar component.
     ///
