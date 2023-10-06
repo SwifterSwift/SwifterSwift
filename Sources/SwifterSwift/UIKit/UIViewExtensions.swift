@@ -137,9 +137,7 @@ public extension UIView {
         }
 
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
-        defer {
-            UIGraphicsEndImageContext()
-        }
+        defer { UIGraphicsEndImageContext() }
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
         layer.render(in: context)
         return UIGraphicsGetImageFromCurrentImageContext()

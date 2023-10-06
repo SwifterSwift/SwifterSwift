@@ -28,9 +28,7 @@ public extension UIScrollView {
 
         // Original Source: https://gist.github.com/thestoics/1204051
         UIGraphicsBeginImageContextWithOptions(contentSize, false, 0)
-        defer {
-            UIGraphicsEndImageContext()
-        }
+        defer { UIGraphicsEndImageContext() }
         guard let context = UIGraphicsGetCurrentContext() else { return nil }
         let previousFrame = frame
         frame = CGRect(origin: frame.origin, size: contentSize)

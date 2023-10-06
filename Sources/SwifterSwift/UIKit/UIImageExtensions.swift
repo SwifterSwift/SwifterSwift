@@ -252,6 +252,7 @@ public extension UIImage {
         #endif
 
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        defer { UIGraphicsEndImageContext() }
         color.setFill()
         guard let context = UIGraphicsGetCurrentContext() else { return self }
 
@@ -264,9 +265,7 @@ public extension UIImage {
         context.clip(to: rect, mask: mask)
         context.fill(rect)
 
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return newImage
+        return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
     /// SwifterSwift: UIImage tinted with color.
@@ -292,9 +291,7 @@ public extension UIImage {
         #endif
 
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        defer {
-            UIGraphicsEndImageContext()
-        }
+        defer { UIGraphicsEndImageContext() }
         let context = UIGraphicsGetCurrentContext()
         color.setFill()
         context?.fill(drawRect)
@@ -405,7 +402,9 @@ public extension UIImage {
     convenience init(color: UIColor, size: CGSize) {
         #if !os(watchOS)
         if #available(tvOS 10.0, *) {
-            guard let image = UIGraphicsImageRenderer(size: size).image(actions: { context in
+            let format = UIGraphicsImageRendererFormat()
+            format.scale = 1
+            guard let image = UIGraphicsImageRenderer(size: size, format: format).image(actions: { context in
                 color.setFill()
                 context.fill(context.format.bounds)
             }).cgImage else {
@@ -413,14 +412,13 @@ public extension UIImage {
                 return
             }
             self.init(cgImage: image)
+            return
         }
         #endif
 
         UIGraphicsBeginImageContextWithOptions(size, false, 1)
 
-        defer {
-            UIGraphicsEndImageContext()
-        }
+        defer { UIGraphicsEndImageContext() }
 
         color.setFill()
         UIRectFill(CGRect(origin: .zero, size: size))

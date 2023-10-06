@@ -47,10 +47,10 @@ public extension UITabBar {
                 }
 
                 UIGraphicsBeginImageContextWithOptions(size, false, 1)
+                defer { UIGraphicsEndImageContext() }
                 color.setFill()
                 UIRectFill(CGRect(x: 0, y: 0, width: size.width, height: size.height))
                 guard let image = UIGraphicsGetImageFromCurrentImageContext() else { return UIImage() }
-                UIGraphicsEndImageContext()
                 guard let aCgImage = image.cgImage else { return UIImage() }
                 return UIImage(cgImage: aCgImage)
             }(selectedbg, rect)
@@ -85,13 +85,12 @@ public extension UITabBar {
                     }
 
                     UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale)
+                    defer { UIGraphicsEndImageContext() }
                     guard let context = UIGraphicsGetCurrentContext() else { return image }
 
                     actions(context)
 
-                    let newImage = UIGraphicsGetImageFromCurrentImageContext()!
-                    UIGraphicsEndImageContext()
-                    return newImage
+                    return UIGraphicsGetImageFromCurrentImageContext() ?? image
                 }(image, itemColor).withRenderingMode(.alwaysOriginal)
 
                 barItem.setTitleTextAttributes([.foregroundColor: itemColor], for: .normal)
