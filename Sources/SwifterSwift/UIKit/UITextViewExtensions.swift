@@ -26,6 +26,7 @@ public extension UITextView {
 
     /// SwifterSwift: Wrap to the content (Text / Attributed Text).
     func wrapToContent() {
+        isScrollEnabled = false
         contentInset = .zero
         scrollIndicatorInsets = .zero
         contentOffset = .zero
