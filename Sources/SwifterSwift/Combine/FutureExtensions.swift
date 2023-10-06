@@ -7,7 +7,6 @@ import Combine
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public extension Future where Failure == Error {
-    #if !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
     /// Creates a `Future` from an `async` throwing function
     /// - Parameter asyncFunc: The asynchronous throwing function to execute.
     convenience init(asyncFunc: @escaping () async throws -> Output) {
@@ -22,12 +21,10 @@ public extension Future where Failure == Error {
             }
         }
     }
-    #endif
 }
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public extension Future where Failure == Never {
-    #if !os(Linux) && swift(>=5.5) && canImport(_Concurrency)
     /// Creates a `Future` from an `async` function
     /// - Parameter asyncFunc: The asynchronous function to execute.
     convenience init(asyncFunc: @escaping () async -> Output) {
@@ -38,7 +35,6 @@ public extension Future where Failure == Never {
             }
         }
     }
-    #endif
 }
 
 #endif
