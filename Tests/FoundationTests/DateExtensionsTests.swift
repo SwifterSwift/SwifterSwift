@@ -525,7 +525,6 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertEqual(date8.adding(.year, value: -4), date)
     }
 
-    // swiftlint:disable:next function_body_length
     func testAdd() {
         var date = Date(timeIntervalSince1970: 0)
 

@@ -16,6 +16,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Deprecated
 - **String**
   - `init(randomOfLength:)` deprecated in favor of `String.random(ofLength:)`. [#1115](https://github.com/SwifterSwift/SwifterSwift/issues/1115) by [guykogus](https://github.com/guykogus)
+- **UIDatePicker**
+  - `textColor` deprecated as the implementation hacked a keypath that is no longer available. [#1136](https://github.com/SwifterSwift/SwifterSwift/issues/1136) by [guykogus](https://github.com/guykogus)
 
 ### Added
 - **Future**

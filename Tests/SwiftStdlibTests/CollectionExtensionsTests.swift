@@ -8,7 +8,7 @@ final class CollectionExtensionsTests: XCTestCase {
 
     func testFullRange() {
         XCTAssertEqual(collection.fullRange, 0..<5)
-        XCTAssertEqual([].fullRange, 0..<0)
+        XCTAssertEqual([Int]().fullRange, 0..<0)
     }
 
     func testForEachInParallel() {

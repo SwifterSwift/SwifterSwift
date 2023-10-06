@@ -223,7 +223,15 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testUrl() {
+        #if os(Linux)
         XCTAssertNil("hello world".url)
+        #else
+        if #available(iOS 17.0, *) {
+            XCTAssertEqual("hello world".url, URL(string: "hello%20world"))
+        } else {
+            XCTAssertNil("hello world".url)
+        }
+        #endif
 
         let google = "https://www.google.com"
         XCTAssertEqual(google.url, URL(string: google))
@@ -342,6 +350,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("Swift is amazing".toSlug(), "swift-is-amazing")
     }
 
+    // swiftlint:disable:next function_body_length
     func testSubscript() {
         let str = "Hello world!"
         XCTAssertEqual(str[safe: 1], "e")
