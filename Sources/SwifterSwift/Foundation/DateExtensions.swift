@@ -606,6 +606,7 @@ public extension Date {
             return calendar.date(bySetting: component, value: value, of: self)
         }
     }
+
     // swiftlint:enable cyclomatic_complexity
 
     #if !os(Linux)
