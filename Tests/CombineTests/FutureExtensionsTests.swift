@@ -39,7 +39,7 @@ final class FutureExtensionsTests: XCTestCase {
     }
 
     func testInitAsyncThrows() {
-        let expect = expectation(description: "")
+        let expect = expectation(description: "testInitAsyncThrows")
 
         cancellable = Just(100)
             .setFailureType(to: Error.self)
