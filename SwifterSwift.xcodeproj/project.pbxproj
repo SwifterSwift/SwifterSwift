@@ -1688,11 +1688,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07898B631F278D7600558C97 /* Build configuration list for PBXNativeTarget "SwifterSwift-iOS" */;
 			buildPhases = (
+				E455DFD42AD0CBD4008A011E /* SwiftFormat */,
+				07A1C43E224FBFC6003272E4 /* SwiftLint */,
 				07898B581F278D7600558C97 /* Sources */,
 				07898B591F278D7600558C97 /* Frameworks */,
 				07898B5A1F278D7600558C97 /* Headers */,
 				07898B5B1F278D7600558C97 /* Resources */,
-				07A1C43E224FBFC6003272E4 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1707,11 +1708,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07898B701F278D9700558C97 /* Build configuration list for PBXNativeTarget "SwifterSwift-tvOS" */;
 			buildPhases = (
+				E455DFD52AD0CC17008A011E /* SwiftFormat */,
+				07A1C43F224FBFD5003272E4 /* SwiftLint */,
 				07898B661F278D9700558C97 /* Sources */,
 				07898B671F278D9700558C97 /* Frameworks */,
 				07898B681F278D9700558C97 /* Headers */,
 				07898B691F278D9700558C97 /* Resources */,
-				07A1C43F224FBFD5003272E4 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1726,11 +1728,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07898B7D1F278DBC00558C97 /* Build configuration list for PBXNativeTarget "SwifterSwift-watchOS" */;
 			buildPhases = (
+				E455DFD62AD0CC23008A011E /* SwiftFormat */,
+				07A1C440224FBFDD003272E4 /* SwiftLint */,
 				07898B731F278DBC00558C97 /* Sources */,
 				07898B741F278DBC00558C97 /* Frameworks */,
 				07898B751F278DBC00558C97 /* Headers */,
 				07898B761F278DBC00558C97 /* Resources */,
-				07A1C440224FBFDD003272E4 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1745,11 +1748,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07898B8A1F278DD200558C97 /* Build configuration list for PBXNativeTarget "SwifterSwift-macOS" */;
 			buildPhases = (
+				E455DFD72AD0CC2F008A011E /* SwiftFormat */,
+				07A1C441224FBFE7003272E4 /* SwiftLint */,
 				07898B801F278DD200558C97 /* Sources */,
 				07898B811F278DD200558C97 /* Frameworks */,
 				07898B821F278DD200558C97 /* Headers */,
 				07898B831F278DD200558C97 /* Resources */,
-				07A1C441224FBFE7003272E4 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1764,10 +1768,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07C50CD31F5EAF2700F46E5A /* Build configuration list for PBXNativeTarget "SwifterSwift-iOSTests" */;
 			buildPhases = (
+				E455DFD82AD0CC39008A011E /* SwiftFormat */,
+				07A1C442224FC02E003272E4 /* SwiftLint */,
 				07C50CC51F5EAF2700F46E5A /* Sources */,
 				07C50CC61F5EAF2700F46E5A /* Frameworks */,
 				07C50CC71F5EAF2700F46E5A /* Resources */,
-				07A1C442224FC02E003272E4 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1783,10 +1788,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07C50CE01F5EAF4B00F46E5A /* Build configuration list for PBXNativeTarget "SwifterSwift-tvOSTests" */;
 			buildPhases = (
+				E455DFD92AD0CC46008A011E /* SwiftFormat */,
+				07A1C443224FC034003272E4 /* SwiftLint */,
 				07C50CD41F5EAF4B00F46E5A /* Sources */,
 				07C50CD51F5EAF4B00F46E5A /* Frameworks */,
 				07C50CD61F5EAF4B00F46E5A /* Resources */,
-				07A1C443224FC034003272E4 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1802,10 +1808,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 07C50CEF1F5EAF6300F46E5A /* Build configuration list for PBXNativeTarget "SwifterSwift-macOSTests" */;
 			buildPhases = (
+				E455DFDA2AD0CC57008A011E /* SwiftFormat */,
+				07A1C444224FC043003272E4 /* SwiftLint */,
 				07C50CE31F5EAF6300F46E5A /* Sources */,
 				07C50CE41F5EAF6300F46E5A /* Frameworks */,
 				07C50CE51F5EAF6300F46E5A /* Resources */,
-				07A1C444224FC043003272E4 /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -1972,7 +1979,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint\n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
 		};
 		07A1C43F224FBFD5003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1991,7 +1998,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint\n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
 		};
 		07A1C440224FBFDD003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2010,7 +2017,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint\n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
 		};
 		07A1C441224FBFE7003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2029,7 +2036,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint\n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
 		};
 		07A1C442224FC02E003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2048,7 +2055,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint\n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
 		};
 		07A1C443224FC034003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2067,7 +2074,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint\n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n\n";
 		};
 		07A1C444224FC043003272E4 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2086,7 +2093,140 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint \n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftlint >/dev/null; then      \n        swiftlint\n    else\n        echo \"warning: SwiftLint is not installed\"\n    fi\nfi\n";
+		};
+		E455DFD42AD0CBD4008A011E /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then     \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+		};
+		E455DFD52AD0CC17008A011E /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+		};
+		E455DFD62AD0CC23008A011E /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+		};
+		E455DFD72AD0CC2F008A011E /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+		};
+		E455DFD82AD0CC39008A011E /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+		};
+		E455DFD92AD0CC46008A011E /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+		};
+		E455DFDA2AD0CC57008A011E /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then\n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
