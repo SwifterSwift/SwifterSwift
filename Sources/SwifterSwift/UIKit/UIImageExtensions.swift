@@ -106,12 +106,10 @@ public extension UIImage {
         let rect = CGRect(origin: .zero, size: size)
 
         #if !os(watchOS)
-        if #available(tvOS 10.0, *) {
-            let format = UIGraphicsImageRendererFormat()
-            format.scale = self.scale
-            return UIGraphicsImageRenderer(size: size, format: format).image { _ in
-                draw(in: rect)
-            }
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = self.scale
+        return UIGraphicsImageRenderer(size: size, format: format).image { _ in
+            draw(in: rect)
         }
         #endif
 
@@ -134,12 +132,10 @@ public extension UIImage {
         let rect = CGRect(origin: .zero, size: size)
 
         #if !os(watchOS)
-        if #available(tvOS 10.0, *) {
-            let format = UIGraphicsImageRendererFormat()
-            format.scale = self.scale
-            return UIGraphicsImageRenderer(size: size, format: format).image { _ in
-                draw(in: rect)
-            }
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = self.scale
+        return UIGraphicsImageRenderer(size: size, format: format).image { _ in
+            draw(in: rect)
         }
         #endif
 
@@ -176,12 +172,10 @@ public extension UIImage {
         }
 
         #if !os(watchOS)
-        if #available(tvOS 10.0, *) {
-            let format = UIGraphicsImageRendererFormat()
-            format.scale = self.scale
-            return UIGraphicsImageRenderer(size: roundedDestRect.size, format: format).image {
-                actions($0.cgContext)
-            }
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        return UIGraphicsImageRenderer(size: roundedDestRect.size, format: format).image {
+            actions($0.cgContext)
         }
         #endif
 
@@ -217,12 +211,10 @@ public extension UIImage {
         }
 
         #if !os(watchOS)
-        if #available(tvOS 10.0, *) {
-            let format = UIGraphicsImageRendererFormat()
-            format.scale = self.scale
-            return UIGraphicsImageRenderer(size: roundedDestRect.size, format: format).image {
-                actions($0.cgContext)
-            }
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        return UIGraphicsImageRenderer(size: roundedDestRect.size, format: format).image {
+            actions($0.cgContext)
         }
         #endif
 
@@ -239,14 +231,12 @@ public extension UIImage {
     /// - Returns: UIImage filled with given color.
     func filled(withColor color: UIColor) -> UIImage {
         #if !os(watchOS)
-        if #available(tvOS 10.0, *) {
-            let format = UIGraphicsImageRendererFormat()
-            format.scale = scale
-            let renderer = UIGraphicsImageRenderer(size: size, format: format)
-            return renderer.image { context in
-                color.setFill()
-                context.fill(CGRect(origin: .zero, size: size))
-            }
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        let renderer = UIGraphicsImageRenderer(size: size, format: format)
+        return renderer.image { context in
+            color.setFill()
+            context.fill(CGRect(origin: .zero, size: size))
         }
         #endif
 
@@ -278,14 +268,12 @@ public extension UIImage {
         let drawRect = CGRect(origin: .zero, size: size)
 
         #if !os(watchOS)
-        if #available(tvOS 10.0, *) {
-            let format = UIGraphicsImageRendererFormat()
-            format.scale = scale
-            return UIGraphicsImageRenderer(size: size, format: format).image { context in
-                color.setFill()
-                context.fill(drawRect)
-                draw(in: drawRect, blendMode: blendMode, alpha: alpha)
-            }
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        return UIGraphicsImageRenderer(size: size, format: format).image { context in
+            color.setFill()
+            context.fill(drawRect)
+            draw(in: drawRect, blendMode: blendMode, alpha: alpha)
         }
         #endif
 
@@ -305,14 +293,12 @@ public extension UIImage {
     /// - Returns: UIImage with a background color that is visible where alpha < 1.
     func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage {
         #if !os(watchOS)
-        if #available(tvOS 10.0, *) {
-            let format = UIGraphicsImageRendererFormat()
-            format.scale = scale
-            return UIGraphicsImageRenderer(size: size, format: format).image { context in
-                backgroundColor.setFill()
-                context.fill(context.format.bounds)
-                draw(at: .zero)
-            }
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        return UIGraphicsImageRenderer(size: size, format: format).image { context in
+            backgroundColor.setFill()
+            context.fill(context.format.bounds)
+            draw(at: .zero)
         }
         #endif
 
@@ -347,12 +333,10 @@ public extension UIImage {
         }
 
         #if !os(watchOS)
-        if #available(tvOS 10.0, *) {
-            let format = UIGraphicsImageRendererFormat()
-            format.scale = self.scale
-            return UIGraphicsImageRenderer(size: size, format: format).image { _ in
-                actions()
-            }
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        return UIGraphicsImageRenderer(size: size, format: format).image { _ in
+            actions()
         }
         #endif
 
@@ -400,19 +384,17 @@ public extension UIImage {
     ///   - size: image size.
     convenience init(color: UIColor, size: CGSize) {
         #if !os(watchOS)
-        if #available(tvOS 10.0, *) {
-            let format = UIGraphicsImageRendererFormat()
-            format.scale = 1
-            guard let image = UIGraphicsImageRenderer(size: size, format: format).image(actions: { context in
-                color.setFill()
-                context.fill(context.format.bounds)
-            }).cgImage else {
-                self.init()
-                return
-            }
-            self.init(cgImage: image)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        guard let image = UIGraphicsImageRenderer(size: size, format: format).image(actions: { context in
+            color.setFill()
+            context.fill(context.format.bounds)
+        }).cgImage else {
+            self.init()
             return
         }
+        self.init(cgImage: image)
+        return
         #endif
 
         UIGraphicsBeginImageContextWithOptions(size, false, 1)
