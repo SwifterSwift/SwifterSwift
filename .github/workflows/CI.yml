@@ -17,8 +17,6 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_15.0.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
-    - name: Find Xcodes
-      run: ls /Applications | grep Xcode
     - name: Bundle Install
       run: bundle install
     - name: Brew Upgrade
@@ -79,8 +77,6 @@ jobs:
       DEVELOPER_DIR: /Applications/Xcode_15.0.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
-    - name: Find Xcodes
-      run: ls /Applications | grep Xcode
     - name: Bundle Install
       run: bundle install
     - name: CocoaPods ${{ matrix.platform }}
