@@ -97,4 +97,9 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/SwifterSwift/HealthKit/*.swift'
   end
 
+  # Combine Extensions
+  s.subspec 'Combine' do |sp|
+    sp.source_files = 'Sources/SwifterSwift/Combine/*.swift'
+  end
+
 end
