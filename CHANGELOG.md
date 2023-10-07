@@ -4,6 +4,12 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 ### Breaking Change
+- **Minimum deployment target**
+  - Bumped up the minimum deployment targets to match the minimums of Xcode 15
+    - iOS 12.0
+    - macOS 10.13
+    - tvOS 12.0
+    - watchOS 4.0
 - **Color**
   - Renamed typealias `Color` typealias to `SFColor` to fix namespace conflicts with swiftUI's `Color` Type. [#1055](https://github.com/SwifterSwift/SwifterSwift/pull/1055) by [MussaCharles](https://github.com/MussaCharles)
 - **EdgeInsets**

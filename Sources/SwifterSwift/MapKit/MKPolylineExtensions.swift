@@ -5,7 +5,6 @@ import MapKit
 
 // MARK: - Initializers
 
-@available(tvOS 9.2, *)
 public extension MKPolyline {
     /// SwifterSwift: Create a new MKPolyline from a provided Array of coordinates.
     ///

@@ -156,7 +156,6 @@ public extension UIImage {
     ///
     /// - Parameter angle: The angle measurement by which to rotate the image.
     /// - Returns: A new image rotated by the given angle.
-    @available(tvOS 10.0, watchOS 3.0, *)
     func rotated(by angle: Measurement<UnitAngle>) -> UIImage? {
         let radians = CGFloat(angle.converted(to: .radians).value)
 

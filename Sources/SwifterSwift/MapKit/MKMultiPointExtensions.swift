@@ -5,7 +5,6 @@ import MapKit
 
 // MARK: - Properties
 
-@available(tvOS 9.2, *)
 public extension MKMultiPoint {
     /// SwifterSwift: Return an Array of coordinates representing the provided multi point.
     var coordinates: [CLLocationCoordinate2D] {
