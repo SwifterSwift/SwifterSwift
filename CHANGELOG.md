@@ -5,7 +5,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 ### Breaking Change
 - **Minimum deployment target**
-  - Bumped up the minimum deployment targets to match the minimums of Xcode 15
+  - Bumped up the minimum deployment targets to match the minimums of Xcode 15. [#1142](https://github.com/SwifterSwift/SwifterSwift/issues/1142) by [guykogus](https://github.com/guykogus)
     - iOS 12.0
     - macOS 10.13
     - tvOS 12.0
