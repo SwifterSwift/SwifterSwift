@@ -105,18 +105,18 @@ public extension UIImage {
         let size = CGSize(width: newWidth, height: toHeight)
         let rect = CGRect(origin: .zero, size: size)
 
-        #if !os(watchOS)
+        #if os(watchOS)
+        UIGraphicsBeginImageContextWithOptions(size, opaque, self.scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: rect)
+        return UIGraphicsGetImageFromCurrentImageContext()
+        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = self.scale
         return UIGraphicsImageRenderer(size: size, format: format).image { _ in
             draw(in: rect)
         }
         #endif
-
-        UIGraphicsBeginImageContextWithOptions(size, opaque, self.scale)
-        defer { UIGraphicsEndImageContext() }
-        draw(in: rect)
-        return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     /// SwifterSwift: UIImage scaled to width with respect to aspect ratio.
@@ -131,18 +131,18 @@ public extension UIImage {
         let size = CGSize(width: toWidth, height: newHeight)
         let rect = CGRect(origin: .zero, size: size)
 
-        #if !os(watchOS)
+        #if os(watchOS)
+        UIGraphicsBeginImageContextWithOptions(size, opaque, self.scale)
+        defer { UIGraphicsEndImageContext() }
+        draw(in: rect)
+        return UIGraphicsGetImageFromCurrentImageContext()
+        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = self.scale
         return UIGraphicsImageRenderer(size: size, format: format).image { _ in
             draw(in: rect)
         }
         #endif
-
-        UIGraphicsBeginImageContextWithOptions(size, opaque, self.scale)
-        defer { UIGraphicsEndImageContext() }
-        draw(in: rect)
-        return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     /// SwifterSwift: Creates a copy of the receiver rotated by the given angle.
@@ -171,19 +171,19 @@ public extension UIImage {
                                  size: self.size))
         }
 
-        #if !os(watchOS)
+        #if os(watchOS)
+        UIGraphicsBeginImageContextWithOptions(roundedDestRect.size, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
+        actions(contextRef)
+        return UIGraphicsGetImageFromCurrentImageContext()
+        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = scale
         return UIGraphicsImageRenderer(size: roundedDestRect.size, format: format).image {
             actions($0.cgContext)
         }
         #endif
-
-        UIGraphicsBeginImageContextWithOptions(roundedDestRect.size, false, scale)
-        defer { UIGraphicsEndImageContext() }
-        guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
-        actions(contextRef)
-        return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     /// SwifterSwift: Creates a copy of the receiver rotated by the given angle (in radians).
@@ -210,19 +210,19 @@ public extension UIImage {
                                  size: self.size))
         }
 
-        #if !os(watchOS)
+        #if os(watchOS)
+        UIGraphicsBeginImageContextWithOptions(roundedDestRect.size, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
+        actions(contextRef)
+        return UIGraphicsGetImageFromCurrentImageContext()
+        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = scale
         return UIGraphicsImageRenderer(size: roundedDestRect.size, format: format).image {
             actions($0.cgContext)
         }
         #endif
-
-        UIGraphicsBeginImageContextWithOptions(roundedDestRect.size, false, scale)
-        defer { UIGraphicsEndImageContext() }
-        guard let contextRef = UIGraphicsGetCurrentContext() else { return nil }
-        actions(contextRef)
-        return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     /// SwifterSwift: UIImage filled with color
@@ -230,16 +230,7 @@ public extension UIImage {
     /// - Parameter color: color to fill image with.
     /// - Returns: UIImage filled with given color.
     func filled(withColor color: UIColor) -> UIImage {
-        #if !os(watchOS)
-        let format = UIGraphicsImageRendererFormat()
-        format.scale = scale
-        let renderer = UIGraphicsImageRenderer(size: size, format: format)
-        return renderer.image { context in
-            color.setFill()
-            context.fill(CGRect(origin: .zero, size: size))
-        }
-        #endif
-
+        #if os(watchOS)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer { UIGraphicsEndImageContext() }
         color.setFill()
@@ -255,6 +246,15 @@ public extension UIImage {
         context.fill(rect)
 
         return UIGraphicsGetImageFromCurrentImageContext()!
+        #else
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        let renderer = UIGraphicsImageRenderer(size: size, format: format)
+        return renderer.image { context in
+            color.setFill()
+            context.fill(CGRect(origin: .zero, size: size))
+        }
+        #endif
     }
 
     /// SwifterSwift: UIImage tinted with color.
@@ -267,7 +267,15 @@ public extension UIImage {
     func tint(_ color: UIColor, blendMode: CGBlendMode, alpha: CGFloat = 1.0) -> UIImage {
         let drawRect = CGRect(origin: .zero, size: size)
 
-        #if !os(watchOS)
+        #if os(watchOS)
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        let context = UIGraphicsGetCurrentContext()
+        color.setFill()
+        context?.fill(drawRect)
+        draw(in: drawRect, blendMode: blendMode, alpha: alpha)
+        return UIGraphicsGetImageFromCurrentImageContext()!
+        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = scale
         return UIGraphicsImageRenderer(size: size, format: format).image { context in
@@ -276,14 +284,6 @@ public extension UIImage {
             draw(in: drawRect, blendMode: blendMode, alpha: alpha)
         }
         #endif
-
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        defer { UIGraphicsEndImageContext() }
-        let context = UIGraphicsGetCurrentContext()
-        color.setFill()
-        context?.fill(drawRect)
-        draw(in: drawRect, blendMode: blendMode, alpha: alpha)
-        return UIGraphicsGetImageFromCurrentImageContext()!
     }
 
     /// SwifterSwift: UImage with background color.
@@ -292,16 +292,7 @@ public extension UIImage {
     ///   - backgroundColor: Color to use as background color.
     /// - Returns: UIImage with a background color that is visible where alpha < 1.
     func withBackgroundColor(_ backgroundColor: UIColor) -> UIImage {
-        #if !os(watchOS)
-        let format = UIGraphicsImageRendererFormat()
-        format.scale = scale
-        return UIGraphicsImageRenderer(size: size, format: format).image { context in
-            backgroundColor.setFill()
-            context.fill(context.format.bounds)
-            draw(at: .zero)
-        }
-        #endif
-
+        #if os(watchOS)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         defer { UIGraphicsEndImageContext() }
 
@@ -310,6 +301,15 @@ public extension UIImage {
         draw(at: .zero)
 
         return UIGraphicsGetImageFromCurrentImageContext()!
+        #else
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = scale
+        return UIGraphicsImageRenderer(size: size, format: format).image { context in
+            backgroundColor.setFill()
+            context.fill(context.format.bounds)
+            draw(at: .zero)
+        }
+        #endif
     }
 
     /// SwifterSwift: UIImage with rounded corners.
@@ -332,18 +332,18 @@ public extension UIImage {
             self.draw(in: rect)
         }
 
-        #if !os(watchOS)
+        #if os(watchOS)
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        defer { UIGraphicsEndImageContext() }
+        actions()
+        return UIGraphicsGetImageFromCurrentImageContext()
+        #else
         let format = UIGraphicsImageRendererFormat()
         format.scale = scale
         return UIGraphicsImageRenderer(size: size, format: format).image { _ in
             actions()
         }
         #endif
-
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        defer { UIGraphicsEndImageContext() }
-        actions()
-        return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     /// SwifterSwift: Base 64 encoded PNG data of the image.
@@ -383,22 +383,8 @@ public extension UIImage {
     ///   - color: image fill color.
     ///   - size: image size.
     convenience init(color: UIColor, size: CGSize) {
-        #if !os(watchOS)
-        let format = UIGraphicsImageRendererFormat()
-        format.scale = 1
-        guard let image = UIGraphicsImageRenderer(size: size, format: format).image(actions: { context in
-            color.setFill()
-            context.fill(context.format.bounds)
-        }).cgImage else {
-            self.init()
-            return
-        }
-        self.init(cgImage: image)
-        return
-        #endif
-
+        #if os(watchOS)
         UIGraphicsBeginImageContextWithOptions(size, false, 1)
-
         defer { UIGraphicsEndImageContext() }
 
         color.setFill()
@@ -410,6 +396,18 @@ public extension UIImage {
         }
 
         self.init(cgImage: aCgImage)
+        #else
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = 1
+        guard let image = UIGraphicsImageRenderer(size: size, format: format).image(actions: { context in
+            color.setFill()
+            context.fill(context.format.bounds)
+        }).cgImage else {
+            self.init()
+            return
+        }
+        self.init(cgImage: image)
+        #endif
     }
 
     /// SwifterSwift: Create a new image from a base 64 string.

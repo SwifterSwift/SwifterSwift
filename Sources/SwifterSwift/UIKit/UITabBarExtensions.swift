@@ -6,8 +6,6 @@ import UIKit
 // MARK: - Methods
 
 public extension UITabBar {
-    // swiftlint:disable cyclomatic_complexity function_body_length
-
     /// SwifterSwift: Set tabBar colors.
     ///
     /// - Parameters:
@@ -78,8 +76,6 @@ public extension UITabBar {
             }
         }
     }
-
-    // swiftlint:enable cyclomatic_complexity function_body_length
 }
 
 #endif
