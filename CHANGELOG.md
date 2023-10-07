@@ -26,6 +26,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `textColor` deprecated as the implementation hacked a keypath that is no longer available. [#1136](https://github.com/SwifterSwift/SwifterSwift/issues/1136) by [guykogus](https://github.com/guykogus)
 
 ### Added
+- **Future**
+  - Added `init(asyncFunc:)` to create a `Future` from an `async` value. [#1139](https://github.com/SwifterSwift/SwifterSwift/pull/1139) by [RomanPodymov](https://github.com/RomanPodymov)
 - **UINavigationController**
   - Added `pushViewController(_:hidesBottomBar:animated:)` for hiding the bottom bar when pushing any `UIViewController`. [#1117](https://github.com/SwifterSwift/SwifterSwift/issues/1117) by [imdkhairul](https://github.com/imdkhairul)
 - **UIButton**
