@@ -119,28 +119,16 @@ public extension UIView {
 
     /// SwifterSwift: Check if view is in RTL format.
     var isRightToLeft: Bool {
-        if #available(macCatalyst 13.0, tvOS 10.0, *) {
-            return effectiveUserInterfaceLayoutDirection == .rightToLeft
-        } else {
-            return false
-        }
+        return effectiveUserInterfaceLayoutDirection == .rightToLeft
     }
 
     /// SwifterSwift: Take screenshot of view (if applicable).
     var screenshot: UIImage? {
-        if #available(tvOS 10.0, *) {
-            let size = layer.frame.size
-            guard size != .zero else { return nil }
-            return UIGraphicsImageRenderer(size: layer.frame.size).image { context in
-                layer.render(in: context.cgContext)
-            }
+        let size = layer.frame.size
+        guard size != .zero else { return nil }
+        return UIGraphicsImageRenderer(size: layer.frame.size).image { context in
+            layer.render(in: context.cgContext)
         }
-
-        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
-        defer { UIGraphicsEndImageContext() }
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        layer.render(in: context)
-        return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     /// SwifterSwift: Shadow color of view; also inspectable from Storyboard.

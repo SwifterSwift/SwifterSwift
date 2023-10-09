@@ -7,7 +7,6 @@ import XCTest
 import UIKit
 
 final class UIImageExtensionsTests: XCTestCase {
-    @available(tvOS 10.0, *)
     func testAverageColor() {
         let size = CGSize(width: 10, height: 5)
 
@@ -125,7 +124,6 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertEqual(scaledImage!.size.width, 300, accuracy: 0.1)
     }
 
-    @available(tvOS 10.0, watchOS 3.0, *)
     func testRotatedByMeasurement() {
         let bundle = Bundle(for: UIImageExtensionsTests.self)
         let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!

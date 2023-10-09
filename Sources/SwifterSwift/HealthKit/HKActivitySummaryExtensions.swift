@@ -8,7 +8,7 @@ import HealthKit
 
 // MARK: - Properties
 
-@available(macOS 13.0, watchOS 2.2, *)
+@available(macOS 13.0, *)
 public extension HKActivitySummary {
     /// SwifterSwift: Check if stand goal is met.
     var isStandGoalMet: Bool {

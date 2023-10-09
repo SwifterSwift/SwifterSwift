@@ -38,7 +38,22 @@ final class UINavigationBarExtensionsTests: XCTestCase {
     func testMakeTransparent() {
         let navigationBar = UINavigationBar()
         navigationBar.makeTransparent(withTint: .red)
-        if #available(iOS 13.0, tvOS 13.0, *) {
+        let legacyTests = {
+            XCTAssertNotNil(navigationBar.backgroundImage(for: .default))
+            XCTAssertNotNil(navigationBar.shadowImage)
+            XCTAssert(navigationBar.isTranslucent)
+            XCTAssertEqual(navigationBar.tintColor, .red)
+            let color = navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor
+            XCTAssertEqual(color, .red)
+
+            navigationBar.makeTransparent()
+            let defaultColor = navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor
+            XCTAssertEqual(defaultColor, .white)
+        }
+        #if os(tvOS)
+        legacyTests()
+        #else
+        if #available(iOS 13.0, *) {
             XCTAssertEqual(navigationBar.tintColor, .red)
 
             let standardAppearanceColor = navigationBar.standardAppearance
@@ -62,23 +77,27 @@ final class UINavigationBarExtensionsTests: XCTestCase {
             XCTAssertEqual(scrollEdgeAppearanceDefaultColor, .white)
             XCTAssertEqual(compactAppearanceDefaultColor, .white)
         } else {
-            XCTAssertNotNil(navigationBar.backgroundImage(for: .default))
-            XCTAssertNotNil(navigationBar.shadowImage)
-            XCTAssert(navigationBar.isTranslucent)
-            XCTAssertEqual(navigationBar.tintColor, .red)
-            let color = navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor
-            XCTAssertEqual(color, .red)
-
-            navigationBar.makeTransparent()
-            let defaultColor = navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor
-            XCTAssertEqual(defaultColor, .white)
+            legacyTests()
         }
+        #endif
     }
 
     func testSetColors() {
         let navigationBar = UINavigationBar()
         navigationBar.setColors(background: .blue, text: .green)
-        if #available(iOS 13.0, tvOS 13.0, *) {
+        let legacyTests = {
+            XCTAssertFalse(navigationBar.isTranslucent)
+            XCTAssertEqual(navigationBar.backgroundColor, .blue)
+            XCTAssertEqual(navigationBar.barTintColor, .blue)
+            XCTAssertNotNil(navigationBar.backgroundImage(for: .default))
+            XCTAssertEqual(navigationBar.tintColor, .green)
+            let color = navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor
+            XCTAssertEqual(color, .green)
+        }
+        #if os(tvOS)
+        legacyTests()
+        #else
+        if #available(iOS 13.0, *) {
             XCTAssertEqual(navigationBar.tintColor, .green)
 
             let standardAppearanceBackgroundColor = navigationBar.standardAppearance.backgroundColor
@@ -98,14 +117,9 @@ final class UINavigationBarExtensionsTests: XCTestCase {
             XCTAssertEqual(scrollEdgeAppearanceTextColor, .green)
             XCTAssertEqual(compactAppearanceTextColor, .green)
         } else {
-            XCTAssertFalse(navigationBar.isTranslucent)
-            XCTAssertEqual(navigationBar.backgroundColor, .blue)
-            XCTAssertEqual(navigationBar.barTintColor, .blue)
-            XCTAssertNotNil(navigationBar.backgroundImage(for: .default))
-            XCTAssertEqual(navigationBar.tintColor, .green)
-            let color = navigationBar.titleTextAttributes?[NSAttributedString.Key.foregroundColor] as? UIColor
-            XCTAssertEqual(color, .green)
+            legacyTests()
         }
+        #endif
     }
 }
 

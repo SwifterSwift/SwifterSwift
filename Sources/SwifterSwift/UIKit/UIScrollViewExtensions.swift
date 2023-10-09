@@ -13,28 +13,16 @@ public extension UIScrollView {
     ///
     /// - Returns: Snapshot as UIImage for rendered ScrollView.
     var snapshot: UIImage? {
-        if #available(tvOS 10.0, *) {
-            let size = contentSize
-            guard size != .zero else { return nil }
-
-            // Original Source: https://gist.github.com/thestoics/1204051
-            return UIGraphicsImageRenderer(size: size).image { context in
-                let previousFrame = frame
-                frame = CGRect(origin: frame.origin, size: size)
-                layer.render(in: context.cgContext)
-                frame = previousFrame
-            }
-        }
+        let size = contentSize
+        guard size != .zero else { return nil }
 
         // Original Source: https://gist.github.com/thestoics/1204051
-        UIGraphicsBeginImageContextWithOptions(contentSize, false, 0)
-        defer { UIGraphicsEndImageContext() }
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        let previousFrame = frame
-        frame = CGRect(origin: frame.origin, size: contentSize)
-        layer.render(in: context)
-        frame = previousFrame
-        return UIGraphicsGetImageFromCurrentImageContext()
+        return UIGraphicsImageRenderer(size: size).image { context in
+            let previousFrame = frame
+            frame = CGRect(origin: frame.origin, size: size)
+            layer.render(in: context.cgContext)
+            frame = previousFrame
+        }
     }
 
     /// SwifterSwift: The currently visible region of the scroll view.
