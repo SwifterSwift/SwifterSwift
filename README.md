@@ -23,8 +23,8 @@ SwifterSwift is a collection of **over 500 native Swift extensions**, with handy
 
 ## Requirements
 
-- **iOS** 10.0+ / **tvOS** 9.0+ / **watchOS** 2.0+ / **macOS** 10.10+ / **Ubuntu** 14.04+
-- Swift 5.0+
+- **iOS** 12.0+ / **tvOS** 12.0+ / **watchOS** 4.0+ / **macOS** 10.13+ / **Ubuntu** 14.04+
+- Swift 5.6+
 
 ## Looking to use SwifterSwift for older versions of Swift
 
@@ -347,6 +347,14 @@ let package = Package(
 </br>
 <ul>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Tests/XCTest/XCTestExtensions.swift"><code>XCTest extensions</code></a></li>
+</ul>
+</details>
+
+<details>
+<summary>Combine Extensions</summary>
+</br>
+<ul>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/Combine/FutureExtensions.swift"><code>Future extensions</code></a></li>
 </ul>
 </details>
 

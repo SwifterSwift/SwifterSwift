@@ -1,4 +1,4 @@
-// URLRequestExtensions.swift - Copyright 2020 SwifterSwift
+// URLRequestExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -39,7 +39,7 @@ public extension URLRequest {
         }
 
         if let data = httpBody,
-            let body = String(data: data, encoding: .utf8) {
+           let body = String(data: data, encoding: .utf8) {
             command.append("-d '\(body)'")
         }
 
@@ -62,7 +62,7 @@ public extension URLRequest {
         request.httpMethod = methodString.uppercased()
         return request
     }
-    
+
     /// SwifterSwift: Duplicates the request and set a header with key and value
     ///
     ///     let request = URLRequest(url: url)

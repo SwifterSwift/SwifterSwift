@@ -1,4 +1,4 @@
-// HKActivitySummaryExtensionsTests.swift - Copyright 2022 SwifterSwift
+// HKActivitySummaryExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -6,12 +6,12 @@ import XCTest
 #if canImport(HealthKit)
 import HealthKit
 
-@available(macOS 13.0, watchOS 2.2, *)
+@available(macOS 13.0, *)
 class HKActivitySummaryExtensionsTests: XCTestCase {
     func testIsStandGoalMet() {
         let unit = HKUnit.count()
         let summary = HKActivitySummary()
-      if #available(iOS 16.0, watchOS 9.0, *) {
+        if #available(iOS 16.0, watchOS 9.0, *) {
             summary.standHoursGoal = HKQuantity(unit: unit, doubleValue: 12)
         } else {
             summary.appleStandHoursGoal = HKQuantity(unit: unit, doubleValue: 12)

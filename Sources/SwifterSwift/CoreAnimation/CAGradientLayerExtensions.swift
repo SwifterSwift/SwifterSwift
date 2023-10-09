@@ -1,4 +1,4 @@
-// CAGradientLayerExtensions.swift - Copyright 2020 SwifterSwift
+// CAGradientLayerExtensions.swift - Copyright 2023 SwifterSwift
 
 #if !os(watchOS) && !os(Linux) && canImport(QuartzCore)
 import QuartzCore
@@ -14,9 +14,11 @@ public extension CAGradientLayer {
     ///                assumed to spread uniformly across the [0,1] range. When rendered,
     ///                the colors are mapped to the output colorspace before being
     ///                interpolated (default is nil).
-    ///   - startPoint: start point corresponds to the first gradient stop (I.e. [0,0] is the bottom-corner of the layer, [1,1] is the top-right corner).
+    ///   - startPoint: start point corresponds to the first gradient stop (I.e. [0,0] is the bottom-corner of the
+    /// layer, [1,1] is the top-right corner).
     ///   - endPoint: end point corresponds to the last gradient stop
-    ///   - type: The kind of gradient that will be drawn. Currently, the only allowed values are `axial' (the default value), `radial', and `conic'.
+    ///   - type: The kind of gradient that will be drawn. Currently, the only allowed values are `axial' (the default
+    /// value), `radial', and `conic'.
     convenience init(colors: [SFColor],
                      locations: [CGFloat]? = nil,
                      startPoint: CGPoint = CGPoint(x: 0.5, y: 0),

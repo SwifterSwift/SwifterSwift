@@ -1,4 +1,4 @@
-// StdlibDeprecated.swift - Copyright 2022 SwifterSwift
+// StdlibDeprecated.swift - Copyright 2023 SwifterSwift
 
 private func optionalCompareAscending<T: Comparable>(path1: T?, path2: T?) -> Bool {
     guard let path1 = path1, let path2 = path2 else { return false }

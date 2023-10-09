@@ -1,4 +1,4 @@
-// CGVectorExtensions.swift - Copyright 2020 SwifterSwift
+// CGVectorExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics
@@ -6,7 +6,8 @@ import CoreGraphics
 // MARK: - Properties
 
 public extension CGVector {
-    /// SwifterSwift: The angle of rotation (in radians) of the vector. The range of the angle is -π to π; an angle of 0 points to the right.
+    /// SwifterSwift: The angle of rotation (in radians) of the vector. The range of the angle is -π to π; an angle of 0
+    /// points to the right.
     ///
     /// https://en.wikipedia.org/wiki/Atan2
     var angle: CGFloat {

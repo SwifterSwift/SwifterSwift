@@ -1,4 +1,4 @@
-// UITextFieldExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UITextFieldExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -162,14 +162,14 @@ final class UITextFieldExtensionsTests: XCTestCase {
         let textField = UITextField(frame: CGRect(x: 0, y: 0, width: 100, height: 44))
         let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: nil)
         let addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-        
+
         textField.addToolbar(items: [doneBarButtonItem, addBarButtonItem])
-        
+
         guard let toolBar = textField.inputAccessoryView as? UIToolbar else {
             XCTFail("Expecting toolbar added to textfield accessory view")
             return
         }
-        
+
         guard let doneBarButton = toolBar.items?.first,
               let addBarButton = toolBar.items?[1] else {
             XCTFail("Expecting done and add bar button added to textfield accessory view")

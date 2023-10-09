@@ -3,7 +3,7 @@
 public extension DefaultStringInterpolation {
     /// SwifterSwift: Interpolates the given value's textual representation
     /// into the string literal being created if the value is not `nil` and the
-    /// optional predicate returns `true`, otherwise append a placeholder. 
+    /// optional predicate returns `true`, otherwise append a placeholder.
     ///
     /// Do not call this method directly. It is used by the compiler when
     /// interpreting string interpolations. Instead, use string
@@ -29,10 +29,9 @@ public extension DefaultStringInterpolation {
     ///                this parameter.
     mutating func appendInterpolation<T>(_ value: T?,
                                          placeholder: @autoclosure () -> String,
-                                         where predicate: ((T) throws -> Bool)? = nil) rethrows
-    {
+                                         where predicate: ((T) throws -> Bool)? = nil) rethrows {
         switch value {
-        case .some(let value) where try predicate?(value) != false:
+        case let .some(value) where try predicate?(value) != false:
             appendInterpolation(value)
 
         default:

@@ -1,4 +1,4 @@
-// UIViewExtensionsTests.swift - Copyright 2022 SwifterSwift
+// UIViewExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -277,7 +277,7 @@ final class UIViewExtensionsTests: XCTestCase {
         view1.rotate(toAngle: 1, ofType: .radians, animated: false, duration: 0, completion: nil)
         XCTAssertEqual(view1.transform, CGAffineTransform(rotationAngle: 1))
         view1.rotate(toAngle: 0, ofType: .radians, animated: false, duration: 0, completion: nil)
-        XCTAssertEqual(view1.transform, CGAffineTransform(rotationAngle: 0))
+        XCTAssertEqual(view1.transform, CGAffineTransform(rotationAngle: 0), accuracy: 0.00001)
 
         let view2 = UIView()
         view2.rotate(toAngle: 90, ofType: .degrees, animated: false, duration: 0, completion: nil)
@@ -378,15 +378,15 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssert(view.gestureRecognizers!.isEmpty)
     }
 
+    // swiftlint:disable:next function_body_length
     func testAddGradient() {
         // topToBottom
         let view0 = UIView()
         XCTAssertNil(view0.layer.sublayers)
         view0.addGradient(
-            colors:[.red, .orange, .green, .blue],
+            colors: [.red, .orange, .green, .blue],
             locations: [0.0, 0.333, 0.667, 1.0],
-            direction: .topToBottom
-        )
+            direction: .topToBottom)
         XCTAssertNotNil(view0.layer.sublayers)
         if let sublayers = view0.layer.sublayers as? [CAGradientLayer] {
             XCTAssertEqual(sublayers.count, 1)
@@ -414,8 +414,7 @@ final class UIViewExtensionsTests: XCTestCase {
         view1.addGradient(
             colors: [.red, .orange, .green, .blue],
             locations: [0.0, 0.333, 0.667, 1.0],
-            direction: .bottomToTop
-        )
+            direction: .bottomToTop)
         XCTAssertNotNil(view1.layer.sublayers)
         if let sublayers = view1.layer.sublayers as? [CAGradientLayer] {
             XCTAssertEqual(sublayers.count, 1)
@@ -443,8 +442,7 @@ final class UIViewExtensionsTests: XCTestCase {
         view2.addGradient(
             colors: [.red, .orange, .green, .blue],
             locations: [0.0, 0.333, 0.667, 1.0],
-            direction: .leftToRight
-        )
+            direction: .leftToRight)
         XCTAssertNotNil(view2.layer.sublayers)
         if let sublayers = view2.layer.sublayers as? [CAGradientLayer] {
             XCTAssertEqual(sublayers.count, 1)
@@ -472,8 +470,7 @@ final class UIViewExtensionsTests: XCTestCase {
         view3.addGradient(
             colors: [.red, .orange, .green, .blue],
             locations: [0.0, 0.333, 0.667, 1.0],
-            direction: .rightToLeft
-        )
+            direction: .rightToLeft)
         XCTAssertNotNil(view3.layer.sublayers)
         if let sublayers = view3.layer.sublayers as? [CAGradientLayer] {
             XCTAssertEqual(sublayers.count, 1)

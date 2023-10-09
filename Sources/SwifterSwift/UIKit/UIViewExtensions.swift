@@ -1,4 +1,4 @@
-// UIViewExtensions.swift - Copyright 2022 SwifterSwift
+// UIViewExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -119,22 +119,16 @@ public extension UIView {
 
     /// SwifterSwift: Check if view is in RTL format.
     var isRightToLeft: Bool {
-        if #available(iOS 10.0, macCatalyst 13.0, tvOS 10.0, *) {
-            return effectiveUserInterfaceLayoutDirection == .rightToLeft
-        } else {
-            return false
-        }
+        return effectiveUserInterfaceLayoutDirection == .rightToLeft
     }
 
     /// SwifterSwift: Take screenshot of view (if applicable).
     var screenshot: UIImage? {
-        UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
-        defer {
-            UIGraphicsEndImageContext()
+        let size = layer.frame.size
+        guard size != .zero else { return nil }
+        return UIGraphicsImageRenderer(size: layer.frame.size).image { context in
+            layer.render(in: context.cgContext)
         }
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        layer.render(in: context)
-        return UIGraphicsGetImageFromCurrentImageContext()
     }
 
     /// SwifterSwift: Shadow color of view; also inspectable from Storyboard.
@@ -367,7 +361,9 @@ public extension UIView {
         gestureRecognizers?.forEach(removeGestureRecognizer)
     }
 
-    /// SwifterSwift: Attaches gesture recognizers to the view. Attaching gesture recognizers to a view defines the scope of the represented gesture, causing it to receive touches hit-tested to that view and all of its subviews. The view establishes a strong reference to the gesture recognizers.
+    /// SwifterSwift: Attaches gesture recognizers to the view. Attaching gesture recognizers to a view defines the
+    /// scope of the represented gesture, causing it to receive touches hit-tested to that view and all of its subviews.
+    /// The view establishes a strong reference to the gesture recognizers.
     ///
     /// - Parameter gestureRecognizers: The array of gesture recognizers to be added to the view.
     func addGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {
@@ -376,7 +372,8 @@ public extension UIView {
         }
     }
 
-    /// SwifterSwift: Detaches gesture recognizers from the receiving view. This method releases gestureRecognizers in addition to detaching them from the view.
+    /// SwifterSwift: Detaches gesture recognizers from the receiving view. This method releases gestureRecognizers in
+    /// addition to detaching them from the view.
     ///
     /// - Parameter gestureRecognizers: The array of gesture recognizers to be removed from the view.
     func removeGestureRecognizers(_ gestureRecognizers: [UIGestureRecognizer]) {
@@ -505,7 +502,7 @@ public extension UIView {
         // <https://github.com/swiftdevcenter/GradientColorExample>
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
-        gradientLayer.colors = colors.map { $0.cgColor }
+        gradientLayer.colors = colors.map(\.cgColor)
         gradientLayer.locations = locations.map { NSNumber(value: $0) }
         gradientLayer.startPoint = direction.startPoint
         gradientLayer.endPoint = direction.endPoint
@@ -545,7 +542,8 @@ public extension UIView {
         }
     }
 
-    /// SwifterSwift: Add anchors from any side of the current view into the specified anchors and returns the newly added constraints.
+    /// SwifterSwift: Add anchors from any side of the current view into the specified anchors and returns the newly
+    /// added constraints.
     ///
     /// - Parameters:
     ///   - top: current view's top anchor will be anchored into the specified anchor.

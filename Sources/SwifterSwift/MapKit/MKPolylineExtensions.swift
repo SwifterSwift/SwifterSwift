@@ -1,11 +1,10 @@
-// MKPolylineExtensions.swift - Copyright 2020 SwifterSwift
+// MKPolylineExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(MapKit) && !os(watchOS)
 import MapKit
 
 // MARK: - Initializers
 
-@available(tvOS 9.2, *)
 public extension MKPolyline {
     /// SwifterSwift: Create a new MKPolyline from a provided Array of coordinates.
     ///

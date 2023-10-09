@@ -1,4 +1,4 @@
-// SignedIntegerExtensions.swift - Copyright 2020 SwifterSwift
+// SignedIntegerExtensions.swift - Copyright 2023 SwifterSwift
 
 //
 //  SignedIntegerExtensions.swift
@@ -85,8 +85,8 @@ public extension SignedInteger {
     ///        print((12).ordinalString()) // prints "12th"
     ///
     /// - Parameter locale: locale, default is .current.
-    /// - Returns: string ordinal representation of number in specified locale language. E.g. input 92, output in "en": "92nd".
-    @available(macOS 10.11, *)
+    /// - Returns: string ordinal representation of number in specified locale language. E.g. input 92, output in "en":
+    /// "92nd".
     func ordinalString(locale: Locale = .current) -> String? {
         let formatter = NumberFormatter()
         formatter.locale = locale

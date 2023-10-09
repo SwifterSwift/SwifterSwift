@@ -1,4 +1,4 @@
-// HKActivitySummaryExtensions.swift - Copyright 2022 SwifterSwift
+// HKActivitySummaryExtensions.swift - Copyright 2023 SwifterSwift
 
 // HeathKit is not available for tvOS, available only on iOS 8.0+ Mac Catalyst 13.0+ watchOS 2.0+
 // See: https://developer.apple.com/documentation/healthkit
@@ -8,7 +8,7 @@ import HealthKit
 
 // MARK: - Properties
 
-@available(macOS 13.0, watchOS 2.2, *)
+@available(macOS 13.0, *)
 public extension HKActivitySummary {
     /// SwifterSwift: Check if stand goal is met.
     var isStandGoalMet: Bool {

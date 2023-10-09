@@ -1,4 +1,4 @@
-// DateExtensionsTests.swift - Copyright 2020 SwifterSwift
+// DateExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -400,7 +400,7 @@ final class DateExtensionsTests: XCTestCase {
 
         let date4 = date.adding(.minute, value: 2)
         XCTAssertEqual(date4.nearestFiveMinutes, date)
-        
+
         let date5 = date.adding(.minute, value: 3)
         XCTAssertEqual(date5.nearestFiveMinutes, date.adding(.minute, value: 5))
     }
@@ -417,7 +417,7 @@ final class DateExtensionsTests: XCTestCase {
 
         let date4 = date.adding(.hour, value: 1).adding(.minute, value: 2) // adding 1 hour and 2 minutes
         XCTAssertEqual(date4.nearestTenMinutes, date.adding(.hour, value: 1))
-        
+
         let date5 = date.adding(.minute, value: 5) // adding 5 minutes
         XCTAssertEqual(date5.nearestTenMinutes, date.adding(.minute, value: 10))
     }
@@ -434,10 +434,10 @@ final class DateExtensionsTests: XCTestCase {
 
         let date4 = date.adding(.hour, value: 1).adding(.minute, value: 2) // adding 1 hour and 2 minutes
         XCTAssertEqual(date4.nearestQuarterHour, date.adding(.hour, value: 1))
-        
+
         let date5 = date.adding(.minute, value: 8) // adding 8 minutes
         XCTAssertEqual(date5.nearestQuarterHour, date.adding(.minute, value: 15))
-        
+
         let date6 = date.adding(.minute, value: 7) // adding 7 minutes
         XCTAssertEqual(date6.nearestQuarterHour, date)
     }
@@ -454,7 +454,7 @@ final class DateExtensionsTests: XCTestCase {
 
         let date4 = date.adding(.hour, value: 1).adding(.minute, value: 2) // adding 1 hour and 2 minutes
         XCTAssertEqual(date4.nearestHalfHour, date.adding(.hour, value: 1))
-        
+
         let date5 = date.adding(.minute, value: 15) // adding 15 minutes
         XCTAssertEqual(date5.nearestHalfHour, date.adding(.minute, value: 30))
     }
@@ -468,7 +468,7 @@ final class DateExtensionsTests: XCTestCase {
 
         let date3 = date.adding(.minute, value: 34) // adding 34 minutes
         XCTAssertEqual(date3.nearestHour, date.adding(.hour, value: 1))
-        
+
         let date4 = date.adding(.minute, value: 30) // adding 30 minutes
         XCTAssertEqual(date4.nearestHour, date.adding(.hour, value: 1))
     }
@@ -525,7 +525,6 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertEqual(date8.adding(.year, value: -4), date)
     }
 
-    // swiftlint:disable:next function_body_length
     func testAdd() {
         var date = Date(timeIntervalSince1970: 0)
 

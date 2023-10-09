@@ -1,4 +1,4 @@
-// URLRequestExtensionsTests.swift - Copyright 2020 SwifterSwift
+// URLRequestExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -18,8 +18,10 @@ final class URLRequestExtensionsTests: XCTestCase {
         XCTAssertNotNil(request2)
         XCTAssertEqual(request1.url, request2!.url)
 
-        let invalidURLString = "invalid url"
-        XCTAssertNil(URLRequest(urlString: invalidURLString))
+        if #unavailable(iOS 17.0) {
+            let invalidURLString = "invalid url"
+            XCTAssertNil(URLRequest(urlString: invalidURLString))
+        }
     }
 
     func testCUrlString() {
@@ -62,9 +64,9 @@ final class URLRequestExtensionsTests: XCTestCase {
         let planetaryRequest = URLRequest(url: components!.url!)
         XCTAssertEqual(planetaryRequest.curlString, planetaryNASAcURL)
     }
-    
+
     // MARK: - Methods
-    
+
     func testMethod() throws {
         let url = URL(string: "https://api.server.com/")!
         let request = URLRequest(url: url)
@@ -72,7 +74,7 @@ final class URLRequestExtensionsTests: XCTestCase {
         XCTAssertEqual(request.url, url)
         XCTAssertEqual(request.httpMethod, "POST")
     }
-    
+
     func testHeader() throws {
         let url = URL(string: "https://api.server.com/")!
         let request = URLRequest(url: url)

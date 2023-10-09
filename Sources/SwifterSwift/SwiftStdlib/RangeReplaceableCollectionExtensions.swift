@@ -1,9 +1,10 @@
-// RangeReplaceableCollectionExtensions.swift - Copyright 2020 SwifterSwift
+// RangeReplaceableCollectionExtensions.swift - Copyright 2023 SwifterSwift
 
 // MARK: - Initializers
 
 public extension RangeReplaceableCollection {
-    /// SwifterSwift: Creates a new collection of a given size where for each position of the collection the value will be the result of a call of the given expression.
+    /// SwifterSwift: Creates a new collection of a given size where for each position of the collection the value will
+    /// be the result of a call of the given expression.
     ///
     ///     let values = Array(expression: "Value", count: 3)
     ///     print(values)
@@ -18,7 +19,7 @@ public extension RangeReplaceableCollection {
         if count > 0 {
             reserveCapacity(count)
             while self.count < count {
-                append(try expression())
+                try append(expression())
             }
         }
     }
@@ -33,7 +34,8 @@ public extension RangeReplaceableCollection {
     ///     [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
     ///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
     ///
-    /// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the start, if it negative it's that start become the end.
+    /// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the
+    /// start, if it negative it's that start become the end.
     /// - Returns: The new rotated collection.
     func rotated(by places: Int) -> Self {
         // Inspired by: https://ruby-doc.org/core-2.2.0/Array.html#method-i-rotate
@@ -47,7 +49,8 @@ public extension RangeReplaceableCollection {
     ///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
     ///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
     ///
-    /// - Parameter places: The number of places that the array should be rotated. If the value is positive the end becomes the start, if it negative it's that start become the end.
+    /// - Parameter places: The number of places that the array should be rotated. If the value is positive the end
+    /// becomes the start, if it negative it's that start become the end.
     /// - Returns: self after rotating.
     @discardableResult
     mutating func rotate(by places: Int) -> Self {
@@ -72,8 +75,10 @@ public extension RangeReplaceableCollection {
     ///        [1, 2, 2, 3, 4, 2, 5].removeFirst { $0 % 2 == 0 } -> [1, 2, 3, 4, 2, 5]
     ///        ["h", "e", "l", "l", "o"].removeFirst { $0 == "e" } -> ["h", "l", "l", "o"]
     ///
-    /// - Parameter predicate: A closure that takes an element as its argument and returns a Boolean value that indicates whether the passed element represents a match.
-    /// - Returns: The first element for which predicate returns true, after removing it. If no elements in the collection satisfy the given predicate, returns `nil`.
+    /// - Parameter predicate: A closure that takes an element as its argument and returns a Boolean value that
+    /// indicates whether the passed element represents a match.
+    /// - Returns: The first element for which predicate returns true, after removing it. If no elements in the
+    /// collection satisfy the given predicate, returns `nil`.
     @discardableResult
     mutating func removeFirst(where predicate: (Element) throws -> Bool) rethrows -> Element? {
         guard let index = try firstIndex(where: predicate) else { return nil }
@@ -109,7 +114,7 @@ public extension RangeReplaceableCollection {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements up until condition evaluates to false.
     func take(while condition: (Element) throws -> Bool) rethrows -> Self {
-        return Self(try prefix(while: condition))
+        return try Self(prefix(while: condition))
     }
 
     /// SwifterSwift: Skip elements of Array while condition is true.
@@ -147,7 +152,8 @@ public extension RangeReplaceableCollection {
 
     /// SwifterSwift: Accesses the element at the specified position.
     ///
-    /// - Parameter offset: The offset position of the element to access. `offset` must be a valid index offset of the collection that is not equal to the `endIndex` property.
+    /// - Parameter offset: The offset position of the element to access. `offset` must be a valid index offset of the
+    /// collection that is not equal to the `endIndex` property.
     subscript(offset: Int) -> Element {
         get {
             return self[index(startIndex, offsetBy: offset)]
@@ -160,7 +166,8 @@ public extension RangeReplaceableCollection {
 
     /// SwifterSwift: Accesses a contiguous subrange of the collection’s elements.
     ///
-    /// - Parameter range: A range of the collection’s indices offsets. The bounds of the range must be valid indices of the collection.
+    /// - Parameter range: A range of the collection’s indices offsets. The bounds of the range must be valid indices of
+    /// the collection.
     subscript<R>(range: R) -> SubSequence where R: RangeExpression, R.Bound == Int {
         get {
             let indexRange = range.relative(to: 0..<count)
@@ -174,22 +181,22 @@ public extension RangeReplaceableCollection {
                 with: newValue)
         }
     }
-    
+
     /**
      SwifterSwift: Adds a new element at the end of the array, mutates the array in place
      - Parameter newElement: The optional element to append to the array
      */
     mutating func appendIfNonNil(_ newElement: Element?) {
         guard let newElement = newElement else { return }
-        self.append(newElement)
+        append(newElement)
     }
-    
+
     /**
      SwifterSwift: Adds the elements of a sequence to the end of the array, mutates the array in place
      - Parameter newElements: The optional sequence to append to the array
      */
-    mutating func appendIfNonNil<S>(contentsOf newElements: S?) where Element == S.Element, S : Sequence {
+    mutating func appendIfNonNil<S>(contentsOf newElements: S?) where Element == S.Element, S: Sequence {
         guard let newElements = newElements else { return }
-        self.append(contentsOf: newElements)
+        append(contentsOf: newElements)
     }
 }

@@ -1,4 +1,4 @@
-// UICollectionViewExtensions.swift - Copyright 2020 SwifterSwift
+// UICollectionViewExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -155,9 +155,9 @@ public extension UICollectionView {
     ///   - animated: Whether to animate or not.
     func safeScrollToItem(at indexPath: IndexPath, at scrollPosition: UICollectionView.ScrollPosition, animated: Bool) {
         guard indexPath.item >= 0,
-            indexPath.section >= 0,
-            indexPath.section < numberOfSections,
-            indexPath.item < numberOfItems(inSection: indexPath.section) else {
+              indexPath.section >= 0,
+              indexPath.section < numberOfSections,
+              indexPath.item < numberOfItems(inSection: indexPath.section) else {
             return
         }
         scrollToItem(at: indexPath, at: scrollPosition, animated: animated)

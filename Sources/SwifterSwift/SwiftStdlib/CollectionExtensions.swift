@@ -1,4 +1,4 @@
-// CollectionExtensions.swift - Copyright 2020 SwifterSwift
+// CollectionExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(Dispatch)
 import Dispatch
@@ -40,7 +40,8 @@ public extension Collection {
         return indices.contains(index) ? self[index] : nil
     }
 
-    /// SwifterSwift: Returns an array of slices of length "size" from the array. If array can't be split evenly, the final slice will be the remaining elements.
+    /// SwifterSwift: Returns an array of slices of length "size" from the array. If array can't be split evenly, the
+    /// final slice will be the remaining elements.
     ///
     ///     [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
     ///     [0, 2, 4, 7, 6].group(by: 2) -> [[0, 2], [4, 7], [6]]
@@ -82,12 +83,12 @@ public extension Collection {
     func forEach(slice: Int, body: ([Element]) throws -> Void) rethrows {
         var start = startIndex
         while case let end = index(start, offsetBy: slice, limitedBy: endIndex) ?? endIndex,
-            start != end {
+              start != end {
             try body(Array(self[start..<end]))
             start = end
         }
     }
-    
+
     /// SwifterSwift: Unique pair of elements in a collection.
     ///
     ///        let array = [1, 2, 3]

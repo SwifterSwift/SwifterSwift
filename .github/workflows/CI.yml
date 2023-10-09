@@ -14,7 +14,7 @@ jobs:
     runs-on: macos-latest
     env:
       PROJECT: SwifterSwift.xcodeproj
-      DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -29,7 +29,7 @@ jobs:
         bash <(curl -s https://codecov.io/bash) -cF ios -J 'SwifterSwift'
       env:
           SCHEME: SwifterSwift-iOS
-          DESTINATION: platform=iOS Simulator,name=iPhone 11
+          DESTINATION: platform=iOS Simulator,name=iPhone 15
     - name: Test MacOS
       run: |
         xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-macos.json" xcpretty -f `xcpretty-json-formatter`
@@ -74,7 +74,7 @@ jobs:
       matrix:
         platform: ['ios', 'macos', 'tvos', 'watchos']
     env:
-      DEVELOPER_DIR: /Applications/Xcode_14.2.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -83,8 +83,8 @@ jobs:
       run: bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=${{ matrix.platform }} 
       
   Linux:
-    runs-on: [ubuntu-20.04] 
-    container: swift:5.3.3
+    runs-on: [ubuntu-latest]
+    container: swift:5.6
     steps:
       - uses: actions/checkout@v1
       - name: Linux

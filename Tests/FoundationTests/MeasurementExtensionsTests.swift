@@ -1,4 +1,4 @@
-// MeasurementExtensionsTests.swift - Copyright 2021 SwifterSwift
+// MeasurementExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -6,7 +6,6 @@ import XCTest
 #if canImport(Foundation)
 import Foundation
 
-@available(OSX 10.12, tvOS 10.0, watchOS 3.0, *)
 class MeasurementExtensionsTests: XCTestCase {
     private let angleValue = 2.28
 

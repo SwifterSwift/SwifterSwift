@@ -1,4 +1,4 @@
-// ColorExtensionsTests.swift - Copyright 2020 SwifterSwift
+// ColorExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -351,7 +351,7 @@ final class ColorExtensionsTests: XCTestCase {
     func testFailableInit() {
         var color = SFColor(hexString: "0xFFFFFF")
         XCTAssertNotNil(color)
-        
+
         color = SFColor(hexString: "0XFFAABB")
         XCTAssertNotNil(color)
 

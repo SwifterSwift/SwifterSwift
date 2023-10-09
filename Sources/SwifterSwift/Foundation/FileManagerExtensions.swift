@@ -1,4 +1,4 @@
-// FileManagerExtensions.swift - Copyright 2020 SwifterSwift
+// FileManagerExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -50,7 +50,8 @@ public extension FileManager {
     }
     #endif
 
-    /// SwifterSwift: Creates a unique directory for saving temporary files. The directory can be used to create multiple temporary files used for a common purpose.
+    /// SwifterSwift: Creates a unique directory for saving temporary files. The directory can be used to create
+    /// multiple temporary files used for a common purpose.
     ///
     ///     let tempDirectory = try fileManager.createTemporaryDirectory()
     ///     let tempFile1URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
@@ -60,15 +61,9 @@ public extension FileManager {
     /// - Returns: A URL to a new directory for saving temporary files.
     func createTemporaryDirectory() throws -> URL {
         #if !os(Linux)
-        let temporaryDirectoryURL: URL
-        if #available(OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
-            temporaryDirectoryURL = temporaryDirectory
-        } else {
-            temporaryDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-        }
         return try url(for: .itemReplacementDirectory,
                        in: .userDomainMask,
-                       appropriateFor: temporaryDirectoryURL,
+                       appropriateFor: temporaryDirectory,
                        create: true)
         #else
         let envs = ProcessInfo.processInfo.environment

@@ -1,4 +1,4 @@
-// UINavigationBarExtensions.swift - Copyright 2020 SwifterSwift
+// UINavigationBarExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -28,14 +28,7 @@ public extension UINavigationBar {
     ///
     /// - Parameter tint: tint color (default is .white).
     func makeTransparent(withTint tint: UIColor = .white) {
-        if #available(iOS 13.0, tvOS 13.0, *) {
-            let appearance = UINavigationBarAppearance()
-            appearance.configureWithTransparentBackground()
-            appearance.titleTextAttributes = [.foregroundColor: tint]
-            standardAppearance = appearance
-            scrollEdgeAppearance = appearance
-            compactAppearance = appearance
-        } else {
+        let legacyAppearance = { [self] in
             isTranslucent = true
             backgroundColor = .clear
             barTintColor = .clear
@@ -43,6 +36,20 @@ public extension UINavigationBar {
             titleTextAttributes = [.foregroundColor: tint]
             shadowImage = UIImage()
         }
+        #if os(tvOS)
+        legacyAppearance()
+        #else
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithTransparentBackground()
+            appearance.titleTextAttributes = [.foregroundColor: tint]
+            standardAppearance = appearance
+            scrollEdgeAppearance = appearance
+            compactAppearance = appearance
+        } else {
+            legacyAppearance()
+        }
+        #endif
         tintColor = tint
     }
 
@@ -52,7 +59,17 @@ public extension UINavigationBar {
     ///   - background: background color.
     ///   - text: text color.
     func setColors(background: UIColor, text: UIColor) {
-        if #available(iOS 13.0, tvOS 13.0, *) {
+        let legacyAppearance = { [self] in
+            isTranslucent = false
+            backgroundColor = background
+            barTintColor = background
+            setBackgroundImage(UIImage(), for: .default)
+            titleTextAttributes = [.foregroundColor: text]
+        }
+        #if os(tvOS)
+        legacyAppearance()
+        #else
+        if #available(iOS 13.0, *) {
             let appearance = UINavigationBarAppearance()
             appearance.configureWithOpaqueBackground()
             appearance.backgroundColor = background
@@ -61,12 +78,9 @@ public extension UINavigationBar {
             scrollEdgeAppearance = appearance
             compactAppearance = appearance
         } else {
-            isTranslucent = false
-            backgroundColor = background
-            barTintColor = background
-            setBackgroundImage(UIImage(), for: .default)
-            titleTextAttributes = [.foregroundColor: text]
+            legacyAppearance()
         }
+        #endif
         tintColor = text
     }
 }

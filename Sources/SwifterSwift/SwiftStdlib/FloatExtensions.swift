@@ -1,4 +1,4 @@
-// FloatExtensions.swift - Copyright 2021 SwifterSwift
+// FloatExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics

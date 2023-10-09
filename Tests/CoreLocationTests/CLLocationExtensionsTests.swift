@@ -1,4 +1,4 @@
-// CLLocationExtensionsTests.swift - Copyright 2020 SwifterSwift
+// CLLocationExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -25,6 +25,17 @@ final class CLLocationExtensionsTests: XCTestCase {
         let bearing = aLoc.bearing(to: bLoc)
 
         XCTAssertEqual(bearing, 105.619, accuracy: 0.001)
+    }
+
+    func testInRange() {
+        let aLoc = CLLocation(latitude: 37.575803, longitude: 126.976807)
+        let bLoc = CLLocation(latitude: 37.572931, longitude: 126.976834)
+
+        XCTAssert(aLoc.isInRange(of: bLoc, radius: 320))
+        XCTAssert(aLoc.isInRange(of: bLoc, radius: 1050, unitLength: .feet))
+
+        XCTAssertFalse(aLoc.isInRange(of: bLoc, radius: 300))
+        XCTAssertFalse(aLoc.isInRange(of: bLoc, radius: 1000, unitLength: .feet))
     }
 }
 

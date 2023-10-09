@@ -1,4 +1,4 @@
-// SCNMaterialExtensions.swift - Copyright 2020 SwifterSwift
+// SCNMaterialExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit

@@ -1,4 +1,4 @@
-// UIButtonExtensions.swift - Copyright 2020 SwifterSwift
+// UIButtonExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -40,7 +40,7 @@ public extension UIButton {
         get { image(for: .focused) }
         set { setImage(newValue, for: .focused) }
     }
-    
+
     /// SwifterSwift: Title color of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleColorForDisabled: UIColor? {
@@ -75,7 +75,7 @@ public extension UIButton {
         get { titleColor(for: .focused) }
         set { setTitleColor(newValue, for: .focused) }
     }
-    
+
     /// SwifterSwift: Title of disabled state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleForDisabled: String? {
@@ -103,14 +103,14 @@ public extension UIButton {
         get { title(for: .selected) }
         set { setTitle(newValue, for: .selected) }
     }
-    
+
     /// SwifterSwift: Title of focused state for button; also inspectable from Storyboard.
     @IBInspectable
     var titleForFocused: String? {
         get { title(for: .focused) }
         set { setTitle(newValue, for: .focused) }
     }
-    
+
     /// SwifterSwift: Attributed title of disabled state for button.
     var attributedTitleForDisabled: NSAttributedString? {
         get { attributedTitle(for: .disabled) }
@@ -134,7 +134,7 @@ public extension UIButton {
         get { attributedTitle(for: .selected) }
         set { setAttributedTitle(newValue, for: .selected) }
     }
-    
+
     /// SwifterSwift: Attributed title of focused state for button.
     var attributedTitleForFocused: NSAttributedString? {
         get { attributedTitle(for: .focused) }
@@ -176,7 +176,7 @@ public extension UIButton {
     func setAttributedTitleForAllStates(_ title: NSAttributedString) {
         states.forEach { setAttributedTitle(title, for: $0) }
     }
-    
+
     /// SwifterSwift: Center align title text and image.
     /// - Parameters:
     ///   - imageAboveText: set true to make image above title text, default is false, image on left of text.
@@ -206,32 +206,20 @@ public extension UIButton {
             contentEdgeInsets = UIEdgeInsets(top: 0, left: insetAmount, bottom: 0, right: insetAmount)
         }
     }
-    
+
     /// SwifterSwift: Set background color for specified state.
     /// - Parameters:
     ///   - color: The color of the image that will be set as background for the button in the given state.
     ///   - forState: set the UIControl.State for the desired color.
     func setBackgroundColor(color: UIColor, forState: UIControl.State) {
-        clipsToBounds = true  // maintain corner radius
-        
-        if #available(iOS 10.0, tvOS 10.0, *) {
-            let colorImage = UIGraphicsImageRenderer(size: CGSize(width: 1, height: 1)).image { context in
-                color.setFill()
-                context.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
-                draw(.zero)
-            }
-            setBackgroundImage(colorImage, for: forState)
-            return
-        }
-        
-        UIGraphicsBeginImageContext(CGSize(width: 1, height: 1))
-        if let context = UIGraphicsGetCurrentContext() {
-            context.setFillColor(color.cgColor)
+        clipsToBounds = true // maintain corner radius
+
+        let colorImage = UIGraphicsImageRenderer(size: CGSize(width: 1, height: 1)).image { context in
+            color.setFill()
             context.fill(CGRect(x: 0, y: 0, width: 1, height: 1))
-            let colorImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-            setBackgroundImage(colorImage, for: forState)
+            draw(.zero)
         }
+        setBackgroundImage(colorImage, for: forState)
     }
 }
 

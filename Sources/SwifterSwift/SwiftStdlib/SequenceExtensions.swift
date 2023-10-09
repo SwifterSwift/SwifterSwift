@@ -1,4 +1,4 @@
-// SequenceExtensions.swift - Copyright 2022 SwifterSwift
+// SequenceExtensions.swift - Copyright 2023 SwifterSwift
 
 public extension Sequence {
     /// SwifterSwift: Check if all elements in collection match a condition.
@@ -138,7 +138,7 @@ public extension Sequence {
     /// - Complexity: O(*n*), where *n* is the length of the sequence.
     func withoutDuplicates<T: Hashable>(transform: (Element) throws -> T) rethrows -> [Element] {
         var set = Set<T>()
-        return try filter { set.insert(try transform($0)).inserted }
+        return try filter { try set.insert(transform($0)).inserted }
     }
 
     ///  SwifterSwift: Separates all items into 2 lists based on a given predicate. The first list contains all items

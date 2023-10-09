@@ -1,4 +1,4 @@
-// UIBezierPathExtensionsTests.swift - Copyright 2022 SwifterSwift
+// UIBezierPathExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -79,17 +79,15 @@ fileprivate extension UIBezierPath {
     // Only works for straight lines
     var points: [CGPoint] {
         var points = [CGPoint]()
-        if #available(iOS 11.0, tvOS 11.0, *) {
-            cgPath.applyWithBlock { pointer in
-                let element = pointer.pointee
-                var point = CGPoint.zero
-                switch element.type {
-                case .moveToPoint: point = element.points[0]
-                case .addLineToPoint: point = element.points[0]
-                default: break
-                }
-                points.append(point)
+        cgPath.applyWithBlock { pointer in
+            let element = pointer.pointee
+            var point = CGPoint.zero
+            switch element.type {
+            case .moveToPoint: point = element.points[0]
+            case .addLineToPoint: point = element.points[0]
+            default: break
             }
+            points.append(point)
         }
         return points
     }

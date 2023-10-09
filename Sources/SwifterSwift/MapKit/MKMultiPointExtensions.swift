@@ -1,11 +1,10 @@
-// MKPolylineExtensions.swift - Copyright 2020 SwifterSwift
+// MKMultiPointExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(MapKit) && !os(watchOS)
 import MapKit
 
 // MARK: - Properties
 
-@available(tvOS 9.2, *)
 public extension MKMultiPoint {
     /// SwifterSwift: Return an Array of coordinates representing the provided multi point.
     var coordinates: [CLLocationCoordinate2D] {
@@ -16,4 +15,3 @@ public extension MKMultiPoint {
 }
 
 #endif
-

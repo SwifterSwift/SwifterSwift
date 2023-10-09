@@ -1,4 +1,4 @@
-// CLLocationArrayExtensionsTests.swift - Copyright 2020 SwifterSwift
+// CLLocationArrayExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -7,7 +7,6 @@ import XCTest
 import CoreLocation
 
 final class CLLocationArrayExtensionsTests: XCTestCase {
-    @available(tvOS 10.0, macOS 10.12, watchOS 3.0, *)
     func testDistance() {
         let locations1 = [CLLocation]()
         let locations2 = [

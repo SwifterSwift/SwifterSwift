@@ -4,6 +4,12 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 ### Breaking Change
+- **Minimum deployment target**
+  - Bumped up the minimum deployment targets to match the minimums of Xcode 15. [#1142](https://github.com/SwifterSwift/SwifterSwift/issues/1142) by [guykogus](https://github.com/guykogus)
+    - iOS 12.0
+    - macOS 10.13
+    - tvOS 12.0
+    - watchOS 4.0
 - **Color**
   - Renamed typealias `Color` typealias to `SFColor` to fix namespace conflicts with swiftUI's `Color` Type. [#1055](https://github.com/SwifterSwift/SwifterSwift/pull/1055) by [MussaCharles](https://github.com/MussaCharles)
 - **EdgeInsets**
@@ -16,8 +22,14 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Deprecated
 - **String**
   - `init(randomOfLength:)` deprecated in favor of `String.random(ofLength:)`. [#1115](https://github.com/SwifterSwift/SwifterSwift/issues/1115) by [guykogus](https://github.com/guykogus)
+- **UIDatePicker**
+  - `textColor` deprecated as the implementation hacked a keypath that is no longer available. [#1136](https://github.com/SwifterSwift/SwifterSwift/issues/1136) by [guykogus](https://github.com/guykogus)
 
 ### Added
+- **Future**
+  - Added `init(asyncFunc:)` to create a `Future` from an `async` value. [#1139](https://github.com/SwifterSwift/SwifterSwift/pull/1139) by [RomanPodymov](https://github.com/RomanPodymov)
+- **UINavigationController**
+  - Added `pushViewController(_:hidesBottomBar:animated:)` for hiding the bottom bar when pushing any `UIViewController`. [#1117](https://github.com/SwifterSwift/SwifterSwift/issues/1117) by [imdkhairul](https://github.com/imdkhairul)
 - **UIButton**
   - Added `setBackgroundColor(_:for:)` method for setting background color for the specified UI state. [#1041](https://github.com/SwifterSwift/SwifterSwift/pull/1041) by [TwizzyIndy](https://github.com/TwizzyIndy)
   - Added `imageForFocused`, `titleColorForFocused`, `titleForFocused`, `attributedTitleForFocused` to handle focused state. [#1063](https://github.com/SwifterSwift/SwifterSwift/pull/1063) by [Roman Podymov](https://github.com/RomanPodymov)
@@ -207,6 +219,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Conform to `Equatable` when `Wrapped` is `RawRepresentable` and its `RawValue` is `Equatable`. [#804](https://github.com/SwifterSwift/SwifterSwift/pull/804) by [guykogus](https://github.com/guykogus)
 - **CoreLocation**:
   - Added `Array where Element: CLLocation extension` and added `distance(unitLength:)` function. [#799](https://github.com/SwifterSwift/SwifterSwift/pull/799) by [trevorphillips](https://github.com/trevorphillips)
+  - Added `isInRange(of:radius:unit:)` to check if a location is within the radius of another location. [#1095](https://github.com/SwifterSwift/SwifterSwift/pull/1095) by [never-better](https://github.com/never-better)
 - **Decodable**:
   - Added `init?(data:decoder:)` to decode `Decodable` (Codable) type models. [#797](https://github.com/SwifterSwift/SwifterSwift/pull/797) by [Mustafa GUNES](https://github.com/mustafagunes).
 - **CLVisit**:

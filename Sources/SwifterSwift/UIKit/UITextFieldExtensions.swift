@@ -1,4 +1,4 @@
-// UITextFieldExtensions.swift - Copyright 2020 SwifterSwift
+// UITextFieldExtensions.swift - Copyright 2023 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -172,8 +172,8 @@ public extension UITextField {
         rightView = iconView
         rightViewMode = .always
     }
-    
-    /// Add tool bars to the textfield input accessory view.
+
+    /// SwifterSwift: Add tool bars to the textfield input accessory view.
     /// - Parameters:
     ///   - items: The items to present in the toolbar.
     ///   - height: The height of the toolbar.

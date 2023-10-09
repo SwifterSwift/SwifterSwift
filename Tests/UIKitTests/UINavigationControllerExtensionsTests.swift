@@ -1,4 +1,4 @@
-// UINavigationControllerExtensionsTests.swift - Copyright 2020 SwifterSwift
+// UINavigationControllerExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -53,5 +53,18 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
         XCTAssertNotNil(color)
         XCTAssertEqual(color!, .red)
     }
+
+    #if !os(tvOS)
+    func testHideBottomBar() {
+        let rootVC = UIViewController()
+        let navigationController = UINavigationController(rootViewController: rootVC)
+        let vcToPush = UIViewController()
+        let tabVC = UITabBarController()
+        tabVC.viewControllers = [navigationController]
+        navigationController.pushViewController(vcToPush, hidesBottomBar: true, animated: false)
+        XCTAssert(vcToPush.hidesBottomBarWhenPushed)
+        XCTAssert(tabVC.tabBar.isHidden)
+    }
+    #endif
 }
 #endif

@@ -1,4 +1,4 @@
-// MKMapViewTests.swift - Copyright 2020 SwifterSwift
+// MKMapViewTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -8,9 +8,7 @@ import struct CoreLocation.CLLocationCoordinate2D
 import MapKit
 
 #if !os(watchOS)
-@available(tvOS 9.2, *)
 final class MKMapViewTests: XCTestCase {
-    @available(iOS 11.0, tvOS 11.0, macOS 10.13, *)
     func testRegister() {
         let mapView = MKMapView()
 
@@ -19,7 +17,6 @@ final class MKMapViewTests: XCTestCase {
         XCTAssertNotNil(annotationView)
     }
 
-    @available(iOS 11.0, tvOS 11.0, macOS 10.13, *)
     func testRegisterAndDequeue() {
         let mapView = MKMapView()
         let annotation = MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
