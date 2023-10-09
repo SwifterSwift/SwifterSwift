@@ -6,7 +6,7 @@ import XCTest
 #if canImport(HealthKit)
 import HealthKit
 
-@available(macOS 13.0, watchOS 2.2, *)
+@available(macOS 13.0, *)
 class HKActivitySummaryExtensionsTests: XCTestCase {
     func testIsStandGoalMet() {
         let unit = HKUnit.count()

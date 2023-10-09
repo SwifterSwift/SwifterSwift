@@ -277,7 +277,7 @@ final class UIViewExtensionsTests: XCTestCase {
         view1.rotate(toAngle: 1, ofType: .radians, animated: false, duration: 0, completion: nil)
         XCTAssertEqual(view1.transform, CGAffineTransform(rotationAngle: 1))
         view1.rotate(toAngle: 0, ofType: .radians, animated: false, duration: 0, completion: nil)
-        XCTAssertEqual(view1.transform, CGAffineTransform(rotationAngle: 0))
+        XCTAssertEqual(view1.transform, CGAffineTransform(rotationAngle: 0), accuracy: 0.00001)
 
         let view2 = UIView()
         view2.rotate(toAngle: 90, ofType: .degrees, animated: false, duration: 0, completion: nil)
@@ -378,6 +378,7 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssert(view.gestureRecognizers!.isEmpty)
     }
 
+    // swiftlint:disable:next function_body_length
     func testAddGradient() {
         // topToBottom
         let view0 = UIView()

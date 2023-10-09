@@ -173,7 +173,7 @@ public extension UITextField {
         rightViewMode = .always
     }
 
-    /// Add tool bars to the textfield input accessory view.
+    /// SwifterSwift: Add tool bars to the textfield input accessory view.
     /// - Parameters:
     ///   - items: The items to present in the toolbar.
     ///   - height: The height of the toolbar.

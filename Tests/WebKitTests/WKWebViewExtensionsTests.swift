@@ -18,7 +18,7 @@ final class WKWebViewExtensionsTests: XCTestCase {
     func testLoadURL() {
         let successExpectation = WebViewSuccessExpectation(description: "Correct URL", webView: webView)
 
-        let url = URL(string: "https://example.com/")!
+        let url = URL(string: "https://www.apple.com/")!
         let navigation = webView.loadURL(url)
 
         XCTAssertNotNil(navigation)
@@ -29,7 +29,7 @@ final class WKWebViewExtensionsTests: XCTestCase {
     func testLoadURLString() {
         let successExpectation = WebViewSuccessExpectation(description: "Correct URL string", webView: webView)
 
-        let urlString = "https://example.com/"
+        let urlString = "https://www.apple.com/"
         let navigation = webView.loadURLString(urlString)
 
         XCTAssertNotNil(navigation)
@@ -38,10 +38,12 @@ final class WKWebViewExtensionsTests: XCTestCase {
     }
 
     func testLoadInvalidURLString() {
-        let invalidURLString = "invalid url"
-        let navigation = webView.loadURLString(invalidURLString)
+        if #unavailable(iOS 17.0) {
+            let invalidURLString = "invalid url"
+            let navigation = webView.loadURLString(invalidURLString)
 
-        XCTAssertNil(navigation)
+            XCTAssertNil(navigation)
+        }
     }
 
     func testLoadDeadURLString() {

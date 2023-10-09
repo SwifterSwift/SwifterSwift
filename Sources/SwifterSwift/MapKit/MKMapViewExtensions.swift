@@ -4,7 +4,6 @@
 import MapKit
 
 #if !os(watchOS)
-@available(tvOS 9.2, *)
 public extension MKMapView {
     /// SwifterSwift: Dequeue reusable MKAnnotationView using class type.
     ///
@@ -18,7 +17,6 @@ public extension MKMapView {
     /// SwifterSwift: Register MKAnnotationView using class type.
     ///
     /// - Parameter name: MKAnnotationView type.
-    @available(iOS 11.0, tvOS 11.0, macOS 10.13, *)
     func register<T: MKAnnotationView>(annotationViewWithClass name: T.Type) {
         register(T.self, forAnnotationViewWithReuseIdentifier: String(describing: name))
     }
@@ -29,7 +27,6 @@ public extension MKMapView {
     ///   - name: MKAnnotationView type.
     ///   - annotation: annotation of the mapView.
     /// - Returns: optional MKAnnotationView object.
-    @available(iOS 11.0, tvOS 11.0, macOS 10.13, *)
     func dequeueReusableAnnotationView<T: MKAnnotationView>(withClass name: T.Type,
                                                             for annotation: MKAnnotation) -> T? {
         guard let annotationView = dequeueReusableAnnotationView(
