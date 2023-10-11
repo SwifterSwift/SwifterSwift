@@ -121,5 +121,4 @@ final class PublisherExtensionsTests: XCTestCase {
 }
 #endif
 
-// swiftlint:enable large_tuple
-// swiftlint:enable identifier_name
+// swiftlint:enable large_tuple identifier_name
