@@ -12,8 +12,7 @@
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(Foundation) && canImport(Combine)
-import Foundation
+#if canImport(Combine)
 import Combine
 
 final class PublisherExtensionsTests: XCTestCase {
