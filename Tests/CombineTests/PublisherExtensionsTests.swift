@@ -6,8 +6,7 @@
 //  Copyright © 2023 SwifterSwift
 //
 
-// swiftlint:disable identifier_name
-// swiftlint:disable large_tuple
+// swiftlint:disable identifier_name large_tuple
 
 @testable import SwifterSwift
 import XCTest
