@@ -7,7 +7,7 @@ import XCTest
 import struct CoreLocation.CLLocationCoordinate2D
 import MapKit
 
-final class MKMapViewTests: XCTestCase {
+final class MKMapViewExtensionsTests: XCTestCase {
     func testRegister() {
         let mapView = MKMapView()
 
