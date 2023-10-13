@@ -21,6 +21,17 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **String**
   - Reversed the parameters for the `~=` operator in order to not break the default implementation, which causes issues in `switch` statements, for example. [#1113](https://github.com/SwifterSwift/SwifterSwift/issues/1113) by [guykogus](https://github.com/guykogus)
 
+### Removed
+[#1145](https://github.com/SwifterSwift/SwifterSwift/issues/1145) by [guykogus](https://github.com/guykogus)
+- **Array**:
+  - `sorted(by:ascending:)`, `sort(by:ascending:)`
+- **Sequence**:
+  - `map(by:)`, `compactMap(by:)`, `filter(by:)`, `last(where:)`
+- **String**
+  - `init(randomOfLength:)`
+- **UIDatePicker**
+  - `textColor`
+
 ### Deprecated
 - **String**
   - `init(randomOfLength:)` deprecated in favor of `String.random(ofLength:)`. [#1115](https://github.com/SwifterSwift/SwifterSwift/issues/1115) by [guykogus](https://github.com/guykogus)
@@ -376,7 +387,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Deprecated
 
 - **Array**:
-  - Deprecated `sorted(by:, ascending)` and `sort(by:ascending)` in favor of `sorted(by:with:)` and `sort(by:with:)` [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - Deprecated `sorted(by:ascending:)` and `sort(by:ascending:)` in favor of `sorted(by:with:)` and `sort(by:with:)` [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 ### Removed
 
