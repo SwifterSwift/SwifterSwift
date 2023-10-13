@@ -1,4 +1,4 @@
-// MKPolylineTests.swift - Copyright 2023 SwifterSwift
+// MKPolylineExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -8,7 +8,7 @@ import MapKit
 
 import struct CoreLocation.CLLocationCoordinate2D
 
-final class MKPolylineTests: XCTestCase {
+final class MKPolylineExtensionsTests: XCTestCase {
     let coordinates = [
         (37.330514, -121.888863),
         (37.330832, -121.888337),
