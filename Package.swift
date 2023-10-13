@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.8
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -15,11 +15,21 @@ let package = Package(
         .library(name: "SwifterSwift", targets: ["SwifterSwift"])
     ],
     targets: [
-        .target(name: "SwifterSwift"),
+        .target(name: "SwifterSwift",
+                swiftSettings: [
+                    .enableUpcomingFeature("ConciseMagicFile"),
+                    .enableUpcomingFeature("ExistentialAny"),
+                    .enableUpcomingFeature("ForwardTrailingClosures"),
+                ]),
         .testTarget(
             name: "SwifterSwiftTests",
             dependencies: ["SwifterSwift"],
             path: "Tests",
             exclude: ["Info.plist"],
-            resources: [.process("ResourcesTests/Resources")])
+            resources: [.process("ResourcesTests/Resources")],
+            swiftSettings: [
+                .enableUpcomingFeature("ConciseMagicFile"),
+                .enableUpcomingFeature("ExistentialAny"),
+                .enableUpcomingFeature("ForwardTrailingClosures"),
+            ])
     ])

@@ -6,7 +6,7 @@ import Combine
 // MARK: - Methods
 
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
-public extension Future where Failure == Error {
+public extension Future where Failure == any Error {
     /// Creates a `Future` from an `async` throwing function
     /// - Parameter asyncFunc: The asynchronous throwing function to execute.
     convenience init(asyncFunc: @escaping () async throws -> Output) {

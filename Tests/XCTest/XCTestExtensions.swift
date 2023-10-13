@@ -30,7 +30,7 @@ public func XCTAssertEqual(_ expression1: @autoclosure () throws -> SFColor,
                            _ expression2: @autoclosure () throws -> SFColor,
                            accuracy: CGFloat,
                            _ message: @autoclosure () -> String = "",
-                           file: StaticString = #file,
+                           file: StaticString = #filePath,
                            line: UInt = #line) {
     var color1: SFColor!
     XCTAssertNoThrow(color1 = try expression1(), message(), file: file, line: line)
@@ -62,7 +62,7 @@ public func XCTAssertEqual(_ expression1: @autoclosure () throws -> CGAffineTran
                            _ expression2: @autoclosure () throws -> CGAffineTransform,
                            accuracy: CGFloat,
                            _ message: @autoclosure () -> String = "",
-                           file: StaticString = #file,
+                           file: StaticString = #filePath,
                            line: UInt = #line) {
     var transform1: CGAffineTransform!
     XCTAssertNoThrow(transform1 = try expression1(), message(), file: file, line: line)

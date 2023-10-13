@@ -131,7 +131,7 @@ public extension UIViewController {
         _ popoverContent: UIViewController,
         sourcePoint: CGPoint,
         size: CGSize? = nil,
-        delegate: UIPopoverPresentationControllerDelegate? = nil,
+        delegate: (any UIPopoverPresentationControllerDelegate)? = nil,
         animated: Bool = true,
         completion: (() -> Void)? = nil) {
         popoverContent.modalPresentationStyle = .popover

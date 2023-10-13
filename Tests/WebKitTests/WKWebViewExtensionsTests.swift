@@ -75,11 +75,11 @@ class WebViewFailureExpectation: XCTestExpectation, WKNavigationDelegate {
         webView.navigationDelegate = self
     }
 
-    func webView(_: WKWebView, didFail _: WKNavigation!, withError _: Error) {
+    func webView(_: WKWebView, didFail _: WKNavigation!, withError _: any Error) {
         fulfill()
     }
 
-    func webView(_: WKWebView, didFailProvisionalNavigation _: WKNavigation!, withError _: Error) {
+    func webView(_: WKWebView, didFailProvisionalNavigation _: WKNavigation!, withError _: any Error) {
         fulfill()
     }
 }

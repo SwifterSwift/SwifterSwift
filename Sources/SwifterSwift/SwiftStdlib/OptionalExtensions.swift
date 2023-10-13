@@ -29,7 +29,7 @@ public extension Optional {
     /// - Parameter error: The error to throw if the optional is `nil`.
     /// - Throws: The error passed in.
     /// - Returns: The value wrapped by the optional.
-    func unwrapped(or error: Error) throws -> Wrapped {
+    func unwrapped(or error: any Error) throws -> Wrapped {
         guard let wrapped = self else { throw error }
         return wrapped
     }
