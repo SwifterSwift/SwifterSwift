@@ -106,7 +106,7 @@ let package = Package(
     name: "YOUR_PROJECT_NAME",
     targets: [],
     dependencies: [
-        .package(url: "https://github.com/SwifterSwift/SwifterSwift.git", from: "5.3.0")
+        .package(url: "https://github.com/SwifterSwift/SwifterSwift.git", from: "6.0.0")
     ]
 )
 </code></pre>

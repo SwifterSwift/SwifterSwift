@@ -1,4 +1,4 @@
-// MKMultiPointTests.swift - Copyright 2023 SwifterSwift
+// MKMultiPointExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -8,7 +8,7 @@ import MapKit
 
 import struct CoreLocation.CLLocationCoordinate2D
 
-final class MKMultiPointTests: XCTestCase {
+final class MKMultiPointExtensionsTests: XCTestCase {
     let coordinates = [
         (37.330514, -121.888863),
         (37.330832, -121.888337),
