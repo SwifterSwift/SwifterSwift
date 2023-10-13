@@ -1,4 +1,4 @@
-// MKPolylineTests.swift - Copyright 2023 SwifterSwift
+// MKPolylineExtensionsTests.swift - Copyright 2023 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
