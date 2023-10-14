@@ -46,7 +46,7 @@ extension CATransform3D: Codable {
     /// otherwise invalid.
     /// - Parameter decoder: The decoder to read data from.
     @inlinable
-    public init(from decoder: Decoder) throws {
+    public init(from decoder: any Decoder) throws {
         var container = try decoder.unkeyedContainer()
         try self.init(m11: container.decode(CGFloat.self),
                       m12: container.decode(CGFloat.self),
@@ -73,7 +73,7 @@ extension CATransform3D: Codable {
     /// This function throws an error if any values are invalid for the given encoder’s format.
     /// - Parameter encoder: The encoder to write data to.
     @inlinable
-    public func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: any Encoder) throws {
         var container = encoder.unkeyedContainer()
         try container.encode(m11)
         try container.encode(m12)

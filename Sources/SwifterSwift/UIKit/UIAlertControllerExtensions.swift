@@ -107,7 +107,7 @@ public extension UIAlertController {
     ///   - tintColor: alert controller's tint color (default is nil).
     convenience init(
         title: String = "Error",
-        error: Error,
+        error: any Error,
         defaultActionButtonTitle: String = "OK",
         preferredStyle: UIAlertController.Style = .alert,
         tintColor: UIColor? = nil) {
