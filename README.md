@@ -10,7 +10,7 @@
 [![Accio supported](https://img.shields.io/badge/Accio-supported-0A7CF5.svg?style=flat)](https://github.com/JamitLabs/Accio)
 [![codecov](https://codecov.io/gh/SwifterSwift/SwifterSwift/branch/master/graph/badge.svg)](https://codecov.io/gh/SwifterSwift/SwifterSwift)
 [![docs](http://swifterswift.com/docs/badge.svg)](http://swifterswift.com/docs)
-[![Swift](https://img.shields.io/badge/Swift-5.3-orange.svg)](https://swift.org)
+[![Swift](https://img.shields.io/badge/Swift-5.6-orange.svg)](https://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-12.4-blue.svg)](https://developer.apple.com/xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Slack Channel](https://img.shields.io/badge/Slack-SwifterSwift-green.svg)](https://join.slack.com/t/swifterswift/shared_invite/zt-s6dl4g2e-R5V5baIawGpdUz2heShjiQ)
@@ -19,7 +19,7 @@ SwifterSwift is a collection of **over 500 native Swift extensions**, with handy
 
 [简体中文](README_CN.md)
 
-### [Whats New in v5.3?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v530)
+### [Whats New in v6.0?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v600)
 
 ## Requirements
 
@@ -91,7 +91,7 @@ SwifterSwift is Swift v5.0+ compatible starting from v5
 </br>
 <p>To integrate SwifterSwift into your Xcode project using <a href="https://github.com/Carthage/Carthage">Carthage</a>, specify it in your <code>Cartfile</code>:</p>
 
-<pre><code class="ogdl language-ogdl">github "SwifterSwift/SwifterSwift" ~&gt; 5.3
+<pre><code class="ogdl language-ogdl">github "SwifterSwift/SwifterSwift" ~&gt; 6.0
 </code></pre>
 </details>
 
