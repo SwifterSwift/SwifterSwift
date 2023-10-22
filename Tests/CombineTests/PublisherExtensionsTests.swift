@@ -88,7 +88,7 @@ final class PublisherExtensionsTests: XCTestCase {
             
             p1.send(1)
             p2.send(2)
-            XCTAssertTrue(result.isEmpty)
+            XCTAssert(result.isEmpty)
             
             p3.send(nil)
             p4.send(false)
