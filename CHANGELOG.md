@@ -3,6 +3,8 @@
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
 ## Upcoming Release
+
+## [v6.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.0.0)
 ### Breaking Change
 - **Minimum deployment target**
   - Bumped up the minimum deployment targets to match the minimums of Xcode 15. [#1142](https://github.com/SwifterSwift/SwifterSwift/issues/1142) by [guykogus](https://github.com/guykogus)
@@ -18,6 +20,17 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Renamed `Font` typealias to `SFFont` to fix namespace conflicts with swiftUI's `Font` Type. [#1055](https://github.com/SwifterSwift/SwifterSwift/pull/1055) by [MussaCharles](https://github.com/MussaCharles)
 - **String**
   - Reversed the parameters for the `~=` operator in order to not break the default implementation, which causes issues in `switch` statements, for example. [#1113](https://github.com/SwifterSwift/SwifterSwift/issues/1113) by [guykogus](https://github.com/guykogus)
+
+### Removed
+[#1145](https://github.com/SwifterSwift/SwifterSwift/issues/1145) by [guykogus](https://github.com/guykogus)
+- **Array**:
+  - `sorted(by:ascending:)`, `sort(by:ascending:)`
+- **Sequence**:
+  - `map(by:)`, `compactMap(by:)`, `filter(by:)`, `last(where:)`
+- **String**
+  - `init(randomOfLength:)`
+- **UIDatePicker**
+  - `textColor`
 
 ### Deprecated
 - **String**
@@ -377,7 +390,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Deprecated
 
 - **Array**:
-  - Deprecated `sorted(by:, ascending)` and `sort(by:ascending)` in favor of `sorted(by:with:)` and `sort(by:with:)` [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
+  - Deprecated `sorted(by:ascending:)` and `sort(by:ascending:)` in favor of `sorted(by:with:)` and `sort(by:with:)` [#712](https://github.com/SwifterSwift/SwifterSwift/pull/712) by [LucianoPAlmeida](https://github.com/LucianoPAlmeida)
 
 ### Removed
 

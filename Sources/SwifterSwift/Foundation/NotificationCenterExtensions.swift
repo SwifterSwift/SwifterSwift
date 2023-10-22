@@ -31,7 +31,7 @@ public extension NotificationCenter {
                      object obj: Any? = nil,
                      queue: OperationQueue? = nil,
                      using block: @escaping (_ notification: Notification) -> Void) {
-        var handler: NSObjectProtocol!
+        var handler: (any NSObjectProtocol)!
         let removeObserver = { [unowned self] in
             self.removeObserver(handler!)
         }
