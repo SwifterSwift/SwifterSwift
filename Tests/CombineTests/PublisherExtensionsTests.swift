@@ -18,7 +18,7 @@ final class PublisherExtensionsTests: XCTestCase {
 
     func testCombineLatest() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *) {
-            var result: [(Int, Int, Int, Int, Int)] = []
+            var result = [(Int, Int, Int, Int, Int)]()
 
             let p1 = PassthroughSubject<Int, Never>()
             let p2 = PassthroughSubject<Int, Never>()
@@ -36,7 +36,7 @@ final class PublisherExtensionsTests: XCTestCase {
             p3.send(3)
             p4.send(4)
             
-            XCTAssertTrue(result.isEmpty)
+            XCTAssert(result.isEmpty)
             
             p5.send(5)
             
@@ -70,7 +70,7 @@ final class PublisherExtensionsTests: XCTestCase {
     func testCombineLatestTransform() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *) {
             
-            var result: [(Int, Int, Int?, Bool, String)] = []
+            var result = [(Int, Int, Int?, Bool, String)]()
 
             let p1 = PassthroughSubject<Int, Never>()
             let p2 = PassthroughSubject<Int, Never>()
@@ -79,7 +79,7 @@ final class PublisherExtensionsTests: XCTestCase {
             let p5 = PassthroughSubject<Character, Never>()
             
             let cancellable = p1.combineLatest(p2, p3, p4, p5, { v1, v2, v3, v4, v5 in
-                return (v1, v2 * v2, v3 == nil ? nil : 1, v4, "\(v5)\(v5)")
+                (v1, v2 * v2, v3 == nil ? nil : 1, v4, "\(v5)\(v5)")
             })
             .map { ($0 * 2, $1, $2, $3, $4 ) }
             .sink { result.append(($0, $1, $2, $3, $4)) }
@@ -88,19 +88,19 @@ final class PublisherExtensionsTests: XCTestCase {
             
             p1.send(1)
             p2.send(2)
-            XCTAssertTrue(result.isEmpty)
+            XCTAssert(result.isEmpty)
             
             p3.send(nil)
             p4.send(false)
             p5.send("A")
             XCTAssertFalse(result.isEmpty)
-            XCTAssert(result.allSatisfy({
+            XCTAssert(result.allSatisfy {
                 $0.0 == 2 &&
                 $0.1 == 4 &&
                 $0.2 == nil &&
                 $0.3 == false &&
                 $0.4 == "AA"
-            }))
+            })
             
             p2.send(7)
             p2.send(4)
