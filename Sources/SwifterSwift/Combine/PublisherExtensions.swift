@@ -6,12 +6,12 @@
 //  Copyright © 2023 SwifterSwift
 //
 
-// swiftlint:disable large_tuple
 #if canImport(Combine)
 import Combine
 
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 public extension Publisher {
+// swiftlint:disable large_tuple
     /// SwifterSwift: Subscribes to four additional publishers and publishes a tuple upon receiving output from any of the publishers.
     /// 
     /// > Tip: The combined publisher doesn't produce elements until each of its upstream publishers publishes at least one element.
@@ -117,6 +117,6 @@ public extension Publisher {
             .map { transform($0.0, $0.1, $0.2, $0.3, $1) }
             .eraseToAnyPublisher()
     }
+// swiftlint:enable large_tuple
 }
 #endif
-// swiftlint:enable large_tuple

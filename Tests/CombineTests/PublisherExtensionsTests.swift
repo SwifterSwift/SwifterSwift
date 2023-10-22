@@ -6,7 +6,7 @@
 //  Copyright © 2023 SwifterSwift
 //
 
-// swiftlint:disable identifier_name large_tuple
+// swiftlint:disable identifier_name
 
 @testable import SwifterSwift
 import XCTest
@@ -120,4 +120,4 @@ final class PublisherExtensionsTests: XCTestCase {
 }
 #endif
 
-// swiftlint:enable large_tuple identifier_name
+// swiftlint:enable identifier_name
