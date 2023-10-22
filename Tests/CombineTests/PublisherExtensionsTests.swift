@@ -14,6 +14,7 @@ import XCTest
 #if canImport(Combine)
 import Combine
 
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
 final class PublisherExtensionsTests: XCTestCase {
 
     func testCombineLatest() throws {
@@ -28,8 +29,6 @@ final class PublisherExtensionsTests: XCTestCase {
             
             let cancellable = p1.combineLatest(p2, p3, p4, p5)
                 .sink { result.append(($0, $1, $2, $3, $4)) }
-            
-            defer { cancellable.cancel() }
             
             p1.send(1)
             p2.send(2)
@@ -83,8 +82,6 @@ final class PublisherExtensionsTests: XCTestCase {
             })
             .map { ($0 * 2, $1, $2, $3, $4 ) }
             .sink { result.append(($0, $1, $2, $3, $4)) }
-            
-            defer { cancellable.cancel() }
             
             p1.send(1)
             p2.send(2)
