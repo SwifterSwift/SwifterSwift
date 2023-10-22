@@ -79,7 +79,7 @@ final class PublisherExtensionsTests: XCTestCase {
             let p5 = PassthroughSubject<Character, Never>()
             
             let cancellable = p1.combineLatest(p2, p3, p4, p5, { v1, v2, v3, v4, v5 in
-                return (v1, v2 * v2, v3 == nil ? nil : 1, v4, "\(v5)\(v5)")
+                (v1, v2 * v2, v3 == nil ? nil : 1, v4, "\(v5)\(v5)")
             })
             .map { ($0 * 2, $1, $2, $3, $4 ) }
             .sink { result.append(($0, $1, $2, $3, $4)) }
