@@ -94,13 +94,13 @@ final class PublisherExtensionsTests: XCTestCase {
             p4.send(false)
             p5.send("A")
             XCTAssertFalse(result.isEmpty)
-            XCTAssert(result.allSatisfy({
+            XCTAssert(result.allSatisfy {
                 $0.0 == 2 &&
                 $0.1 == 4 &&
                 $0.2 == nil &&
                 $0.3 == false &&
                 $0.4 == "AA"
-            }))
+            })
             
             p2.send(7)
             p2.send(4)
