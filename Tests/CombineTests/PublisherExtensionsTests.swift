@@ -70,7 +70,7 @@ final class PublisherExtensionsTests: XCTestCase {
     func testCombineLatestTransform() throws {
         if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *) {
             
-            var result: [(Int, Int, Int?, Bool, String)] = []
+            var result = [(Int, Int, Int?, Bool, String)]()
 
             let p1 = PassthroughSubject<Int, Never>()
             let p2 = PassthroughSubject<Int, Never>()
