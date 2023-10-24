@@ -52,17 +52,22 @@ public extension UIView {
 
     /// SwifterSwift: Add gradient directions
     struct GradientDirection {
-        static let topToBottom = GradientDirection(startPoint: CGPoint(x: 0.5, y: 0.0),
-                                                   endPoint: CGPoint(x: 0.5, y: 1.0))
-        static let bottomToTop = GradientDirection(startPoint: CGPoint(x: 0.5, y: 1.0),
-                                                   endPoint: CGPoint(x: 0.5, y: 0.0))
-        static let leftToRight = GradientDirection(startPoint: CGPoint(x: 0.0, y: 0.5),
-                                                   endPoint: CGPoint(x: 1.0, y: 0.5))
-        static let rightToLeft = GradientDirection(startPoint: CGPoint(x: 1.0, y: 0.5),
-                                                   endPoint: CGPoint(x: 0.0, y: 0.5))
+        public static let topToBottom = GradientDirection(startPoint: CGPoint(x: 0.5, y: 0.0),
+                                                          endPoint: CGPoint(x: 0.5, y: 1.0))
+        public static let bottomToTop = GradientDirection(startPoint: CGPoint(x: 0.5, y: 1.0),
+                                                          endPoint: CGPoint(x: 0.5, y: 0.0))
+        public static let leftToRight = GradientDirection(startPoint: CGPoint(x: 0.0, y: 0.5),
+                                                          endPoint: CGPoint(x: 1.0, y: 0.5))
+        public static let rightToLeft = GradientDirection(startPoint: CGPoint(x: 1.0, y: 0.5),
+                                                          endPoint: CGPoint(x: 0.0, y: 0.5))
 
-        let startPoint: CGPoint
-        let endPoint: CGPoint
+        public let startPoint: CGPoint
+        public let endPoint: CGPoint
+
+        public init(startPoint: CGPoint, endPoint: CGPoint) {
+            self.startPoint = startPoint
+            self.endPoint = endPoint
+        }
     }
 }
 
