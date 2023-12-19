@@ -32,11 +32,11 @@ public extension NSRegularExpression {
         enumerateMatches(in: string,
                          options: options,
                          range: NSRange(range, in: string)) { result, flags, stop in
-            var shouldStop = false
-            block(result, flags, &shouldStop)
-            if shouldStop {
-                stop.pointee = true
-            }
+                var shouldStop = false
+                block(result, flags, &shouldStop)
+                if shouldStop {
+                    stop.pointee = true
+                }
         }
     }
     #else
@@ -48,11 +48,11 @@ public extension NSRegularExpression {
         enumerateMatches(in: string,
                          options: options,
                          range: NSRange(range, in: string)) { result, flags, stop in
-            var shouldStop = false
-            block(result, flags, &shouldStop)
-            if shouldStop {
-                stop.pointee = true
-            }
+                var shouldStop = false
+                block(result, flags, &shouldStop)
+                if shouldStop {
+                    stop.pointee = true
+                }
         }
     }
     #endif

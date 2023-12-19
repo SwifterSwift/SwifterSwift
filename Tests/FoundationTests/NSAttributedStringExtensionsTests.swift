@@ -23,14 +23,14 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
 
         let sizedAttributes = NSAttributedString(string: "Bolded", attributes: [.font: SFFont.systemFont(ofSize: 12)])
             .bolded.attributes
-        XCTAssertEqual((sizedAttributes[.font] as? SFFont), SFFont.boldSystemFont(ofSize: 12))
+        XCTAssertEqual(sizedAttributes[.font] as? SFFont, SFFont.boldSystemFont(ofSize: 12))
         #endif
     }
 
     func testUnderlined() {
         #if !os(Linux)
         let attributes = NSAttributedString(string: "Underlined").underlined.attributes
-        XCTAssertEqual((attributes[.underlineStyle] as? NSUnderlineStyle.RawValue), NSUnderlineStyle.single.rawValue)
+        XCTAssertEqual(attributes[.underlineStyle] as? NSUnderlineStyle.RawValue, NSUnderlineStyle.single.rawValue)
         #endif
     }
 
@@ -42,7 +42,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         let sizedAttributes = NSAttributedString(
             string: "Italicized",
             attributes: [.font: SFFont.systemFont(ofSize: 12)]).italicized.attributes
-        XCTAssertEqual((sizedAttributes[.font] as? UIFont), UIFont.italicSystemFont(ofSize: 12))
+        XCTAssertEqual(sizedAttributes[.font] as? UIFont, UIFont.italicSystemFont(ofSize: 12))
         #endif
     }
 
@@ -50,7 +50,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         #if !os(macOS) && !os(Linux)
         let attributes = NSAttributedString(string: "Struck through").struckthrough.attributes
         XCTAssertEqual(
-            (attributes[.strikethroughStyle] as? NSUnderlineStyle.RawValue),
+            attributes[.strikethroughStyle] as? NSUnderlineStyle.RawValue,
             NSUnderlineStyle.single.rawValue)
         #endif
     }
@@ -236,7 +236,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
                         passed = false
                     }
                 }
-            }
+        }
 
         XCTAssert(passed)
         #endif
