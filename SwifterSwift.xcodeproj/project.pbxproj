@@ -2081,7 +2081,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then     \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then     \n        swiftformat \"$SRCROOT\"\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
 		};
 		E455DFD52AD0CC17008A011E /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2100,7 +2100,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat \"$SRCROOT\"\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
 		};
 		E455DFD62AD0CC23008A011E /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2119,7 +2119,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat \"$SRCROOT\"\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
 		};
 		E455DFD72AD0CC2F008A011E /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2138,7 +2138,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat \"$SRCROOT\"\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
 		};
 		E455DFD82AD0CC39008A011E /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2157,7 +2157,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat \"$SRCROOT\"\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
 		};
 		E455DFD92AD0CC46008A011E /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2176,7 +2176,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then      \n        swiftformat \"$SRCROOT\"\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
 		};
 		E455DFDA2AD0CC57008A011E /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2195,7 +2195,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then\n        swiftformat $SRCROOT\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
+			shellScript = "if [[ ${TRAVIS} == \"\" ]]; then\n    if [[ \"$(uname -m)\" == arm64 ]]; then\n        export PATH=\"/opt/homebrew/bin:$PATH\"\n    fi\n\n    if which swiftformat >/dev/null; then\n        swiftformat \"$SRCROOT\"\n    else\n        echo \"warning: SwiftFormat is not installed\"\n    fi\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
