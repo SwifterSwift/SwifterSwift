@@ -7,6 +7,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Fixed
 - `UIView.GradientDirection` initializer and constants had access level `internal` instead of `public`. [#1152](https://github.com/SwifterSwift/SwifterSwift/pull/1152) by [guykogus](https://github.com/guykogus)
 
+### Added
+- **UIImageView**
+  - Added `removeBlur` method for removing the applied blur effect from the image view. [#1158](https://github.com/SwifterSwift/SwifterSwift/pull/1159) by [regi93](https://github.com/regi93)
+  
 ## [v6.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.0.0)
 ### Breaking Change
 - **Minimum deployment target**
