@@ -57,6 +57,12 @@ public extension UIImageView {
         imgView.blur(withStyle: style)
         return imgView
     }
+    
+    /// SwifterSwift: Removes the applied blur effect from the image view.
+    func removeBlur(){
+            let blurredEffectViews = self.subviews.filter { $0 is UIVisualEffectView }
+            blurredEffectViews.forEach { $0.removeFromSuperview() }
+    }
 }
 
 #endif
