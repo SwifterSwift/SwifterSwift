@@ -49,4 +49,30 @@ public extension Measurement where UnitType == UnitAngle {
     }
 }
 
+public extension Measurement {
+    static func += (lhs: inout Measurement<UnitType>, rhs: Measurement<UnitType>) {
+        // swiftlint:disable shorthand_operator
+        lhs = lhs + rhs
+        // swiftlint:enable shorthand_operator
+    }
+
+    static func -= (lhs: inout Measurement<UnitType>, rhs: Measurement<UnitType>) {
+        // swiftlint:disable shorthand_operator
+        lhs = lhs - rhs
+        // swiftlint:enable shorthand_operator
+    }
+
+    static func *= (lhs: inout Measurement<UnitType>, rhs: Double) {
+        // swiftlint:disable shorthand_operator
+        lhs = lhs * rhs
+        // swiftlint:enable shorthand_operator
+    }
+
+    static func /= (lhs: inout Measurement<UnitType>, rhs: Double) {
+        // swiftlint:disable shorthand_operator
+        lhs = lhs / rhs
+        // swiftlint:enable shorthand_operator
+    }
+}
+
 #endif
