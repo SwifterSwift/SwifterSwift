@@ -3,6 +3,9 @@
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
 ## Upcoming Release
+### Deprecated
+- **UIImageView**
+  - `blurred(withStyle:)` should have copied the image view and blurred the new instance, but instead it performed the same functionality as `blur(withStyle:)`, making the outcome unexpected as well as being obsolete. [#1161](https://github.com/SwifterSwift/SwifterSwift/pull/1161) by [guykogus](https://github.com/guykogus)
 
 ### Added
 - **Measurement**
@@ -11,7 +14,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `removeBlur()` method for removing the applied blur effect from the view. [#1159](https://github.com/SwifterSwift/SwifterSwift/pull/1159) by [regi93](https://github.com/regi93)
 
 ### Fixed
-- `UIView.GradientDirection` initializer and constants had access level `internal` instead of `public`. [#1152](https://github.com/SwifterSwift/SwifterSwift/pull/1152) by [guykogus](https://github.com/guykogus)
+- **UIImageView**
+  - Moved `blur(withStyle:)` from `UIImageView` to `UIView`, as it can be performed on all views. [#1161](https://github.com/SwifterSwift/SwifterSwift/pull/1161) by [guykogus](https://github.com/guykogus)
+- **UIView**
+  - `GradientDirection` initializer and constants had access level `internal` instead of `public`. [#1152](https://github.com/SwifterSwift/SwifterSwift/pull/1152) by [guykogus](https://github.com/guykogus)
 
 ## [v6.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.0.0)
 ### Breaking Change
