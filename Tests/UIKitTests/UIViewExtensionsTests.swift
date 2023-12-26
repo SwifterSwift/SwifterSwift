@@ -209,6 +209,18 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(view.subviews.count, 2)
     }
 
+    func testBlur() {
+        let imageView = UIView(frame: CGRect(x: 0, y: 0, width: 50, height: 100))
+        imageView.blur(withStyle: .dark)
+
+        let blurView = imageView.subviews.first as? UIVisualEffectView
+        XCTAssertNotNil(blurView)
+        XCTAssertNotNil(blurView?.effect)
+        XCTAssertEqual(blurView?.frame, imageView.bounds)
+        XCTAssertEqual(blurView?.autoresizingMask, [.flexibleWidth, .flexibleHeight])
+        XCTAssert(imageView.clipsToBounds)
+    }
+
     func testFadeIn() {
         let view1 = UIView()
         view1.isHidden = true
