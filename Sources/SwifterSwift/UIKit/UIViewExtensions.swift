@@ -514,6 +514,12 @@ public extension UIView {
         layer.addSublayer(gradientLayer)
     }
 
+    /// SwifterSwift: Removes the applied blur effect from the image view.
+    func removeBlur() {
+        let blurredEffectViews = subviews.filter { $0 is UIVisualEffectView }
+        blurredEffectViews.forEach { $0.removeFromSuperview() }
+    }
+
     /// SwifterSwift: Add Visual Format constraints.
     ///
     /// - Parameters:

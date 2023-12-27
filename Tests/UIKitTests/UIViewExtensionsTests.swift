@@ -649,6 +649,16 @@ final class UIViewExtensionsTests: XCTestCase {
         // simple empty case test
         XCTAssertNil(container.widthConstraint)
     }
+
+    func testRemoveBlur() {
+        let view = UIView()
+        view.blur(withStyle: .prominent)
+        view.blur(withStyle: .extraLight)
+        view.removeBlur()
+
+        let blurView = view.subviews.first as? UIVisualEffectView
+        XCTAssertNil(blurView)
+    }
 }
 
 #endif

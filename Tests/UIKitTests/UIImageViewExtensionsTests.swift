@@ -54,16 +54,6 @@ final class UIImageViewExtensionsTests: XCTestCase {
         let blurredImageView = imageView.blurred(withStyle: .extraLight)
         XCTAssertEqual(blurredImageView, imageView)
     }
-    
-    func testRemoveBlur() {
-        let imageView = UIImageView()
-        imageView.blur(withStyle: .prominent)
-        imageView.blur(withStyle: .extraLight)
-        imageView.removeBlur()
-        
-        let blurView = imageView.subviews.first as? UIVisualEffectView
-        XCTAssertNil(blurView)
-    }
 }
 
 #endif
