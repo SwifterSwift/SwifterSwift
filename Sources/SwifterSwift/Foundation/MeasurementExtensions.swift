@@ -50,24 +50,40 @@ public extension Measurement where UnitType == UnitAngle {
 }
 
 public extension Measurement {
+    /// SwifterSwift: Increase `Measurement` by `Measurement`
+    /// - Parameters:
+    ///   - lhs: `Measurement` to increase
+    ///   - rhs: another `Measurement`
     static func += (lhs: inout Measurement<UnitType>, rhs: Measurement<UnitType>) {
         // swiftlint:disable shorthand_operator
         lhs = lhs + rhs
         // swiftlint:enable shorthand_operator
     }
-
+    
+    /// SwifterSwift: Decrease `Measurement` by `Measurement`
+    /// - Parameters:
+    ///   - lhs: `Measurement` to decrease
+    ///   - rhs: another `Measurement`
     static func -= (lhs: inout Measurement<UnitType>, rhs: Measurement<UnitType>) {
         // swiftlint:disable shorthand_operator
         lhs = lhs - rhs
         // swiftlint:enable shorthand_operator
     }
-
+    
+    /// SwifterSwift: Multiply `Measurement` by `Double`
+    /// - Parameters:
+    ///   - lhs: `Measurement` to multiply
+    ///   - rhs: factor
     static func *= (lhs: inout Measurement<UnitType>, rhs: Double) {
         // swiftlint:disable shorthand_operator
         lhs = lhs * rhs
         // swiftlint:enable shorthand_operator
     }
-
+    
+    /// SwifterSwift: Divide `Measurement` by `Double`
+    /// - Parameters:
+    ///   - lhs: `Measurement` to divide
+    ///   - rhs: divider
     static func /= (lhs: inout Measurement<UnitType>, rhs: Double) {
         // swiftlint:disable shorthand_operator
         lhs = lhs / rhs
