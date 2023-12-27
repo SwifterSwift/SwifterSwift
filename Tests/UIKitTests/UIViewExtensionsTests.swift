@@ -652,8 +652,10 @@ final class UIViewExtensionsTests: XCTestCase {
 
     func testRemoveBlur() {
         let view = UIView()
-        view.blur(withStyle: .prominent)
-        view.blur(withStyle: .extraLight)
+        let blurEffect = UIBlurEffect(style: .prominent)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = view.bounds
+        view.addSubview(blurEffectView)
         view.removeBlur()
 
         let blurView = view.subviews.first as? UIVisualEffectView
