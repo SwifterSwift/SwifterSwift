@@ -9,7 +9,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **UIView**
-  - Added `removeBlur()` method for removing the applied blur effect from the UIView. [#1159](https://github.com/SwifterSwift/SwifterSwift/pull/1159) by [regi93](https://github.com/regi93)
+  - Added `removeBlur()` method for removing the applied blur effect from the view. [#1159](https://github.com/SwifterSwift/SwifterSwift/pull/1159) by [regi93](https://github.com/regi93)
   
 ## [v6.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.0.0)
 ### Breaking Change
