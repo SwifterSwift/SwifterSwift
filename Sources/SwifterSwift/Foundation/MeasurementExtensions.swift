@@ -70,10 +70,10 @@ public extension Measurement {
         // swiftlint:enable shorthand_operator
     }
     
-    /// SwifterSwift: Multiply `Measurement` by `Double`
+    /// SwifterSwift: Multiplies two values and stores the result in the left-hand-side variable.
     /// - Parameters:
-    ///   - lhs: `Measurement` to multiply
-    ///   - rhs: factor
+    ///   - lhs: The first value to multiply.
+    ///   - rhs: The second value to multiply.
     static func *= (lhs: inout Measurement<UnitType>, rhs: Double) {
         // swiftlint:disable shorthand_operator
         lhs = lhs * rhs
