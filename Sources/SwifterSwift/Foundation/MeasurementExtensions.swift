@@ -80,10 +80,10 @@ public extension Measurement {
         // swiftlint:enable shorthand_operator
     }
     
-    /// SwifterSwift: Divide `Measurement` by `Double`
+    /// SwifterSwift: Divides the first value by the second and stores the quotient in the left-hand-side variable.
     /// - Parameters:
-    ///   - lhs: `Measurement` to divide
-    ///   - rhs: divider
+    ///   - lhs: The value to divide.
+    ///   - rhs: The value to divide `lhs` by. `rhs` must not be zero.
     static func /= (lhs: inout Measurement<UnitType>, rhs: Double) {
         // swiftlint:disable shorthand_operator
         lhs = lhs / rhs
