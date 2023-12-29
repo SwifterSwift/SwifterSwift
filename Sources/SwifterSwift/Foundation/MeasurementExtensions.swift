@@ -60,10 +60,10 @@ public extension Measurement {
         // swiftlint:enable shorthand_operator
     }
     
-    /// SwifterSwift: Decrease `Measurement` by `Measurement`
+    /// SwifterSwift: Subtracts the second value from the first and stores the difference in the left-hand-side variable.
     /// - Parameters:
-    ///   - lhs: `Measurement` to decrease
-    ///   - rhs: another `Measurement`
+    ///   - lhs: A `Measurement` value.
+    ///   - rhs: The value to subtract from `lhs`.
     static func -= (lhs: inout Measurement<UnitType>, rhs: Measurement<UnitType>) {
         // swiftlint:disable shorthand_operator
         lhs = lhs - rhs
