@@ -47,16 +47,14 @@ class MeasurementExtensionsTests: XCTestCase {
 
     func testPlusEquals() {
         var minutes = Measurement(value: 100, unit: UnitDuration.minutes)
-        let hours = Measurement(value: 200, unit: UnitDuration.minutes)
-        minutes += hours
+        minutes += Measurement(value: 200, unit: UnitDuration.minutes)
 
         XCTAssertEqual(minutes.value, 300)
     }
 
     func testMinusEquals() {
         var minutes = Measurement(value: 250, unit: UnitDuration.minutes)
-        let hours = Measurement(value: 100, unit: UnitDuration.minutes)
-        minutes -= hours
+        minutes -= Measurement(value: 100, unit: UnitDuration.minutes)
 
         XCTAssertEqual(minutes.value, 150)
     }
