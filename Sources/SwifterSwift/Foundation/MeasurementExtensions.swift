@@ -50,10 +50,10 @@ public extension Measurement where UnitType == UnitAngle {
 }
 
 public extension Measurement {
-    /// SwifterSwift: Increase `Measurement` by `Measurement`
+    /// SwifterSwift: Adds two values and stores the result in the left-hand-side variable.
     /// - Parameters:
-    ///   - lhs: `Measurement` to increase
-    ///   - rhs: another `Measurement`
+    ///   - lhs: The first value to add.
+    ///   - rhs: The second value to add.
     static func += (lhs: inout Measurement<UnitType>, rhs: Measurement<UnitType>) {
         // swiftlint:disable shorthand_operator
         lhs = lhs + rhs
