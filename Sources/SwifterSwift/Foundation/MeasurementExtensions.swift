@@ -54,7 +54,7 @@ public extension Measurement {
     /// - Parameters:
     ///   - lhs: The first value to add.
     ///   - rhs: The second value to add.
-    static func += (lhs: inout Measurement<UnitType>, rhs: Measurement<UnitType>) {
+    static func += (lhs: inout Measurement, rhs: Measurement) {
         // swiftlint:disable shorthand_operator
         lhs = lhs + rhs
         // swiftlint:enable shorthand_operator
@@ -64,7 +64,7 @@ public extension Measurement {
     /// - Parameters:
     ///   - lhs: A `Measurement` value.
     ///   - rhs: The value to subtract from `lhs`.
-    static func -= (lhs: inout Measurement<UnitType>, rhs: Measurement<UnitType>) {
+    static func -= (lhs: inout Measurement, rhs: Measurement) {
         // swiftlint:disable shorthand_operator
         lhs = lhs - rhs
         // swiftlint:enable shorthand_operator
@@ -74,7 +74,7 @@ public extension Measurement {
     /// - Parameters:
     ///   - lhs: The first value to multiply.
     ///   - rhs: The second value to multiply.
-    static func *= (lhs: inout Measurement<UnitType>, rhs: Double) {
+    static func *= (lhs: inout Measurement, rhs: Double) {
         // swiftlint:disable shorthand_operator
         lhs = lhs * rhs
         // swiftlint:enable shorthand_operator
@@ -84,7 +84,7 @@ public extension Measurement {
     /// - Parameters:
     ///   - lhs: The value to divide.
     ///   - rhs: The value to divide `lhs` by. `rhs` must not be zero.
-    static func /= (lhs: inout Measurement<UnitType>, rhs: Double) {
+    static func /= (lhs: inout Measurement, rhs: Double) {
         // swiftlint:disable shorthand_operator
         lhs = lhs / rhs
         // swiftlint:enable shorthand_operator
