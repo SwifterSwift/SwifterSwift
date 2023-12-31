@@ -49,4 +49,46 @@ public extension Measurement where UnitType == UnitAngle {
     }
 }
 
+public extension Measurement {
+    /// SwifterSwift: Adds two values and stores the result in the left-hand-side variable.
+    /// - Parameters:
+    ///   - lhs: The first value to add.
+    ///   - rhs: The second value to add.
+    static func += (lhs: inout Measurement, rhs: Measurement) {
+        // swiftlint:disable shorthand_operator
+        lhs = lhs + rhs
+        // swiftlint:enable shorthand_operator
+    }
+
+    /// SwifterSwift: Subtracts the second value from the first and stores the difference in the left-hand-side variable.
+    /// - Parameters:
+    ///   - lhs: A `Measurement` value.
+    ///   - rhs: The value to subtract from `lhs`.
+    static func -= (lhs: inout Measurement, rhs: Measurement) {
+        // swiftlint:disable shorthand_operator
+        lhs = lhs - rhs
+        // swiftlint:enable shorthand_operator
+    }
+
+    /// SwifterSwift: Multiplies two values and stores the result in the left-hand-side variable.
+    /// - Parameters:
+    ///   - lhs: The first value to multiply.
+    ///   - rhs: The second value to multiply.
+    static func *= (lhs: inout Measurement, rhs: Double) {
+        // swiftlint:disable shorthand_operator
+        lhs = lhs * rhs
+        // swiftlint:enable shorthand_operator
+    }
+
+    /// SwifterSwift: Divides the first value by the second and stores the quotient in the left-hand-side variable.
+    /// - Parameters:
+    ///   - lhs: The value to divide.
+    ///   - rhs: The value to divide `lhs` by. `rhs` must not be zero.
+    static func /= (lhs: inout Measurement, rhs: Double) {
+        // swiftlint:disable shorthand_operator
+        lhs = lhs / rhs
+        // swiftlint:enable shorthand_operator
+    }
+}
+
 #endif
