@@ -656,11 +656,9 @@ final class UIViewExtensionsTests: XCTestCase {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         view.addSubview(blurEffectView)
+        XCTAssert(view.subviews.first is UIVisualEffectView)
         view.removeBlur()
-        XCTAssertTrue(view.subviews.contains(blurEffectView))
-        
-        let blurView = view.subviews.first as? UIVisualEffectView
-        XCTAssertNil(blurView)
+        XCTAssertFalse(view.subviews.first is UIVisualEffectView)
     }
 }
 
