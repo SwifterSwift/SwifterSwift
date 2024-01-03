@@ -239,6 +239,21 @@ public extension UIView {
             frame.origin.y = newValue
         }
     }
+
+    /// A private struct to organize associated object keys for UIView extensions.
+    private struct AssociatedKeys {
+        static var tapActionKey: UInt8 = 0
+    }
+
+    /// A closure to be executed when the view is tapped.
+    private var tapAction: ((UIView) -> Void)? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.tapActionKey) as? (UIView) -> Void
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.tapActionKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
 }
 
 // MARK: - Methods
@@ -669,6 +684,31 @@ public extension UIView {
             }
         }
         return views
+    }
+
+    /// Adds a tap action to the UIView.
+    /// - Parameter action: A closure to be executed when view is tapped.
+    ///
+    /// - Example:
+    ///   ```swift
+    ///    @IBOutlet weak var imageView: UIImageView!
+    ///    imageView.onClick(action: onClickImage)
+    ///    ```
+    func onClick(action: @escaping (UIView) -> Void) {
+        isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTapAction))
+        addGestureRecognizer(tapGestureRecognizer)
+        self.tapAction = action
+    }
+}
+
+// MARK: - Private Methods
+
+private extension UIView {
+
+    /// Handles the tap action by executing the associated closure.
+    @objc func handleTapAction() {
+        tapAction?(self)
     }
 }
 
