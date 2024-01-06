@@ -516,11 +516,11 @@ public extension UIView {
 
     /// SwifterSwift: Removes the applied blur effect from the `UIView`.
     func removeBlur() {
-        for subview in subviews where subview is UIVisualEffectView {
-            if let blurView = subview as? UIVisualEffectView, blurView.effect is UIBlurEffect {
-                blurView.removeFromSuperview()
-            }
-        }
+        subviews
+            .lazy
+            .compactMap { $0 as? UIVisualEffectView }
+            .filter { $0.effect is UIBlurEffect }
+            .forEach { $0.removeFromSuperview() }
     }
 
     /// SwifterSwift: Add Visual Format constraints.
