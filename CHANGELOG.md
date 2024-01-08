@@ -9,10 +9,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `+=`, `-=`, `*=`, `/=` to add, subtract, multiply and divide measurements. [#1162](https://github.com/SwifterSwift/SwifterSwift/pull/1162) by [Roman Podymov](https://github.com/RomanPodymov)
 - **UIView**
   - Added `removeBlur()` method for removing the applied blur effect from the view. [#1159](https://github.com/SwifterSwift/SwifterSwift/pull/1159) by [regi93](https://github.com/regi93)
-  
+
 ### Fixed
 - `UIView.GradientDirection` initializer and constants had access level `internal` instead of `public`. [#1152](https://github.com/SwifterSwift/SwifterSwift/pull/1152) by [guykogus](https://github.com/guykogus)
-  
+
 ## [v6.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.0.0)
 ### Breaking Change
 - **Minimum deployment target**
