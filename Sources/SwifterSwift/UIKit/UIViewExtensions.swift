@@ -304,6 +304,18 @@ public extension UIView {
         subviews.forEach { addSubview($0) }
     }
 
+    /// SwifterSwift: Make the view blurry.
+    ///
+    /// - Parameter style: UIBlurEffectStyle (default is .light).
+    func blur(withStyle style: UIBlurEffect.Style = .light) {
+        let blurEffect = UIBlurEffect(style: style)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = bounds
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+        addSubview(blurEffectView)
+        clipsToBounds = true
+    }
+
     /// SwifterSwift: Fade in view.
     ///
     /// - Parameters:

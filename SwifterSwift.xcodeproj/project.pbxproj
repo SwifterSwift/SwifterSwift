@@ -672,6 +672,9 @@
 		F8A710F123BF3F8600112DAD /* EdgeInsetsExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A710ED23BF3F8200112DAD /* EdgeInsetsExtensionsTests.swift */; };
 		F8B4DFB3291EA77C0011BD90 /* HKActivitySummaryExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAEBCE224B0079700F61684 /* HKActivitySummaryExtensionsTests.swift */; };
 		F8B4DFB4291EA7880011BD90 /* HKActivitySummaryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DAEBCDF24B0045F00F61684 /* HKActivitySummaryExtensions.swift */; };
+		F8BE7E082B3B161F00179B35 /* UIImageViewDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE7E072B3B161F00179B35 /* UIImageViewDeprecated.swift */; };
+		F8BE7E092B3B161F00179B35 /* UIImageViewDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE7E072B3B161F00179B35 /* UIImageViewDeprecated.swift */; };
+		F8BE7E0A2B3B161F00179B35 /* UIImageViewDeprecated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE7E072B3B161F00179B35 /* UIImageViewDeprecated.swift */; };
 		F8C1AE6F225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */; };
 		F8C1AE70225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */; };
 		F8C1AE71225B7F990045D5A0 /* NSRegularExpressionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */; };
@@ -947,6 +950,7 @@
 		F88C491824AF73A400BA0503 /* TestStoryboard-tvOS.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "TestStoryboard-tvOS.storyboard"; sourceTree = "<group>"; };
 		F8A710E823BF3EF100112DAD /* EdgeInsetsExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsExtensions.swift; sourceTree = "<group>"; };
 		F8A710ED23BF3F8200112DAD /* EdgeInsetsExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeInsetsExtensionsTests.swift; sourceTree = "<group>"; };
+		F8BE7E072B3B161F00179B35 /* UIImageViewDeprecated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewDeprecated.swift; sourceTree = "<group>"; };
 		F8C1AE6E225B7F990045D5A0 /* NSRegularExpressionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegularExpressionExtensions.swift; sourceTree = "<group>"; };
 		F8C1AE73225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSRegularExpressionExtensionsTests.swift; sourceTree = "<group>"; };
 		F8E62DA324D0187000BF35AE /* XCTestExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestExtensionsTests.swift; sourceTree = "<group>"; };
@@ -1174,6 +1178,7 @@
 		07B7F1791F5EB41600E6F910 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				F8BE7E062B3B161F00179B35 /* Deprecated */,
 				07B7F17C1F5EB41600E6F910 /* UIAlertControllerExtensions.swift */,
 				07A1C446224FFDE4003272E4 /* UIApplicationExtensions.swift */,
 				07B7F17D1F5EB41600E6F910 /* UIBarButtonItemExtensions.swift */,
@@ -1597,6 +1602,14 @@
 				CAC5EBC42125270A00AB27EC /* UITableViewHeaderFooterView.xib */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F8BE7E062B3B161F00179B35 /* Deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				F8BE7E072B3B161F00179B35 /* UIImageViewDeprecated.swift */,
+			);
+			path = Deprecated;
 			sourceTree = "<group>";
 		};
 		F8E62DA224D0184E00BF35AE /* XCTestTests */ = {
@@ -2245,6 +2258,7 @@
 				664CB96D2171863B00FC87B4 /* BidirectionalCollectionExtensions.swift in Sources */,
 				07B7F1951F5EB42000E6F910 /* UICollectionViewExtensions.swift in Sources */,
 				07B7F1A31F5EB42000E6F910 /* UITableViewExtensions.swift in Sources */,
+				F8BE7E082B3B161F00179B35 /* UIImageViewDeprecated.swift in Sources */,
 				17A4B79326CCFFAE007D299F /* SKSpriteNodeExtensions.swift in Sources */,
 				077BA08F1F6BE83600D9C4AC /* UserDefaultsExtensions.swift in Sources */,
 				07B7F1A11F5EB42000E6F910 /* UISwitchExtensions.swift in Sources */,
@@ -2375,6 +2389,7 @@
 				734308082108E4630029CD16 /* CGVectorExtensions.swift in Sources */,
 				F8DED22624EAA2070068F758 /* UIScrollViewExtensions.swift in Sources */,
 				07B7F1BC1F5EB42000E6F910 /* UIViewControllerExtensions.swift in Sources */,
+				F8BE7E092B3B161F00179B35 /* UIImageViewDeprecated.swift in Sources */,
 				58CAE62A28CF2935001935A2 /* DefaultStringInterpolationExtensions.swift in Sources */,
 				F8A710EA23BF3F7300112DAD /* EdgeInsetsExtensions.swift in Sources */,
 				07B7F2371F5EB45200E6F910 /* CGSizeExtensions.swift in Sources */,
@@ -2465,6 +2480,7 @@
 				D951E8AC23D04DCA00F2CD0B /* DecodableExtensions.swift in Sources */,
 				9D806A882258F624008E500A /* SCNGeometryExtensions.swift in Sources */,
 				07B7F1CC1F5EB42200E6F910 /* UIStoryboardExtensions.swift in Sources */,
+				F8BE7E0A2B3B161F00179B35 /* UIImageViewDeprecated.swift in Sources */,
 				9D806A6C2258DC3E008E500A /* SCNShapeExtensions.swift in Sources */,
 				07B7F1C61F5EB42200E6F910 /* UINavigationBarExtensions.swift in Sources */,
 				F87AA5D724125808005F5B28 /* NotificationCenterExtensions.swift in Sources */,
