@@ -274,6 +274,16 @@ public extension UIView {
         shape.path = maskPath.cgPath
         layer.mask = shape
     }
+    
+    /// SwifterSwift: Make the view circular.
+    /// 
+    /// - Parameter length: length of the view. This value will be set as width and height of the view.
+    func makeCircle(_ length: CGFloat) {
+        self.clipsToBounds = true
+        self.frame.size.height = length
+        self.frame.size.width = length
+        self.layer.cornerRadius = length / 2
+    }
 
     /// SwifterSwift: Add shadow to view.
     ///
