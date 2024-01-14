@@ -13,7 +13,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIView**
   - Added `removeBlur()` method for removing the applied blur effect from the view. [#1159](https://github.com/SwifterSwift/SwifterSwift/pull/1159) by [regi93](https://github.com/regi93)
   
-    - Added `makeCircle()` method to make the view circular. [#]() by [happyduck-git](https://github.com/happyduck-git)
+    - Added `makeCircle()` method to make the view circular. [#1165](https://github.com/SwifterSwift/SwifterSwift/pull/1165) by [happyduck-git](https://github.com/happyduck-git)
 
 ### Fixed
 - **UIImageView**
