@@ -240,31 +240,31 @@ public extension Sequence {
 }
 
 public extension Sequence where Element: Equatable {
-    /// SwifterSwift: Check if array contains an array of elements.
+    /// SwifterSwift: Check if sequence contains elements of another sequence.
     ///
     ///        [1, 2, 3, 4, 5].contains([1, 2]) -> true
     ///        [1.2, 2.3, 4.5, 3.4, 4.5].contains([2, 6]) -> false
     ///        ["h", "e", "l", "l", "o"].contains(["l", "o"]) -> true
     ///
-    /// - Parameter elements: array of elements to check.
+    /// - Parameter elements: sequence of elements to check.
     /// - Returns: true if array contains all given items.
     /// - Complexity: _O(m·n)_, where _m_ is the length of `elements` and _n_ is the length of this sequence.
-    func contains(_ elements: [Element]) -> Bool {
+    func contains<T: Sequence>(_ elements: T) -> Bool where Element == T.Element {
         return elements.allSatisfy { contains($0) }
     }
 }
 
 public extension Sequence where Element: Hashable {
-    /// SwifterSwift: Check if array contains an array of elements.
+    /// SwifterSwift: Check if sequence contains elements of another sequence.
     ///
     ///        [1, 2, 3, 4, 5].contains([1, 2]) -> true
     ///        [1.2, 2.3, 4.5, 3.4, 4.5].contains([2, 6]) -> false
     ///        ["h", "e", "l", "l", "o"].contains(["l", "o"]) -> true
     ///
-    /// - Parameter elements: array of elements to check.
+    /// - Parameter elements: sequence of elements to check.
     /// - Returns: true if array contains all given items.
     /// - Complexity: _O(m + n)_, where _m_ is the length of `elements` and _n_ is the length of this sequence.
-    func contains(_ elements: [Element]) -> Bool {
+    func contains<T: Sequence>(_ elements: T) -> Bool where Element == T.Element {
         let set = Set(self)
         return elements.allSatisfy { set.contains($0) }
     }
