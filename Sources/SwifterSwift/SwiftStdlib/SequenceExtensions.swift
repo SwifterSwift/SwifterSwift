@@ -161,57 +161,57 @@ public extension Sequence {
         return (matching, nonMatching)
     }
 
-    /// SwifterSwift: Return a sorted array based on a key path and a compare function.
+    /// SwifterSwift: Return a sorted array based on a map function and a compare function.
     ///
-    /// - Parameter keyPath: Key path to sort by.
+    /// - Parameter map: Function that defines the property to sort by.
     /// - Parameter compare: Comparison function that will determine the ordering.
     /// - Returns: The sorted array.
-    func sorted<T>(by keyPath: KeyPath<Element, T>, with compare: (T, T) -> Bool) -> [Element] {
-        return sorted { compare($0[keyPath: keyPath], $1[keyPath: keyPath]) }
+    func sorted<T>(by map: (Element) -> T, with compare: (T, T) -> Bool) -> [Element] {
+        return sorted { compare(map($0), map($1)) }
     }
 
-    /// SwifterSwift: Return a sorted array based on a key path.
+    /// SwifterSwift: Return a sorted array based on a map function.
     ///
-    /// - Parameter keyPath: Key path to sort by. The key path type must be Comparable.
+    /// - Parameter map: Function that defines the property to sort by. The output type must be Comparable.
     /// - Returns: The sorted array.
-    func sorted<T: Comparable>(by keyPath: KeyPath<Element, T>) -> [Element] {
-        return sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
+    func sorted<T: Comparable>(by map: (Element) -> T) -> [Element] {
+        return sorted { map($0) < map($1) }
     }
 
-    /// SwifterSwift: Returns a sorted sequence based on two key paths. The second one will be used in case the values
+    /// SwifterSwift: Returns a sorted sequence based on two map functions. The second one will be used in case the values
     /// of the first one match.
     ///
     /// - Parameters:
-    ///     - keyPath1: Key path to sort by. Must be Comparable.
-    ///     - keyPath2: Key path to sort by in case the values of `keyPath1` match. Must be Comparable.
-    func sorted<T: Comparable, U: Comparable>(by keyPath1: KeyPath<Element, T>,
-                                              and keyPath2: KeyPath<Element, U>) -> [Element] {
+    ///     - map1: Map function to sort by. Output type must be Comparable.
+    ///     - map2: Map function to sort by in case the values of `map1` match. Output type must be Comparable.
+    func sorted<T: Comparable, U: Comparable>(by map1: (Element) -> T,
+                                              and map2: (Element) -> U) -> [Element] {
         return sorted {
-            if $0[keyPath: keyPath1] != $1[keyPath: keyPath1] {
-                return $0[keyPath: keyPath1] < $1[keyPath: keyPath1]
+            if map1($0) != map1($1) {
+                return map1($0) < map1($1)
             }
-            return $0[keyPath: keyPath2] < $1[keyPath: keyPath2]
+            return map2($0) < map2($1)
         }
     }
 
-    /// SwifterSwift: Returns a sorted sequence based on three key paths. Whenever the values of one key path match, the
+    /// SwifterSwift: Returns a sorted sequence based on three map functions. Whenever the values of one map function match, the
     /// next one will be used.
     ///
     /// - Parameters:
-    ///     - keyPath1: Key path to sort by. Must be Comparable.
-    ///     - keyPath2: Key path to sort by in case the values of `keyPath1` match. Must be Comparable.
-    ///     - keyPath3: Key path to sort by in case the values of `keyPath1` and `keyPath2` match. Must be Comparable.
-    func sorted<T: Comparable, U: Comparable, V: Comparable>(by keyPath1: KeyPath<Element, T>,
-                                                             and keyPath2: KeyPath<Element, U>,
-                                                             and keyPath3: KeyPath<Element, V>) -> [Element] {
+    ///     - map1: Map function to sort by. Output type must be Comparable.
+    ///     - map2: Map function to sort by in case the values of `map1` match. Output type must be Comparable.
+    ///     - map3: Map function to sort by in case the values of `map1` and `map2` match. Output type must be Comparable.
+    func sorted<T: Comparable, U: Comparable, V: Comparable>(by map1: (Element) -> T,
+                                                             and map2: (Element) -> U,
+                                                             and map3: (Element) -> V) -> [Element] {
         return sorted {
-            if $0[keyPath: keyPath1] != $1[keyPath: keyPath1] {
-                return $0[keyPath: keyPath1] < $1[keyPath: keyPath1]
+            if map1($0) != map1($1) {
+                return map1($0) < map1($1)
             }
-            if $0[keyPath: keyPath2] != $1[keyPath: keyPath2] {
-                return $0[keyPath: keyPath2] < $1[keyPath: keyPath2]
+            if map2($0) != map2($1) {
+                return map2($0) < map2($1)
             }
-            return $0[keyPath: keyPath3] < $1[keyPath: keyPath3]
+            return map3($0) < map3($1)
         }
     }
 
@@ -219,23 +219,23 @@ public extension Sequence {
     ///
     ///     ["James", "Wade", "Bryant"].sum(for: \.count) -> 15
     ///
-    /// - Parameter keyPath: Key path of the `AdditiveArithmetic` property.
-    /// - Returns: The sum of the `AdditiveArithmetic` properties at `keyPath`.
-    func sum<T: AdditiveArithmetic>(for keyPath: KeyPath<Element, T>) -> T {
+    /// - Parameter map: Getter for  the `AdditiveArithmetic` property.
+    /// - Returns: The sum of the `AdditiveArithmetic` properties at `map`.
+    func sum<T: AdditiveArithmetic>(for map: (Element) -> T) -> T {
         // Inspired by: https://swiftbysundell.com/articles/reducers-in-swift/
-        return reduce(.zero) { $0 + $1[keyPath: keyPath] }
+        return reduce(.zero) { $0 + map($1) }
     }
 
-    /// SwifterSwift: Returns the first element of the sequence with having property by given key path equals to given
+    /// SwifterSwift: Returns the first element of the sequence with having the value by given map function equals to given
     /// `value`.
     ///
     /// - Parameters:
-    ///   - keyPath: The `KeyPath` of property for `Element` to compare.
+    ///   - map: Function for `Element` to compare.
     ///   - value: The value to compare with `Element` property.
-    /// - Returns: The first element of the collection that has property by given key path equals to given `value` or
+    /// - Returns: The first element of the collection that has property by given map function equals to given `value` or
     /// `nil` if there is no such element.
-    func first<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Element? {
-        return first { $0[keyPath: keyPath] == value }
+    func first<T: Equatable>(where map: (Element) throws -> T, equals value: T) rethrows -> Element? {
+        return try first { try map($0) == value }
     }
 }
 
