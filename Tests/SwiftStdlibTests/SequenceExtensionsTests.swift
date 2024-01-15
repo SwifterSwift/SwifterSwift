@@ -143,8 +143,18 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(["James", "Wade", "Bryant"].sum(for: \.count), 15)
         XCTAssertEqual(["a", "b", "c", "d"].sum(for: \.count), 4)
     }
+    
+    func testProduct() {
+        XCTAssertEqual([1, 2, 3, 4, 5].product(), 120)
+        XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].product(), 236.4768, accuracy: 0.001)
+    }
 
-    func testKeyPathSorted() {
+    func testMapFunctionProduct() {
+        XCTAssertEqual(["James", "Wade", "Bryant"].product(for: \.count), 120)
+        XCTAssertEqual(["a", "b", "c", "d"].product(for: \.count), 1)
+    }
+
+    func testMapFunctionSorted() {
         let array = ["James", "Wade", "Bryant"]
         XCTAssertEqual(array.sorted(by: \String.count, with: <), ["Wade", "James", "Bryant"])
         XCTAssertEqual(array.sorted(by: \String.count, with: >), ["Bryant", "James", "Wade"])
