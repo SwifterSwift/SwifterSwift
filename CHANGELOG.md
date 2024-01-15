@@ -12,6 +12,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `+=`, `-=`, `*=`, `/=` to add, subtract, multiply and divide measurements. [#1162](https://github.com/SwifterSwift/SwifterSwift/pull/1162) by [Roman Podymov](https://github.com/RomanPodymov)
 - **UIView**
   - Added `removeBlur()` method for removing the applied blur effect from the view. [#1159](https://github.com/SwifterSwift/SwifterSwift/pull/1159) by [regi93](https://github.com/regi93)
+- **Sequence**
+  - Added `product()` for calculating the product of all `Numeric` elements. [#1168](https://github.com/SwifterSwift/SwifterSwift/pull/1168)[MartonioJunior](https://github.com/MartonioJunior)
+  - Added `product(for:)` for calculating the product of the `Numeric` property for all elements in `Sequence`. [#1168](https://github.com/SwifterSwift/SwifterSwift/pull/1168)[MartonioJunior](https://github.com/MartonioJunior)
 
 ### Fixed
 - **UIImageView**
