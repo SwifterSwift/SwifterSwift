@@ -95,6 +95,15 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(tuple.nonMatching, [1, 3, 5])
         XCTAssertEqual(tuple.1, [1, 3, 5])
     }
+    
+    func testContainsMatcher() {
+        XCTAssert([String]().contains([], matchedBy: {_,_ in true}))
+        XCTAssertFalse([String]().contains([1, 2], matchedBy: { $0.count == $1 }))
+        XCTAssert((["A", "Po", "Joe"] as [String]).contains([1, 2], matchedBy: { $0.count == $1 }))
+        XCTAssert((["A", "Po", "Joe"] as [String]).contains([2, 3], matchedBy: { $0.count == $1 }))
+        XCTAssert((["A", "Po", "Joe"] as [String]).contains([1, 3], matchedBy: { $0.count == $1 }))
+        XCTAssertFalse((["A", "Po", "Joe"] as [String]).contains([4, 5], matchedBy: { $0.count == $1 }))
+    }
 
     func testContainsEquatable() {
         XCTAssert([TestValue]().contains([]))

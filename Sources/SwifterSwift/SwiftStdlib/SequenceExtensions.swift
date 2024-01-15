@@ -105,6 +105,23 @@ public extension Sequence {
     func filtered<T>(_ isIncluded: (Element) throws -> Bool, map transform: (Element) throws -> T) rethrows -> [T] {
         return try lazy.filter(isIncluded).map(transform)
     }
+    
+    /// SwifterSwift: Contains operations based on matching function
+    ///
+    ///      ["James", "Wade", "Bryant"].contains([4,5], for: { $0.count == $1 }) -> true
+    ///
+    /// - Parameters:
+    ///   - elements: sequence of elements to compare to.
+    ///   - matcher: how should the elements be mapped and compared.
+    /// - Returns: true when `elements` are matched in sequence.
+    func contains<T: Sequence>(
+        _ elements: T,
+        matchedBy matcher: (Element, T.Element) throws -> Bool
+    ) rethrows -> Bool {
+        return try elements.allSatisfy { value in
+            try contains(where: { try matcher($0, value) })
+        }
+    }
 
     /// SwifterSwift: Get the only element based on a condition.
     ///
