@@ -139,7 +139,7 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].sum(), 17)
     }
 
-    func testKeyPathSum() {
+    func testMapFunctionSum() {
         XCTAssertEqual(["James", "Wade", "Bryant"].sum(for: \.count), 15)
         XCTAssertEqual(["a", "b", "c", "d"].sum(for: \.count), 4)
     }
@@ -162,7 +162,7 @@ final class SequenceExtensionsTests: XCTestCase {
         // Comparable version
         XCTAssertEqual(array.sorted(by: \String.count), ["Wade", "James", "Bryant"])
 
-        // Testing optional keyPath
+        // Testing optional map function
         let optionalCompare = { (char1: Character?, char2: Character?) -> Bool in
             guard let char1 = char1, let char2 = char2 else { return false }
             return char1 < char2
@@ -172,7 +172,7 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(array2.sorted(by: \String.first, with: optionalCompare), ["Bryant", "James", "Wade", ""])
     }
 
-    func testSortedByTwoKeyPaths() {
+    func testSortedByTwoMapFunctions() {
         let people = [
             SimplePerson(forename: "Tom", surname: "James", age: 32),
             SimplePerson(forename: "Angeline", surname: "Wade", age: 57),
@@ -186,7 +186,7 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(people.sorted(by: \.surname, and: \.age), expectedResult)
     }
 
-    func testSortedByThreeKeyPaths() {
+    func testSortedByThreeMapFunctions() {
         let people = [
             SimplePerson(forename: "Tom", surname: "James", age: 32),
             SimplePerson(forename: "Angeline", surname: "Wade", age: 57),
@@ -202,7 +202,7 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(people.sorted(by: \.surname, and: \.forename, and: \.age), expectedResult)
     }
 
-    func testFirstByKeyPath() {
+    func testFirstByMapFunction() {
         let array1 = [
             Person(name: "John", age: 30, location: Location(city: "Boston")),
             Person(name: "Jan", age: 22, location: nil),
