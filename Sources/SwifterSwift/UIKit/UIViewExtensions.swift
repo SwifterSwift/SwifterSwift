@@ -278,7 +278,7 @@ public extension UIView {
     /// SwifterSwift: Make the view circular.
     /// 
     /// - Parameter diameter: This value will be set as the width and height of the view.
-    func makeCircle(_ length: CGFloat) {
+    func makeCircle(diameter: CGFloat) {
         self.clipsToBounds = true
         self.frame.size.height = length
         self.frame.size.width = length
