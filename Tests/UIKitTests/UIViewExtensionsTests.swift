@@ -91,7 +91,7 @@ final class UIViewExtensionsTests: XCTestCase {
     
     func testMakeCircle() {
         let view = UIView()
-        view.makeCircle(100)
+        view.makeCircle(diameter: 100)
         XCTAssertEqual(view.frame.size.width, 100)
         XCTAssertEqual(view.frame.size.height, 100)
         XCTAssertEqual(view.layer.cornerRadius, 50)
