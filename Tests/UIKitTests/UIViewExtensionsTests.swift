@@ -88,6 +88,14 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(view.layer.mask?.bounds, shape.bounds)
         XCTAssertEqual(view.layer.mask?.cornerRadius, shape.cornerRadius)
     }
+    
+    func testMakeCircle() {
+        let view = UIView()
+        view.makeCircle(diameter: 100)
+        XCTAssertEqual(view.frame.size.width, 100)
+        XCTAssertEqual(view.frame.size.height, 100)
+        XCTAssertEqual(view.layer.cornerRadius, 50)
+    }
 
     func testShadowColor() {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
