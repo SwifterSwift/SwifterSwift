@@ -13,6 +13,15 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIView**
   - Added `removeBlur()` method for removing the applied blur effect from the view. [#1159](https://github.com/SwifterSwift/SwifterSwift/pull/1159) by [regi93](https://github.com/regi93)
   - Added `makeCircle(diameter:)` method to make the view circular. [#1165](https://github.com/SwifterSwift/SwifterSwift/pull/1165) by [happyduck-git](https://github.com/happyduck-git)
+- **Sequence**
+  - Added `product()` for calculating the product of all `Numeric` elements. [#1167](https://github.com/SwifterSwift/SwifterSwift/pull/1167)[MartonioJunior](https://github.com/MartonioJunior)
+  - Added `product(for:)` for calculating the product of the `Numeric` property for all elements in `Sequence`. [#1167](https://github.com/SwifterSwift/SwifterSwift/pull/1167)[MartonioJunior](https://github.com/MartonioJunior)
+  - Added `contains(_:matchedBy:)` to allow checking for values with a matcher that compares values.
+
+### Changed
+- **Sequence**
+    - `sorted(by:)`, `sorted(by:with:)`, `sorted(by:and:)`, `sorted(by:and:and:)`, `sum(for:)`, `product(for:)`, `first(where:equals:)` now receive functions as parameters. This change maintains compatibility with KeyPath while making the methods more flexible. [#1167](https://github.com/SwifterSwift/SwifterSwift/pull/1167)[MartonioJunior](https://github.com/MartonioJunior)
+    - `contains(_:)` for both `Element: Hashable` and `Element: Equatable` now can receive any type that conforms to `Sequence`, not just `Array`. [#1167](https://github.com/SwifterSwift/SwifterSwift/pull/1167)[MartonioJunior](https://github.com/MartonioJunior)
 
 ### Fixed
 - **UIImageView**
