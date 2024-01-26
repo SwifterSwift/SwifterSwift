@@ -21,7 +21,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Changed
 - **Sequence**
     - `sorted(by:)`, `sorted(by:with:)`, `sorted(by:and:)`, `sorted(by:and:and:)`, `sum(for:)`, `product(for:)`, `first(where:equals:)` now receive functions as parameters. This change maintains compatibility with KeyPath while making the methods more flexible. [#1167](https://github.com/SwifterSwift/SwifterSwift/pull/1167)[MartonioJunior](https://github.com/MartonioJunior)
-    - `contains(_:)` for both `Element: Hashable` and `Element: Equatable` now can receive any type that conforms to `Sequence`, not just `Array`. [#1167](https://github.com/SwifterSwift/SwifterSwift/pull/1167)[MartonioJunior](https://github.com/MartonioJunior)
+    - `contains(_:)` for `Element: Hashable` now can receive any type that conforms to `Sequence`, not just `Array`. [#1167](https://github.com/SwifterSwift/SwifterSwift/pull/1167)[MartonioJunior](https://github.com/MartonioJunior)
 
 ### Fixed
 - **UIImageView**
