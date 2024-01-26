@@ -326,11 +326,11 @@ public extension Sequence where Element: Hashable {
 // MARK: - Methods (AdditiveArithmetic)
 
 public extension Sequence where Element: AdditiveArithmetic {
-    /// SwifterSwift: Sum of all elements in array.
+    /// SwifterSwift: Sum of all elements in sequence.
     ///
     ///        [1, 2, 3, 4, 5].sum() -> 15
     ///
-    /// - Returns: sum of the array's elements.
+    /// - Returns: sum of the sequence's elements.
     func sum() -> Element {
         return reduce(.zero, +)
     }
@@ -343,6 +343,6 @@ public extension Sequence where Element: Numeric {
     ///
     ///        [1, 2, 3, 4, 5].product() -> 120
     ///
-    /// - Returns: product of the array's elements.
+    /// - Returns: product of the sequence's elements.
     func product() -> Element { reduce(1, *) }
 }
