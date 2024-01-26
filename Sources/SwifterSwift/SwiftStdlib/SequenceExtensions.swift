@@ -339,7 +339,7 @@ public extension Sequence where Element: AdditiveArithmetic {
 // MARK: - Methods (Numeric)
 
 public extension Sequence where Element: Numeric {
-    /// SwifterSwift: Product of all elements in array.
+    /// SwifterSwift: Product of all elements in sequence.
     ///
     ///        [1, 2, 3, 4, 5].product() -> 120
     ///
