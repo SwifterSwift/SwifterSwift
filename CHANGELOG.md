@@ -3,6 +3,9 @@
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
 ## Upcoming Release
+### Added
+- **Sequence**
+    - `sorted(by:)`, `sorted(by:with:)`, `sorted(by:and:)`, `sorted(by:and:and:)`, `sum(for:)`, `first(where:equals:)` now have alternatives that receive functions as parameters. This change maintains compatibility with KeyPath while making the methods more flexible. [#1170](https://github.com/SwifterSwift/SwifterSwift/pull/1170) by [MartonioJunior](https://github.com/MartonioJunior)
 
 ### Added
 - **NSView**
