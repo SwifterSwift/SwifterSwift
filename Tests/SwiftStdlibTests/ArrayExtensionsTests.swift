@@ -1,6 +1,7 @@
-// ArrayExtensionsTests.swift - Copyright 2023 SwifterSwift
+// ArrayExtensionsTests.swift - Copyright 2024 SwifterSwift
 
 @testable import SwifterSwift
+
 //
 //  ArrayExtensionsTests.swift
 //  SwifterSwift

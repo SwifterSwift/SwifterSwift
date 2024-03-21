@@ -1,4 +1,4 @@
-// SequenceExtensionsTests.swift - Copyright 2023 SwifterSwift
+// SequenceExtensionsTests.swift - Copyright 2024 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -134,7 +134,7 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(["James", "Wade", "Bryant"].sum(for: \.count), 15)
         XCTAssertEqual(["a", "b", "c", "d"].sum(for: \.count), 4)
     }
-    
+
     func testProduct() {
         XCTAssertEqual([1, 2, 3, 4, 5].product(), 120)
         XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].product(), 236.4768, accuracy: 0.001)

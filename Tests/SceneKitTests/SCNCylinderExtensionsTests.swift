@@ -1,4 +1,4 @@
-// SCNCylinderExtensionsTests.swift - Copyright 2023 SwifterSwift
+// SCNCylinderExtensionsTests.swift - Copyright 2024 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

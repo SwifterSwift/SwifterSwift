@@ -1,4 +1,4 @@
-// UIImageViewExtensionsTests.swift - Copyright 2023 SwifterSwift
+// UIImageViewExtensionsTests.swift - Copyright 2024 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

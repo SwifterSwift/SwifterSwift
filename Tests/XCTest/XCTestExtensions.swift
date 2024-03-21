@@ -1,16 +1,18 @@
-// XCTestExtensions.swift - Copyright 2023 SwifterSwift
+// XCTestExtensions.swift - Copyright 2024 SwifterSwift
 
 #if canImport(XCTest)
 import XCTest
 
 #if canImport(UIKit)
 import UIKit
+
 /// SwifterSwift: Color
 public typealias SFColor = UIColor
 #endif
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
+
 /// SwifterSwift: Color
 public typealias SFColor = NSColor
 #endif

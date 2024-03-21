@@ -1,7 +1,8 @@
-// HKActivitySummaryExtensionsTests.swift - Copyright 2023 SwifterSwift
+// HKActivitySummaryExtensionsTests.swift - Copyright 2024 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
+
 #if !os(tvOS)
 #if canImport(HealthKit)
 import HealthKit

@@ -1,4 +1,4 @@
-// UIViewExtensionsTests.swift - Copyright 2023 SwifterSwift
+// UIViewExtensionsTests.swift - Copyright 2024 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -88,7 +88,7 @@ final class UIViewExtensionsTests: XCTestCase {
         XCTAssertEqual(view.layer.mask?.bounds, shape.bounds)
         XCTAssertEqual(view.layer.mask?.cornerRadius, shape.cornerRadius)
     }
-    
+
     func testMakeCircle() {
         let view = UIView()
         view.makeCircle(diameter: 100)

@@ -1,4 +1,4 @@
-// UIViewExtensions.swift - Copyright 2023 SwifterSwift
+// UIViewExtensions.swift - Copyright 2024 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -274,9 +274,9 @@ public extension UIView {
         shape.path = maskPath.cgPath
         layer.mask = shape
     }
-    
+
     /// SwifterSwift: Make the view circular.
-    /// 
+    ///
     /// - Parameter diameter: This value will be set as the width and height of the view.
     func makeCircle(diameter: CGFloat) {
         clipsToBounds = true

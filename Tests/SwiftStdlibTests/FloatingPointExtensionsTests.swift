@@ -1,4 +1,4 @@
-// FloatingPointExtensionsTests.swift - Copyright 2023 SwifterSwift
+// FloatingPointExtensionsTests.swift - Copyright 2024 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

@@ -1,4 +1,4 @@
-// UIColorExtensionsTests.swift - Copyright 2023 SwifterSwift
+// UIColorExtensionsTests.swift - Copyright 2024 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

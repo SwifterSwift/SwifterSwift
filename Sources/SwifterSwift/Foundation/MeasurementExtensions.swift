@@ -1,4 +1,4 @@
-// MeasurementExtensions.swift - Copyright 2023 SwifterSwift
+// MeasurementExtensions.swift - Copyright 2024 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -58,7 +58,8 @@ public extension Measurement {
         lhs = lhs + rhs
     }
 
-    /// SwifterSwift: Subtracts the second value from the first and stores the difference in the left-hand-side variable.
+    /// SwifterSwift: Subtracts the second value from the first and stores the difference in the left-hand-side
+    /// variable.
     /// - Parameters:
     ///   - lhs: A `Measurement` value.
     ///   - rhs: The value to subtract from `lhs`.

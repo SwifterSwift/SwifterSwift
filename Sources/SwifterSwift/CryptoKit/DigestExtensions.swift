@@ -1,4 +1,4 @@
-// DigestExtensions.swift - Copyright 2023 SwifterSwift
+// DigestExtensions.swift - Copyright 2024 SwifterSwift
 
 #if canImport(CryptoKit)
 import CryptoKit

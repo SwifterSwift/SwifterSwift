@@ -1,4 +1,4 @@
-// UIGestureRecognizerExtensions.swift - Copyright 2023 SwifterSwift
+// UIGestureRecognizerExtensions.swift - Copyright 2024 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit

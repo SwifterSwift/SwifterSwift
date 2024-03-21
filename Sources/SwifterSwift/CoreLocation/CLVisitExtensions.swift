@@ -1,4 +1,4 @@
-// CLVisitExtensions.swift - Copyright 2023 SwifterSwift
+// CLVisitExtensions.swift - Copyright 2024 SwifterSwift
 
 #if canImport(CoreLocation) && (os(iOS) || targetEnvironment(macCatalyst))
 import CoreLocation
