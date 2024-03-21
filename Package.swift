@@ -15,12 +15,17 @@ let package = Package(
         .library(name: "SwifterSwift", targets: ["SwifterSwift"])
     ],
     targets: [
-        .target(name: "SwifterSwift",
-                swiftSettings: [
-                    .enableUpcomingFeature("ConciseMagicFile"),
-                    .enableUpcomingFeature("ExistentialAny"),
-                    .enableUpcomingFeature("ForwardTrailingClosures")
-                ]),
+        .target(
+            name: "SwifterSwift",
+            resources: [
+                .process("Resources/PrivacyInfo.xcprivacy")
+            ],
+            swiftSettings: [
+                .enableUpcomingFeature("ConciseMagicFile"),
+                .enableUpcomingFeature("ExistentialAny"),
+                .enableUpcomingFeature("ForwardTrailingClosures")
+            ]
+        ),
         .testTarget(
             name: "SwifterSwiftTests",
             dependencies: ["SwifterSwift"],
@@ -31,5 +36,7 @@ let package = Package(
                 .enableUpcomingFeature("ConciseMagicFile"),
                 .enableUpcomingFeature("ExistentialAny"),
                 .enableUpcomingFeature("ForwardTrailingClosures")
-            ])
-    ])
+            ]
+        )
+    ]
+)
