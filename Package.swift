@@ -24,8 +24,7 @@ let package = Package(
                 .enableUpcomingFeature("ConciseMagicFile"),
                 .enableUpcomingFeature("ExistentialAny"),
                 .enableUpcomingFeature("ForwardTrailingClosures")
-            ]
-        ),
+            ]),
         .testTarget(
             name: "SwifterSwiftTests",
             dependencies: ["SwifterSwift"],
@@ -36,7 +35,5 @@ let package = Package(
                 .enableUpcomingFeature("ConciseMagicFile"),
                 .enableUpcomingFeature("ExistentialAny"),
                 .enableUpcomingFeature("ForwardTrailingClosures")
-            ]
-        )
-    ]
-)
+            ])
+    ])
