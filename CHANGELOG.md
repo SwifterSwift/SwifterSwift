@@ -3,6 +3,8 @@
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
 ## Upcoming Release
+
+## [v6.1.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.1.0)
 ### Deprecated
 - **UIImageView**
   - `blurred(withStyle:)` should have copied the image view and blurred the new instance, but instead it performed the same functionality as `blur(withStyle:)`, making the outcome unexpected as well as being obsolete. [#1161](https://github.com/SwifterSwift/SwifterSwift/pull/1161) by [guykogus](https://github.com/guykogus)
