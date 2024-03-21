@@ -1,4 +1,4 @@
-// SCNVector3Extensions.swift - Copyright 2023 SwifterSwift
+// SCNVector3Extensions.swift - Copyright 2024 SwifterSwift
 
 #if os(OSX)
 /// SwifterSwift: CGFloat.

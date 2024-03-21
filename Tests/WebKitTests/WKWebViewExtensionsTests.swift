@@ -1,4 +1,4 @@
-// WKWebViewExtensionsTests.swift - Copyright 2023 SwifterSwift
+// WKWebViewExtensionsTests.swift - Copyright 2024 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

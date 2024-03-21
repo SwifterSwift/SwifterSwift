@@ -1,4 +1,4 @@
-// SCNConeExtensions.swift - Copyright 2023 SwifterSwift
+// SCNConeExtensions.swift - Copyright 2024 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit

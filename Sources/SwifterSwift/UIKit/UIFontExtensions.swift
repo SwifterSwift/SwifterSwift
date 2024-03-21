@@ -1,4 +1,4 @@
-// UIFontExtensions.swift - Copyright 2023 SwifterSwift
+// UIFontExtensions.swift - Copyright 2024 SwifterSwift
 
 #if canImport(UIKit)
 import UIKit

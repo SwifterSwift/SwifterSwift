@@ -1,4 +1,4 @@
-// SequenceExtensions.swift - Copyright 2023 SwifterSwift
+// SequenceExtensions.swift - Copyright 2024 SwifterSwift
 
 public extension Sequence {
     /// SwifterSwift: Check if all elements in collection match a condition.
@@ -225,7 +225,7 @@ public extension Sequence {
         // Inspired by: https://swiftbysundell.com/articles/reducers-in-swift/
         return reduce(.zero) { $0 + $1[keyPath: keyPath] }
     }
-    
+
     /// SwifterSwift: Product of all elements in sequence.
     ///
     ///        ["James", "Wade", "Bryant"].product(for: \.count) -> 120

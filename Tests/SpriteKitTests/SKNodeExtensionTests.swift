@@ -1,4 +1,4 @@
-// SKNodeExtensionTests.swift - Copyright 2023 SwifterSwift
+// SKNodeExtensionTests.swift - Copyright 2024 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
