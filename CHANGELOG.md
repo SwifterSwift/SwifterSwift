@@ -8,6 +8,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `blurred(withStyle:)` should have copied the image view and blurred the new instance, but instead it performed the same functionality as `blur(withStyle:)`, making the outcome unexpected as well as being obsolete. [#1161](https://github.com/SwifterSwift/SwifterSwift/pull/1161) by [guykogus](https://github.com/guykogus)
 
 ### Added
+- **Swift Package Manager**
+  - Added a privacy manifest to comply with Apple's requirements regarding [Describing use of required reason API](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api). [#1176](https://github.com/SwifterSwift/SwifterSwift/pull/1161) by [guykogus](https://github.com/guykogus)
 - **Measurement**
   - Added `+=`, `-=`, `*=`, `/=` to add, subtract, multiply and divide measurements. [#1162](https://github.com/SwifterSwift/SwifterSwift/pull/1162) by [Roman Podymov](https://github.com/RomanPodymov)
 - **Sequence**
