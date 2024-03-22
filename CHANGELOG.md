@@ -4,6 +4,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 
+## [v6.1.1](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.1.1)
+### Added
+- **Cocoapods**
+  - Added the privacy manifest to Cocoapods. [#1178](https://github.com/SwifterSwift/SwifterSwift/pull/1178) by [guykogus](https://github.com/guykogus)
+
 ## [v6.1.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.1.0)
 ### Deprecated
 - **UIImageView**
@@ -11,7 +16,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Added
 - **Swift Package Manager**
-  - Added a privacy manifest to comply with Apple's requirements regarding [Describing use of required reason API](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api). [#1176](https://github.com/SwifterSwift/SwifterSwift/pull/1161) by [guykogus](https://github.com/guykogus)
+  - Added a privacy manifest to comply with Apple's requirements regarding [Describing use of required reason API](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files/describing_use_of_required_reason_api). [#1176](https://github.com/SwifterSwift/SwifterSwift/pull/1176) by [guykogus](https://github.com/guykogus)
 - **Measurement**
   - Added `+=`, `-=`, `*=`, `/=` to add, subtract, multiply and divide measurements. [#1162](https://github.com/SwifterSwift/SwifterSwift/pull/1162) by [Roman Podymov](https://github.com/RomanPodymov)
 - **Sequence**
