@@ -4,6 +4,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 
+### Changed
+- **Sequence**
+    - `contains(_:)` for `Element: Hashable` now can receive any type that conforms to `Sequence`, not just an `Array`. [#1169](https://github.com/SwifterSwift/SwifterSwift/pull/1169) by [MartonioJunior](https://github.com/MartonioJunior)
+
+
 ## [v6.1.1](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.1.1)
 ### Added
 - **Cocoapods**
@@ -24,7 +29,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `product(for:)` for calculating the product of the `Numeric` property for all elements in `Sequence`. [#1168](https://github.com/SwifterSwift/SwifterSwift/pull/1168) by [MartonioJunior](https://github.com/MartonioJunior)
 - **UIView**
   - Added `removeBlur()` method for removing the applied blur effect from the view. [#1159](https://github.com/SwifterSwift/SwifterSwift/pull/1159) by [regi93](https://github.com/regi93)
-  - Added `makeCircle(diameter:)` method to make the view circular. [#1165](https://github.com/SwifterSwift/SwifterSwift/pull/1165) by [happyduck-git](https://github.com/happyduck-git)
 
 ### Fixed
 - **UIImageView**
