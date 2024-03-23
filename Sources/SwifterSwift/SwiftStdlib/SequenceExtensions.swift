@@ -220,10 +220,10 @@ public extension Sequence {
     func sorted<T: Comparable, U: Comparable>(by map1: (Element) throws -> T,
                                               and map2: (Element) throws -> U) rethrows -> [Element] {
         return try sorted {
-            let value10 = map1($0)
-            let value11 = map1($1)
-            if try value10 != value11 {
-                return try value10 < value11
+            let value10 = try map1($0)
+            let value11 = try map1($1)
+            if value10 != value11 {
+                return value10 < value11
             }
             return try map2($0) < map2($1)
         }
@@ -261,16 +261,16 @@ public extension Sequence {
                                                              and map2: (Element) throws -> U,
                                                              and map3: (Element) throws -> V) rethrows -> [Element] {
         return try sorted {
-            let value10 = map1($0)
-            let value11 = map1($1)
-            if try value10 != value11 {
-                return try value10 < value11
+            let value10 = try map1($0)
+            let value11 = try map1($1)
+            if value10 != value11 {
+                return value10 < value11
             }
             
-            let value20 = map2($0)
-            let value21 = map2($1)
-            if try value20 != value21 {
-                return try value20 < value21
+            let value20 = try map2($0)
+            let value21 = try map2($1)
+            if value20 != value21 {
+                return value20 < value21
             }
             return try map3($0) < map3($1)
         }
