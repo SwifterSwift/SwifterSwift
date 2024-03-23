@@ -261,11 +261,16 @@ public extension Sequence {
                                                              and map2: (Element) throws -> U,
                                                              and map3: (Element) throws -> V) rethrows -> [Element] {
         return try sorted {
-            if try map1($0) != map1($1) {
-                return try map1($0) < map1($1)
+            let value10 = map1($0)
+            let value11 = map1($1)
+            if try value10 != value11 {
+                return try value10 < value11
             }
-            if try map2($0) != map2($1) {
-                return try map2($0) < map2($1)
+            
+            let value20 = map2($0)
+            let value21 = map2($1)
+            if try value20 != value21 {
+                return try value20 < value21
             }
             return try map3($0) < map3($1)
         }
