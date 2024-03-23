@@ -229,7 +229,7 @@ public extension Sequence {
         }
     }
 
-    /// SwifterSwift: Returns a sorted sequence based on three map functions. Whenever the values of one map function match, the
+    /// SwifterSwift: Returns a sorted sequence based on three key paths. Whenever the values of one key path match, the
     /// next one will be used.
     ///
     /// - Parameters:
