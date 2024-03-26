@@ -112,6 +112,20 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssert([1, 2, 3].contains([2, 3]))
         XCTAssert([1, 2, 3].contains([1, 3]))
         XCTAssertFalse([1, 2, 3].contains([4, 5]))
+        
+        XCTAssert([Int]().contains(AnyIterator({ nil })))
+        XCTAssertFalse([Int]().contains(AnyIterator([1, 2].makeIterator())))
+        XCTAssert([1, 2, 3].contains(AnyIterator([1, 2].makeIterator())))
+        XCTAssert([1, 2, 3].contains(AnyIterator([2, 3].makeIterator())))
+        XCTAssert([1, 2, 3].contains(AnyIterator([1, 3].makeIterator())))
+        XCTAssertFalse([1, 2, 3].contains(AnyIterator([4, 5].makeIterator())))
+        
+        XCTAssert([Int]().contains(Set<Int>()))
+        XCTAssertFalse([Int]().contains(Set([1, 2])))
+        XCTAssert([1, 2, 3].contains(Set([1, 2])))
+        XCTAssert([1, 2, 3].contains(Set([2, 3])))
+        XCTAssert([1, 2, 3].contains(Set([1, 3])))
+        XCTAssertFalse([1, 2, 3].contains(Set([4, 5])))
     }
 
     func testContainsDuplicates() {
