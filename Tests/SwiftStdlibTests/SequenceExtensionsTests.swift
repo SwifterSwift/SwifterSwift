@@ -121,11 +121,11 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertFalse([1, 2, 3].contains(AnyIterator([4, 5].makeIterator())))
         
         XCTAssert([Int]().contains(Set<Int>()))
-        XCTAssertFalse([Int]().contains(Set(arrayLiteral: 1, 2)))
-        XCTAssert([1, 2, 3].contains(Set(arrayLiteral: 1, 2)))
-        XCTAssert([1, 2, 3].contains(Set(arrayLiteral: 2, 3)))
-        XCTAssert([1, 2, 3].contains(Set(arrayLiteral: 1, 3)))
-        XCTAssertFalse([1, 2, 3].contains(Set(arrayLiteral: 4, 5)))
+        XCTAssertFalse([Int]().contains(Set([1, 2])))
+        XCTAssert([1, 2, 3].contains(Set([1, 2])))
+        XCTAssert([1, 2, 3].contains(Set([2, 3])))
+        XCTAssert([1, 2, 3].contains(Set([1, 3])))
+        XCTAssertFalse([1, 2, 3].contains(Set([4, 5])))
     }
 
     func testContainsDuplicates() {
