@@ -14,7 +14,7 @@ public extension NSStackView {
     }
 
     /// SwifterSwift: Remove all arranged subviews in stack view.
-    func removeASubviews() {
+    func removeArrangedSubviews() {
         arrangedSubviews.forEach { $0.removeFromSuperview() }
     }
 }
