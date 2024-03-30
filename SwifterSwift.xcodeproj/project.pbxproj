@@ -556,6 +556,7 @@
 		9E28344F25AEBD160093203B /* MeasurementExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E28344C25AEBD160093203B /* MeasurementExtensionsTests.swift */; };
 		9E3CA2672ABE0D7100FA4626 /* FutureExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA2662ABE0D7100FA4626 /* FutureExtensions.swift */; };
 		9E3CA3772ABE103E00FA4626 /* FutureExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA3752ABE0FEE00FA4626 /* FutureExtensionsTests.swift */; };
+		9E8C72392BB8CE5900866521 /* NSStackViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8C72382BB8CE5800866521 /* NSStackViewExtensions.swift */; };
 		9E9F42B129872E9400A0BD60 /* URLSessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9F42B029872E9300A0BD60 /* URLSessionExtensions.swift */; };
 		9E9F42B229872E9400A0BD60 /* URLSessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9F42B029872E9300A0BD60 /* URLSessionExtensions.swift */; };
 		9E9F42B329872E9400A0BD60 /* URLSessionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E9F42B029872E9300A0BD60 /* URLSessionExtensions.swift */; };
@@ -568,6 +569,7 @@
 		9EA118122ABF2FED00AD3916 /* FutureExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA2662ABE0D7100FA4626 /* FutureExtensions.swift */; };
 		9EA118132ABF2FFE00AD3916 /* FutureExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA3752ABE0FEE00FA4626 /* FutureExtensionsTests.swift */; };
 		9EA118142ABF2FFF00AD3916 /* FutureExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E3CA3752ABE0FEE00FA4626 /* FutureExtensionsTests.swift */; };
+		9ECEAE692BB8D19500DFBBDD /* NSStackViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ECEAE682BB8D19400DFBBDD /* NSStackViewExtensionsTests.swift */; };
 		A94AA78720280F9100E229A5 /* FileManagerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA78620280F9100E229A5 /* FileManagerExtensions.swift */; };
 		A94AA78A202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */; };
 		A94AA78B202819B400E229A5 /* FileManagerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */; };
@@ -913,8 +915,10 @@
 		9E28344C25AEBD160093203B /* MeasurementExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeasurementExtensionsTests.swift; sourceTree = "<group>"; };
 		9E3CA2662ABE0D7100FA4626 /* FutureExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureExtensions.swift; sourceTree = "<group>"; };
 		9E3CA3752ABE0FEE00FA4626 /* FutureExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FutureExtensionsTests.swift; sourceTree = "<group>"; };
+		9E8C72382BB8CE5800866521 /* NSStackViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStackViewExtensions.swift; sourceTree = "<group>"; };
 		9E9F42B029872E9300A0BD60 /* URLSessionExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionExtensions.swift; sourceTree = "<group>"; };
 		9E9F42B529872F5F00A0BD60 /* URLSessionExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLSessionExtensionsTests.swift; sourceTree = "<group>"; };
+		9ECEAE682BB8D19400DFBBDD /* NSStackViewExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSStackViewExtensionsTests.swift; sourceTree = "<group>"; };
 		A94AA78620280F9100E229A5 /* FileManagerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensions.swift; sourceTree = "<group>"; };
 		A94AA7882028193A00E229A5 /* FileManagerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtensionsTests.swift; sourceTree = "<group>"; };
 		B22EB2B620E9E720001EAE70 /* RangeReplaceableCollectionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeReplaceableCollectionExtensions.swift; sourceTree = "<group>"; };
@@ -1148,8 +1152,9 @@
 			isa = PBXGroup;
 			children = (
 				9DC844A42349E24600E1571A /* NSColorExtensions.swift */,
-				07B7F1641F5EB41600E6F910 /* NSViewExtensions.swift */,
 				278CA08C1F9A9232004918BD /* NSImageExtensions.swift */,
+				9E8C72382BB8CE5800866521 /* NSStackViewExtensions.swift */,
+				07B7F1641F5EB41600E6F910 /* NSViewExtensions.swift */,
 			);
 			path = AppKit;
 			sourceTree = "<group>";
@@ -1306,6 +1311,7 @@
 			children = (
 				5C88FBEB234CC1280065A942 /* NSColorExtensionsTests.swift */,
 				278CA0901F9A9679004918BD /* NSImageExtensionsTests.swift */,
+				9ECEAE682BB8D19400DFBBDD /* NSStackViewExtensionsTests.swift */,
 				07C50D2A1F5EB03200F46E5A /* NSViewExtensionsTests.swift */,
 			);
 			path = AppKitTests;
@@ -2557,6 +2563,7 @@
 				9E9F42B429872E9400A0BD60 /* URLSessionExtensions.swift in Sources */,
 				07B7F2231F5EB44600E6F910 /* CGSizeExtensions.swift in Sources */,
 				664CB9792171899800FC87B4 /* BinaryFloatingPointExtensions.swift in Sources */,
+				9E8C72392BB8CE5900866521 /* NSStackViewExtensions.swift in Sources */,
 				9D806A632258D503008E500A /* SCNPlaneExtensions.swift in Sources */,
 				07B7F1E11F5EB43B00E6F910 /* OptionalExtensions.swift in Sources */,
 				9D9784DE1FCAE42600D988E7 /* StringProtocolExtensions.swift in Sources */,
@@ -2864,6 +2871,7 @@
 				9E28344F25AEBD160093203B /* MeasurementExtensionsTests.swift in Sources */,
 				07C50D851F5EB05800F46E5A /* NSAttributedStringExtensionsTests.swift in Sources */,
 				9E9F42BC298733E000A0BD60 /* URLSessionExtensionsTests.swift in Sources */,
+				9ECEAE692BB8D19500DFBBDD /* NSStackViewExtensionsTests.swift in Sources */,
 				07C50D7C1F5EB05100F46E5A /* IntExtensionsTests.swift in Sources */,
 				F8B4DFB3291EA77C0011BD90 /* HKActivitySummaryExtensionsTests.swift in Sources */,
 				F8C1AE76225B871F0045D5A0 /* NSRegularExpressionExtensionsTests.swift in Sources */,
