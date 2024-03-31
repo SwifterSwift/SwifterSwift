@@ -4,6 +4,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 
+### Added
+- **NSView**
+  - Added `addArrangedSubviews(_ views: )` to add an array of views to the end of the arrangedSubviews array. [#1181](https://github.com/SwifterSwift/SwifterSwift/pull/1181) by [Roman Podymov](https://github.com/RomanPodymov)
+  - Added `removeArrangedSubviews` to remove all views in stack’s array of arranged subviews. [#1181](https://github.com/SwifterSwift/SwifterSwift/pull/1181) by [Roman Podymov](https://github.com/RomanPodymov)
+
 ## [v6.1.1](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.1.1)
 ### Added
 - **Cocoapods**
@@ -25,9 +30,6 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **UIView**
   - Added `removeBlur()` method for removing the applied blur effect from the view. [#1159](https://github.com/SwifterSwift/SwifterSwift/pull/1159) by [regi93](https://github.com/regi93)
   - Added `makeCircle(diameter:)` method to make the view circular. [#1165](https://github.com/SwifterSwift/SwifterSwift/pull/1165) by [happyduck-git](https://github.com/happyduck-git)
-- **NSView**
-  - Added `addArrangedSubviews(_ views: )` to add an array of views to the end of the arrangedSubviews array. [#1181](https://github.com/SwifterSwift/SwifterSwift/pull/1181) by [Roman Podymov](https://github.com/RomanPodymov)
-  - Added `removeArrangedSubviews` to remove all views in stack’s array of arranged subviews. [#1181](https://github.com/SwifterSwift/SwifterSwift/pull/1181) by [Roman Podymov](https://github.com/RomanPodymov)
 
 ### Fixed
 - **UIImageView**
