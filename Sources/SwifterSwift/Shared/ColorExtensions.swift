@@ -1,15 +1,17 @@
-// ColorExtensions.swift - Copyright 2023 SwifterSwift
+// ColorExtensions.swift - Copyright 2024 SwifterSwift
 
 #if !os(Linux)
 
 #if canImport(UIKit)
 import UIKit
+
 /// SwifterSwift: Color
 public typealias SFColor = UIColor
 #endif
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
+
 /// SwifterSwift: Color
 public typealias SFColor = NSColor
 #endif

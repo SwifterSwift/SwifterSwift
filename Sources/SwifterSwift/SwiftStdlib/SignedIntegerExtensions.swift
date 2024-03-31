@@ -1,4 +1,4 @@
-// SignedIntegerExtensions.swift - Copyright 2023 SwifterSwift
+// SignedIntegerExtensions.swift - Copyright 2024 SwifterSwift
 
 //
 //  SignedIntegerExtensions.swift

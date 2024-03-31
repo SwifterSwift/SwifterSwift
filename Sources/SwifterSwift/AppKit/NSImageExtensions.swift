@@ -1,4 +1,4 @@
-// NSImageExtensions.swift - Copyright 2023 SwifterSwift
+// NSImageExtensions.swift - Copyright 2024 SwifterSwift
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit

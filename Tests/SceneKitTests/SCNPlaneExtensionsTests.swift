@@ -1,4 +1,4 @@
-// SCNPlaneExtensionsTests.swift - Copyright 2023 SwifterSwift
+// SCNPlaneExtensionsTests.swift - Copyright 2024 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

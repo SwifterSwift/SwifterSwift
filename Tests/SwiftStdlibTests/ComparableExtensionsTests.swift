@@ -1,4 +1,4 @@
-// ComparableExtensionsTests.swift - Copyright 2023 SwifterSwift
+// ComparableExtensionsTests.swift - Copyright 2024 SwifterSwift
 
 import XCTest
 

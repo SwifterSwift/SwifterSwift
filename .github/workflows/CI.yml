@@ -11,7 +11,7 @@ on:
 jobs:
   Darwin:
     name: Darwin
-    runs-on: macos-13
+    runs-on: macos-14
     env:
       PROJECT: SwifterSwift.xcodeproj
       DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
@@ -58,7 +58,7 @@ jobs:
           bundle exec danger --verbose
       
   Swiftlint:
-    runs-on: macos-13
+    runs-on: macos-14
     name: SwiftLint
     steps: 
       - uses: actions/checkout@v1
@@ -69,7 +69,7 @@ jobs:
           swiftlint
   CocoaPods:
     name: CocoaPods
-    runs-on: macos-13
+    runs-on: macos-14
     strategy:
       matrix:
         platform: ['ios', 'macos', 'tvos', 'watchos']

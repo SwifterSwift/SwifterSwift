@@ -1,4 +1,4 @@
-// RangeReplaceableCollectionExtensions.swift - Copyright 2023 SwifterSwift
+// RangeReplaceableCollectionExtensions.swift - Copyright 2024 SwifterSwift
 
 // MARK: - Initializers
 

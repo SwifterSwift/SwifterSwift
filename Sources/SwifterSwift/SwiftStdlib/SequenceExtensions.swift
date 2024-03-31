@@ -1,4 +1,4 @@
-// SequenceExtensions.swift - Copyright 2023 SwifterSwift
+// SequenceExtensions.swift - Copyright 2024 SwifterSwift
 
 public extension Sequence {
     /// SwifterSwift: Check if all elements in collection match a condition.
@@ -226,6 +226,16 @@ public extension Sequence {
         return reduce(.zero) { $0 + $1[keyPath: keyPath] }
     }
 
+    /// SwifterSwift: Product of all elements in sequence.
+    ///
+    ///        ["James", "Wade", "Bryant"].product(for: \.count) -> 120
+    ///
+    /// - Parameter map: Mapping function to `Numeric` value.
+    /// - Returns: product of the sequence's elements.
+    func product<T: Numeric>(for map: (Element) -> T) -> T {
+        reduce(1) { $0 * map($1) }
+    }
+
     /// SwifterSwift: Returns the first element of the sequence with having property by given key path equals to given
     /// `value`.
     ///
@@ -307,4 +317,15 @@ public extension Sequence where Element: AdditiveArithmetic {
     func sum() -> Element {
         return reduce(.zero, +)
     }
+}
+
+// MARK: - Methods (Numeric)
+
+public extension Sequence where Element: Numeric {
+    /// SwifterSwift: Product of all elements in sequence.
+    ///
+    ///        [1, 2, 3, 4, 5].product() -> 120
+    ///
+    /// - Returns: product of the sequence's elements.
+    func product() -> Element { reduce(1, *) }
 }

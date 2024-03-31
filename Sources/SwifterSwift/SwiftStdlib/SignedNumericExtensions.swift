@@ -1,4 +1,4 @@
-// SignedNumericExtensions.swift - Copyright 2023 SwifterSwift
+// SignedNumericExtensions.swift - Copyright 2024 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation

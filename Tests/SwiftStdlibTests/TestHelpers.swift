@@ -1,4 +1,4 @@
-// TestHelpers.swift - Copyright 2023 SwifterSwift
+// TestHelpers.swift - Copyright 2024 SwifterSwift
 
 enum Season: String {
     case summer

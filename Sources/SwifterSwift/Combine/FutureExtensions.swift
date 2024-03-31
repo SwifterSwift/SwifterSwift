@@ -1,4 +1,4 @@
-// FutureExtensions.swift - Copyright 2023 SwifterSwift
+// FutureExtensions.swift - Copyright 2024 SwifterSwift
 
 #if canImport(Combine)
 import Combine
