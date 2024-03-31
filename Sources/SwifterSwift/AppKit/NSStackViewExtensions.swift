@@ -6,16 +6,20 @@ import AppKit
 // MARK: - Methods
 
 public extension NSStackView {
-    /// SwifterSwift: Add array of arranged subviews to stack view.
+    /// SwifterSwift: Adds array of views to the end of the arrangedSubviews array.
     ///
-    /// - Parameter subviews: array of arranged subviews to add to self.
-    func addArrangedSubviews(_ subviews: [NSView]) {
-        subviews.forEach { addArrangedSubview($0) }
+    /// - Parameter views: views array.
+    func addArrangedSubviews(_ views: [NSView]) {
+        for view in views {
+            addArrangedSubview(view)
+        }
     }
 
-    /// SwifterSwift: Remove all arranged subviews in stack view.
+    /// SwifterSwift: Removes all views in stack’s array of arranged subviews.
     func removeArrangedSubviews() {
-        arrangedSubviews.forEach { $0.removeFromSuperview() }
+        for view in arrangedSubviews {
+            removeArrangedSubview(view)
+        }
     }
 }
 

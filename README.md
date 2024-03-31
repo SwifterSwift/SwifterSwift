@@ -233,9 +233,10 @@ let package = Package(
 <summary>AppKit Extensions</summary>
 </br>
 <ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Shared/ColorExtensions.swift"><code>NSColor extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/AppKit/NSViewExtensions.swift"><code>NSView extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Shared/NSColorExtensions.swift"><code>NSColor extensions</code></a></li>
 <li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/AppKit/NSImageExtensions.swift"><code>NSImage extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/AppKit/NSStackViewExtensions.swift"><code>NSStackView extensions</code></a></li>
+<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/AppKit/NSViewExtensions.swift"><code>NSView extensions</code></a></li>
 </ul>
 </details>
 
