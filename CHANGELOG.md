@@ -3,11 +3,16 @@
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
 ## Upcoming Release
-
 ### Added
 - **NSView**
   - Added `addArrangedSubviews(_ views: )` to add an array of views to the end of the arrangedSubviews array. [#1181](https://github.com/SwifterSwift/SwifterSwift/pull/1181) by [Roman Podymov](https://github.com/RomanPodymov)
   - Added `removeArrangedSubviews` to remove all views in stack’s array of arranged subviews. [#1181](https://github.com/SwifterSwift/SwifterSwift/pull/1181) by [Roman Podymov](https://github.com/RomanPodymov)
+- **Sequence**
+    - `sorted(by:)`, `sorted(by:with:)`, `sorted(by:and:)`, `sorted(by:and:and:)`, `sum(for:)`, `first(where:equals:)` now have alternatives that receive functions as parameters. This change maintains compatibility with KeyPath while making the methods more flexible. [#1170](https://github.com/SwifterSwift/SwifterSwift/pull/1170) by [MartonioJunior](https://github.com/MartonioJunior)
+
+### Changed
+- **Sequence**
+    - `sorted(by:)`, `sorted(by:with:)`, `sorted(by:and:)`, `sorted(by:and:and:)`, `sum(for:)`, `first(where:equals:)` now have alternatives that receive functions as parameters. This change maintains compatibility with KeyPath while making the methods more flexible. [#1170](https://github.com/SwifterSwift/SwifterSwift/pull/1170) by [MartonioJunior](https://github.com/MartonioJunior)
 
 ## [v6.1.1](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.1.1)
 ### Added
