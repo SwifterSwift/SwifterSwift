@@ -274,7 +274,7 @@ public extension Sequence where Element: Hashable {
     /// - Parameter elements: sequence of elements to check.
     /// - Returns: true if sequence contains all given items.
     /// - Complexity: _O(m + n)_, where _m_ is the length of `elements` and _n_ is the length of this sequence.
-    func contains<T: Sequence>(_ elements: T) -> Bool where Element == T.Element {
+    func contains<S: Sequence>(_ elements: S) -> Bool where Element == S.Element {
         let set = Set(self)
         return elements.allSatisfy { set.contains($0) }
     }
