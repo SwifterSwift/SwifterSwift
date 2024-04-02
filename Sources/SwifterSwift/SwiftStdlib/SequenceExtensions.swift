@@ -170,12 +170,29 @@ public extension Sequence {
         return sorted { compare($0[keyPath: keyPath], $1[keyPath: keyPath]) }
     }
 
+    /// SwifterSwift: Return a sorted array based on a map function and a compare function.
+    ///
+    /// - Parameter map: Function that defines the property to sort by.
+    /// - Parameter compare: Comparison function that will determine the ordering.
+    /// - Returns: The sorted array.
+    func sorted<T>(by map: (Element) throws -> T, with compare: (T, T) -> Bool) rethrows -> [Element] {
+        return try sorted { compare(try map($0), try map($1)) }
+    }
+
     /// SwifterSwift: Return a sorted array based on a key path.
     ///
     /// - Parameter keyPath: Key path to sort by. The key path type must be Comparable.
     /// - Returns: The sorted array.
     func sorted<T: Comparable>(by keyPath: KeyPath<Element, T>) -> [Element] {
         return sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
+    }
+
+    /// SwifterSwift: Return a sorted array based on a map function.
+    ///
+    /// - Parameter map: Function that defines the property to sort by. The output type must be Comparable.
+    /// - Returns: The sorted array.
+    func sorted<T: Comparable>(by map: (Element) throws -> T) rethrows -> [Element] {
+        return try sorted { try map($0) < map($1) }
     }
 
     /// SwifterSwift: Returns a sorted sequence based on two key paths. The second one will be used in case the values
@@ -191,6 +208,24 @@ public extension Sequence {
                 return $0[keyPath: keyPath1] < $1[keyPath: keyPath1]
             }
             return $0[keyPath: keyPath2] < $1[keyPath: keyPath2]
+        }
+    }
+
+    /// SwifterSwift: Returns a sorted sequence based on two map functions. The second one will be used in case the values
+    /// of the first one match.
+    ///
+    /// - Parameters:
+    ///     - map1: Map function to sort by. Output type must be Comparable.
+    ///     - map2: Map function to sort by in case the values of `map1` match. Output type must be Comparable.
+    func sorted<T: Comparable, U: Comparable>(by map1: (Element) throws -> T,
+                                              and map2: (Element) throws -> U) rethrows -> [Element] {
+        return try sorted {
+            let value10 = try map1($0)
+            let value11 = try map1($1)
+            if value10 != value11 {
+                return value10 < value11
+            }
+            return try map2($0) < map2($1)
         }
     }
 
@@ -215,6 +250,32 @@ public extension Sequence {
         }
     }
 
+    /// SwifterSwift: Returns a sorted sequence based on three map functions. Whenever the values of one map function match, the
+    /// next one will be used.
+    ///
+    /// - Parameters:
+    ///     - map1: Map function to sort by. Output type must be Comparable.
+    ///     - map2: Map function to sort by in case the values of `map1` match. Output type must be Comparable.
+    ///     - map3: Map function to sort by in case the values of `map1` and `map2` match. Output type must be Comparable.
+    func sorted<T: Comparable, U: Comparable, V: Comparable>(by map1: (Element) throws -> T,
+                                                             and map2: (Element) throws -> U,
+                                                             and map3: (Element) throws -> V) rethrows -> [Element] {
+        return try sorted {
+            let value10 = try map1($0)
+            let value11 = try map1($1)
+            if value10 != value11 {
+                return value10 < value11
+            }
+            
+            let value20 = try map2($0)
+            let value21 = try map2($1)
+            if value20 != value21 {
+                return value20 < value21
+            }
+            return try map3($0) < map3($1)
+        }
+    }
+
     /// SwifterSwift: Sum of a `AdditiveArithmetic` property of each `Element` in a `Sequence`.
     ///
     ///     ["James", "Wade", "Bryant"].sum(for: \.count) -> 15
@@ -236,6 +297,17 @@ public extension Sequence {
         reduce(1) { $0 * map($1) }
     }
 
+    /// SwifterSwift: Sum of a `AdditiveArithmetic` property of each `Element` in a `Sequence`.
+    ///
+    ///     ["James", "Wade", "Bryant"].sum(for: \.count) -> 15
+    ///
+    /// - Parameter map: Getter for  the `AdditiveArithmetic` property.
+    /// - Returns: The sum of the `AdditiveArithmetic` properties at `map`.
+    func sum<T: AdditiveArithmetic>(for map: (Element) throws -> T) rethrows -> T {
+        // Inspired by: https://swiftbysundell.com/articles/reducers-in-swift/
+        return try reduce(.zero) { try $0 + map($1) }
+    }
+
     /// SwifterSwift: Returns the first element of the sequence with having property by given key path equals to given
     /// `value`.
     ///
@@ -246,6 +318,18 @@ public extension Sequence {
     /// `nil` if there is no such element.
     func first<T: Equatable>(where keyPath: KeyPath<Element, T>, equals value: T) -> Element? {
         return first { $0[keyPath: keyPath] == value }
+    }
+
+    /// SwifterSwift: Returns the first element of the sequence with having property by given key path equals to given
+    /// `value`.
+    ///
+    /// - Parameters:
+    ///   - map: Function for `Element` to compare.
+    ///   - value: The value to compare with `Element` property.
+    /// - Returns: The first element of the collection that has property by given map function equals to given `value` or
+    /// `nil` if there is no such element.
+    func first<T: Equatable>(where map: (Element) throws -> T, equals value: T) rethrows -> Element? {
+        return try first { try map($0) == value }
     }
 }
 
