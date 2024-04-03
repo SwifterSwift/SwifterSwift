@@ -12,11 +12,12 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Changed
 - **Sequence**
-    - `sorted(by:)`, `sorted(by:with:)`, `sorted(by:and:)`, `sorted(by:and:and:)`, `sum(for:)`, `first(where:equals:)` now have alternatives that receive functions as parameters. This change maintains compatibility with KeyPath while making the methods more flexible. [#1170](https://github.com/SwifterSwift/SwifterSwift/pull/1170) by [MartonioJunior](https://github.com/MartonioJunior)
-
-### Changed
-- **Sequence**
+  - `sorted(by:)`, `sorted(by:with:)`, `sorted(by:and:)`, `sorted(by:and:and:)`, `sum(for:)`, `first(where:equals:)` now have alternatives that receive functions as parameters. This change maintains compatibility with KeyPath while making the methods more flexible. [#1170](https://github.com/SwifterSwift/SwifterSwift/pull/1170) by [MartonioJunior](https://github.com/MartonioJunior)
   - `contains(_:)` for `Element: Hashable` now can receive any type that conforms to `Sequence`, not just an `Array`. [#1169](https://github.com/SwifterSwift/SwifterSwift/pull/1169) by [MartonioJunior](https://github.com/MartonioJunior)
+
+### Fixed
+- **PrivacyInfo.xcprivacy**
+  - XCode Generate Privacy Report: `Missing an expected key: 'NSPrivacyCollectedDataTypes'`. [#1182](https://github.com/SwifterSwift/SwifterSwift/issues/1182) by [Phil](https://github.com/cdoky)
 
 ## [v6.1.1](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.1.1)
 ### Added
