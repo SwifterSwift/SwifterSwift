@@ -16,7 +16,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Changed
 - **Sequence**
-    - `contains(_:)` for `Element: Hashable` now can receive any type that conforms to `Sequence`, not just an `Array`. [#1169](https://github.com/SwifterSwift/SwifterSwift/pull/1169) by [MartonioJunior](https://github.com/MartonioJunior)
+  - `contains(_:)` for `Element: Hashable` now can receive any type that conforms to `Sequence`, not just an `Array`. [#1169](https://github.com/SwifterSwift/SwifterSwift/pull/1169) by [MartonioJunior](https://github.com/MartonioJunior)
 
 ## [v6.1.1](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.1.1)
 ### Added
