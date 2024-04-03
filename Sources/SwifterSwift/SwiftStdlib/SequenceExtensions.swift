@@ -343,7 +343,7 @@ public extension Sequence where Element: Equatable {
     /// - Parameter elements: array of elements to check.
     /// - Returns: true if sequence contains all given items.
     /// - Complexity: _O(m·n)_, where _m_ is the length of `elements` and _n_ is the length of this sequence.
-    func contains<S>(_ elements: S) -> Bool where S: Sequence, Element == S.Element
+    func contains<S>(_ elements: S) -> Bool where S: Sequence, Element == S.Element {
         return elements.allSatisfy { contains($0) }
     }
 }
