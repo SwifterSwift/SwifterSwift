@@ -3,6 +3,8 @@
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
 ## Upcoming Release
+
+## [v6.2.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.2.0)
 ### Added
 - **NSView**
   - Added `addArrangedSubviews(_ views: )` to add an array of views to the end of the arrangedSubviews array. [#1181](https://github.com/SwifterSwift/SwifterSwift/pull/1181) by [Roman Podymov](https://github.com/RomanPodymov)
