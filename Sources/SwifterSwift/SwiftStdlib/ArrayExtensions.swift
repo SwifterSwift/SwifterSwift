@@ -65,6 +65,65 @@ public extension Array {
             return thisIndex < otherIndex
         }
     }
+    
+    /// SwifterSwift:  Get safe item at index
+    subscript (safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+    
+    /// SwifterSwift: chunked array to array of array
+    /// - Parameters
+    ///     - size: number of item in child array
+    func chunked(into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
+        }
+    }
+    
+    /// SwifterSwift: take item from 0..<count
+    func take(count:Int) -> ArraySlice<Element> {
+        return self[0..<count]
+    }
+    
+    /// SwifterSwift: take item from count..<self.count(End)
+    func drop(count:Int) -> ArraySlice<Element> {
+        return self[count..<self.count]
+    }
+    
+    /// SwifterSwift: get first index of element
+    func index<T: Equatable>(of element: T) -> Int? {
+        firstIndex(where: { ($0 as? T) == element })
+    }
+
+    var tuple: Any {
+        switch count {
+        case 0:
+            return ()
+        case 1:
+            return (self[0])
+        case 2:
+            return (self[0], self[1])
+        case 3:
+            return (self[0], self[1], self[2])
+        case 4:
+            return (self[0], self[1], self[2], self[3])
+        case 5:
+            return (self[0], self[1], self[2], self[3], self[4])
+        case 6:
+            return (self[0], self[1], self[2], self[3], self[4], self[5])
+        case 7:
+            return (self[0], self[1], self[2], self[3], self[4], self[5], self[6])
+        case 8:
+            return (self[0], self[1], self[2], self[3], self[4], self[5], self[6], self[7])
+        case 9:
+            return (self[0], self[1], self[2], self[3], self[4], self[5], self[6], self[7], self[8])
+        case 10:
+            return (self[0], self[1], self[2], self[3], self[4], self[5], self[6], self[7], self[8], self[9])
+        default:
+            print("Can currently only create tuples from arrays with up to 10 elements. Elements at index 11 and up will be lost")
+            return (self[0], self[1], self[2], self[3], self[4], self[5], self[6], self[7], self[8], self[9], self[10])
+        }
+    }
 }
 
 // MARK: - Methods (Equatable)
@@ -149,5 +208,67 @@ public extension Array where Element: Equatable {
     func withoutDuplicates<E: Hashable>(keyPath path: KeyPath<Element, E>) -> [Element] {
         var set = Set<E>()
         return filter { set.insert($0[keyPath: path]).inserted }
+    }
+}
+
+
+// This Source Code Form is subject to the terms of the Mozilla Public
+// License, v. 2.0. If a copy of the MPL was not distributed with this
+// file, You can obtain one at http://mozilla.org/MPL/2.0/
+public extension Array where Element: Comparable {
+    func sameElements(_ arr: [Element]) -> Bool {
+        guard self.count == arr.count else { return false }
+        let sorted = self.sorted(by: <)
+        let arrSorted = arr.sorted(by: <)
+        for elements in sorted.zip(arrSorted) where elements.0 != elements.1 {
+            return false
+        }
+        return true
+    }
+}
+
+public extension Array {
+    func contains(_ x: Element, f: (Element, Element) -> Bool) -> Bool {
+        for y in self where f(x, y) {
+            return true
+        }
+        return false
+    }
+
+    // Performs a union operator using the result of f(Element) as the value to base uniqueness on.
+    func union<T: Hashable>(_ arr: [Element], f: (Element) -> T) -> [Element] {
+        let result = self + arr
+        return result.unique(f)
+    }
+
+    // Returns unique values in an array using the result of f()
+    func unique<T: Hashable>(_ f: (Element) -> T) -> [Element] {
+        var map: [T: Element] = [T: Element]()
+        return self.compactMap { a in
+            let t = f(a)
+            if map[t] == nil {
+                map[t] = a
+                return a
+            } else {
+                return nil
+            }
+        }
+    }
+
+    /// Removes the first element of the Array and returns the rest of the array.
+    /// If the array is empty, it returns an empty array.
+    var tail: Array {
+        return Array(self.dropFirst())
+    }
+}
+
+public extension Array where Element: NSAttributedString {
+    /// If the array is made up of `NSAttributedStrings`, this allows the reduction
+    /// of the array into a single `NSAttributedString`.
+    func joined() -> NSAttributedString {
+        return self.reduce(NSMutableAttributedString()) { result, element in
+            result.append(element)
+            return result
+        }
     }
 }

@@ -331,6 +331,48 @@ public extension Sequence {
     func first<T: Equatable>(where map: (Element) throws -> T, equals value: T) rethrows -> Element? {
         return try first { try map($0) == value }
     }
+    
+    
+    // [T] -> (T -> K) -> [K: [T]]
+    // As opposed to `groupWith` (to follow Haskell's naming), which would be
+    // [T] -> (T -> K) -> [[T]]
+    func groupBy<Key, Value>(
+        _ selector: (Self.Iterator.Element) -> Key,
+        transformer: (Self.Iterator.Element) -> Value
+    ) -> [Key: [Value]] {
+        var acc: [Key: [Value]] = [:]
+        for x in self {
+            let k = selector(x)
+            var a = acc[k] ?? []
+            a.append(transformer(x))
+            acc[k] = a
+        }
+        return acc
+    }
+
+    func zip<S: Sequence>(_ elems: S) -> [(Self.Iterator.Element, S.Iterator.Element)] {
+        var rights = elems.makeIterator()
+        return self.compactMap { lhs in
+            guard let rhs = rights.next() else { return nil }
+            return (lhs, rhs)
+        }
+    }
+    
+    func every(_ f: (Self.Iterator.Element) -> Bool) -> Bool {
+        for x in self where !f(x) {
+            return false
+        }
+        return true
+    }
+
+}
+
+public extension Sequence where Iterator.Element: Hashable {
+    /// Return a de-duplicated sequence with the order preserved. `o(N)` complexity.
+    func uniqued() -> [Iterator.Element] {
+        var seen: Set<Iterator.Element> = []
+        return filter { seen.insert($0).inserted }
+    }
 }
 
 public extension Sequence where Element: Equatable {

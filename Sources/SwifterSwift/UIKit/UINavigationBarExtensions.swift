@@ -83,6 +83,22 @@ public extension UINavigationBar {
         #endif
         tintColor = text
     }
+    
+    static func changeAppearance(clear: Bool) {
+        let appearance = UINavigationBarAppearance()
+        
+        if clear {
+            appearance.configureWithTransparentBackground()
+        } else {
+            appearance.configureWithDefaultBackground()
+        }
+        
+        appearance.backgroundColor = UIColor.black
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
 }
 
 #endif

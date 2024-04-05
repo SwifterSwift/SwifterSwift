@@ -143,6 +143,31 @@ public extension Int {
     func roundToNearest(_ number: Int) -> Int {
         return number == 0 ? self : Int(round(Double(self) / Double(number))) * number
     }
+    
+    /// SwifterSwift:  Format to K L M
+    func shorted() -> String {
+        if self >= 1000 && self < 10000 {
+            return String(format: "%.1fK", Double(self/100)/10).replacingOccurrences(of: ".0", with: "")
+        }
+
+        if self >= 10000 && self < 100000 {
+            return "\(self/1000)K"
+        }
+
+        if self >= 100000 && self < 1000000 {
+            return String(format: "%.1fL", Double(self/10000)/10).replacingOccurrences(of: ".0", with: "")
+        }
+
+        if self >= 1000000 && self < 10000000 {
+            return String(format: "%.1fM", Double(self/100000)/10).replacingOccurrences(of: ".0", with: "")
+        }
+
+        if self >= 10000000 {
+            return "\(self/1000000)M"
+        }
+        return String(self)
+    }
+
 }
 
 // MARK: - Operators

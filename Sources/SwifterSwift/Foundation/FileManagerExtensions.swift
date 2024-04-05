@@ -74,6 +74,15 @@ public extension FileManager {
         return URL(fileURLWithPath: String(cString: template))
         #endif
     }
+    
+    /// SwifterSwift:  Get Size of file at path
+    func sizeOfFile(atPath path: String) -> Int64? {
+        guard let attrs = try? attributesOfItem(atPath: path) else {
+            return nil
+        }
+
+        return attrs[.size] as? Int64
+    }
 }
 
 #endif

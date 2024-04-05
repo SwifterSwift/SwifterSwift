@@ -63,6 +63,71 @@ public extension UIApplication {
     var version: String? {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
+    
+    /// SwifterSwift: App's current UIWindow
+    var keyWindow: UIWindow? {
+        return UIApplication.shared.connectedScenes
+            .filter { $0.activationState == .foregroundActive }
+            .first(where: { $0 is UIWindowScene })
+            .flatMap({ $0 as? UIWindowScene })?.windows
+            .first(where: \.isKeyWindow)
+    }
+    
+    /// SwifterSwift: App's current key Window Present
+    var keyWindowPresentedController: UIViewController? {
+        var viewController = self.keyWindow?.rootViewController
+        
+        if let presentedController = viewController as? UITabBarController {
+            viewController = presentedController.selectedViewController
+        }
+        
+        while let presentedController = viewController?.presentedViewController {
+            if let presentedController = presentedController as? UITabBarController {
+                viewController = presentedController.selectedViewController
+            } else {
+                viewController = presentedController
+            }
+        }
+        return viewController
+    }
+    
+    /// SwifterSwift: Return root view or create new controler
+    var rootViewController: UIViewController {
+        guard let screen = self.connectedScenes.first as? UIWindowScene else {
+            return .init()
+        }
+
+        guard let root = screen.windows.first?.rootViewController else {
+            return .init()
+        }
+
+        return root
+    }
+
+    /// SwifterSwift: Hide keyboard
+    func dismissKeyboard() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+    
+    
+    /// SwifterSwift: Return root view or create new controler
+    @available(
+        *,
+        deprecated,
+        message: "Use rootViewController instead.")
+    func getRootViewController() -> UIViewController {
+
+        guard let screen = self.connectedScenes.first as? UIWindowScene else {
+            return .init()
+        }
+
+        guard let root = screen.windows.first?.rootViewController else {
+            return .init()
+        }
+
+        return root
+    }
+    
 }
 
 #endif

@@ -46,6 +46,14 @@ public extension CGRect {
                                       y: minY - sizeDelta.height * anchor.y),
                       size: size)
     }
+    
+    func containtPoint(_ point: CGPoint) -> Bool {
+        if (point.x > self.origin.x && point.x < (self.origin.x + self.size.width)
+            && point.y > self.origin.y && point.y < (self.origin.y + self.size.height)) {
+            return true
+        }
+        return false
+    }
 }
 
 #endif

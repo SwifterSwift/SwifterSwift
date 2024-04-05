@@ -174,7 +174,7 @@ public extension String {
         let midIndex = letters.index(letters.startIndex, offsetBy: letters.count / 2)
         let firstHalf = letters[letters.startIndex..<midIndex]
         let secondHalf = letters[midIndex..<letters.endIndex].reversed()
-        return !zip(firstHalf, secondHalf).contains(where: { $0.lowercased() != $1.lowercased() })
+        return !Swift.zip(firstHalf, secondHalf).contains(where: { $0.lowercased() != $1.lowercased() })
     }
 
     #if canImport(Foundation)
@@ -1213,6 +1213,18 @@ public extension String {
         // https://www.hackingwithswift.com/articles/141/8-useful-swift-extensions
         guard !hasPrefix(prefix) else { return self }
         return prefix + self
+    }
+    
+    // SwifterSwift: Find Mention in string.
+    func findMentionText() -> [String] {
+        var arr_hasStrings:[String] = []
+        let regex = try? NSRegularExpression(pattern: "(#[a-zA-Z0-9_\\p{Arabic}\\p{N}]*)", options: [])
+        if let matches = regex?.matches(in: self, options:[], range:NSMakeRange(0, self.count)) {
+            for match in matches {
+                arr_hasStrings.append(NSString(string: self).substring(with: NSRange(location:match.range.location, length: match.range.length )))
+            }
+        }
+        return arr_hasStrings
     }
 }
 

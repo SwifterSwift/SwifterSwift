@@ -29,6 +29,13 @@ public extension URL {
     var allQueryParameters: [URLQueryItem]? {
         URLComponents(url: self, resolvingAgainstBaseURL: false)?.queryItems
     }
+    
+    var urlAsset: AVURLAsset {
+        let opts = [
+            AVURLAssetPreferPreciseDurationAndTimingKey: NSNumber(value:true)
+        ]
+        return AVURLAsset(url: self, options: opts)
+    }
 }
 
 // MARK: - Initializers
