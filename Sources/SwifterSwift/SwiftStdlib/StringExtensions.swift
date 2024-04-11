@@ -16,6 +16,10 @@ import AppKit
 import CoreGraphics
 #endif
 
+#if SWIFT_PACKAGE
+import SwifterSwift_Shared
+#endif
+
 // MARK: - Properties
 
 public extension String {

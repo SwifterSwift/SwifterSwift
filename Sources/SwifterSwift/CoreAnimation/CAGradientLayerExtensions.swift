@@ -3,6 +3,10 @@
 #if !os(watchOS) && !os(Linux) && canImport(QuartzCore)
 import QuartzCore
 
+#if SWIFT_PACKAGE
+import SwifterSwift_Shared
+#endif
+
 public extension CAGradientLayer {
     /// SwifterSwift: Creates a CAGradientLayer with the specified colors, location, startPoint, endPoint, and type.
     ///
