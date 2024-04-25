@@ -45,9 +45,15 @@ public extension URL {
     /// - Returns: URL with appending given query parameters.
     func appendingQueryParameters(_ parameters: [String: String]) -> URL {
         var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
-        var items = urlComponents.queryItems ?? []
-        items += parameters.map({ URLQueryItem(name: $0, value: $1) })
-        urlComponents.queryItems = items
+        var queryItems = urlComponents.queryItems ?? []
+        for param in parameters {
+            if let index = queryItems.firstIndex(where: { $0.name == param.key }) {
+                queryItems[index] = URLQueryItem(name: param.key, value: param.value)
+            } else {
+                queryItems.append(URLQueryItem(name: param.key, value: param.value))
+            }
+        }
+        urlComponents.queryItems = queryItems
         return urlComponents.url!
     }
 
@@ -101,6 +107,27 @@ public extension URL {
         }
     }
 
+    /// SwifterSwift: Returns a new URL by removing all the query parameters.
+    ///
+    ///     let url = URL(string: "https://google.com?code=12345")!
+    ///     print(url.deletingAllQueryParameters()) // prints "https://google.com"
+    ///
+    /// - Returns: URL with all query parameters removed.
+    func deletingAllQueryParameters() -> URL {
+        var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
+        urlComponents.queryItems = nil
+        return urlComponents.url!
+    }
+    
+	/// SwifterSwift: Remove all the query parameters from the URL.
+	///
+	///        var url = URL(string: "https://google.com?code=12345")!
+	///        url.deleteAllQueryParameters()
+	///        print(url) // prints "https://google.com"
+    mutating func deleteAllQueryParameters() {
+        self = deletingAllQueryParameters(parameters)
+    }
+	
     /// SwifterSwift: Generates new URL that does not have scheme.
     ///
     ///        let url = URL(string: "https://domain.com")!
