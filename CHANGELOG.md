@@ -33,6 +33,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **KeyedDecodingContainer**:
   - Added `decodeBoolAsIntOrString(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as Bool. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
   - Added `decodeBoolAsIntOrStringIfPresent(key:)` to try to decode a `Bool` as `Int` then `String` before decoding as `Bool` if present. [#750](https://github.com/SwifterSwift/SwifterSwift/pull/750) by [FraDeliro](https://github.com/FraDeliro).
+- **URL**:
+  - Added `deletingAllQueryParameters()` and `deleteAllQueryParameters()` to remove all the query parameters. [#1193](https://github.com/SwifterSwift/SwifterSwift/pull/1193) by [tospery](https://github.com/tospery).
 
 ### Changed
 - **Collection**:
@@ -45,6 +47,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Refactored `tint(_:blendMode:)` using UIGraphicsImageRenderer if available. [#731](https://github.com/SwifterSwift/SwifterSwift/pull/731) by [FraDeliro](https://github.com/FraDeliro).
 - **Sequence**:
   - Corrected documentation for `sorted(by:with:)` and `sorted(by:)`. [#751](https://github.com/SwifterSwift/SwifterSwift/pull/751) by [mmdock](https://github.com/mmdock)
+- **URL**:
+  - Updated `appendingQueryParameters(_:replaceExisting:)` and `appendQueryParameters(_:replaceExisting:)`. [#1193](https://github.com/SwifterSwift/SwifterSwift/pull/1193) by [tospery](https://github.com/tospery)
 
 ### Deprecated
 
