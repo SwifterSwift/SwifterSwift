@@ -14,22 +14,22 @@ import Foundation
 
 final class URLExtensionsTests: XCTestCase {
 
-    var url = URL(string: "https://www.google.com")!
+    var url = URL(string: "https://www.google.com?version=1&q=ios")!
     let params = ["q": "swifter swift"]
-    let queryUrl = URL(string: "https://www.google.com?q=swifter%20swift")!
+    let appendedUrl = URL(string: "https://www.google.com?version=1&q=ios&q=swifter%20swift")!
+    let replacedUrl = URL(string: "https://www.google.com?version=1&q=swifter%20swift")!
 
     func testAppendingQueryParameters() {
-        XCTAssertEqual(url.appendingQueryParameters(params), queryUrl)
-		let replaceURL = URL(string: "https://www.google.com?q=swift%20swifter")!
-		XCTAssertEqual(replaceURL.appendingQueryParameters(params, replaceExisting: true), queryUrl)
+        XCTAssertEqual(url.appendingQueryParameters(params), appendedUrl)
+		XCTAssertEqual(url.appendingQueryParameters(params, replaceExisting: true), replacedUrl)
     }
 
     func testAppendQueryParameters() {
         url.appendQueryParameters(params)
-        XCTAssertEqual(url, queryUrl)
-		let replaceURL = URL(string: "https://www.google.com?q=swift%20swifter")!
-		replaceURL.appendQueryParameters(params, replaceExisting: true)
-		XCTAssertEqual(replaceURL, queryUrl)
+        XCTAssertEqual(url, appendedUrl)
+        url = URL(string: "https://www.google.com?version=1&q=ios")!
+        url.appendQueryParameters(params, replaceExisting: true)
+		XCTAssertEqual(url, replacedUrl)
     }
 
     func testQueryParameters() {
