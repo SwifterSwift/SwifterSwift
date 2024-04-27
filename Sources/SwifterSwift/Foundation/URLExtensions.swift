@@ -114,6 +114,29 @@ public extension URL {
         }
     }
 
+	/// SwifterSwift: Returns a new URL by removing all the query parameters.
+    ///
+    ///     let url = URL(string: "https://domain.com?query=true")!
+    ///     print(url.deletingAllQueryParameters()) // prints "https://domain.com"
+    ///
+    /// - Returns: URL with all query parameters removed.
+    func deletingAllQueryParameters() -> URL {
+        var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
+        urlComponents.queryItems = nil
+        return urlComponents.url!
+    }
+    
+	/// SwifterSwift: Remove all the query parameters from the URL.
+	///
+	///        var url = URL(string: "https://domain.com?query=true")!
+	///        url.deleteAllQueryParameters()
+	///        print(url) // prints "https://domain.com"
+    mutating func deleteAllQueryParameters() {
+        var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
+        urlComponents.queryItems = nil
+        self = urlComponents.url!
+    }
+	
     /// SwifterSwift: Generates new URL that does not have scheme.
     ///
     ///        let url = URL(string: "https://domain.com")!

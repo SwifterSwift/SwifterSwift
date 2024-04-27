@@ -69,6 +69,18 @@ final class URLExtensionsTests: XCTestCase {
         XCTAssertEqual(url.absoluteString, "https://domain.com/")
     }
 
+	func testDeletingAllQueryParameters() {
+	    let url = URL(string: "https://domain.com?query=true")!
+	    let result = url.deletingAllQueryParameters()
+	    XCTAssertEqual(result.absoluteString, "https://domain.com")
+	}
+	
+	func testDeleteAllQueryParameters() {
+	    var url = URL(string: "https://domain.com?query=true")!
+	    url.deleteAllQueryParameters()
+	    XCTAssertEqual(url.absoluteString, "https://domain.com")
+	}
+
     #if os(iOS) || os(tvOS)
     func testThumbnail() {
         XCTAssertNil(url.thumbnail())
