@@ -42,12 +42,24 @@ public extension URL {
     ///		url.appendingQueryParameters(params) -> "https://google.com?q=Swifter%20Swift"
     ///
     /// - Parameter parameters: parameters dictionary.
+	/// - Parameter replaceExisting: whether replace existing query parameters or not.
     /// - Returns: URL with appending given query parameters.
-    func appendingQueryParameters(_ parameters: [String: String]) -> URL {
+    func appendingQueryParameters(_ parameters: [String: String], replaceExisting: Bool = false) -> URL {
         var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
-        var items = urlComponents.queryItems ?? []
-        items += parameters.map({ URLQueryItem(name: $0, value: $1) })
-        urlComponents.queryItems = items
+        if replaceExisting {
+            var queryItems = urlComponents.queryItems ?? []
+            for param in parameters {
+                if let index = queryItems.firstIndex(where: { $0.name == param.key }) {
+                    queryItems[index] = URLQueryItem(name: param.key, value: param.value)
+                } else {
+                    queryItems.append(URLQueryItem(name: param.key, value: param.value))
+                }
+            }
+            urlComponents.queryItems = queryItems
+        } else {
+            urlComponents.queryItems = (urlComponents.queryItems ?? []) + parameters
+                .map { URLQueryItem(name: $0, value: $1) }
+        }
         return urlComponents.url!
     }
 
@@ -59,8 +71,9 @@ public extension URL {
     ///		print(url) // prints "https://google.com?q=Swifter%20Swift"
     ///
     /// - Parameter parameters: parameters dictionary.
-    mutating func appendQueryParameters(_ parameters: [String: String]) {
-        self = appendingQueryParameters(parameters)
+	/// - Parameter replaceExisting: whether replace existing query parameters or not.
+    mutating func appendQueryParameters(_ parameters: [String: String], replaceExisting: Bool = false) {
+        self = appendingQueryParameters(parameters, replaceExisting: replaceExisting)
     }
 
     /// SwifterSwift: Get value of a query key.

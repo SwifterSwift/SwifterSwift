@@ -20,11 +20,16 @@ final class URLExtensionsTests: XCTestCase {
 
     func testAppendingQueryParameters() {
         XCTAssertEqual(url.appendingQueryParameters(params), queryUrl)
+		let replaceURL = URL(string: "https://www.google.com?q=swift%20swifter")!
+		XCTAssertEqual(replaceURL.appendingQueryParameters(params, replaceExisting: true), queryUrl)
     }
 
     func testAppendQueryParameters() {
         url.appendQueryParameters(params)
         XCTAssertEqual(url, queryUrl)
+		let replaceURL = URL(string: "https://www.google.com?q=swift%20swifter")!
+		replaceURL.appendQueryParameters(params, replaceExisting: true)
+		XCTAssertEqual(replaceURL, queryUrl)
     }
 
     func testQueryParameters() {
