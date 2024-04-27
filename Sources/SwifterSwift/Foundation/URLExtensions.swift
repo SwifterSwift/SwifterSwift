@@ -128,9 +128,9 @@ public extension URL {
     
 	/// SwifterSwift: Remove all the query parameters from the URL.
 	///
-	///        var url = URL(string: "https://domain.com?query=true")!
-	///        url.deleteAllQueryParameters()
-	///        print(url) // prints "https://domain.com"
+	///     var url = URL(string: "https://domain.com?query=true")!
+	///     url.deleteAllQueryParameters()
+	///     print(url) // prints "https://domain.com"
     mutating func deleteAllQueryParameters() {
         var urlComponents = URLComponents(url: self, resolvingAgainstBaseURL: true)!
         urlComponents.queryItems = nil
