@@ -6,12 +6,10 @@ import XCTest
 #if canImport(CoreGraphics)
 import CoreGraphics
 
-#if canImport(QuartzCore)
+#if canImport(QuartzCore) && !os(watchOS)
 import QuartzCore
-#endif
 
 final class CGAffineTransformExtensionsTests: XCTestCase {
-    #if canImport(QuartzCore)
     func testTransform3D() {
         XCTAssertEqual(CGAffineTransform.identity.transform3D(), CATransform3DIdentity)
 
@@ -23,7 +21,8 @@ final class CGAffineTransformExtensionsTests: XCTestCase {
         XCTAssertEqual(CGAffineTransform(scaleX: x, y: y).transform3D(), CATransform3DMakeScale(x, y, 1))
         XCTAssertEqual(CGAffineTransform(rotationAngle: angle).transform3D(), CATransform3DMakeRotation(angle, 0, 0, 1))
     }
-    #endif
 }
+
+#endif
 
 #endif

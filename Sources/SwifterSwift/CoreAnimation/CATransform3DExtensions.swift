@@ -8,7 +8,7 @@ import QuartzCore
 
 // MARK: - Equatable
 
-extension CATransform3D: Equatable {
+extension CATransform3D: Swift.Equatable {
     // swiftlint:disable missing_swifterswift_prefix
 
     /// Returns a Boolean value indicating whether two values are equal.

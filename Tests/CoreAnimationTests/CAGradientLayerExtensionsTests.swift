@@ -6,6 +6,7 @@ import XCTest
 #if !os(watchOS) && !os(Linux)
 
 final class CAGradientLayerExtensionsTests: XCTestCase {
+    @available(macOS 10.14, *)
     func testInitWithGradientAttributes() {
         let colors: [SFColor] = [.red, .blue, .orange, .yellow]
         let locations: [CGFloat]? = [0, 0.3, 0.6, 1]

@@ -80,7 +80,7 @@ final class SceneKitTests: XCTestCase {
     }
 }
 
-extension SCNVector3: Equatable {
+extension SCNVector3: Swift.Equatable {
     public static func == (lhs: SCNVector3, rhs: SCNVector3) -> Bool {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
     }

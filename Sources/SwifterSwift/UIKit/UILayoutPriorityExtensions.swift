@@ -3,7 +3,7 @@
 #if os(iOS) || os(tvOS)
 import UIKit
 
-extension UILayoutPriority: ExpressibleByFloatLiteral, ExpressibleByIntegerLiteral {
+extension UILayoutPriority: Swift.ExpressibleByFloatLiteral, Swift.ExpressibleByIntegerLiteral {
     // MARK: - Initializers
 
     /// SwifterSwift: Initialize `UILayoutPriority` with a float literal.
