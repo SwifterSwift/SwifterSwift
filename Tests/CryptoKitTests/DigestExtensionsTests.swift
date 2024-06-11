@@ -9,7 +9,7 @@ import CryptoKit
 final class DigestExtensionsTests: XCTestCase {
     @available(iOS 13.0, macOS 10.15, watchOS 6.0, tvOS 13.0, *)
     func testHexString() {
-        guard let data = "Hello, World!".data(using: .utf8) else { return }
+        let data = Data("Hello, World!".utf8)
         XCTAssertEqual(
             SHA256.hash(data: data).hexString,
             "DFFD6021BB2BD5B0AF676290809EC3A53191DD81C7F70A4B28688A362182986F")

@@ -112,14 +112,14 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssert([1, 2, 3].contains([2, 3]))
         XCTAssert([1, 2, 3].contains([1, 3]))
         XCTAssertFalse([1, 2, 3].contains([4, 5]))
-        
-        XCTAssert([Int]().contains(AnyIterator({ nil })))
+
+        XCTAssert([Int]().contains(AnyIterator { nil }))
         XCTAssertFalse([Int]().contains(AnyIterator([1, 2].makeIterator())))
         XCTAssert([1, 2, 3].contains(AnyIterator([1, 2].makeIterator())))
         XCTAssert([1, 2, 3].contains(AnyIterator([2, 3].makeIterator())))
         XCTAssert([1, 2, 3].contains(AnyIterator([1, 3].makeIterator())))
         XCTAssertFalse([1, 2, 3].contains(AnyIterator([4, 5].makeIterator())))
-        
+
         XCTAssert([Int]().contains(Set<Int>()))
         XCTAssertFalse([Int]().contains(Set([1, 2])))
         XCTAssert([1, 2, 3].contains(Set([1, 2])))
@@ -148,12 +148,12 @@ final class SequenceExtensionsTests: XCTestCase {
         XCTAssertEqual(["James", "Wade", "Bryant"].sum(for: \.count), 15)
         XCTAssertEqual(["a", "b", "c", "d"].sum(for: \.count), 4)
     }
-    
+
     func testMapFunctionSum() {
         XCTAssertEqual(["James", "Wade", "Bryant"].sum(for: { $0.count }), 15)
         XCTAssertEqual(["a", "b", "c", "d"].sum(for: { $0.count }), 4)
     }
-    
+
     func testProduct() {
         XCTAssertEqual([1, 2, 3, 4, 5].product(), 120)
         XCTAssertEqual([1.2, 2.3, 3.4, 4.5, 5.6].product(), 236.4768, accuracy: 0.001)
@@ -181,7 +181,7 @@ final class SequenceExtensionsTests: XCTestCase {
         let array2 = ["James", "Wade", "Bryant", ""]
         XCTAssertEqual(array2.sorted(by: \String.first, with: optionalCompare), ["Bryant", "James", "Wade", ""])
     }
-    
+
     func testMapFunctionSorted() {
         let array = ["James", "Wade", "Bryant"]
         XCTAssertEqual(array.sorted(by: { $0.count }, with: <), ["Wade", "James", "Bryant"])
@@ -213,7 +213,7 @@ final class SequenceExtensionsTests: XCTestCase {
         ]
         XCTAssertEqual(people.sorted(by: \.surname, and: \.age), expectedResult)
     }
-    
+
     func testSortedByTwoMapFunctions() {
         let people = [
             SimplePerson(forename: "Tom", surname: "James", age: 32),
@@ -243,7 +243,7 @@ final class SequenceExtensionsTests: XCTestCase {
         ]
         XCTAssertEqual(people.sorted(by: \.surname, and: \.forename, and: \.age), expectedResult)
     }
-    
+
     func testSortedByThreeMapFunctions() {
         let people = [
             SimplePerson(forename: "Tom", surname: "James", age: 32),
@@ -275,7 +275,7 @@ final class SequenceExtensionsTests: XCTestCase {
 
         XCTAssertNil(missingPerson)
     }
-    
+
     func testFirstByMapFunction() {
         let array1 = [
             Person(name: "John", age: 30, location: Location(city: "Boston")),
