@@ -41,7 +41,7 @@ final class SKProductTests: XCTestCase {
             price: "100.00",
             priceLocale: Locale(identifier: "nb_NO"))
 
-        XCTAssertEqual(noMockedProduct.localizedPrice, "kr 100,00")
+        XCTAssertEqual(noMockedProduct.localizedPrice, "100,00 kr")
 
         let frMockedProduct = SKProduct(
             identifier: "com.swifterswift.frmockedproduct",
