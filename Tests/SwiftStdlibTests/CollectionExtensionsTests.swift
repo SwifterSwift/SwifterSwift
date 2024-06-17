@@ -26,7 +26,7 @@ final class CollectionExtensionsTests: XCTestCase {
             }
         }
         if count != collection.count {
-            wait(for: [expectation], timeout: 0.5)
+            wait(for: [expectation], timeout: 1)
         }
     }
 

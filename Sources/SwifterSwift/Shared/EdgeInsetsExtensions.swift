@@ -17,7 +17,7 @@ public extension NSEdgeInsets {
 }
 
 // swiftlint:disable missing_swifterswift_prefix
-extension NSEdgeInsets: Equatable {
+extension NSEdgeInsets: Swift.Equatable {
     /// Returns a Boolean value indicating whether two values are equal.
     ///
     /// Equality is the inverse of inequality. For any values `a` and `b`,
