@@ -4,7 +4,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 ### Added
-
+- **Set**
+  - Added `toggle(_ element: )` to toggles an element in the set —- adds it if absent, removes it if present. [#1181](https://github.com/SwifterSwift/SwifterSwift/pull/1199) by [Weiha](https://github.com/weihas)
+  
 ### Fixed
 - **Xcode 16**
   - Fixed compilation errors, warnings and tests. [#1197](https://github.com/SwifterSwift/SwifterSwift/pull/1197) by [guykogus](https://github.com/guykogus)
