@@ -2,7 +2,7 @@
 
 // swiftlint:disable identifier_name
 
-#if canImport(QuartzCore)
+#if canImport(QuartzCore) && !os(watchOS)
 
 import QuartzCore
 
