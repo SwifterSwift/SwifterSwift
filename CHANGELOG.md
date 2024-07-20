@@ -8,6 +8,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Fixed
 - **Xcode 16**
   - Fixed compilation errors, warnings and tests. [#1197](https://github.com/SwifterSwift/SwifterSwift/pull/1197) by [guykogus](https://github.com/guykogus)
+  - Fixed additional compilation errors [#1202](https://github.com/SwifterSwift/SwifterSwift/pull/1202) by [denandreychuk](https://github.com/denandreychuk)
 
 ### Removed
 - **CAGradientLayer**
