@@ -11,6 +11,10 @@ import UIKit
 import AppKit
 #endif
 
+#if SWIFT_PACKAGE
+import SwifterSwift_Shared
+#endif
+
 // MARK: - Properties
 
 public extension NSAttributedString {
