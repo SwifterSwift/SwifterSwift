@@ -21,7 +21,7 @@ public extension WKWebView {
     func loadURLString(_ urlString: String, timeout: TimeInterval? = nil) -> WKNavigation? {
         guard let url = URL(string: urlString) else { return nil }
         var request = URLRequest(url: url)
-        if let timeout = timeout {
+        if let timeout {
             request.timeoutInterval = timeout
         }
         return load(request)

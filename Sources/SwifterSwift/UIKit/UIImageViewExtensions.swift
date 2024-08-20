@@ -25,7 +25,7 @@ public extension UIImageView {
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data,
+                let data,
                 let image = UIImage(data: data) else {
                 Task {
                     await completionHandler?(nil)

@@ -115,7 +115,7 @@ public extension String {
     ///		"".firstCharacterAsString -> nil
     ///
     var firstCharacterAsString: String? {
-        guard let first = first else { return nil }
+        guard let first else { return nil }
         return String(first)
     }
 
@@ -285,7 +285,7 @@ public extension String {
     ///		"".lastCharacterAsString -> nil
     ///
     var lastCharacterAsString: String? {
-        guard let last = last else { return nil }
+        guard let last else { return nil }
         return String(last)
     }
 
@@ -601,7 +601,7 @@ public extension String {
     ///
     /// - Returns: The string in slug format.
     func toSlug() -> String {
-        let lowercased = self.lowercased()
+        let lowercased = lowercased()
         let latinized = lowercased.folding(options: .diacriticInsensitive, locale: Locale.current)
         let withDashes = latinized.replacingOccurrences(of: " ", with: "-")
 
@@ -754,7 +754,7 @@ public extension String {
     ///        "".firstCharacterUppercased() -> ""
     ///
     mutating func firstCharacterUppercased() {
-        guard let first = first else { return }
+        guard let first else { return }
         self = String(first).uppercased() + dropFirst()
     }
 
