@@ -6,6 +6,7 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+@MainActor
 final class UINavigationBarExtensionsTests: XCTestCase {
     func testSetTitleFont() {
         let navigationBar = UINavigationBar()

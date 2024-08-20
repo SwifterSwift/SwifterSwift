@@ -51,7 +51,7 @@ public extension UIView {
     }
 
     /// SwifterSwift: Add gradient directions
-    struct GradientDirection {
+    struct GradientDirection: Sendable {
         public static let topToBottom = GradientDirection(startPoint: CGPoint(x: 0.5, y: 0.0),
                                                           endPoint: CGPoint(x: 0.5, y: 1.0))
         public static let bottomToTop = GradientDirection(startPoint: CGPoint(x: 0.5, y: 1.0),
@@ -385,7 +385,7 @@ public extension UIView {
 
     /// SwifterSwift: Remove all gesture recognizers from view.
     func removeGestureRecognizers() {
-        gestureRecognizers?.forEach(removeGestureRecognizer)
+        try? gestureRecognizers?.forEach(removeGestureRecognizer)
     }
 
     /// SwifterSwift: Attaches gesture recognizers to the view. Attaching gesture recognizers to a view defines the

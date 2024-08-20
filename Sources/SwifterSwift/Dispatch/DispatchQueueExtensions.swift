@@ -9,7 +9,7 @@ public extension DispatchQueue {
     /// SwifterSwift: A Boolean value indicating whether the current dispatch queue is the main queue.
     static var isMainQueue: Bool {
         enum Static {
-            static var key: DispatchSpecificKey<Void> = {
+            static let key: DispatchSpecificKey<Void> = {
                 let key = DispatchSpecificKey<Void>()
                 DispatchQueue.main.setSpecific(key: key, value: ())
                 return key
@@ -45,16 +45,17 @@ public extension DispatchQueue {
     func asyncAfter(delay: Double,
                     qos: DispatchQoS = .unspecified,
                     flags: DispatchWorkItemFlags = [],
-                    execute work: @escaping () -> Void) {
+                    execute work: @Sendable @escaping () -> Void) {
         asyncAfter(deadline: .now() + delay, qos: qos, flags: flags, execute: work)
     }
 
+    @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
     func debounce(delay: Double, action: @escaping () -> Void) -> () -> Void {
         // http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
         var lastFireTime = DispatchTime.now()
         let deadline = { lastFireTime + delay }
         return {
-            self.asyncAfter(deadline: deadline()) {
+            self.asyncAfterUnsafe(deadline: deadline()) {
                 let now = DispatchTime.now()
                 if now >= deadline() {
                     lastFireTime = now

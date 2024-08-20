@@ -6,6 +6,7 @@ import XCTest
 #if canImport(UIKit)
 import UIKit
 
+@MainActor
 final class UIImageExtensionsTests: XCTestCase {
     func testAverageColor() {
         let size = CGSize(width: 10, height: 5)

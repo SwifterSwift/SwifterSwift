@@ -6,6 +6,7 @@ import XCTest
 #if canImport(UIKit)
 import UIKit
 
+@MainActor
 final class UIColorExtensionsTests: XCTestCase {
     #if !os(watchOS)
     func testInitLightDark() {

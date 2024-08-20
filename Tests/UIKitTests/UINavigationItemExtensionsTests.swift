@@ -6,6 +6,7 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+@MainActor
 final class UINavigationItemExtensionsTests: XCTestCase {
     func testReplaceTitle() {
         let navigationItem = UINavigationItem()

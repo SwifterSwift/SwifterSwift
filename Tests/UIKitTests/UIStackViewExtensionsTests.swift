@@ -6,7 +6,8 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-final class UIStackViewExtensionsTest: XCTestCase {
+@MainActor
+final class UIStackViewExtensionsTests: XCTestCase {
     // MARK: - Initializers
 
     func testInitWithViews() {

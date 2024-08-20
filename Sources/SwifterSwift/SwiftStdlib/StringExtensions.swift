@@ -442,6 +442,7 @@ public extension String {
 
     #if os(iOS) || os(tvOS)
     /// SwifterSwift: Check if the given string spelled correctly.
+    @MainActor
     var isSpelledCorrectly: Bool {
         let checker = UITextChecker()
         let range = NSRange(startIndex..<endIndex, in: self)
