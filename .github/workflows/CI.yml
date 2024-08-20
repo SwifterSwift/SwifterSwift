@@ -14,7 +14,7 @@ jobs:
     runs-on: macos-14
     env:
       PROJECT: SwifterSwift.xcodeproj
-      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_16_beta_5.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -74,7 +74,7 @@ jobs:
       matrix:
         platform: ['ios', 'macos', 'tvos', 'watchos']
     env:
-      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_16_beta_5.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -84,7 +84,7 @@ jobs:
       
   Linux:
     runs-on: [ubuntu-latest]
-    container: swift:5.8
+    container: swift:6.0
     steps:
       - uses: actions/checkout@v1
       - name: Linux
