@@ -21,6 +21,34 @@ final class UIColorExtensionsTests: XCTestCase {
         }
     }
     #endif
+
+    func testShouldMakeSureThatValidHexColorStringWithHashIsValidColor() throws {
+        let color = try UIColor(hex: "#FF5733")
+        XCTAssertEqual(color, UIColor(red: 1.0, green: 0.341, blue: 0.2, alpha: 1.0))
+    }
+
+    func testShouldMakeSureThatValidHexColorStringWithoutHashIsValidColor() throws {
+        let color = try UIColor(hex: "FF5733")
+        XCTAssertEqual(color, UIColor(red: 1.0, green: 0.341, blue: 0.2, alpha: 1.0))
+    }
+
+    func testShouldMakeSureThatTooShortHexColorStringIsInvalidColor() {
+        XCTAssertThrowsError(try UIColor(hex: "FFF")) { error in
+            XCTAssertEqual(error as? ColorError, ColorError.invalidHexLength)
+        }
+    }
+
+    func testShouldMakeSureThatTooLongHexColorStringIsInvalidColor() {
+        XCTAssertThrowsError(try UIColor(hex: "FF5733FF")) { error in
+            XCTAssertEqual(error as? ColorError, ColorError.invalidHexLength)
+        }
+    }
+
+    func testShouldMakeSureThatNonValidFormatHexColorStringIsInvalidColor() {
+        XCTAssertThrowsError(try UIColor(hex: "ZZZZZZ")) { error in
+            XCTAssertEqual(error as? ColorError, ColorError.invalidHexFormat)
+        }
+    }
 }
 
 #endif
