@@ -22,32 +22,67 @@ final class UIColorExtensionsTests: XCTestCase {
     }
     #endif
 
-    func testShouldMakeSureThatValidHexColorStringWithHashIsValidColor() throws {
-        let color = try UIColor(hex: "#FF5733")
-        XCTAssertEqual(color, UIColor(red: 1.0, green: 0.341, blue: 0.2, alpha: 1.0))
+    func testShouldMakeSureThatValidHexColorStringWithHashIsValidColor() {
+        let color = UIColor(hex: "#FF5733")
+        XCTAssertNotNil(color, "Color must not be nil for a valid hex string with a hash.")
+
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        color?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+        XCTAssertEqual(red, 1.0, accuracy: 0.01, "Red component should be 1.0")
+        XCTAssertEqual(green, 0.34, accuracy: 0.01, "Green component should be approximately 0.34")
+        XCTAssertEqual(blue, 0.2, accuracy: 0.01, "Blue component should be approximately 0.2")
+        XCTAssertEqual(alpha, 1.0, "Alpha component should be 1.0")
     }
 
-    func testShouldMakeSureThatValidHexColorStringWithoutHashIsValidColor() throws {
-        let color = try UIColor(hex: "FF5733")
-        XCTAssertEqual(color, UIColor(red: 1.0, green: 0.341, blue: 0.2, alpha: 1.0))
+    func testShouldMakeSureThatValidHexColorStringWithoutHashIsValidColor() {
+        let color = UIColor(hex: "FF5733")
+        XCTAssertNotNil(color, "Color must not be nil for a valid hex string.")
+
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        color?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+        XCTAssertEqual(red, 1.0, accuracy: 0.01, "Red component should be 1.0")
+        XCTAssertEqual(green, 0.34, accuracy: 0.01, "Green component should be approximately 0.34")
+        XCTAssertEqual(blue, 0.2, accuracy: 0.01, "Blue component should be approximately 0.2")
+        XCTAssertEqual(alpha, 1.0, "Alpha component should be 1.0")
+    }
+
+    func testShouldMakeSureThatValidHexColorStringWithSpaceIsValidColor() {
+        let colorWithWhitespace = UIColor(hex: "  FF5733  ")
+        XCTAssertNotNil(colorWithWhitespace, "Color must not be nil for a valid hex string with whitespace around it.")
+
+        var red: CGFloat = 0
+        var green: CGFloat = 0
+        var blue: CGFloat = 0
+        var alpha: CGFloat = 0
+        colorWithWhitespace?.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+
+        XCTAssertEqual(red, 1.0, accuracy: 0.01, "Red component should be 1.0")
+        XCTAssertEqual(green, 0.34, accuracy: 0.01, "Green component should be approximately 0.34")
+        XCTAssertEqual(blue, 0.2, accuracy: 0.01, "Blue component should be approximately 0.2")
+        XCTAssertEqual(alpha, 1.0, "Alpha component should be 1.0")
     }
 
     func testShouldMakeSureThatTooShortHexColorStringIsInvalidColor() {
-        XCTAssertThrowsError(try UIColor(hex: "FFF")) { error in
-            XCTAssertEqual(error as? ColorError, ColorError.invalidHexLength)
-        }
+        let color = UIColor(hex: "FFF")
+        XCTAssertNil(color, "Color must be null for a short length hex string.")
     }
 
     func testShouldMakeSureThatTooLongHexColorStringIsInvalidColor() {
-        XCTAssertThrowsError(try UIColor(hex: "FF5733FF")) { error in
-            XCTAssertEqual(error as? ColorError, ColorError.invalidHexLength)
-        }
+        let color = UIColor(hex: "FF5733FF")
+        XCTAssertNil(color, "Color must be null for a long length hex string.")
     }
 
     func testShouldMakeSureThatNonValidFormatHexColorStringIsInvalidColor() {
-        XCTAssertThrowsError(try UIColor(hex: "ZZZZZZ")) { error in
-            XCTAssertEqual(error as? ColorError, ColorError.invalidHexFormat)
-        }
+        let color = UIColor(hex: "ZZZZZZ")
+        XCTAssertNil(color, "Color must be null for an invalid hex string.")
     }
 }
 
