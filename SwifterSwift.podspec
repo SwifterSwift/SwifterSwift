@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
   s.subspec 'Foundation' do |sp|
     sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/Foundation/*.swift'
     sp.resource_bundles = {
-      'SwifterSwift_Privacy' => 'Sources/SwifterSwift/Resources/PrivacyInfo.xcprivacy'
+      'SwifterSwift_Privacy' => 'Sources/SwifterSwift/Foundation/PrivacyInfo.xcprivacy'
     }
   end
 

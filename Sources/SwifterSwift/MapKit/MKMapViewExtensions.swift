@@ -3,6 +3,10 @@
 #if canImport(MapKit) && !os(watchOS)
 import MapKit
 
+#if SWIFT_PACKAGE
+import SwifterSwift_Shared
+#endif
+
 public extension MKMapView {
     /// SwifterSwift: Dequeue reusable MKAnnotationView using class type.
     ///

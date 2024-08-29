@@ -3,6 +3,10 @@
 #if canImport(SceneKit)
 import SceneKit
 
+#if SWIFT_PACKAGE
+import SwifterSwift_Shared
+#endif
+
 // MARK: - Methods
 
 public extension SCNCapsule {
