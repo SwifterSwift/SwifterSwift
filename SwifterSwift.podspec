@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '12.0'
   s.watchos.deployment_target = '4.0'
 
-  s.swift_versions = ['5.8', '6.0']
+  s.swift_versions = ['6.0']
   s.requires_arc = true
   s.source = { git: 'https://github.com/SwifterSwift/SwifterSwift.git', tag: s.version.to_s }
   s.source_files = 'Sources/SwifterSwift/**/*.swift'
@@ -98,11 +98,6 @@ Pod::Spec.new do |s|
   # HealthKit Extensions
   s.subspec 'HealthKit' do |sp|
     sp.source_files = 'Sources/SwifterSwift/HealthKit/*.swift'
-  end
-
-  # Combine Extensions
-  s.subspec 'Combine' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/Combine/*.swift'
   end
 
 end
