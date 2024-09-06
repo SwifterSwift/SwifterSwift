@@ -3,12 +3,33 @@
 // MARK: - Initializers
 
 public extension Array {
-    /// SwifterSwift: Creates an array with specified number of elements, for each element it calls specified closure.
+    /// SwifterSwift: Creates an array with a specified number of elements, initializing each element by calling the given closure.
+    ///
+    /// This initializer allows you to create an array of `count` elements, where each element is initialized based on its index.
+    /// It is useful when you want to generate an array with custom logic applied to each element during initialization.
+    ///
     /// - Parameters:
     ///   - count: The number of elements in the new array.
-    ///   - element: A closure that initializes each element.
-    ///     - Parameter *index*: An index of initialized element in the array.
-    ///     - Returns: element of the array.
+    ///   - element: A closure that initializes each element based on its index in the array.
+    ///     - Parameter index: The index of the element being initialized.
+    ///     - Returns: The element of the array for the given index.
+    ///
+    /// - Throws: If the closure throws an error, this initializer rethrows it.
+    ///
+    /// Example usage:
+    /// ```swift
+    /// // Create an array of squares of the first 5 integers
+    /// let squares = Array(count: 5) { index in
+    ///     return index * index
+    /// }
+    /// // squares = [0, 1, 4, 9, 16]
+    ///
+    /// // Create an array of repeated elements
+    /// let repeatedArray = Array(count: 3) { _ in
+    ///     return "Hello"
+    /// }
+    /// // repeatedArray = ["Hello", "Hello", "Hello"]
+    /// ```
     init(count: Int, element: (Int) throws -> Element) rethrows {
         try self.init(unsafeUninitializedCapacity: count) { buffer, initializedCount in
             for index in 0..<count {
