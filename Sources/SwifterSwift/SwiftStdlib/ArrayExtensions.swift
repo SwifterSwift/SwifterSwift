@@ -151,3 +151,23 @@ public extension Array where Element: Equatable {
         return filter { set.insert($0[keyPath: path]).inserted }
     }
 }
+
+/// SwifterSwift: Converts an array into a dictionary using a specified key.
+/// - Parameter key: A closure that returns a key for each element in the array.
+/// - Returns: A dictionary where the keys are the result of applying the closure to each element.
+///
+/// Example usage:
+/// ```swift
+/// let array = ["apple", "banana", "cherry"]
+/// let dict = array.toDictionary { $0.first! }
+/// // dict = ["a": "apple", "b": "banana", "c": "cherry"]
+/// ```
+public extension Array {
+    func toDictionary<Key: Hashable>(by key: (Element) -> Key) -> [Key: Element] {
+        var dict = [Key: Element]()
+        for element in self {
+            dict[key(element)] = element
+        }
+        return dict
+    }
+}

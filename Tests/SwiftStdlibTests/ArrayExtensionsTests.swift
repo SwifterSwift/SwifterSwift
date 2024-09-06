@@ -144,4 +144,39 @@ final class ArrayExtensionsTests: XCTestCase {
         testStringArray.appendIfNonNil(contentsOf: nilArray)
         XCTAssertEqual(testStringArray, ["h", "e", "l", "l", "o"])
     }
+
+    // Test converting an array of strings into a dictionary based on the first character of each string.
+    func testToDictionaryByFirstCharacter() {
+        let array = ["apple", "banana", "cherry"]
+        let result = array.toDictionary { $0.first! }
+
+        let expected: [Character: String] = ["a": "apple", "b": "banana", "c": "cherry"]
+        XCTAssertEqual(result, expected)
+    }
+
+    // Test converting an array of integers into a dictionary using modulo as the key.
+    func testToDictionaryByModulo() {
+        let numbers = [1, 2, 3, 4, 5]
+        let result = numbers.toDictionary { $0 % 2 == 0 ? "even" : "odd" }
+
+        let expected: [String: Int] = ["odd": 5, "even": 4]
+        XCTAssertEqual(result, expected)
+    }
+
+    // Test when the array is empty.
+    func testToDictionaryEmptyArray() {
+        let emptyArray: [String] = []
+        let result = emptyArray.toDictionary { $0.first! }
+        XCTAssertTrue(result.isEmpty)
+    }
+
+    // Test converting an array with duplicate keys.
+    func testToDictionaryDuplicateKeys() {
+        let array = ["apple", "apricot", "banana"]
+        let result = array.toDictionary { $0.first! }
+
+        // Since "apple" and "apricot" share the same key ("a"), the last one ("apricot") should overwrite the first.
+        let expected: [Character: String] = ["a": "apricot", "b": "banana"]
+        XCTAssertEqual(result, expected)
+    }
 }
