@@ -1395,6 +1395,21 @@ public extension String {
         guard let range = Range(bounds, in: self) else { fatalError("Failed to find range \(bounds) in \(self)") }
         return self[range]
     }
+
+    /// SwifterSwift: Removes all HTML tags from a string.
+    /// - Returns: A string without any HTML tags.
+    ///
+    /// This function uses a regular expression to find and remove any HTML tags present in the string.
+    ///
+    /// Example usage:
+    /// ```swift
+    /// let htmlString = "<p>This is <strong>bold</strong> text.</p>"
+    /// let plainText = htmlString.removingHTMLTags()
+    /// // plainText = "This is bold text."
+    /// ```
+    func removingHTMLTags() -> String {
+        return self.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+    }
 }
 
 #endif

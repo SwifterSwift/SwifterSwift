@@ -972,4 +972,31 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual(String(helloWorld[NSRange(location: 6, length: 6)]), "World!")
         XCTAssertEqual(String(flower[NSRange(location: 0, length: 2)]), flower)
     }
+
+    // Test removing HTML tags from a basic string
+    func testRemovingHTMLTags() {
+        let htmlString = "<p>This is <strong>bold</strong> text.</p>"
+        let expected = "This is bold text."
+        XCTAssertEqual(htmlString.removingHTMLTags(), expected)
+    }
+
+    // Test removing HTML tags from a string with no tags
+    func testNoHTMLTags() {
+        let string = "This is plain text."
+        let expected = "This is plain text."
+        XCTAssertEqual(string.removingHTMLTags(), expected)
+    }
+
+    // Test removing HTML tags from an empty string
+    func testEmptyString() {
+        let emptyString = ""
+        XCTAssertEqual(emptyString.removingHTMLTags(), "")
+    }
+
+    // Test removing HTML tags from a string with only HTML tags
+    func testOnlyHTMLTags() {
+        let htmlOnlyString = "<div><p></p></div>"
+        let expected = ""
+        XCTAssertEqual(htmlOnlyString.removingHTMLTags(), expected)
+    }
 }
