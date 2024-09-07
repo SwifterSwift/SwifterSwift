@@ -6,7 +6,14 @@ import AppKit
 // MARK: - Properties
 
 public extension NSView {
-    /// SwifterSwift: Border color of view; also inspectable from Storyboard.
+
+    /// SwifterSwift: Border color of the view; also inspectable from Storyboard.
+    ///
+    ///    ```swift
+    ///    view.borderColor = NSColor.red
+    ///    ```
+    ///
+    /// - Returns: The border color of the view as `NSColor`.
     @IBInspectable
     var borderColor: NSColor? {
         get {
@@ -19,7 +26,13 @@ public extension NSView {
         }
     }
 
-    /// SwifterSwift: Border width of view; also inspectable from Storyboard.
+    /// SwifterSwift: Border width of the view; also inspectable from Storyboard.
+    ///
+    ///    ```swift
+    ///    view.borderWidth = 2.0
+    ///    ```
+    ///
+    /// - Returns: The border width of the view as `CGFloat`.
     @IBInspectable
     var borderWidth: CGFloat {
         get {
@@ -31,7 +44,13 @@ public extension NSView {
         }
     }
 
-    /// SwifterSwift: Corner radius of view; also inspectable from Storyboard.
+    /// SwifterSwift: Corner radius of the view; also inspectable from Storyboard.
+    ///
+    ///    ```swift
+    ///    view.cornerRadius = 10
+    ///    ```
+    ///
+    /// - Returns: The corner radius of the view as `CGFloat`.
     @IBInspectable
     var cornerRadius: CGFloat {
         get {
@@ -44,7 +63,13 @@ public extension NSView {
         }
     }
 
-    // SwifterSwift: Height of view.
+    /// SwifterSwift: Height of the view.
+    ///
+    ///    ```swift
+    ///    view.height = 100
+    ///    ```
+    ///
+    /// - Returns: The height of the view as `CGFloat`.
     var height: CGFloat {
         get {
             return frame.size.height
@@ -54,7 +79,13 @@ public extension NSView {
         }
     }
 
-    /// SwifterSwift: Shadow color of view; also inspectable from Storyboard.
+    /// SwifterSwift: Shadow color of the view; also inspectable from Storyboard.
+    ///
+    ///    ```swift
+    ///    view.shadowColor = NSColor.black
+    ///    ```
+    ///
+    /// - Returns: The shadow color of the view as `NSColor?`.
     @IBInspectable
     var shadowColor: NSColor? {
         get {
@@ -67,7 +98,13 @@ public extension NSView {
         }
     }
 
-    /// SwifterSwift: Shadow offset of view; also inspectable from Storyboard.
+    /// SwifterSwift: Shadow offset of the view; also inspectable from Storyboard.
+    ///
+    ///    ```swift
+    ///    view.shadowOffset = CGSize(width: 5, height: 5)
+    ///    ```
+    ///
+    /// - Returns: The shadow offset of the view as `CGSize`.
     @IBInspectable
     var shadowOffset: CGSize {
         get {
@@ -79,7 +116,13 @@ public extension NSView {
         }
     }
 
-    /// SwifterSwift: Shadow opacity of view; also inspectable from Storyboard.
+    /// SwifterSwift: Shadow opacity of the view; also inspectable from Storyboard.
+    ///
+    ///    ```swift
+    ///    view.shadowOpacity = 0.8
+    ///    ```
+    ///
+    /// - Returns: The shadow opacity of the view as `Float`.
     @IBInspectable
     var shadowOpacity: Float {
         get {
@@ -91,7 +134,13 @@ public extension NSView {
         }
     }
 
-    /// SwifterSwift: Shadow radius of view; also inspectable from Storyboard.
+    /// SwifterSwift: Shadow radius of the view; also inspectable from Storyboard.
+    ///
+    ///    ```swift
+    ///    view.shadowRadius = 5
+    ///    ```
+    ///
+    /// - Returns: The shadow radius of the view as `CGFloat`.
     @IBInspectable
     var shadowRadius: CGFloat {
         get {
@@ -104,6 +153,12 @@ public extension NSView {
     }
 
     /// SwifterSwift: Background color of the view; also inspectable from Storyboard.
+    ///
+    ///    ```swift
+    ///    view.backgroundColor = NSColor.blue
+    ///    ```
+    ///
+    /// - Returns: The background color of the view as `NSColor?`.
     @IBInspectable
     var backgroundColor: NSColor? {
         get {
@@ -119,7 +174,13 @@ public extension NSView {
         }
     }
 
-    /// SwifterSwift: Size of view.
+    /// SwifterSwift: Size of the view.
+    ///
+    ///    ```swift
+    ///    view.size = CGSize(width: 200, height: 100)
+    ///    ```
+    ///
+    /// - Returns: The size of the view as `CGSize`.
     var size: CGSize {
         get {
             return frame.size
@@ -130,7 +191,13 @@ public extension NSView {
         }
     }
 
-    /// SwifterSwift: Width of view.
+    /// SwifterSwift: Width of the view.
+    ///
+    ///    ```swift
+    ///    view.width = 200
+    ///    ```
+    ///
+    /// - Returns: The width of the view as `CGFloat`.
     var width: CGFloat {
         get {
             return frame.size.width
@@ -144,17 +211,27 @@ public extension NSView {
 // MARK: - Methods
 
 public extension NSView {
-    /// SwifterSwift: Add array of subviews to view.
+
+    /// SwifterSwift: Add an array of subviews to the view.
     ///
-    /// - Parameter subviews: array of subviews to add to self.
+    ///    ```swift
+    ///    view.addSubviews([subview1, subview2])
+    ///    ```
+    ///
+    /// - Parameter subviews: An array of `NSView` objects to add as subviews.
     func addSubviews(_ subviews: [NSView]) {
         subviews.forEach { addSubview($0) }
     }
 
-    /// SwifterSwift: Remove all subviews in view.
+    /// SwifterSwift: Remove all subviews from the view.
+    ///
+    ///    ```swift
+    ///    view.removeSubviews()
+    ///    ```
     func removeSubviews() {
         subviews.forEach { $0.removeFromSuperview() }
     }
 }
+
 
 #endif
