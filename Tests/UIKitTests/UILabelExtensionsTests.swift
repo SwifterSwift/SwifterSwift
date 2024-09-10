@@ -6,6 +6,7 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+@MainActor
 final class UILabelExtensionsTests: XCTestCase {
     func testInitWithText() {
         let label = UILabel(text: "Hello world")

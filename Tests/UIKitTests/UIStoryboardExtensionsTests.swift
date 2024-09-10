@@ -6,6 +6,7 @@ import XCTest
 #if os(iOS)
 import UIKit
 
+@MainActor
 final class UIStoryboardExtensionsTests: XCTestCase {
     func testMainStoryboard() {
         XCTAssertNil(UIStoryboard.main)

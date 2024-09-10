@@ -8,7 +8,7 @@ import UIKit
 public extension UITableView {
     /// SwifterSwift: Index path of last row in tableView.
     var indexPathForLastRow: IndexPath? {
-        guard let lastSection = lastSection else { return nil }
+        guard let lastSection else { return nil }
         return indexPathForLastRow(inSection: lastSection)
     }
 
@@ -110,7 +110,7 @@ public extension UITableView {
     /// - Parameters:
     ///   - nib: Nib file used to create the header or footer view.
     ///   - name: UITableViewHeaderFooterView type.
-    func register<T: UITableViewHeaderFooterView>(nib: UINib?, withHeaderFooterViewClass name: T.Type) {
+    func register(nib: UINib?, withHeaderFooterViewClass name: (some UITableViewHeaderFooterView).Type) {
         register(nib, forHeaderFooterViewReuseIdentifier: String(describing: name))
     }
 
@@ -133,7 +133,7 @@ public extension UITableView {
     /// - Parameters:
     ///   - nib: Nib file used to create the tableView cell.
     ///   - name: UITableViewCell type.
-    func register<T: UITableViewCell>(nib: UINib?, withCellClass name: T.Type) {
+    func register(nib: UINib?, withCellClass name: (some UITableViewCell).Type) {
         register(nib, forCellReuseIdentifier: String(describing: name))
     }
 
@@ -143,7 +143,7 @@ public extension UITableView {
     /// - Parameters:
     ///   - name: UITableViewCell type.
     ///   - bundleClass: Class in which the Bundle instance will be based on.
-    func register<T: UITableViewCell>(nibWithCellClass name: T.Type, at bundleClass: AnyClass? = nil) {
+    func register(nibWithCellClass name: (some UITableViewCell).Type, at bundleClass: AnyClass? = nil) {
         let identifier = String(describing: name)
         var bundle: Bundle?
 

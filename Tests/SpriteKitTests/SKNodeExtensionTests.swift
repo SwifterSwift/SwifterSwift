@@ -6,6 +6,7 @@ import XCTest
 #if canImport(SpriteKit)
 import SpriteKit
 
+@MainActor
 final class SKNodeExtensionTests: XCTestCase {
     func testDescendants() {
         let scene = SKScene()

@@ -127,8 +127,8 @@ public extension NSAttributedString {
     ///   - attributes: Dictionary of attributes.
     ///   - target: a subsequence string for the attributes to be applied to.
     /// - Returns: An NSAttributedString with attributes applied on the target string.
-    func applying<T: StringProtocol>(attributes: [Key: Any],
-                                     toOccurrencesOf target: T) -> NSAttributedString {
+    func applying(attributes: [Key: Any],
+                  toOccurrencesOf target: some StringProtocol) -> NSAttributedString {
         let pattern = "\\Q\(target)\\E"
 
         return applying(attributes: attributes, toRangesMatching: pattern)

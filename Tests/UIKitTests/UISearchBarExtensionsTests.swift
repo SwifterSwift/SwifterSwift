@@ -6,6 +6,7 @@ import XCTest
 #if os(iOS)
 import UIKit
 
+@MainActor
 final class UISearchBarExtensionsTests: XCTestCase {
     func testSearchBar() {
         let searchBar = UISearchBar()

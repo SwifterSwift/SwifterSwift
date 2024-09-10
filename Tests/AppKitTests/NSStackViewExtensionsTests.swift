@@ -5,6 +5,7 @@
 @testable import SwifterSwift
 import XCTest
 
+@MainActor
 final class NSStackViewExtensionsTests: XCTestCase {
     func testAddArrangedSubviews() {
         let view1 = NSView()

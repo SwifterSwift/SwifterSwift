@@ -11,7 +11,7 @@ public extension SKNode {
     ///         mySKNode.descendants() -> [childNodeOne, childNodeTwo]
     ///
     func descendants() -> [SKNode] {
-        var children = self.children
+        var children = children
         children.append(contentsOf: children.reduce(into: [SKNode]()) { $0.append(contentsOf: $1.descendants()) })
         return children
     }

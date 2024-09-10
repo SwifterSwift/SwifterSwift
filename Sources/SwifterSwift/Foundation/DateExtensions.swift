@@ -930,7 +930,7 @@ public extension Date {
     ///   - range: The range in which to create a random date. `range` must not be empty.
     ///   - generator: The random number generator to use when creating the new random date.
     /// - Returns: A random date within the bounds of `range`.
-    static func random<T>(in range: Range<Date>, using generator: inout T) -> Date where T: RandomNumberGenerator {
+    static func random(in range: Range<Date>, using generator: inout some RandomNumberGenerator) -> Date {
         return Date(timeIntervalSinceReferenceDate:
             TimeInterval.random(
                 in: range.lowerBound.timeIntervalSinceReferenceDate..<range.upperBound.timeIntervalSinceReferenceDate,
@@ -944,8 +944,7 @@ public extension Date {
     ///   - range: The range in which to create a random date.
     ///   - generator: The random number generator to use when creating the new random date.
     /// - Returns: A random date within the bounds of `range`.
-    static func random<T>(in range: ClosedRange<Date>, using generator: inout T) -> Date
-        where T: RandomNumberGenerator {
+    static func random(in range: ClosedRange<Date>, using generator: inout some RandomNumberGenerator) -> Date {
         return Date(timeIntervalSinceReferenceDate:
             TimeInterval.random(
                 in: range.lowerBound.timeIntervalSinceReferenceDate...range.upperBound.timeIntervalSinceReferenceDate,

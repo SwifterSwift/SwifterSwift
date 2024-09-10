@@ -89,7 +89,7 @@ public extension UIViewController {
             })
             alertController.addAction(action)
             // Check which button to highlight
-            if let highlightedButtonIndex = highlightedButtonIndex, index == highlightedButtonIndex {
+            if let highlightedButtonIndex, index == highlightedButtonIndex {
                 alertController.preferredAction = action
             }
         }
@@ -136,7 +136,7 @@ public extension UIViewController {
         completion: (() -> Void)? = nil) {
         popoverContent.modalPresentationStyle = .popover
 
-        if let size = size {
+        if let size {
             popoverContent.preferredContentSize = size
         }
 

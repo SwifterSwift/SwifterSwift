@@ -223,13 +223,16 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testUrl() {
+        let helloWorld = "hello world".url
         #if os(Linux)
-        XCTAssertNil("hello world".url)
+        XCTAssertNil(helloWorld)
         #else
         if #available(iOS 17.0, *) {
-            XCTAssertEqual("hello world".url, URL(string: "hello%20world"))
+            XCTAssertEqual(helloWorld, URL(string: "hello%20world"))
+        } else if #available(macCatalyst 14.0, *) {
+            XCTAssertNil(helloWorld)
         } else {
-            XCTAssertNil("hello world".url)
+            XCTAssertNil(helloWorld)
         }
         #endif
 
@@ -717,6 +720,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("str".paddingEnd(2), "str")
     }
 
+    @MainActor
     func testIsSpelledCorrectly() {
         #if os(iOS) || os(tvOS)
         let strCorrect = "Hello, World!"

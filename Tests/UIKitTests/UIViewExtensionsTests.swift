@@ -6,8 +6,8 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-// swiftlint:disable:next type_body_length
-final class UIViewExtensionsTests: XCTestCase {
+@MainActor
+final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_body_length
     func testBorderColor() {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let view = UIView(frame: frame)
@@ -39,6 +39,9 @@ final class UIViewExtensionsTests: XCTestCase {
     }
 
     func testFirstResponder() {
+        // Tests crash for macCatalyst with error 'NSApplication has not been created yet.'
+        if #available(macCatalyst 1, *) { return }
+
         // When there's no firstResponder
         XCTAssertNil(UIView().firstResponder())
 

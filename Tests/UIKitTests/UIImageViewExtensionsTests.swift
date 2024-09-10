@@ -6,7 +6,9 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+@MainActor
 final class UIImageViewExtensionsTests: XCTestCase {
+    @available(iOS 13.0, tvOS 13.0, *)
     func testDownload() {
         // Success
         let imageView = UIImageView()

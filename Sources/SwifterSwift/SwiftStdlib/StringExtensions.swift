@@ -27,7 +27,7 @@ public extension String {
     var base64Decoded: String? {
         if let data = Data(base64Encoded: self,
                            options: .ignoreUnknownCharacters) {
-            return String(decoding: data, as: UTF8.self)
+            return String(data: data, encoding: .utf8)
         }
 
         let remainder = count % 4
@@ -40,7 +40,7 @@ public extension String {
         guard let data = Data(base64Encoded: self + padding,
                               options: .ignoreUnknownCharacters) else { return nil }
 
-        return String(decoding: data, as: UTF8.self)
+        return String(data: data, encoding: .utf8)
     }
     #endif
 
@@ -115,7 +115,7 @@ public extension String {
     ///		"".firstCharacterAsString -> nil
     ///
     var firstCharacterAsString: String? {
-        guard let first = first else { return nil }
+        guard let first else { return nil }
         return String(first)
     }
 
@@ -285,7 +285,7 @@ public extension String {
     ///		"".lastCharacterAsString -> nil
     ///
     var lastCharacterAsString: String? {
-        guard let last = last else { return nil }
+        guard let last else { return nil }
         return String(last)
     }
 
@@ -442,6 +442,7 @@ public extension String {
 
     #if os(iOS) || os(tvOS)
     /// SwifterSwift: Check if the given string spelled correctly.
+    @MainActor
     var isSpelledCorrectly: Bool {
         let checker = UITextChecker()
         let range = NSRange(startIndex..<endIndex, in: self)
@@ -600,7 +601,7 @@ public extension String {
     ///
     /// - Returns: The string in slug format.
     func toSlug() -> String {
-        let lowercased = self.lowercased()
+        let lowercased = lowercased()
         let latinized = lowercased.folding(options: .diacriticInsensitive, locale: Locale.current)
         let withDashes = latinized.replacingOccurrences(of: " ", with: "-")
 
@@ -753,7 +754,7 @@ public extension String {
     ///        "".firstCharacterUppercased() -> ""
     ///
     mutating func firstCharacterUppercased() {
-        guard let first = first else { return }
+        guard let first else { return }
         self = String(first).uppercased() + dropFirst()
     }
 
@@ -1228,7 +1229,7 @@ public extension String {
     /// - Parameter base64: base64 string.
     init?(base64: String) {
         guard let decodedData = Data(base64Encoded: base64) else { return nil }
-        self.init(String(decoding: decodedData, as: UTF8.self))
+        self.init(data: decodedData, encoding: .utf8)
     }
     #endif
 }

@@ -20,7 +20,7 @@ public extension URLRequest {
 
     /// SwifterSwift: cURL command representation of this URL request.
     var curlString: String {
-        guard let url = url else { return "" }
+        guard let url else { return "" }
 
         var baseCommand = "curl \(url.absoluteString)"
         if httpMethod == "HEAD" {
@@ -38,8 +38,8 @@ public extension URLRequest {
             }
         }
 
-        if let data = httpBody {
-            let body = String(decoding: data, as: UTF8.self)
+        if let data = httpBody,
+           let body = String(data: data, encoding: .utf8) {
             command.append("-d '\(body)'")
         }
 

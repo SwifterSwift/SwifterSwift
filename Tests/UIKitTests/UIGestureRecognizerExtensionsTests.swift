@@ -6,6 +6,7 @@ import XCTest
 #if os(iOS) && !os(watchOS)
 import UIKit
 
+@MainActor
 final class UIGestureRecognizerExtensionsTests: XCTestCase {
     func testRemoveFromView() {
         let view = UIImageView()

@@ -6,14 +6,18 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
-final class UIScrollViewExtensionsTest: XCTestCase {
+@available(iOS 13.0, tvOS 13.0, *)
+@MainActor
+final class UIScrollViewExtensionsTests: XCTestCase {
     let scroll = UIScrollView(frame: CGRect(origin: .zero, size: CGSize(width: 100, height: 100)))
 
-    override func setUp() {
-        super.setUp()
+    override func setUp() async throws {
+        _ = await Task { @MainActor in
+            super.setUp()
 
-        scroll.contentSize = CGSize(width: 500, height: 500)
-        scroll.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 40)
+            scroll.contentSize = CGSize(width: 500, height: 500)
+            scroll.contentInset = UIEdgeInsets(top: 10, left: 20, bottom: 30, right: 40)
+        }.result
     }
 
     func testSnapshot() {

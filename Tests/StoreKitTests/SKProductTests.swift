@@ -41,7 +41,7 @@ final class SKProductTests: XCTestCase {
             price: "100.00",
             priceLocale: Locale(identifier: "nb_NO"))
 
-        if #available(iOS 18.0, tvOS 18.0, *) {
+        if #available(iOS 18.0, macCatalyst 14.0, tvOS 18.0, *) {
             XCTAssertEqual(noMockedProduct.localizedPrice, "100,00 kr")
         } else {
             XCTAssertEqual(noMockedProduct.localizedPrice, "kr 100,00")

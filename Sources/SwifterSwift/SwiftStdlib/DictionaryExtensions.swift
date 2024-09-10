@@ -37,7 +37,7 @@ public extension Dictionary {
     ///        dict.keys.contains("key2") -> false
     ///
     /// - Parameter keys: keys to be removed.
-    mutating func removeAll<S: Sequence>(keys: S) where S.Element == Key {
+    mutating func removeAll(keys: some Sequence<Key>) {
         keys.forEach { removeValue(forKey: $0) }
     }
 
@@ -92,7 +92,7 @@ public extension Dictionary {
         let options = (prettify == true) ? JSONSerialization.WritingOptions.prettyPrinted : JSONSerialization
             .WritingOptions()
         guard let jsonData = try? JSONSerialization.data(withJSONObject: self, options: options) else { return nil }
-        return String(decoding: jsonData, as: UTF8.self)
+        return String(data: jsonData, encoding: .utf8)
     }
     #endif
 
@@ -263,7 +263,7 @@ public extension Dictionary {
     ///   - lhs: dictionary.
     ///   - keys: array with the keys to be removed.
     /// - Returns: a new dictionary with keys removed.
-    static func - <S: Sequence>(lhs: [Key: Value], keys: S) -> [Key: Value] where S.Element == Key {
+    static func - (lhs: [Key: Value], keys: some Sequence<Key>) -> [Key: Value] {
         var result = lhs
         result.removeAll(keys: keys)
         return result
@@ -280,7 +280,7 @@ public extension Dictionary {
     /// - Parameters:
     ///   - lhs: dictionary.
     ///   - keys: array with the keys to be removed.
-    static func -= <S: Sequence>(lhs: inout [Key: Value], keys: S) where S.Element == Key {
+    static func -= (lhs: inout [Key: Value], keys: some Sequence<Key>) {
         lhs.removeAll(keys: keys)
     }
 }

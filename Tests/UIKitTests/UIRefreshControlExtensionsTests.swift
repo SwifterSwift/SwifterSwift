@@ -6,6 +6,7 @@ import XCTest
 #if canImport(UIKit) && os(iOS)
 import UIKit
 
+@MainActor
 final class UIRefreshControlExtensionTests: XCTestCase {
     func testBeginRefreshAsRefreshControlSubview() {
         let window = UIWindow()

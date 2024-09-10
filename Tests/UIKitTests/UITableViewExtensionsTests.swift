@@ -6,16 +6,20 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+@available(iOS 13.0, tvOS 13.0, *)
+@MainActor
 final class UITableViewExtensionsTests: XCTestCase {
     let tableView = UITableView()
     let emptyTableView = UITableView()
 
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        tableView.dataSource = self
-        emptyTableView.dataSource = self
-        tableView.reloadData()
+    override func setUp() async throws {
+        _ = await Task { @MainActor in
+            super.setUp()
+            // Put setup code here. This method is called before the invocation of each test method in the class.
+            tableView.dataSource = self
+            emptyTableView.dataSource = self
+            tableView.reloadData()
+        }.result
     }
 
     func testIndexPathForLastRow() {
@@ -164,6 +168,7 @@ final class UITableViewExtensionsTests: XCTestCase {
     #endif
 }
 
+@available(iOS 13.0, tvOS 13.0, *)
 extension UITableViewExtensionsTests: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return tableView == emptyTableView ? 0 : 2

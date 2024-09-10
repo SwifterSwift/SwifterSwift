@@ -11,7 +11,7 @@ public extension StringProtocol {
     ///     - Parameter aString: The string with which to compare the receiver.
     ///     - Parameter options: Options for the comparison.
     /// - Returns: The longest common suffix of the receiver and the given String.
-    func commonSuffix<T: StringProtocol>(with aString: T, options: String.CompareOptions = []) -> String {
+    func commonSuffix(with aString: some StringProtocol, options: String.CompareOptions = []) -> String {
         return String(zip(reversed(), aString.reversed())
             .lazy
             .prefix(while: { (lhs: Character, rhs: Character) in
@@ -32,12 +32,11 @@ public extension StringProtocol {
     ///   - searchRange: The range in the receiver in which to search.
     /// - Returns: A new string in which all occurrences of regex pattern in searchRange of the receiver are replaced by
     /// template.
-    func replacingOccurrences<Target, Replacement>(
-        ofPattern pattern: Target,
-        withTemplate template: Replacement,
+    func replacingOccurrences(
+        ofPattern pattern: some StringProtocol,
+        withTemplate template: some StringProtocol,
         options: String.CompareOptions = [.regularExpression],
-        range searchRange: Range<Self.Index>? = nil) -> String where Target: StringProtocol,
-        Replacement: StringProtocol {
+        range searchRange: Range<Self.Index>? = nil) -> String {
         assert(
             options.isStrictSubset(of: [.regularExpression, .anchored, .caseInsensitive]),
             "Invalid options for regular expression replacement")

@@ -6,6 +6,7 @@ import XCTest
 #if canImport(Dispatch)
 import Dispatch
 
+@MainActor
 final class DispatchQueueExtensionsTests: XCTestCase {
     func testIsMainQueue() {
         let expect = expectation(description: "isMainQueue")
@@ -56,6 +57,7 @@ final class DispatchQueueExtensionsTests: XCTestCase {
         waitForExpectations(timeout: delay + 1)
     }
 
+    @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
     func testDebounce() {
         var value = 0
         let done = expectation(description: "Execute block after delay")
@@ -75,9 +77,9 @@ final class DispatchQueueExtensionsTests: XCTestCase {
 
         XCTAssertEqual(value, 0, "Debounced function was executed right away")
 
-        waitForExpectations(timeout: 2.5) { _ in
-            XCTAssertEqual(value, 1, "Value was incremented more once")
-        }
+        waitForExpectations(timeout: 2.5)
+
+        XCTAssertEqual(value, 1, "Value was incremented more once")
     }
 }
 
