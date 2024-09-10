@@ -38,8 +38,8 @@ public extension URLRequest {
             }
         }
 
-        if let data = httpBody {
-            let body = String(decoding: data, as: UTF8.self)
+        if let data = httpBody,
+           let body = String(data: data, encoding: .utf8) {
             command.append("-d '\(body)'")
         }
 

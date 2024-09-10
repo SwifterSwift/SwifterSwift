@@ -27,7 +27,7 @@ public extension String {
     var base64Decoded: String? {
         if let data = Data(base64Encoded: self,
                            options: .ignoreUnknownCharacters) {
-            return String(decoding: data, as: UTF8.self)
+            return String(data: data, encoding: .utf8)
         }
 
         let remainder = count % 4
@@ -40,7 +40,7 @@ public extension String {
         guard let data = Data(base64Encoded: self + padding,
                               options: .ignoreUnknownCharacters) else { return nil }
 
-        return String(decoding: data, as: UTF8.self)
+        return String(data: data, encoding: .utf8)
     }
     #endif
 
@@ -1229,7 +1229,7 @@ public extension String {
     /// - Parameter base64: base64 string.
     init?(base64: String) {
         guard let decodedData = Data(base64Encoded: base64) else { return nil }
-        self.init(String(decoding: decodedData, as: UTF8.self))
+        self.init(data: decodedData, encoding: .utf8)
     }
     #endif
 }
