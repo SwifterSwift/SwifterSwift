@@ -515,14 +515,51 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
+    /// SwifterSwift: Returns a localized string.
+    ///
+    ///        "Hello world".localized -> Hallo Welt
+    ///
+    var localized: String {
+        localized()
+    }
+    #endif
+
+    #if canImport(Foundation)
     /// SwifterSwift: Returns a localized string, with an optional comment for translators.
     ///
     ///        "Hello world".localized() -> Hallo Welt
     ///
-    /// - Parameter comment: Optional comment for translators.
-    /// - Returns: Localized string.
-    func localized(comment: String = "") -> String {
-        return NSLocalizedString(self, comment: comment)
+    /// - Parameters:
+    ///   - tableName: The name of the table containing the key-value pairs. Also, the suffix for the strings file (a
+    /// file with the.strings extension) to store the localized string. This defaults to the table in
+    /// `Localizable.strings` when tableName is nil or an empty string.
+    ///   - bundle: The bundle containing the table’s strings file. The main bundle is used if one isn’t specified.
+    ///   - value: The localized string for the development locale. For other locales, return this value if key isn’t
+    /// found in the table.
+    ///   - comment: The comment to place above the key-value pair in the strings file. This parameter provides
+    /// the translator with some context about the localized string’s presentation to the user.
+    /// - Returns: Localized string. Please refer to the Xcode documentation of `NSLocalizedString()` API for details.
+    func localized(
+        tableName: String? = nil,
+        bundle: Bundle = Bundle.main,
+        value: String = "",
+        comment: String = "") -> String {
+        /// TODO: Use the following API instead (plus the `locale` parameter )
+        /// when support towards macOS 12 and earlier are dropped:
+        ///
+        /// ```swift
+        /// String(
+        ///     localized: .init(
+        ///         self,
+        ///         defaultValue: .init(stringLiteral: self),
+        ///         table: table,
+        ///         locale: Locale.current,
+        ///         bundle: Bundle.main,
+        ///         comment: comment
+        ///     )
+        /// )
+        /// ```
+        return NSLocalizedString(self, tableName: tableName, bundle: bundle, value: value, comment: comment)
     }
     #endif
 
