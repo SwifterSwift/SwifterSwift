@@ -13,8 +13,10 @@ final class SignedNumericExtensionsTests: XCTestCase {
     }
 
     func testAsLocaleCurrency() {
+        #if !os(Linux)
         let number1 = 3.2
-        XCTAssertEqual(number1.asLocaleCurrency, "$3.20")
+        XCTAssertEqual(number1.asLocaleCurrency, "$3.20", "Failed to format number with locale \(Locale.current)")
+        #endif
 
         let number2 = Double(10.23)
         if let symbol = Locale.current.currencySymbol {

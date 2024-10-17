@@ -1,5 +1,7 @@
 // NotificationCenterExtensionsTests.swift - Copyright 2024 SwifterSwift
 
+#if canImport(Foundation) && canImport(Combine)
+
 @testable import SwifterSwift
 import XCTest
 
@@ -40,3 +42,5 @@ final class NotificationCenterExtensionsTests: XCTestCase {
         XCTAssertEqual(count, 3)
     }
 }
+
+#endif

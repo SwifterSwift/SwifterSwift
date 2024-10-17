@@ -88,4 +88,4 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Linux
-        run: swift test --enable-test-discovery --parallel
+        run: swift test --parallel

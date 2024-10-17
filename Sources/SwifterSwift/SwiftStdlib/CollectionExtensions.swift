@@ -63,6 +63,7 @@ public extension Collection {
         return slices
     }
 
+    #if !os(Linux)
     /// SwifterSwift: Get all indices where condition is met.
     ///
     ///     [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
@@ -73,6 +74,7 @@ public extension Collection {
         let indices = try indices.filter { try condition(self[$0]) }
         return indices.isEmpty ? nil : indices
     }
+    #endif
 
     /// SwifterSwift: Calls the given closure with an array of size of the parameter slice.
     ///

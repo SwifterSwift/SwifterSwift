@@ -3,7 +3,6 @@
 @testable import SwifterSwift
 import XCTest
 
-@MainActor
 final class CollectionExtensionsTests: XCTestCase {
     private enum TestData {
         static let collection = [1, 2, 3, 4, 5]
@@ -45,6 +44,7 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertNil(TestData.collection[safe: 10])
     }
 
+    #if !os(Linux)
     func testIndicesWhere() {
         let array: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         let indices = array.indices { $0 % 2 == 0 }
@@ -53,6 +53,7 @@ final class CollectionExtensionsTests: XCTestCase {
         let emptyIndices = emptyArray.indices { $0 % 2 == 0 }
         XCTAssertNil(emptyIndices)
     }
+    #endif
 
     func testForEachSlice() {
         // A slice with value zero

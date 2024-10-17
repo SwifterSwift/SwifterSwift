@@ -6,6 +6,7 @@ import Dispatch
 // MARK: - Properties
 
 public extension DispatchQueue {
+    #if !os(Linux)
     /// SwifterSwift: A Boolean value indicating whether the current dispatch queue is the main queue.
     static var isMainQueue: Bool {
         enum Static {
@@ -17,6 +18,7 @@ public extension DispatchQueue {
         }
         return DispatchQueue.getSpecific(key: Static.key) != nil
     }
+    #endif
 }
 
 // MARK: - Methods
@@ -49,6 +51,7 @@ public extension DispatchQueue {
         asyncAfter(deadline: .now() + delay, qos: qos, flags: flags, execute: work)
     }
 
+    #if !os(Linux)
     @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
     func debounce(delay: Double, action: @escaping () -> Void) -> () -> Void {
         // http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call
@@ -64,6 +67,7 @@ public extension DispatchQueue {
             }
         }
     }
+    #endif
 }
 
 #endif

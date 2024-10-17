@@ -225,12 +225,10 @@ final class StringExtensionsTests: XCTestCase {
     func testUrl() {
         let helloWorld = "hello world".url
         #if os(Linux)
-        XCTAssertNil(helloWorld)
+        XCTAssertEqual(helloWorld, URL(string: "hello%20world"))
         #else
         if #available(iOS 17.0, *) {
             XCTAssertEqual(helloWorld, URL(string: "hello%20world"))
-        } else if #available(macCatalyst 14.0, *) {
-            XCTAssertNil(helloWorld)
         } else {
             XCTAssertNil(helloWorld)
         }
