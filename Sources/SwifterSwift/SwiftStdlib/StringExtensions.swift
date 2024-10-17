@@ -515,16 +515,6 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Returns a localized string.
-    ///
-    ///        "Hello world".localized -> Hallo Welt
-    ///
-    var localized: String {
-        localized()
-    }
-    #endif
-
-    #if canImport(Foundation)
     /// SwifterSwift: Returns a localized string, with an optional comment for translators.
     ///
     ///        "Hello world".localized() -> Hallo Welt
@@ -544,21 +534,6 @@ public extension String {
         bundle: Bundle = Bundle.main,
         value: String = "",
         comment: String = "") -> String {
-        /// TODO: Use the following API instead (plus the `locale` parameter )
-        /// when support towards macOS 12 and earlier are dropped:
-        ///
-        /// ```swift
-        /// String(
-        ///     localized: .init(
-        ///         self,
-        ///         defaultValue: .init(stringLiteral: self),
-        ///         table: table,
-        ///         locale: Locale.current,
-        ///         bundle: Bundle.main,
-        ///         comment: comment
-        ///     )
-        /// )
-        /// ```
         return NSLocalizedString(self, tableName: tableName, bundle: bundle, value: value, comment: comment)
     }
     #endif
