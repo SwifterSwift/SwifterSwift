@@ -48,7 +48,7 @@ jobs:
       run: xcodebuild clean build -project $PROJECT -scheme $SCHEME -destination "$DESTINATION"
       env:
           SCHEME: SwifterSwift-watchOS
-          DESTINATION: platform=watchOS Simulator,name=Apple Watch Series 5 (40mm)
+          DESTINATION: platform=watchOS Simulator,name=Apple Watch Series 10 (42mm)
   
     - name: Danger Swift
       # Hack to by pass the key invalidation mechanism
