@@ -6,6 +6,7 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+@MainActor
 final class UIAlertControllerExtensionsTests: XCTestCase {
     func testAddAction() {
         let alertController = UIAlertController(title: "Title", message: "Message", preferredStyle: .alert)

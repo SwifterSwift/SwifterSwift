@@ -183,7 +183,7 @@ public extension Sequence {
     ///
     /// - Parameter keyPath: Key path to sort by. The key path type must be Comparable.
     /// - Returns: The sorted array.
-    func sorted<T: Comparable>(by keyPath: KeyPath<Element, T>) -> [Element] {
+    func sorted(by keyPath: KeyPath<Element, some Comparable>) -> [Element] {
         return sorted { $0[keyPath: keyPath] < $1[keyPath: keyPath] }
     }
 
@@ -191,7 +191,7 @@ public extension Sequence {
     ///
     /// - Parameter map: Function that defines the property to sort by. The output type must be Comparable.
     /// - Returns: The sorted array.
-    func sorted<T: Comparable>(by map: (Element) throws -> T) rethrows -> [Element] {
+    func sorted(by map: (Element) throws -> some Comparable) rethrows -> [Element] {
         return try sorted { try map($0) < map($1) }
     }
 
@@ -201,8 +201,8 @@ public extension Sequence {
     /// - Parameters:
     ///     - keyPath1: Key path to sort by. Must be Comparable.
     ///     - keyPath2: Key path to sort by in case the values of `keyPath1` match. Must be Comparable.
-    func sorted<T: Comparable, U: Comparable>(by keyPath1: KeyPath<Element, T>,
-                                              and keyPath2: KeyPath<Element, U>) -> [Element] {
+    func sorted(by keyPath1: KeyPath<Element, some Comparable>,
+                and keyPath2: KeyPath<Element, some Comparable>) -> [Element] {
         return sorted {
             if $0[keyPath: keyPath1] != $1[keyPath: keyPath1] {
                 return $0[keyPath: keyPath1] < $1[keyPath: keyPath1]
@@ -217,8 +217,8 @@ public extension Sequence {
     /// - Parameters:
     ///     - map1: Map function to sort by. Output type must be Comparable.
     ///     - map2: Map function to sort by in case the values of `map1` match. Output type must be Comparable.
-    func sorted<T: Comparable, U: Comparable>(by map1: (Element) throws -> T,
-                                              and map2: (Element) throws -> U) rethrows -> [Element] {
+    func sorted(by map1: (Element) throws -> some Comparable,
+                and map2: (Element) throws -> some Comparable) rethrows -> [Element] {
         return try sorted {
             let value10 = try map1($0)
             let value11 = try map1($1)
@@ -236,9 +236,10 @@ public extension Sequence {
     ///     - keyPath1: Key path to sort by. Must be Comparable.
     ///     - keyPath2: Key path to sort by in case the values of `keyPath1` match. Must be Comparable.
     ///     - keyPath3: Key path to sort by in case the values of `keyPath1` and `keyPath2` match. Must be Comparable.
-    func sorted<T: Comparable, U: Comparable, V: Comparable>(by keyPath1: KeyPath<Element, T>,
-                                                             and keyPath2: KeyPath<Element, U>,
-                                                             and keyPath3: KeyPath<Element, V>) -> [Element] {
+    func sorted(by keyPath1: KeyPath<Element, some Comparable>,
+                and keyPath2: KeyPath<Element, some Comparable>,
+                and keyPath3: KeyPath<Element, some Comparable>)
+        -> [Element] {
         return sorted {
             if $0[keyPath: keyPath1] != $1[keyPath: keyPath1] {
                 return $0[keyPath: keyPath1] < $1[keyPath: keyPath1]
@@ -258,9 +259,10 @@ public extension Sequence {
     ///     - map2: Map function to sort by in case the values of `map1` match. Output type must be Comparable.
     ///     - map3: Map function to sort by in case the values of `map1` and `map2` match.
     ///     Output type must be Comparable.
-    func sorted<T: Comparable, U: Comparable, V: Comparable>(by map1: (Element) throws -> T,
-                                                             and map2: (Element) throws -> U,
-                                                             and map3: (Element) throws -> V) rethrows -> [Element] {
+    func sorted(by map1: (Element) throws -> some Comparable,
+                and map2: (Element) throws -> some Comparable,
+                and map3: (Element) throws -> some Comparable) rethrows
+        -> [Element] {
         return try sorted {
             let value10 = try map1($0)
             let value11 = try map1($1)

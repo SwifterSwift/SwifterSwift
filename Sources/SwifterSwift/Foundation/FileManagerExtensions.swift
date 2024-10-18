@@ -60,19 +60,10 @@ public extension FileManager {
     /// - Throws: An error if a temporary directory cannot be found or created.
     /// - Returns: A URL to a new directory for saving temporary files.
     func createTemporaryDirectory() throws -> URL {
-        #if !os(Linux)
-        return try url(for: .itemReplacementDirectory,
-                       in: .userDomainMask,
-                       appropriateFor: temporaryDirectory,
-                       create: true)
-        #else
-        let envs = ProcessInfo.processInfo.environment
-        let env = envs["TMPDIR"] ?? envs["TEMP"] ?? envs["TMP"] ?? "/tmp"
-        let dir = "/\(env)/file-temp.XXXXXX"
-        var template = [UInt8](dir.utf8).map { Int8($0) } + [Int8(0)]
-        guard mkdtemp(&template) != nil else { throw CocoaError.error(.featureUnsupported) }
-        return URL(fileURLWithPath: String(cString: template))
-        #endif
+        try url(for: .itemReplacementDirectory,
+                in: .userDomainMask,
+                appropriateFor: temporaryDirectory,
+                create: true)
     }
 }
 

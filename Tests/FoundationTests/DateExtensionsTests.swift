@@ -922,7 +922,7 @@ final class DateExtensionsTests: XCTestCase {
 
         XCTAssertNotNil(date)
 
-        if let date = date {
+        if let date {
             XCTAssertEqual(String(describing: date), "2017-12-25 00:00:00 +0000")
         }
 

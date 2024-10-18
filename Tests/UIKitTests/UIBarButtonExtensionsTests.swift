@@ -6,6 +6,7 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+@MainActor
 final class UIBarButtonExtensionsTests: XCTestCase {
     func testFlexibleSpace() {
         let space1 = UIBarButtonItem.flexibleSpace

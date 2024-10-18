@@ -28,7 +28,12 @@ final class LocaleExtensionsTests: XCTestCase {
         XCTAssertNil(Locale.flagEmoji(forRegionCode: "ac"))
         #endif
 
-        for regionCode in Locale.isoRegionCodes {
+        let regionCodes = if #available(macOS 13, iOS 16, tvOS 16, *) {
+            Locale.Region.isoRegions.map(\.identifier)
+        } else {
+            Locale.isoRegionCodes
+        }
+        for regionCode in regionCodes {
             XCTAssertNotNil(Locale.flagEmoji(forRegionCode: regionCode))
         }
     }

@@ -4,38 +4,47 @@
 import XCTest
 
 final class CollectionExtensionsTests: XCTestCase {
-    let collection = [1, 2, 3, 4, 5]
+    private enum TestData {
+        static let collection = [1, 2, 3, 4, 5]
+    }
 
     func testFullRange() {
-        XCTAssertEqual(collection.fullRange, 0..<5)
+        XCTAssertEqual(TestData.collection.fullRange, 0..<5)
         XCTAssertEqual([Int]().fullRange, 0..<0)
     }
 
-    func testForEachInParallel() {
+    @available(iOS 13.0, macOS 10.15, tvOS 13.0, *)
+    func testForEachInParallel() async {
+        actor Counter {
+            private(set) var count = 0
+
+            func increment() { count += 1 }
+        }
+
         let expectation = XCTestExpectation(description: "forEachInParallel")
 
-        var count = 0
-        let countQueue = DispatchQueue.global()
-        collection.forEachInParallel {
-            XCTAssert(collection.contains($0))
-            countQueue.async {
-                count += 1
-                if count == self.collection.count {
+        let counter = Counter()
+        TestData.collection.forEachInParallel { [counter] in
+            XCTAssert(TestData.collection.contains($0))
+            Task {
+                await counter.increment()
+                if await counter.count == TestData.collection.count {
                     expectation.fulfill()
                 }
             }
         }
-        if count != collection.count {
-            wait(for: [expectation], timeout: 1)
-        }
+        await fulfillment(of: [expectation], timeout: 1)
+        let count = await counter.count
+        XCTAssertEqual(count, TestData.collection.count)
     }
 
     func testSafeSubscript() {
-        XCTAssertNotNil(collection[safe: 2])
-        XCTAssertEqual(collection[safe: 2], 3)
-        XCTAssertNil(collection[safe: 10])
+        XCTAssertNotNil(TestData.collection[safe: 2])
+        XCTAssertEqual(TestData.collection[safe: 2], 3)
+        XCTAssertNil(TestData.collection[safe: 10])
     }
 
+    #if !os(Linux)
     func testIndicesWhere() {
         let array: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         let indices = array.indices { $0 % 2 == 0 }
@@ -44,6 +53,7 @@ final class CollectionExtensionsTests: XCTestCase {
         let emptyIndices = emptyArray.indices { $0 % 2 == 0 }
         XCTAssertNil(emptyIndices)
     }
+    #endif
 
     func testForEachSlice() {
         // A slice with value zero

@@ -11,10 +11,10 @@ on:
 jobs:
   Darwin:
     name: Darwin
-    runs-on: macos-14
+    runs-on: macos-15
     env:
       PROJECT: SwifterSwift.xcodeproj
-      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_16.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -48,7 +48,7 @@ jobs:
       run: xcodebuild clean build -project $PROJECT -scheme $SCHEME -destination "$DESTINATION"
       env:
           SCHEME: SwifterSwift-watchOS
-          DESTINATION: platform=watchOS Simulator,name=Apple Watch Series 5 (40mm)
+          DESTINATION: platform=watchOS Simulator,name=Apple Watch Series 10 (42mm)
   
     - name: Danger Swift
       # Hack to by pass the key invalidation mechanism
@@ -58,7 +58,7 @@ jobs:
           bundle exec danger --verbose
       
   Swiftlint:
-    runs-on: macos-14
+    runs-on: macos-15
     name: SwiftLint
     steps: 
       - uses: actions/checkout@v1
@@ -69,12 +69,12 @@ jobs:
           swiftlint
   CocoaPods:
     name: CocoaPods
-    runs-on: macos-14
+    runs-on: macos-15
     strategy:
       matrix:
         platform: ['ios', 'macos', 'tvos', 'watchos']
     env:
-      DEVELOPER_DIR: /Applications/Xcode.app/Contents/Developer
+      DEVELOPER_DIR: /Applications/Xcode_16.app/Contents/Developer
     steps:
     - uses: actions/checkout@v1
     - name: Bundle Install
@@ -83,9 +83,9 @@ jobs:
       run: bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=${{ matrix.platform }} 
       
   Linux:
-    runs-on: [ubuntu-latest]
-    container: swift:5.8
+    runs-on: [ubuntu-24.04]
+    container: swift:6.0.1
     steps:
       - uses: actions/checkout@v1
       - name: Linux
-        run: swift test --enable-test-discovery --parallel
+        run: swift test --parallel

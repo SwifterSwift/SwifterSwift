@@ -18,7 +18,7 @@ final class MutableCollectionTests: XCTestCase {
 
         // Testing optional keyPath
         let optionalCompare = { (char1: Character?, char2: Character?) -> Bool in
-            guard let char1 = char1, let char2 = char2 else { return false }
+            guard let char1, let char2 else { return false }
             return char1 < char2
         }
 
