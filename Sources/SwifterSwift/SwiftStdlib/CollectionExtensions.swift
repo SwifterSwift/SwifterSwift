@@ -13,7 +13,7 @@ public extension Collection {
 
 // MARK: - Methods
 
-public extension Collection {
+public extension Collection where Self: Sendable {
     #if canImport(Dispatch)
     /// SwifterSwift: Performs `each` closure for each element of collection in parallel.
     ///
@@ -22,13 +22,15 @@ public extension Collection {
     ///        }
     ///
     /// - Parameter each: closure to run for each element.
-    func forEachInParallel(_ each: (Self.Element) -> Void) {
+    func forEachInParallel(_ each: @Sendable (Self.Element) -> Void) {
         DispatchQueue.concurrentPerform(iterations: count) {
             each(self[index(startIndex, offsetBy: $0)])
         }
     }
     #endif
+}
 
+public extension Collection {
     /// SwifterSwift: Safe protects the array from out of bounds by use of optional.
     ///
     ///        let arr = [1, 2, 3, 4, 5]
@@ -61,6 +63,7 @@ public extension Collection {
         return slices
     }
 
+    #if !os(Linux)
     /// SwifterSwift: Get all indices where condition is met.
     ///
     ///     [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
@@ -68,9 +71,10 @@ public extension Collection {
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: all indices where the specified condition evaluates to true (optional).
     func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
-        let indices = try self.indices.filter { try condition(self[$0]) }
+        let indices = try indices.filter { try condition(self[$0]) }
         return indices.isEmpty ? nil : indices
     }
+    #endif
 
     /// SwifterSwift: Calls the given closure with an array of size of the parameter slice.
     ///

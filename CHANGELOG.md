@@ -6,8 +6,16 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 
 ### Changed
+- **String**
   - `localized(comment:)` now supports all parameters provided by `NSLocalizedString(tableName:bundle:value:comment:)`. [#1217](https://github.com/SwifterSwift/SwifterSwift/pull/1217) by [Shiki Suen](https://github.com/ShikiSuen)
 
+### Fixed
+
+### Deprecated
+
+### Removed
+
+## [v7.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/7.0.0)
 ### Fixed
 - **Xcode 16**
   - Fixed compilation errors, warnings and tests. [#1197](https://github.com/SwifterSwift/SwifterSwift/pull/1197) by [guykogus](https://github.com/guykogus)
@@ -18,6 +26,10 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Marked `init(colors:locations:startPoint:endPoint:type:)` as available for `(macOS 10.14, *)`. [#1197](https://github.com/SwifterSwift/SwifterSwift/pull/1197) by [guykogus](https://github.com/guykogus)
 - **CGAffineTransform**
   - Marked `transform3D()` as unavailable for watchOS. [#1197](https://github.com/SwifterSwift/SwifterSwift/pull/1197) by [guykogus](https://github.com/guykogus)
+- **Future**
+  - `init(asyncFunc:)` as incompatible with Swift 6 concurrency protection, and isn't needed anyway as `async`-`await` supersedes `Future`. [#1207](https://github.com/SwifterSwift/SwifterSwift/pull/1207) by [guykogus](https://github.com/guykogus)
+- **URLSession**
+  - `dataSync(with:)` as incompatible with Swift 6 concurrency protection, and isn't needed anyway as the `data(from:delegate:)` `async` function can be used. [#1207](https://github.com/SwifterSwift/SwifterSwift/pull/1207) by [guykogus](https://github.com/guykogus)
 
 ## [v6.2.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/6.2.0)
 ### Added

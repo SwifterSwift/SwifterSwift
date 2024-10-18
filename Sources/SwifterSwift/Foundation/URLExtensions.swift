@@ -41,7 +41,7 @@ public extension URL {
     /// interpreted relative to `url`.
     ///   - url: The base URL for the `URL` object.
     init?(string: String?, relativeTo url: URL? = nil) {
-        guard let string = string else { return nil }
+        guard let string else { return nil }
         self.init(string: string, relativeTo: url)
     }
 
@@ -162,7 +162,7 @@ public extension URL {
     ///        let url = URL(string: "https://domain.com")!
     ///        print(url.droppedScheme()) // prints "domain.com"
     func droppedScheme() -> URL? {
-        if let scheme = scheme {
+        if let scheme {
             let droppedScheme = String(absoluteString.dropFirst(scheme.count + 3))
             return URL(string: droppedScheme)
         }

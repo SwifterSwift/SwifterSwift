@@ -6,6 +6,7 @@ import XCTest
 #if canImport(UIKit) && os(iOS)
 import UIKit
 
+@MainActor
 final class UIWindowExtensionsTests: XCTestCase {
     func testSwitchRootViewController() {
         let viewController = UIViewController()

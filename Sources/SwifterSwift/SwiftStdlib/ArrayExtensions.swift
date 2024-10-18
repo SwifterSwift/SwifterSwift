@@ -134,7 +134,7 @@ public extension Array where Element: Equatable {
     ///
     /// - Parameter path: Key path to compare, the value must be Equatable.
     /// - Returns: an array of unique elements.
-    func withoutDuplicates<E: Equatable>(keyPath path: KeyPath<Element, E>) -> [Element] {
+    func withoutDuplicates(keyPath path: KeyPath<Element, some Equatable>) -> [Element] {
         return reduce(into: [Element]()) { result, element in
             if !result.contains(where: { $0[keyPath: path] == element[keyPath: path] }) {
                 result.append(element)

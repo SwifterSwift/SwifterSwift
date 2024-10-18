@@ -6,6 +6,7 @@ import XCTest
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit
 
+@MainActor
 final class NSColorExtensionsTests: XCTestCase {
     @available(macOS 10.15, *)
     func testInitLightDark() {

@@ -6,8 +6,10 @@ import XCTest
 #if canImport(Dispatch)
 import Dispatch
 
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, *)
 final class DispatchQueueExtensionsTests: XCTestCase {
-    func testIsMainQueue() {
+    #if !os(Linux)
+    func testIsMainQueue() async {
         let expect = expectation(description: "isMainQueue")
         let group = DispatchGroup()
 
@@ -22,10 +24,11 @@ final class DispatchQueueExtensionsTests: XCTestCase {
             expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.5)
+        await fulfillment(of: [expect], timeout: 0.5)
     }
+    #endif
 
-    func testIsCurrent() {
+    func testIsCurrent() async {
         let expect = expectation(description: "isCurrent")
         let group = DispatchGroup()
         let queue = DispatchQueue.global()
@@ -42,10 +45,10 @@ final class DispatchQueueExtensionsTests: XCTestCase {
             expect.fulfill()
         }
 
-        waitForExpectations(timeout: 0.5)
+        await fulfillment(of: [expect], timeout: 0.5)
     }
 
-    func testAsyncAfter() {
+    func testAsyncAfter() async {
         let delay = TimeInterval(2)
         let codeShouldBeExecuted = expectation(description: "Executed")
 
@@ -53,10 +56,12 @@ final class DispatchQueueExtensionsTests: XCTestCase {
             codeShouldBeExecuted.fulfill()
         }
 
-        waitForExpectations(timeout: delay + 1)
+        await fulfillment(of: [codeShouldBeExecuted], timeout: delay + 1)
     }
 
-    func testDebounce() {
+    #if !os(Linux)
+    @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
+    func testDebounce() async {
         var value = 0
         let done = expectation(description: "Execute block after delay")
 
@@ -75,10 +80,11 @@ final class DispatchQueueExtensionsTests: XCTestCase {
 
         XCTAssertEqual(value, 0, "Debounced function was executed right away")
 
-        waitForExpectations(timeout: 2.5) { _ in
-            XCTAssertEqual(value, 1, "Value was incremented more once")
-        }
+        await fulfillment(of: [done], timeout: 2.5)
+
+        XCTAssertEqual(value, 1, "Value was incremented more once")
     }
+    #endif
 }
 
 #endif

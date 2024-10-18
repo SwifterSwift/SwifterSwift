@@ -6,6 +6,7 @@ import XCTest
 #if canImport(UIKit)
 import UIKit
 
+@MainActor
 final class UIBezierPathExtensionsTests: XCTestCase {
     func testInitPathFromTo() {
         let fromPoint = CGPoint(x: -1, y: 2)

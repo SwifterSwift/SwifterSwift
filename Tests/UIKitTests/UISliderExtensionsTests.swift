@@ -6,6 +6,7 @@ import XCTest
 #if os(iOS)
 import UIKit
 
+@MainActor
 final class UISliderExtensionsTests: XCTestCase {
     func testCompletionCalledAnimated() {
         let slider = UISlider()

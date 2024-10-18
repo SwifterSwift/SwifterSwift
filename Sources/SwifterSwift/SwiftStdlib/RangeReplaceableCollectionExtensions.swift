@@ -131,7 +131,7 @@ public extension RangeReplaceableCollection {
     /// SwifterSwift: Remove all duplicate elements using KeyPath to compare.
     ///
     /// - Parameter path: Key path to compare, the value must be Equatable.
-    mutating func removeDuplicates<E: Equatable>(keyPath path: KeyPath<Element, E>) {
+    mutating func removeDuplicates(keyPath path: KeyPath<Element, some Equatable>) {
         var items = [Element]()
         removeAll { element -> Bool in
             guard items.contains(where: { $0[keyPath: path] == element[keyPath: path] }) else {
@@ -187,7 +187,7 @@ public extension RangeReplaceableCollection {
      - Parameter newElement: The optional element to append to the array
      */
     mutating func appendIfNonNil(_ newElement: Element?) {
-        guard let newElement = newElement else { return }
+        guard let newElement else { return }
         append(newElement)
     }
 
@@ -196,7 +196,7 @@ public extension RangeReplaceableCollection {
      - Parameter newElements: The optional sequence to append to the array
      */
     mutating func appendIfNonNil<S>(contentsOf newElements: S?) where Element == S.Element, S: Sequence {
-        guard let newElements = newElements else { return }
+        guard let newElements else { return }
         append(contentsOf: newElements)
     }
 }
