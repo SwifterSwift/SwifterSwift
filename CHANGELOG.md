@@ -4,8 +4,15 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 ### Added
+
 ### Changed
+- **String**
+  - `localized(comment:)` now supports all parameters provided by `NSLocalizedString(tableName:bundle:value:comment:)`. [#1217](https://github.com/SwifterSwift/SwifterSwift/pull/1217) by [Shiki Suen](https://github.com/ShikiSuen)
+
 ### Fixed
+
+### Deprecated
+
 ### Removed
 
 ## [v7.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/7.0.0)
