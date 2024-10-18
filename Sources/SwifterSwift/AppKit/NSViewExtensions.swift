@@ -6,7 +6,13 @@ import AppKit
 // MARK: - Properties
 
 public extension NSView {
-    /// SwifterSwift: Border color of view; also inspectable from Storyboard.
+    /// SwifterSwift: Border color of the view; also inspectable from Storyboard.
+    ///
+    ///    ```swift
+    ///    view.borderColor = NSColor.red
+    ///    ```
+    ///
+    /// - Returns: The border color of the view as `NSColor`.
     @IBInspectable
     var borderColor: NSColor? {
         get {
