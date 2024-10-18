@@ -10,6 +10,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - `localized(comment:)` now supports all parameters provided by `NSLocalizedString(tableName:bundle:value:comment:)`. [#1217](https://github.com/SwifterSwift/SwifterSwift/pull/1217) by [Shiki Suen](https://github.com/ShikiSuen)
 
 ### Fixed
+- **Examples** : Added "import Foundation" to Foundation Extension Playground page for Date() extension to work properly on Mac
 
 ### Deprecated
 
