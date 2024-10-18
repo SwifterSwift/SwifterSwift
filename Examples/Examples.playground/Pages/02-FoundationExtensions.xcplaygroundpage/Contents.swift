@@ -3,6 +3,7 @@
 //: [Previous](@previous)
 
 import SwifterSwift
+import Foundation
 
 //: ## Foundation extensions
 
