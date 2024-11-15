@@ -44,20 +44,6 @@ public extension Sequence {
         return try filter { return try !condition($0) }
     }
 
-    /// SwifterSwift: Get element count based on condition.
-    ///
-    ///        [2, 2, 4, 7].count(where: {$0 % 2 == 0}) -> 3
-    ///
-    /// - Parameter condition: condition to evaluate each element against.
-    /// - Returns: number of times the condition evaluated to true.
-    func count(where condition: (Element) throws -> Bool) rethrows -> Int {
-        var count = 0
-        for element in self where try condition(element) {
-            count += 1
-        }
-        return count
-    }
-
     /// SwifterSwift: Iterate over a collection in reverse order. (right to left)
     ///
     ///        [0, 2, 4, 7].forEachReversed({ print($0)}) -> // Order of print: 7,4,2,0
