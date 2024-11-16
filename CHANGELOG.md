@@ -15,7 +15,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Deprecated
 
 ### Removed
-- Sequence's `count(where:)` method, as it already exists in stdlib
+- Sequence's `count(where:)` method, as it already exists in stdlib. [#1221](https://github.com/SwifterSwift/SwifterSwift/pull/1221) by [vikingosegundo](https://github/vikingosegundo)
 
 
 ## [v7.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/7.0.0)
