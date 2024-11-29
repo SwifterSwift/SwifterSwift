@@ -11,6 +11,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ### Fixed
 - **Examples** : Added "import Foundation" to Foundation Extension Playground page for Date() extension to work properly on Mac
+- **Array**
+  - `init(unsafeUninitializedCapacity:initializedWith:)` initializedCount should be eaqule to the number of successfully initialized elements, Ensure that the Array properly release allocated memory in case of an error.[#1222](https://github.com/SwifterSwift/SwifterSwift/pull/1222) by [fallwd](https://github.com/fallwd)
 
 ### Deprecated
 

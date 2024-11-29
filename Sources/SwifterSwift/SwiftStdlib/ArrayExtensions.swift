@@ -13,8 +13,8 @@ public extension Array {
         try self.init(unsafeUninitializedCapacity: count) { buffer, initializedCount in
             for index in 0..<count {
                 try buffer.baseAddress?.advanced(by: index).initialize(to: element(index))
+                initializedCount += 1
             }
-            initializedCount = count
         }
     }
 }
