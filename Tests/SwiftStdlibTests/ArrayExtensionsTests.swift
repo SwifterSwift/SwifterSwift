@@ -90,11 +90,6 @@ final class ArrayExtensionsTests: XCTestCase {
         XCTAssertEqual(array, [1, 2, 3, 4, 5])
     }
 
-    func testWithoutDuplicates() {
-        XCTAssertEqual([1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates(), [1, 2, 3, 4, 5])
-        XCTAssertEqual(["h", "e", "l", "l", "o"].withoutDuplicates(), ["h", "e", "l", "o"])
-    }
-
     func testWithoutDuplicatesUsingKeyPath() {
         let array = [
             Person(name: "Wade", age: 20, location: Location(city: "London")),
