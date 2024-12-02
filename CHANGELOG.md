@@ -17,6 +17,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Deprecated
 
 ### Removed
+- **Array**
+  - Remove duplicate method `withoutDuplicates()` of array extension  [#1224](https://github.com/SwifterSwift/SwifterSwift/pull/1224) by [fallwd](https://github.com/fallwd)
 
 ## [v7.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/7.0.0)
 ### Fixed
