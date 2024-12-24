@@ -58,7 +58,7 @@ public extension Array {
     ///   - keyPath: keyPath indicating the property that the array should be sorted by
     /// - Returns: sorted array.
     func sorted<T: Hashable>(like otherArray: [T], keyPath: KeyPath<Element, T>) -> [Element] {
-        let dict = otherArray.enumerated().reduce(into: [:]) { $0[$1.element] = $1.offset }
+        let dict = Dictionary(uniqueKeysWithValues: otherArray.enumerated().map { ($1, $0) })
         return sorted {
             guard let thisIndex = dict[$0[keyPath: keyPath]] else { return false }
             guard let otherIndex = dict[$1[keyPath: keyPath]] else { return true }

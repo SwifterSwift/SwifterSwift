@@ -109,9 +109,9 @@ public extension NSAttributedString {
     func applying(attributes: [Key: Any],
                   toRangesMatching pattern: String,
                   options: NSRegularExpression.Options = []) -> NSAttributedString {
-        guard let pattern = try? NSRegularExpression(pattern: pattern, options: options) else { return self }
+        guard let regularExpression = try? NSRegularExpression(pattern: pattern, options: options) else { return self }
 
-        let matches = pattern.matches(in: string, options: [], range: NSRange(0..<length))
+        let matches = regularExpression.matches(in: string, options: [], range: NSRange(0..<length))
         let result = NSMutableAttributedString(attributedString: self)
 
         for match in matches {
