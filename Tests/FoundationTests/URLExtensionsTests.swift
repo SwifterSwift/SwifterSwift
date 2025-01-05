@@ -76,7 +76,7 @@ final class URLExtensionsTests: XCTestCase {
     func testDeletingAllPathComponents() {
         let url = URL(string: "https://domain.com/path/other/")!
         let result = url.deletingAllPathComponents()
-        #if os(Linux)
+        #if os(Linux) || os(Android)
         XCTAssertEqual(result.absoluteString, "https://domain.com")
         #else
         XCTAssertEqual(result.absoluteString, "https://domain.com/")
@@ -90,7 +90,7 @@ final class URLExtensionsTests: XCTestCase {
     func testDeleteAllPathComponents() {
         var url = URL(string: "https://domain.com/path/other/")!
         url.deleteAllPathComponents()
-        #if os(Linux)
+        #if os(Linux) || os(Android)
         XCTAssertEqual(url.absoluteString, "https://domain.com")
         #else
         XCTAssertEqual(url.absoluteString, "https://domain.com/")
