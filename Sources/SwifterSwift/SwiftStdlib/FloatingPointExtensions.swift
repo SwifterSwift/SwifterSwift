@@ -3,6 +3,9 @@
 #if canImport(Foundation)
 import Foundation
 #endif
+#if canImport(Android)
+import Android
+#endif
 
 // MARK: - Properties
 
@@ -22,7 +25,7 @@ public extension FloatingPoint {
         return self < 0
     }
 
-    #if canImport(Foundation)
+    #if canImport(Foundation) && !os(Android)
     /// SwifterSwift: Ceil of number.
     var ceil: Self {
         return Foundation.ceil(self)
@@ -34,7 +37,7 @@ public extension FloatingPoint {
         return Self.pi * self / Self(180)
     }
 
-    #if canImport(Foundation)
+    #if canImport(Foundation) && !os(Android)
     /// SwifterSwift: Floor of number.
     var floor: Self {
         return Foundation.floor(self)
@@ -46,6 +49,32 @@ public extension FloatingPoint {
         return self * Self(180) / Self.pi
     }
 }
+
+#if os(Android)
+public extension Double {
+    /// SwifterSwift: Ceil of number.
+    var ceil: Self {
+        return Foundation.ceil(self)
+    }
+
+    /// SwifterSwift: Floor of number.
+    var floor: Self {
+        return Foundation.floor(self)
+    }
+}
+
+public extension Float {
+    /// SwifterSwift: Ceil of number.
+    var ceil: Self {
+        return Foundation.ceilf(self)
+    }
+
+    /// SwifterSwift: Floor of number.
+    var floor: Self {
+        return Foundation.floorf(self)
+    }
+}
+#endif
 
 // MARK: - Operators
 

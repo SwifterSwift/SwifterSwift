@@ -23,7 +23,7 @@ final class LocaleExtensionsTests: XCTestCase {
     func testFlagEmoji() {
         XCTAssertEqual(Locale.flagEmoji(forRegionCode: "AC"), "🇦🇨")
         XCTAssertEqual(Locale.flagEmoji(forRegionCode: "ZW"), "🇿🇼")
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         XCTAssertNil(Locale.flagEmoji(forRegionCode: ""))
         XCTAssertNil(Locale.flagEmoji(forRegionCode: "ac"))
         #endif

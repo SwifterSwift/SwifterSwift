@@ -1,6 +1,6 @@
 // CAGradientLayerExtensions.swift - Copyright 2024 SwifterSwift
 
-#if !os(watchOS) && !os(Linux) && canImport(QuartzCore)
+#if !os(watchOS) && !os(Linux) && !os(Android) && canImport(QuartzCore)
 import QuartzCore
 
 public extension CAGradientLayer {

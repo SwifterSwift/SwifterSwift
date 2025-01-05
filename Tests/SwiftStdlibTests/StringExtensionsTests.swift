@@ -224,7 +224,7 @@ final class StringExtensionsTests: XCTestCase {
 
     func testUrl() {
         let helloWorld = "hello world".url
-        #if os(Linux)
+        #if os(Linux) || os(Android)
         XCTAssertEqual(helloWorld, URL(string: "hello%20world"))
         #else
         if #available(iOS 17.0, *) {
@@ -277,7 +277,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil("8.23".float(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".float(locale: Locale(identifier: "en_US_POSIX")), Float(8.23))
 
-        #if os(Linux)
+        #if os(Linux) || os(Android)
         XCTAssertEqual("8s".float(), 8)
         #else
         XCTAssertNil("8s".float())
@@ -291,7 +291,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertNotNil("8.23".double(locale: Locale(identifier: "en_US_POSIX")))
         XCTAssertEqual("8.23".double(locale: Locale(identifier: "en_US_POSIX")), 8.23)
 
-        #if os(Linux)
+        #if os(Linux) || os(Android)
         XCTAssertEqual("8s".double(), 8)
         #else
         XCTAssertNil("8s".double())
@@ -299,7 +299,7 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testCgFloat() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         XCTAssertNotNil("8".cgFloat())
         XCTAssertEqual("8".cgFloat(), 8)
 
@@ -311,7 +311,7 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testLines() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         XCTAssertEqual("Hello\ntest".lines(), ["Hello", "test"])
         #endif
     }
@@ -718,6 +718,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("str".paddingEnd(2), "str")
     }
 
+    #if !os(Android)
     @MainActor
     func testIsSpelledCorrectly() {
         #if os(iOS) || os(tvOS)
@@ -729,6 +730,7 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertFalse(strNonCorrect.isSpelledCorrectly)
         #endif
     }
+    #endif
 
     func testRemovingPrefix() {
         let inputStr = "Hello, World!"
@@ -777,7 +779,7 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testUnderline() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         let underlinedString = "hello".underline
         let attrs = underlinedString.attributes(
             at: 0,
@@ -793,7 +795,7 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testStrikethrough() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         let strikedthroughString = "hello".strikethrough
         let attrs = strikedthroughString.attributes(
             at: 0,

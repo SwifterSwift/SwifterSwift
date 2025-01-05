@@ -1,6 +1,6 @@
 // UserDefaultsExtensions.swift - Copyright 2024 SwifterSwift
 
-#if canImport(Foundation) && !os(Linux)
+#if canImport(Foundation) && !os(Linux) && !os(Android)
 import Foundation
 
 // MARK: - Methods
