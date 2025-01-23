@@ -4,6 +4,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 ### Added
+- Support for Android
 
 ### Changed
 - **String**
