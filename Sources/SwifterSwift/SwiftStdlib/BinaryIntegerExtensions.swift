@@ -1,4 +1,4 @@
-// BinaryIntegerExtensions.swift - Copyright 2024 SwifterSwift
+// BinaryIntegerExtensions.swift - Copyright 2025 SwifterSwift
 
 // MARK: - Properties
 

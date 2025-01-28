@@ -1,4 +1,4 @@
-// CAGradientLayerExtensions.swift - Copyright 2024 SwifterSwift
+// CAGradientLayerExtensions.swift - Copyright 2025 SwifterSwift
 
 #if !os(watchOS) && !os(Linux) && !os(Android) && canImport(QuartzCore)
 import QuartzCore

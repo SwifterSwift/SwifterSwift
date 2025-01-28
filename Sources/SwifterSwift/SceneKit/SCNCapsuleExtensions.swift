@@ -1,4 +1,4 @@
-// SCNCapsuleExtensions.swift - Copyright 2024 SwifterSwift
+// SCNCapsuleExtensions.swift - Copyright 2025 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit

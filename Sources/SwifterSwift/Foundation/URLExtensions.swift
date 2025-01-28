@@ -1,4 +1,4 @@
-// URLExtensions.swift - Copyright 2024 SwifterSwift
+// URLExtensions.swift - Copyright 2025 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation

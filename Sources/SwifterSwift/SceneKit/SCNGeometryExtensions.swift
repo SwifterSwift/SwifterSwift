@@ -1,4 +1,4 @@
-// SCNGeometryExtensions.swift - Copyright 2024 SwifterSwift
+// SCNGeometryExtensions.swift - Copyright 2025 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit

@@ -1,4 +1,4 @@
-// MKMultiPointExtensions.swift - Copyright 2024 SwifterSwift
+// MKMultiPointExtensions.swift - Copyright 2025 SwifterSwift
 
 #if canImport(MapKit) && !os(watchOS)
 import MapKit

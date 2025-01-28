@@ -1,4 +1,4 @@
-// BoolExtensionsTests.swift - Copyright 2024 SwifterSwift
+// BoolExtensionsTests.swift - Copyright 2025 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

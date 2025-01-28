@@ -1,4 +1,4 @@
-// SequenceExtensions.swift - Copyright 2024 SwifterSwift
+// SequenceExtensions.swift - Copyright 2025 SwifterSwift
 
 public extension Sequence {
     /// SwifterSwift: Check if all elements in collection match a condition.

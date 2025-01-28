@@ -1,4 +1,4 @@
-// CLLocationArrayExtensions.swift - Copyright 2024 SwifterSwift
+// CLLocationArrayExtensions.swift - Copyright 2025 SwifterSwift
 
 #if canImport(CoreLocation)
 import CoreLocation

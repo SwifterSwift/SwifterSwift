@@ -1,4 +1,4 @@
-// CollectionExtensions.swift - Copyright 2024 SwifterSwift
+// CollectionExtensions.swift - Copyright 2025 SwifterSwift
 
 #if canImport(Dispatch)
 import Dispatch
