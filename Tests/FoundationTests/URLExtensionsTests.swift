@@ -113,7 +113,7 @@ final class URLExtensionsTests: XCTestCase {
     #endif
 
     func testDropScheme() {
-        #if os(Linux)
+        #if os(Linux) || os(Android)
         let urls: [String: String?] = [
             "https://domain.com/path/other/": "domain.com/path/other/",
             "https://domain.com": "domain.com",

@@ -59,7 +59,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testQuarter() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         let date1 = Date(timeIntervalSince1970: 0)
         XCTAssertEqual(date1.quarter, 1)
 
@@ -627,7 +627,7 @@ final class DateExtensionsTests: XCTestCase {
     }
 
     func testBeginning() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         let date = Date()
 
         XCTAssertNotNil(date.beginning(of: .second))
@@ -674,7 +674,7 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertEqual(date.end(of: .day)?.minute, 59)
         XCTAssertEqual(date.end(of: .day)?.second, 59)
 
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         var endOfWeek = date.beginning(of: .weekOfYear)
         endOfWeek?.add(.day, value: 7)
         endOfWeek?.add(.second, value: -1)

@@ -44,7 +44,7 @@ final class CollectionExtensionsTests: XCTestCase {
         XCTAssertNil(TestData.collection[safe: 10])
     }
 
-    #if !os(Linux)
+    #if !os(Linux) && !os(Android)
     func testIndicesWhere() {
         let array: [Int] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         let indices = array.indices { $0 % 2 == 0 }

@@ -8,7 +8,7 @@ import Foundation
 
 final class FileManagerExtensionsTests: XCTestCase {
     func testJSONFromFileAtPath() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         do {
             let bundle = Bundle(for: FileManagerExtensionsTests.self)
             let filePath = bundle.path(forResource: "test", ofType: "json")
@@ -40,7 +40,7 @@ final class FileManagerExtensionsTests: XCTestCase {
     }
 
     func testJSONFromFileWithFilename() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         do {
             var filename = "test.json" // With extension
             var json = try FileManager.default.jsonFromFile(withFilename: filename, at: FileManagerExtensionsTests.self)
@@ -70,7 +70,7 @@ final class FileManagerExtensionsTests: XCTestCase {
     }
 
     func testInvalidFile() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         let filename = "another_test.not_json"
         do {
             let json = try FileManager.default.jsonFromFile(withFilename: filename, at: FileManagerExtensionsTests.self)

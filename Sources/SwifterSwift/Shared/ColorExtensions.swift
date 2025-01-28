@@ -1,6 +1,6 @@
 // ColorExtensions.swift - Copyright 2025 SwifterSwift
 
-#if !os(Linux)
+#if !os(Linux) && !os(Android)
 
 #if canImport(UIKit)
 import UIKit

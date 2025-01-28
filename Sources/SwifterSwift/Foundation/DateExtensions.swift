@@ -5,6 +5,8 @@ import Foundation
 
 #if os(macOS) || os(iOS)
 import Darwin
+#elseif canImport(Android)
+import Android
 #elseif os(Linux)
 import Glibc
 #endif
@@ -59,7 +61,7 @@ public extension Date {
         return calendar.component(.era, from: self)
     }
 
-    #if !os(Linux)
+    #if !os(Linux) && !os(Android)
     /// SwifterSwift: Quarter.
     ///
     ///		Date().quarter -> 3 // date in third quarter of the year.
@@ -609,7 +611,7 @@ public extension Date {
 
     // swiftlint:enable cyclomatic_complexity
 
-    #if !os(Linux)
+    #if !os(Linux) && !os(Android)
 
     /// SwifterSwift: Data at the beginning of calendar component.
     ///
