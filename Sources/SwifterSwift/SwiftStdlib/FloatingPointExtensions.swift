@@ -77,7 +77,7 @@ prefix operator √
 /// - Returns: square root of given float.
 public prefix func √ <T>(float: T) -> T where T: FloatingPoint {
     // http://nshipster.com/swift-operators/
-    return sqrt(float)
+    return float.squareRoot()
 }
 
 // swiftlint:enable identifier_name
