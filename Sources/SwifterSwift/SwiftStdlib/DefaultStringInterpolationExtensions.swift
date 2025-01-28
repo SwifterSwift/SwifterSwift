@@ -1,4 +1,4 @@
-// DefaultStringInterpolationExtensions.swift - Copyright 2024 SwifterSwift
+// DefaultStringInterpolationExtensions.swift - Copyright 2025 SwifterSwift
 
 public extension DefaultStringInterpolation {
     /// SwifterSwift: Interpolates the given value's textual representation

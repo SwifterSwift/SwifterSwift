@@ -1,4 +1,4 @@
-// BidirectionalCollectionExtensions.swift - Copyright 2024 SwifterSwift
+// BidirectionalCollectionExtensions.swift - Copyright 2025 SwifterSwift
 
 // MARK: - Methods
 

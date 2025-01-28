@@ -1,4 +1,4 @@
-// DictionaryExtensionsTests.swift - Copyright 2024 SwifterSwift
+// DictionaryExtensionsTests.swift - Copyright 2025 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

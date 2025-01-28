@@ -1,4 +1,4 @@
-// SCNBoxExtensions.swift - Copyright 2024 SwifterSwift
+// SCNBoxExtensions.swift - Copyright 2025 SwifterSwift
 
 #if canImport(SceneKit)
 import SceneKit

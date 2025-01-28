@@ -1,4 +1,4 @@
-// BoolExtensions.swift - Copyright 2024 SwifterSwift
+// BoolExtensions.swift - Copyright 2025 SwifterSwift
 
 // MARK: - Properties
 
