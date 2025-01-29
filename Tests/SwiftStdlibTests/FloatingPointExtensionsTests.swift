@@ -30,18 +30,56 @@ final class FloatingPointExtensionsTests: XCTestCase {
     }
 
     func testCeil() {
-        XCTAssertEqual(Float(9.3).ceil, Float(10.0))
-        XCTAssertEqual(Double(9.3).ceil, Double(10.0))
+        XCTAssertEqual(Float(-1.0).ceil, Float(-1.0))
+        XCTAssertEqual(Float(-0.75).ceil, Float(0.0))
+        XCTAssertEqual(Float(-0.5).ceil, Float(0.0))
+        XCTAssertEqual(Float(-0.25).ceil, Float(0.0))
+        XCTAssertEqual(Float(-0.0).ceil, Float(0.0))
+        XCTAssertEqual(Float(0.0).ceil, Float(0.0))
+        XCTAssertEqual(Float(0.25).ceil, Float(1.0))
+        XCTAssertEqual(Float(0.5).ceil, Float(1.0))
+        XCTAssertEqual(Float(0.75).ceil, Float(1.0))
+        XCTAssertEqual(Float(1.0).ceil, Float(1.0))
+
+        XCTAssertEqual(Double(-1.0).ceil, Double(-1.0))
+        XCTAssertEqual(Double(-0.75).ceil, Double(0.0))
+        XCTAssertEqual(Double(-0.5).ceil, Double(0.0))
+        XCTAssertEqual(Double(-0.25).ceil, Double(0.0))
+        XCTAssertEqual(Double(-0.0).ceil, Double(0.0))
+        XCTAssertEqual(Double(0.0).ceil, Double(0.0))
+        XCTAssertEqual(Double(0.25).ceil, Double(1.0))
+        XCTAssertEqual(Double(0.5).ceil, Double(1.0))
+        XCTAssertEqual(Double(0.75).ceil, Double(1.0))
+        XCTAssertEqual(Double(1.0).ceil, Double(1.0))
+    }
+
+    func testFloor() {
+        XCTAssertEqual(Float(-1.0).floor, Float(-1.0))
+        XCTAssertEqual(Float(-0.75).floor, Float(-1.0))
+        XCTAssertEqual(Float(-0.5).floor, Float(-1.0))
+        XCTAssertEqual(Float(-0.25).floor, Float(-1.0))
+        XCTAssertEqual(Float(-0.0).floor, Float(0.0))
+        XCTAssertEqual(Float(0.0).floor, Float(0.0))
+        XCTAssertEqual(Float(0.25).floor, Float(0.0))
+        XCTAssertEqual(Float(0.5).floor, Float(0.0))
+        XCTAssertEqual(Float(0.75).floor, Float(0.0))
+        XCTAssertEqual(Float(1.0).floor, Float(1.0))
+
+        XCTAssertEqual(Double(-1.0).floor, Double(-1.0))
+        XCTAssertEqual(Double(-0.75).floor, Double(-1.0))
+        XCTAssertEqual(Double(-0.5).floor, Double(-1.0))
+        XCTAssertEqual(Double(-0.25).floor, Double(-1.0))
+        XCTAssertEqual(Double(-0.0).floor, Double(0.0))
+        XCTAssertEqual(Double(0.0).floor, Double(0.0))
+        XCTAssertEqual(Double(0.25).floor, Double(0.0))
+        XCTAssertEqual(Double(0.5).floor, Double(0.0))
+        XCTAssertEqual(Double(0.75).floor, Double(0.0))
+        XCTAssertEqual(Double(1.0).floor, Double(1.0))
     }
 
     func testDegreesToRadians() {
         XCTAssertEqual(Float(180).degreesToRadians, Float.pi)
         XCTAssertEqual(Double(180).degreesToRadians, Double.pi)
-    }
-
-    func testFloor() {
-        XCTAssertEqual(Float(9.3).floor, Float(9.0))
-        XCTAssertEqual(Double(9.3).floor, Double(9.0))
     }
 
     func testRadiansToDegrees() {

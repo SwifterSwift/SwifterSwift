@@ -1,9 +1,5 @@
 // FloatingPointExtensions.swift - Copyright 2025 SwifterSwift
 
-#if canImport(Foundation)
-import Foundation
-#endif
-
 // MARK: - Properties
 
 public extension FloatingPoint {
@@ -22,24 +18,20 @@ public extension FloatingPoint {
         return self < 0
     }
 
-    #if canImport(Foundation)
     /// SwifterSwift: Ceil of number.
     var ceil: Self {
-        return Foundation.ceil(self)
+        return rounded(.up)
     }
-    #endif
+
+    /// SwifterSwift: Floor of number.
+    var floor: Self {
+        return rounded(.down)
+    }
 
     /// SwifterSwift: Radian value of degree input.
     var degreesToRadians: Self {
         return Self.pi * self / Self(180)
     }
-
-    #if canImport(Foundation)
-    /// SwifterSwift: Floor of number.
-    var floor: Self {
-        return Foundation.floor(self)
-    }
-    #endif
 
     /// SwifterSwift: Degree value of radian input.
     var radiansToDegrees: Self {
@@ -85,7 +77,7 @@ prefix operator √
 /// - Returns: square root of given float.
 public prefix func √ <T>(float: T) -> T where T: FloatingPoint {
     // http://nshipster.com/swift-operators/
-    return sqrt(float)
+    return float.squareRoot()
 }
 
 // swiftlint:enable identifier_name
