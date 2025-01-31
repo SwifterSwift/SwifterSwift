@@ -327,7 +327,8 @@ public extension String {
     var date: Date? {
         let selfLowercased = trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone.current
+        formatter.locale = .init(identifier: Locale.current.identifier)
+        formatter.timeZone = .init(identifier: Locale.current.identifier)
         formatter.dateFormat = "yyyy-MM-dd"
         return formatter.date(from: selfLowercased)
     }
@@ -341,7 +342,8 @@ public extension String {
     var dateTime: Date? {
         let selfLowercased = trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone.current
+        formatter.locale = .init(identifier: Locale.current.identifier)
+        formatter.timeZone = .init(identifier: Locale.current.identifier)
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         return formatter.date(from: selfLowercased)
     }
@@ -966,9 +968,12 @@ public extension String {
     /// - Parameter format: date format.
     /// - Returns: Date object from string (if applicable).
     func date(withFormat format: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
-        return dateFormatter.date(from: self)
+        let selfLowercased = trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let formatter = DateFormatter()
+        formatter.locale = .init(identifier: Locale.current.identifier)
+        formatter.timeZone = .init(identifier: Locale.current.identifier)
+        formatter.dateFormat = format
+        return formatter.date(from: selfLowercased)
     }
     #endif
 
