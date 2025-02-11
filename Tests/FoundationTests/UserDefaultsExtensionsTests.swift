@@ -12,7 +12,7 @@ final class UserDefaultsExtensionsTests: XCTestCase {
     }
 
     func testSubscript() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         let key = "testKey"
         UserDefaults.standard.set(true, forKey: key)
         XCTAssertNotNil(UserDefaults.standard[key])
@@ -26,7 +26,7 @@ final class UserDefaultsExtensionsTests: XCTestCase {
     }
 
     func testFloat() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         let key = "floatTestKey"
         let number: Float = 10.0
         UserDefaults.standard.set(number, forKey: key)
@@ -36,7 +36,7 @@ final class UserDefaultsExtensionsTests: XCTestCase {
     }
 
     func testDate() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         let key = "dateTestKey"
         let date = Date()
         UserDefaults.standard.set(date, forKey: key)
@@ -46,7 +46,7 @@ final class UserDefaultsExtensionsTests: XCTestCase {
     }
 
     func testGetCodableObject() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         let key = "codableTestKey"
         let codable = TestObject(itemId: 1)
         UserDefaults.standard.set(object: codable, forKey: key)
@@ -56,7 +56,7 @@ final class UserDefaultsExtensionsTests: XCTestCase {
     }
 
     func testSetCodableObject() {
-        #if !os(Linux)
+        #if !os(Linux) && !os(Android)
         let key = "codableTestKey"
         let codable = TestObject(itemId: 1)
         UserDefaults.standard.set(object: codable, forKey: key)

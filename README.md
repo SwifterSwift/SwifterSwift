@@ -15,7 +15,7 @@
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Slack Channel](https://img.shields.io/badge/Slack-SwifterSwift-green.svg)](https://join.slack.com/t/swifterswift/shared_invite/zt-s6dl4g2e-R5V5baIawGpdUz2heShjiQ)
 
-SwifterSwift is a collection of **over 500 native Swift extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS, watchOS and Linux.
+SwifterSwift is a collection of **over 500 native Swift extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS, watchOS, Linux, and Android.
 
 [简体中文](README_CN.md)
 

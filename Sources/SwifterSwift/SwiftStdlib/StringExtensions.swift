@@ -259,7 +259,7 @@ public extension String {
     var isNumeric: Bool {
         let scanner = Scanner(string: self)
         scanner.locale = NSLocale.current
-        #if os(Linux) || targetEnvironment(macCatalyst)
+        #if os(Linux) || os(Android) || targetEnvironment(macCatalyst)
         return scanner.scanDecimal() != nil && scanner.isAtEnd
         #else
         return scanner.scanDecimal(nil) && scanner.isAtEnd
@@ -1246,7 +1246,7 @@ public extension String {
     #endif
 }
 
-#if !os(Linux)
+#if !os(Linux) && !os(Android)
 
 // MARK: - NSAttributedString
 

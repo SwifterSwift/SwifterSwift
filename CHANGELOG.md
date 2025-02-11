@@ -4,6 +4,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 ### Added
+- **Android**
+  - Added Android platform support. [#1230](https://github.com/SwifterSwift/SwifterSwift/pull/1230) by [Marc Prud'hommeaux](https://github.com/marcprux)
 
 ### Changed
 - **String**

@@ -89,3 +89,10 @@ jobs:
       - uses: actions/checkout@v1
       - name: Linux
         run: swift test --parallel
+
+  Android:
+    runs-on: [ubuntu-24.04]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run Android Tests
+        uses: skiptools/swift-android-action@v2

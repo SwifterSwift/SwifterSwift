@@ -8,7 +8,7 @@ import Dispatch
 
 @available(macOS 10.15, iOS 13.0, tvOS 13.0, *)
 final class DispatchQueueExtensionsTests: XCTestCase {
-    #if !os(Linux)
+    #if !os(Linux) && !os(Android)
     func testIsMainQueue() async {
         let expect = expectation(description: "isMainQueue")
         let group = DispatchGroup()
@@ -59,7 +59,7 @@ final class DispatchQueueExtensionsTests: XCTestCase {
         await fulfillment(of: [codeShouldBeExecuted], timeout: delay + 1)
     }
 
-    #if !os(Linux)
+    #if !os(Linux) && !os(Android)
     @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
     func testDebounce() async {
         var value = 0

@@ -6,6 +6,8 @@ import CoreGraphics
 
 #if os(macOS) || os(iOS)
 import Darwin
+#elseif canImport(Android)
+import Android
 #elseif os(Linux)
 import Glibc
 #endif
