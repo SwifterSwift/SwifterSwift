@@ -683,6 +683,43 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
         view.removeBlur()
         XCTAssertFalse(view.subviews.first is UIVisualEffectView)
     }
+    
+    func testSeparatorAddsSubview() {
+            let view = UIView()
+            view.separator()
+
+            XCTAssertEqual(view.subviews.count, 1)
+        }
+
+        func testSeparatorUsesCorrectColorAndHeight() {
+            let view = UIView()
+            let expectedColor: UIColor = .red
+            let expectedHeight: CGFloat = 2.0
+
+            view.separator(color: expectedColor, height: expectedHeight)
+
+            guard let separator = view.subviews.first else {
+                XCTFail("Separator not found")
+                return
+            }
+
+            XCTAssertEqual(separator.backgroundColor, expectedColor)
+
+            let heightConstraint = separator.constraints.first { $0.firstAttribute == .height }
+            XCTAssertEqual(heightConstraint?.constant, expectedHeight)
+        }
+
+        func testSeparatorUsesAutoLayout() {
+            let view = UIView()
+            view.separator()
+
+            guard let separator = view.subviews.first else {
+                XCTFail("Separator not found")
+                return
+            }
+
+            XCTAssertFalse(separator.translatesAutoresizingMaskIntoConstraints)
+        }
 }
 
 #endif

@@ -751,4 +751,32 @@ public extension UIView {
     }
 }
 
+
+
+public extension UIView {
+    /// SwifterSwift: Adds a horizontal separator to the bottom of the view.
+    ///
+    ///     let view = UIView()
+    ///     view.separator(color: .lightGray, height: 1, spacing: 8)
+    ///
+    /// - Parameters:
+    ///   - color: The separator color. Default is `.black`.
+    ///   - height: The height of the separator. Default is `1`.
+    ///   - spacing: Spacing from the bottom edge. Default is `0`.
+    func separator(color: UIColor = .black, height: CGFloat = 1, spacing: CGFloat = 0) {
+        let line = UIView()
+        line.translatesAutoresizingMaskIntoConstraints = false
+        line.backgroundColor = color
+        line.layer.cornerRadius = 3
+        self.addSubview(line)
+        NSLayoutConstraint.activate([
+            line.heightAnchor.constraint(equalToConstant: height),
+            line.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            line.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            line.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: spacing)
+        ])
+    }
+}
+
+
 #endif
