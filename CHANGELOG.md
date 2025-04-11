@@ -7,7 +7,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 
 - **UIView**
-  - Added `separator(color:height:spacing:)` method to easily insert a bottom line to a view. 🚀
+  - Added `separator(color:height:spacing:)` method to easily insert a bottom line to a view. 🚀 [#1234](https://github.com/SwifterSwift/SwifterSwift/pull/1234) by [sangjin](https://github.com/SsangG77)
 
 
 ## Upcoming Release
