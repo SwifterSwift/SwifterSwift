@@ -763,11 +763,11 @@ public extension UIView {
     ///   - color: The separator color. Default is `.black`.
     ///   - height: The height of the separator. Default is `1`.
     ///   - spacing: Spacing from the bottom edge. Default is `0`.
-    func separator(color: UIColor = .black, height: CGFloat = 1, spacing: CGFloat = 0) {
+    func addViewSeparator(color: UIColor = .black, height: CGFloat = 1, spacing: CGFloat = 0) {
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
         line.backgroundColor = color
-        line.layer.cornerRadius = 3
+        line.layer.cornerRadius = height / 2
         self.addSubview(line)
         NSLayoutConstraint.activate([
             line.heightAnchor.constraint(equalToConstant: height),

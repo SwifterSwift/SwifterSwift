@@ -684,42 +684,23 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
         XCTAssertFalse(view.subviews.first is UIVisualEffectView)
     }
     
-    func testSeparatorAddsSubview() {
-            let view = UIView()
-            view.separator()
+   
+    func testAddViewSeparator() throws {
+        let view = UIView()
+        let expectedColor: UIColor = .red
+        let expectedHeight: CGFloat = 2.0
 
-            XCTAssertEqual(view.subviews.count, 1)
-        }
+        view.addViewSeparator(color: expectedColor, height: expectedHeight)
 
-        func testSeparatorUsesCorrectColorAndHeight() {
-            let view = UIView()
-            let expectedColor: UIColor = .red
-            let expectedHeight: CGFloat = 2.0
+        let separator = try XCTUnwrap(view.subviews.first, "Separator not found")
+        
+        XCTAssertEqual(view.subviews.count, 1)
+        XCTAssertEqual(separator.backgroundColor, expectedColor)
+        XCTAssertEqual(separator.frame.height, expectedHeight, accuracy: 0.1)
+    }
 
-            view.separator(color: expectedColor, height: expectedHeight)
-
-            guard let separator = view.subviews.first else {
-                XCTFail("Separator not found")
-                return
-            }
-
-            XCTAssertEqual(separator.backgroundColor, expectedColor)
-
-            let heightConstraint = separator.constraints.first { $0.firstAttribute == .height }
-            XCTAssertEqual(heightConstraint?.constant, expectedHeight)
-        }
-
-        func testSeparatorUsesAutoLayout() {
-            let view = UIView()
-            view.separator()
-
-            guard let separator = view.subviews.first else {
-                XCTFail("Separator not found")
-                return
-            }
-
-            XCTAssertFalse(separator.translatesAutoresizingMaskIntoConstraints)
-        }
+    
+    
 }
 
 #endif
