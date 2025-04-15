@@ -3,11 +3,9 @@
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
 ## Upcoming Release
-
 ### Added
 - **UIView**
   - Added `addBottomSeparator(color:height:spacing:)` method to easily insert a bottom line to a view. 🚀 [#1234](https://github.com/SwifterSwift/SwifterSwift/pull/1234) by [sangjin](https://github.com/SsangG77)
-
 - **Android**
   - Added Android platform support. [#1230](https://github.com/SwifterSwift/SwifterSwift/pull/1230) by [Marc Prud'hommeaux](https://github.com/marcprux)
 

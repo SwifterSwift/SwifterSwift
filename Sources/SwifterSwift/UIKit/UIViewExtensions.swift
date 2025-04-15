@@ -718,9 +718,9 @@ public extension UIView {
         self.addSubview(line)
         NSLayoutConstraint.activate([
             line.heightAnchor.constraint(equalToConstant: height),
-            line.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            line.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            line.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: spacing)
+            line.leadingAnchor.constraint(equalTo: leadingAnchor),
+            line.trailingAnchor.constraint(equalTo: trailingAnchor),
+            line.bottomAnchor.constraint(equalTo: bottomAnchor, constant: spacing)
         ])
     }
 }
