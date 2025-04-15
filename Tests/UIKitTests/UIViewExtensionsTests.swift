@@ -686,7 +686,7 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
     
     func testAddBottomSeparator() throws {
         let view = UIView()
-        let expectedColor: UIColor = .red
+        let expectedColor = UIColor.red
         let expectedHeight: CGFloat = 2.0
 
         view.addBottomSeparator(color: expectedColor, height: expectedHeight)
