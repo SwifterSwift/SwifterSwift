@@ -614,6 +614,16 @@
 		D951E8B023D04E4600F2CD0B /* DecodableExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D951E8AE23D04E4600F2CD0B /* DecodableExtensionsTests.swift */; };
 		D951E8B123D04E4600F2CD0B /* DecodableExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D951E8AE23D04E4600F2CD0B /* DecodableExtensionsTests.swift */; };
 		D9F36CF623521F440057258F /* MKMapViewExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F36CF523521F440057258F /* MKMapViewExtensionsTests.swift */; };
+		E43380F32D6CE6CA00A6B84A /* UIViewInspectableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43380F22D6CE6C400A6B84A /* UIViewInspectableExtensions.swift */; };
+		E43380F42D6CE6CA00A6B84A /* UIViewInspectableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43380F22D6CE6C400A6B84A /* UIViewInspectableExtensions.swift */; };
+		E43380F52D6CE6CA00A6B84A /* UIViewInspectableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43380F22D6CE6C400A6B84A /* UIViewInspectableExtensions.swift */; };
+		E43380F72D6CE84300A6B84A /* UIButtonInspectableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43380F62D6CE83E00A6B84A /* UIButtonInspectableExtensions.swift */; };
+		E43380F82D6CE84300A6B84A /* UIButtonInspectableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43380F62D6CE83E00A6B84A /* UIButtonInspectableExtensions.swift */; };
+		E43380F92D6CE84300A6B84A /* UIButtonInspectableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43380F62D6CE83E00A6B84A /* UIButtonInspectableExtensions.swift */; };
+		E43380FB2D6CE8A100A6B84A /* UITextFieldInspectableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43380FA2D6CE89B00A6B84A /* UITextFieldInspectableExtensions.swift */; };
+		E43380FC2D6CE8A100A6B84A /* UITextFieldInspectableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43380FA2D6CE89B00A6B84A /* UITextFieldInspectableExtensions.swift */; };
+		E43380FD2D6CE8A100A6B84A /* UITextFieldInspectableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43380FA2D6CE89B00A6B84A /* UITextFieldInspectableExtensions.swift */; };
+		E43381012D6CE98600A6B84A /* NSViewInspectableExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43381002D6CE98200A6B84A /* NSViewInspectableExtensions.swift */; };
 		E5E5EB3A2350EED400B04C42 /* CAGradientLayerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5EB392350EED400B04C42 /* CAGradientLayerExtensions.swift */; };
 		E5E5EB3D2350F40200B04C42 /* CAGradientLayerExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E5EB3C2350F40200B04C42 /* CAGradientLayerExtensionsTests.swift */; };
 		F850972424AF72690007F74D /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E36CB6424AC9909007727DA /* MyViewController.swift */; };
@@ -924,6 +934,10 @@
 		D951E8A923D04DBE00F2CD0B /* DecodableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableExtensions.swift; sourceTree = "<group>"; };
 		D951E8AE23D04E4600F2CD0B /* DecodableExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableExtensionsTests.swift; sourceTree = "<group>"; };
 		D9F36CF523521F440057258F /* MKMapViewExtensionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKMapViewExtensionsTests.swift; sourceTree = "<group>"; };
+		E43380F22D6CE6C400A6B84A /* UIViewInspectableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewInspectableExtensions.swift; sourceTree = "<group>"; };
+		E43380F62D6CE83E00A6B84A /* UIButtonInspectableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonInspectableExtensions.swift; sourceTree = "<group>"; };
+		E43380FA2D6CE89B00A6B84A /* UITextFieldInspectableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldInspectableExtensions.swift; sourceTree = "<group>"; };
+		E43381002D6CE98200A6B84A /* NSViewInspectableExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewInspectableExtensions.swift; sourceTree = "<group>"; };
 		E5E5EB392350EED400B04C42 /* CAGradientLayerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtensions.swift; sourceTree = "<group>"; };
 		E5E5EB3C2350F40200B04C42 /* CAGradientLayerExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAGradientLayerExtensionsTests.swift; sourceTree = "<group>"; };
 		F854D2A42423AE92003A08A9 /* CGAffineTransformExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGAffineTransformExtensions.swift; sourceTree = "<group>"; };
@@ -1132,6 +1146,7 @@
 		07B7F15C1F5EB41600E6F910 /* AppKit */ = {
 			isa = PBXGroup;
 			children = (
+				E43380FF2D6CE97E00A6B84A /* IBInspectable */,
 				9DC844A42349E24600E1571A /* NSColorExtensions.swift */,
 				278CA08C1F9A9232004918BD /* NSImageExtensions.swift */,
 				9E8C72382BB8CE5800866521 /* NSStackViewExtensions.swift */,
@@ -1164,6 +1179,7 @@
 			isa = PBXGroup;
 			children = (
 				F8BE7E062B3B161F00179B35 /* Deprecated */,
+				E43380F12D6CE6BF00A6B84A /* IBInspectable */,
 				07B7F17C1F5EB41600E6F910 /* UIAlertControllerExtensions.swift */,
 				07A1C446224FFDE4003272E4 /* UIApplicationExtensions.swift */,
 				07B7F17D1F5EB41600E6F910 /* UIBarButtonItemExtensions.swift */,
@@ -1528,6 +1544,24 @@
 				F8A710ED23BF3F8200112DAD /* EdgeInsetsExtensionsTests.swift */,
 			);
 			path = SharedTests;
+			sourceTree = "<group>";
+		};
+		E43380F12D6CE6BF00A6B84A /* IBInspectable */ = {
+			isa = PBXGroup;
+			children = (
+				E43380FA2D6CE89B00A6B84A /* UITextFieldInspectableExtensions.swift */,
+				E43380F62D6CE83E00A6B84A /* UIButtonInspectableExtensions.swift */,
+				E43380F22D6CE6C400A6B84A /* UIViewInspectableExtensions.swift */,
+			);
+			path = IBInspectable;
+			sourceTree = "<group>";
+		};
+		E43380FF2D6CE97E00A6B84A /* IBInspectable */ = {
+			isa = PBXGroup;
+			children = (
+				E43381002D6CE98200A6B84A /* NSViewInspectableExtensions.swift */,
+			);
+			path = IBInspectable;
 			sourceTree = "<group>";
 		};
 		E5E5EB382350EE9A00B04C42 /* CoreAnimation */ = {
@@ -2212,12 +2246,14 @@
 				F887E9392505AB87006CB4F7 /* FontExtensions.swift in Sources */,
 				7832C2AF209BB19300224EED /* ComparableExtensions.swift in Sources */,
 				664CB9762171899800FC87B4 /* BinaryFloatingPointExtensions.swift in Sources */,
+				E43380F52D6CE6CA00A6B84A /* UIViewInspectableExtensions.swift in Sources */,
 				074C8D81224F86450050F040 /* MKMapViewExtensions.swift in Sources */,
 				07B7F2321F5EB45100E6F910 /* CLLocationExtensions.swift in Sources */,
 				07B7F20E1F5EB43C00E6F910 /* CollectionExtensions.swift in Sources */,
 				07B7F2151F5EB43C00E6F910 /* IntExtensions.swift in Sources */,
 				9D806A862258F624008E500A /* SCNGeometryExtensions.swift in Sources */,
 				C7E027C42360942000F1061E /* KeyedDecodingContainerExtensions.swift in Sources */,
+				E43380FB2D6CE8A100A6B84A /* UITextFieldInspectableExtensions.swift in Sources */,
 				07B7F2111F5EB43C00E6F910 /* DictionaryExtensions.swift in Sources */,
 				D5FD5284270853B30073F831 /* BinaryIntegerExtensions.swift in Sources */,
 				9D806A6A2258DC3E008E500A /* SCNShapeExtensions.swift in Sources */,
@@ -2283,6 +2319,7 @@
 				07B7F2141F5EB43C00E6F910 /* FloatingPointExtensions.swift in Sources */,
 				748B191A23B4F4C20030FABB /* SKProductExtensions.swift in Sources */,
 				07B7F19E1F5EB42000E6F910 /* UISegmentedControlExtensions.swift in Sources */,
+				E43380F82D6CE84300A6B84A /* UIButtonInspectableExtensions.swift in Sources */,
 				07B7F20F1F5EB43C00E6F910 /* DataExtensions.swift in Sources */,
 				0DAEBCE024B0045F00F61684 /* HKActivitySummaryExtensions.swift in Sources */,
 				07B7F19C1F5EB42000E6F910 /* UINavigationItemExtensions.swift in Sources */,
@@ -2312,6 +2349,8 @@
 				784C75312051BD4B001C48DD /* MKPolylineExtensions.swift in Sources */,
 				9DC844A82349E28100E1571A /* UIColorExtensions.swift in Sources */,
 				07B7F2351F5EB45200E6F910 /* CGFloatExtensions.swift in Sources */,
+				E43380F92D6CE84300A6B84A /* UIButtonInspectableExtensions.swift in Sources */,
+				E43380F42D6CE6CA00A6B84A /* UIViewInspectableExtensions.swift in Sources */,
 				07B7F1AE1F5EB42000E6F910 /* UIImageViewExtensions.swift in Sources */,
 				9D806A6B2258DC3E008E500A /* SCNShapeExtensions.swift in Sources */,
 				07B7F2381F5EB45200E6F910 /* CLLocationExtensions.swift in Sources */,
@@ -2389,6 +2428,7 @@
 				9D806A422258B931008E500A /* SCNVector3Extensions.swift in Sources */,
 				F887E93A2505AB87006CB4F7 /* FontExtensions.swift in Sources */,
 				658A02F3270F01D200DBA951 /* MKMultiPointExtensions.swift in Sources */,
+				E43380FC2D6CE8A100A6B84A /* UITextFieldInspectableExtensions.swift in Sources */,
 				07B7F1B21F5EB42000E6F910 /* UINavigationItemExtensions.swift in Sources */,
 				9D806A5C2258D2B8008E500A /* SCNMaterialExtensions.swift in Sources */,
 				9D806A872258F624008E500A /* SCNGeometryExtensions.swift in Sources */,
@@ -2421,6 +2461,7 @@
 				07B7F2291F5EB45100E6F910 /* CGFloatExtensions.swift in Sources */,
 				07B7F1C41F5EB42200E6F910 /* UIImageViewExtensions.swift in Sources */,
 				07B7F22C1F5EB45100E6F910 /* CLLocationExtensions.swift in Sources */,
+				E43380FD2D6CE8A100A6B84A /* UITextFieldInspectableExtensions.swift in Sources */,
 				0782A5B623DA98C900E562C0 /* CLLocationArrayExtensions.swift in Sources */,
 				0DAEBCE424B007CE00F61684 /* HKActivitySummaryExtensions.swift in Sources */,
 				07B7F1EA1F5EB43B00E6F910 /* CollectionExtensions.swift in Sources */,
@@ -2428,6 +2469,7 @@
 				9D806A672258D75A008E500A /* SCNBoxExtensions.swift in Sources */,
 				664CB985217243D200FC87B4 /* DispatchQueueExtensions.swift in Sources */,
 				B2A0DAC22336DA87002B0BC5 /* MutableCollectionExtensions.swift in Sources */,
+				E43380F72D6CE84300A6B84A /* UIButtonInspectableExtensions.swift in Sources */,
 				07B7F1ED1F5EB43B00E6F910 /* DictionaryExtensions.swift in Sources */,
 				07B7F22A1F5EB45100E6F910 /* CGPointExtensions.swift in Sources */,
 				734308092108E4640029CD16 /* CGVectorExtensions.swift in Sources */,
@@ -2442,6 +2484,7 @@
 				07B7F1E71F5EB43B00E6F910 /* ArrayExtensions.swift in Sources */,
 				D951E8AC23D04DCA00F2CD0B /* DecodableExtensions.swift in Sources */,
 				9D806A882258F624008E500A /* SCNGeometryExtensions.swift in Sources */,
+				E43380F32D6CE6CA00A6B84A /* UIViewInspectableExtensions.swift in Sources */,
 				07B7F1CC1F5EB42200E6F910 /* UIStoryboardExtensions.swift in Sources */,
 				F8BE7E0A2B3B161F00179B35 /* UIImageViewDeprecated.swift in Sources */,
 				9D806A6C2258DC3E008E500A /* SCNShapeExtensions.swift in Sources */,
@@ -2529,6 +2572,7 @@
 				D951E8AD23D04DCB00F2CD0B /* DecodableExtensions.swift in Sources */,
 				17A4B79626CCFFAF007D299F /* SKSpriteNodeExtensions.swift in Sources */,
 				07B7F2251F5EB44600E6F910 /* NSAttributedStringExtensions.swift in Sources */,
+				E43381012D6CE98600A6B84A /* NSViewInspectableExtensions.swift in Sources */,
 				077BA08D1F6BE81F00D9C4AC /* URLRequestExtensions.swift in Sources */,
 				9D806A772258E0D8008E500A /* SCNConeExtensions.swift in Sources */,
 				18C8E5E12074C60C00F8AF51 /* SequenceExtensions.swift in Sources */,
