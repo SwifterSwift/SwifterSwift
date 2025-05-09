@@ -700,7 +700,7 @@ public extension UIView {
         }
         return views
     }
-    
+
     /// SwifterSwift: Adds a horizontal separator to the bottom of the view.
     ///
     ///     let view = UIView()
@@ -715,7 +715,7 @@ public extension UIView {
         line.translatesAutoresizingMaskIntoConstraints = false
         line.backgroundColor = color
         line.layer.cornerRadius = height / 2
-        self.addSubview(line)
+        addSubview(line)
         NSLayoutConstraint.activate([
             line.heightAnchor.constraint(equalToConstant: height),
             line.leadingAnchor.constraint(equalTo: leadingAnchor),

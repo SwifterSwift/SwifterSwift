@@ -683,7 +683,7 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
         view.removeBlur()
         XCTAssertFalse(view.subviews.first is UIVisualEffectView)
     }
-    
+
     func testAddBottomSeparator() throws {
         let view = UIView()
         let expectedColor = UIColor.red
