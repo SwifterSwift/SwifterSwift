@@ -1080,8 +1080,8 @@ public extension String {
     ///   - lhs: String to check on regex pattern.
     ///   - rhs: Regex pattern to match against.
     /// - Returns: true if string matches the pattern.
-    static func ~= (lhs: String, rhs: String) -> Bool {
-        return rhs.range(of: lhs, options: .regularExpression) != nil
+    static func =~ (lhs: String, rhs: String) -> Bool {
+        return lhs.range(of: rhs, options: .regularExpression) != nil
     }
     #endif
 
@@ -1092,9 +1092,9 @@ public extension String {
     ///   - lhs: String to check on regex.
     ///   - rhs: Regex to match against.
     /// - Returns: `true` if there is at least one match for the regex in the string.
-    static func ~= (lhs: NSRegularExpression, rhs: String) -> Bool {
-        let range = NSRange(rhs.startIndex..<rhs.endIndex, in: rhs)
-        return lhs.firstMatch(in: rhs, range: range) != nil
+    static func =~ (lhs: String, rhs: NSRegularExpression) -> Bool {
+        let range = NSRange(lhs.startIndex..<lhs.endIndex, in: lhs)
+        return rhs.firstMatch(in: lhs, range: range) != nil
     }
     #endif
 
@@ -1410,4 +1410,10 @@ public extension String {
     }
 }
 
+#endif
+
+// MARK: Operators
+
+#if canImport(Foundation)
+infix operator =~: ComparisonPrecedence
 #endif

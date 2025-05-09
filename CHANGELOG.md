@@ -3,6 +3,10 @@
 The changelog for **SwifterSwift**. Also see the [releases](https://github.com/SwifterSwift/SwifterSwift/releases) on GitHub.
 
 ## Upcoming Release
+### Breaking Change
+- **String**
+  - Replaced `~=` operator overload with `=~` to fix breaking `switch` statements and align with other languages. [#1239](https://github.com/SwifterSwift/SwifterSwift/pull/1239) by [guykogus](https://github.com/guykogus)
+
 ### Added
 - **UIView**
   - Added `addBottomSeparator(color:height:spacing:)` method to easily insert a bottom line to a view. 🚀 [#1234](https://github.com/SwifterSwift/SwifterSwift/pull/1234) by [sangjin](https://github.com/SsangG77)
