@@ -8,6 +8,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `addBottomSeparator(color:height:spacing:)` method to easily insert a bottom line to a view. 🚀 [#1234](https://github.com/SwifterSwift/SwifterSwift/pull/1234) by [sangjin](https://github.com/SsangG77)
 - **Android**
   - Added Android platform support. [#1230](https://github.com/SwifterSwift/SwifterSwift/pull/1230) by [Marc Prud'hommeaux](https://github.com/marcprux)
+- **CocoaPods**
+  - Added subspecs to not include `@IBInspectable` extensions, which can cause Xcode Interface Builder to run slowly. [#1323](https://github.com/SwifterSwift/SwifterSwift/pull/1323) by [guykogus](https://github.com/guykogus)
 
 ### Changed
 - **String**

@@ -41,9 +41,27 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/UIKit/*.swift'
   end
 
+  # UIKit Without IBInspectable Extensions
+  s.subspec 'UIKitNoIBInspectable' do |sp|
+    sp.dependency 'SwifterSwift/UIKit'
+    sp.exclude_files = 'Sources/SwifterSwift/UIKit/IBInspectable/*.swift'
+  end
+
   # AppKit Extensions
   s.subspec 'AppKit' do |sp|
     sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/AppKit/*.swift'
+  end
+
+  # AppKit Without IBInspectable Extensions
+  s.subspec 'AppKitNoIBInspectable' do |sp|
+    sp.dependency 'SwifterSwift/AppKit'
+    sp.exclude_files = 'Sources/SwifterSwift/AppKit/IBInspectable/*.swift'
+  end
+
+  # SwifterSwift Without IBInspectable Extensions
+  s.subspec 'NoIBInspectable' do |sp|
+    sp.source_files = 'Sources/SwifterSwift/**/*.swift'
+    sp.exclude_files = 'Sources/SwifterSwift/**/IBInspectable/*.swift'
   end
 
   # CoreGraphics Extensions
