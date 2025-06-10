@@ -82,32 +82,6 @@ public extension UITextField {
                            options: String.CompareOptions.regularExpression,
                            range: nil, locale: nil) != nil
     }
-
-    /// SwifterSwift: Left view tint color.
-    @IBInspectable var leftViewTintColor: UIColor? {
-        get {
-            guard let iconView = leftView as? UIImageView else { return nil }
-            return iconView.tintColor
-        }
-        set {
-            guard let iconView = leftView as? UIImageView else { return }
-            iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
-            iconView.tintColor = newValue
-        }
-    }
-
-    /// SwifterSwift: Right view tint color.
-    @IBInspectable var rightViewTintColor: UIColor? {
-        get {
-            guard let iconView = rightView as? UIImageView else { return nil }
-            return iconView.tintColor
-        }
-        set {
-            guard let iconView = rightView as? UIImageView else { return }
-            iconView.image = iconView.image?.withRenderingMode(.alwaysTemplate)
-            iconView.tintColor = newValue
-        }
-    }
 }
 
 // MARK: - Methods
