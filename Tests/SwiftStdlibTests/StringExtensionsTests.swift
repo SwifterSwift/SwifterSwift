@@ -226,6 +226,12 @@ final class StringExtensionsTests: XCTestCase {
         let helloWorld = "hello world".url
         #if os(Linux) || os(Android)
         XCTAssertEqual(helloWorld, URL(string: "hello%20world"))
+        #elseif targetEnvironment(macCatalyst)
+        if #available(iOS 26.0, *) {
+            XCTAssertNil(helloWorld)
+        } else {
+            XCTAssertEqual(helloWorld, URL(string: "hello%20world"))
+        }
         #else
         if #available(iOS 17.0, *) {
             XCTAssertEqual(helloWorld, URL(string: "hello%20world"))

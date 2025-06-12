@@ -296,7 +296,7 @@ public extension UIView {
 
     /// SwifterSwift: Remove all gesture recognizers from view.
     func removeGestureRecognizers() {
-        try? gestureRecognizers?.forEach(removeGestureRecognizer)
+        gestureRecognizers?.forEach(removeGestureRecognizer)
     }
 
     /// SwifterSwift: Attaches gesture recognizers to the view. Attaching gesture recognizers to a view defines the
