@@ -13,7 +13,7 @@ public extension Collection {
 
 // MARK: - Methods
 
-public extension Collection where Self: Sendable {
+public extension Collection where Self: Sendable, Self.Index: Sendable {
     #if canImport(Dispatch)
     /// SwifterSwift: Performs `each` closure for each element of collection in parallel.
     ///

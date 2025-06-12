@@ -62,7 +62,9 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
         tabVC.viewControllers = [navigationController]
         navigationController.pushViewController(vcToPush, hidesBottomBar: true, animated: false)
         XCTAssert(vcToPush.hidesBottomBarWhenPushed)
-        XCTAssert(tabVC.tabBar.isHidden)
+        if #unavailable(iOS 26.0) { // Broken in iOS 26.0 seed 1
+            XCTAssert(tabVC.tabBar.isHidden)
+        }
     }
     #endif
 }
