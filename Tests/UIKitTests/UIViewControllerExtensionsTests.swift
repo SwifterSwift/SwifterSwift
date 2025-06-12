@@ -71,6 +71,11 @@ final class UIViewControllerExtensionsTests: XCTestCase {
 
     func testShowAlert() {
         let viewController = UIViewController()
+
+        let window = UIWindow()
+        window.rootViewController = viewController
+        window.makeKeyAndVisible()
+
         let title = "test title"
         let message = "test message"
         let actionButtons = ["OK", "Cancel"]
