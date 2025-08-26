@@ -4,6 +4,14 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 
 ## Upcoming Release
 ### Breaking Change
+### Added
+### Changed
+### Fixed
+### Deprecated
+### Removed
+
+## [v7.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/8.0.0)
+### Breaking Change
 - **String**
   - Replaced `~=` operator overload with `=~` to fix breaking `switch` statements and align with other languages. [#1239](https://github.com/SwifterSwift/SwifterSwift/pull/1239) by [guykogus](https://github.com/guykogus)
 
@@ -22,7 +30,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Fixed
 - **Examples** : Added "import Foundation" to Foundation Extension Playground page for Date() extension to work properly on Mac
 - **Array**
-  - `init(unsafeUninitializedCapacity:initializedWith:)` initializedCount should be eaqule to the number of successfully initialized elements, Ensure that the Array properly release allocated memory in case of an error.[#1222](https://github.com/SwifterSwift/SwifterSwift/pull/1222) by [fallwd](https://github.com/fallwd)
+  - `init(unsafeUninitializedCapacity:initializedWith:)` `initializedCount` should be equal to the number of successfully initialized elements, ensuring that the `Array` properly releases allocated memory in case of an error.[#1222](https://github.com/SwifterSwift/SwifterSwift/pull/1222) by [fallwd](https://github.com/fallwd)
 - **FloatingPoint**
   - Calculate `ceil` and `floor` using `rounded(_:)`, and `√` using `squareRoot()`, instead of using `Foundation` functions. [#1231](https://github.com/SwifterSwift/SwifterSwift/pull/1231) by [guykogus](https://github.com/guykogus)
 
