@@ -150,7 +150,6 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         // iterate through each range of attributes
         attrTestString
             .enumerateAttributes(in: stringRange, options: .longestEffectiveRangeNotRequired) { attrs, range, _ in
-
                 // exit if there are not more attributes for the subsequence than what was there originally
                 guard attrs.count > attrAtBeginning.count else { return }
 
@@ -167,7 +166,9 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
                         XCTAssertEqual(attr.value as? SFColor, SFColor.blue)
                         passed = true
                     } else if attr.key == .font {
+                        #if !os(tvOS)
                         XCTAssertEqual(attr.value as? SFFont, .boldSystemFont(ofSize: SFFont.systemFontSize))
+                        #endif
                     } else {
                         passed = false
                     }
@@ -224,9 +225,9 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         XCTAssertEqual(string.string, "Test Appending")
 
         var attributes = string.attributes(at: 0, effectiveRange: nil)
-        var filteredAttributes = attributes.filter { key, value -> Bool in
+        attributes = attributes.filter { key, value -> Bool in
             var valid = false
-            #if canImport(UIKit)
+            #if canImport(UIKit) && !os(tvOS)
             if key == NSAttributedString.Key.font, let value = value as? SFFont,
                value == .italicSystemFont(ofSize: SFFont.systemFontSize) {
                 valid = true
@@ -244,19 +245,21 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             return valid
         }
 
-        #if canImport(UIKit)
-        XCTAssertEqual(filteredAttributes.count, 3)
+        #if canImport(UIKit) && !os(tvOS)
+        XCTAssertEqual(attributes.count, 3)
         #else
-        XCTAssertEqual(filteredAttributes.count, 2)
+        XCTAssertEqual(attributes.count, 2)
         #endif
 
         attributes = string.attributes(at: 5, effectiveRange: nil)
-        filteredAttributes = attributes.filter { key, value -> Bool in
+        #if !os(tvOS)
+        attributes = attributes.filter { key, value -> Bool in
             return key == NSAttributedString.Key
                 .font && (value as? SFFont) == .boldSystemFont(ofSize: SFFont.systemFontSize)
         }
+        #endif
 
-        XCTAssertEqual(filteredAttributes.count, 1)
+        XCTAssertEqual(attributes.count, 1)
     }
 
     func testAttributes() {
@@ -277,7 +280,11 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             case NSAttributedString.Key.strikethroughStyle:
                 return (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.single.rawValue
             case NSAttributedString.Key.font:
+                #if os(tvOS)
+                return false
+                #else
                 return (value as? SFFont) == .boldSystemFont(ofSize: SFFont.systemFontSize)
+                #endif
             case NSAttributedString.Key.foregroundColor:
                 return (value as? SFColor) == .blue
             default:
@@ -285,7 +292,11 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             }
         }
 
+        #if os(tvOS)
+        XCTAssertEqual(filteredAttributes.count, 3)
+        #else
         XCTAssertEqual(filteredAttributes.count, 4)
+        #endif
     }
 
     // MARK: - Operators
