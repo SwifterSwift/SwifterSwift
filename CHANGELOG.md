@@ -10,7 +10,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Deprecated
 ### Removed
 
-## [v7.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/8.0.0)
+## [v8.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/8.0.0)
 ### Breaking Change
 - **String**
   - Replaced `~=` operator overload with `=~` to fix breaking `switch` statements and align with other languages. [#1239](https://github.com/SwifterSwift/SwifterSwift/pull/1239) by [guykogus](https://github.com/guykogus)
