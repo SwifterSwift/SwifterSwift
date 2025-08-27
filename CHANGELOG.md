@@ -5,6 +5,11 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 ### Breaking Change
 ### Added
+- **UIApplication**
+  - Added `topSafeAreaInsets`, `bottomSafeAreaInsets`, `leftSafeAreaInsets`, `rightSafeAreaInsets` properties for easy access to individual safe area insets from the key window.
+  - Added `horizontalSafeAreaInsets`, `verticalSafeAreaInsets` properties for combined safe area insets calculations.
+- **UIWindow**
+  - Added `keyWindow` static property for cross-version key window access, handling both iOS 13+ window scenes and legacy iOS versions.
 ### Changed
 ### Fixed
 ### Deprecated
