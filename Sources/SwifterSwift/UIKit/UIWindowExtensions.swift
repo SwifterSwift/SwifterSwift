@@ -35,6 +35,25 @@ public extension UIWindow {
             completion?()
         })
     }
+    
+    /// SwifterSwift: The current key window of the application.
+    ///
+    /// Returns the key window that is currently receiving keyboard and other non-touch events.
+    /// This property handles both iOS 13+ (using window scenes) and older iOS versions (using the deprecated keyWindow property).
+    ///
+    /// - Note: On iOS 13 and later, this searches through all connected window scenes to find the key window.
+    /// - Note: On iOS 12 and earlier, this uses the deprecated `UIApplication.shared.keyWindow` property.
+    static var keyWindow: UIWindow? {
+        if #available(iOS 13.0, *) {
+            return UIApplication.shared
+                .connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap { $0.windows }
+                .first(where: \.isKeyWindow)
+        } else {
+            return UIApplication.shared.keyWindow
+        }
+    }
 }
 
 #endif
