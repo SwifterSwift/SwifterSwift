@@ -63,6 +63,54 @@ public extension UIApplication {
     var version: String? {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String
     }
+    
+    /// SwifterSwift: Top safe area insets of the key window.
+    ///
+    /// Returns the top safe area insets from the current key window, or 0 if no key window is available.
+    /// This is useful for adjusting UI elements to account for the status bar, notch, or other system UI elements.
+    var topSafeAreaInsets: CGFloat {
+        UIWindow.keyWindow?.safeAreaInsets.top ?? 0
+    }
+    
+    /// SwifterSwift: Bottom safe area insets of the key window.
+    ///
+    /// Returns the bottom safe area insets from the current key window, or 0 if no key window is available.
+    /// This is useful for adjusting UI elements to account for the home indicator or other system UI elements.
+    var bottomSafeAreaInsets: CGFloat {
+        UIWindow.keyWindow?.safeAreaInsets.bottom ?? 0
+    }
+    
+    /// SwifterSwift: Left safe area insets of the key window.
+    ///
+    /// Returns the left safe area insets from the current key window, or 0 if no key window is available.
+    /// This is useful for adjusting UI elements to account for system UI elements on the left side.
+    var leftSafeAreaInsets: CGFloat {
+        UIWindow.keyWindow?.safeAreaInsets.left ?? 0
+    }
+    
+    /// SwifterSwift: Right safe area insets of the key window.
+    ///
+    /// Returns the right safe area insets from the current key window, or 0 if no key window is available.
+    /// This is useful for adjusting UI elements to account for system UI elements on the right side.
+    var rightSafeAreaInsets: CGFloat {
+        UIWindow.keyWindow?.safeAreaInsets.right ?? 0
+    }
+    
+    /// SwifterSwift: Horizontal safe area insets of the key window.
+    ///
+    /// Returns the combined left and right safe area insets from the current key window, or 0 if no key window is available.
+    /// This is useful for calculating the total horizontal safe area that needs to be accounted for.
+    var horizontalSafeAreaInsets: CGFloat {
+        UIWindow.keyWindow?.safeAreaInsets.horizontal ?? 0
+    }
+    
+    /// SwifterSwift: Vertical safe area insets of the key window.
+    ///
+    /// Returns the combined top and bottom safe area insets from the current key window, or 0 if no key window is available.
+    /// This is useful for calculating the total vertical safe area that needs to be accounted for.
+    var verticalSafeAreaInsets: CGFloat {
+        UIWindow.keyWindow?.safeAreaInsets.vertical ?? 0
+    }
 }
 
 #endif
