@@ -9,7 +9,7 @@ import CoreGraphics
 final class CGRectExtensionsTests: XCTestCase {
     func testCenterGet() {
         let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
-        XCTAssertEqual(rect.center, CGPointMake(25, 40))
+        XCTAssertEqual(rect.center, CGPoint(x: 25, y: 40))
     }
 
     func testCenterSet() {
@@ -21,7 +21,7 @@ final class CGRectExtensionsTests: XCTestCase {
 
     func testTopLeftGet() {
         let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
-        XCTAssertEqual(rect.topLeft, CGPointMake(10, 20))
+        XCTAssertEqual(rect.topLeft, CGPoint(x: 10, y: 20))
     }
 
     func testTopLeftSet() {
@@ -33,7 +33,7 @@ final class CGRectExtensionsTests: XCTestCase {
 
     func testTopCenterGet() {
         let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
-        XCTAssertEqual(rect.topCenter, CGPointMake(25, 20))
+        XCTAssertEqual(rect.topCenter, CGPoint(x: 25, y: 20))
     }
 
     func testTopCenterSet() {
@@ -45,7 +45,7 @@ final class CGRectExtensionsTests: XCTestCase {
 
     func testTopRightGet() {
         let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
-        XCTAssertEqual(rect.topRight, CGPointMake(40, 20))
+        XCTAssertEqual(rect.topRight, CGPoint(x: 40, y: 20))
     }
 
     func testTopRightSet() {
@@ -57,7 +57,7 @@ final class CGRectExtensionsTests: XCTestCase {
 
     func testCenterLeftGet() {
         let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
-        XCTAssertEqual(rect.centerLeft, CGPointMake(10, 40))
+        XCTAssertEqual(rect.centerLeft, CGPoint(x: 10, y: 40))
     }
 
     func testCenterLeftSet() {
@@ -69,7 +69,7 @@ final class CGRectExtensionsTests: XCTestCase {
 
     func testCenterRightGet() {
         let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
-        XCTAssertEqual(rect.centerRight, CGPointMake(40, 40))
+        XCTAssertEqual(rect.centerRight, CGPoint(x: 40, y: 40))
     }
 
     func testCenterRightSet() {
@@ -81,7 +81,7 @@ final class CGRectExtensionsTests: XCTestCase {
 
     func testBottomLeftGet() {
         let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
-        XCTAssertEqual(rect.bottomLeft, CGPointMake(10, 60))
+        XCTAssertEqual(rect.bottomLeft, CGPoint(x: 10, y: 60))
     }
 
     func testBottomLeftSet() {
@@ -93,7 +93,7 @@ final class CGRectExtensionsTests: XCTestCase {
 
     func testBottomCenterGet() {
         let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
-        XCTAssertEqual(rect.bottomCenter, CGPointMake(25, 60))
+        XCTAssertEqual(rect.bottomCenter, CGPoint(x: 25, y: 60))
     }
 
     func testBottomCenterSet() {
@@ -105,7 +105,7 @@ final class CGRectExtensionsTests: XCTestCase {
 
     func testBottomRightGet() {
         let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
-        XCTAssertEqual(rect.bottomRight, CGPointMake(40, 60))
+        XCTAssertEqual(rect.bottomRight, CGPoint(x: 40, y: 60))
     }
 
     func testBottomRightSet() {
