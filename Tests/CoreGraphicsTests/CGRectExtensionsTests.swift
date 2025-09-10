@@ -19,6 +19,102 @@ final class CGRectExtensionsTests: XCTestCase {
         XCTAssertEqual(rect.center, CGPoint(x: 50, y: 60))
     }
 
+    func testTopLeftGet() {
+        let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        XCTAssertEqual(rect.topLeft, CGPointMake(10, 20))
+    }
+
+    func testTopLeftSet() {
+        var rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        rect.topLeft = CGPoint(x: 50, y: 60)
+        XCTAssertEqual(rect, CGRect(x: 50, y: 60, width: 30, height: 40))
+        XCTAssertEqual(rect.topLeft, CGPoint(x: 50, y: 60))
+    }
+
+    func testTopCenterGet() {
+        let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        XCTAssertEqual(rect.topCenter, CGPointMake(25, 20))
+    }
+
+    func testTopCenterSet() {
+        var rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        rect.topCenter = CGPoint(x: 50, y: 60)
+        XCTAssertEqual(rect, CGRect(x: 35, y: 60, width: 30, height: 40))
+        XCTAssertEqual(rect.topCenter, CGPoint(x: 50, y: 60))
+    }
+
+    func testTopRightGet() {
+        let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        XCTAssertEqual(rect.topRight, CGPointMake(40, 20))
+    }
+
+    func testTopRightSet() {
+        var rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        rect.topRight = CGPoint(x: 50, y: 60)
+        XCTAssertEqual(rect, CGRect(x: 20, y: 60, width: 30, height: 40))
+        XCTAssertEqual(rect.topRight, CGPoint(x: 50, y: 60))
+    }
+
+    func testCenterLeftGet() {
+        let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        XCTAssertEqual(rect.centerLeft, CGPointMake(10, 40))
+    }
+
+    func testCenterLeftSet() {
+        var rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        rect.centerLeft = CGPoint(x: 50, y: 60)
+        XCTAssertEqual(rect, CGRect(x: 50, y: 40, width: 30, height: 40))
+        XCTAssertEqual(rect.centerLeft, CGPoint(x: 50, y: 60))
+    }
+
+    func testCenterRightGet() {
+        let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        XCTAssertEqual(rect.centerRight, CGPointMake(40, 40))
+    }
+
+    func testCenterRightSet() {
+        var rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        rect.centerRight = CGPoint(x: 50, y: 60)
+        XCTAssertEqual(rect, CGRect(x: 20, y: 40, width: 30, height: 40))
+        XCTAssertEqual(rect.centerRight, CGPoint(x: 50, y: 60))
+    }
+
+    func testBottomLeftGet() {
+        let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        XCTAssertEqual(rect.bottomLeft, CGPointMake(10, 60))
+    }
+
+    func testBottomLeftSet() {
+        var rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        rect.bottomLeft = CGPoint(x: 50, y: 60)
+        XCTAssertEqual(rect, CGRect(x: 50, y: 20, width: 30, height: 40))
+        XCTAssertEqual(rect.bottomLeft, CGPoint(x: 50, y: 60))
+    }
+
+    func testBottomCenterGet() {
+        let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        XCTAssertEqual(rect.bottomCenter, CGPointMake(25, 60))
+    }
+
+    func testBottomCenterSet() {
+        var rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        rect.bottomCenter = CGPoint(x: 50, y: 60)
+        XCTAssertEqual(rect, CGRect(x: 35, y: 20, width: 30, height: 40))
+        XCTAssertEqual(rect.bottomCenter, CGPoint(x: 50, y: 60))
+    }
+
+    func testBottomRightGet() {
+        let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        XCTAssertEqual(rect.bottomRight, CGPointMake(40, 60))
+    }
+
+    func testBottomRightSet() {
+        var rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        rect.bottomRight = CGPoint(x: 50, y: 60)
+        XCTAssertEqual(rect, CGRect(x: 20, y: 20, width: 30, height: 40))
+        XCTAssertEqual(rect.bottomRight, CGPoint(x: 50, y: 60))
+    }
+
     func testInitWithCenterAndSize() {
         let rect = CGRect(center: CGPoint(x: 10, y: 20), size: CGSize(width: 30, height: 40))
         XCTAssertEqual(rect.midX, 10)
