@@ -5,6 +5,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 ### Breaking Change
 ### Added
+- **CGRect**
+  - Added setter for `center` property for easier modification of the rectangle geometry. [#1245](https://github.com/SwifterSwift/SwifterSwift/pull/1245) by [ihar-shalouski](https://github.com/ihar-shalouski)
+  - Added settable properties `topLeft`, `topCenter`, `topRight`, `centerLeft`, `centerRight`, `bottomLeft`, `bottomCenter`, `bottomRight` for easier modification/aligning of the rectangle geometry. [#1245](https://github.com/SwifterSwift/SwifterSwift/pull/1245) by [ihar-shalouski](https://github.com/ihar-shalouski)
 ### Changed
 ### Fixed
 ### Deprecated
