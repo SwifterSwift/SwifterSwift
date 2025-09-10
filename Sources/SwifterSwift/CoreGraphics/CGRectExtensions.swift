@@ -6,8 +6,21 @@ import CoreGraphics
 // MARK: - Properties
 
 public extension CGRect {
-    /// SwifterSwift: Return center of rect.
-    var center: CGPoint { CGPoint(x: midX, y: midY) }
+    /// SwifterSwift: Center of the rect.
+    ///
+    ///     var rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+    ///     print(rect.center) // (25.0, 30.0)
+    ///     rect.center = CGPoint(x: 50, y: 60)
+    ///     print(rect) // (35.0, 40.0, 30.0, 40.0)
+    ///
+    var center: CGPoint {
+        get {
+            CGPoint(x: midX, y: midY)
+        }
+        set {
+            self = offsetBy(dx: newValue.x - midX, dy: newValue.y - midY)
+        }
+    }
 }
 
 // MARK: - Initializers

@@ -7,11 +7,16 @@ import XCTest
 import CoreGraphics
 
 final class CGRectExtensionsTests: XCTestCase {
-    func testCenter() {
+    func testCenterGet() {
         let rect = CGRect(x: 10, y: 20, width: 30, height: 40)
-        let center = rect.center
-        XCTAssertEqual(center.x, 25)
-        XCTAssertEqual(center.y, 40)
+        XCTAssertEqual(rect.center, CGPointMake(25, 40))
+    }
+
+    func testCenterSet() {
+        var rect = CGRect(x: 10, y: 20, width: 30, height: 40)
+        rect.center = CGPoint(x: 50, y: 60)
+        XCTAssertEqual(rect, CGRect(x: 35, y: 40, width: 30, height: 40))
+        XCTAssertEqual(rect.center, CGPoint(x: 50, y: 60))
     }
 
     func testInitWithCenterAndSize() {
