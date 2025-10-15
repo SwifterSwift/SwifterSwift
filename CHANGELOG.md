@@ -7,6 +7,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 ### Changed
 ### Fixed
+- **UIFont**
+  - Avoid crash for fonts without bold/italic traits, fallback to self like SwiftUI. [#1246](https://github.com/SwifterSwift/SwifterSwift/pull/1246) by [weihas](https://github.com/weihas)
 ### Deprecated
 ### Removed
 

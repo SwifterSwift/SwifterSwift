@@ -8,12 +8,14 @@ import UIKit
 public extension UIFont {
     /// SwifterSwift: Font as bold font.
     var bold: UIFont {
-        return UIFont(descriptor: fontDescriptor.withSymbolicTraits(.traitBold)!, size: 0)
+        guard let descriptor = fontDescriptor.withSymbolicTraits(.traitBold) else { return self }
+        return UIFont(descriptor: descriptor, size: 0)
     }
 
     /// SwifterSwift: Font as italic font.
     var italic: UIFont {
-        return UIFont(descriptor: fontDescriptor.withSymbolicTraits(.traitItalic)!, size: 0)
+        guard let descriptor = fontDescriptor.withSymbolicTraits(.traitItalic) else { return self }
+        return UIFont(descriptor: descriptor, size: 0)
     }
 
     /// SwifterSwift: Font as monospaced font.
