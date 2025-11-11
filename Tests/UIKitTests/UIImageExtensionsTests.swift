@@ -191,7 +191,12 @@ final class UIImageExtensionsTests: XCTestCase {
 
     func testURL() {
         let bundle = Bundle(for: UIImageExtensionsTests.self)
-        guard let swifterSwiftLogo = bundle.url(forResource: "TestImage", withExtension: "png") else { XCTAssert(false, "Swifter Swift Test Image not available, or url is no longer valid."); return }
+        guard let swifterSwiftLogo = bundle.url(forResource: "TestImage", withExtension: "png") else {
+            XCTAssert(
+                false,
+                "Swifter Swift Test Image not available, or url is no longer valid.")
+            return
+        }
         let image = try? UIImage(url: swifterSwiftLogo)
         XCTAssertNotNil(image)
 

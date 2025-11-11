@@ -57,7 +57,11 @@ final class SequenceExtensionsTests: XCTestCase {
 
     func testFilteredMap() {
         let input = [1, 2, 3, 4, 5]
-        let result = input.filtered({ $0 % 2 == 0 }, map: { $0.string })
+        let result = input.filtered {
+            $0 % 2 == 0
+        } map: {
+            $0.string
+        }
         XCTAssertEqual(result.count, 2)
         XCTAssertEqual(["2", "4"], result)
     }
