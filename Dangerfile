@@ -45,7 +45,8 @@ def label_tests_summary(label:, platform:)
     end 
 end
 
-label_tests_summary(label: "iOS", platform: "ios")
+label_tests_summary(label: "iOS", platform: "ios-18")
+label_tests_summary(label: "iOS", platform: "ios-26")
 label_tests_summary(label: "tvOS", platform: "tvos")
 label_tests_summary(label: "macOS", platform: "macos")
   
