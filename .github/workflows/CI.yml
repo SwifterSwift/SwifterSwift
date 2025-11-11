@@ -23,13 +23,20 @@ jobs:
       run: |
         brew update-reset
         brew bundle --no-upgrade
-    - name: Test iOS
+    - name: Test iOS 18.6
       run: |
-        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios.json" xcpretty -f `xcpretty-json-formatter`
+        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios-18.json" xcpretty -f `xcpretty-json-formatter`
         bash <(curl -s https://codecov.io/bash) -cF ios -J 'SwifterSwift'
       env:
           SCHEME: SwifterSwift-iOS
-          DESTINATION: platform=iOS Simulator,name=iPhone 16
+          DESTINATION: platform=iOS Simulator,name=iPhone 16,OS=18.6
+    - name: Test iOS 26.0
+      run: |
+        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios-26.json" xcpretty -f `xcpretty-json-formatter`
+        bash <(curl -s https://codecov.io/bash) -cF ios -J 'SwifterSwift'
+      env:
+          SCHEME: SwifterSwift-iOS
+          DESTINATION: platform=iOS Simulator,name=iPhone 16,OS=26.0
     - name: Test MacOS
       run: |
         xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-macos.json" xcpretty -f `xcpretty-json-formatter`
