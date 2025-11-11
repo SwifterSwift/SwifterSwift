@@ -37,7 +37,7 @@ public extension CATransform3D {
 
 // MARK: - Codable
 
-extension CATransform3D: Codable {
+extension CATransform3D: @retroactive Codable {
     // swiftlint:disable missing_swifterswift_prefix
 
     /// Creates a new instance by decoding from the given decoder.

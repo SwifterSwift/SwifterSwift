@@ -16,7 +16,7 @@ final class DataExtensionsTests: XCTestCase {
 
     func testBytes() {
         let dataFromString = Data("hello".utf8)
-        let bytes = dataFromString.bytes
+        let bytes = [UInt8](dataFromString)
         XCTAssertNotNil(bytes)
         XCTAssertEqual(bytes.count, 5)
     }
