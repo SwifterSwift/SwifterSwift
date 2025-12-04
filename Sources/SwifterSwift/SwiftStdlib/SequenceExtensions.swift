@@ -25,11 +25,11 @@ public extension Sequence {
 
     /// SwifterSwift: Check if any element in collection match a condition.
     ///
-    ///        [2, 2, 4].any(matching: {$0 % 2 == 0}) -> false
-    ///        [1, 3, 5, 7].any(matching: {$0 % 2 == 0}) -> true
+    ///        [2, 2, 4].any(matching: {$0 % 2 == 0}) -> true
+    ///        [1, 3, 5, 7].any(matching: {$0 % 2 == 0}) -> false
     ///
     /// - Parameter condition: condition to evaluate each element against.
-    /// - Returns: true when no elements in the array match the specified condition.
+    /// - Returns: true when at least one element in the array match the specified condition.
     func any(matching condition: (Element) throws -> Bool) rethrows -> Bool {
         return try contains { try condition($0) }
     }
