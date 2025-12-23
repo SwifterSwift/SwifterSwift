@@ -692,6 +692,7 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
         view.addBottomSeparator(color: expectedColor, height: expectedHeight)
 
         let separator = try XCTUnwrap(view.subviews.first, "Separator not found")
+        view.layoutIfNeeded()
 
         XCTAssertEqual(view.subviews.count, 1)
         XCTAssertEqual(separator.backgroundColor, expectedColor)

@@ -5,10 +5,14 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 ### Breaking Change
 ### Added
+- **Xcode**
+  - Added support for Xcode 26. [#1240](https://github.com/SwifterSwift/SwifterSwift/pull/1240) by [guykogus](https://github.com/guykogus)
 ### Changed
 ### Fixed
 - **UIFont**
   - Avoid crash for fonts without bold/italic traits, fallback to self like SwiftUI. [#1246](https://github.com/SwifterSwift/SwifterSwift/pull/1246) by [weihas](https://github.com/weihas)
+- **Sequence**
+  - Fixed documentation for `any`.
 ### Deprecated
 ### Removed
 
