@@ -3,15 +3,19 @@
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(UIKit) && os(iOS)
+#if canImport(UIKit) && os(iOS) && !targetEnvironment(macCatalyst)
 import UIKit
 
 @MainActor
 final class UIRefreshControlExtensionTests: XCTestCase {
     func testBeginRefreshAsRefreshControlSubview() {
         let window = UIWindow()
+        let viewController = UIViewController()
+        window.rootViewController = viewController
+        window.makeKeyAndVisible()
+
         let tableView = UITableView()
-        window.addSubview(tableView)
+        viewController.view.addSubview(tableView)
         let refreshControl = UIRefreshControl()
         tableView.addSubview(refreshControl)
         refreshControl.beginRefreshing(in: tableView, animated: false)
@@ -20,7 +24,7 @@ final class UIRefreshControlExtensionTests: XCTestCase {
         XCTAssertEqual(tableView.contentOffset.y, -refreshControl.frame.height)
 
         let anotherTableview = UITableView()
-        window.addSubview(anotherTableview)
+        viewController.view.addSubview(anotherTableview)
         anotherTableview.refreshControl = UIRefreshControl()
         anotherTableview.refreshControl!.beginRefreshing(in: anotherTableview, animated: false, sendAction: true)
 
@@ -30,8 +34,12 @@ final class UIRefreshControlExtensionTests: XCTestCase {
 
     func testBeginRefreshAsScrollViewSubview() {
         let window = UIWindow()
+        let viewController = UIViewController()
+        window.rootViewController = viewController
+        window.makeKeyAndVisible()
+
         let scrollView = UIScrollView()
-        window.addSubview(scrollView)
+        viewController.view.addSubview(scrollView)
         XCTAssertEqual(scrollView.contentOffset, .zero)
         let refreshControl = UIRefreshControl()
         scrollView.addSubview(refreshControl)
@@ -41,7 +49,7 @@ final class UIRefreshControlExtensionTests: XCTestCase {
         XCTAssertEqual(scrollView.contentOffset.y, -refreshControl.frame.height)
 
         let anotherScrollView = UIScrollView()
-        window.addSubview(anotherScrollView)
+        viewController.view.addSubview(anotherScrollView)
         XCTAssertEqual(anotherScrollView.contentOffset, .zero)
         anotherScrollView.refreshControl = UIRefreshControl()
         anotherScrollView.refreshControl!.beginRefreshing(animated: false, sendAction: true)

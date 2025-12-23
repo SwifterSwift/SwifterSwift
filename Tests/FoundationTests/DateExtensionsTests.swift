@@ -13,44 +13,8 @@ final class DateExtensionsTests: XCTestCase {
         NSTimeZone.default = TimeZone(abbreviation: "UTC")!
     }
 
-    // swiftlint:disable:next cyclomatic_complexity
     func testCalendar() {
-        switch Calendar.current.identifier {
-        case .buddhist:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .buddhist).identifier)
-        case .chinese:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .chinese).identifier)
-        case .coptic:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .coptic).identifier)
-        case .ethiopicAmeteAlem:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .ethiopicAmeteAlem).identifier)
-        case .ethiopicAmeteMihret:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .ethiopicAmeteMihret).identifier)
-        case .gregorian:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .gregorian).identifier)
-        case .hebrew:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .hebrew).identifier)
-        case .indian:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .indian).identifier)
-        case .islamic:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .islamic).identifier)
-        case .islamicCivil:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .islamicCivil).identifier)
-        case .islamicTabular:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .islamicTabular).identifier)
-        case .islamicUmmAlQura:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .islamicUmmAlQura).identifier)
-        case .iso8601:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .iso8601).identifier)
-        case .japanese:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .japanese).identifier)
-        case .persian:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .persian).identifier)
-        case .republicOfChina:
-            XCTAssertEqual(Date().calendar.identifier, Calendar(identifier: .republicOfChina).identifier)
-        @unknown default:
-            break
-        }
+        XCTAssertEqual(Date().calendar.identifier, Calendar.current.identifier)
     }
 
     func testEra() {
