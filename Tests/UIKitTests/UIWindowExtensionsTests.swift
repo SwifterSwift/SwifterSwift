@@ -32,6 +32,15 @@ final class UIWindowExtensionsTests: XCTestCase {
 
         waitForExpectations(timeout: 1)
     }
+    
+    func testKeyWindow() {
+        // Test that keyWindow returns a window (should be the test window)
+        let keyWindow = UIWindow.keyWindow
+        XCTAssertNotNil(keyWindow)
+        
+        // Test that the returned window is actually a UIWindow
+        XCTAssertTrue(keyWindow is UIWindow)
+    }
 }
 
 #endif
