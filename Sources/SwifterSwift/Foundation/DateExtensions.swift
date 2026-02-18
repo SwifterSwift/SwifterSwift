@@ -359,6 +359,16 @@ public extension Date {
         return calendar.isDate(self, equalTo: Date(), toGranularity: .year)
     }
 
+    /// SwifterSwift: Total number of days in the year of the date.
+    ///
+    ///     Date(year: 2020).daysInYear -> 366
+    ///     Date(year: 2021).daysInYear -> 365
+    ///
+    var daysInYear: Int {
+        guard let range = calendar.range(of: .day, in: .year, for: self) else { return 365 }
+        return range.count
+    }
+
     /// SwifterSwift: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSS) from date.
     ///
     /// 	Date().iso8601String -> "2017-01-12T14:51:29.574Z"

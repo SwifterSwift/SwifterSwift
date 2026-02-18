@@ -346,6 +346,16 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertFalse(dateOneYearFromNow.isInCurrentYear)
     }
 
+    func testDaysInYear() {
+        // 2020 is a leap year
+        let leapYear = Date(timeIntervalSince1970: 1_577_836_800) // 2020-01-01
+        XCTAssertEqual(leapYear.daysInYear, 366)
+
+        // 2021 is not a leap year
+        let normalYear = Date(timeIntervalSince1970: 1_609_459_200) // 2021-01-01
+        XCTAssertEqual(normalYear.daysInYear, 365)
+    }
+
     func testIso8601String() {
         let date = Date(timeIntervalSince1970: 512) // 1970-01-01T00:08:32.000Z
         XCTAssertEqual(date.iso8601String, "1970-01-01T00:08:32.000Z")
