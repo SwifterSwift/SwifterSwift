@@ -11,13 +11,28 @@ public extension FileManager {
     ///   - readingOptions: JSONSerialization reading options.
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
     /// - Returns: Optional dictionary.
+    @available(*, deprecated, renamed: "jsonObjectFromFile(atPath:readingOptions:)")
     func jsonFromFile(
         atPath path: String,
         readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {
-        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-        let json = try JSONSerialization.jsonObject(with: data, options: readingOptions)
+        try jsonObjectFromFile(atPath: path, readingOptions: readingOptions) as? [String: Any]
+    }
 
-        return json as? [String: Any]
+    /// SwifterSwift: Read a JSON object from a file at a given path.
+    ///
+    /// The returned value can be a dictionary (`[String: Any]`), an array (`[Any]`),
+    /// or any other valid JSON fragment depending on the file contents.
+    ///
+    /// - Parameters:
+    ///   - path: JSON file path.
+    ///   - readingOptions: JSONSerialization reading options.
+    /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
+    /// - Returns: The deserialized JSON object.
+    func jsonObjectFromFile(
+        atPath path: String,
+        readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> Any {
+        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+        return try JSONSerialization.jsonObject(with: data, options: readingOptions)
     }
 
     #if !os(Linux) && !os(Android)
@@ -29,10 +44,29 @@ public extension FileManager {
     ///   - readingOptions: JSONSerialization reading options.
     /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
     /// - Returns: Optional dictionary.
+    @available(*, deprecated, renamed: "jsonObjectFromFile(withFilename:at:readingOptions:)")
     func jsonFromFile(
         withFilename filename: String,
         at bundleClass: AnyClass? = nil,
         readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {
+        try jsonObjectFromFile(withFilename: filename, at: bundleClass, readingOptions: readingOptions) as? [String: Any]
+    }
+
+    /// SwifterSwift: Read a JSON object from a file with a given filename.
+    ///
+    /// The returned value can be a dictionary (`[String: Any]`), an array (`[Any]`),
+    /// or any other valid JSON fragment depending on the file contents.
+    ///
+    /// - Parameters:
+    ///   - filename: File to read.
+    ///   - bundleClass: Bundle where the file is associated.
+    ///   - readingOptions: JSONSerialization reading options.
+    /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
+    /// - Returns: The deserialized JSON object, or `nil` if the file was not found.
+    func jsonObjectFromFile(
+        withFilename filename: String,
+        at bundleClass: AnyClass? = nil,
+        readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> Any? {
         // https://stackoverflow.com/questions/24410881/reading-in-a-json-file-using-swift
 
         // To handle cases that provided filename has an extension
@@ -41,9 +75,7 @@ public extension FileManager {
 
         if let path = bundle.path(forResource: name, ofType: "json") {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let json = try JSONSerialization.jsonObject(with: data, options: readingOptions)
-
-            return json as? [String: Any]
+            return try JSONSerialization.jsonObject(with: data, options: readingOptions)
         }
 
         return nil
