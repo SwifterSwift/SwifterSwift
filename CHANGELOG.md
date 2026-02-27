@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 ### Breaking Change
 ### Added
+- **Bundle**
+  - Added `jsonObjectFromFile(filename:bundleClass:)` and `jsonArrayFromFile(filename:bundleClass:)` methods supporting both JSON objects and arrays. [#1256](https://github.com/SwifterSwift/SwifterSwift/pull/1256) by [William-Laverty](https://github.com/William-Laverty)
 - **Xcode**
   - Added support for Xcode 26. [#1240](https://github.com/SwifterSwift/SwifterSwift/pull/1240) by [guykogus](https://github.com/guykogus)
 ### Changed
