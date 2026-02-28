@@ -5,8 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 ### Breaking Change
 ### Added
-- **Bundle**
-  - Added `jsonObjectFromFile(filename:bundleClass:)` and `jsonArrayFromFile(filename:bundleClass:)` methods supporting both JSON objects and arrays. [#1256](https://github.com/SwifterSwift/SwifterSwift/pull/1256) by [William-Laverty](https://github.com/William-Laverty)
+- **FileManager**
+  - Added `jsonObjectFromFile(atPath:readingOptions:)` and `jsonObjectFromFile(withFilename:at:readingOptions:)` methods supporting both JSON dictionaries and arrays. [#1256](https://github.com/SwifterSwift/SwifterSwift/pull/1256) by [William-Laverty](https://github.com/William-Laverty)
 - **Xcode**
   - Added support for Xcode 26. [#1240](https://github.com/SwifterSwift/SwifterSwift/pull/1240) by [guykogus](https://github.com/guykogus)
 ### Changed
@@ -16,6 +16,9 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Sequence**
   - Fixed documentation for `any`.
 ### Deprecated
+- **FileManager**
+  - Deprecated `jsonFromFile(atPath:readingOptions:)` in favor of `jsonObjectFromFile(atPath:readingOptions:)`. [#1256](https://github.com/SwifterSwift/SwifterSwift/pull/1256) by [William-Laverty](https://github.com/William-Laverty)
+  - Deprecated `jsonFromFile(withFilename:at:readingOptions:)` in favor of `jsonObjectFromFile(withFilename:at:readingOptions:)`. [#1256](https://github.com/SwifterSwift/SwifterSwift/pull/1256) by [William-Laverty](https://github.com/William-Laverty)
 ### Removed
 
 ## [v8.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/8.0.0)

@@ -69,63 +69,53 @@ final class FileManagerExtensionsTests: XCTestCase {
         #endif
     }
 
-    func testJSONObjectFromFileAtPath() {
-        #if !os(Linux) && !os(Android)
-        do {
-            let bundle = Bundle(for: FileManagerExtensionsTests.self)
+    func testJSONObjectFromFileAtPath() throws {
+        let bundle = Bundle(for: FileManagerExtensionsTests.self)
 
-            // Test dictionary JSON
-            guard let dictPath = bundle.path(forResource: "test", ofType: "json") else {
-                XCTFail("File path undefined.")
-                return
-            }
-
-            let dictJSON = try FileManager.default.jsonObjectFromFile(atPath: dictPath)
-            let dict = try XCTUnwrap(dictJSON as? [String: Any])
-            XCTAssertEqual(dict["title"] as? String, "Test")
-            XCTAssertEqual(dict["id"] as? Int, 1)
-
-            // Test array JSON
-            guard let arrayPath = bundle.path(forResource: "test_array", ofType: "json") else {
-                XCTFail("Array JSON file path undefined.")
-                return
-            }
-
-            let arrayJSON = try FileManager.default.jsonObjectFromFile(atPath: arrayPath)
-            let array = try XCTUnwrap(arrayJSON as? [[String: Any]])
-            XCTAssertEqual(array.count, 2)
-            XCTAssertEqual(array[0]["title"] as? String, "First")
-            XCTAssertEqual(array[1]["id"] as? Int, 2)
-        } catch {
-            XCTFail("Error encountered during opening of file. \(error.localizedDescription)")
+        // Test dictionary JSON
+        guard let dictPath = bundle.path(forResource: "test", ofType: "json") else {
+            XCTFail("File path undefined.")
+            return
         }
-        #endif
+
+        let dictJSON = try FileManager.default.jsonObjectFromFile(atPath: dictPath)
+        let dict = try XCTUnwrap(dictJSON as? [String: Any])
+        XCTAssertEqual(dict["title"] as? String, "Test")
+        XCTAssertEqual(dict["id"] as? Int, 1)
+
+        // Test array JSON
+        guard let arrayPath = bundle.path(forResource: "test_array", ofType: "json") else {
+            XCTFail("Array JSON file path undefined.")
+            return
+        }
+
+        let arrayJSON = try FileManager.default.jsonObjectFromFile(atPath: arrayPath)
+        let array = try XCTUnwrap(arrayJSON as? [[String: Any]])
+        XCTAssertEqual(array.count, 2)
+        XCTAssertEqual(array[0]["title"] as? String, "First")
+        XCTAssertEqual(array[1]["id"] as? Int, 2)
     }
 
-    func testJSONObjectFromFileWithFilename() {
-        #if !os(Linux) && !os(Android)
-        do {
-            // Test dictionary JSON
-            let dictJSON = try FileManager.default.jsonObjectFromFile(
-                withFilename: "test",
-                at: FileManagerExtensionsTests.self)
-            let dict = try XCTUnwrap(dictJSON as? [String: Any])
-            XCTAssertEqual(dict["title"] as? String, "Test")
-            XCTAssertEqual(dict["id"] as? Int, 1)
+    #if !os(Linux) && !os(Android)
+    func testJSONObjectFromFileWithFilename() throws {
+        // Test dictionary JSON
+        let dictJSON = try FileManager.default.jsonObjectFromFile(
+            withFilename: "test",
+            at: FileManagerExtensionsTests.self)
+        let dict = try XCTUnwrap(dictJSON as? [String: Any])
+        XCTAssertEqual(dict["title"] as? String, "Test")
+        XCTAssertEqual(dict["id"] as? Int, 1)
 
-            // Test array JSON with extension
-            let arrayJSON = try FileManager.default.jsonObjectFromFile(
-                withFilename: "test_array.json",
-                at: FileManagerExtensionsTests.self)
-            let array = try XCTUnwrap(arrayJSON as? [[String: Any]])
-            XCTAssertEqual(array.count, 2)
-            XCTAssertEqual(array[0]["id"] as? Int, 1)
-            XCTAssertEqual(array[1]["title"] as? String, "Second")
-        } catch {
-            XCTFail("Error encountered during opening of file. \(error.localizedDescription)")
-        }
-        #endif
+        // Test array JSON with extension
+        let arrayJSON = try FileManager.default.jsonObjectFromFile(
+            withFilename: "test_array.json",
+            at: FileManagerExtensionsTests.self)
+        let array = try XCTUnwrap(arrayJSON as? [[String: Any]])
+        XCTAssertEqual(array.count, 2)
+        XCTAssertEqual(array[0]["id"] as? Int, 1)
+        XCTAssertEqual(array[1]["title"] as? String, "Second")
     }
+    #endif
 
     func testInvalidFile() {
         #if !os(Linux) && !os(Android)
