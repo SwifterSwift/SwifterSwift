@@ -43,12 +43,12 @@ public extension FileManager {
         let name = filename.components(separatedBy: ".")[0]
         let bundle = bundleClass != nil ? Bundle(for: bundleClass!) : Bundle.main
 
-        if let path = bundle.path(forResource: name, ofType: "json") {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            return try JSONSerialization.jsonObject(with: data, options: readingOptions)
+        guard let path = bundle.path(forResource: name, ofType: "json") else {
+            return nil
         }
 
-        return nil
+        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+        return try JSONSerialization.jsonObject(with: data, options: readingOptions)
     }
     #endif
 

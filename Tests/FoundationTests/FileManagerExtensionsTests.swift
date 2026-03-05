@@ -100,7 +100,7 @@ final class FileManagerExtensionsTests: XCTestCase {
     func testJSONObjectFromFileWithFilename() throws {
         // Test dictionary JSON
         let dictJSON = try FileManager.default.jsonObjectFromFile(
-            withFilename: "test",
+            withFilename: "test.json",
             at: FileManagerExtensionsTests.self)
         let dict = try XCTUnwrap(dictJSON as? [String: Any])
         XCTAssertEqual(dict["title"] as? String, "Test")
