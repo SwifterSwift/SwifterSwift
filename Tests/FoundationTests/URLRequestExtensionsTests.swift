@@ -1,4 +1,4 @@
-// URLRequestExtensionsTests.swift - Copyright 2025 SwifterSwift
+// URLRequestExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -11,12 +11,12 @@ import FoundationNetworking
 #endif
 
 final class URLRequestExtensionsTests: XCTestCase {
-    func testInitFromURLString() {
+    func testInitFromURLString() throws {
         let urlString = "https://www.w3schools.com/"
-        let request1 = URLRequest(url: URL(string: urlString)!)
+        let request1 = try URLRequest(url: XCTUnwrap(URL(string: urlString)))
         let request2 = URLRequest(urlString: urlString)
         XCTAssertNotNil(request2)
-        XCTAssertEqual(request1.url, request2!.url)
+        XCTAssertEqual(request1.url, request2?.url)
 
         if #unavailable(iOS 17.0) {
             let invalidURLString = "invalid url"
@@ -24,7 +24,7 @@ final class URLRequestExtensionsTests: XCTestCase {
         }
     }
 
-    func testCUrlString() {
+    func testCUrlString() throws {
         let insightNASAcURL =
             "curl https://api.nasa.gov/insight_weather/?api_key=mxbd8VDIy5CheCbrYgknXVH6X9ElpQaHMhne2YXP&feedtype=json&ver=1.0"
         let planetaryNASAcURL =
@@ -45,7 +45,7 @@ final class URLRequestExtensionsTests: XCTestCase {
         ]
 
         XCTAssertNotNil(components?.url)
-        let insightRequest = URLRequest(url: components!.url!)
+        let insightRequest = try URLRequest(url: XCTUnwrap(components?.url))
         XCTAssertEqual(insightRequest.curlString, insightNASAcURL)
 
         // #2 scenario
@@ -61,14 +61,14 @@ final class URLRequestExtensionsTests: XCTestCase {
         ]
 
         XCTAssertNotNil(components?.url)
-        let planetaryRequest = URLRequest(url: components!.url!)
+        let planetaryRequest = try URLRequest(url: XCTUnwrap(components?.url))
         XCTAssertEqual(planetaryRequest.curlString, planetaryNASAcURL)
     }
 
     // MARK: - Methods
 
     func testMethod() throws {
-        let url = URL(string: "https://api.server.com/")!
+        let url = try XCTUnwrap(URL(string: "https://api.server.com/"))
         let request = URLRequest(url: url)
             .method("post")
         XCTAssertEqual(request.url, url)
@@ -76,13 +76,13 @@ final class URLRequestExtensionsTests: XCTestCase {
     }
 
     func testHeader() throws {
-        let url = URL(string: "https://api.server.com/")!
+        let url = try XCTUnwrap(URL(string: "https://api.server.com/"))
         let request = URLRequest(url: url)
             .header(name: "Content-Type", value: "application/json")
             .header(name: "Number", value: "10")
         XCTAssertNotNil(request.allHTTPHeaderFields)
-        XCTAssertEqual(request.allHTTPHeaderFields!["Content-Type"]!, "application/json")
-        XCTAssertEqual(Int(request.allHTTPHeaderFields!["Number"]!), 10)
+        XCTAssertEqual(request.allHTTPHeaderFields?["Content-Type"], "application/json")
+        XCTAssertEqual(try Int(XCTUnwrap(request.allHTTPHeaderFields?["Number"])), 10)
     }
 }
 

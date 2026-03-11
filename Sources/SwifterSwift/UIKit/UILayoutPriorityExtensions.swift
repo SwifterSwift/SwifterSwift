@@ -1,4 +1,4 @@
-// UILayoutPriorityExtensions.swift - Copyright 2025 SwifterSwift
+// UILayoutPriorityExtensions.swift - Copyright 2026 SwifterSwift
 
 #if os(iOS) || os(tvOS)
 import UIKit

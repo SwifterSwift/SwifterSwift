@@ -1,12 +1,11 @@
-// MKMultiPointExtensionsTests.swift - Copyright 2025 SwifterSwift
+// MKMultiPointExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
 
 #if canImport(MapKit)
-import MapKit
-
 import struct CoreLocation.CLLocationCoordinate2D
+import MapKit
 
 final class MKMultiPointExtensionsTests: XCTestCase {
     let coordinates = [

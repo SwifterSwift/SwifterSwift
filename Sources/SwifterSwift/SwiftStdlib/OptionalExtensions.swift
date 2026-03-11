@@ -1,4 +1,4 @@
-// OptionalExtensions.swift - Copyright 2025 SwifterSwift
+// OptionalExtensions.swift - Copyright 2026 SwifterSwift
 
 // MARK: - Methods
 

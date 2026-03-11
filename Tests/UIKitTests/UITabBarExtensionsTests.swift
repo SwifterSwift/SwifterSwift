@@ -1,4 +1,4 @@
-// UITabBarExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UITabBarExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -8,7 +8,7 @@ import UIKit
 
 @MainActor
 final class UITabBarExtensionsTests: XCTestCase {
-    func testSetColors() {
+    func testSetColors() throws {
         let frame = CGRect(x: 0, y: 0, width: 300, height: 44)
         var tabBar = UITabBar(frame: frame)
         tabBar.setColors(background: .red, selectedBackground: .orange, item: .white, selectedItem: .black)
@@ -20,7 +20,7 @@ final class UITabBarExtensionsTests: XCTestCase {
         XCTAssertNotEqual(tabBar.barTintColor, .red)
 
         let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
 
         let item1 = UITabBarItem(title: "First", image: image, selectedImage: image)
         let item2 = UITabBarItem(title: "Second", image: nil, selectedImage: nil)

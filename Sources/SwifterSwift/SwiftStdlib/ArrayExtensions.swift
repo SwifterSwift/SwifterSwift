@@ -1,4 +1,4 @@
-// ArrayExtensions.swift - Copyright 2025 SwifterSwift
+// ArrayExtensions.swift - Copyright 2026 SwifterSwift
 
 // MARK: - Initializers
 

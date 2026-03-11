@@ -1,4 +1,4 @@
-// CATransform3DExtensions.swift - Copyright 2025 SwifterSwift
+// CATransform3DExtensions.swift - Copyright 2026 SwifterSwift
 
 // swiftlint:disable identifier_name
 

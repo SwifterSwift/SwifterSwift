@@ -1,4 +1,4 @@
-// UITextFieldExtensions.swift - Copyright 2025 SwifterSwift
+// UITextFieldExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
@@ -147,11 +147,11 @@ public extension UITextField {
         rightViewMode = .always
     }
 
+    #if os(iOS)
     /// SwifterSwift: Add tool bars to the textfield input accessory view.
     /// - Parameters:
     ///   - items: The items to present in the toolbar.
     ///   - height: The height of the toolbar.
-    #if os(iOS)
     @discardableResult
     func addToolbar(items: [UIBarButtonItem]?, height: CGFloat = 44) -> UIToolbar {
         let toolBar = UIToolbar(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: height))

@@ -1,4 +1,4 @@
-// OptionalExtensionsTests.swift - Copyright 2025 SwifterSwift
+// OptionalExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -106,7 +106,7 @@ final class OptionalExtensionsTests: XCTestCase {
 
         let collection: [Int]? = [1, 2, 3]
         XCTAssertNotNil(collection.nonEmpty)
-        XCTAssertEqual(collection.nonEmpty!, [1, 2, 3])
+        XCTAssertEqual(collection.nonEmpty, [1, 2, 3])
     }
 
     func testEqualsRawValue() {

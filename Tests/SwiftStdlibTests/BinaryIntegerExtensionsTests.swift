@@ -1,4 +1,4 @@
-// BinaryIntegerExtensionsTests.swift - Copyright 2025 SwifterSwift
+// BinaryIntegerExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

@@ -1,4 +1,4 @@
-// SCNBoxExtensionsTests.swift - Copyright 2025 SwifterSwift
+// SCNBoxExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

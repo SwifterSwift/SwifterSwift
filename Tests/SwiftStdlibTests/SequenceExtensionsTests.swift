@@ -1,4 +1,4 @@
-// SequenceExtensionsTests.swift - Copyright 2025 SwifterSwift
+// SequenceExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -10,7 +10,9 @@ private enum SequenceTestError: Error {
 struct TestValue: Equatable, ExpressibleByIntegerLiteral {
     let value: Int
 
-    init(integerLiteral value: Int) { self.value = value }
+    init(integerLiteral value: Int) {
+        self.value = value
+    }
 }
 
 final class SequenceExtensionsTests: XCTestCase {

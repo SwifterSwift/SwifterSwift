@@ -1,4 +1,4 @@
-// CGColorExtensions.swift - Copyright 2025 SwifterSwift
+// CGColorExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics

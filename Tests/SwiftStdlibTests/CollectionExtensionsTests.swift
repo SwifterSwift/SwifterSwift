@@ -1,4 +1,4 @@
-// CollectionExtensionsTests.swift - Copyright 2025 SwifterSwift
+// CollectionExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -18,7 +18,9 @@ final class CollectionExtensionsTests: XCTestCase {
         actor Counter {
             private(set) var count = 0
 
-            func increment() { count += 1 }
+            func increment() {
+                count += 1
+            }
         }
 
         let expectation = XCTestExpectation(description: "forEachInParallel")

@@ -1,4 +1,4 @@
-// XCTestExtensions.swift - Copyright 2025 SwifterSwift
+// XCTestExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(XCTest)
 import XCTest

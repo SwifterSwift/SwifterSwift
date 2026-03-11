@@ -1,4 +1,4 @@
-// CharacterExtensionsTests.swift - Copyright 2025 SwifterSwift
+// CharacterExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 //
 //  CharacterExtensionsTests.swift

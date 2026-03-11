@@ -1,4 +1,4 @@
-// NotificationCenterExtensionsTests.swift - Copyright 2025 SwifterSwift
+// NotificationCenterExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 #if canImport(Foundation) && canImport(Combine)
 

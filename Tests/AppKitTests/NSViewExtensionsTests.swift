@@ -1,4 +1,4 @@
-// NSViewExtensionsTests.swift - Copyright 2025 SwifterSwift
+// NSViewExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 #if os(macOS)
 

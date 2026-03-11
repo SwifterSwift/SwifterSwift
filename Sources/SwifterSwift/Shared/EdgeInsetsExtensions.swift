@@ -1,4 +1,4 @@
-// EdgeInsetsExtensions.swift - Copyright 2025 SwifterSwift
+// EdgeInsetsExtensions.swift - Copyright 2026 SwifterSwift
 
 #if os(visionOS) || os(iOS) || os(tvOS) || os(watchOS)
 import UIKit

@@ -1,4 +1,4 @@
-// UIScrollViewExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UIScrollViewExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

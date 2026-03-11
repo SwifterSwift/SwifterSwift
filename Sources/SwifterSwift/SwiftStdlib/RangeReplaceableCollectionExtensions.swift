@@ -1,4 +1,4 @@
-// RangeReplaceableCollectionExtensions.swift - Copyright 2025 SwifterSwift
+// RangeReplaceableCollectionExtensions.swift - Copyright 2026 SwifterSwift
 
 // MARK: - Initializers
 
@@ -195,7 +195,7 @@ public extension RangeReplaceableCollection {
      SwifterSwift: Adds the elements of a sequence to the end of the array, mutates the array in place
      - Parameter newElements: The optional sequence to append to the array
      */
-    mutating func appendIfNonNil<S>(contentsOf newElements: S?) where Element == S.Element, S: Sequence {
+    mutating func appendIfNonNil<S: Sequence>(contentsOf newElements: S?) where Element == S.Element {
         guard let newElements else { return }
         append(contentsOf: newElements)
     }

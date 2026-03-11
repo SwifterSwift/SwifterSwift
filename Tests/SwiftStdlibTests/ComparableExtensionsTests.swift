@@ -1,8 +1,7 @@
-// ComparableExtensionsTests.swift - Copyright 2025 SwifterSwift
-
-import XCTest
+// ComparableExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
+import XCTest
 
 final class ComparableExtensionsTests: XCTestCase {
     func testIsBetween() {

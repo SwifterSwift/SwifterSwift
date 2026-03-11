@@ -1,4 +1,4 @@
-// UIImageExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UIImageExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -8,12 +8,15 @@ import UIKit
 
 @MainActor
 final class UIImageExtensionsTests: XCTestCase {
-    func testAverageColor() {
+    func testAverageColor() throws {
         let size = CGSize(width: 10, height: 5)
 
         // simple fill test
-        XCTAssertEqual(UIColor.blue, UIImage(color: .blue, size: size).averageColor()!, accuracy: 0.01)
-        XCTAssertEqual(UIColor.orange, UIImage(color: .orange, size: size).averageColor()!, accuracy: 0.01)
+        XCTAssertEqual(UIColor.blue, try XCTUnwrap(UIImage(color: .blue, size: size).averageColor()), accuracy: 0.01)
+        XCTAssertEqual(
+            UIColor.orange,
+            try XCTUnwrap(UIImage(color: .orange, size: size).averageColor()),
+            accuracy: 0.01)
 
         // more interesting - red + green = yellow
         let renderer = UIGraphicsImageRenderer(size: size)
@@ -27,12 +30,15 @@ final class UIImageExtensionsTests: XCTestCase {
                 rect.origin.x += rect.size.width
             }
         }
-        XCTAssertEqual(UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 1), yellow.averageColor()!, accuracy: 0.01)
+        XCTAssertEqual(
+            UIColor(red: 0.5, green: 0.5, blue: 0, alpha: 1),
+            try XCTUnwrap(yellow.averageColor()),
+            accuracy: 0.01)
     }
 
-    func testBytesSize() {
+    func testBytesSize() throws {
         let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
         if #available(iOS 17.0, *) {
             XCTAssertEqual(image.bytesSize, 68717)
         } else {
@@ -41,9 +47,9 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertEqual(UIImage().bytesSize, 0)
     }
 
-    func testKilobytesSize() {
+    func testKilobytesSize() throws {
         let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
         XCTAssertEqual(image.kilobytesSize, 67)
     }
 
@@ -57,23 +63,23 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertEqual(image.template, image.withRenderingMode(.alwaysTemplate))
     }
 
-    func testCompressed() {
+    func testCompressed() throws {
         let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
         let originalSize = image.kilobytesSize
         let compressedImage = image.compressed(quality: 0.2)
         XCTAssertNotNil(compressedImage)
-        XCTAssertLessThan(compressedImage!.kilobytesSize, originalSize)
+        XCTAssertLessThan(try XCTUnwrap(compressedImage?.kilobytesSize), originalSize)
         XCTAssertNil(UIImage().compressed())
     }
 
-    func testCompressedData() {
+    func testCompressedData() throws {
         let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
         let originalSize = image.bytesSize
         let compressedImageData = image.compressedData(quality: 0.2)
         XCTAssertNotNil(compressedImageData)
-        XCTAssertLessThan(compressedImageData!.count, originalSize)
+        XCTAssertLessThan(try XCTUnwrap(compressedImageData?.count), originalSize)
         XCTAssertNil(UIImage().compressedData())
     }
 
@@ -107,50 +113,54 @@ final class UIImageExtensionsTests: XCTestCase {
         XCTAssertEqual(12, cropped.size.height * cropped.scale)
     }
 
-    func testScaledToHeight() {
+    func testScaledToHeight() throws {
         let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
 
         let scaledImage = image.scaled(toHeight: 300)
         XCTAssertNotNil(scaledImage)
-        XCTAssertEqual(scaledImage!.size.height, 300, accuracy: 0.1)
+        XCTAssertEqual(try XCTUnwrap(scaledImage?.size.height), 300, accuracy: 0.1)
     }
 
-    func testScaledToWidth() {
+    func testScaledToWidth() throws {
         let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
 
         let scaledImage = image.scaled(toWidth: 300)
         XCTAssertNotNil(scaledImage)
-        XCTAssertEqual(scaledImage!.size.width, 300, accuracy: 0.1)
+        XCTAssertEqual(try XCTUnwrap(scaledImage?.size.width), 300, accuracy: 0.1)
     }
 
-    func testRotatedByMeasurement() {
+    func testRotatedByMeasurement() throws {
         let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
 
         let halfRotatedImage = image.rotated(by: Measurement(value: 90, unit: .degrees))
         XCTAssertNotNil(halfRotatedImage)
-        XCTAssertEqual(halfRotatedImage!.size, CGSize(width: image.size.height, height: image.size.width))
+        XCTAssertEqual(halfRotatedImage?.size, CGSize(width: image.size.height, height: image.size.width))
 
         let rotatedImage = image.rotated(by: Measurement(value: 180, unit: .degrees))
         XCTAssertNotNil(rotatedImage)
-        XCTAssertEqual(rotatedImage!.size, image.size)
-        XCTAssertNotEqual(image.jpegData(compressionQuality: 1), rotatedImage!.jpegData(compressionQuality: 1))
+        XCTAssertEqual(rotatedImage?.size, image.size)
+        XCTAssertNotEqual(
+            image.jpegData(compressionQuality: 1),
+            try XCTUnwrap(rotatedImage?.jpegData(compressionQuality: 1)))
     }
 
-    func testRotatedByRadians() {
+    func testRotatedByRadians() throws {
         let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = UIImage(named: "TestImage", in: bundle, compatibleWith: nil)!
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
 
         let halfRotatedImage = image.rotated(by: .pi / 2)
         XCTAssertNotNil(halfRotatedImage)
-        XCTAssertEqual(halfRotatedImage!.size, CGSize(width: image.size.height, height: image.size.width))
+        XCTAssertEqual(halfRotatedImage?.size, CGSize(width: image.size.height, height: image.size.width))
 
         let rotatedImage = image.rotated(by: .pi)
         XCTAssertNotNil(rotatedImage)
-        XCTAssertEqual(rotatedImage!.size, image.size)
-        XCTAssertNotEqual(image.jpegData(compressionQuality: 1), rotatedImage!.jpegData(compressionQuality: 1))
+        XCTAssertEqual(rotatedImage?.size, image.size)
+        XCTAssertNotEqual(
+            image.jpegData(compressionQuality: 1),
+            try XCTUnwrap(rotatedImage?.jpegData(compressionQuality: 1)))
     }
 
     func testFilled() {

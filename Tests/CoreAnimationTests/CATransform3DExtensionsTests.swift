@@ -1,4 +1,4 @@
-// CATransform3DExtensionsTests.swift - Copyright 2025 SwifterSwift
+// CATransform3DExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -26,7 +26,7 @@ final class CATransform3DExtensionsTests: XCTestCase {
         XCTAssertNotEqual(rotation, CATransform3D.identity)
     }
 
-    func testCodable() {
+    func testCodable() throws {
         let transform = translation.concatenating(scale).concatenating(rotation)
 
         let encoder = JSONEncoder()
@@ -36,25 +36,25 @@ final class CATransform3DExtensionsTests: XCTestCase {
 
         let decoder = JSONDecoder()
         var decodedTransform: CATransform3D?
-        XCTAssertNoThrow(decodedTransform = try decoder.decode(CATransform3D.self, from: data!))
+        XCTAssertNoThrow(decodedTransform = try decoder.decode(CATransform3D.self, from: XCTUnwrap(data)))
 
         let accuracy = CGFloat(0.000001)
-        XCTAssertEqual(transform.m11, decodedTransform!.m11, accuracy: accuracy)
-        XCTAssertEqual(transform.m12, decodedTransform!.m12, accuracy: accuracy)
-        XCTAssertEqual(transform.m13, decodedTransform!.m13, accuracy: accuracy)
-        XCTAssertEqual(transform.m14, decodedTransform!.m14, accuracy: accuracy)
-        XCTAssertEqual(transform.m21, decodedTransform!.m21, accuracy: accuracy)
-        XCTAssertEqual(transform.m22, decodedTransform!.m22, accuracy: accuracy)
-        XCTAssertEqual(transform.m23, decodedTransform!.m23, accuracy: accuracy)
-        XCTAssertEqual(transform.m24, decodedTransform!.m24, accuracy: accuracy)
-        XCTAssertEqual(transform.m31, decodedTransform!.m31, accuracy: accuracy)
-        XCTAssertEqual(transform.m32, decodedTransform!.m32, accuracy: accuracy)
-        XCTAssertEqual(transform.m33, decodedTransform!.m33, accuracy: accuracy)
-        XCTAssertEqual(transform.m34, decodedTransform!.m34, accuracy: accuracy)
-        XCTAssertEqual(transform.m41, decodedTransform!.m41, accuracy: accuracy)
-        XCTAssertEqual(transform.m42, decodedTransform!.m42, accuracy: accuracy)
-        XCTAssertEqual(transform.m43, decodedTransform!.m43, accuracy: accuracy)
-        XCTAssertEqual(transform.m44, decodedTransform!.m44, accuracy: accuracy)
+        XCTAssertEqual(transform.m11, try XCTUnwrap(decodedTransform?.m11), accuracy: accuracy)
+        XCTAssertEqual(transform.m12, try XCTUnwrap(decodedTransform?.m12), accuracy: accuracy)
+        XCTAssertEqual(transform.m13, try XCTUnwrap(decodedTransform?.m13), accuracy: accuracy)
+        XCTAssertEqual(transform.m14, try XCTUnwrap(decodedTransform?.m14), accuracy: accuracy)
+        XCTAssertEqual(transform.m21, try XCTUnwrap(decodedTransform?.m21), accuracy: accuracy)
+        XCTAssertEqual(transform.m22, try XCTUnwrap(decodedTransform?.m22), accuracy: accuracy)
+        XCTAssertEqual(transform.m23, try XCTUnwrap(decodedTransform?.m23), accuracy: accuracy)
+        XCTAssertEqual(transform.m24, try XCTUnwrap(decodedTransform?.m24), accuracy: accuracy)
+        XCTAssertEqual(transform.m31, try XCTUnwrap(decodedTransform?.m31), accuracy: accuracy)
+        XCTAssertEqual(transform.m32, try XCTUnwrap(decodedTransform?.m32), accuracy: accuracy)
+        XCTAssertEqual(transform.m33, try XCTUnwrap(decodedTransform?.m33), accuracy: accuracy)
+        XCTAssertEqual(transform.m34, try XCTUnwrap(decodedTransform?.m34), accuracy: accuracy)
+        XCTAssertEqual(transform.m41, try XCTUnwrap(decodedTransform?.m41), accuracy: accuracy)
+        XCTAssertEqual(transform.m42, try XCTUnwrap(decodedTransform?.m42), accuracy: accuracy)
+        XCTAssertEqual(transform.m43, try XCTUnwrap(decodedTransform?.m43), accuracy: accuracy)
+        XCTAssertEqual(transform.m44, try XCTUnwrap(decodedTransform?.m44), accuracy: accuracy)
     }
 
     func testInitTranslation() {

@@ -1,4 +1,4 @@
-// UINavigationBarExtensionTests.swift - Copyright 2025 SwifterSwift
+// UINavigationBarExtensionTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -8,9 +8,9 @@ import UIKit
 
 @MainActor
 final class UINavigationBarExtensionsTests: XCTestCase {
-    func testSetTitleFont() {
+    func testSetTitleFont() throws {
         let navigationBar = UINavigationBar()
-        let helveticaFont = UIFont(name: "HelveticaNeue", size: 14)!
+        let helveticaFont = try XCTUnwrap(UIFont(name: "HelveticaNeue", size: 14))
         navigationBar.setTitleFont(helveticaFont, color: .green)
         if #available(iOS 13.0, tvOS 13.0, *) {
             let color = navigationBar.standardAppearance

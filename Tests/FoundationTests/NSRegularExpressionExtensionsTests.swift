@@ -1,4 +1,4 @@
-// NSRegularExpressionExtensionsTests.swift - Copyright 2025 SwifterSwift
+// NSRegularExpressionExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -39,13 +39,13 @@ final class NSRegularExpressionExtensionsTests: XCTestCase {
         XCTAssertEqual(count, max)
     }
 
-    func testMatches() {
+    func testMatches() throws {
         let matches = regularExpression.matches(in: string,
                                                 options: [],
                                                 range: string.startIndex..<string.endIndex)
         XCTAssertEqual(matches.count, expectedMatches)
         for match in matches {
-            XCTAssertEqual(String(string[Range(match.range, in: string)!]), searchString)
+            XCTAssertEqual(try String(string[XCTUnwrap(Range(match.range, in: string))]), searchString)
         }
     }
 
@@ -56,23 +56,23 @@ final class NSRegularExpressionExtensionsTests: XCTestCase {
                        expectedMatches)
     }
 
-    func testFirstMatch() {
+    func testFirstMatch() throws {
         let firstMatch = regularExpression.firstMatch(in: string,
                                                       options: [],
                                                       range: string.startIndex..<string.endIndex)
         XCTAssertNotNil(firstMatch)
         XCTAssertEqual(firstMatch?.range.location, 0)
-        XCTAssertEqual(String(string[Range(firstMatch!.range, in: string)!]), searchString)
+        XCTAssertEqual(try String(string[XCTUnwrap(try Range(XCTUnwrap(firstMatch?.range), in: string))]), searchString)
     }
 
-    func testRangeOfFirstMatch() {
+    func testRangeOfFirstMatch() throws {
         let range = regularExpression.rangeOfFirstMatch(in: string,
                                                         options: [],
                                                         range: string.startIndex..<string.endIndex)
         XCTAssertNotNil(range)
         XCTAssertEqual(range?.lowerBound, string.startIndex)
         XCTAssertEqual(range?.upperBound, string.index(string.startIndex, offsetBy: searchString.count))
-        XCTAssertEqual(String(string[range!]), searchString)
+        XCTAssertEqual(try String(string[XCTUnwrap(range)]), searchString)
 
         let foo = "foo"
         XCTAssertNil(regularExpression.rangeOfFirstMatch(in: foo, options: [], range: foo.startIndex..<foo.endIndex))

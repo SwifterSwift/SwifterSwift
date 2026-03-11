@@ -1,4 +1,4 @@
-// NSViewInspectableExtensions.swift - Copyright 2025 SwifterSwift
+// NSViewInspectableExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(AppKit) && !targetEnvironment(macCatalyst)
 import AppKit

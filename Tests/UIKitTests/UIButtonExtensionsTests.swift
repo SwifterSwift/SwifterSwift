@@ -1,4 +1,4 @@
-// UIButtonExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UIButtonExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -229,7 +229,7 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(button.titleForFocused, title)
     }
 
-    func testCenterTextAndImage() {
+    func testCenterTextAndImage() throws {
         let button = UIButton(frame: CGRect(x: 10, y: 10, width: 100, height: 100))
         let image = UIImage(color: .green, size: CGSize(width: 10, height: 10))
         button.setTitleForAllStates("Title")
@@ -242,8 +242,8 @@ final class UIButtonExtensionsTests: XCTestCase {
 
         // Image on the left of text
         button.centerTextAndImage(spacing: spacing)
-        var imageFrame = button.imageView!.frame
-        var titleFrame = button.titleLabel!.frame
+        var imageFrame = try XCTUnwrap(button.imageView?.frame)
+        var titleFrame = try XCTUnwrap(button.titleLabel?.frame)
 
         XCTAssert(titleFrame.midX > imageFrame.midX)
         XCTAssertEqual(titleFrame.midY, imageFrame.midY, accuracy: 1.0)
@@ -251,8 +251,8 @@ final class UIButtonExtensionsTests: XCTestCase {
 
         // Image above text
         button.centerTextAndImage(imageAboveText: true, spacing: spacing)
-        imageFrame = button.imageView!.frame
-        titleFrame = button.titleLabel!.frame
+        imageFrame = try XCTUnwrap(button.imageView?.frame)
+        titleFrame = try XCTUnwrap(button.titleLabel?.frame)
 
         XCTAssert(titleFrame.midY > imageFrame.midY)
         XCTAssertEqual(titleFrame.midX, imageFrame.midX, accuracy: 1.5)
@@ -273,14 +273,14 @@ final class UIButtonExtensionsTests: XCTestCase {
         XCTAssertEqual(button.attributedTitleForFocused, title)
     }
 
-    func testSetBackgroundColorForState() {
+    func testSetBackgroundColorForState() throws {
         let button = UIButton()
         let color = UIColor.orange
 
         button.setBackgroundColor(color: color, forState: .highlighted)
 
         let highlightedBackgroundImage = button.backgroundImage(for: .highlighted)
-        let averageColor = highlightedBackgroundImage!.averageColor()!
+        let averageColor = try XCTUnwrap(highlightedBackgroundImage?.averageColor())
 
         XCTAssertEqual(averageColor, color, accuracy: 0.01)
     }

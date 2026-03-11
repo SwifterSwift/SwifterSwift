@@ -1,4 +1,4 @@
-// UserDefaultsExtensions.swift - Copyright 2025 SwifterSwift
+// UserDefaultsExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(Foundation) && !os(Linux) && !os(Android)
 import Foundation

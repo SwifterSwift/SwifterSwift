@@ -1,4 +1,4 @@
-// StringExtensions.swift - Copyright 2025 SwifterSwift
+// StringExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -560,12 +560,10 @@ public extension String {
     ///
     /// - Returns: The most common character.
     func mostCommonCharacter() -> Character? {
-        let mostCommon = withoutSpacesAndNewLines.reduce(into: [Character: Int]()) {
+        return withoutSpacesAndNewLines.reduce(into: [Character: Int]()) {
             let count = $0[$1] ?? 0
             $0[$1] = count + 1
         }.max { $0.1 < $1.1 }?.key
-
-        return mostCommon
     }
 
     /// SwifterSwift: Array with unicodes for all characters in a string.

@@ -1,4 +1,4 @@
-// ColorExtensionsTests.swift - Copyright 2025 SwifterSwift
+// ColorExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -13,7 +13,7 @@ import CoreImage
 final class ColorExtensionsTests: XCTestCase {
     // MARK: - Test properties
 
-    func testCGFloatComponents() {
+    func testCGFloatComponents() throws {
         XCTAssertEqual(SFColor.red.cgFloatComponents.red, 1.0)
         XCTAssertEqual(SFColor.red.cgFloatComponents.green, 0.0)
         XCTAssertEqual(SFColor.red.cgFloatComponents.blue, 0.0)
@@ -34,7 +34,7 @@ final class ColorExtensionsTests: XCTestCase {
         XCTAssertEqual(SFColor.white.cgFloatComponents.green, 1.0)
         XCTAssertEqual(SFColor.white.cgFloatComponents.blue, 1.0)
 
-        XCTAssertEqual(Int(SFColor(hex: 0x12FFFF)!.cgFloatComponents.red * 255.0), 0x12)
+        XCTAssertEqual(try Int(XCTUnwrap(SFColor(hex: 0x12FFFF)?.cgFloatComponents.red) * 255.0), 0x12)
     }
 
     // MARK: - Test properties
@@ -63,17 +63,17 @@ final class ColorExtensionsTests: XCTestCase {
         XCTAssertEqual(SFColor(hex: 0x12FFFF)?.rgbComponents.red, 0x12)
     }
 
-    func testAlpha() {
+    func testAlpha() throws {
         var color = SFColor.red
         XCTAssertEqual(color.alpha, 1.0)
 
         color = SFColor.white.withAlphaComponent(0.5)
         XCTAssertEqual(color.alpha, 0.5)
 
-        color = SFColor(red: 0, green: 0, blue: 0, transparency: 0.7)!
+        color = try XCTUnwrap(SFColor(red: 0, green: 0, blue: 0, transparency: 0.7))
         XCTAssertEqual(color.alpha, 0.7)
 
-        color = SFColor(red: 0, green: 0, blue: 0, transparency: 1.1)!
+        color = try XCTUnwrap(SFColor(red: 0, green: 0, blue: 0, transparency: 1.1))
         XCTAssertEqual(color.alpha, 1.0)
     }
 
@@ -82,44 +82,44 @@ final class ColorExtensionsTests: XCTestCase {
         let color = SFColor.red
         let coreImageColor = color.coreImageColor
         XCTAssertNotNil(color.coreImageColor)
-        XCTAssertEqual(color.coreImageColor!, coreImageColor)
+        XCTAssertEqual(color.coreImageColor, coreImageColor)
     }
     #endif
 
     // MARK: - Test properties
 
-    func testHsbaComponents() {
-        var color = SFColor(hex: 0x00FF00, transparency: 1.0)!
+    func testHsbaComponents() throws {
+        var color = try XCTUnwrap(SFColor(hex: 0x00FF00, transparency: 1.0))
         XCTAssertEqual(color.hsbaComponents.hue, 120.0 / 360.0, accuracy: 0.001)
         XCTAssertEqual(color.hsbaComponents.saturation, 1.0)
         XCTAssertEqual(color.hsbaComponents.brightness, 1.0)
 
-        color = SFColor(hex: 0x0000FF, transparency: 1.0)!
+        color = try XCTUnwrap(SFColor(hex: 0x0000FF, transparency: 1.0))
         XCTAssertEqual(color.hsbaComponents.hue, 240.0 / 360.0, accuracy: 0.001)
         XCTAssertEqual(color.hsbaComponents.saturation, 1.0)
         XCTAssertEqual(color.hsbaComponents.brightness, 1.0)
 
-        color = SFColor(hex: 0x000000, transparency: 1.0)!
+        color = try XCTUnwrap(SFColor(hex: 0x000000, transparency: 1.0))
         XCTAssertEqual(color.hsbaComponents.hue, 0.0)
         XCTAssertEqual(color.hsbaComponents.saturation, 0.0)
         XCTAssertEqual(color.hsbaComponents.brightness, 0.0)
 
-        color = SFColor(hex: 0xFFFFFF, transparency: 1.0)!
+        color = try XCTUnwrap(SFColor(hex: 0xFFFFFF, transparency: 1.0))
         XCTAssertEqual(color.hsbaComponents.hue, 0.0)
         XCTAssertEqual(color.hsbaComponents.saturation, 0.0)
         XCTAssertEqual(color.hsbaComponents.brightness, 1.0)
 
-        color = SFColor(hex: 0x123456, transparency: 1.0)!
+        color = try XCTUnwrap(SFColor(hex: 0x123456, transparency: 1.0))
         XCTAssertEqual(color.hsbaComponents.hue, 210.0 / 360.0, accuracy: 0.001)
         XCTAssertEqual((color.hsbaComponents.saturation * 100).rounded(), 79)
         XCTAssertEqual((color.hsbaComponents.brightness * 100).rounded(), 34)
 
-        color = SFColor(hex: 0xFCA864, transparency: 1.0)!
+        color = try XCTUnwrap(SFColor(hex: 0xFCA864, transparency: 1.0))
         XCTAssertEqual(color.hsbaComponents.hue, 27.0 / 360.0, accuracy: 0.001)
         XCTAssertEqual((color.hsbaComponents.saturation * 100).rounded(), 60)
         XCTAssertEqual((color.hsbaComponents.brightness * 100).rounded(), 99)
 
-        color = SFColor(hex: 0x1F2D3C, transparency: 1.0)!
+        color = try XCTUnwrap(SFColor(hex: 0x1F2D3C, transparency: 1.0))
         XCTAssertEqual(color.hsbaComponents.hue, 211.0 / 360.0, accuracy: 0.001)
         XCTAssertEqual((color.hsbaComponents.saturation * 100).rounded(), 48)
         XCTAssertEqual((color.hsbaComponents.brightness * 100).rounded(), 24)
@@ -154,17 +154,17 @@ final class ColorExtensionsTests: XCTestCase {
         XCTAssertEqual(color?.uInt, 0x1F2D3C)
     }
 
-    func testHexString() {
+    func testHexString() throws {
         var color = SFColor.red
         XCTAssertEqual(color.hexString, "#FF0000")
 
         color = SFColor.blue
         XCTAssertEqual(color.hexString, "#0000FF")
 
-        color = SFColor(hex: 0xABCDEF)!
+        color = try XCTUnwrap(SFColor(hex: 0xABCDEF))
         XCTAssertEqual(color.hexString, "#ABCDEF")
 
-        color = SFColor(hex: 0xABC)!
+        color = try XCTUnwrap(SFColor(hex: 0xABC))
         XCTAssertEqual(color.hexString, "#000ABC")
 
         color = SFColor.black
@@ -231,7 +231,7 @@ final class ColorExtensionsTests: XCTestCase {
 
     // MARK: - Test methods
 
-    func testBlend() {
+    func testBlend() throws {
         var color1 = SFColor.white
         var color2 = SFColor.black
 
@@ -240,8 +240,8 @@ final class ColorExtensionsTests: XCTestCase {
         XCTAssertEqual(blendColor.rgbComponents.green, 0xFF / 2)
         XCTAssertEqual(blendColor.rgbComponents.blue, 0xFF / 2)
 
-        color1 = SFColor(hex: 0x123456, transparency: 0.5)!
-        color2 = SFColor(hex: 0x665544, transparency: 0.7)!
+        color1 = try XCTUnwrap(SFColor(hex: 0x123456, transparency: 0.5))
+        color2 = try XCTUnwrap(SFColor(hex: 0x665544, transparency: 0.7))
 
         blendColor = SFColor.blend(color1, with: color2)
         XCTAssertEqual(blendColor.rgbComponents.red, (0x12 + 0x66) / 2)
@@ -374,34 +374,34 @@ final class ColorExtensionsTests: XCTestCase {
         XCTAssertNotNil(color)
     }
 
-    func testInitARGB() {
+    func testInitARGB() throws {
         var color = SFColor(argbHexString: "0xFFFF")
         XCTAssertNotNil(color)
-        XCTAssertEqual(color!.rgbComponents.red, 0xFF)
-        XCTAssertEqual(color!.rgbComponents.green, 0xFF)
-        XCTAssertEqual(color!.rgbComponents.blue, 0xFF)
-        XCTAssertEqual(color!.alpha, 1.0)
+        XCTAssertEqual(color?.rgbComponents.red, 0xFF)
+        XCTAssertEqual(color?.rgbComponents.green, 0xFF)
+        XCTAssertEqual(color?.rgbComponents.blue, 0xFF)
+        XCTAssertEqual(color?.alpha, 1.0)
 
         color = SFColor(argbHexString: "#FFFFFFFFF")
         XCTAssertNotNil(color)
-        XCTAssertEqual(color!.rgbComponents.red, 0xFF)
-        XCTAssertEqual(color!.rgbComponents.green, 0xFF)
-        XCTAssertEqual(color!.rgbComponents.blue, 0xFF)
-        XCTAssertEqual(color!.alpha, 1.0)
+        XCTAssertEqual(color?.rgbComponents.red, 0xFF)
+        XCTAssertEqual(color?.rgbComponents.green, 0xFF)
+        XCTAssertEqual(color?.rgbComponents.blue, 0xFF)
+        XCTAssertEqual(color?.alpha, 1.0)
 
         color = SFColor(argbHexString: "7F123456")
         XCTAssertNotNil(color)
-        XCTAssertEqual(color!.rgbComponents.red, 0x12)
-        XCTAssertEqual(color!.rgbComponents.green, 0x34)
-        XCTAssertEqual(color!.rgbComponents.blue, 0x56)
-        XCTAssertEqual(color!.alpha, 0.5, accuracy: 0.01)
+        XCTAssertEqual(color?.rgbComponents.red, 0x12)
+        XCTAssertEqual(color?.rgbComponents.green, 0x34)
+        XCTAssertEqual(color?.rgbComponents.blue, 0x56)
+        XCTAssertEqual(try XCTUnwrap(color?.alpha), 0.5, accuracy: 0.01)
 
         color = SFColor(argbHexString: "#9999")
         XCTAssertNotNil(color)
-        XCTAssertEqual(color!.rgbComponents.red, 0x99)
-        XCTAssertEqual(color!.rgbComponents.green, 0x99)
-        XCTAssertEqual(color!.rgbComponents.blue, 0x99)
-        XCTAssertEqual(color!.alpha, 0.6)
+        XCTAssertEqual(color?.rgbComponents.red, 0x99)
+        XCTAssertEqual(color?.rgbComponents.green, 0x99)
+        XCTAssertEqual(color?.rgbComponents.blue, 0x99)
+        XCTAssertEqual(color?.alpha, 0.6)
     }
 
     func testInitWithComponents() {

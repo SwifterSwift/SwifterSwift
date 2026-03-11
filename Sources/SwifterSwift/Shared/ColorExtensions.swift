@@ -1,4 +1,4 @@
-// ColorExtensions.swift - Copyright 2025 SwifterSwift
+// ColorExtensions.swift - Copyright 2026 SwifterSwift
 
 #if !os(Linux) && !os(Android)
 
@@ -155,8 +155,7 @@ public extension SFColor {
                 let oldComponents = self.cgColor.components
                 let components: [CGFloat] = [oldComponents![0], oldComponents![0], oldComponents![0], oldComponents![1]]
                 let colorRef = CGColor(colorSpace: colorSpaceRGB, components: components)
-                let colorOut = SFColor(cgColor: colorRef!)
-                return colorOut
+                return SFColor(cgColor: colorRef!)
             } else {
                 return self
             }
@@ -371,8 +370,7 @@ public extension SFColor {
                 let oldComponents = color.cgColor.components
                 let components: [CGFloat] = [oldComponents![0], oldComponents![0], oldComponents![0], oldComponents![1]]
                 let colorRef = CGColor(colorSpace: colorSpaceRGB, components: components)
-                let colorOut = SFColor(cgColor: colorRef!)
-                return colorOut
+                return SFColor(cgColor: colorRef!)
             } else {
                 return color
             }
