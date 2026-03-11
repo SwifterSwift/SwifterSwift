@@ -2,6 +2,9 @@
 
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
+#if canImport(SwifterSwiftShared)
+import SwifterSwiftShared
+#endif
 
 // MARK: - enums
 

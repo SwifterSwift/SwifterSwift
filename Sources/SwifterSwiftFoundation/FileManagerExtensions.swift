@@ -37,13 +37,33 @@ public extension FileManager {
 
         // To handle cases that provided filename has an extension
         let name = filename.components(separatedBy: ".")[0]
-        let bundle = bundleClass != nil ? Bundle(for: bundleClass!) : Bundle.main
+        let baseBundle = bundleClass != nil ? Bundle(for: bundleClass!) : Bundle.main
 
-        if let path = bundle.path(forResource: name, ofType: "json") {
-            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let json = try JSONSerialization.jsonObject(with: data, options: readingOptions)
+        func bundles(in directory: URL?) -> [Bundle] {
+            guard let directory else { return [] }
+            guard let urls = try? contentsOfDirectory(at: directory, includingPropertiesForKeys: nil) else { return [] }
+            return urls
+                .filter { $0.pathExtension == "bundle" }
+                .compactMap(Bundle.init(url:))
+        }
 
-            return json as? [String: Any]
+        var bundlesToSearch: [Bundle] = [baseBundle]
+        bundlesToSearch.append(contentsOf: bundles(in: baseBundle.resourceURL))
+        bundlesToSearch.append(contentsOf: bundles(in: baseBundle.bundleURL))
+        bundlesToSearch.append(contentsOf: bundles(in: baseBundle.bundleURL.deletingLastPathComponent()))
+        bundlesToSearch.append(contentsOf: Bundle.allBundles)
+        bundlesToSearch.append(contentsOf: Bundle.allFrameworks)
+
+        // Deduplicate while preserving order.
+        var seen = Set<ObjectIdentifier>()
+        bundlesToSearch = bundlesToSearch.filter { seen.insert(ObjectIdentifier($0)).inserted }
+
+        for bundle in bundlesToSearch {
+            if let path = bundle.path(forResource: name, ofType: "json") {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let json = try JSONSerialization.jsonObject(with: data, options: readingOptions)
+                return json as? [String: Any]
+            }
         }
 
         return nil

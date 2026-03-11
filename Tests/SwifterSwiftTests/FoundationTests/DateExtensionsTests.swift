@@ -663,6 +663,7 @@ final class DateExtensionsTests: XCTestCase {
         let date = Date(timeIntervalSince1970: 512)
         let formatter = DateFormatter()
         formatter.timeStyle = .none
+        formatter.timeZone = .current
 
         formatter.dateStyle = .short
         XCTAssertEqual(date.dateString(ofStyle: .short), formatter.string(from: date))

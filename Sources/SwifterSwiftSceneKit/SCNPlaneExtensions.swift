@@ -2,6 +2,9 @@
 
 #if canImport(SceneKit)
 import SceneKit
+#if canImport(SwifterSwiftShared)
+import SwifterSwiftShared
+#endif
 
 // MARK: - Methods
 

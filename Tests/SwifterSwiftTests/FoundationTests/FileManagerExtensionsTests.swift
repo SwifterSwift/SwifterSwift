@@ -10,8 +10,12 @@ final class FileManagerExtensionsTests: XCTestCase {
     func testJSONFromFileAtPath() {
         #if !os(Linux) && !os(Android)
         do {
+            #if SWIFT_PACKAGE
+            let filePath = Bundle.module.path(forResource: "test", ofType: "json")
+            #else
             let bundle = Bundle(for: FileManagerExtensionsTests.self)
             let filePath = bundle.path(forResource: "test", ofType: "json")
+            #endif
 
             guard let path = filePath else {
                 XCTFail("File path undefined.")

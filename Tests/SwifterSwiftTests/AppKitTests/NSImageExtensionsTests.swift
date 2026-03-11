@@ -7,8 +7,18 @@ import XCTest
 
 final class NSImageExtensionsTests: XCTestCase {
     func testScaledToMaxSize() {
+        #if SWIFT_PACKAGE
+        let bundle = Bundle.module
+        #else
         let bundle = Bundle(for: NSImageExtensionsTests.self)
-        let image = bundle.image(forResource: NSImage.Name(stringLiteral: "TestImage"))
+        #endif
+
+        let image: NSImage?
+        if let url = bundle.url(forResource: "TestImage", withExtension: "png") {
+            image = NSImage(contentsOf: url)
+        } else {
+            image = bundle.image(forResource: NSImage.Name(stringLiteral: "TestImage"))
+        }
         XCTAssertNotNil(image)
 
         let scaledImage = image?.scaled(toMaxSize: NSSize(width: 150, height: 150))

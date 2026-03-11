@@ -16,6 +16,10 @@ import AppKit
 import CoreGraphics
 #endif
 
+#if canImport(SwifterSwiftShared)
+import SwifterSwiftShared
+#endif
+
 // MARK: - Properties
 
 public extension String {
@@ -248,22 +252,24 @@ public extension String {
     #endif
 
     #if canImport(Foundation)
-    /// SwifterSwift: Check if string is a valid Swift number. Note: In North America, "." is the decimal separator,
-    /// while in many parts of Europe "," is used.
+    /// SwifterSwift: Check if string is a valid Swift number.
     ///
     ///		"123".isNumeric -> true
-    ///     "1.3".isNumeric -> true (en_US)
-    ///     "1,3".isNumeric -> true (fr_FR)
+    ///     "1.3".isNumeric -> true
+    ///     "1,3".isNumeric -> true
     ///		"abc".isNumeric -> false
     ///
     var isNumeric: Bool {
-        let scanner = Scanner(string: self)
-        scanner.locale = NSLocale.current
-        #if os(Linux) || os(Android) || targetEnvironment(macCatalyst)
-        return scanner.scanDecimal() != nil && scanner.isAtEnd
-        #else
-        return scanner.scanDecimal(nil) && scanner.isAtEnd
-        #endif
+        let trimmed = trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else { return false }
+
+        if Double(trimmed) != nil { return true }
+
+        if trimmed.contains(",") && !trimmed.contains(".") {
+            return Double(trimmed.replacingOccurrences(of: ",", with: ".")) != nil
+        }
+
+        return false
     }
     #endif
 

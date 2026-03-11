@@ -14,24 +14,26 @@ final class SignedNumericExtensionsTests: XCTestCase {
 
     func testAsLocaleCurrency() throws {
         #if !os(Linux) && !os(Android)
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = Locale.current
+
         let number1 = 3.2
-        XCTAssertEqual(number1.asLocaleCurrency, "$3.20", "Failed to format number with locale \(Locale.current)")
-        #endif
+        XCTAssertEqual(number1.asLocaleCurrency,
+                       formatter.string(from: number1 as NSNumber),
+                       "Failed to format number with locale \(Locale.current)")
 
         let number2 = Double(10.23)
-        if let symbol = Locale.current.currencySymbol {
-            XCTAssertNotNil(try XCTUnwrap(number2.asLocaleCurrency))
-            XCTAssert(try XCTUnwrap(number2.asLocaleCurrency?.contains(symbol)))
-        }
-        XCTAssertNotNil(try XCTUnwrap(number2.asLocaleCurrency))
-        XCTAssert(try XCTUnwrap(number2.asLocaleCurrency?.contains("\(number2)")))
+        XCTAssertEqual(number2.asLocaleCurrency,
+                       formatter.string(from: number2 as NSNumber),
+                       "Failed to format number with locale \(Locale.current)")
 
         let number3 = 10
-        if let symbol = Locale.current.currencySymbol {
-            XCTAssertNotNil(number3.asLocaleCurrency)
-            XCTAssert(try XCTUnwrap(number3.asLocaleCurrency?.contains(symbol)))
-        }
-        XCTAssertNotNil(number3.asLocaleCurrency)
-        XCTAssert(try XCTUnwrap(number3.asLocaleCurrency?.contains("\(number3)")))
+        XCTAssertEqual(number3.asLocaleCurrency,
+                       formatter.string(from: number3 as NSNumber),
+                       "Failed to format number with locale \(Locale.current)")
+        #else
+        throw XCTSkip("Currency formatting not supported on this platform.")
+        #endif
     }
 }

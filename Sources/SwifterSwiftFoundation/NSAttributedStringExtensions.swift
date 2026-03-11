@@ -2,6 +2,9 @@
 
 #if canImport(Foundation)
 import Foundation
+#if canImport(SwifterSwiftShared)
+import SwifterSwiftShared
+#endif
 
 #if canImport(UIKit)
 import UIKit
