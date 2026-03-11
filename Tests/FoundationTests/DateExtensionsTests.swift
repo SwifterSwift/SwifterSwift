@@ -684,11 +684,26 @@ final class DateExtensionsTests: XCTestCase {
         formatter.dateFormat = "HH:mm"
         XCTAssertEqual(date.string(withFormat: "HH:mm"), formatter.string(from: date))
 
-        formatter.dateFormat = "dd/MM/yyyy HH:mm"
-        XCTAssertEqual(date.string(withFormat: "dd/MM/yyyy HH:mm"), formatter.string(from: date))
-
         formatter.dateFormat = "iiiii"
         XCTAssertEqual(date.string(withFormat: "iiiii"), formatter.string(from: date))
+        
+        formatter.dateFormat = "dd/MMM/yyyy HH:mm"
+        
+        formatter.locale = .current
+        XCTAssertEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: .current), formatter.string(from: date))
+ 
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        XCTAssertEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "en_US_POSIX")), formatter.string(from: date))
+        
+        formatter.locale = Locale(identifier: "fr_FR")
+        XCTAssertEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "fr_FR")), formatter.string(from: date))
+        
+        XCTAssertNotEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "fr_FR")), date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "en_US")))
+        
+        formatter.locale = .current
+        formatter.timeZone = TimeZone(identifier: "UTC")!
+        XCTAssertEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", timeZone: TimeZone(identifier: "UTC")!), formatter.string(from: date))
+        XCTAssertNotEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", timeZone: TimeZone(identifier: "Asia/Shanghai")!), formatter.string(from: date))
     }
 
     func testDateTimeString() {

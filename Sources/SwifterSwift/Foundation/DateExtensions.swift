@@ -732,17 +732,36 @@ public extension Date {
         return calendar.isDate(self, equalTo: Date(), toGranularity: component)
     }
 
-    /// SwifterSwift: Date string from date.
+    /// SwifterSwift: Date string from date with optional format, locale, and time zone.
     ///
-    ///     Date().string(withFormat: "dd/MM/yyyy") -> "1/12/17"
+    /// Examples:
+    ///
+    ///     Date().string(withFormat: "dd/MM/yyyy") -> "01/12/17"
     ///     Date().string(withFormat: "HH:mm") -> "23:50"
-    ///     Date().string(withFormat: "dd/MM/yyyy HH:mm") -> "1/12/17 23:50"
+    ///     Date().string(withFormat: "dd/MM/yyyy HH:mm") -> "01/12/17 23:50"
     ///
-    /// - Parameter format: Date format (default is "dd/MM/yyyy").
-    /// - Returns: date string.
-    func string(withFormat format: String = "dd/MM/yyyy HH:mm") -> String {
+    ///     // Specifying different locales:
+    ///
+    ///     date.string(withFormat: "dd MMMM yyyy", locale: Locale(identifier: "en_US")) -> "01 December 2017"
+    ///     date.string(withFormat: "dd MMMM yyyy", locale: Locale(identifier: "fr_FR")) -> "01 décembre 2017"
+    ///     date.string(withFormat: "dd MMMM yyyy", locale: Locale(identifier: "ja_JP")) -> "01 12月 2017"
+    ///
+    ///     // Specifying different time zones:
+    ///
+    ///     date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "UTC")!) -> "01/12/2017 15:50"
+    ///     date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "America/New_York")!) -> "01/12/2017 10:50"
+    ///     date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "Asia/Shanghai")!) -> "01/12/2017 23:50"
+    ///
+    /// - Parameters:
+    ///   - format: The date format string. Default is `"dd/MM/yyyy HH:mm"`.
+    ///   - locale: The locale to use for formatting. Default is `.current`.
+    ///   - timeZone: The time zone to use for formatting. Default is `.current`.
+    /// - Returns: A string representing the date in the specified format, locale, and time zone.
+    func string(withFormat format: String = "dd/MM/yyyy HH:mm", locale: Locale = .current, timeZone: TimeZone = .current) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
+        dateFormatter.locale = locale
+        dateFormatter.timeZone = timeZone
         return dateFormatter.string(from: self)
     }
 
