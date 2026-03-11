@@ -3,7 +3,7 @@
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)
 import UIKit
 
 @MainActor

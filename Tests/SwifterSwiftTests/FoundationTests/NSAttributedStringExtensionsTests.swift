@@ -166,7 +166,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
                         XCTAssertEqual(attr.value as? SFColor, SFColor.blue)
                         passed = true
                     } else if attr.key == .font {
-                        #if !os(tvOS)
+                        #if !os(tvOS) && !os(watchOS)
                         XCTAssertEqual(attr.value as? SFFont, .boldSystemFont(ofSize: SFFont.systemFontSize))
                         #endif
                     } else {
@@ -227,7 +227,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         var attributes = string.attributes(at: 0, effectiveRange: nil)
         attributes = attributes.filter { key, value -> Bool in
             var valid = false
-            #if canImport(UIKit) && !os(tvOS)
+            #if canImport(UIKit) && !os(tvOS) && !os(watchOS)
             if key == NSAttributedString.Key.font, let value = value as? SFFont,
                value == .italicSystemFont(ofSize: SFFont.systemFontSize) {
                 valid = true
@@ -245,14 +245,14 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             return valid
         }
 
-        #if canImport(UIKit) && !os(tvOS)
+        #if canImport(UIKit) && !os(tvOS) && !os(watchOS)
         XCTAssertEqual(attributes.count, 3)
         #else
         XCTAssertEqual(attributes.count, 2)
         #endif
 
         attributes = string.attributes(at: 5, effectiveRange: nil)
-        #if !os(tvOS)
+        #if !os(tvOS) && !os(watchOS)
         attributes = attributes.filter { key, value -> Bool in
             return key == NSAttributedString.Key
                 .font && (value as? SFFont) == .boldSystemFont(ofSize: SFFont.systemFontSize)
@@ -280,7 +280,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             case NSAttributedString.Key.strikethroughStyle:
                 return (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.single.rawValue
             case NSAttributedString.Key.font:
-                #if os(tvOS)
+                #if os(tvOS) ||  os(watchOS)
                 return false
                 #else
                 return (value as? SFFont) == .boldSystemFont(ofSize: SFFont.systemFontSize)
@@ -292,7 +292,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             }
         }
 
-        #if os(tvOS)
+        #if os(tvOS) || os(watchOS)
         XCTAssertEqual(filteredAttributes.count, 3)
         #else
         XCTAssertEqual(filteredAttributes.count, 4)

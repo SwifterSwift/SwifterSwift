@@ -3,7 +3,7 @@
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(QuartzCore)
+#if canImport(QuartzCore) && !os(watchOS)
 
 #if canImport(CoreGraphics)
 import CoreGraphics

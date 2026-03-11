@@ -3,7 +3,7 @@
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(SpriteKit) && canImport(UIKit)
+#if canImport(SpriteKit) && canImport(UIKit) && !os(watchOS)
 import SpriteKit
 
 @MainActor

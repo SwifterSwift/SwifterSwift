@@ -3,7 +3,7 @@
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(MapKit)
+#if canImport(MapKit) && !os(watchOS)
 import struct CoreLocation.CLLocationCoordinate2D
 import MapKit
 
