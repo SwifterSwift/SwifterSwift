@@ -424,12 +424,10 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
             XCTAssertTrue(sublayers[0].endPoint.x.isEqual(to: 0.5))
             XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 1.0))
             XCTAssertEqual(sublayers[0].colors?.count, 4)
-            // swiftlint:disable force_cast
             XCTAssertEqual(sublayers[0].colors?[0] as? CGColor, UIColor.red.cgColor)
             XCTAssertEqual(sublayers[0].colors?[1] as? CGColor, UIColor.orange.cgColor)
             XCTAssertEqual(sublayers[0].colors?[2] as? CGColor, UIColor.green.cgColor)
             XCTAssertEqual(sublayers[0].colors?[3] as? CGColor, UIColor.blue.cgColor)
-            // swiftlint:enable force_cast
             XCTAssertEqual(sublayers[0].locations?.count, 4)
             XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
             XCTAssertNotNil(sublayers[0].locations?[1].isEqual(to: 0.333))
@@ -452,12 +450,10 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
             XCTAssertTrue(sublayers[0].endPoint.x.isEqual(to: 0.5))
             XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 0.0))
             XCTAssertEqual(sublayers[0].colors?.count, 4)
-            // swiftlint:disable force_cast
             XCTAssertEqual(sublayers[0].colors?[0] as? CGColor, UIColor.red.cgColor)
             XCTAssertEqual(sublayers[0].colors?[1] as? CGColor, UIColor.orange.cgColor)
             XCTAssertEqual(sublayers[0].colors?[2] as? CGColor, UIColor.green.cgColor)
             XCTAssertEqual(sublayers[0].colors?[3] as? CGColor, UIColor.blue.cgColor)
-            // swiftlint:enable force_cast
             XCTAssertEqual(sublayers[0].locations?.count, 4)
             XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
             XCTAssertNotNil(sublayers[0].locations?[1].isEqual(to: 0.333))
@@ -480,12 +476,10 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
             XCTAssertTrue(sublayers[0].endPoint.x.isEqual(to: 1.0))
             XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 0.5))
             XCTAssertEqual(sublayers[0].colors?.count, 4)
-            // swiftlint:disable force_cast
             XCTAssertEqual(sublayers[0].colors?[0] as? CGColor, UIColor.red.cgColor)
             XCTAssertEqual(sublayers[0].colors?[1] as? CGColor, UIColor.orange.cgColor)
             XCTAssertEqual(sublayers[0].colors?[2] as? CGColor, UIColor.green.cgColor)
             XCTAssertEqual(sublayers[0].colors?[3] as? CGColor, UIColor.blue.cgColor)
-            // swiftlint:enable force_cast
             XCTAssertEqual(sublayers[0].locations?.count, 4)
             XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
             XCTAssertNotNil(sublayers[0].locations?[1].isEqual(to: 0.333))
@@ -508,12 +502,10 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
             XCTAssertTrue(sublayers[0].endPoint.x.isEqual(to: 0.0))
             XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 0.5))
             XCTAssertEqual(sublayers[0].colors?.count, 4)
-            // swiftlint:disable force_cast
             XCTAssertEqual(sublayers[0].colors?[0] as? CGColor, UIColor.red.cgColor)
             XCTAssertEqual(sublayers[0].colors?[1] as? CGColor, UIColor.orange.cgColor)
             XCTAssertEqual(sublayers[0].colors?[2] as? CGColor, UIColor.green.cgColor)
             XCTAssertEqual(sublayers[0].colors?[3] as? CGColor, UIColor.blue.cgColor)
-            // swiftlint:enable force_cast
             XCTAssertEqual(sublayers[0].locations?.count, 4)
             XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
             XCTAssertNotNil(sublayers[0].locations?[1].isEqual(to: 0.333))

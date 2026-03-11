@@ -164,7 +164,6 @@ let package = Package(
             dependencies: ["SwifterSwift"],
             path: "Tests/SwifterSwiftTests",
             exclude: [
-                "Info.plist",
                 // Exclude Interface Builder fixtures so the macOS package test destination doesn't try to compile
                 // UIKit/tvOS resources with `ibtool` (which fails with "target device type \"mac\"").
                 "ResourcesTests/Resources/UICollectionViewCell.xib",

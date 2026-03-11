@@ -28,8 +28,9 @@ final class UIRefreshControlExtensionTests: XCTestCase {
         anotherTableview.refreshControl = UIRefreshControl()
         anotherTableview.refreshControl?.beginRefreshing(in: anotherTableview, animated: false, sendAction: true)
 
-        XCTAssert(try XCTUnwrap(anotherTableview.refreshControl?.isRefreshing))
-        XCTAssertEqual(anotherTableview.contentOffset.y, -anotherTableview.refreshControl?.frame.height)
+        let anotherRefreshControl = try XCTUnwrap(anotherTableview.refreshControl)
+        XCTAssert(anotherRefreshControl.isRefreshing)
+        XCTAssertEqual(anotherTableview.contentOffset.y, -anotherRefreshControl.frame.height)
     }
 
     func testBeginRefreshAsScrollViewSubview() throws {
@@ -54,8 +55,9 @@ final class UIRefreshControlExtensionTests: XCTestCase {
         anotherScrollView.refreshControl = UIRefreshControl()
         anotherScrollView.refreshControl?.beginRefreshing(animated: false, sendAction: true)
 
-        XCTAssert(try XCTUnwrap(anotherScrollView.refreshControl?.isRefreshing))
-        XCTAssertEqual(anotherScrollView.contentOffset.y, -anotherScrollView.refreshControl?.frame.height)
+        let anotherRefreshControl = try XCTUnwrap(anotherScrollView.refreshControl)
+        XCTAssert(anotherRefreshControl.isRefreshing)
+        XCTAssertEqual(anotherScrollView.contentOffset.y, -refreshControl.frame.height)
     }
 }
 
