@@ -88,6 +88,34 @@ jobs:
       run: bundle install
     - name: CocoaPods ${{ matrix.platform }}
       run: bundle exec pod lib lint --skip-tests --allow-warnings --verbose --platforms=${{ matrix.platform }} 
+
+  SwiftPM:
+    name: SwiftPM
+    runs-on: macos-15
+    strategy:
+      matrix:
+        platform: ['ios', 'macos', 'tvos', 'watchos']
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_26.2.0.app/Contents/Developer
+    steps:
+    - uses: actions/checkout@v1
+    - name: SwiftPM ${{ matrix.platform }}
+      run: |
+        set -euo pipefail
+        case "${{ matrix.platform }}" in
+          ios)
+            xcodebuild clean test -workspace . -scheme SwifterSwift-Package -destination "platform=iOS Simulator,name=iPhone 16,OS=26.2"
+            ;;
+          tvos)
+            xcodebuild clean test -workspace . -scheme SwifterSwift-Package -destination "platform=tvOS Simulator,name=Apple TV"
+            ;;
+          macos)
+            xcodebuild clean test -workspace . -scheme SwifterSwift-Package -destination "platform=OS X"
+            ;;
+          watchos)
+            xcodebuild clean build -workspace . -scheme SwifterSwift-Package -destination "platform=watchOS Simulator,name=Apple Watch Series 10 (42mm)"
+            ;;
+        esac
       
   Linux:
     runs-on: [ubuntu-24.04]
