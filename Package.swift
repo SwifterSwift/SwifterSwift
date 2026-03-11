@@ -163,7 +163,18 @@ let package = Package(
             name: "SwifterSwiftTests",
             dependencies: ["SwifterSwift"],
             path: "Tests/SwifterSwiftTests",
-            exclude: ["Info.plist"],
+            exclude: [
+                "Info.plist",
+                // Exclude Interface Builder fixtures so the macOS package test destination doesn't try to compile
+                // UIKit/tvOS resources with `ibtool` (which fails with "target device type \"mac\"").
+                "ResourcesTests/Resources/UICollectionViewCell.xib",
+                "ResourcesTests/Resources/UIImageView.xib",
+                "ResourcesTests/Resources/UITableViewCell.xib",
+                "ResourcesTests/Resources/UITableViewHeaderFooterView.xib",
+                "ResourcesTests/Resources/TestStoryboard.storyboard",
+                "ResourcesTests/Resources/tvOS/UIImageViewTvOS.xib",
+                "ResourcesTests/Resources/tvOS/TestStoryboard-tvOS.storyboard"
+            ],
             resources: [
                 .process("ResourcesTests/Resources")
             ])

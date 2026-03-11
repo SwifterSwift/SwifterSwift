@@ -37,9 +37,45 @@ public extension FileManager {
 
         // To handle cases that provided filename has an extension
         let name = filename.components(separatedBy: ".")[0]
-        let bundle = bundleClass != nil ? Bundle(for: bundleClass!) : Bundle.main
+        let baseBundle = bundleClass != nil ? Bundle(for: bundleClass!) : Bundle.main
 
-        if let path = bundle.path(forResource: name, ofType: "json") {
+        func bundles(in directory: URL?) -> [Bundle] {
+            guard let directory else { return [] }
+            guard let urls = try? contentsOfDirectory(at: directory, includingPropertiesForKeys: nil) else { return [] }
+            return urls
+                .filter { $0.pathExtension == "bundle" }
+                .compactMap(Bundle.init(url:))
+        }
+
+        var bundlesToSearch: [Bundle] = [baseBundle]
+        bundlesToSearch.append(contentsOf: bundles(in: baseBundle.resourceURL))
+        bundlesToSearch.append(contentsOf: bundles(in: baseBundle.bundleURL))
+        bundlesToSearch.append(contentsOf: bundles(in: baseBundle.bundleURL.deletingLastPathComponent()))
+        bundlesToSearch.append(contentsOf: Bundle.allBundles)
+        bundlesToSearch.append(contentsOf: Bundle.allFrameworks)
+
+        // Deduplicate while preserving order.
+        var seen = Set<ObjectIdentifier>()
+        bundlesToSearch = bundlesToSearch.filter { seen.insert(ObjectIdentifier($0)).inserted }
+
+        let wantedName = "\(name).json"
+
+        var path: String?
+        for bundle in bundlesToSearch {
+            path = bundle.path(forResource: name, ofType: "json")
+            if path != nil { break }
+
+            if let resourceURL = bundle.resourceURL,
+               let enumerator = enumerator(at: resourceURL, includingPropertiesForKeys: nil) {
+                for case let url as URL in enumerator where url.lastPathComponent == wantedName {
+                    path = url.path
+                    break
+                }
+            }
+            if path != nil { break }
+        }
+
+        if let path {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
             let json = try JSONSerialization.jsonObject(with: data, options: readingOptions)
             return json as? [String: Any]

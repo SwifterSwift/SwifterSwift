@@ -334,13 +334,19 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
     }
 
     #if os(tvOS)
-    func testLoadFromNib() {
+    func testLoadFromNib() throws {
         let bundle = Bundle(for: UIViewExtensionsTests.self)
+        guard bundle.path(forResource: "UIImageViewTvOS", ofType: "nib") != nil else {
+            throw XCTSkip("Nib fixtures are not compiled for this test destination.")
+        }
         XCTAssertNotNil(UIView.loadFromNib(named: "UIImageViewTvOS", bundle: bundle))
     }
     #else
-    func testLoadFromNib() {
+    func testLoadFromNib() throws {
         let bundle = Bundle(for: UIViewExtensionsTests.self)
+        guard bundle.path(forResource: "UIImageView", ofType: "nib") != nil else {
+            throw XCTSkip("Nib fixtures are not compiled for this test destination.")
+        }
         XCTAssertNotNil(UIView.loadFromNib(named: "UIImageView", bundle: bundle))
         XCTAssertNotNil(UIView.loadFromNib(withClass: UIImageView.self, bundle: bundle))
     }

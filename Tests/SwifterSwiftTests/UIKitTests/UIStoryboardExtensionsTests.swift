@@ -12,8 +12,13 @@ final class UIStoryboardExtensionsTests: XCTestCase {
         XCTAssertNil(UIStoryboard.main)
     }
 
-    func testInstantiateViewController() {
-        let storyboard = UIStoryboard(name: "TestStoryboard", bundle: Bundle(for: UIStoryboardExtensionsTests.self))
+    func testInstantiateViewController() throws {
+        let bundle = Bundle(for: UIStoryboardExtensionsTests.self)
+        guard bundle.path(forResource: "TestStoryboard", ofType: "storyboardc") != nil else {
+            throw XCTSkip("Storyboard fixtures are not compiled for this test destination.")
+        }
+
+        let storyboard = UIStoryboard(name: "TestStoryboard", bundle: bundle)
         let viewController = storyboard.instantiateViewController(withClass: UIViewController.self)
         XCTAssertNotNil(viewController)
     }

@@ -130,8 +130,13 @@ final class UITableViewExtensionsTests: XCTestCase {
     }
 
     #if os(iOS)
-    func testRegisterReusableViewWithClassAndNib() {
-        let nib = UINib(nibName: "UITableViewHeaderFooterView", bundle: Bundle(for: UITableViewExtensionsTests.self))
+    func testRegisterReusableViewWithClassAndNib() throws {
+        let bundle = Bundle(for: UITableViewExtensionsTests.self)
+        guard bundle.path(forResource: "UITableViewHeaderFooterView", ofType: "nib") != nil else {
+            throw XCTSkip("Nib fixtures are not compiled for this test destination.")
+        }
+
+        let nib = UINib(nibName: "UITableViewHeaderFooterView", bundle: bundle)
         tableView.register(nib: nib, withHeaderFooterViewClass: UITableViewHeaderFooterView.self)
         let view = tableView.dequeueReusableHeaderFooterView(withClass: UITableViewHeaderFooterView.self)
         XCTAssertNotNil(view)
@@ -151,8 +156,13 @@ final class UITableViewExtensionsTests: XCTestCase {
     }
 
     #if os(iOS)
-    func testRegisterCellWithClassAndNib() {
-        let nib = UINib(nibName: "UITableViewCell", bundle: Bundle(for: UITableViewExtensionsTests.self))
+    func testRegisterCellWithClassAndNib() throws {
+        let bundle = Bundle(for: UITableViewExtensionsTests.self)
+        guard bundle.path(forResource: "UITableViewCell", ofType: "nib") != nil else {
+            throw XCTSkip("Nib fixtures are not compiled for this test destination.")
+        }
+
+        let nib = UINib(nibName: "UITableViewCell", bundle: bundle)
         tableView.register(nib: nib, withCellClass: UITableViewCell.self)
         let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
         XCTAssertNotNil(cell)

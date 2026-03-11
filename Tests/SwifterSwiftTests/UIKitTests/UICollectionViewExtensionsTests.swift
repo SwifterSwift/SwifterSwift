@@ -80,8 +80,12 @@ final class UICollectionViewExtensionsTests: XCTestCase {
     #endif
 
     #if os(iOS)
-    func testRegisterCellWithNibUsingClass() {
+    func testRegisterCellWithNibUsingClass() throws {
         let indexPath = IndexPath(row: 0, section: 0)
+        let bundle = Bundle(for: UICollectionViewExtensionsTests.self)
+        guard bundle.path(forResource: "UICollectionViewCell", ofType: "nib") != nil else {
+            throw XCTSkip("Nib fixtures are not compiled for this test destination.")
+        }
         collectionView.register(nibWithCellClass: UICollectionViewCell.self, at: UICollectionViewExtensionsTests.self)
         let cell = collectionView.dequeueReusableCell(withClass: UICollectionViewCell.self, for: indexPath)
         XCTAssertNotNil(cell)

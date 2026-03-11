@@ -49,21 +49,25 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         XCTAssertFalse(viewController.notificationFired)
     }
 
-    func testInstantiate() {
+    func testInstantiate() throws {
         #if os(tvOS)
         let storyboard = "TestStoryboard-tvOS"
         #else
         let storyboard = "TestStoryboard"
         #endif
 
+        let bundle = Bundle(for: UIViewControllerExtensionsTests.self)
+        guard bundle.path(forResource: storyboard, ofType: "storyboardc") != nil else {
+            throw XCTSkip("Storyboard fixtures are not compiled for this test destination.")
+        }
+
         let myViewController = MyViewController.instantiate(from: storyboard,
-                                                            bundle: Bundle(for: UIViewControllerExtensionsTests.self))
+                                                            bundle: bundle)
         myViewController.loadViewIfNeeded()
         XCTAssertNotNil(myViewController.testLabel)
 
         let identifiedViewController = MyViewController.instantiate(from: storyboard,
-                                                                    bundle: Bundle(for: UIViewControllerExtensionsTests
-                                                                        .self),
+                                                                    bundle: bundle,
                                                                     identifier: "MyViewController")
         identifiedViewController.loadViewIfNeeded()
         XCTAssertNotNil(identifiedViewController.testLabel)
