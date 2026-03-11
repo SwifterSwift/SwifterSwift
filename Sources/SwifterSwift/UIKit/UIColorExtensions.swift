@@ -1,4 +1,4 @@
-// UIColorExtensions.swift - Copyright 2025 SwifterSwift
+// UIColorExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(UIKit)
 import UIKit

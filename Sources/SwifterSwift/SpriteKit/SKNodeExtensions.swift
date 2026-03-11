@@ -1,4 +1,4 @@
-// SKNodeExtensions.swift - Copyright 2025 SwifterSwift
+// SKNodeExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(SpriteKit)
 import SpriteKit

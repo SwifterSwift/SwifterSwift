@@ -1,4 +1,4 @@
-// NSAttributedStringExtensionsTests.swift - Copyright 2025 SwifterSwift
+// NSAttributedStringExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -57,9 +57,9 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
         ])
         attributes = out.attributes(at: 0, effectiveRange: nil)
         XCTAssertEqual(attributes.count, 2)
-        XCTAssertEqual(attributes[.strikethroughStyle] as! NSNumber, // swiftlint:disable:this force_cast
+        XCTAssertEqual(attributes[.strikethroughStyle] as? NSNumber, // swiftlint:disable:this force_cast
                        NSNumber(value: NSUnderlineStyle.single.rawValue))
-        XCTAssertEqual(attributes[.foregroundColor] as! SFColor, .red) // swiftlint:disable:this force_cast
+        XCTAssertEqual(attributes[.foregroundColor] as? SFColor, .red) // swiftlint:disable:this force_cast
     }
 
     func testColored() {

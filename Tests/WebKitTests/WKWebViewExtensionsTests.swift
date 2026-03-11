@@ -1,4 +1,4 @@
-// WKWebViewExtensionsTests.swift - Copyright 2025 SwifterSwift
+// WKWebViewExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -19,10 +19,10 @@ final class WKWebViewExtensionsTests: XCTestCase {
         }.result
     }
 
-    func testLoadURL() {
+    func testLoadURL() throws {
         let successExpectation = WebViewSuccessExpectation(description: "Correct URL", webView: webView)
 
-        let url = URL(string: "https://www.apple.com/")!
+        let url = try XCTUnwrap(URL(string: "https://www.apple.com/"))
         let navigation = webView.loadURL(url)
 
         XCTAssertNotNil(navigation)

@@ -1,4 +1,4 @@
-// UINavigationControllerExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UINavigationControllerExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -38,7 +38,7 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
         waitForExpectations(timeout: 5)
     }
 
-    func testMakeTransparent() {
+    func testMakeTransparent() throws {
         let navigationController = UINavigationController(rootViewController: UIViewController())
         navigationController.makeTransparent(withTint: .red)
         let navBar = navigationController.navigationBar
@@ -48,9 +48,9 @@ final class UINavigationControllerExtensionsTests: XCTestCase {
 
         let attrs = navBar.titleTextAttributes
         XCTAssertNotNil(attrs)
-        let color = attrs![.foregroundColor] as? UIColor
+        let color = try XCTUnwrap(attrs?[.foregroundColor]) as? UIColor
         XCTAssertNotNil(color)
-        XCTAssertEqual(color!, .red)
+        XCTAssertEqual(color, .red)
     }
 
     #if !os(tvOS)

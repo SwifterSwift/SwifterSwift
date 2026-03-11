@@ -1,4 +1,4 @@
-// MKMapViewExtensions.swift - Copyright 2025 SwifterSwift
+// MKMapViewExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(MapKit) && !os(watchOS)
 import MapKit

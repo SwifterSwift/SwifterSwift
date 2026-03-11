@@ -1,4 +1,4 @@
-// UITextViewExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UITextViewExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -29,7 +29,7 @@ final class UITextViewExtensionsTests: XCTestCase {
     }
 
     #if !targetEnvironment(macCatalyst)
-    func testWrapToContent() {
+    func testWrapToContent() throws {
         let text =
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
 
@@ -40,10 +40,10 @@ final class UITextViewExtensionsTests: XCTestCase {
 
         // determining the text size
         let constraintRect = CGSize(width: 100, height: CGFloat.greatestFiniteMagnitude)
-        let boundingBox = text.boundingRect(with: constraintRect,
-                                            options: .usesLineFragmentOrigin,
-                                            attributes: [.font: textView.font!],
-                                            context: nil)
+        let boundingBox = try text.boundingRect(with: constraintRect,
+                                                options: .usesLineFragmentOrigin,
+                                                attributes: [.font: XCTUnwrap(textView.font)],
+                                                context: nil)
 
         // before setting wrap, content won't be equal to bounds
         XCTAssertNotEqual(textView.bounds.size, textView.contentSize)

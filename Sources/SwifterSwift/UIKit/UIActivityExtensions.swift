@@ -1,4 +1,4 @@
-// UIActivityExtensions.swift - Copyright 2025 SwifterSwift
+// UIActivityExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(UIKit) && os(iOS)
 import UIKit

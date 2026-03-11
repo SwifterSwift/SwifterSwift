@@ -1,4 +1,4 @@
-// NSAttributedStringExtensions.swift - Copyright 2025 SwifterSwift
+// NSAttributedStringExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -14,8 +14,8 @@ import AppKit
 // MARK: - Properties
 
 public extension NSAttributedString {
-    /// SwifterSwift: Bolded string using the system font.
     #if !os(Linux) && !os(Android)
+    /// SwifterSwift: Bolded string using the system font.
     var bolded: NSAttributedString {
         guard !string.isEmpty else { return self }
 

@@ -1,4 +1,4 @@
-// UISwitchExtensions.swift - Copyright 2025 SwifterSwift
+// UISwitchExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(UIKit) && os(iOS)
 import UIKit

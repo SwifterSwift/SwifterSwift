@@ -1,4 +1,4 @@
-// UserDefaultsExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UserDefaultsExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -31,7 +31,7 @@ final class UserDefaultsExtensionsTests: XCTestCase {
         let number: Float = 10.0
         UserDefaults.standard.set(number, forKey: key)
         XCTAssertNotNil(UserDefaults.standard.float(forKey: key))
-        XCTAssertEqual(UserDefaults.standard.float(forKey: key)!, number)
+        XCTAssertEqual(UserDefaults.standard.float(forKey: key), number)
         #endif
     }
 
@@ -41,7 +41,7 @@ final class UserDefaultsExtensionsTests: XCTestCase {
         let date = Date()
         UserDefaults.standard.set(date, forKey: key)
         XCTAssertNotNil(UserDefaults.standard.date(forKey: key))
-        XCTAssertEqual(UserDefaults.standard.date(forKey: key)!, date)
+        XCTAssertEqual(UserDefaults.standard.date(forKey: key), date)
         #endif
     }
 

@@ -1,4 +1,4 @@
-// ComparableExtensions.swift - Copyright 2025 SwifterSwift
+// ComparableExtensions.swift - Copyright 2026 SwifterSwift
 
 // MARK: - Methods
 

@@ -1,4 +1,4 @@
-// UIRefreshControlExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UIRefreshControlExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -8,7 +8,7 @@ import UIKit
 
 @MainActor
 final class UIRefreshControlExtensionTests: XCTestCase {
-    func testBeginRefreshAsRefreshControlSubview() {
+    func testBeginRefreshAsRefreshControlSubview() throws {
         let window = UIWindow()
         let viewController = UIViewController()
         window.rootViewController = viewController
@@ -26,13 +26,13 @@ final class UIRefreshControlExtensionTests: XCTestCase {
         let anotherTableview = UITableView()
         viewController.view.addSubview(anotherTableview)
         anotherTableview.refreshControl = UIRefreshControl()
-        anotherTableview.refreshControl!.beginRefreshing(in: anotherTableview, animated: false, sendAction: true)
+        anotherTableview.refreshControl?.beginRefreshing(in: anotherTableview, animated: false, sendAction: true)
 
-        XCTAssert(anotherTableview.refreshControl!.isRefreshing)
-        XCTAssertEqual(anotherTableview.contentOffset.y, -anotherTableview.refreshControl!.frame.height)
+        XCTAssert(try XCTUnwrap(anotherTableview.refreshControl?.isRefreshing))
+        XCTAssertEqual(anotherTableview.contentOffset.y, -anotherTableview.refreshControl?.frame.height)
     }
 
-    func testBeginRefreshAsScrollViewSubview() {
+    func testBeginRefreshAsScrollViewSubview() throws {
         let window = UIWindow()
         let viewController = UIViewController()
         window.rootViewController = viewController
@@ -52,10 +52,10 @@ final class UIRefreshControlExtensionTests: XCTestCase {
         viewController.view.addSubview(anotherScrollView)
         XCTAssertEqual(anotherScrollView.contentOffset, .zero)
         anotherScrollView.refreshControl = UIRefreshControl()
-        anotherScrollView.refreshControl!.beginRefreshing(animated: false, sendAction: true)
+        anotherScrollView.refreshControl?.beginRefreshing(animated: false, sendAction: true)
 
-        XCTAssert(anotherScrollView.refreshControl!.isRefreshing)
-        XCTAssertEqual(anotherScrollView.contentOffset.y, -anotherScrollView.refreshControl!.frame.height)
+        XCTAssert(try XCTUnwrap(anotherScrollView.refreshControl?.isRefreshing))
+        XCTAssertEqual(anotherScrollView.contentOffset.y, -anotherScrollView.refreshControl?.frame.height)
     }
 }
 

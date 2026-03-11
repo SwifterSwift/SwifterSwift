@@ -1,4 +1,4 @@
-// UIImageViewExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UIImageViewExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -9,10 +9,10 @@ import UIKit
 @MainActor
 final class UIImageViewExtensionsTests: XCTestCase {
     @available(iOS 13.0, tvOS 13.0, *)
-    func testDownload() {
+    func testDownload() throws {
         // Success
         let imageView = UIImageView()
-        let url = URL(string: "https://developer.apple.com/swift/images/swift-og.png")!
+        let url = try XCTUnwrap(URL(string: "https://developer.apple.com/swift/images/swift-og.png"))
         let placeHolder = UIImage()
         let downloadExpectation = expectation(description: "Download success")
         imageView.download(from: url, contentMode: .scaleAspectFill, placeholder: placeHolder) { image in
@@ -24,7 +24,7 @@ final class UIImageViewExtensionsTests: XCTestCase {
 
         // Failure
         let failImageView = UIImageView()
-        let failingURL = URL(string: "https://developer.apple.com/")!
+        let failingURL = try XCTUnwrap(URL(string: "https://developer.apple.com/"))
         let failExpectation = expectation(description: "Download failure")
         failImageView.image = nil
         failImageView.download(from: failingURL, contentMode: .center, placeholder: nil) { image in

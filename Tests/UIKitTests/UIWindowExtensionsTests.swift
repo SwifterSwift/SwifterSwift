@@ -1,4 +1,4 @@
-// UIWindowExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UIWindowExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -16,11 +16,11 @@ final class UIWindowExtensionsTests: XCTestCase {
         window.rootViewController = viewController
 
         XCTAssertNotNil(window.rootViewController)
-        XCTAssertEqual(window.rootViewController!, viewController)
+        XCTAssertEqual(window.rootViewController, viewController)
 
         window.switchRootViewController(to: tableViewController, animated: false)
         XCTAssertNotNil(window.rootViewController)
-        XCTAssertEqual(window.rootViewController!, tableViewController)
+        XCTAssertEqual(window.rootViewController, tableViewController)
 
         let completionExpectation = expectation(description: "Completed")
 

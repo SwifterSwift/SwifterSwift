@@ -1,4 +1,4 @@
-// RangeReplaceableCollectionTests.swift - Copyright 2025 SwifterSwift
+// RangeReplaceableCollectionTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -49,13 +49,13 @@ final class RangeReplaceableCollectionTests: XCTestCase {
         XCTAssertThrowsError(try array.removeFirst(where: { _ in throw NSError(domain: "", code: -1, userInfo: nil) }))
     }
 
-    func testRemoveRandomElement() {
+    func testRemoveRandomElement() throws {
         var emptyArray = [Int]()
         XCTAssertNil(emptyArray.removeRandomElement())
 
         var array = [1, 2, 3]
         let elements = array.count
-        let removedElement = array.removeRandomElement()!
+        let removedElement = try XCTUnwrap(array.removeRandomElement())
         XCTAssertEqual(elements - 1, array.count)
         XCTAssertFalse(array.contains(removedElement))
     }

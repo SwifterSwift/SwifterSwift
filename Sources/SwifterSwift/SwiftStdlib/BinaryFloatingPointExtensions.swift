@@ -1,4 +1,4 @@
-// BinaryFloatingPointExtensions.swift - Copyright 2025 SwifterSwift
+// BinaryFloatingPointExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation

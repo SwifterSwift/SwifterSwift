@@ -1,4 +1,4 @@
-// StringProtocolExtensions.swift - Copyright 2025 SwifterSwift
+// StringProtocolExtensions.swift - Copyright 2026 SwifterSwift
 
 import Foundation
 

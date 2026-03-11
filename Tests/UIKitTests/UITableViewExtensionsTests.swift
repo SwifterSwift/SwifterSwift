@@ -1,4 +1,4 @@
-// UITableViewExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UITableViewExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -75,9 +75,9 @@ final class UITableViewExtensionsTests: XCTestCase {
         XCTAssertNotNil(cell)
     }
 
-    func testDequeueReusableCellWithClassForIndexPath() {
+    func testDequeueReusableCellWithClassForIndexPath() throws {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "UITableViewCell")
-        let indexPath = tableView.indexPathForLastRow!
+        let indexPath = try XCTUnwrap(tableView.indexPathForLastRow)
         let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self, for: indexPath)
         XCTAssertNotNil(cell)
     }

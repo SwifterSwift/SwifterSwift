@@ -1,4 +1,4 @@
-// CalendarExtensionTest.swift - Copyright 2025 SwifterSwift
+// CalendarExtensionTest.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -7,14 +7,14 @@ import XCTest
 import Foundation
 
 class CalendarExtensionTests: XCTestCase {
-    func testNumberOfDaysInAMonth() {
+    func testNumberOfDaysInAMonth() throws {
         let calendar = Calendar(identifier: .gregorian)
         let longMonths = [1, 3, 5, 7, 8, 10, 12]
         let shortMonths = [4, 6, 9, 11]
         let febDateComponent = DateComponents(year: 2015, month: 2)
-        let febDate = calendar.date(from: febDateComponent)!
+        let febDate = try XCTUnwrap(calendar.date(from: febDateComponent))
         let leapYearDateComponent = DateComponents(year: 2020, month: 2)
-        let leapYearDate = calendar.date(from: leapYearDateComponent)!
+        let leapYearDate = try XCTUnwrap(calendar.date(from: leapYearDateComponent))
         let longMonthsDateComponents = longMonths.map { DateComponents(year: 2015, month: $0) }
         let shortMonthsDateComponents = shortMonths.map { DateComponents(year: 2015, month: $0) }
         let longMonthDates = longMonthsDateComponents.compactMap { calendar.date(from: $0) }

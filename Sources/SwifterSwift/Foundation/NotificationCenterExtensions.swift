@@ -1,4 +1,4 @@
-// NotificationCenterExtensions.swift - Copyright 2025 SwifterSwift
+// NotificationCenterExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation

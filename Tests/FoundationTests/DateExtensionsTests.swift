@@ -1,4 +1,4 @@
-// DateExtensionsTests.swift - Copyright 2025 SwifterSwift
+// DateExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -38,25 +38,25 @@ final class DateExtensionsTests: XCTestCase {
         #endif
     }
 
-    func testWeekOfYear() {
+    func testWeekOfYear() throws {
         let date = Date(timeIntervalSince1970: 0)
         XCTAssertEqual(date.weekOfYear, 1)
 
         let dateAfter7Days = Calendar.current.date(byAdding: .day, value: 7, to: date)
         XCTAssertEqual(dateAfter7Days?.weekOfYear, 2)
 
-        let originalDate = Calendar.current.date(byAdding: .day, value: -7, to: dateAfter7Days!)
+        let originalDate = try Calendar.current.date(byAdding: .day, value: -7, to: XCTUnwrap(dateAfter7Days))
         XCTAssertEqual(originalDate?.weekOfYear, 1)
     }
 
-    func testWeekOfMonth() {
+    func testWeekOfMonth() throws {
         let date = Date(timeIntervalSince1970: 0)
         XCTAssertEqual(date.weekOfMonth, 1)
 
         let dateAfter7Days = Calendar.current.date(byAdding: .day, value: 7, to: date)
         XCTAssertEqual(dateAfter7Days?.weekOfMonth, 2)
 
-        let originalDate = Calendar.current.date(byAdding: .day, value: -7, to: dateAfter7Days!)
+        let originalDate = try Calendar.current.date(byAdding: .day, value: -7, to: XCTUnwrap(dateAfter7Days))
         XCTAssertEqual(originalDate?.weekOfMonth, 1)
     }
 
@@ -659,7 +659,7 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertNil(date.end(of: .quarter))
     }
 
-    func testDateString() {
+    func testDateString() throws {
         let date = Date(timeIntervalSince1970: 512)
         let formatter = DateFormatter()
         formatter.timeStyle = .none
@@ -686,24 +686,36 @@ final class DateExtensionsTests: XCTestCase {
 
         formatter.dateFormat = "iiiii"
         XCTAssertEqual(date.string(withFormat: "iiiii"), formatter.string(from: date))
-        
+
         formatter.dateFormat = "dd/MMM/yyyy HH:mm"
-        
+
         formatter.locale = .current
         XCTAssertEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: .current), formatter.string(from: date))
- 
+
         formatter.locale = Locale(identifier: "en_US_POSIX")
-        XCTAssertEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "en_US_POSIX")), formatter.string(from: date))
-        
+        XCTAssertEqual(
+            date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "en_US_POSIX")),
+            formatter.string(from: date))
+
         formatter.locale = Locale(identifier: "fr_FR")
-        XCTAssertEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "fr_FR")), formatter.string(from: date))
-        
-        XCTAssertNotEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "fr_FR")), date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "en_US")))
-        
+        XCTAssertEqual(
+            date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "fr_FR")),
+            formatter.string(from: date))
+
+        XCTAssertNotEqual(
+            date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "fr_FR")),
+            date.string(withFormat: "dd/MMM/yyyy HH:mm", locale: Locale(identifier: "en_US")))
+
         formatter.locale = .current
-        formatter.timeZone = TimeZone(identifier: "UTC")!
-        XCTAssertEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", timeZone: TimeZone(identifier: "UTC")!), formatter.string(from: date))
-        XCTAssertNotEqual(date.string(withFormat: "dd/MMM/yyyy HH:mm", timeZone: TimeZone(identifier: "Asia/Shanghai")!), formatter.string(from: date))
+        formatter.timeZone = try XCTUnwrap(TimeZone(identifier: "UTC"))
+        XCTAssertEqual(
+            try date.string(withFormat: "dd/MMM/yyyy HH:mm", timeZone: XCTUnwrap(TimeZone(identifier: "UTC"))),
+            formatter.string(from: date))
+        XCTAssertNotEqual(
+            try date
+                .string(withFormat: "dd/MMM/yyyy HH:mm",
+                        timeZone: XCTUnwrap(TimeZone(identifier: "Asia/Shanghai"))),
+            formatter.string(from: date))
     }
 
     func testDateTimeString() {
@@ -852,7 +864,7 @@ final class DateExtensionsTests: XCTestCase {
         XCTAssertFalse(Date().isWithin(1, .calendar, of: Date()))
     }
 
-    func testNewDateFromComponents() {
+    func testNewDateFromComponents() throws {
         let date = Date(
             calendar: Date().calendar,
             timeZone: NSTimeZone.default,
@@ -865,7 +877,7 @@ final class DateExtensionsTests: XCTestCase {
             second: Date().second,
             nanosecond: Date().nanosecond)
         XCTAssertNotNil(date)
-        let date1 = Date(timeIntervalSince1970: date!.timeIntervalSince1970)
+        let date1 = try Date(timeIntervalSince1970: XCTUnwrap(date?.timeIntervalSince1970))
 
         XCTAssertEqual(date?.timeIntervalSince1970, date1.timeIntervalSince1970)
 

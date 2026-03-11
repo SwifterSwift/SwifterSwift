@@ -1,4 +1,4 @@
-// URLExtensionsTests.swift - Copyright 2025 SwifterSwift
+// URLExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -61,8 +61,8 @@ final class URLExtensionsTests: XCTestCase {
         XCTAssertEqual(url, queryUrlWithParams)
     }
 
-    func testValueForQueryKey() {
-        let url = URL(string: "https://google.com?code=12345&empty")!
+    func testValueForQueryKey() throws {
+        let url = try XCTUnwrap(URL(string: "https://google.com?code=12345&empty"))
 
         let codeResult = url.queryValue(for: "code")
         let emptyResult = url.queryValue(for: "empty")
@@ -73,8 +73,8 @@ final class URLExtensionsTests: XCTestCase {
         XCTAssertNil(otherResult)
     }
 
-    func testDeletingAllPathComponents() {
-        let url = URL(string: "https://domain.com/path/other/")!
+    func testDeletingAllPathComponents() throws {
+        let url = try XCTUnwrap(URL(string: "https://domain.com/path/other/"))
         let result = url.deletingAllPathComponents()
         #if os(Linux)
         XCTAssertEqual(result.absoluteString, "https://domain.com")
@@ -82,13 +82,13 @@ final class URLExtensionsTests: XCTestCase {
         XCTAssertEqual(result.absoluteString, "https://domain.com/")
         #endif
 
-        let pathlessURL = URL(string: "https://domain.com")!
+        let pathlessURL = try XCTUnwrap(URL(string: "https://domain.com"))
         let pathlessResult = pathlessURL.deletingAllPathComponents()
         XCTAssertEqual(pathlessResult.absoluteString, "https://domain.com")
     }
 
-    func testDeleteAllPathComponents() {
-        var url = URL(string: "https://domain.com/path/other/")!
+    func testDeleteAllPathComponents() throws {
+        var url = try XCTUnwrap(URL(string: "https://domain.com/path/other/"))
         url.deleteAllPathComponents()
         #if os(Linux)
         XCTAssertEqual(url.absoluteString, "https://domain.com")
@@ -96,17 +96,17 @@ final class URLExtensionsTests: XCTestCase {
         XCTAssertEqual(url.absoluteString, "https://domain.com/")
         #endif
 
-        var pathlessURL = URL(string: "https://domain.com")!
+        var pathlessURL = try XCTUnwrap(URL(string: "https://domain.com"))
         pathlessURL.deleteAllPathComponents()
         XCTAssertEqual(pathlessURL.absoluteString, "https://domain.com")
     }
 
     #if os(iOS) || os(tvOS)
-    func testThumbnail() {
+    func testThumbnail() throws {
         XCTAssertNil(queryUrl.thumbnail())
 
-        let videoUrl = Bundle(for: URLExtensionsTests.self)
-            .url(forResource: "big_buck_bunny_720p_1mb", withExtension: "mp4")!
+        let videoUrl = try XCTUnwrap(Bundle(for: URLExtensionsTests.self)
+            .url(forResource: "big_buck_bunny_720p_1mb", withExtension: "mp4"))
         XCTAssertNotNil(videoUrl.thumbnail())
         XCTAssertNotNil(videoUrl.thumbnail(fromTime: 1))
     }

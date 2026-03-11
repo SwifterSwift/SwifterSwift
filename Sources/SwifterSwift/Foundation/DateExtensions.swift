@@ -1,4 +1,4 @@
-// DateExtensions.swift - Copyright 2025 SwifterSwift
+// DateExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(Foundation)
 import Foundation
@@ -749,15 +749,18 @@ public extension Date {
     ///     // Specifying different time zones:
     ///
     ///     date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "UTC")!) -> "01/12/2017 15:50"
-    ///     date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "America/New_York")!) -> "01/12/2017 10:50"
-    ///     date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "Asia/Shanghai")!) -> "01/12/2017 23:50"
+    ///     date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "America/New_York")!) ->
+    /// "01/12/2017 10:50"
+    ///     date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "Asia/Shanghai")!) -> "01/12/2017
+    /// 23:50"
     ///
     /// - Parameters:
     ///   - format: The date format string. Default is `"dd/MM/yyyy HH:mm"`.
     ///   - locale: The locale to use for formatting. Default is `.current`.
     ///   - timeZone: The time zone to use for formatting. Default is `.current`.
     /// - Returns: A string representing the date in the specified format, locale, and time zone.
-    func string(withFormat format: String = "dd/MM/yyyy HH:mm", locale: Locale = .current, timeZone: TimeZone = .current) -> String {
+    func string(withFormat format: String = "dd/MM/yyyy HH:mm", locale: Locale = .current,
+                timeZone: TimeZone = .current) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         dateFormatter.locale = locale

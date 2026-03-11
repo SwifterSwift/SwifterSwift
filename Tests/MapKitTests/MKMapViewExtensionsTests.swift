@@ -1,4 +1,4 @@
-// MKMapViewExtensionsTests.swift - Copyright 2025 SwifterSwift
+// MKMapViewExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -38,14 +38,14 @@ final class MKMapViewExtensionsTests: XCTestCase {
         XCTAssert(mapView.visibleMapRect.contains(previous))
     }
 
-    func testWithOneItemArray() {
+    func testWithOneItemArray() throws {
         let mapView = MKMapView()
         let meter = 500.0
         let oneItemArray = [CLLocationCoordinate2D(latitude: 36.9751, longitude: 38.4243)]
         let edgePadding = SFEdgeInsets(top: 50, left: 50, bottom: 50, right: 50)
         mapView.zoom(to: oneItemArray, meter: meter, edgePadding: edgePadding, animated: true)
 
-        let firstPoint = MKMapPoint(oneItemArray.first!)
+        let firstPoint = try MKMapPoint(XCTUnwrap(oneItemArray.first))
         XCTAssert(mapView.visibleMapRect.contains(firstPoint))
     }
 

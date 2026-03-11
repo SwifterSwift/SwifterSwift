@@ -1,4 +1,4 @@
-// WKWebViewExtensions.swift - Copyright 2025 SwifterSwift
+// WKWebViewExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(WebKit)
 import WebKit

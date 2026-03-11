@@ -1,4 +1,4 @@
-// UIBezierPathExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UIBezierPathExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -44,7 +44,7 @@ final class UIBezierPathExtensionsTests: XCTestCase {
         ]
         let path = UIBezierPath(polygonWithPoints: points)
         XCTAssertNotNil(path)
-        XCTAssertEqual(path!.points, points + [firstPoint])
+        XCTAssertEqual(path?.points, points + [firstPoint])
     }
 
     func testInitOvalOfSize() {
@@ -77,7 +77,7 @@ final class UIBezierPathExtensionsTests: XCTestCase {
 }
 
 fileprivate extension UIBezierPath {
-    // Only works for straight lines
+    /// Only works for straight lines
     var points: [CGPoint] {
         var points = [CGPoint]()
         cgPath.applyWithBlock { pointer in

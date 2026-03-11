@@ -1,4 +1,4 @@
-// UISliderExtensions.swift - Copyright 2025 SwifterSwift
+// UISliderExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(UIKit) && os(iOS)
 import UIKit

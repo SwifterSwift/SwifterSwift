@@ -1,4 +1,4 @@
-// UIViewExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UIViewExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -15,8 +15,8 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
         XCTAssertNil(view.layerBorderColor)
         view.layerBorderColor = UIColor.red
         XCTAssertNotNil(view.layer.borderColor)
-        XCTAssertEqual(view.layerBorderColor!, UIColor.red)
-        XCTAssertEqual(view.layer.borderColor!.uiColor, UIColor.red)
+        XCTAssertEqual(view.layerBorderColor, UIColor.red)
+        XCTAssertEqual(view.layer.borderColor?.uiColor, UIColor.red)
     }
 
     func testBorderWidth() {
@@ -100,13 +100,13 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
         XCTAssertEqual(view.layer.cornerRadius, 50)
     }
 
-    func testShadowColor() {
+    func testShadowColor() throws {
         let frame = CGRect(x: 0, y: 0, width: 100, height: 100)
         let view = UIView(frame: frame)
         view.layer.shadowColor = nil
         XCTAssertNil(view.layerShadowColor)
         view.layerShadowColor = UIColor.orange
-        XCTAssertNotNil(view.layer.shadowColor!)
+        XCTAssertNotNil(try XCTUnwrap(view.layer.shadowColor))
         XCTAssertEqual(view.layerShadowColor, UIColor.orange)
     }
 
@@ -363,7 +363,7 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
         view.addGestureRecognizer(tap)
         XCTAssertNotNil(view.gestureRecognizers)
         view.removeGestureRecognizers()
-        XCTAssertEqual(view.gestureRecognizers!.count, 0)
+        XCTAssertEqual(view.gestureRecognizers?.count, 0)
     }
 
     func testAddGestureRecognizers() {
@@ -378,10 +378,10 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
         view.addGestureRecognizers([tap, pan, swipe])
 
         XCTAssertNotNil(view.gestureRecognizers)
-        XCTAssertEqual(view.gestureRecognizers!.count, 3)
+        XCTAssertEqual(view.gestureRecognizers?.count, 3)
     }
 
-    func testRemoveGestureRecognizersVariadic() {
+    func testRemoveGestureRecognizersVariadic() throws {
         let view = UIView()
 
         XCTAssertNil(view.gestureRecognizers)
@@ -393,12 +393,12 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
         view.addGestureRecognizers([tap, pan, swipe])
 
         XCTAssertNotNil(view.gestureRecognizers)
-        XCTAssertEqual(view.gestureRecognizers!.count, 3)
+        XCTAssertEqual(view.gestureRecognizers?.count, 3)
 
         view.removeGestureRecognizers([tap, pan, swipe])
 
         XCTAssertNotNil(view.gestureRecognizers)
-        XCTAssert(view.gestureRecognizers!.isEmpty)
+        XCTAssert(try XCTUnwrap(view.gestureRecognizers?.isEmpty))
     }
 
     // swiftlint:disable:next function_body_length
@@ -419,10 +419,10 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
             XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 1.0))
             XCTAssertEqual(sublayers[0].colors?.count, 4)
             // swiftlint:disable force_cast
-            XCTAssertEqual(sublayers[0].colors?[0] as! CGColor, UIColor.red.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[1] as! CGColor, UIColor.orange.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[2] as! CGColor, UIColor.green.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[3] as! CGColor, UIColor.blue.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[0] as? CGColor, UIColor.red.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[1] as? CGColor, UIColor.orange.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[2] as? CGColor, UIColor.green.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[3] as? CGColor, UIColor.blue.cgColor)
             // swiftlint:enable force_cast
             XCTAssertEqual(sublayers[0].locations?.count, 4)
             XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
@@ -447,10 +447,10 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
             XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 0.0))
             XCTAssertEqual(sublayers[0].colors?.count, 4)
             // swiftlint:disable force_cast
-            XCTAssertEqual(sublayers[0].colors?[0] as! CGColor, UIColor.red.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[1] as! CGColor, UIColor.orange.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[2] as! CGColor, UIColor.green.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[3] as! CGColor, UIColor.blue.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[0] as? CGColor, UIColor.red.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[1] as? CGColor, UIColor.orange.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[2] as? CGColor, UIColor.green.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[3] as? CGColor, UIColor.blue.cgColor)
             // swiftlint:enable force_cast
             XCTAssertEqual(sublayers[0].locations?.count, 4)
             XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
@@ -475,10 +475,10 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
             XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 0.5))
             XCTAssertEqual(sublayers[0].colors?.count, 4)
             // swiftlint:disable force_cast
-            XCTAssertEqual(sublayers[0].colors?[0] as! CGColor, UIColor.red.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[1] as! CGColor, UIColor.orange.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[2] as! CGColor, UIColor.green.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[3] as! CGColor, UIColor.blue.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[0] as? CGColor, UIColor.red.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[1] as? CGColor, UIColor.orange.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[2] as? CGColor, UIColor.green.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[3] as? CGColor, UIColor.blue.cgColor)
             // swiftlint:enable force_cast
             XCTAssertEqual(sublayers[0].locations?.count, 4)
             XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
@@ -503,10 +503,10 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
             XCTAssertTrue(sublayers[0].endPoint.y.isEqual(to: 0.5))
             XCTAssertEqual(sublayers[0].colors?.count, 4)
             // swiftlint:disable force_cast
-            XCTAssertEqual(sublayers[0].colors?[0] as! CGColor, UIColor.red.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[1] as! CGColor, UIColor.orange.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[2] as! CGColor, UIColor.green.cgColor)
-            XCTAssertEqual(sublayers[0].colors?[3] as! CGColor, UIColor.blue.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[0] as? CGColor, UIColor.red.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[1] as? CGColor, UIColor.orange.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[2] as? CGColor, UIColor.green.cgColor)
+            XCTAssertEqual(sublayers[0].colors?[3] as? CGColor, UIColor.blue.cgColor)
             // swiftlint:enable force_cast
             XCTAssertEqual(sublayers[0].locations?.count, 4)
             XCTAssertNotNil(sublayers[0].locations?[0].isEqual(to: 0.0))
@@ -662,12 +662,12 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
         ])
 
         // find them
-        XCTAssertEqual(view.widthConstraint!.constant, 1)
-        XCTAssertEqual(view.heightConstraint!.constant, 2)
-        XCTAssertEqual(view.leadingConstraint!.constant, 3)
-        XCTAssertEqual(view.trailingConstraint!.constant, 4)
-        XCTAssertEqual(view.topConstraint!.constant, 5)
-        XCTAssertEqual(view.bottomConstraint!.constant, 6)
+        XCTAssertEqual(view.widthConstraint?.constant, 1)
+        XCTAssertEqual(view.heightConstraint?.constant, 2)
+        XCTAssertEqual(view.leadingConstraint?.constant, 3)
+        XCTAssertEqual(view.trailingConstraint?.constant, 4)
+        XCTAssertEqual(view.topConstraint?.constant, 5)
+        XCTAssertEqual(view.bottomConstraint?.constant, 6)
 
         // simple empty case test
         XCTAssertNil(container.widthConstraint)

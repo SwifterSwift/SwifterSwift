@@ -1,4 +1,4 @@
-// CGSizeExtensions.swift - Copyright 2025 SwifterSwift
+// CGSizeExtensions.swift - Copyright 2026 SwifterSwift
 
 #if canImport(CoreGraphics)
 import CoreGraphics

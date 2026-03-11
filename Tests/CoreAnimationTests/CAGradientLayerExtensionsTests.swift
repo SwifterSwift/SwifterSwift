@@ -1,4 +1,4 @@
-// CAGradientLayerExtensionsTests.swift - Copyright 2025 SwifterSwift
+// CAGradientLayerExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest

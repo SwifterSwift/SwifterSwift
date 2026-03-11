@@ -1,4 +1,4 @@
-// UIStackViewExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UIStackViewExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -97,10 +97,10 @@ final class UIStackViewExtensionsTests: XCTestCase {
         stack.backgroundViewColor = .red
         XCTAssertNotNil(stack.backgroundViewColor)
 
-        XCTAssertEqual(stack.backgroundViewColor!, UIColor.red)
+        XCTAssertEqual(stack.backgroundViewColor, UIColor.red)
 
         if #available(iOS 14, *) {
-            XCTAssertEqual(stack.backgroundColor!, UIColor.red)
+            XCTAssertEqual(stack.backgroundColor, UIColor.red)
         }
     }
 }

@@ -1,4 +1,4 @@
-// StringExtensionsTests.swift - Copyright 2025 SwifterSwift
+// StringExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -176,12 +176,12 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssertEqual("Hëllô Teśt".latinized, "Hello Test")
     }
 
-    func testBool() {
+    func testBool() throws {
         XCTAssertNotNil("1".bool)
-        XCTAssert("1".bool!)
+        XCTAssert(try XCTUnwrap("1".bool))
 
         XCTAssertNotNil("false".bool)
-        XCTAssertFalse("false".bool!)
+        XCTAssertFalse(try XCTUnwrap("false".bool))
         XCTAssertNil("8s".bool)
     }
 

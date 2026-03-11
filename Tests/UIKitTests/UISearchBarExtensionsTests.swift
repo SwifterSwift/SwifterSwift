@@ -1,4 +1,4 @@
-// UISearchBarExtensionsTests.swift - Copyright 2025 SwifterSwift
+// UISearchBarExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
@@ -24,7 +24,7 @@ final class UISearchBarExtensionsTests: XCTestCase {
         let aSearchBar = UISearchBar(frame: frame)
         aSearchBar.text = "Hello \n    \n"
         XCTAssertNotNil(aSearchBar.trimmedText)
-        XCTAssertEqual(aSearchBar.trimmedText!, "Hello")
+        XCTAssertEqual(aSearchBar.trimmedText, "Hello")
     }
 
     func testClear() {
@@ -32,7 +32,7 @@ final class UISearchBarExtensionsTests: XCTestCase {
         let aSearchBar = UISearchBar(frame: frame)
         aSearchBar.text = "Hello"
         aSearchBar.clear()
-        XCTAssertEqual(aSearchBar.text!, "")
+        XCTAssertEqual(aSearchBar.text, "")
     }
 }
 

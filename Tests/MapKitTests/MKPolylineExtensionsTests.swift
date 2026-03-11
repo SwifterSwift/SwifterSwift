@@ -1,12 +1,11 @@
-// MKPolylineExtensionsTests.swift - Copyright 2025 SwifterSwift
+// MKPolylineExtensionsTests.swift - Copyright 2026 SwifterSwift
 
 @testable import SwifterSwift
 import XCTest
 
 #if canImport(MapKit)
-import MapKit
-
 import struct CoreLocation.CLLocationCoordinate2D
+import MapKit
 
 final class MKPolylineExtensionsTests: XCTestCase {
     let coordinates = [
