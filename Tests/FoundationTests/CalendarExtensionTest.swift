@@ -24,6 +24,18 @@ class CalendarExtensionTests: XCTestCase {
         XCTAssertEqual(calendar.numberOfDaysInMonth(for: febDate), 28)
         XCTAssertEqual(calendar.numberOfDaysInMonth(for: leapYearDate), 29)
     }
+
+    func testNumberOfDaysInYear() throws {
+        let calendar = Calendar(identifier: .gregorian)
+
+        // 2020 is a leap year
+        let leapYear = try XCTUnwrap(calendar.date(from: DateComponents(year: 2020, month: 1, day: 1)))
+        XCTAssertEqual(calendar.numberOfDaysInYear(for: leapYear), 366)
+
+        // 2021 is not a leap year
+        let normalYear = try XCTUnwrap(calendar.date(from: DateComponents(year: 2021, month: 1, day: 1)))
+        XCTAssertEqual(calendar.numberOfDaysInYear(for: normalYear), 365)
+    }
 }
 
 #endif
