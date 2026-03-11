@@ -113,7 +113,7 @@ jobs:
             xcodebuild clean test -workspace . -scheme SwifterSwift-Package -destination "platform=OS X"
             ;;
           watchos)
-            xcodebuild clean build -workspace . -scheme SwifterSwift-Package -destination "platform=watchOS Simulator,name=Apple Watch Series 10 (42mm)"
+            xcodebuild clean test -workspace . -scheme SwifterSwift-Package -destination "platform=watchOS Simulator,name=Apple Watch Series 10 (42mm)"
             ;;
         esac
       

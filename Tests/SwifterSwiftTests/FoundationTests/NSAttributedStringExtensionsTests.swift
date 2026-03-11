@@ -280,7 +280,7 @@ final class NSAttributedStringExtensionsTests: XCTestCase {
             case NSAttributedString.Key.strikethroughStyle:
                 return (value as? NSUnderlineStyle.RawValue) == NSUnderlineStyle.single.rawValue
             case NSAttributedString.Key.font:
-                #if os(tvOS) ||  os(watchOS)
+                #if os(tvOS) || os(watchOS)
                 return false
                 #else
                 return (value as? SFFont) == .boldSystemFont(ofSize: SFFont.systemFontSize)
