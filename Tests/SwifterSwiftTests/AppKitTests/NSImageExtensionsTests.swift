@@ -13,11 +13,10 @@ final class NSImageExtensionsTests: XCTestCase {
         let bundle = Bundle(for: NSImageExtensionsTests.self)
         #endif
 
-        let image: NSImage?
-        if let url = bundle.url(forResource: "TestImage", withExtension: "png") {
-            image = NSImage(contentsOf: url)
+        let image: NSImage? = if let url = bundle.url(forResource: "TestImage", withExtension: "png") {
+            NSImage(contentsOf: url)
         } else {
-            image = bundle.image(forResource: NSImage.Name(stringLiteral: "TestImage"))
+            bundle.image(forResource: NSImage.Name(stringLiteral: "TestImage"))
         }
         XCTAssertNotNil(image)
 
