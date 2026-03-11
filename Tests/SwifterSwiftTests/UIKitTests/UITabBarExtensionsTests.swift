@@ -7,7 +7,7 @@ import XCTest
 import UIKit
 
 @MainActor
-final class UITabBarExtensionsTests: XCTestCase {
+final class UITabBarExtensionsTests: XCTestCase, TestBundleProvider {
     func testSetColors() throws {
         let frame = CGRect(x: 0, y: 0, width: 300, height: 44)
         var tabBar = UITabBar(frame: frame)
@@ -19,8 +19,7 @@ final class UITabBarExtensionsTests: XCTestCase {
         tabBar.setColors()
         XCTAssertNotEqual(tabBar.barTintColor, .red)
 
-        let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: testBundle, compatibleWith: nil))
 
         let item1 = UITabBarItem(title: "First", image: image, selectedImage: image)
         let item2 = UITabBarItem(title: "Second", image: nil, selectedImage: nil)

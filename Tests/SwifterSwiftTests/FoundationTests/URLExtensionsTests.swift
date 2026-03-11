@@ -6,7 +6,7 @@ import XCTest
 #if canImport(Foundation)
 import Foundation
 
-final class URLExtensionsTests: XCTestCase {
+final class URLExtensionsTests: XCTestCase, TestBundleProvider {
     let params = ["foo": "bar"]
     let queryUrl = URL(string: "https://www.google.com?q=swifter%20swift&steve=jobs&empty")!
     let queryUrlWithParams = URL(string: "https://www.google.com?q=swifter%20swift&steve=jobs&empty&foo=bar")!
@@ -105,7 +105,7 @@ final class URLExtensionsTests: XCTestCase {
     func testThumbnail() throws {
         XCTAssertNil(queryUrl.thumbnail())
 
-        let videoUrl = try XCTUnwrap(Bundle(for: URLExtensionsTests.self)
+        let videoUrl = try XCTUnwrap(testBundle
             .url(forResource: "big_buck_bunny_720p_1mb", withExtension: "mp4"))
         XCTAssertNotNil(videoUrl.thumbnail())
         XCTAssertNotNil(videoUrl.thumbnail(fromTime: 1))

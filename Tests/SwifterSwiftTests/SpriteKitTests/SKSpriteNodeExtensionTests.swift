@@ -7,12 +7,11 @@ import XCTest
 import SpriteKit
 
 @MainActor
-final class SKSpriteNodeExtensionTests: XCTestCase {
+final class SKSpriteNodeExtensionTests: XCTestCase, TestBundleProvider {
     func testAspectFill() throws {
-        let bundle = Bundle(for: SKSpriteNodeExtensionTests.self)
         let scene = SKScene(size: CGSize(width: 750, height: 1334))
         let node = SKSpriteNode()
-        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: testBundle, compatibleWith: nil))
 
         node.size = CGSize(width: 300, height: 300)
         node.texture = SKTexture(image: image)

@@ -7,7 +7,7 @@ import XCTest
 import UIKit
 
 @MainActor
-final class UITextFieldExtensionsTests: XCTestCase {
+final class UITextFieldExtensionsTests: XCTestCase, TestBundleProvider {
     func testIsEmpty() {
         let textField = UITextField()
         XCTAssert(textField.isEmpty)
@@ -142,8 +142,7 @@ final class UITextFieldExtensionsTests: XCTestCase {
         let textfield = UITextField()
         textfield.frame = CGRect(x: 0, y: 0, width: 100, height: 44)
 
-        let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: testBundle, compatibleWith: nil))
         textfield.addPaddingLeftIcon(image, padding: 5)
         XCTAssertEqual(textfield.leftView?.frame.width, image.size.width + 5)
     }
@@ -152,8 +151,7 @@ final class UITextFieldExtensionsTests: XCTestCase {
         let textfield = UITextField()
         textfield.frame = CGRect(x: 0, y: 0, width: 100, height: 44)
 
-        let bundle = Bundle(for: UIImageExtensionsTests.self)
-        let image = try XCTUnwrap(UIImage(named: "TestImage", in: bundle, compatibleWith: nil))
+        let image = try XCTUnwrap(UIImage(named: "TestImage", in: testBundle, compatibleWith: nil))
         textfield.addPaddingRightIcon(image, padding: 5)
         XCTAssertEqual(textfield.rightView?.frame.width, image.size.width + 5)
     }
