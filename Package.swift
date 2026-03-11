@@ -12,18 +12,157 @@ let package = Package(
         .macOS(.v10_13)
     ],
     products: [
-        .library(name: "SwifterSwift", targets: ["SwifterSwift"])
+        .library(name: "SwifterSwift", targets: ["SwifterSwift"]),
+        .library(name: "SwifterSwiftNoIBInspectable", targets: ["SwifterSwiftNoIBInspectable"]),
+        .library(name: "SwifterSwiftShared", targets: ["SwifterSwiftShared"]),
+        .library(name: "SwifterSwiftSwiftStdlib", targets: ["SwifterSwiftSwiftStdlib"]),
+        .library(name: "SwifterSwiftFoundation", targets: ["SwifterSwiftFoundation"]),
+        .library(name: "SwifterSwiftUIKit", targets: ["SwifterSwiftUIKit"]),
+        .library(name: "SwifterSwiftUIKitNoIBInspectable", targets: ["SwifterSwiftUIKitNoIBInspectable"]),
+        .library(name: "SwifterSwiftAppKit", targets: ["SwifterSwiftAppKit"]),
+        .library(name: "SwifterSwiftAppKitNoIBInspectable", targets: ["SwifterSwiftAppKitNoIBInspectable"]),
+        .library(name: "SwifterSwiftCoreAnimation", targets: ["SwifterSwiftCoreAnimation"]),
+        .library(name: "SwifterSwiftCoreGraphics", targets: ["SwifterSwiftCoreGraphics"]),
+        .library(name: "SwifterSwiftCoreLocation", targets: ["SwifterSwiftCoreLocation"]),
+        .library(name: "SwifterSwiftCryptoKit", targets: ["SwifterSwiftCryptoKit"]),
+        .library(name: "SwifterSwiftDispatch", targets: ["SwifterSwiftDispatch"]),
+        .library(name: "SwifterSwiftHealthKit", targets: ["SwifterSwiftHealthKit"]),
+        .library(name: "SwifterSwiftMapKit", targets: ["SwifterSwiftMapKit"]),
+        .library(name: "SwifterSwiftSceneKit", targets: ["SwifterSwiftSceneKit"]),
+        .library(name: "SwifterSwiftSpriteKit", targets: ["SwifterSwiftSpriteKit"]),
+        .library(name: "SwifterSwiftStoreKit", targets: ["SwifterSwiftStoreKit"]),
+        .library(name: "SwifterSwiftWebKit", targets: ["SwifterSwiftWebKit"])
     ],
     targets: [
         .target(
             name: "SwifterSwift",
+            dependencies: [
+                "SwifterSwiftShared",
+                "SwifterSwiftSwiftStdlib",
+                "SwifterSwiftFoundation",
+                "SwifterSwiftUIKit",
+                "SwifterSwiftAppKit",
+                "SwifterSwiftCoreAnimation",
+                "SwifterSwiftCoreGraphics",
+                "SwifterSwiftCoreLocation",
+                "SwifterSwiftCryptoKit",
+                "SwifterSwiftDispatch",
+                "SwifterSwiftHealthKit",
+                "SwifterSwiftMapKit",
+                "SwifterSwiftSceneKit",
+                "SwifterSwiftSpriteKit",
+                "SwifterSwiftStoreKit",
+                "SwifterSwiftWebKit"
+            ],
+            path: "Sources/SwifterSwift"),
+        .target(
+            name: "SwifterSwiftNoIBInspectable",
+            dependencies: [
+                "SwifterSwiftShared",
+                "SwifterSwiftSwiftStdlib",
+                "SwifterSwiftFoundation",
+                "SwifterSwiftUIKitNoIBInspectable",
+                "SwifterSwiftAppKitNoIBInspectable",
+                "SwifterSwiftCoreAnimation",
+                "SwifterSwiftCoreGraphics",
+                "SwifterSwiftCoreLocation",
+                "SwifterSwiftCryptoKit",
+                "SwifterSwiftDispatch",
+                "SwifterSwiftHealthKit",
+                "SwifterSwiftMapKit",
+                "SwifterSwiftSceneKit",
+                "SwifterSwiftSpriteKit",
+                "SwifterSwiftStoreKit",
+                "SwifterSwiftWebKit"
+            ],
+            path: "Sources/SwifterSwiftNoIBInspectable"),
+        .target(
+            name: "SwifterSwiftShared",
+            path: "Sources/SwifterSwiftShared"),
+        .target(
+            name: "SwifterSwiftSwiftStdlib",
+            dependencies: ["SwifterSwiftShared"],
+            path: "Sources/SwifterSwiftSwiftStdlib"),
+        .target(
+            name: "SwifterSwiftFoundation",
+            dependencies: ["SwifterSwiftShared"],
+            path: "Sources/SwifterSwiftFoundation",
             resources: [
-                .process("Resources/PrivacyInfo.xcprivacy")
+                .process("PrivacyInfo.xcprivacy")
             ]),
+        .target(
+            name: "SwifterSwiftCoreAnimation",
+            dependencies: ["SwifterSwiftShared"],
+            path: "Sources/SwifterSwiftCoreAnimation"),
+        .target(
+            name: "SwifterSwiftCoreGraphics",
+            path: "Sources/SwifterSwiftCoreGraphics"),
+        .target(
+            name: "SwifterSwiftCoreLocation",
+            path: "Sources/SwifterSwiftCoreLocation"),
+        .target(
+            name: "SwifterSwiftCryptoKit",
+            dependencies: ["SwifterSwiftShared"],
+            path: "Sources/SwifterSwiftCryptoKit"),
+        .target(
+            name: "SwifterSwiftDispatch",
+            path: "Sources/SwifterSwiftDispatch"),
+        .target(
+            name: "SwifterSwiftHealthKit",
+            path: "Sources/SwifterSwiftHealthKit"),
+        .target(
+            name: "SwifterSwiftMapKit",
+            dependencies: ["SwifterSwiftShared"],
+            path: "Sources/SwifterSwiftMapKit"),
+        .target(
+            name: "SwifterSwiftSceneKit",
+            dependencies: ["SwifterSwiftShared"],
+            path: "Sources/SwifterSwiftSceneKit"),
+        .target(
+            name: "SwifterSwiftSpriteKit",
+            path: "Sources/SwifterSwiftSpriteKit"),
+        .target(
+            name: "SwifterSwiftStoreKit",
+            path: "Sources/SwifterSwiftStoreKit"),
+        .target(
+            name: "SwifterSwiftWebKit",
+            path: "Sources/SwifterSwiftWebKit"),
+        .target(
+            name: "SwifterSwiftUIKit",
+            dependencies: ["SwifterSwiftUIKitCore", "SwifterSwiftUIKitIBInspectable"],
+            path: "Sources/SwifterSwiftUIKit"),
+        .target(
+            name: "SwifterSwiftUIKitNoIBInspectable",
+            dependencies: ["SwifterSwiftUIKitCore"],
+            path: "Sources/SwifterSwiftUIKitNoIBInspectable"),
+        .target(
+            name: "SwifterSwiftUIKitCore",
+            dependencies: ["SwifterSwiftShared"],
+            path: "Sources/SwifterSwiftUIKitCore"),
+        .target(
+            name: "SwifterSwiftUIKitIBInspectable",
+            dependencies: ["SwifterSwiftUIKitCore"],
+            path: "Sources/SwifterSwiftUIKitIBInspectable"),
+        .target(
+            name: "SwifterSwiftAppKit",
+            dependencies: ["SwifterSwiftAppKitCore", "SwifterSwiftAppKitIBInspectable"],
+            path: "Sources/SwifterSwiftAppKit"),
+        .target(
+            name: "SwifterSwiftAppKitNoIBInspectable",
+            dependencies: ["SwifterSwiftAppKitCore"],
+            path: "Sources/SwifterSwiftAppKitNoIBInspectable"),
+        .target(
+            name: "SwifterSwiftAppKitCore",
+            dependencies: ["SwifterSwiftShared"],
+            path: "Sources/SwifterSwiftAppKitCore"),
+        .target(
+            name: "SwifterSwiftAppKitIBInspectable",
+            dependencies: ["SwifterSwiftAppKitCore"],
+            path: "Sources/SwifterSwiftAppKitIBInspectable"),
         .testTarget(
             name: "SwifterSwiftTests",
             dependencies: ["SwifterSwift"],
-            path: "Tests",
+            path: "Tests/SwifterSwiftTests",
             exclude: ["Info.plist"],
             resources: [
                 .process("ResourcesTests/Resources")
