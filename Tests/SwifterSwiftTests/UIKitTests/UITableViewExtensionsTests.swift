@@ -142,9 +142,9 @@ final class UITableViewExtensionsTests: XCTestCase {
         bundle = Bundle(for: UITableViewExtensionsTests.self)
         #endif
 
-        guard bundle.path(forResource: "UITableViewHeaderFooterView", ofType: "nib") != nil else {
-            throw XCTSkip("Nib fixtures are not compiled for this test destination.")
-        }
+        _ = try XCTUnwrap(
+            bundle.path(forResource: "UITableViewHeaderFooterView", ofType: "nib"),
+            "Nib fixtures are not compiled for this test destination.")
 
         let nib = UINib(nibName: "UITableViewHeaderFooterView", bundle: bundle)
         tableView.register(nib: nib, withHeaderFooterViewClass: UITableViewHeaderFooterView.self)
@@ -174,9 +174,9 @@ final class UITableViewExtensionsTests: XCTestCase {
         bundle = Bundle(for: UITableViewExtensionsTests.self)
         #endif
 
-        guard bundle.path(forResource: "UITableViewCell", ofType: "nib") != nil else {
-            throw XCTSkip("Nib fixtures are not compiled for this test destination.")
-        }
+        _ = try XCTUnwrap(
+            bundle.path(forResource: "UITableViewCell", ofType: "nib"),
+            "Nib fixtures are not compiled for this test destination.")
 
         let nib = UINib(nibName: "UITableViewCell", bundle: bundle)
         tableView.register(nib: nib, withCellClass: UITableViewCell.self)
@@ -186,16 +186,31 @@ final class UITableViewExtensionsTests: XCTestCase {
     #endif
 
     #if os(iOS)
-    func testRegisterCellWithNibUsingClass() {
-        #if SWIFT_PACKAGE
+    #if SWIFT_PACKAGE
+    func testRegisterCellWithNibUsingBundle() throws {
+        let bundle = SwifterSwiftTestResourcesiOS.bundle
+        _ = try XCTUnwrap(
+            bundle.path(forResource: "UITableViewCell", ofType: "nib"),
+            "Nib fixtures are not compiled for this test destination.")
+
         tableView.register(nibWithCellClass: UITableViewCell.self, bundle: SwifterSwiftTestResourcesiOS.bundle)
-        #else
-        tableView.register(nibWithCellClass: UITableViewCell.self, at: UITableViewExtensionsTests.self)
-        #endif
 
         let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
         XCTAssertNotNil(cell)
     }
+    #else
+    func testRegisterCellWithNibUsingClass() throws {
+        let bundle = Bundle(for: UITableViewExtensionsTests.self)
+        _ = try XCTUnwrap(
+            bundle.path(forResource: "UITableViewCell", ofType: "nib"),
+            "Nib fixtures are not compiled for this test destination.")
+
+        tableView.register(nibWithCellClass: UITableViewCell.self, at: UITableViewExtensionsTests.self)
+
+        let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
+        XCTAssertNotNil(cell)
+    }
+    #endif
     #endif
 }
 

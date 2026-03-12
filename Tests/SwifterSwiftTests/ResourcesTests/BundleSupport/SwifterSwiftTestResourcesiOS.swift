@@ -5,3 +5,5 @@ import Foundation
 public enum SwifterSwiftTestResourcesiOS {
     public static let bundle: Bundle = .module
 }
+
+public final class SwifterSwiftTestResourcesiOSBundleToken: NSObject {}

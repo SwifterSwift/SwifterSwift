@@ -150,7 +150,17 @@ public extension UITableView {
         if let bundleName = bundleClass {
             bundle = Bundle(for: bundleName)
         }
+        register(UINib(nibName: identifier, bundle: bundle), forCellReuseIdentifier: identifier)
+    }
 
+    /// SwifterSwift: Register UITableViewCell with .xib file using only its corresponding class.
+    ///               Assumes that the .xib filename and cell class has the same name.
+    ///
+    /// - Parameters:
+    ///   - name: UITableViewCell type.
+    ///   - bundle: Bundle where the compiled nib exists.
+    func register(nibWithCellClass name: (some UITableViewCell).Type, bundle: Bundle?) {
+        let identifier = String(describing: name)
         register(UINib(nibName: identifier, bundle: bundle), forCellReuseIdentifier: identifier)
     }
 

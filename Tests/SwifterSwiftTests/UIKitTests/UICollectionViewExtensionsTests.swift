@@ -84,29 +84,37 @@ final class UICollectionViewExtensionsTests: XCTestCase {
     #endif
 
     #if os(iOS)
-    func testRegisterCellWithNibUsingClass() throws {
+    #if SWIFT_PACKAGE
+    func testRegisterCellWithNibUsingBundle() throws {
         let indexPath = IndexPath(row: 0, section: 0)
-        let bundle: Bundle
-        #if SWIFT_PACKAGE
-        bundle = SwifterSwiftTestResourcesiOS.bundle
-        #else
-        bundle = Bundle(for: UICollectionViewExtensionsTests.self)
-        #endif
+        let bundle = SwifterSwiftTestResourcesiOS.bundle
 
-        guard bundle.path(forResource: "UICollectionViewCell", ofType: "nib") != nil else {
-            throw XCTSkip("Nib fixtures are not compiled for this test destination.")
-        }
-        #if SWIFT_PACKAGE
+        _ = try XCTUnwrap(
+            bundle.path(forResource: "UICollectionViewCell", ofType: "nib"),
+            "Nib fixtures are not compiled for this test destination.")
+
         collectionView.register(
             nibWithCellClass: UICollectionViewCell.self,
             bundle: SwifterSwiftTestResourcesiOS.bundle)
-        #else
-        collectionView.register(nibWithCellClass: UICollectionViewCell.self, at: UICollectionViewExtensionsTests.self)
-        #endif
 
         let cell = collectionView.dequeueReusableCell(withClass: UICollectionViewCell.self, for: indexPath)
         XCTAssertNotNil(cell)
     }
+    #else
+    func testRegisterCellWithNibUsingClass() throws {
+        let indexPath = IndexPath(row: 0, section: 0)
+        let bundle = Bundle(for: UICollectionViewExtensionsTests.self)
+
+        _ = try XCTUnwrap(
+            bundle.path(forResource: "UICollectionViewCell", ofType: "nib"),
+            "Nib fixtures are not compiled for this test destination.")
+
+        collectionView.register(nibWithCellClass: UICollectionViewCell.self, at: UICollectionViewExtensionsTests.self)
+
+        let cell = collectionView.dequeueReusableCell(withClass: UICollectionViewCell.self, for: indexPath)
+        XCTAssertNotNil(cell)
+    }
+    #endif
     #endif
 
     func testSafeScrollToIndexPath() {
