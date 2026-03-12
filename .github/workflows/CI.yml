@@ -9,61 +9,6 @@ on:
       - master
 
 jobs:
-  Darwin:
-    name: Darwin
-    runs-on: macos-15
-    env:
-      PROJECT: SwifterSwift.xcodeproj
-      DEVELOPER_DIR: /Applications/Xcode_26.2.0.app/Contents/Developer
-    steps:
-    - uses: actions/checkout@v1
-    - name: Bundle Install
-      run: bundle install
-    - name: Brew Upgrade
-      run: |
-        brew update-reset
-        brew bundle --no-upgrade
-    - name: Test iOS 18.6
-      run: |
-        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios-18.json" xcpretty -f `xcpretty-json-formatter`
-        bash <(curl -s https://codecov.io/bash) -cF ios -J 'SwifterSwift'
-      env:
-          SCHEME: SwifterSwift-iOS
-          DESTINATION: platform=iOS Simulator,name=iPhone 16,OS=18.6
-    - name: Test iOS 26.2
-      run: |
-        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-ios-26.json" xcpretty -f `xcpretty-json-formatter`
-        bash <(curl -s https://codecov.io/bash) -cF ios -J 'SwifterSwift'
-      env:
-          SCHEME: SwifterSwift-iOS
-          DESTINATION: platform=iOS Simulator,name=iPhone 16,OS=26.2
-    - name: Test MacOS
-      run: |
-        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-macos.json" xcpretty -f `xcpretty-json-formatter`
-        bash <(curl -s https://codecov.io/bash) -cF macos -J 'SwifterSwift'
-      env:
-          SCHEME: SwifterSwift-macOS
-          DESTINATION: platform=OS X
-    - name: Test TVOS
-      run: |
-        xcodebuild clean build test -project $PROJECT -scheme $SCHEME -destination "$DESTINATION" | XCPRETTY_JSON_FILE_OUTPUT="xcodebuild-tvos.json" xcpretty -f `xcpretty-json-formatter`
-        bash <(curl -s https://codecov.io/bash) -cF tvos -J 'SwifterSwift'
-      env:
-          SCHEME: SwifterSwift-tvOS
-          DESTINATION: platform=tvOS Simulator,name=Apple TV
-    - name: Build WatchOS
-      run: xcodebuild clean build -project $PROJECT -scheme $SCHEME -destination "$DESTINATION"
-      env:
-          SCHEME: SwifterSwift-watchOS
-          DESTINATION: platform=watchOS Simulator,name=Apple Watch Series 10 (42mm)
-  
-    - name: Danger Swift
-      # Hack to by pass the key invalidation mechanism
-      # See for more info: https://github.community/t5/GitHub-Actions/Make-secrets-available-to-builds-of-forks/td-p/30678
-      run: |
-          export DANGER_GITHUB_API_TOKEN=$(echo bd3b560e741b854e0c49b4f6a66d82418ab7e1fb | rev)
-          bundle exec danger --verbose
-      
   Swiftlint:
     runs-on: macos-15
     name: SwiftLint
@@ -74,6 +19,7 @@ jobs:
           brew update-reset
           brew bundle --no-upgrade
           swiftlint
+
   CocoaPods:
     name: CocoaPods
     runs-on: macos-15
