@@ -112,13 +112,13 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				SwifterSwiftTests/ResourcesTests/Resources/TestStoryboard.storyboard,
+				SwifterSwiftTests/ResourcesTests/Resources/iOS/TestStoryboard.storyboard,
 				"SwifterSwiftTests/ResourcesTests/Resources/tvOS/TestStoryboard-tvOS.storyboard",
 				SwifterSwiftTests/ResourcesTests/Resources/tvOS/UIImageViewTvOS.xib,
-				SwifterSwiftTests/ResourcesTests/Resources/UICollectionViewCell.xib,
-				SwifterSwiftTests/ResourcesTests/Resources/UIImageView.xib,
-				SwifterSwiftTests/ResourcesTests/Resources/UITableViewCell.xib,
-				SwifterSwiftTests/ResourcesTests/Resources/UITableViewHeaderFooterView.xib,
+				SwifterSwiftTests/ResourcesTests/Resources/iOS/UICollectionViewCell.xib,
+				SwifterSwiftTests/ResourcesTests/Resources/iOS/UIImageView.xib,
+				SwifterSwiftTests/ResourcesTests/Resources/iOS/UITableViewCell.xib,
+				SwifterSwiftTests/ResourcesTests/Resources/iOS/UITableViewHeaderFooterView.xib,
 			);
 			target = 07C50CE61F5EAF6300F46E5A /* SwifterSwift-macOSTests */;
 		};
@@ -126,11 +126,11 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
-				SwifterSwiftTests/ResourcesTests/Resources/TestStoryboard.storyboard,
-				SwifterSwiftTests/ResourcesTests/Resources/UICollectionViewCell.xib,
-				SwifterSwiftTests/ResourcesTests/Resources/UIImageView.xib,
-				SwifterSwiftTests/ResourcesTests/Resources/UITableViewCell.xib,
-				SwifterSwiftTests/ResourcesTests/Resources/UITableViewHeaderFooterView.xib,
+				SwifterSwiftTests/ResourcesTests/Resources/iOS/TestStoryboard.storyboard,
+				SwifterSwiftTests/ResourcesTests/Resources/iOS/UICollectionViewCell.xib,
+				SwifterSwiftTests/ResourcesTests/Resources/iOS/UIImageView.xib,
+				SwifterSwiftTests/ResourcesTests/Resources/iOS/UITableViewCell.xib,
+				SwifterSwiftTests/ResourcesTests/Resources/iOS/UITableViewHeaderFooterView.xib,
 			);
 			target = 07C50CD71F5EAF4B00F46E5A /* SwifterSwift-tvOSTests */;
 		};

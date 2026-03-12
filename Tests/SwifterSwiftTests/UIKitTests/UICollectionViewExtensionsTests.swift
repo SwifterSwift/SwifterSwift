@@ -6,6 +6,10 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+#if SWIFT_PACKAGE && os(iOS)
+import SwifterSwiftTestResourcesiOS
+#endif
+
 private final class TestCell: UICollectionViewCell {}
 
 @available(iOS 13.0, tvOS 13.0, *)
@@ -82,11 +86,24 @@ final class UICollectionViewExtensionsTests: XCTestCase {
     #if os(iOS)
     func testRegisterCellWithNibUsingClass() throws {
         let indexPath = IndexPath(row: 0, section: 0)
-        let bundle = Bundle(for: UICollectionViewExtensionsTests.self)
+        let bundle: Bundle
+        #if SWIFT_PACKAGE
+        bundle = SwifterSwiftTestResourcesiOS.bundle
+        #else
+        bundle = Bundle(for: UICollectionViewExtensionsTests.self)
+        #endif
+
         guard bundle.path(forResource: "UICollectionViewCell", ofType: "nib") != nil else {
             throw XCTSkip("Nib fixtures are not compiled for this test destination.")
         }
+        #if SWIFT_PACKAGE
+        collectionView.register(
+            nibWithCellClass: UICollectionViewCell.self,
+            bundle: SwifterSwiftTestResourcesiOS.bundle)
+        #else
         collectionView.register(nibWithCellClass: UICollectionViewCell.self, at: UICollectionViewExtensionsTests.self)
+        #endif
+
         let cell = collectionView.dequeueReusableCell(withClass: UICollectionViewCell.self, for: indexPath)
         XCTAssertNotNil(cell)
     }

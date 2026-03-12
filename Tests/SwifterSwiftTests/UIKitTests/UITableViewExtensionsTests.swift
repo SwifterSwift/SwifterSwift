@@ -6,6 +6,10 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+#if SWIFT_PACKAGE && os(iOS)
+import SwifterSwiftTestResourcesiOS
+#endif
+
 @available(iOS 13.0, tvOS 13.0, *)
 @MainActor
 final class UITableViewExtensionsTests: XCTestCase {
@@ -131,7 +135,13 @@ final class UITableViewExtensionsTests: XCTestCase {
 
     #if os(iOS)
     func testRegisterReusableViewWithClassAndNib() throws {
-        let bundle = Bundle(for: UITableViewExtensionsTests.self)
+        let bundle: Bundle
+        #if SWIFT_PACKAGE
+        bundle = SwifterSwiftTestResourcesiOS.bundle
+        #else
+        bundle = Bundle(for: UITableViewExtensionsTests.self)
+        #endif
+
         guard bundle.path(forResource: "UITableViewHeaderFooterView", ofType: "nib") != nil else {
             throw XCTSkip("Nib fixtures are not compiled for this test destination.")
         }
@@ -157,7 +167,13 @@ final class UITableViewExtensionsTests: XCTestCase {
 
     #if os(iOS)
     func testRegisterCellWithClassAndNib() throws {
-        let bundle = Bundle(for: UITableViewExtensionsTests.self)
+        let bundle: Bundle
+        #if SWIFT_PACKAGE
+        bundle = SwifterSwiftTestResourcesiOS.bundle
+        #else
+        bundle = Bundle(for: UITableViewExtensionsTests.self)
+        #endif
+
         guard bundle.path(forResource: "UITableViewCell", ofType: "nib") != nil else {
             throw XCTSkip("Nib fixtures are not compiled for this test destination.")
         }
@@ -171,7 +187,12 @@ final class UITableViewExtensionsTests: XCTestCase {
 
     #if os(iOS)
     func testRegisterCellWithNibUsingClass() {
+        #if SWIFT_PACKAGE
+        tableView.register(nibWithCellClass: UITableViewCell.self, bundle: SwifterSwiftTestResourcesiOS.bundle)
+        #else
         tableView.register(nibWithCellClass: UITableViewCell.self, at: UITableViewExtensionsTests.self)
+        #endif
+
         let cell = tableView.dequeueReusableCell(withClass: UITableViewCell.self)
         XCTAssertNotNil(cell)
     }

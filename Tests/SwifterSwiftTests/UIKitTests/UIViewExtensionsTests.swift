@@ -6,6 +6,10 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+#if SWIFT_PACKAGE && os(tvOS)
+import SwifterSwiftTestResourcesTVOS
+#endif
+
 @MainActor
 final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_body_length
     func testBorderColor() {
@@ -335,7 +339,13 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
 
     #if os(tvOS)
     func testLoadFromNib() throws {
-        let bundle = Bundle(for: UIViewExtensionsTests.self)
+        let bundle: Bundle
+        #if SWIFT_PACKAGE
+        bundle = SwifterSwiftTestResourcesTVOS.bundle
+        #else
+        bundle = Bundle(for: UIViewExtensionsTests.self)
+        #endif
+
         guard bundle.path(forResource: "UIImageViewTvOS", ofType: "nib") != nil else {
             throw XCTSkip("Nib fixtures are not compiled for this test destination.")
         }

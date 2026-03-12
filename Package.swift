@@ -159,20 +159,48 @@ let package = Package(
             name: "SwifterSwiftAppKitIBInspectable",
             dependencies: ["SwifterSwiftAppKitCore"],
             path: "Sources/SwifterSwiftAppKitIBInspectable"),
+        .target(
+            name: "SwifterSwiftTestResourcesiOS",
+            path: "Tests/SwifterSwiftTests/ResourcesTests",
+            exclude: [
+                "Resources/tvOS"
+            ],
+            sources: [
+                "BundleSupport/SwifterSwiftTestResourcesiOS.swift"
+            ],
+            resources: [
+                .process("Resources/iOS")
+            ]),
+        .target(
+            name: "SwifterSwiftTestResourcesTVOS",
+            path: "Tests/SwifterSwiftTests/ResourcesTests",
+            exclude: [
+                "Resources/iOS"
+            ],
+            sources: [
+                "BundleSupport/SwifterSwiftTestResourcesTVOS.swift"
+            ],
+            resources: [
+                .process("Resources/tvOS")
+            ]),
         .testTarget(
             name: "SwifterSwiftTests",
-            dependencies: ["SwifterSwift"],
+            dependencies: [
+                "SwifterSwift",
+                .target(
+                    name: "SwifterSwiftTestResourcesiOS",
+                    condition: .when(platforms: [.iOS])),
+                .target(
+                    name: "SwifterSwiftTestResourcesTVOS",
+                    condition: .when(platforms: [.tvOS]))
+            ],
             path: "Tests/SwifterSwiftTests",
             exclude: [
                 // Exclude Interface Builder fixtures so the macOS package test destination doesn't try to compile
                 // UIKit/tvOS resources with `ibtool` (which fails with "target device type \"mac\"").
-                "ResourcesTests/Resources/UICollectionViewCell.xib",
-                "ResourcesTests/Resources/UIImageView.xib",
-                "ResourcesTests/Resources/UITableViewCell.xib",
-                "ResourcesTests/Resources/UITableViewHeaderFooterView.xib",
-                "ResourcesTests/Resources/TestStoryboard.storyboard",
-                "ResourcesTests/Resources/tvOS/UIImageViewTvOS.xib",
-                "ResourcesTests/Resources/tvOS/TestStoryboard-tvOS.storyboard"
+                "ResourcesTests/BundleSupport",
+                "ResourcesTests/Resources/iOS",
+                "ResourcesTests/Resources/tvOS"
             ],
             resources: [
                 .process("ResourcesTests/Resources")

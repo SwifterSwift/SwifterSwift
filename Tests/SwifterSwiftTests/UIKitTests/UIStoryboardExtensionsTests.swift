@@ -14,6 +14,7 @@ final class UIStoryboardExtensionsTests: XCTestCase {
 
     func testInstantiateViewController() throws {
         let bundle = Bundle(for: UIStoryboardExtensionsTests.self)
+
         guard bundle.path(forResource: "TestStoryboard", ofType: "storyboardc") != nil else {
             throw XCTSkip("Storyboard fixtures are not compiled for this test destination.")
         }

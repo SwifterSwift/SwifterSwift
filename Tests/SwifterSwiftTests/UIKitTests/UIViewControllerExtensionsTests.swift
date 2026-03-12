@@ -6,6 +6,10 @@ import XCTest
 #if canImport(UIKit) && !os(watchOS)
 import UIKit
 
+#if SWIFT_PACKAGE && os(tvOS)
+import SwifterSwiftTestResourcesTVOS
+#endif
+
 @MainActor
 final class UIViewControllerExtensionsTests: XCTestCase {
     class MockNotificationViewController: UIViewController {
@@ -56,11 +60,24 @@ final class UIViewControllerExtensionsTests: XCTestCase {
         let storyboard = "TestStoryboard"
         #endif
 
-        let bundle = Bundle(for: UIViewControllerExtensionsTests.self)
+        let bundle: Bundle
+        #if SWIFT_PACKAGE && os(tvOS)
+        bundle = SwifterSwiftTestResourcesTVOS.bundle
+        #else
+        bundle = Bundle(for: UIViewControllerExtensionsTests.self)
+        #endif
+
         guard bundle.path(forResource: storyboard, ofType: "storyboardc") != nil else {
             throw XCTSkip("Storyboard fixtures are not compiled for this test destination.")
         }
 
+        #if SWIFT_PACKAGE && os(tvOS)
+        let viewController = UIViewController.instantiate(
+            from: storyboard,
+            bundle: bundle,
+            identifier: "MyViewController")
+        XCTAssertNotNil(viewController)
+        #else
         let myViewController = MyViewController.instantiate(from: storyboard,
                                                             bundle: bundle)
         myViewController.loadViewIfNeeded()
@@ -71,6 +88,7 @@ final class UIViewControllerExtensionsTests: XCTestCase {
                                                                     identifier: "MyViewController")
         identifiedViewController.loadViewIfNeeded()
         XCTAssertNotNil(identifiedViewController.testLabel)
+        #endif
     }
 
     func testShowAlert() {
