@@ -21,101 +21,134 @@ Pod::Spec.new do |s|
   s.swift_versions = ['6.0']
   s.requires_arc = true
   s.source = { git: 'https://github.com/SwifterSwift/SwifterSwift.git', tag: s.version.to_s }
-  s.source_files = 'Sources/SwifterSwift/**/*.swift'
+  s.source_files = 'Sources/SwifterSwiftShared/**/*.swift',
+                   'Sources/SwifterSwiftSwiftStdlib/**/*.swift',
+                   'Sources/SwifterSwiftFoundation/**/*.swift',
+                   'Sources/SwifterSwiftCoreAnimation/**/*.swift',
+                   'Sources/SwifterSwiftCoreGraphics/**/*.swift',
+                   'Sources/SwifterSwiftCoreLocation/**/*.swift',
+                   'Sources/SwifterSwiftCryptoKit/**/*.swift',
+                   'Sources/SwifterSwiftDispatch/**/*.swift',
+                   'Sources/SwifterSwiftHealthKit/**/*.swift',
+                   'Sources/SwifterSwiftMapKit/**/*.swift',
+                   'Sources/SwifterSwiftSceneKit/**/*.swift',
+                   'Sources/SwifterSwiftSpriteKit/**/*.swift',
+                   'Sources/SwifterSwiftStoreKit/**/*.swift',
+                   'Sources/SwifterSwiftUIKitCore/**/*.swift',
+                   'Sources/SwifterSwiftUIKitIBInspectable/**/*.swift',
+                   'Sources/SwifterSwiftAppKitCore/**/*.swift',
+                   'Sources/SwifterSwiftAppKitIBInspectable/**/*.swift',
+                   'Sources/SwifterSwiftWebKit/**/*.swift'
 
   # SwiftStdlib Extensions
   s.subspec 'SwiftStdlib' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/SwiftStdlib/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftShared/*.swift', 'Sources/SwifterSwiftSwiftStdlib/*.swift'
   end
 
   # Foundation Extensions
   s.subspec 'Foundation' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/Foundation/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftShared/*.swift', 'Sources/SwifterSwiftFoundation/*.swift'
     sp.resource_bundles = {
-      'SwifterSwift_Privacy' => 'Sources/SwifterSwift/Resources/PrivacyInfo.xcprivacy'
+      'SwifterSwift_Privacy' => 'Sources/SwifterSwiftFoundation/PrivacyInfo.xcprivacy'
     }
   end
 
   # UIKit Extensions
   s.subspec 'UIKit' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/UIKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftShared/*.swift',
+                      'Sources/SwifterSwiftUIKitCore/**/*.swift',
+                      'Sources/SwifterSwiftUIKitIBInspectable/**/*.swift'
   end
 
   # UIKit Without IBInspectable Extensions
   s.subspec 'UIKitNoIBInspectable' do |sp|
-    sp.dependency 'SwifterSwift/UIKit'
-    sp.exclude_files = 'Sources/SwifterSwift/UIKit/IBInspectable/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftShared/*.swift', 'Sources/SwifterSwiftUIKitCore/**/*.swift'
   end
 
   # AppKit Extensions
   s.subspec 'AppKit' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/AppKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftShared/*.swift',
+                      'Sources/SwifterSwiftAppKitCore/**/*.swift',
+                      'Sources/SwifterSwiftAppKitIBInspectable/**/*.swift'
   end
 
   # AppKit Without IBInspectable Extensions
   s.subspec 'AppKitNoIBInspectable' do |sp|
-    sp.dependency 'SwifterSwift/AppKit'
-    sp.exclude_files = 'Sources/SwifterSwift/AppKit/IBInspectable/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftShared/*.swift', 'Sources/SwifterSwiftAppKitCore/**/*.swift'
   end
 
   # SwifterSwift Without IBInspectable Extensions
   s.subspec 'NoIBInspectable' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/**/*.swift'
-    sp.exclude_files = 'Sources/SwifterSwift/**/IBInspectable/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftShared/**/*.swift',
+                      'Sources/SwifterSwiftSwiftStdlib/**/*.swift',
+                      'Sources/SwifterSwiftFoundation/**/*.swift',
+                      'Sources/SwifterSwiftCoreAnimation/**/*.swift',
+                      'Sources/SwifterSwiftCoreGraphics/**/*.swift',
+                      'Sources/SwifterSwiftCoreLocation/**/*.swift',
+                      'Sources/SwifterSwiftCryptoKit/**/*.swift',
+                      'Sources/SwifterSwiftDispatch/**/*.swift',
+                      'Sources/SwifterSwiftHealthKit/**/*.swift',
+                      'Sources/SwifterSwiftMapKit/**/*.swift',
+                      'Sources/SwifterSwiftSceneKit/**/*.swift',
+                      'Sources/SwifterSwiftSpriteKit/**/*.swift',
+                      'Sources/SwifterSwiftStoreKit/**/*.swift',
+                      'Sources/SwifterSwiftUIKitCore/**/*.swift',
+                      'Sources/SwifterSwiftAppKitCore/**/*.swift',
+                      'Sources/SwifterSwiftWebKit/**/*.swift'
   end
 
   # CoreGraphics Extensions
   s.subspec 'CoreGraphics' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/CoreGraphics/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftCoreGraphics/*.swift'
   end
 
   # CoreLocation Extensions
   s.subspec 'CoreLocation' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/CoreLocation/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftCoreLocation/*.swift'
   end
 
   # CoreAnimation Extensions
   s.subspec 'CoreAnimation' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/CoreAnimation/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftShared/*.swift', 'Sources/SwifterSwiftCoreAnimation/*.swift'
   end
 
   # CryptoKit Extensions
   s.subspec 'CryptoKit' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/CryptoKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftShared/*.swift', 'Sources/SwifterSwiftCryptoKit/*.swift'
   end
 
   # MapKit Extensions
   s.subspec 'MapKit' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/MapKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftShared/*.swift', 'Sources/SwifterSwiftMapKit/*.swift'
   end
 
   # SpriteKit Extensions
   s.subspec 'SpriteKit' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/SpriteKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftSpriteKit/*.swift'
   end
 
   s.subspec 'SceneKit' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/Shared/*.swift', 'Sources/SwifterSwift/SceneKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftShared/*.swift', 'Sources/SwifterSwiftSceneKit/*.swift'
   end
 
   # StoreKit Extensions
   s.subspec 'StoreKit' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/StoreKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftStoreKit/*.swift'
   end
 
   # Dispatch Extensions
   s.subspec 'Dispatch' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/Dispatch/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftDispatch/*.swift'
   end
 
   # WebKit Extensions
   s.subspec 'WebKit' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/WebKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftWebKit/*.swift'
   end
 
   # HealthKit Extensions
   s.subspec 'HealthKit' do |sp|
-    sp.source_files = 'Sources/SwifterSwift/HealthKit/*.swift'
+    sp.source_files = 'Sources/SwifterSwiftHealthKit/*.swift'
   end
 
 end

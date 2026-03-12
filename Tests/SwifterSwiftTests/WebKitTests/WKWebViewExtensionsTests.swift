@@ -1,0 +1,95 @@
+// WKWebViewExtensionsTests.swift - Copyright 2026 SwifterSwift
+
+@testable import SwifterSwift
+import XCTest
+
+#if canImport(WebKit)
+import WebKit
+
+@available(iOS 13.0, macOS 10.15, *)
+@MainActor
+final class WKWebViewExtensionsTests: XCTestCase {
+    private let timeout = TimeInterval(10)
+
+    var webView: WKWebView!
+
+    override func setUp() async throws {
+        _ = await Task { @MainActor in
+            webView = WKWebView()
+        }.result
+    }
+
+    func testLoadURL() throws {
+        let successExpectation = WebViewSuccessExpectation(description: "Correct URL", webView: webView)
+
+        let url = try XCTUnwrap(URL(string: "https://www.apple.com/"))
+        let navigation = webView.loadURL(url)
+
+        XCTAssertNotNil(navigation)
+
+        wait(for: [successExpectation], timeout: timeout)
+    }
+
+    func testLoadURLString() {
+        let successExpectation = WebViewSuccessExpectation(description: "Correct URL string", webView: webView)
+
+        let urlString = "https://www.apple.com/"
+        let navigation = webView.loadURLString(urlString)
+
+        XCTAssertNotNil(navigation)
+
+        wait(for: [successExpectation], timeout: timeout)
+    }
+
+    func testLoadInvalidURLString() {
+        if #unavailable(iOS 17.0) {
+            let invalidURLString = "invalid url"
+            let navigation = webView.loadURLString(invalidURLString)
+
+            XCTAssertNil(navigation)
+        }
+    }
+
+    func testLoadDeadURLString() throws {
+        #if os(iOS)
+        throw XCTSkip("WKWebView dead URL failure callback is flaky on iOS simulators.")
+        #else
+        let failureExpectation = WebViewFailureExpectation(description: "Dead URL string", webView: webView)
+
+        let deadURLString = "https://dead-url-573489574389.com"
+        let navigation = webView.loadURLString(deadURLString, timeout: 2.0)
+
+        XCTAssertNotNil(navigation)
+
+        wait(for: [failureExpectation], timeout: timeout)
+        #endif
+    }
+}
+
+class WebViewSuccessExpectation: XCTestExpectation, WKNavigationDelegate, @unchecked Sendable {
+    init(description: String, webView: WKWebView) {
+        super.init(description: description)
+        webView.navigationDelegate = self
+    }
+
+    func webView(_: WKWebView, didCommit _: WKNavigation!) {
+        fulfill()
+    }
+}
+
+class WebViewFailureExpectation: XCTestExpectation, WKNavigationDelegate, @unchecked Sendable {
+    init(description: String, webView: WKWebView) {
+        super.init(description: description)
+        webView.navigationDelegate = self
+    }
+
+    func webView(_: WKWebView, didFail _: WKNavigation!, withError _: any Error) {
+        fulfill()
+    }
+
+    func webView(_: WKWebView, didFailProvisionalNavigation _: WKNavigation!, withError _: any Error) {
+        fulfill()
+    }
+}
+
+#endif
