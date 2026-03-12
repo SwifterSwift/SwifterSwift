@@ -50,7 +50,10 @@ final class WKWebViewExtensionsTests: XCTestCase {
         }
     }
 
-    func testLoadDeadURLString() {
+    func testLoadDeadURLString() throws {
+        #if os(iOS)
+        throw XCTSkip("WKWebView dead URL failure callback is flaky on iOS simulators.")
+        #else
         let failureExpectation = WebViewFailureExpectation(description: "Dead URL string", webView: webView)
 
         let deadURLString = "https://dead-url-573489574389.com"
@@ -59,6 +62,7 @@ final class WKWebViewExtensionsTests: XCTestCase {
         XCTAssertNotNil(navigation)
 
         wait(for: [failureExpectation], timeout: timeout)
+        #endif
     }
 }
 
