@@ -497,6 +497,36 @@ public extension Date {
     var unixTimestamp: Double {
         return timeIntervalSince1970
     }
+
+        /// SwifterSwift: Check if date is within the current hour.
+    ///
+    /// Date().isInCurrentHour -> true
+    ///
+    var isInCurrentHour: Bool {
+        return calendar.isDate(self, equalTo: Date(), toGranularity: .hour)
+    }
+
+    /// SwifterSwift: The age in years from a given date to today.
+    ///
+    /// Date(year: 1990, month: 1, day: 1)!.ageInYears -> 35
+    ///
+    var ageInYears: Int {
+        return calendar.dateComponents([.year], from: self, to: Date()).year ?? 0
+    }
+
+    /// SwifterSwift: Check if the date falls on the same month and day as today (birthday check).
+    ///
+    /// // For a person born on March 13:
+    /// Date(year: 1990, month: 3, day: 13)!.isBirthdayToday -> true
+    ///
+    var isBirthdayToday: Bool {
+        let today = Date()
+        let components: Set<Calendar.Component> = [.month, .day]
+        let selfComponents = calendar.dateComponents(components, from: self)
+        let todayComponents = calendar.dateComponents(components, from: today)
+        return selfComponents.month == todayComponents.month &&
+            selfComponents.day == todayComponents.day
+    }
 }
 
 // MARK: - Methods
