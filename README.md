@@ -2,7 +2,7 @@
   <img src="https://cdn.rawgit.com/SwifterSwift/SwifterSwift/master/Assets/logo.svg" title="swifterSwift">
 </p>
 
-[![Build Status](https://github.com/SwifterSwift/SwifterSwift/workflows/CI.yml/badge.svg)](https://github.com/SwifterSwift/SwifterSwift/actions)
+[![Build Status](https://github.com/SwifterSwift/SwifterSwift/actions/workflows/CI.yml/badge.svg)](https://github.com/SwifterSwift/SwifterSwift/actions/workflows/CI.yml)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSwifterSwift%2FSwifterSwift%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/SwifterSwift/SwifterSwift)
 [![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSwifterSwift%2FSwifterSwift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/SwifterSwift/SwifterSwift)
 [![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
