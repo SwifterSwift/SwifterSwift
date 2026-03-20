@@ -257,6 +257,8 @@ public extension String {
     ///		"123".isNumeric -> true
     ///     "1.3".isNumeric -> true
     ///     "1,3".isNumeric -> true
+    ///     "123,456.78".isNumeric -> true (US-style grouping)
+    ///     "123.456,78".isNumeric -> true (EU-style grouping)
     ///		"abc".isNumeric -> false
     ///
     var isNumeric: Bool {
@@ -265,8 +267,21 @@ public extension String {
 
         if Double(trimmed) != nil { return true }
 
-        if trimmed.contains(","), !trimmed.contains(".") {
-            return Double(trimmed.replacingOccurrences(of: ",", with: ".")) != nil
+        if let lastComma = trimmed.lastIndex(of: ",") {
+            if let lastDot = trimmed.lastIndex(of: ".") {
+                if lastDot > lastComma {
+                    // US/UK: comma grouping, dot decimal (e.g. 123,456.78)
+                    let normalized = trimmed.replacingOccurrences(of: ",", with: "")
+                    return Double(normalized) != nil
+                } else {
+                    // EU: dot grouping, comma decimal (e.g. 123.456,78)
+                    let normalized = trimmed.replacingOccurrences(of: ".", with: "")
+                        .replacingOccurrences(of: ",", with: ".")
+                    return Double(normalized) != nil
+                }
+            } else {
+                return Double(trimmed.replacingOccurrences(of: ",", with: ".")) != nil
+            }
         }
 
         return false

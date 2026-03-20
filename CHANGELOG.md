@@ -13,6 +13,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `UICollectionView.register(nibWithCellClass:bundle:)` to register nib-based cells from an explicit bundle. [#1187](https://github.com/SwifterSwift/SwifterSwift/pull/1187) by [guykogus](https://github.com/guykogus)
   - Added `UITableView.register(nibWithCellClass:bundle:)` to register nib-based cells from an explicit bundle. [#1187](https://github.com/SwifterSwift/SwifterSwift/pull/1187) by [guykogus](https://github.com/guykogus)
 ### Changed
+  - **String**
+    - `isNumeric` now recognizes US-style (`123,456.78`) and EU-style (`123.456,78`) thousands grouping in addition to plain `Double` strings. [#1187](https://github.com/SwifterSwift/SwifterSwift/pull/1187) by [guykogus](https://github.com/guykogus)
   - `Date.string(withFormat:)` now support locale and timeZone parameter. [#1250](https://github.com/SwifterSwift/SwifterSwift/pull/1250) by [weihas](https://github.com/weihas)
 ### Fixed
 - **UIFont**

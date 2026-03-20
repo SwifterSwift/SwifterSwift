@@ -153,6 +153,10 @@ final class StringExtensionsTests: XCTestCase {
         XCTAssert("1.25e2".isNumeric)
         XCTAssert("1.25e-2".isNumeric)
         XCTAssert("000123.456".isNumeric)
+        XCTAssert("1,3".isNumeric) // comma decimal separator (replacingOccurrences path)
+        XCTAssert("123,456.78".isNumeric) // US-style thousands + decimal
+        XCTAssert("123.456,78".isNumeric) // EU-style thousands + decimal
+        XCTAssertFalse("1,3x".isNumeric) // invalid after comma-to-dot replacement
         XCTAssertFalse("123abc".isNumeric)
         XCTAssertFalse("abc".isNumeric)
         XCTAssertFalse("123.@.".isNumeric)
