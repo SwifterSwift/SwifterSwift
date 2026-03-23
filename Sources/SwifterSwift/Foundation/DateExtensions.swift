@@ -516,7 +516,7 @@ public extension Date {
 
     /// SwifterSwift: Check if the date falls on the same month and day as today (birthday check).
     ///
-    /// // For a person born on March 13:
+    /// // For a person born on March 13, evaluated on March 13:
     /// Date(year: 1990, month: 3, day: 13)!.isBirthdayToday -> true
     ///
     var isBirthdayToday: Bool {
