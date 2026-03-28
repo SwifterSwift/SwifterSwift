@@ -1,0 +1,105 @@
+// FileManagerExtensions.swift - Copyright 2026 SwifterSwift
+
+#if canImport(Foundation)
+import Foundation
+
+public extension FileManager {
+    /// SwifterSwift: Read from a JSON file at a given path.
+    ///
+    /// - Parameters:
+    ///   - path: JSON file path.
+    ///   - readingOptions: JSONSerialization reading options.
+    /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
+    /// - Returns: Optional dictionary.
+    func jsonFromFile(
+        atPath path: String,
+        readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {
+        let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+        let json = try JSONSerialization.jsonObject(with: data, options: readingOptions)
+
+        return json as? [String: Any]
+    }
+
+    #if !os(Linux) && !os(Android)
+    /// SwifterSwift: Read from a JSON file with a given filename.
+    ///
+    /// - Parameters:
+    ///   - filename: File to read.
+    ///   - bundleClass: Bundle where the file is associated.
+    ///   - readingOptions: JSONSerialization reading options.
+    /// - Throws: Throws any errors thrown by Data creation or JSON serialization.
+    /// - Returns: Optional dictionary.
+    func jsonFromFile(
+        withFilename filename: String,
+        at bundleClass: AnyClass? = nil,
+        readingOptions: JSONSerialization.ReadingOptions = .allowFragments) throws -> [String: Any]? {
+        // https://stackoverflow.com/questions/24410881/reading-in-a-json-file-using-swift
+
+        // To handle cases that provided filename has an extension
+        let name = filename.components(separatedBy: ".")[0]
+        let baseBundle = bundleClass != nil ? Bundle(for: bundleClass!) : Bundle.main
+
+        func bundles(in directory: URL?) -> [Bundle] {
+            guard let directory else { return [] }
+            guard let urls = try? contentsOfDirectory(at: directory, includingPropertiesForKeys: nil) else { return [] }
+            return urls
+                .filter { $0.pathExtension == "bundle" }
+                .compactMap(Bundle.init(url:))
+        }
+
+        var bundlesToSearch: [Bundle] = [baseBundle]
+        bundlesToSearch.append(contentsOf: bundles(in: baseBundle.resourceURL))
+        bundlesToSearch.append(contentsOf: bundles(in: baseBundle.bundleURL))
+        bundlesToSearch.append(contentsOf: bundles(in: baseBundle.bundleURL.deletingLastPathComponent()))
+        bundlesToSearch.append(contentsOf: Bundle.allBundles)
+        bundlesToSearch.append(contentsOf: Bundle.allFrameworks)
+
+        // Deduplicate while preserving order.
+        var seen = Set<ObjectIdentifier>()
+        bundlesToSearch = bundlesToSearch.filter { seen.insert(ObjectIdentifier($0)).inserted }
+
+        let wantedName = "\(name).json"
+
+        var path: String?
+        for bundle in bundlesToSearch {
+            path = bundle.path(forResource: name, ofType: "json")
+            if path != nil { break }
+
+            if let resourceURL = bundle.resourceURL,
+               let enumerator = enumerator(at: resourceURL, includingPropertiesForKeys: nil) {
+                for case let url as URL in enumerator where url.lastPathComponent == wantedName {
+                    path = url.path
+                    break
+                }
+            }
+            if path != nil { break }
+        }
+
+        if let path {
+            let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+            let json = try JSONSerialization.jsonObject(with: data, options: readingOptions)
+            return json as? [String: Any]
+        }
+
+        return nil
+    }
+    #endif
+
+    /// SwifterSwift: Creates a unique directory for saving temporary files. The directory can be used to create
+    /// multiple temporary files used for a common purpose.
+    ///
+    ///     let tempDirectory = try fileManager.createTemporaryDirectory()
+    ///     let tempFile1URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
+    ///     let tempFile2URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
+    ///
+    /// - Throws: An error if a temporary directory cannot be found or created.
+    /// - Returns: A URL to a new directory for saving temporary files.
+    func createTemporaryDirectory() throws -> URL {
+        try url(for: .itemReplacementDirectory,
+                in: .userDomainMask,
+                appropriateFor: temporaryDirectory,
+                create: true)
+    }
+}
+
+#endif
