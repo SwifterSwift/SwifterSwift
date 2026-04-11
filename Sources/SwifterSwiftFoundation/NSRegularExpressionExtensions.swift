@@ -4,7 +4,7 @@
 import Foundation
 
 public extension NSRegularExpression {
-    #if os(Linux) || os(Android)
+    #if os(Linux) || os(Android) || os(WASI)
     /// SwifterSwift: Enumerates the string allowing the Block to handle each regular expression match.
     ///
     /// - Parameters:

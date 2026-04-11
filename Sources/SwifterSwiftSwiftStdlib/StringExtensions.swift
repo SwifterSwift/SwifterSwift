@@ -1265,7 +1265,7 @@ public extension String {
     #endif
 }
 
-#if !os(Linux) && !os(Android)
+#if !os(Linux) && !os(Android) && !os(WASI)
 
 // MARK: - NSAttributedString
 
