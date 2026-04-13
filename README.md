@@ -2,15 +2,14 @@
   <img src="https://cdn.rawgit.com/SwifterSwift/SwifterSwift/master/Assets/logo.svg" title="swifterSwift">
 </p>
 
-[![Build Status](https://github.com/SwifterSwift/SwifterSwift/workflows/SwifterSwift/badge.svg?branch=master)](https://github.com/SwifterSwift/SwifterSwift/actions)
-[![Platforms](https://img.shields.io/badge/platforms-iOS%20%7C%20tvOS%20%7C%20macOS%20%7C%20watchOS%20%7C%20Linux-lightgrey.svg)](https://github.com/SwifterSwift/swifterSwift)
+[![Build Status](https://github.com/SwifterSwift/SwifterSwift/actions/workflows/CI.yml/badge.svg)](https://github.com/SwifterSwift/SwifterSwift/actions/workflows/CI.yml)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSwifterSwift%2FSwifterSwift%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/SwifterSwift/SwifterSwift)
+[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSwifterSwift%2FSwifterSwift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/SwifterSwift/SwifterSwift)
 [![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![SPM compatible](https://img.shields.io/badge/SPM-Compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager/)
 [![Accio supported](https://img.shields.io/badge/Accio-supported-0A7CF5.svg?style=flat)](https://github.com/JamitLabs/Accio)
 [![codecov](https://codecov.io/gh/SwifterSwift/SwifterSwift/branch/master/graph/badge.svg)](https://codecov.io/gh/SwifterSwift/SwifterSwift)
-[![docs](http://swifterswift.com/docs/badge.svg)](http://swifterswift.com/docs)
-[![Swift](https://img.shields.io/badge/Swift-6.2-orange.svg)](https://swift.org)
 [![Xcode](https://img.shields.io/badge/Xcode-26.0.1-blue.svg)](https://developer.apple.com/xcode)
 [![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
 [![Slack Channel](https://img.shields.io/badge/Slack-SwifterSwift-green.svg)](https://join.slack.com/t/swifterswift/shared_invite/zt-s6dl4g2e-R5V5baIawGpdUz2heShjiQ)

@@ -3,7 +3,7 @@
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(Foundation)
+#if canImport(Foundation) && !os(WASI)
 import Foundation
 
 #if canImport(FoundationNetworking)

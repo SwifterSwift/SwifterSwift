@@ -1,6 +1,6 @@
 // UserDefaultsExtensions.swift - Copyright 2026 SwifterSwift
 
-#if canImport(Foundation) && !os(Linux) && !os(Android)
+#if canImport(Foundation)
 import Foundation
 
 // MARK: - Methods
@@ -42,7 +42,7 @@ public extension UserDefaults {
     ///   - decoder: Custom JSONDecoder instance. Defaults to `JSONDecoder()`.
     /// - Returns: Codable object for key (if exists).
     func object<T: Codable>(_ type: T.Type, with key: String, usingDecoder decoder: JSONDecoder = JSONDecoder()) -> T? {
-        guard let data = value(forKey: key) as? Data else { return nil }
+        guard let data = object(forKey: key) as? Data else { return nil }
         return try? decoder.decode(type.self, from: data)
     }
 
