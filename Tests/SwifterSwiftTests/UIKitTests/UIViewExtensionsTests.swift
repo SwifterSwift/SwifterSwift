@@ -365,7 +365,7 @@ final class UIViewExtensionsTests: XCTestCase { // swiftlint:disable:this type_b
     func testRemoveSubviews() {
         let view = UIView()
         view.addSubviews([UIView(), UIView()])
-        view.removeSubviews()
+        view.removeAllSubviews()
         XCTAssertEqual(view.subviews.count, 0)
     }
 

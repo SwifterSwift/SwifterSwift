@@ -7,6 +7,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ### Added
 - **Calendar**
   - Added `numberOfDaysInYear(for:)` method to get the total number of days in a date's year. [#1253](https://github.com/SwifterSwift/SwifterSwift/pull/1253) by [William-Laverty](https://github.com/William-Laverty)
+- **UIView**
+  - Added `removeAllSubviews()` method to remove all subviews. [#1265](https://github.com/SwifterSwift/SwifterSwift/pull/1265) by [weihas](https://github.com/weihas)
 - **Xcode**
   - Added support for Xcode 26. [#1240](https://github.com/SwifterSwift/SwifterSwift/pull/1240) by [guykogus](https://github.com/guykogus)
 - **UIKit**
@@ -22,6 +24,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 - **Sequence**
   - Fixed documentation for `any`.
 ### Deprecated
+- **UIView**
+  - `removeSubviews()` has been renamed to `removeAllSubviews()`. [#1265](https://github.com/SwifterSwift/SwifterSwift/pull/1265) by [weihas](https://github.com/weihas)
 ### Removed
 
 ## [v8.0.0](https://github.com/SwifterSwift/SwifterSwift/releases/tag/8.0.0)
