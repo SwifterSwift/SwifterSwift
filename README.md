@@ -383,3 +383,4 @@ Special thanks to:
 ## License
 
 SwifterSwift is released under the MIT license. See [LICENSE](https://github.com/SwifterSwift/SwifterSwift/blob/master/LICENSE) for more information.
+- [AI Tools Hub](https://cloud1-d4g787x2022795b0b-1435432994.tcloudbaseapp.com/hub.html) - 21 free AI tools, one-time crypto payment, no subscriptions.
