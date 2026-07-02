@@ -147,9 +147,10 @@ public extension UIImage {
 
     /// SwifterSwift: Creates a copy of the receiver rotated by the given angle.
     ///
+    /// ```swift
     ///     // Rotate the image by 180°
     ///     image.rotated(by: Measurement(value: 180, unit: .degrees))
-    ///
+    /// ```
     /// - Parameter angle: The angle measurement by which to rotate the image.
     /// - Returns: A new image rotated by the given angle.
     func rotated(by angle: Measurement<UnitAngle>) -> UIImage? {
@@ -188,9 +189,10 @@ public extension UIImage {
 
     /// SwifterSwift: Creates a copy of the receiver rotated by the given angle (in radians).
     ///
+    /// ```swift
     ///     // Rotate the image by 180°
     ///     image.rotated(by: .pi)
-    ///
+    /// ```
     /// - Parameter radians: The angle, in radians, by which to rotate the image.
     /// - Returns: A new image rotated by the given angle.
     func rotated(by radians: CGFloat) -> UIImage? {

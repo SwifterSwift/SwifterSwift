@@ -11,6 +11,7 @@ public extension DefaultStringInterpolation {
     /// variables, or expressions enclosed in parentheses, prefixed by a
     /// backslash (`\(`...`, placeholder: `...`)`).
     ///
+    /// ```swift
     ///     var token: Int? = nil
     ///     print("\(token, placeholder: "-")")
     ///     // Prints "-"
@@ -19,7 +20,7 @@ public extension DefaultStringInterpolation {
     ///     // Prints "0"
     ///     print("\(token, placeholder: "-", where: { $0 > 0} )")
     ///     // Prints "-"
-    ///
+    /// ```
     /// - Parameters:
     ///   - value: The values, literals, variables, or expressions to be interpolated.
     ///   - placeholder: The string that displays when `value` is `nil`.

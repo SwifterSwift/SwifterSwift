@@ -5,10 +5,11 @@
 public extension BinaryInteger {
     /// SwifterSwift: The raw bytes of the integer.
     ///
+    /// ```swift
     ///     var number = Int16(-128)
     ///     print(number.bytes)
     ///     // prints "[255, 128]"
-    ///
+    /// ```
     var bytes: [UInt8] {
         var result = [UInt8]()
         result.reserveCapacity(MemoryLayout<Self>.size)
@@ -26,10 +27,11 @@ public extension BinaryInteger {
 public extension BinaryInteger {
     /// SwifterSwift: Creates a `BinaryInteger` from a raw byte representation.
     ///
+    /// ```swift
     ///     var number = Int16(bytes: [0xFF, 0b1111_1101])
     ///     print(number!)
     ///     // prints "-3"
-    ///
+    /// ```
     /// - Parameter bytes: An array of bytes representing the value of the integer.
     init?(bytes: [UInt8]) {
         // https://stackoverflow.com/a/43518567/9506784

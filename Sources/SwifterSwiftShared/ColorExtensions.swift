@@ -34,10 +34,11 @@ public extension SFColor {
     // swiftlint:disable large_tuple
     /// SwifterSwift: RGB components for a Color (between 0 and 255).
     ///
+    /// ```swift
     ///     UIColor.red.rgbComponents.red -> 255
     ///     NSColor.green.rgbComponents.green -> 255
     ///     UIColor.blue.rgbComponents.blue -> 255
-    ///
+    /// ```
     var rgbComponents: (red: Int, green: Int, blue: Int) {
         let components: [CGFloat] = {
             let comps: [CGFloat] = cgColor.components!
@@ -55,10 +56,11 @@ public extension SFColor {
     // swiftlint:disable large_tuple
     /// SwifterSwift: RGB components for a Color represented as CGFloat numbers (between 0 and 1).
     ///
+    /// ```swift
     ///     UIColor.red.rgbComponents.red -> 1.0
     ///     NSColor.green.rgbComponents.green -> 1.0
     ///     UIColor.blue.rgbComponents.blue -> 1.0
-    ///
+    /// ```
     var cgFloatComponents: (red: CGFloat, green: CGFloat, blue: CGFloat) {
         let components: [CGFloat] = {
             let comps: [CGFloat] = cgColor.components!
@@ -228,9 +230,10 @@ public extension SFColor {
 
     /// SwifterSwift: Lighten a color.
     ///
+    /// ```swift
     ///     let color = SFColor(red: r, green: g, blue: b, alpha: a)
     ///     let lighterColor: Color = color.lighten(by: 0.2)
-    ///
+    /// ```
     /// - Parameter percentage: Percentage by which to lighten the color.
     /// - Returns: A lightened color.
     func lighten(by percentage: CGFloat = 0.2) -> SFColor {
@@ -245,9 +248,10 @@ public extension SFColor {
 
     /// SwifterSwift: Darken a color.
     ///
+    /// ```swift
     ///     let color = SFColor(red: r, green: g, blue: b, alpha: a)
     ///     let darkerColor: Color = color.darken(by: 0.2)
-    ///
+    /// ```
     /// - Parameter percentage: Percentage by which to darken the color.
     /// - Returns: A darkened color.
     func darken(by percentage: CGFloat = 0.2) -> SFColor {

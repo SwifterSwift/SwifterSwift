@@ -5,8 +5,9 @@
 public extension Character {
     /// SwifterSwift: Check if character is emoji.
     ///
+    /// ```swift
     ///        Character("😀").isEmoji -> true
-    ///
+    /// ```
     var isEmoji: Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         let scalarValue = String(self).unicodeScalars.first!.value
@@ -32,33 +33,37 @@ public extension Character {
 
     /// SwifterSwift: Integer from character (if applicable).
     ///
+    /// ```swift
     ///        Character("1").int -> 1
     ///        Character("A").int -> nil
-    ///
+    /// ```
     var int: Int? {
         return Int(String(self))
     }
 
     /// SwifterSwift: String from character.
     ///
+    /// ```swift
     ///        Character("a").string -> "a"
-    ///
+    /// ```
     var string: String {
         return String(self)
     }
 
     /// SwifterSwift: Return the character lowercased.
     ///
+    /// ```swift
     ///        Character("A").lowercased -> Character("a")
-    ///
+    /// ```
     var lowercased: Character {
         return String(self).lowercased().first!
     }
 
     /// SwifterSwift: Return the character uppercased.
     ///
+    /// ```swift
     ///        Character("a").uppercased -> Character("A")
-    ///
+    /// ```
     var uppercased: Character {
         return String(self).uppercased().first!
     }
@@ -82,8 +87,9 @@ public extension Character {
 public extension Character {
     /// SwifterSwift: Repeat character multiple times.
     ///
+    /// ```swift
     ///        Character("-") * 10 -> "----------"
-    ///
+    /// ```
     /// - Parameters:
     ///   - lhs: character to repeat.
     ///   - rhs: number of times to repeat character.
@@ -95,8 +101,9 @@ public extension Character {
 
     /// SwifterSwift: Repeat character multiple times.
     ///
+    /// ```swift
     ///        10 * Character("-") -> "----------"
-    ///
+    /// ```
     /// - Parameters:
     ///   - lhs: number of times to repeat character.
     ///   - rhs: character to repeat.

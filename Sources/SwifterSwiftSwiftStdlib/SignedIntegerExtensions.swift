@@ -82,8 +82,9 @@ public extension SignedInteger {
     #if canImport(Foundation)
     /// SwifterSwift: Ordinal representation of an integer.
     ///
+    /// ```swift
     ///        print((12).ordinalString()) // prints "12th"
-    ///
+    /// ```
     /// - Parameter locale: locale, default is .current.
     /// - Returns: string ordinal representation of number in specified locale language. E.g. input 92, output in "en":
     /// "92nd".

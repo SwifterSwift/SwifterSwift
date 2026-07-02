@@ -5,8 +5,9 @@ import Foundation
 public extension StringProtocol {
     /// SwifterSwift: The longest common suffix.
     ///
+    /// ```swift
     ///        "Hello world!".commonSuffix(with: "It's cold!") = "ld!"
-    ///
+    /// ```
     /// - Parameters:
     ///     - Parameter aString: The string with which to compare the receiver.
     ///     - Parameter options: Options for the comparison.

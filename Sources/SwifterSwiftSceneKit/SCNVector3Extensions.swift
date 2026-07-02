@@ -16,24 +16,27 @@ import SceneKit
 public extension SCNVector3 {
     /// SwifterSwift: Returns the absolute values of the vector's components.
     ///
+    /// ```swift
     ///         SCNVector3(2, -3, -6).abs -> SCNVector3(2, 3, 6)
-    ///
+    /// ```
     var absolute: SCNVector3 {
         return SCNVector3(abs(x), abs(y), abs(z))
     }
 
     /// SwifterSwift: Returns the length of the vector.
     ///
+    /// ```swift
     ///         SCNVector3(2, 3, 6).length -> 7
-    ///
+    /// ```
     var length: SceneKitFloat {
         return sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
     }
 
     /// SwifterSwift: Returns the unit or normalized vector where `length = 1`.
     ///
+    /// ```swift
     ///     SCNVector3(2, 3, 6).normalized  -> SCNVector3(2/7, 3/7, 6/7)
-    ///
+    /// ```
     var normalized: SCNVector3 {
         let length = sqrt(pow(x, 2) + pow(y, 2) + pow(z, 2))
         return SCNVector3(x / length, y / length, z / length)
@@ -45,8 +48,9 @@ public extension SCNVector3 {
 public extension SCNVector3 {
     /// SwifterSwift: Add two SCNVector3s.
     ///
+    /// ```swift
     ///     SCNVector3(10, 10, 10) + SCNVector3(10, 20, -30) -> SCNVector3(20, 30, -20)
-    ///
+    /// ```
     /// - Parameters:
     ///   - lhs: SCNVector3 to add to.
     ///   - rhs: SCNVector3 to add.
@@ -57,8 +61,9 @@ public extension SCNVector3 {
 
     /// SwifterSwift: Add a SCNVector3 to self.
     ///
+    /// ```swift
     ///     SCNVector3(10, 10, 10) += SCNVector3(10, 20, -30) -> SCNVector3(20, 30, -20)
-    ///
+    /// ```
     /// - Parameters:
     ///   - lhs: `self`.
     ///   - rhs: SCNVector3 to add.
@@ -70,8 +75,9 @@ public extension SCNVector3 {
 
     /// SwifterSwift: Subtract two SCNVector3s.
     ///
+    /// ```swift
     ///     SCNVector3(10, 10, 10) - SCNVector3(10, 20, -30) -> SCNVector3(0, -10, 40)
-    ///
+    /// ```
     /// - Parameters:
     ///   - lhs: SCNVector3 to subtract from.
     ///   - rhs: SCNVector3 to subtract.
@@ -82,8 +88,9 @@ public extension SCNVector3 {
 
     /// SwifterSwift: Subtract a SCNVector3 from self.
     ///
+    /// ```swift
     ///     SCNVector3(10, 10, 10) -= SCNVector3(10, 20, -30) -> SCNVector3(0, -10, 40)
-    ///
+    /// ```
     /// - Parameters:
     ///   - lhs: `self`.
     ///   - rhs: SCNVector3 to subtract.
@@ -95,8 +102,9 @@ public extension SCNVector3 {
 
     /// SwifterSwift: Multiply a SCNVector3 with a scalar
     ///
+    /// ```swift
     ///     SCNVector3(10, 20, -30) * 3 -> SCNVector3(30, 60, -90)
-    ///
+    /// ```
     /// - Parameters:
     ///   - vector: SCNVector3 to multiply.
     ///   - scalar: scalar value.
@@ -107,8 +115,9 @@ public extension SCNVector3 {
 
     /// SwifterSwift: Multiply self with a scalar
     ///
+    /// ```swift
     ///     SCNVector3(10, 20, -30) *= 3 -> SCNVector3(30, 60, -90)
-    ///
+    /// ```
     /// - Parameters:
     ///   - vector: `self`.
     ///   - scalar: scalar value.
@@ -121,8 +130,9 @@ public extension SCNVector3 {
 
     /// SwifterSwift: Multiply a scalar with a SCNVector3.
     ///
+    /// ```swift
     ///     3 * SCNVector3(10, 20, -30) -> SCNVector3(30, 60, -90)
-    ///
+    /// ```
     /// - Parameters:
     ///   - scalar: scalar value.
     ///   - vector: SCNVector3 to multiply.
@@ -133,8 +143,9 @@ public extension SCNVector3 {
 
     /// SwifterSwift: Divide a SCNVector3 with a scalar.
     ///
+    /// ```swift
     ///     SCNVector3(10, 20, -30) / 3 -> SCNVector3(3/10, 0.15, -30)
-    ///
+    /// ```
     /// - Parameters:
     ///   - vector: SCNVector3 to divide.
     ///   - scalar: scalar value.
@@ -145,8 +156,9 @@ public extension SCNVector3 {
 
     /// SwifterSwift: Divide self with a scalar.
     ///
+    /// ```swift
     ///     SCNVector3(10, 20, -30) /= 3 -> SCNVector3(3/10, 0.15, -30)
-    ///
+    /// ```
     /// - Parameters:
     ///   - vector: `self`.
     ///   - scalar: scalar value.
