@@ -160,7 +160,7 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
   - Added `init(count:element:)` initializer for creating an array of a given size with a closure. [#1051](https://github.com/SwifterSwift/SwifterSwift/pull/1051) by [viktart](https://github.com/viktart)
 - **DefaultStringInterpolation**
   - Added `appendInterpolation(_:placeholder:predicate:)` method for providing placeholder string if interpolated value is `nil` or the optional predicate closure returns `false`. [#1074](https://github.com/SwifterSwift/SwifterSwift/pull/1074) by [Shiva Huang](https://github.com/ShivaHuang)
-- **SFEdgeInsets** 
+- **SFEdgeInsets**
   - Excluded type alias `SFEdgeInsets` when targeting visionOS platform. [#1126](https://github.com/SwifterSwift/SwifterSwift/pull/1126) by [MarcoEidinger](https://github.com/MarcoEidinger)
 - **String**
   - Added `formatLocalized(comment:arguments:)` method to format localized strings easily. [#1100](https://github.com/SwifterSwift/SwifterSwift/pull/1100) by [makcakir](https://github.com/makcakir)
@@ -1283,7 +1283,7 @@ N/A
 - Improvements on some Date extensions
 - Improvements on some methods signatures based on Swift 3 API guidelines
 - Improve code coverage.
-- Improvements on documentation headers     
+- Improvements on documentation headers
 
 ### Testing
 
