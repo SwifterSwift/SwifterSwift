@@ -60,9 +60,9 @@ public extension URL {
     /// SwifterSwift: URL with appending query parameters.
     ///
     /// ```swift
-    ///		let url = URL(string: "https://google.com")!
-    ///		let param = ["q": "Swifter Swift"]
-    ///		url.appendingQueryParameters(params) -> "https://google.com?q=Swifter%20Swift"
+    /// let url = URL(string: "https://google.com")!
+    /// let param = ["q": "Swifter Swift"]
+    /// url.appendingQueryParameters(params) -> "https://google.com?q=Swifter%20Swift"
     /// ```
     /// - Parameter parameters: parameters dictionary.
     /// - Returns: URL with appending given query parameters.
@@ -76,9 +76,9 @@ public extension URL {
     /// SwifterSwift: URL with appending query parameters.
     ///
     /// ```swift
-    ///        let url = URL(string: "https://google.com")!
-    ///        let param = [URLQueryItem(name: "q", value: "Swifter Swift")]
-    ///        url.appendingQueryParameters(params) -> "https://google.com?q=Swifter%20Swift"
+    /// let url = URL(string: "https://google.com")!
+    /// let param = [URLQueryItem(name: "q", value: "Swifter Swift")]
+    /// url.appendingQueryParameters(params) -> "https://google.com?q=Swifter%20Swift"
     /// ```
     /// - Parameter parameters: parameters dictionary.
     /// - Returns: URL with appending given query parameters.
@@ -91,10 +91,10 @@ public extension URL {
     /// SwifterSwift: Append query parameters to URL.
     ///
     /// ```swift
-    ///		var url = URL(string: "https://google.com")!
-    ///		let param = ["q": "Swifter Swift"]
-    ///		url.appendQueryParameters(params)
-    ///		print(url) // prints "https://google.com?q=Swifter%20Swift"
+    /// var url = URL(string: "https://google.com")!
+    /// let param = ["q": "Swifter Swift"]
+    /// url.appendQueryParameters(params)
+    /// print(url) // prints "https://google.com?q=Swifter%20Swift"
     /// ```
     /// - Parameter parameters: parameters dictionary.
     mutating func appendQueryParameters(_ parameters: [String: String]) {
@@ -107,10 +107,10 @@ public extension URL {
     /// SwifterSwift: Append query parameters to URL.
     ///
     /// ```swift
-    ///        var url = URL(string: "https://google.com")!
-    ///        let param = [URLQueryItem(name: "q", value: "Swifter Swift")]
-    ///        url.appendQueryParameters(params)
-    ///        print(url) // prints "https://google.com?q=Swifter%20Swift"
+    /// var url = URL(string: "https://google.com")!
+    /// let param = [URLQueryItem(name: "q", value: "Swifter Swift")]
+    /// url.appendQueryParameters(params)
+    /// print(url) // prints "https://google.com?q=Swifter%20Swift"
     /// ```
     /// - Parameter parameters: parameters dictionary.
     mutating func appendQueryParameters(_ parameters: [URLQueryItem]) {
@@ -135,8 +135,8 @@ public extension URL {
     /// SwifterSwift: Returns a new URL by removing all the path components.
     ///
     /// ```swift
-    ///     let url = URL(string: "https://domain.com/path/other")!
-    ///     print(url.deletingAllPathComponents()) // prints "https://domain.com/"
+    /// let url = URL(string: "https://domain.com/path/other")!
+    /// print(url.deletingAllPathComponents()) // prints "https://domain.com/"
     /// ```
     /// - Returns: URL with all path components removed.
     func deletingAllPathComponents() -> URL {
@@ -152,9 +152,9 @@ public extension URL {
     /// SwifterSwift: Remove all the path components from the URL.
     ///
     /// ```swift
-    ///        var url = URL(string: "https://domain.com/path/other")!
-    ///        url.deleteAllPathComponents()
-    ///        print(url) // prints "https://domain.com/"
+    /// var url = URL(string: "https://domain.com/path/other")!
+    /// url.deleteAllPathComponents()
+    /// print(url) // prints "https://domain.com/"
     /// ```
     mutating func deleteAllPathComponents() {
         guard !pathComponents.isEmpty else { return }
@@ -167,8 +167,8 @@ public extension URL {
     /// SwifterSwift: Generates new URL that does not have scheme.
     ///
     /// ```swift
-    ///        let url = URL(string: "https://domain.com")!
-    ///        print(url.droppedScheme()) // prints "domain.com"
+    /// let url = URL(string: "https://domain.com")!
+    /// print(url.droppedScheme()) // prints "domain.com"
     /// ```
     func droppedScheme() -> URL? {
         if let scheme {
@@ -192,13 +192,13 @@ public extension URL {
     /// from a local resource.
     ///
     /// ```swift
-    ///     var url = URL(string: "https://video.golem.de/files/1/1/20637/wrkw0718-sd.mp4")!
-    ///     var thumbnail = url.thumbnail()
-    ///     thumbnail = url.thumbnail(fromTime: 5)
+    /// var url = URL(string: "https://video.golem.de/files/1/1/20637/wrkw0718-sd.mp4")!
+    /// var thumbnail = url.thumbnail()
+    /// thumbnail = url.thumbnail(fromTime: 5)
     ///
-    ///     DispatchQueue.main.async {
-    ///         someImageView.image = url.thumbnail()
-    ///     }
+    /// DispatchQueue.main.async {
+    ///     someImageView.image = url.thumbnail()
+    /// }
     /// ```
     /// - Parameter time: Seconds into the video where the image should be generated.
     /// - Returns: The UIImage result of the AVAssetImageGenerator

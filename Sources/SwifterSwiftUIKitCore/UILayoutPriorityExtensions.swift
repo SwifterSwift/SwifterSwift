@@ -9,7 +9,7 @@ extension UILayoutPriority: Swift.ExpressibleByFloatLiteral, Swift.ExpressibleBy
     /// SwifterSwift: Initialize `UILayoutPriority` with a float literal.
     ///
     /// ```swift
-    ///     constraint.priority = 0.5
+    /// constraint.priority = 0.5
     /// ```
     /// - Parameter value: The float value of the constraint.
     public init(floatLiteral value: Float) {
@@ -19,7 +19,7 @@ extension UILayoutPriority: Swift.ExpressibleByFloatLiteral, Swift.ExpressibleBy
     /// SwifterSwift: Initialize `UILayoutPriority` with an integer literal.
     ///
     /// ```swift
-    ///     constraint.priority = 5
+    /// constraint.priority = 5
     /// ```
     /// - Parameter value: The integer value of the constraint.
     public init(integerLiteral value: Int) {

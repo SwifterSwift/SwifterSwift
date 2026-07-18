@@ -9,7 +9,7 @@ public extension SKNode {
     /// SwifterSwift: Return an array of all SKNode descendants.
     ///
     /// ```swift
-    ///         mySKNode.descendants() -> [childNodeOne, childNodeTwo]
+    /// mySKNode.descendants() -> [childNodeOne, childNodeTwo]
     /// ```
     func descendants() -> [SKNode] {
         var children = children
@@ -20,7 +20,7 @@ public extension SKNode {
     /// SwifterSwift: The center anchor of the node in its parent's coordinate system.
     ///
     /// ```swift
-    ///         mySKNode.center = CGPoint(x: frame.midX, y: frame.midY)
+    /// mySKNode.center = CGPoint(x: frame.midX, y: frame.midY)
     /// ```
     var center: CGPoint {
         get {
@@ -36,7 +36,7 @@ public extension SKNode {
     /// SwifterSwift: The top left anchor of the node in its parent's coordinate system.
     ///
     /// ```swift
-    ///         mySKNode.topLeft = CGPoint(x: frame.minX, y: frame.maxY)
+    /// mySKNode.topLeft = CGPoint(x: frame.minX, y: frame.maxY)
     /// ```
     var topLeft: CGPoint {
         get {
@@ -52,7 +52,7 @@ public extension SKNode {
     /// SwifterSwift: The top right anchor of the node in its parent's coordinate system.
     ///
     /// ```swift
-    ///         mySKNode.topRight = CGPoint(x: frame.maxX, y: frame.maxY)
+    /// mySKNode.topRight = CGPoint(x: frame.maxX, y: frame.maxY)
     /// ```
     var topRight: CGPoint {
         get {
@@ -68,7 +68,7 @@ public extension SKNode {
     /// SwifterSwift: The bottom left anchor of the node in its parent's coordinate system.
     ///
     /// ```swift
-    ///         mySKNode.center = GPoint(x: frame.minX, y: frame.minY)
+    /// mySKNode.center = GPoint(x: frame.minX, y: frame.minY)
     /// ```
     var bottomLeft: CGPoint {
         get {
@@ -84,7 +84,7 @@ public extension SKNode {
     /// SwifterSwift: The bottom right anchor of the node in its parent's coordinate system.
     ///
     /// ```swift
-    ///         mySKNode.bottomRight = CGPoint(x: frame.maxX, y: frame.minY)
+    /// mySKNode.bottomRight = CGPoint(x: frame.maxX, y: frame.minY)
     /// ```
     var bottomRight: CGPoint {
         get {

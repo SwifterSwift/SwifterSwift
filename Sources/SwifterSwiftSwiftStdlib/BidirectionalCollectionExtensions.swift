@@ -7,9 +7,9 @@ public extension BidirectionalCollection {
     /// end will be returned where `n` is the result of `abs(distance)`.
     ///
     /// ```swift
-    ///        let arr = [1, 2, 3, 4, 5]
-    ///        arr[offset: 1] -> 2
-    ///        arr[offset: -2] -> 4
+    /// let arr = [1, 2, 3, 4, 5]
+    /// arr[offset: 1] -> 2
+    /// arr[offset: -2] -> 4
     /// ```
     /// - Parameter distance: The distance to offset.
     subscript(offset distance: Int) -> Element {

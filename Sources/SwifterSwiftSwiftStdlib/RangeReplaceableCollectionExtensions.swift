@@ -7,9 +7,9 @@ public extension RangeReplaceableCollection {
     /// be the result of a call of the given expression.
     ///
     /// ```swift
-    ///     let values = Array(expression: "Value", count: 3)
-    ///     print(values)
-    ///     // Prints "["Value", "Value", "Value"]"
+    /// let values = Array(expression: "Value", count: 3)
+    /// print(values)
+    /// // Prints "["Value", "Value", "Value"]"
     /// ```
     /// - Parameters:
     ///   - expression: The expression to execute for each position of the collection.
@@ -32,9 +32,9 @@ public extension RangeReplaceableCollection {
     ///  SwifterSwift: Returns a new rotated collection by the given places.
     ///
     /// ```swift
-    ///     [1, 2, 3, 4].rotated(by: 1) -> [4,1,2,3]
-    ///     [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
-    ///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
+    /// [1, 2, 3, 4].rotated(by: 1) -> [4,1,2,3]
+    /// [1, 2, 3, 4].rotated(by: 3) -> [2,3,4,1]
+    /// [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
     /// ```
     /// - Parameter places: Number of places that the array be rotated. If the value is positive the end becomes the
     /// start, if it negative it's that start become the end.
@@ -48,9 +48,9 @@ public extension RangeReplaceableCollection {
     ///  SwifterSwift: Rotate the collection by the given places.
     ///
     /// ```swift
-    ///     [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
-    ///     [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
-    ///     [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
+    /// [1, 2, 3, 4].rotate(by: 1) -> [4,1,2,3]
+    /// [1, 2, 3, 4].rotate(by: 3) -> [2,3,4,1]
+    /// [1, 2, 3, 4].rotated(by: -1) -> [2,3,4,1]
     /// ```
     /// - Parameter places: The number of places that the array should be rotated. If the value is positive the end
     /// becomes the start, if it negative it's that start become the end.
@@ -76,8 +76,8 @@ public extension RangeReplaceableCollection {
     /// SwifterSwift: Removes the first element of the collection which satisfies the given predicate.
     ///
     /// ```swift
-    ///        [1, 2, 2, 3, 4, 2, 5].removeFirst { $0 % 2 == 0 } -> [1, 2, 3, 4, 2, 5]
-    ///        ["h", "e", "l", "l", "o"].removeFirst { $0 == "e" } -> ["h", "l", "l", "o"]
+    /// [1, 2, 2, 3, 4, 2, 5].removeFirst { $0 % 2 == 0 } -> [1, 2, 3, 4, 2, 5]
+    /// ["h", "e", "l", "l", "o"].removeFirst { $0 == "e" } -> ["h", "l", "l", "o"]
     /// ```
     /// - Parameter predicate: A closure that takes an element as its argument and returns a Boolean value that
     /// indicates whether the passed element represents a match.
@@ -99,7 +99,7 @@ public extension RangeReplaceableCollection {
     /// SwifterSwift: Keep elements of Array while condition is true.
     ///
     /// ```swift
-    ///        [0, 2, 4, 7].keep(while: { $0 % 2 == 0 }) -> [0, 2, 4]
+    /// [0, 2, 4, 7].keep(while: { $0 % 2 == 0 }) -> [0, 2, 4]
     /// ```
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: self after applying provided condition.
@@ -115,7 +115,7 @@ public extension RangeReplaceableCollection {
     /// SwifterSwift: Take element of Array while condition is true.
     ///
     /// ```swift
-    ///        [0, 2, 4, 7, 6, 8].take( where: {$0 % 2 == 0}) -> [0, 2, 4]
+    /// [0, 2, 4, 7, 6, 8].take( where: {$0 % 2 == 0}) -> [0, 2, 4]
     /// ```
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements up until condition evaluates to false.
@@ -126,7 +126,7 @@ public extension RangeReplaceableCollection {
     /// SwifterSwift: Skip elements of Array while condition is true.
     ///
     /// ```swift
-    ///        [0, 2, 4, 7, 6, 8].skip( where: {$0 % 2 == 0}) -> [6, 8]
+    /// [0, 2, 4, 7, 6, 8].skip( where: {$0 % 2 == 0}) -> [6, 8]
     /// ```
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: All elements after the condition evaluates to false.

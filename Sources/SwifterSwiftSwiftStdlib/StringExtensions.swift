@@ -27,7 +27,7 @@ public extension String {
     /// SwifterSwift: String decoded from base64 (if applicable).
     ///
     /// ```swift
-    ///		"SGVsbG8gV29ybGQh".base64Decoded = Optional("Hello World!")
+    /// "SGVsbG8gV29ybGQh".base64Decoded = Optional("Hello World!")
     /// ```
     var base64Decoded: String? {
         if let data = Data(base64Encoded: self,
@@ -53,7 +53,7 @@ public extension String {
     /// SwifterSwift: String encoded in base64 (if applicable).
     ///
     /// ```swift
-    ///		"Hello World!".base64Encoded -> Optional("SGVsbG8gV29ybGQh")
+    /// "Hello World!".base64Encoded -> Optional("SGVsbG8gV29ybGQh")
     /// ```
     var base64Encoded: String? {
         // https://github.com/Reza-Rg/Base64-Swift-Extension/blob/master/Base64.swift
@@ -71,7 +71,7 @@ public extension String {
     /// SwifterSwift: CamelCase of string.
     ///
     /// ```swift
-    ///		"sOme vAriable naMe".camelCased -> "someVariableName"
+    /// "sOme vAriable naMe".camelCased -> "someVariableName"
     /// ```
     var camelCased: String {
         let source = lowercased()
@@ -90,7 +90,7 @@ public extension String {
     /// SwifterSwift: Check if string contains one or more emojis.
     ///
     /// ```swift
-    ///		"Hello 😀".containEmoji -> true
+    /// "Hello 😀".containEmoji -> true
     /// ```
     var containEmoji: Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
@@ -120,8 +120,8 @@ public extension String {
     /// SwifterSwift: First character of string (if applicable).
     ///
     /// ```swift
-    ///		"Hello".firstCharacterAsString -> Optional("H")
-    ///		"".firstCharacterAsString -> nil
+    /// "Hello".firstCharacterAsString -> Optional("H")
+    /// "".firstCharacterAsString -> nil
     /// ```
     var firstCharacterAsString: String? {
         guard let first else { return nil }
@@ -131,8 +131,8 @@ public extension String {
     /// SwifterSwift: Check if string contains one or more letters.
     ///
     /// ```swift
-    ///		"123abc".hasLetters -> true
-    ///		"123".hasLetters -> false
+    /// "123abc".hasLetters -> true
+    /// "123".hasLetters -> false
     /// ```
     var hasLetters: Bool {
         return rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
@@ -141,8 +141,8 @@ public extension String {
     /// SwifterSwift: Check if string contains one or more numbers.
     ///
     /// ```swift
-    ///		"abcd".hasNumbers -> false
-    ///		"123abc".hasNumbers -> true
+    /// "abcd".hasNumbers -> false
+    /// "123abc".hasNumbers -> true
     /// ```
     var hasNumbers: Bool {
         return rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
@@ -151,8 +151,8 @@ public extension String {
     /// SwifterSwift: Check if string contains only letters.
     ///
     /// ```swift
-    ///		"abc".isAlphabetic -> true
-    ///		"123abc".isAlphabetic -> false
+    /// "abc".isAlphabetic -> true
+    /// "123abc".isAlphabetic -> false
     /// ```
     var isAlphabetic: Bool {
         let hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
@@ -163,9 +163,9 @@ public extension String {
     /// SwifterSwift: Check if string contains at least one letter and one number.
     ///
     /// ```swift
-    ///		// useful for passwords
-    ///		"123abc".isAlphaNumeric -> true
-    ///		"abc".isAlphaNumeric -> false
+    /// // useful for passwords
+    /// "123abc".isAlphaNumeric -> true
+    /// "abc".isAlphaNumeric -> false
     /// ```
     var isAlphaNumeric: Bool {
         let hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
@@ -177,10 +177,10 @@ public extension String {
     /// SwifterSwift: Check if string is palindrome.
     ///
     /// ```swift
-    ///     "abcdcba".isPalindrome -> true
-    ///     "Mom".isPalindrome -> true
-    ///     "A man a plan a canal, Panama!".isPalindrome -> true
-    ///     "Mama".isPalindrome -> false
+    /// "abcdcba".isPalindrome -> true
+    /// "Mom".isPalindrome -> true
+    /// "A man a plan a canal, Panama!".isPalindrome -> true
+    /// "Mama".isPalindrome -> false
     /// ```
     var isPalindrome: Bool {
         let letters = filter(\.isLetter)
@@ -198,7 +198,7 @@ public extension String {
     /// to determine whether its format is suitable for an email address.
     ///
     /// ```swift
-    ///		"john@doe.com".isValidEmail -> true
+    /// "john@doe.com".isValidEmail -> true
     /// ```
     var isValidEmail: Bool {
         // http://emailregex.com/
@@ -212,7 +212,7 @@ public extension String {
     /// SwifterSwift: Check if string is a valid URL.
     ///
     /// ```swift
-    ///		"https://google.com".isValidUrl -> true
+    /// "https://google.com".isValidUrl -> true
     /// ```
     var isValidUrl: Bool {
         return URL(string: self) != nil
@@ -223,8 +223,8 @@ public extension String {
     /// SwifterSwift: Check if string is a valid schemed URL.
     ///
     /// ```swift
-    ///		"https://google.com".isValidSchemedUrl -> true
-    ///		"google.com".isValidSchemedUrl -> false
+    /// "https://google.com".isValidSchemedUrl -> true
+    /// "google.com".isValidSchemedUrl -> false
     /// ```
     var isValidSchemedUrl: Bool {
         guard let url = URL(string: self) else { return false }
@@ -236,7 +236,7 @@ public extension String {
     /// SwifterSwift: Check if string is a valid https URL.
     ///
     /// ```swift
-    ///		"https://google.com".isValidHttpsUrl -> true
+    /// "https://google.com".isValidHttpsUrl -> true
     /// ```
     var isValidHttpsUrl: Bool {
         guard let url = URL(string: self) else { return false }
@@ -248,7 +248,7 @@ public extension String {
     /// SwifterSwift: Check if string is a valid http URL.
     ///
     /// ```swift
-    ///		"http://google.com".isValidHttpUrl -> true
+    /// "http://google.com".isValidHttpUrl -> true
     /// ```
     var isValidHttpUrl: Bool {
         guard let url = URL(string: self) else { return false }
@@ -260,7 +260,7 @@ public extension String {
     /// SwifterSwift: Check if string is a valid file URL.
     ///
     /// ```swift
-    ///		"file://Documents/file.txt".isValidFileUrl -> true
+    /// "file://Documents/file.txt".isValidFileUrl -> true
     /// ```
     var isValidFileUrl: Bool {
         return URL(string: self)?.isFileURL ?? false
@@ -271,12 +271,12 @@ public extension String {
     /// SwifterSwift: Check if string is a valid Swift number.
     ///
     /// ```swift
-    ///		"123".isNumeric -> true
-    ///     "1.3".isNumeric -> true
-    ///     "1,3".isNumeric -> true
-    ///     "123,456.78".isNumeric -> true (US-style grouping)
-    ///     "123.456,78".isNumeric -> true (EU-style grouping)
-    ///		"abc".isNumeric -> false
+    /// "123".isNumeric -> true
+    ///    "1.3".isNumeric -> true
+    ///    "1,3".isNumeric -> true
+    ///    "123,456.78".isNumeric -> true (US-style grouping)
+    ///    "123.456,78".isNumeric -> true (EU-style grouping)
+    /// "abc".isNumeric -> false
     /// ```
     var isNumeric: Bool {
         let trimmed = trimmingCharacters(in: .whitespacesAndNewlines)
@@ -309,9 +309,9 @@ public extension String {
     /// SwifterSwift: Check if string only contains digits.
     ///
     /// ```swift
-    ///     "123".isDigits -> true
-    ///     "1.3".isDigits -> false
-    ///     "abc".isDigits -> false
+    /// "123".isDigits -> true
+    /// "1.3".isDigits -> false
+    /// "abc".isDigits -> false
     /// ```
     var isDigits: Bool {
         return CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: self))
@@ -321,8 +321,8 @@ public extension String {
     /// SwifterSwift: Last character of string (if applicable).
     ///
     /// ```swift
-    ///		"Hello".lastCharacterAsString -> Optional("o")
-    ///		"".lastCharacterAsString -> nil
+    /// "Hello".lastCharacterAsString -> Optional("o")
+    /// "".lastCharacterAsString -> nil
     /// ```
     var lastCharacterAsString: String? {
         guard let last else { return nil }
@@ -333,7 +333,7 @@ public extension String {
     /// SwifterSwift: Latinized string.
     ///
     /// ```swift
-    ///		"Hèllö Wórld!".latinized -> "Hello World!"
+    /// "Hèllö Wórld!".latinized -> "Hello World!"
     /// ```
     var latinized: String {
         return folding(options: .diacriticInsensitive, locale: Locale.current)
@@ -344,9 +344,9 @@ public extension String {
     /// SwifterSwift: Bool value from string (if applicable).
     ///
     /// ```swift
-    ///		"1".bool -> true
-    ///		"False".bool -> false
-    ///		"Hello".bool = nil
+    /// "1".bool -> true
+    /// "False".bool -> false
+    /// "Hello".bool = nil
     /// ```
     var bool: Bool? {
         let selfLowercased = trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
@@ -365,7 +365,7 @@ public extension String {
     /// SwifterSwift: Date object from "yyyy-MM-dd" formatted string.
     ///
     /// ```swift
-    ///		"2007-06-29".date -> Optional(Date)
+    /// "2007-06-29".date -> Optional(Date)
     /// ```
     var date: Date? {
         let selfLowercased = trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
@@ -380,7 +380,7 @@ public extension String {
     /// SwifterSwift: Date object from "yyyy-MM-dd HH:mm:ss" formatted string.
     ///
     /// ```swift
-    ///		"2007-06-29 14:23:09".dateTime -> Optional(Date)
+    /// "2007-06-29 14:23:09".dateTime -> Optional(Date)
     /// ```
     var dateTime: Date? {
         let selfLowercased = trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
@@ -394,7 +394,7 @@ public extension String {
     /// SwifterSwift: Integer value from string (if applicable).
     ///
     /// ```swift
-    ///		"101".int -> 101
+    /// "101".int -> 101
     /// ```
     var int: Int? {
         return Int(self)
@@ -421,8 +421,8 @@ public extension String {
     /// SwifterSwift: URL from string (if applicable).
     ///
     /// ```swift
-    ///		"https://google.com".url -> URL(string: "https://google.com")
-    ///		"not url".url -> nil
+    /// "https://google.com".url -> URL(string: "https://google.com")
+    /// "not url".url -> nil
     /// ```
     var url: URL? {
         return URL(string: self)
@@ -433,7 +433,7 @@ public extension String {
     /// SwifterSwift: String with no spaces or new lines in beginning and end.
     ///
     /// ```swift
-    ///		"   hello  \n".trimmed -> "hello"
+    /// "   hello  \n".trimmed -> "hello"
     /// ```
     var trimmed: String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
@@ -444,7 +444,7 @@ public extension String {
     /// SwifterSwift: Readable string from a URL string.
     ///
     /// ```swift
-    ///		"it's%20easy%20to%20decode%20strings".urlDecoded -> "it's easy to decode strings"
+    /// "it's%20easy%20to%20decode%20strings".urlDecoded -> "it's easy to decode strings"
     /// ```
     var urlDecoded: String {
         return removingPercentEncoding ?? self
@@ -455,7 +455,7 @@ public extension String {
     /// SwifterSwift: URL escaped string.
     ///
     /// ```swift
-    ///		"it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
+    /// "it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
     /// ```
     var urlEncoded: String {
         return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
@@ -476,7 +476,7 @@ public extension String {
     /// SwifterSwift: String without spaces and new lines.
     ///
     /// ```swift
-    ///		"   \n Swifter   \n  Swift  ".withoutSpacesAndNewLines -> "SwifterSwift"
+    /// "   \n Swifter   \n  Swift  ".withoutSpacesAndNewLines -> "SwifterSwift"
     /// ```
     var withoutSpacesAndNewLines: String {
         return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
@@ -554,7 +554,7 @@ public extension String {
     /// SwifterSwift: Array of strings separated by new lines.
     ///
     /// ```swift
-    ///		"Hello\ntest".lines() -> ["Hello", "test"]
+    /// "Hello\ntest".lines() -> ["Hello", "test"]
     /// ```
     /// - Returns: Strings separated by new lines.
     func lines() -> [String] {
@@ -570,7 +570,7 @@ public extension String {
     /// SwifterSwift: Returns a localized string, with an optional comment for translators.
     ///
     /// ```swift
-    ///        "Hello world".localized() -> Hallo Welt
+    /// "Hello world".localized() -> Hallo Welt
     /// ```
     /// - Parameters:
     ///   - tableName: The name of the table containing the key-value pairs. Also, the suffix for the strings file (a
@@ -609,7 +609,7 @@ public extension String {
     /// SwifterSwift: The most common character in string.
     ///
     /// ```swift
-    ///		"This is a test, since e is appearing everywhere e should be the common character".mostCommonCharacter() -> "e"
+    /// "This is a test, since e is appearing everywhere e should be the common character".mostCommonCharacter() -> "e"
     /// ```
     /// - Returns: The most common character.
     func mostCommonCharacter() -> Character? {
@@ -622,7 +622,7 @@ public extension String {
     /// SwifterSwift: Array with unicodes for all characters in a string.
     ///
     /// ```swift
-    ///		"SwifterSwift".unicodeArray() -> [83, 119, 105, 102, 116, 101, 114, 83, 119, 105, 102, 116]
+    /// "SwifterSwift".unicodeArray() -> [83, 119, 105, 102, 116, 101, 114, 83, 119, 105, 102, 116]
     /// ```
     /// - Returns: The unicodes for all characters in a string.
     func unicodeArray() -> [Int] {
@@ -633,7 +633,7 @@ public extension String {
     /// SwifterSwift: an array of all words in a string.
     ///
     /// ```swift
-    ///		"Swift is amazing".words() -> ["Swift", "is", "amazing"]
+    /// "Swift is amazing".words() -> ["Swift", "is", "amazing"]
     /// ```
     /// - Returns: The words contained in a string.
     func words() -> [String] {
@@ -648,7 +648,7 @@ public extension String {
     /// SwifterSwift: Count of words in a string.
     ///
     /// ```swift
-    ///		"Swift is amazing".wordsCount() -> 3
+    /// "Swift is amazing".wordsCount() -> 3
     /// ```
     /// - Returns: The count of words contained in a string.
     func wordCount() -> Int {
@@ -664,7 +664,7 @@ public extension String {
     /// SwifterSwift: Transforms the string into a slug string.
     ///
     /// ```swift
-    ///        "Swift is amazing".toSlug() -> "swift-is-amazing"
+    /// "Swift is amazing".toSlug() -> "swift-is-amazing"
     /// ```
     /// - Returns: The string in slug format.
     func toSlug() -> String {
@@ -694,8 +694,8 @@ public extension String {
     /// SwifterSwift: Safely subscript string with index.
     ///
     /// ```swift
-    ///		"Hello World!"[safe: 3] -> "l"
-    ///		"Hello World!"[safe: 20] -> nil
+    /// "Hello World!"[safe: 3] -> "l"
+    /// "Hello World!"[safe: 20] -> nil
     /// ```
     /// - Parameter index: index.
     subscript(safe index: Int) -> Character? {
@@ -706,8 +706,8 @@ public extension String {
     /// SwifterSwift: Safely subscript string within a given range.
     ///
     /// ```swift
-    ///        "Hello World!"[safe: 6..<11] -> "World"
-    ///        "Hello World!"[safe: 21..<110] -> nil
+    /// "Hello World!"[safe: 6..<11] -> "World"
+    /// "Hello World!"[safe: 21..<110] -> nil
     /// ```
     /// - Parameter range: Range expression.
     subscript(safe range: Range<Int>) -> String? {
@@ -722,8 +722,8 @@ public extension String {
     /// SwifterSwift: Safely subscript string within a given range.
     ///
     /// ```swift
-    ///        "Hello World!"[safe: 6...11] -> "World!"
-    ///        "Hello World!"[safe: 21...110] -> nil
+    /// "Hello World!"[safe: 6...11] -> "World!"
+    /// "Hello World!"[safe: 21...110] -> nil
     /// ```
     /// - Parameter range: Range expression.
     subscript(safe range: ClosedRange<Int>) -> String? {
@@ -738,8 +738,8 @@ public extension String {
     /// SwifterSwift: Safely subscript string within a given range.
     ///
     /// ```swift
-    ///        "Hello World!"[safe: ..<5] -> "Hello"
-    ///        "Hello World!"[safe: ..<(-110)] -> nil
+    /// "Hello World!"[safe: ..<5] -> "Hello"
+    /// "Hello World!"[safe: ..<(-110)] -> nil
     /// ```
     /// - Parameter range: Range expression.
     subscript(safe range: PartialRangeUpTo<Int>) -> String? {
@@ -754,8 +754,8 @@ public extension String {
     /// SwifterSwift: Safely subscript string within a given range.
     ///
     /// ```swift
-    ///        "Hello World!"[safe: ...10] -> "Hello World"
-    ///        "Hello World!"[safe: ...110] -> nil
+    /// "Hello World!"[safe: ...10] -> "Hello World"
+    /// "Hello World!"[safe: ...110] -> nil
     /// ```
     /// - Parameter range: Range expression.
     subscript(safe range: PartialRangeThrough<Int>) -> String? {
@@ -770,8 +770,8 @@ public extension String {
     /// SwifterSwift: Safely subscript string within a given range.
     ///
     /// ```swift
-    ///        "Hello World!"[safe: 6...] -> "World!"
-    ///        "Hello World!"[safe: 50...] -> nil
+    /// "Hello World!"[safe: 6...] -> "World!"
+    /// "Hello World!"[safe: 50...] -> nil
     /// ```
     /// - Parameter range: Range expression.
     subscript(safe range: PartialRangeFrom<Int>) -> String? {
@@ -787,7 +787,7 @@ public extension String {
     /// SwifterSwift: Copy string to global pasteboard.
     ///
     /// ```swift
-    ///		"SomeText".copyToPasteboard() // copies "SomeText" to pasteboard
+    /// "SomeText".copyToPasteboard() // copies "SomeText" to pasteboard
     /// ```
     func copyToPasteboard() {
         #if os(iOS)
@@ -802,9 +802,9 @@ public extension String {
     /// SwifterSwift: Converts string format to CamelCase.
     ///
     /// ```swift
-    ///		var str = "sOme vaRiabLe Name"
-    ///		str.camelize()
-    ///		print(str) // prints "someVariableName"
+    /// var str = "sOme vaRiabLe Name"
+    /// str.camelize()
+    /// print(str) // prints "someVariableName"
     /// ```
     @discardableResult
     mutating func camelize() -> String {
@@ -826,8 +826,8 @@ public extension String {
     /// SwifterSwift: First character of string uppercased(if applicable) while keeping the original string.
     ///
     /// ```swift
-    ///        "hello world".firstCharacterUppercased() -> "Hello world"
-    ///        "".firstCharacterUppercased() -> ""
+    /// "hello world".firstCharacterUppercased() -> "Hello world"
+    /// "".firstCharacterUppercased() -> ""
     /// ```
     mutating func firstCharacterUppercased() {
         guard let first else { return }
@@ -850,8 +850,8 @@ public extension String {
     /// SwifterSwift: Check if string contains one or more instance of substring.
     ///
     /// ```swift
-    ///		"Hello World!".contain("O") -> false
-    ///		"Hello World!".contain("o", caseSensitive: false) -> true
+    /// "Hello World!".contain("O") -> false
+    /// "Hello World!".contain("o", caseSensitive: false) -> true
     /// ```
     /// - Parameters:
     ///   - string: substring to search for.
@@ -869,8 +869,8 @@ public extension String {
     /// SwifterSwift: Count of substring in string.
     ///
     /// ```swift
-    ///		"Hello World!".count(of: "o") -> 2
-    ///		"Hello World!".count(of: "L", caseSensitive: false) -> 3
+    /// "Hello World!".count(of: "o") -> 2
+    /// "Hello World!".count(of: "L", caseSensitive: false) -> 3
     /// ```
     /// - Parameters:
     ///   - string: substring to search for.
@@ -887,8 +887,8 @@ public extension String {
     /// SwifterSwift: Check if string ends with substring.
     ///
     /// ```swift
-    ///		"Hello World!".ends(with: "!") -> true
-    ///		"Hello World!".ends(with: "WoRld!", caseSensitive: false) -> true
+    /// "Hello World!".ends(with: "!") -> true
+    /// "Hello World!".ends(with: "WoRld!", caseSensitive: false) -> true
     /// ```
     /// - Parameters:
     ///   - suffix: substring to search if string ends with.
@@ -905,9 +905,9 @@ public extension String {
     /// SwifterSwift: Latinize string.
     ///
     /// ```swift
-    ///		var str = "Hèllö Wórld!"
-    ///		str.latinize()
-    ///		print(str) // prints "Hello World!"
+    /// var str = "Hèllö Wórld!"
+    /// str.latinize()
+    /// print(str) // prints "Hello World!"
     /// ```
     @discardableResult
     mutating func latinize() -> String {
@@ -919,7 +919,7 @@ public extension String {
     /// SwifterSwift: Random string of given length.
     ///
     /// ```swift
-    ///		String.random(ofLength: 18) -> "u7MMZYvGo9obcOcPj8"
+    /// String.random(ofLength: 18) -> "u7MMZYvGo9obcOcPj8"
     /// ```
     /// - Parameter length: number of characters in string.
     /// - Returns: random string of given length.
@@ -944,7 +944,7 @@ public extension String {
     /// SwifterSwift: Sliced string from a start index with length.
     ///
     /// ```swift
-    ///        "Hello World".slicing(from: 6, length: 5) -> "World"
+    /// "Hello World".slicing(from: 6, length: 5) -> "World"
     /// ```
     /// - Parameters:
     ///   - index: string index the slicing should start from.
@@ -963,9 +963,9 @@ public extension String {
     /// SwifterSwift: Slice given string from a start index with length (if applicable).
     ///
     /// ```swift
-    ///		var str = "Hello World"
-    ///		str.slice(from: 6, length: 5)
-    ///		print(str) // prints "World"
+    /// var str = "Hello World"
+    /// str.slice(from: 6, length: 5)
+    /// print(str) // prints "World"
     /// ```
     /// - Parameters:
     ///   - index: string index the slicing should start from.
@@ -981,9 +981,9 @@ public extension String {
     /// SwifterSwift: Slice given string from a start index to an end index (if applicable).
     ///
     /// ```swift
-    ///		var str = "Hello World"
-    ///		str.slice(from: 6, to: 11)
-    ///		print(str) // prints "World"
+    /// var str = "Hello World"
+    /// str.slice(from: 6, to: 11)
+    /// print(str) // prints "World"
     /// ```
     /// - Parameters:
     ///   - start: string index the slicing should start from.
@@ -1000,9 +1000,9 @@ public extension String {
     /// SwifterSwift: Slice given string from a start index (if applicable).
     ///
     /// ```swift
-    ///		var str = "Hello World"
-    ///		str.slice(at: 6)
-    ///		print(str) // prints "World"
+    /// var str = "Hello World"
+    /// str.slice(at: 6)
+    /// print(str) // prints "World"
     /// ```
     /// - Parameter index: string index the slicing should start from.
     @discardableResult
@@ -1017,8 +1017,8 @@ public extension String {
     /// SwifterSwift: Check if string starts with substring.
     ///
     /// ```swift
-    ///		"hello World".starts(with: "h") -> true
-    ///		"hello World".starts(with: "H", caseSensitive: false) -> true
+    /// "hello World".starts(with: "h") -> true
+    /// "hello World".starts(with: "H", caseSensitive: false) -> true
     /// ```
     /// - Parameters:
     ///   - suffix: substring to search if string starts with.
@@ -1035,8 +1035,8 @@ public extension String {
     /// SwifterSwift: Date object from string of date format.
     ///
     /// ```swift
-    ///		"2017-01-15".date(withFormat: "yyyy-MM-dd") -> Date set to Jan 15, 2017
-    ///		"not date string".date(withFormat: "yyyy-MM-dd") -> nil
+    /// "2017-01-15".date(withFormat: "yyyy-MM-dd") -> Date set to Jan 15, 2017
+    /// "not date string".date(withFormat: "yyyy-MM-dd") -> nil
     /// ```
     /// - Parameter format: date format.
     /// - Returns: Date object from string (if applicable).
@@ -1051,9 +1051,9 @@ public extension String {
     /// SwifterSwift: Removes spaces and new lines in beginning and end of string.
     ///
     /// ```swift
-    ///		var str = "  \n Hello World \n\n\n"
-    ///		str.trim()
-    ///		print(str) // prints "Hello World"
+    /// var str = "  \n Hello World \n\n\n"
+    /// str.trim()
+    /// print(str) // prints "Hello World"
     /// ```
     @discardableResult
     mutating func trim() -> String {
@@ -1065,9 +1065,9 @@ public extension String {
     /// SwifterSwift: Truncate string (cut it to a given number of characters).
     ///
     /// ```swift
-    ///		var str = "This is a very long sentence"
-    ///		str.truncate(toLength: 14)
-    ///		print(str) // prints "This is a very..."
+    /// var str = "This is a very long sentence"
+    /// str.truncate(toLength: 14)
+    /// print(str) // prints "This is a very..."
     /// ```
     /// - Parameters:
     ///   - toLength: maximum number of characters before cutting.
@@ -1084,8 +1084,8 @@ public extension String {
     /// SwifterSwift: Truncated string (limited to a given number of characters).
     ///
     /// ```swift
-    ///		"This is a very long sentence".truncated(toLength: 14) -> "This is a very..."
-    ///		"Short sentence".truncated(toLength: 14) -> "Short sentence"
+    /// "This is a very long sentence".truncated(toLength: 14) -> "This is a very..."
+    /// "Short sentence".truncated(toLength: 14) -> "Short sentence"
     /// ```
     /// - Parameters:
     ///   - toLength: maximum number of characters before cutting.
@@ -1100,9 +1100,9 @@ public extension String {
     /// SwifterSwift: Convert URL string to readable string.
     ///
     /// ```swift
-    ///		var str = "it's%20easy%20to%20decode%20strings"
-    ///		str.urlDecode()
-    ///		print(str) // prints "it's easy to decode strings"
+    /// var str = "it's%20easy%20to%20decode%20strings"
+    /// str.urlDecode()
+    /// print(str) // prints "it's easy to decode strings"
     /// ```
     @discardableResult
     mutating func urlDecode() -> String {
@@ -1117,9 +1117,9 @@ public extension String {
     /// SwifterSwift: Escape string.
     ///
     /// ```swift
-    ///		var str = "it's easy to encode strings"
-    ///		str.urlEncode()
-    ///		print(str) // prints "it's%20easy%20to%20encode%20strings"
+    /// var str = "it's easy to encode strings"
+    /// str.urlEncode()
+    /// print(str) // prints "it's%20easy%20to%20encode%20strings"
     /// ```
     @discardableResult
     mutating func urlEncode() -> String {
@@ -1299,7 +1299,7 @@ public extension String {
     /// SwifterSwift: Adds prefix to the string.
     ///
     /// ```swift
-    ///     "www.apple.com".withPrefix("https://") -> "https://www.apple.com"
+    /// "www.apple.com".withPrefix("https://") -> "https://www.apple.com"
     /// ```
     /// - Parameter prefix: Prefix to add to the string.
     /// - Returns: The string with the prefix prepended.
@@ -1317,8 +1317,8 @@ public extension String {
     /// SwifterSwift: Create a new string from a base64 string (if applicable).
     ///
     /// ```swift
-    ///		String(base64: "SGVsbG8gV29ybGQh") = "Hello World!"
-    ///		String(base64: "hello") = nil
+    /// String(base64: "SGVsbG8gV29ybGQh") = "Hello World!"
+    /// String(base64: "hello") = nil
     /// ```
     /// - Parameter base64: base64 string.
     init?(base64: String) {
@@ -1386,7 +1386,7 @@ public extension String {
     /// SwifterSwift: Repeat string multiple times.
     ///
     /// ```swift
-    ///        'bar' * 3 -> "barbarbar"
+    /// 'bar' * 3 -> "barbarbar"
     /// ```
     /// - Parameters:
     ///   - lhs: string to repeat.
@@ -1400,7 +1400,7 @@ public extension String {
     /// SwifterSwift: Repeat string multiple times.
     ///
     /// ```swift
-    ///        3 * 'bar' -> "barbarbar"
+    /// 3 * 'bar' -> "barbarbar"
     /// ```
     /// - Parameters:
     ///   - lhs: number of times to repeat character.

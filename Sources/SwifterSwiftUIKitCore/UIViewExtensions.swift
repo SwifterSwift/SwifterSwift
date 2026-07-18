@@ -427,11 +427,11 @@ public extension UIView {
     /// SwifterSwift: Add Gradient Colors.
     ///
     /// ```swift
-    ///     view.addGradient(
-    ///         colors: [.red, .blue],
-    ///         locations: [0.0, 1.0],
-    ///         direction: .topToBottom
-    ///     )
+    /// view.addGradient(
+    ///     colors: [.red, .blue],
+    ///     locations: [0.0, 1.0],
+    ///     direction: .topToBottom
+    /// )
     /// ```
     /// - Parameters:
     ///   - colors: An array of `SFColor` defining the color of each gradient stop.
@@ -619,8 +619,8 @@ public extension UIView {
     /// SwifterSwift: Adds a horizontal separator to the bottom of the view.
     ///
     /// ```swift
-    ///     let view = UIView()
-    ///     view.addBottomSeparator(color: .lightGray, height: 1, spacing: 8)
+    /// let view = UIView()
+    /// view.addBottomSeparator(color: .lightGray, height: 1, spacing: 8)
     /// ```
     /// - Parameters:
     ///   - color: The separator color. Default is `.black`.

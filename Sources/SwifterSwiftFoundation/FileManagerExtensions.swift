@@ -89,9 +89,9 @@ public extension FileManager {
     /// multiple temporary files used for a common purpose.
     ///
     /// ```swift
-    ///     let tempDirectory = try fileManager.createTemporaryDirectory()
-    ///     let tempFile1URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
-    ///     let tempFile2URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
+    /// let tempDirectory = try fileManager.createTemporaryDirectory()
+    /// let tempFile1URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
+    /// let tempFile2URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
     /// ```
     /// - Throws: An error if a temporary directory cannot be found or created.
     /// - Returns: A URL to a new directory for saving temporary files.

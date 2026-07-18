@@ -18,9 +18,9 @@ public extension Collection where Self: Sendable, Self.Index: Sendable {
     /// SwifterSwift: Performs `each` closure for each element of collection in parallel.
     ///
     /// ```swift
-    ///        array.forEachInParallel { item in
-    ///            print(item)
-    ///        }
+    /// array.forEachInParallel { item in
+    ///     print(item)
+    /// }
     /// ```
     /// - Parameter each: closure to run for each element.
     func forEachInParallel(_ each: @Sendable (Self.Element) -> Void) {
@@ -35,9 +35,9 @@ public extension Collection {
     /// SwifterSwift: Safe protects the array from out of bounds by use of optional.
     ///
     /// ```swift
-    ///        let arr = [1, 2, 3, 4, 5]
-    ///        arr[safe: 1] -> 2
-    ///        arr[safe: 10] -> nil
+    /// let arr = [1, 2, 3, 4, 5]
+    /// arr[safe: 1] -> 2
+    /// arr[safe: 10] -> nil
     /// ```
     /// - Parameter index: index of element to access element.
     subscript(safe index: Index) -> Element? {
@@ -48,8 +48,8 @@ public extension Collection {
     /// final slice will be the remaining elements.
     ///
     /// ```swift
-    ///     [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
-    ///     [0, 2, 4, 7, 6].group(by: 2) -> [[0, 2], [4, 7], [6]]
+    /// [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
+    /// [0, 2, 4, 7, 6].group(by: 2) -> [[0, 2], [4, 7], [6]]
     /// ```
     /// - Parameter size: The size of the slices to be returned.
     /// - Returns: grouped self.
@@ -70,7 +70,7 @@ public extension Collection {
     /// SwifterSwift: Get all indices where condition is met.
     ///
     /// ```swift
-    ///     [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
+    /// [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
     /// ```
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: all indices where the specified condition evaluates to true (optional).
@@ -83,8 +83,8 @@ public extension Collection {
     /// SwifterSwift: Calls the given closure with an array of size of the parameter slice.
     ///
     /// ```swift
-    ///     [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7]
-    ///     [0, 2, 4, 7, 6].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7], [6]
+    /// [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7]
+    /// [0, 2, 4, 7, 6].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7], [6]
     /// ```
     /// - Parameters:
     ///   - slice: size of array in each interation.
@@ -101,10 +101,10 @@ public extension Collection {
     /// SwifterSwift: Unique pair of elements in a collection.
     ///
     /// ```swift
-    ///        let array = [1, 2, 3]
-    ///        for (first, second) in array.adjacentPairs() {
-    ///            print(first, second) // print: (1, 2) (1, 3) (2, 3)
-    ///        }
+    /// let array = [1, 2, 3]
+    /// for (first, second) in array.adjacentPairs() {
+    ///     print(first, second) // print: (1, 2) (1, 3) (2, 3)
+    /// }
     ///
     /// ```
     /// - Returns: a sequence of adjacent pairs of elements from this collection.
@@ -139,9 +139,9 @@ public extension Collection where Element: Equatable {
     /// SwifterSwift: All indices of specified item.
     ///
     /// ```swift
-    ///        [1, 2, 2, 3, 4, 2, 5].indices(of 2) -> [1, 2, 5]
-    ///        [1.2, 2.3, 4.5, 3.4, 4.5].indices(of 2.3) -> [1]
-    ///        ["h", "e", "l", "l", "o"].indices(of "l") -> [2, 3]
+    /// [1, 2, 2, 3, 4, 2, 5].indices(of 2) -> [1, 2, 5]
+    /// [1.2, 2.3, 4.5, 3.4, 4.5].indices(of 2.3) -> [1]
+    /// ["h", "e", "l", "l", "o"].indices(of "l") -> [2, 3]
     /// ```
     /// - Parameter item: item to check.
     /// - Returns: an array with all indices of the given item.
@@ -169,7 +169,7 @@ public extension Collection where Element: FloatingPoint {
     /// SwifterSwift: Average of all elements in array.
     ///
     /// ```swift
-    ///        [1.2, 2.3, 4.5, 3.4, 4.5].average() = 3.18
+    /// [1.2, 2.3, 4.5, 3.4, 4.5].average() = 3.18
     /// ```
     /// - Returns: average of the array's elements.
     func average() -> Element {

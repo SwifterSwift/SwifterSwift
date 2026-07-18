@@ -42,7 +42,7 @@ public extension UIStackView {
     /// SwifterSwift: Initialize an UIStackView with an array of UIView and common parameters.
     ///
     /// ```swift
-    ///     let stackView = UIStackView(arrangedSubviews: [UIView(), UIView()], axis: .vertical)
+    /// let stackView = UIStackView(arrangedSubviews: [UIView(), UIView()], axis: .vertical)
     /// ```
     /// - Parameters:
     ///   - arrangedSubviews: The UIViews to add to the stack.

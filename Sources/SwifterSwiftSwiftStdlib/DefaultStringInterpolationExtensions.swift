@@ -12,14 +12,14 @@ public extension DefaultStringInterpolation {
     /// backslash (`\(`...`, placeholder: `...`)`).
     ///
     /// ```swift
-    ///     var token: Int? = nil
-    ///     print("\(token, placeholder: "-")")
-    ///     // Prints "-"
-    ///     token = 0
-    ///     print("\(token, placeholder: "-")")
-    ///     // Prints "0"
-    ///     print("\(token, placeholder: "-", where: { $0 > 0} )")
-    ///     // Prints "-"
+    /// var token: Int? = nil
+    /// print("\(token, placeholder: "-")")
+    /// // Prints "-"
+    /// token = 0
+    /// print("\(token, placeholder: "-")")
+    /// // Prints "0"
+    /// print("\(token, placeholder: "-", where: { $0 > 0} )")
+    /// // Prints "-"
     /// ```
     /// - Parameters:
     ///   - value: The values, literals, variables, or expressions to be interpolated.

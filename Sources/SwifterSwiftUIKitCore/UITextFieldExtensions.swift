@@ -71,11 +71,11 @@ public extension UITextField {
     /// SwifterSwift: Check if textFields text is a valid email format.
     ///
     /// ```swift
-    ///		textField.text = "john@doe.com"
-    ///		textField.hasValidEmail -> true
+    /// textField.text = "john@doe.com"
+    /// textField.hasValidEmail -> true
     ///
-    ///		textField.text = "swifterswift"
-    ///		textField.hasValidEmail -> false
+    /// textField.text = "swifterswift"
+    /// textField.hasValidEmail -> false
     /// ```
     var hasValidEmail: Bool {
         // http://stackoverflow.com/questions/25471114/how-to-validate-an-e-mail-address-in-swift

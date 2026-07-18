@@ -117,7 +117,7 @@ public extension Int {
     /// SwifterSwift: Roman numeral string from integer (if applicable).
     ///
     /// ```swift
-    ///     10.romanNumeral() -> "X"
+    /// 10.romanNumeral() -> "X"
     /// ```
     /// - Returns: The roman numeral string.
     func romanNumeral() -> String? {

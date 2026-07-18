@@ -6,7 +6,7 @@ public extension Character {
     /// SwifterSwift: Check if character is emoji.
     ///
     /// ```swift
-    ///        Character("😀").isEmoji -> true
+    /// Character("😀").isEmoji -> true
     /// ```
     var isEmoji: Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
@@ -34,8 +34,8 @@ public extension Character {
     /// SwifterSwift: Integer from character (if applicable).
     ///
     /// ```swift
-    ///        Character("1").int -> 1
-    ///        Character("A").int -> nil
+    /// Character("1").int -> 1
+    /// Character("A").int -> nil
     /// ```
     var int: Int? {
         return Int(String(self))
@@ -44,7 +44,7 @@ public extension Character {
     /// SwifterSwift: String from character.
     ///
     /// ```swift
-    ///        Character("a").string -> "a"
+    /// Character("a").string -> "a"
     /// ```
     var string: String {
         return String(self)
@@ -53,7 +53,7 @@ public extension Character {
     /// SwifterSwift: Return the character lowercased.
     ///
     /// ```swift
-    ///        Character("A").lowercased -> Character("a")
+    /// Character("A").lowercased -> Character("a")
     /// ```
     var lowercased: Character {
         return String(self).lowercased().first!
@@ -62,7 +62,7 @@ public extension Character {
     /// SwifterSwift: Return the character uppercased.
     ///
     /// ```swift
-    ///        Character("a").uppercased -> Character("A")
+    /// Character("a").uppercased -> Character("A")
     /// ```
     var uppercased: Character {
         return String(self).uppercased().first!
@@ -88,7 +88,7 @@ public extension Character {
     /// SwifterSwift: Repeat character multiple times.
     ///
     /// ```swift
-    ///        Character("-") * 10 -> "----------"
+    /// Character("-") * 10 -> "----------"
     /// ```
     /// - Parameters:
     ///   - lhs: character to repeat.
@@ -102,7 +102,7 @@ public extension Character {
     /// SwifterSwift: Repeat character multiple times.
     ///
     /// ```swift
-    ///        10 * Character("-") -> "----------"
+    /// 10 * Character("-") -> "----------"
     /// ```
     /// - Parameters:
     ///   - lhs: number of times to repeat character.

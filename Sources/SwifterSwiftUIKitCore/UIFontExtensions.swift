@@ -21,7 +21,7 @@ public extension UIFont {
     /// SwifterSwift: Font as monospaced font.
     ///
     /// ```swift
-    ///     UIFont.preferredFont(forTextStyle: .body).monospaced
+    /// UIFont.preferredFont(forTextStyle: .body).monospaced
     /// ```
     var monospaced: UIFont {
         let settings = [[

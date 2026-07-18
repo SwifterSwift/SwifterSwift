@@ -20,10 +20,10 @@ public extension Comparable {
     /// SwifterSwift: Returns value limited within the provided range.
     ///
     /// ```swift
-    ///     1.clamped(to: 3...8) // 3
-    ///     4.clamped(to: 3...7) // 4
-    ///     "c".clamped(to: "e"..."g") // "e"
-    ///     0.32.clamped(to: 0.1...0.29) // 0.29
+    /// 1.clamped(to: 3...8) // 3
+    /// 4.clamped(to: 3...7) // 4
+    /// "c".clamped(to: "e"..."g") // "e"
+    /// 0.32.clamped(to: 0.1...0.29) // 0.29
     /// ```
     /// - Parameter range: Closed range that limits the value.
     /// - Returns: A value limited to the range, i.e. between `range.lowerBound` and `range.upperBound`.

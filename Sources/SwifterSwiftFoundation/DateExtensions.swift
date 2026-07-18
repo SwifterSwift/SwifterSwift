@@ -56,7 +56,7 @@ public extension Date {
     /// SwifterSwift: Era.
     ///
     /// ```swift
-    ///		Date().era -> 1
+    /// Date().era -> 1
     /// ```
     var era: Int {
         return calendar.component(.era, from: self)
@@ -66,7 +66,7 @@ public extension Date {
     /// SwifterSwift: Quarter.
     ///
     /// ```swift
-    ///		Date().quarter -> 3 // date in third quarter of the year.
+    /// Date().quarter -> 3 // date in third quarter of the year.
     /// ```
     var quarter: Int {
         let month = Double(calendar.component(.month, from: self))
@@ -79,7 +79,7 @@ public extension Date {
     /// SwifterSwift: Week of year.
     ///
     /// ```swift
-    ///		Date().weekOfYear -> 2 // second week in the year.
+    /// Date().weekOfYear -> 2 // second week in the year.
     /// ```
     var weekOfYear: Int {
         return calendar.component(.weekOfYear, from: self)
@@ -88,7 +88,7 @@ public extension Date {
     /// SwifterSwift: Week of month.
     ///
     /// ```swift
-    ///		Date().weekOfMonth -> 3 // date is in third week of the month.
+    /// Date().weekOfMonth -> 3 // date is in third week of the month.
     /// ```
     var weekOfMonth: Int {
         return calendar.component(.weekOfMonth, from: self)
@@ -97,10 +97,10 @@ public extension Date {
     /// SwifterSwift: Year.
     ///
     /// ```swift
-    ///		Date().year -> 2017
+    /// Date().year -> 2017
     ///
-    ///		var someDate = Date()
-    ///		someDate.year = 2000 // sets someDate's year to 2000
+    /// var someDate = Date()
+    /// someDate.year = 2000 // sets someDate's year to 2000
     /// ```
     var year: Int {
         get {
@@ -480,8 +480,8 @@ public extension Date {
     /// SwifterSwift: Yesterday date.
     ///
     /// ```swift
-    ///     let date = Date() // "Oct 3, 2018, 10:57:11"
-    ///     let yesterday = date.yesterday // "Oct 2, 2018, 10:57:11"
+    /// let date = Date() // "Oct 3, 2018, 10:57:11"
+    /// let yesterday = date.yesterday // "Oct 2, 2018, 10:57:11"
     /// ```
     var yesterday: Date {
         return calendar.date(byAdding: .day, value: -1, to: self) ?? Date()
@@ -490,8 +490,8 @@ public extension Date {
     /// SwifterSwift: Tomorrow's date.
     ///
     /// ```swift
-    ///     let date = Date() // "Oct 3, 2018, 10:57:11"
-    ///     let tomorrow = date.tomorrow // "Oct 4, 2018, 10:57:11"
+    /// let date = Date() // "Oct 3, 2018, 10:57:11"
+    /// let tomorrow = date.tomorrow // "Oct 4, 2018, 10:57:11"
     /// ```
     var tomorrow: Date {
         return calendar.date(byAdding: .day, value: 1, to: self) ?? Date()
@@ -500,7 +500,7 @@ public extension Date {
     /// SwifterSwift: UNIX timestamp from date.
     ///
     /// ```swift
-    ///		Date().unixTimestamp -> 1484233862.826291
+    /// Date().unixTimestamp -> 1484233862.826291
     /// ```
     var unixTimestamp: Double {
         return timeIntervalSince1970
@@ -547,11 +547,11 @@ public extension Date {
     /// SwifterSwift: Date by changing value of calendar component.
     ///
     /// ```swift
-    ///     let date = Date() // "Jan 12, 2017, 7:07 PM"
-    ///     let date2 = date.changing(.minute, value: 10) // "Jan 12, 2017, 7:10 PM"
-    ///     let date3 = date.changing(.day, value: 4) // "Jan 4, 2017, 7:07 PM"
-    ///     let date4 = date.changing(.month, value: 2) // "Feb 12, 2017, 7:07 PM"
-    ///     let date5 = date.changing(.year, value: 2000) // "Jan 12, 2000, 7:07 PM"
+    /// let date = Date() // "Jan 12, 2017, 7:07 PM"
+    /// let date2 = date.changing(.minute, value: 10) // "Jan 12, 2017, 7:10 PM"
+    /// let date3 = date.changing(.day, value: 4) // "Jan 4, 2017, 7:07 PM"
+    /// let date4 = date.changing(.month, value: 2) // "Feb 12, 2017, 7:07 PM"
+    /// let date5 = date.changing(.year, value: 2000) // "Jan 12, 2000, 7:07 PM"
     /// ```
     /// - Parameters:
     ///   - component: component type.
@@ -669,10 +669,10 @@ public extension Date {
     /// SwifterSwift: Date at the end of calendar component.
     ///
     /// ```swift
-    ///     let date = Date() // "Jan 12, 2017, 7:27 PM"
-    ///     let date2 = date.end(of: .day) // "Jan 12, 2017, 11:59 PM"
-    ///     let date3 = date.end(of: .month) // "Jan 31, 2017, 11:59 PM"
-    ///     let date4 = date.end(of: .year) // "Dec 31, 2017, 11:59 PM"
+    /// let date = Date() // "Jan 12, 2017, 7:27 PM"
+    /// let date2 = date.end(of: .day) // "Jan 12, 2017, 11:59 PM"
+    /// let date3 = date.end(of: .month) // "Jan 31, 2017, 11:59 PM"
+    /// let date4 = date.end(of: .year) // "Dec 31, 2017, 11:59 PM"
     /// ```
     /// - Parameter component: calendar component to get date at the end of.
     /// - Returns: date at the end of calendar component (if applicable).
@@ -747,22 +747,22 @@ public extension Date {
     /// Examples:
     ///
     /// ```swift
-    ///     Date().string(withFormat: "dd/MM/yyyy") -> "01/12/17"
-    ///     Date().string(withFormat: "HH:mm") -> "23:50"
-    ///     Date().string(withFormat: "dd/MM/yyyy HH:mm") -> "01/12/17 23:50"
+    /// Date().string(withFormat: "dd/MM/yyyy") -> "01/12/17"
+    /// Date().string(withFormat: "HH:mm") -> "23:50"
+    /// Date().string(withFormat: "dd/MM/yyyy HH:mm") -> "01/12/17 23:50"
     ///
-    ///     // Specifying different locales:
+    /// // Specifying different locales:
     ///
-    ///     date.string(withFormat: "dd MMMM yyyy", locale: Locale(identifier: "en_US")) -> "01 December 2017"
-    ///     date.string(withFormat: "dd MMMM yyyy", locale: Locale(identifier: "fr_FR")) -> "01 décembre 2017"
-    ///     date.string(withFormat: "dd MMMM yyyy", locale: Locale(identifier: "ja_JP")) -> "01 12月 2017"
+    /// date.string(withFormat: "dd MMMM yyyy", locale: Locale(identifier: "en_US")) -> "01 December 2017"
+    /// date.string(withFormat: "dd MMMM yyyy", locale: Locale(identifier: "fr_FR")) -> "01 décembre 2017"
+    /// date.string(withFormat: "dd MMMM yyyy", locale: Locale(identifier: "ja_JP")) -> "01 12月 2017"
     ///
-    ///     // Specifying different time zones:
+    /// // Specifying different time zones:
     ///
-    ///     date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "UTC")!) -> "01/12/2017 15:50"
-    ///     date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "America/New_York")!) ->
+    /// date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "UTC")!) -> "01/12/2017 15:50"
+    /// date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "America/New_York")!) ->
     /// "01/12/2017 10:50"
-    ///     date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "Asia/Shanghai")!) -> "01/12/2017
+    /// date.string(withFormat: "dd/MM/yyyy HH:mm", timeZone: TimeZone(identifier: "Asia/Shanghai")!) -> "01/12/2017
     /// 23:50"
     /// ```
     /// - Parameters:
@@ -1059,7 +1059,7 @@ public extension Date {
     /// SwifterSwift: Create date object from Int literal.
     ///
     /// ```swift
-    ///     let date = Date(integerLiteral: 2017_12_25) // "2017-12-25 00:00:00 +0000"
+    /// let date = Date(integerLiteral: 2017_12_25) // "2017-12-25 00:00:00 +0000"
     /// ```
     /// - Parameter value: Int value, e.g. 20171225, or 2017_12_25 etc.
     init?(integerLiteral value: Int) {

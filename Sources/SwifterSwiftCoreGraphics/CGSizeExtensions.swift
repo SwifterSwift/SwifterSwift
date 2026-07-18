@@ -29,10 +29,10 @@ public extension CGSize {
     /// SwifterSwift: Aspect fit CGSize.
     ///
     /// ```swift
-    ///     let rect = CGSize(width: 120, height: 80)
-    ///     let parentRect  = CGSize(width: 100, height: 50)
-    ///     let newRect = rect.aspectFit(to: parentRect)
-    ///     // newRect.width = 75 , newRect = 50
+    /// let rect = CGSize(width: 120, height: 80)
+    /// let parentRect  = CGSize(width: 100, height: 50)
+    /// let newRect = rect.aspectFit(to: parentRect)
+    /// // newRect.width = 75 , newRect = 50
     /// ```
     /// - Parameter boundingSize: bounding size to fit self to.
     /// - Returns: self fitted into given bounding size.
@@ -44,10 +44,10 @@ public extension CGSize {
     /// SwifterSwift: Aspect fill CGSize.
     ///
     /// ```swift
-    ///     let rect = CGSize(width: 20, height: 120)
-    ///     let parentRect  = CGSize(width: 100, height: 60)
-    ///     let newRect = rect.aspectFit(to: parentRect)
-    ///     // newRect.width = 100 , newRect = 60
+    /// let rect = CGSize(width: 20, height: 120)
+    /// let parentRect  = CGSize(width: 100, height: 60)
+    /// let newRect = rect.aspectFit(to: parentRect)
+    /// // newRect.width = 100 , newRect = 60
     /// ```
     /// - Parameter boundingSize: bounding size to fill self to.
     /// - Returns: self filled into given bounding size.
@@ -65,10 +65,10 @@ public extension CGSize {
     /// SwifterSwift: Add two CGSize.
     ///
     /// ```swift
-    ///     let sizeA = CGSize(width: 5, height: 10)
-    ///     let sizeB = CGSize(width: 3, height: 4)
-    ///     let result = sizeA + sizeB
-    ///     // result = CGSize(width: 8, height: 14)
+    /// let sizeA = CGSize(width: 5, height: 10)
+    /// let sizeB = CGSize(width: 3, height: 4)
+    /// let result = sizeA + sizeB
+    /// // result = CGSize(width: 8, height: 14)
     /// ```
     /// - Parameters:
     ///   - lhs: CGSize to add to.
@@ -81,9 +81,9 @@ public extension CGSize {
     /// SwifterSwift: Add a tuple to CGSize.
     ///
     /// ```swift
-    ///     let sizeA = CGSize(width: 5, height: 10)
-    ///     let result = sizeA + (5, 4)
-    ///     // result = CGSize(width: 10, height: 14)
+    /// let sizeA = CGSize(width: 5, height: 10)
+    /// let result = sizeA + (5, 4)
+    /// // result = CGSize(width: 10, height: 14)
     /// ```
     /// - Parameters:
     ///   - lhs: CGSize to add to.
@@ -96,10 +96,10 @@ public extension CGSize {
     /// SwifterSwift: Add a CGSize to self.
     ///
     /// ```swift
-    ///     var sizeA = CGSize(width: 5, height: 10)
-    ///     let sizeB = CGSize(width: 3, height: 4)
-    ///     sizeA += sizeB
-    ///     // sizeA = CGPoint(width: 8, height: 14)
+    /// var sizeA = CGSize(width: 5, height: 10)
+    /// let sizeB = CGSize(width: 3, height: 4)
+    /// sizeA += sizeB
+    /// // sizeA = CGPoint(width: 8, height: 14)
     /// ```
     /// - Parameters:
     ///   - lhs: `self`.
@@ -112,9 +112,9 @@ public extension CGSize {
     /// SwifterSwift: Add a tuple to self.
     ///
     /// ```swift
-    ///     var sizeA = CGSize(width: 5, height: 10)
-    ///     sizeA += (3, 4)
-    ///     // result = CGSize(width: 8, height: 14)
+    /// var sizeA = CGSize(width: 5, height: 10)
+    /// sizeA += (3, 4)
+    /// // result = CGSize(width: 8, height: 14)
     /// ```
     /// - Parameters:
     ///   - lhs: `self`.
@@ -127,10 +127,10 @@ public extension CGSize {
     /// SwifterSwift: Subtract two CGSize.
     ///
     /// ```swift
-    ///     let sizeA = CGSize(width: 5, height: 10)
-    ///     let sizeB = CGSize(width: 3, height: 4)
-    ///     let result = sizeA - sizeB
-    ///     // result = CGSize(width: 2, height: 6)
+    /// let sizeA = CGSize(width: 5, height: 10)
+    /// let sizeB = CGSize(width: 3, height: 4)
+    /// let result = sizeA - sizeB
+    /// // result = CGSize(width: 2, height: 6)
     /// ```
     /// - Parameters:
     ///   - lhs: CGSize to subtract from.
@@ -143,9 +143,9 @@ public extension CGSize {
     /// SwifterSwift: Subtract a tuple from CGSize.
     ///
     /// ```swift
-    ///     let sizeA = CGSize(width: 5, height: 10)
-    ///     let result = sizeA - (3, 2)
-    ///     // result = CGSize(width: 2, height: 8)
+    /// let sizeA = CGSize(width: 5, height: 10)
+    /// let result = sizeA - (3, 2)
+    /// // result = CGSize(width: 2, height: 8)
     /// ```
     /// - Parameters:
     ///   - lhs: CGSize to subtract from.
@@ -158,10 +158,10 @@ public extension CGSize {
     /// SwifterSwift: Subtract a CGSize from self.
     ///
     /// ```swift
-    ///     var sizeA = CGSize(width: 5, height: 10)
-    ///     let sizeB = CGSize(width: 3, height: 4)
-    ///     sizeA -= sizeB
-    ///     // sizeA = CGPoint(width: 2, height: 6)
+    /// var sizeA = CGSize(width: 5, height: 10)
+    /// let sizeB = CGSize(width: 3, height: 4)
+    /// sizeA -= sizeB
+    /// // sizeA = CGPoint(width: 2, height: 6)
     /// ```
     /// - Parameters:
     ///   - lhs: `self`.
@@ -174,9 +174,9 @@ public extension CGSize {
     /// SwifterSwift: Subtract a tuple from self.
     ///
     /// ```swift
-    ///     var sizeA = CGSize(width: 5, height: 10)
-    ///     sizeA -= (2, 4)
-    ///     // result = CGSize(width: 3, height: 6)
+    /// var sizeA = CGSize(width: 5, height: 10)
+    /// sizeA -= (2, 4)
+    /// // result = CGSize(width: 3, height: 6)
     /// ```
     /// - Parameters:
     ///   - lhs: `self`.
@@ -189,10 +189,10 @@ public extension CGSize {
     /// SwifterSwift: Multiply two CGSize.
     ///
     /// ```swift
-    ///     let sizeA = CGSize(width: 5, height: 10)
-    ///     let sizeB = CGSize(width: 3, height: 4)
-    ///     let result = sizeA * sizeB
-    ///     // result = CGSize(width: 15, height: 40)
+    /// let sizeA = CGSize(width: 5, height: 10)
+    /// let sizeB = CGSize(width: 3, height: 4)
+    /// let result = sizeA * sizeB
+    /// // result = CGSize(width: 15, height: 40)
     /// ```
     /// - Parameters:
     ///   - lhs: CGSize to multiply.
@@ -205,9 +205,9 @@ public extension CGSize {
     /// SwifterSwift: Multiply a CGSize with a scalar.
     ///
     /// ```swift
-    ///     let sizeA = CGSize(width: 5, height: 10)
-    ///     let result = sizeA * 5
-    ///     // result = CGSize(width: 25, height: 50)
+    /// let sizeA = CGSize(width: 5, height: 10)
+    /// let result = sizeA * 5
+    /// // result = CGSize(width: 25, height: 50)
     /// ```
     /// - Parameters:
     ///   - lhs: CGSize to multiply.
@@ -220,9 +220,9 @@ public extension CGSize {
     /// SwifterSwift: Multiply a CGSize with a scalar.
     ///
     /// ```swift
-    ///     let sizeA = CGSize(width: 5, height: 10)
-    ///     let result = 5 * sizeA
-    ///     // result = CGSize(width: 25, height: 50)
+    /// let sizeA = CGSize(width: 5, height: 10)
+    /// let result = 5 * sizeA
+    /// // result = CGSize(width: 25, height: 50)
     /// ```
     /// - Parameters:
     ///   - scalar: scalar value.
@@ -235,10 +235,10 @@ public extension CGSize {
     /// SwifterSwift: Multiply self with a CGSize.
     ///
     /// ```swift
-    ///     var sizeA = CGSize(width: 5, height: 10)
-    ///     let sizeB = CGSize(width: 3, height: 4)
-    ///     sizeA *= sizeB
-    ///     // result = CGSize(width: 15, height: 40)
+    /// var sizeA = CGSize(width: 5, height: 10)
+    /// let sizeB = CGSize(width: 3, height: 4)
+    /// sizeA *= sizeB
+    /// // result = CGSize(width: 15, height: 40)
     /// ```
     /// - Parameters:
     ///   - lhs: `self`.
@@ -251,9 +251,9 @@ public extension CGSize {
     /// SwifterSwift: Multiply self with a scalar.
     ///
     /// ```swift
-    ///     var sizeA = CGSize(width: 5, height: 10)
-    ///     sizeA *= 3
-    ///     // result = CGSize(width: 15, height: 30)
+    /// var sizeA = CGSize(width: 5, height: 10)
+    /// sizeA *= 3
+    /// // result = CGSize(width: 15, height: 30)
     /// ```
     /// - Parameters:
     ///   - lhs: `self`.

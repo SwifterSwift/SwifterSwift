@@ -53,8 +53,8 @@ public extension URLRequest {
     /// SwifterSwift: Duplicates the request and modifies the HTTP method (verb) for the request (i.e.: GET, POST, PUT)
     ///
     /// ```swift
-    ///     let request = URLRequest(url: url)
-    ///         .method("post")
+    /// let request = URLRequest(url: url)
+    ///     .method("post")
     /// ```
     /// - Parameter methodString: The method as a String value
     /// - Returns: The modified request
@@ -67,8 +67,8 @@ public extension URLRequest {
     /// SwifterSwift: Duplicates the request and set a header with key and value
     ///
     /// ```swift
-    ///     let request = URLRequest(url: url)
-    ///         .header(name: "Content-Type", value: "application/json")
+    /// let request = URLRequest(url: url)
+    ///     .header(name: "Content-Type", value: "application/json")
     /// ```
     /// - Parameters:
     ///   - name: The name of the header

@@ -31,7 +31,7 @@ public extension SignedNumeric {
     /// SwifterSwift: Spelled out representation of a number.
     ///
     /// ```swift
-    ///        print((12.32).spelledOutString()) // prints "twelve point three two"
+    /// print((12.32).spelledOutString()) // prints "twelve point three two"
     /// ```
     /// - Parameter locale: Locale, default is .current.
     /// - Returns: String representation of number spelled in specified locale language. E.g. input 92, output in "en":
