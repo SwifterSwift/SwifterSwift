@@ -17,10 +17,11 @@ public extension Collection where Self: Sendable, Self.Index: Sendable {
     #if canImport(Dispatch)
     /// SwifterSwift: Performs `each` closure for each element of collection in parallel.
     ///
-    ///        array.forEachInParallel { item in
-    ///            print(item)
-    ///        }
-    ///
+    /// ```swift
+    /// array.forEachInParallel { item in
+    ///     print(item)
+    /// }
+    /// ```
     /// - Parameter each: closure to run for each element.
     func forEachInParallel(_ each: @Sendable (Self.Element) -> Void) {
         DispatchQueue.concurrentPerform(iterations: count) {
@@ -33,10 +34,11 @@ public extension Collection where Self: Sendable, Self.Index: Sendable {
 public extension Collection {
     /// SwifterSwift: Safe protects the array from out of bounds by use of optional.
     ///
-    ///        let arr = [1, 2, 3, 4, 5]
-    ///        arr[safe: 1] -> 2
-    ///        arr[safe: 10] -> nil
-    ///
+    /// ```swift
+    /// let arr = [1, 2, 3, 4, 5]
+    /// arr[safe: 1] -> 2
+    /// arr[safe: 10] -> nil
+    /// ```
     /// - Parameter index: index of element to access element.
     subscript(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
@@ -45,9 +47,10 @@ public extension Collection {
     /// SwifterSwift: Returns an array of slices of length "size" from the array. If array can't be split evenly, the
     /// final slice will be the remaining elements.
     ///
-    ///     [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
-    ///     [0, 2, 4, 7, 6].group(by: 2) -> [[0, 2], [4, 7], [6]]
-    ///
+    /// ```swift
+    /// [0, 2, 4, 7].group(by: 2) -> [[0, 2], [4, 7]]
+    /// [0, 2, 4, 7, 6].group(by: 2) -> [[0, 2], [4, 7], [6]]
+    /// ```
     /// - Parameter size: The size of the slices to be returned.
     /// - Returns: grouped self.
     func group(by size: Int) -> [[Element]]? {
@@ -66,8 +69,9 @@ public extension Collection {
     #if !os(Linux) && !os(Android)
     /// SwifterSwift: Get all indices where condition is met.
     ///
-    ///     [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
-    ///
+    /// ```swift
+    /// [1, 7, 1, 2, 4, 1, 8].indices(where: { $0 == 1 }) -> [0, 2, 5]
+    /// ```
     /// - Parameter condition: condition to evaluate each element against.
     /// - Returns: all indices where the specified condition evaluates to true (optional).
     func indices(where condition: (Element) throws -> Bool) rethrows -> [Index]? {
@@ -78,9 +82,10 @@ public extension Collection {
 
     /// SwifterSwift: Calls the given closure with an array of size of the parameter slice.
     ///
-    ///     [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7]
-    ///     [0, 2, 4, 7, 6].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7], [6]
-    ///
+    /// ```swift
+    /// [0, 2, 4, 7].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7]
+    /// [0, 2, 4, 7, 6].forEach(slice: 2) { print($0) } -> // print: [0, 2], [4, 7], [6]
+    /// ```
     /// - Parameters:
     ///   - slice: size of array in each interation.
     ///   - body: a closure that takes an array of slice size as a parameter.
@@ -95,12 +100,13 @@ public extension Collection {
 
     /// SwifterSwift: Unique pair of elements in a collection.
     ///
-    ///        let array = [1, 2, 3]
-    ///        for (first, second) in array.adjacentPairs() {
-    ///            print(first, second) // print: (1, 2) (1, 3) (2, 3)
-    ///        }
+    /// ```swift
+    /// let array = [1, 2, 3]
+    /// for (first, second) in array.adjacentPairs() {
+    ///     print(first, second) // print: (1, 2) (1, 3) (2, 3)
+    /// }
     ///
-    ///
+    /// ```
     /// - Returns: a sequence of adjacent pairs of elements from this collection.
     func adjacentPairs() -> AnySequence<(Element, Element)> {
         guard var index1 = index(startIndex, offsetBy: 0, limitedBy: endIndex),
@@ -132,10 +138,11 @@ public extension Collection {
 public extension Collection where Element: Equatable {
     /// SwifterSwift: All indices of specified item.
     ///
-    ///        [1, 2, 2, 3, 4, 2, 5].indices(of 2) -> [1, 2, 5]
-    ///        [1.2, 2.3, 4.5, 3.4, 4.5].indices(of 2.3) -> [1]
-    ///        ["h", "e", "l", "l", "o"].indices(of "l") -> [2, 3]
-    ///
+    /// ```swift
+    /// [1, 2, 2, 3, 4, 2, 5].indices(of 2) -> [1, 2, 5]
+    /// [1.2, 2.3, 4.5, 3.4, 4.5].indices(of 2.3) -> [1]
+    /// ["h", "e", "l", "l", "o"].indices(of "l") -> [2, 3]
+    /// ```
     /// - Parameter item: item to check.
     /// - Returns: an array with all indices of the given item.
     func indices(of item: Element) -> [Index] {
@@ -161,8 +168,9 @@ public extension Collection where Element: BinaryInteger {
 public extension Collection where Element: FloatingPoint {
     /// SwifterSwift: Average of all elements in array.
     ///
-    ///        [1.2, 2.3, 4.5, 3.4, 4.5].average() = 3.18
-    ///
+    /// ```swift
+    /// [1.2, 2.3, 4.5, 3.4, 4.5].average() = 3.18
+    /// ```
     /// - Returns: average of the array's elements.
     func average() -> Element {
         guard !isEmpty else { return .zero }

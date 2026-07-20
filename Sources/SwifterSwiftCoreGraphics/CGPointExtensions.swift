@@ -8,11 +8,12 @@ import CoreGraphics
 public extension CGPoint {
     /// SwifterSwift: Distance from another CGPoint.
     ///
-    ///     let point1 = CGPoint(x: 10, y: 10)
-    ///     let point2 = CGPoint(x: 30, y: 30)
-    ///     let distance = point1.distance(from: point2)
-    ///     // distance = 28.28
-    ///
+    /// ```swift
+    /// let point1 = CGPoint(x: 10, y: 10)
+    /// let point2 = CGPoint(x: 30, y: 30)
+    /// let distance = point1.distance(from: point2)
+    /// // distance = 28.28
+    /// ```
     /// - Parameter point: CGPoint to get distance from.
     /// - Returns: Distance between self and given CGPoint.
     func distance(from point: CGPoint) -> CGFloat {
@@ -21,11 +22,12 @@ public extension CGPoint {
 
     /// SwifterSwift: Distance between two CGPoints.
     ///
-    ///     let point1 = CGPoint(x: 10, y: 10)
-    ///     let point2 = CGPoint(x: 30, y: 30)
-    ///     let distance = CGPoint.distance(from: point2, to: point1)
-    ///     // distance = 28.28
-    ///
+    /// ```swift
+    /// let point1 = CGPoint(x: 10, y: 10)
+    /// let point2 = CGPoint(x: 30, y: 30)
+    /// let distance = CGPoint.distance(from: point2, to: point1)
+    /// // distance = 28.28
+    /// ```
     /// - Parameters:
     ///   - point1: first CGPoint.
     ///   - point2: second CGPoint.
@@ -41,11 +43,12 @@ public extension CGPoint {
 public extension CGPoint {
     /// SwifterSwift: Add two CGPoints.
     ///
-    ///     let point1 = CGPoint(x: 10, y: 10)
-    ///     let point2 = CGPoint(x: 30, y: 30)
-    ///     let point = point1 + point2
-    ///     // point = CGPoint(x: 40, y: 40)
-    ///
+    /// ```swift
+    /// let point1 = CGPoint(x: 10, y: 10)
+    /// let point2 = CGPoint(x: 30, y: 30)
+    /// let point = point1 + point2
+    /// // point = CGPoint(x: 40, y: 40)
+    /// ```
     /// - Parameters:
     ///   - lhs: CGPoint to add to.
     ///   - rhs: CGPoint to add.
@@ -56,11 +59,12 @@ public extension CGPoint {
 
     /// SwifterSwift: Add a CGPoints to self.
     ///
-    ///     let point1 = CGPoint(x: 10, y: 10)
-    ///     let point2 = CGPoint(x: 30, y: 30)
-    ///     point1 += point2
-    ///     // point1 = CGPoint(x: 40, y: 40)
-    ///
+    /// ```swift
+    /// let point1 = CGPoint(x: 10, y: 10)
+    /// let point2 = CGPoint(x: 30, y: 30)
+    /// point1 += point2
+    /// // point1 = CGPoint(x: 40, y: 40)
+    /// ```
     /// - Parameters:
     ///   - lhs: `self`.
     ///   - rhs: CGPoint to add.
@@ -71,11 +75,12 @@ public extension CGPoint {
 
     /// SwifterSwift: Subtract two CGPoints.
     ///
-    ///     let point1 = CGPoint(x: 10, y: 10)
-    ///     let point2 = CGPoint(x: 30, y: 30)
-    ///     let point = point1 - point2
-    ///     // point = CGPoint(x: -20, y: -20)
-    ///
+    /// ```swift
+    /// let point1 = CGPoint(x: 10, y: 10)
+    /// let point2 = CGPoint(x: 30, y: 30)
+    /// let point = point1 - point2
+    /// // point = CGPoint(x: -20, y: -20)
+    /// ```
     /// - Parameters:
     ///   - lhs: CGPoint to subtract from.
     ///   - rhs: CGPoint to subtract.
@@ -86,11 +91,12 @@ public extension CGPoint {
 
     /// SwifterSwift: Subtract a CGPoints from self.
     ///
-    ///     let point1 = CGPoint(x: 10, y: 10)
-    ///     let point2 = CGPoint(x: 30, y: 30)
-    ///     point1 -= point2
-    ///     // point1 = CGPoint(x: -20, y: -20)
-    ///
+    /// ```swift
+    /// let point1 = CGPoint(x: 10, y: 10)
+    /// let point2 = CGPoint(x: 30, y: 30)
+    /// point1 -= point2
+    /// // point1 = CGPoint(x: -20, y: -20)
+    /// ```
     /// - Parameters:
     ///   - lhs: `self`.
     ///   - rhs: CGPoint to subtract.
@@ -101,10 +107,11 @@ public extension CGPoint {
 
     /// SwifterSwift: Multiply a CGPoint with a scalar.
     ///
-    ///     let point1 = CGPoint(x: 10, y: 10)
-    ///     let scalar = point1 * 5
-    ///     // scalar = CGPoint(x: 50, y: 50)
-    ///
+    /// ```swift
+    /// let point1 = CGPoint(x: 10, y: 10)
+    /// let scalar = point1 * 5
+    /// // scalar = CGPoint(x: 50, y: 50)
+    /// ```
     /// - Parameters:
     ///   - point: CGPoint to multiply.
     ///   - scalar: scalar value.
@@ -115,10 +122,11 @@ public extension CGPoint {
 
     /// SwifterSwift: Multiply self with a scalar.
     ///
-    ///     let point1 = CGPoint(x: 10, y: 10)
-    ///     point *= 5
-    ///     // point1 = CGPoint(x: 50, y: 50)
-    ///
+    /// ```swift
+    /// let point1 = CGPoint(x: 10, y: 10)
+    /// point *= 5
+    /// // point1 = CGPoint(x: 50, y: 50)
+    /// ```
     /// - Parameters:
     ///   - point: `self`.
     ///   - scalar: scalar value.
@@ -130,10 +138,11 @@ public extension CGPoint {
 
     /// SwifterSwift: Multiply a CGPoint with a scalar.
     ///
-    ///     let point1 = CGPoint(x: 10, y: 10)
-    ///     let scalar = 5 * point1
-    ///     // scalar = CGPoint(x: 50, y: 50)
-    ///
+    /// ```swift
+    /// let point1 = CGPoint(x: 10, y: 10)
+    /// let scalar = 5 * point1
+    /// // scalar = CGPoint(x: 50, y: 50)
+    /// ```
     /// - Parameters:
     ///   - scalar: scalar value.
     ///   - point: CGPoint to multiply.

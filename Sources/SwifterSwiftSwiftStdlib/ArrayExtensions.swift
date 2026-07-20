@@ -24,9 +24,10 @@ public extension Array {
 public extension Array {
     /// SwifterSwift: Insert an element at the beginning of array.
     ///
-    ///        [2, 3, 4, 5].prepend(1) -> [1, 2, 3, 4, 5]
-    ///        ["e", "l", "l", "o"].prepend("h") -> ["h", "e", "l", "l", "o"]
-    ///
+    /// ```swift
+    /// [2, 3, 4, 5].prepend(1) -> [1, 2, 3, 4, 5]
+    /// ["e", "l", "l", "o"].prepend("h") -> ["h", "e", "l", "l", "o"]
+    /// ```
     /// - Parameter newElement: element to insert.
     mutating func prepend(_ newElement: Element) {
         insert(newElement, at: 0)
@@ -34,9 +35,10 @@ public extension Array {
 
     /// SwifterSwift: Safely swap values at given index positions.
     ///
-    ///        [1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
-    ///        ["h", "e", "l", "l", "o"].safeSwap(from: 1, to: 0) -> ["e", "h", "l", "l", "o"]
-    ///
+    /// ```swift
+    /// [1, 2, 3, 4, 5].safeSwap(from: 3, to: 0) -> [4, 2, 3, 1, 5]
+    /// ["h", "e", "l", "l", "o"].safeSwap(from: 1, to: 0) -> ["e", "h", "l", "l", "o"]
+    /// ```
     /// - Parameters:
     ///   - index: index of first element.
     ///   - otherIndex: index of other element.
@@ -50,9 +52,10 @@ public extension Array {
     /// SwifterSwift: Sort an array like another array based on a key path. If the other array doesn't contain a certain
     /// value, it will be sorted last.
     ///
-    ///        [MyStruct(x: 3), MyStruct(x: 1), MyStruct(x: 2)].sorted(like: [1, 2, 3], keyPath: \.x)
-    ///            -> [MyStruct(x: 1), MyStruct(x: 2), MyStruct(x: 3)]
-    ///
+    /// ```swift
+    /// [MyStruct(x: 3), MyStruct(x: 1), MyStruct(x: 2)].sorted(like: [1, 2, 3], keyPath: \.x)
+    ///     -> [MyStruct(x: 1), MyStruct(x: 2), MyStruct(x: 3)]
+    /// ```
     /// - Parameters:
     ///   - otherArray: array containing elements in the desired order.
     ///   - keyPath: keyPath indicating the property that the array should be sorted by
@@ -72,9 +75,10 @@ public extension Array {
 public extension Array where Element: Equatable {
     /// SwifterSwift: Remove all instances of an item from array.
     ///
-    ///        [1, 2, 2, 3, 4, 5].removeAll(2) -> [1, 3, 4, 5]
-    ///        ["h", "e", "l", "l", "o"].removeAll("l") -> ["h", "e", "o"]
-    ///
+    /// ```swift
+    /// [1, 2, 2, 3, 4, 5].removeAll(2) -> [1, 3, 4, 5]
+    /// ["h", "e", "l", "l", "o"].removeAll("l") -> ["h", "e", "o"]
+    /// ```
     /// - Parameter item: item to remove.
     /// - Returns: self after removing all instances of item.
     @discardableResult
@@ -85,9 +89,10 @@ public extension Array where Element: Equatable {
 
     /// SwifterSwift: Remove all instances contained in items parameter from array.
     ///
-    ///        [1, 2, 2, 3, 4, 5].removeAll([2,5]) -> [1, 3, 4]
-    ///        ["h", "e", "l", "l", "o"].removeAll(["l", "h"]) -> ["e", "o"]
-    ///
+    /// ```swift
+    /// [1, 2, 2, 3, 4, 5].removeAll([2,5]) -> [1, 3, 4]
+    /// ["h", "e", "l", "l", "o"].removeAll(["l", "h"]) -> ["e", "o"]
+    /// ```
     /// - Parameter items: items to remove.
     /// - Returns: self after removing all instances of all items in given array.
     @discardableResult
@@ -99,9 +104,10 @@ public extension Array where Element: Equatable {
 
     /// SwifterSwift: Remove all duplicate elements from Array.
     ///
-    ///        [1, 2, 2, 3, 4, 5].removeDuplicates() -> [1, 2, 3, 4, 5]
-    ///        ["h", "e", "l", "l", "o"]. removeDuplicates() -> ["h", "e", "l", "o"]
-    ///
+    /// ```swift
+    /// [1, 2, 2, 3, 4, 5].removeDuplicates() -> [1, 2, 3, 4, 5]
+    /// ["h", "e", "l", "l", "o"]. removeDuplicates() -> ["h", "e", "l", "o"]
+    /// ```
     /// - Returns: Return array with all duplicate elements removed.
     @discardableResult
     mutating func removeDuplicates() -> [Element] {
@@ -116,9 +122,10 @@ public extension Array where Element: Equatable {
 
     /// SwifterSwift: Return array with all duplicate elements removed.
     ///
-    ///     [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
-    ///     ["h", "e", "l", "l", "o"].withoutDuplicates() -> ["h", "e", "l", "o"])
-    ///
+    /// ```swift
+    /// [1, 1, 2, 2, 3, 3, 3, 4, 5].withoutDuplicates() -> [1, 2, 3, 4, 5])
+    /// ["h", "e", "l", "l", "o"].withoutDuplicates() -> ["h", "e", "l", "o"])
+    /// ```
     /// - Returns: an array of unique elements.
     ///
     func withoutDuplicates() -> [Element] {
