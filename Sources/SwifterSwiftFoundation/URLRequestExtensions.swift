@@ -1,6 +1,6 @@
 // URLRequestExtensions.swift - Copyright 2026 SwifterSwift
 
-#if canImport(Foundation)
+#if canImport(Foundation) && !os(WASI)
 import Foundation
 
 #if canImport(FoundationNetworking)

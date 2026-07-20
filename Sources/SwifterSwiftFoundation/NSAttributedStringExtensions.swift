@@ -17,7 +17,7 @@ import AppKit
 // MARK: - Properties
 
 public extension NSAttributedString {
-    #if !os(Linux) && !os(Android)
+    #if !os(Linux) && !os(Android) && !os(WASI)
     /// SwifterSwift: Bolded string using the system font.
     var bolded: NSAttributedString {
         guard !string.isEmpty else { return self }
@@ -36,7 +36,7 @@ public extension NSAttributedString {
     }
     #endif
 
-    #if !os(Linux) && !os(Android)
+    #if !os(Linux) && !os(Android) && !os(WASI)
     /// SwifterSwift: Underlined string.
     var underlined: NSAttributedString {
         return applying(attributes: [.underlineStyle: NSUnderlineStyle.single.rawValue])
@@ -62,7 +62,7 @@ public extension NSAttributedString {
     }
     #endif
 
-    #if !os(Linux) && !os(Android)
+    #if !os(Linux) && !os(Android) && !os(WASI)
     /// SwifterSwift: Struckthrough string.
     var struckthrough: NSAttributedString {
         return applying(attributes: [.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue)])
