@@ -8,8 +8,9 @@ import SpriteKit
 public extension SKSpriteNode {
     /// SwifterSwift: SKSpriteNode sized with respect to aspect ratio.
     ///
-    ///        node.aspectFill(to: CGSize(width: 300, height: 300)
-    ///
+    /// ```swift
+    /// node.aspectFill(to: CGSize(width: 300, height: 300)
+    /// ```
     /// - Parameter fillSize: fill size to use for aspect ratio calculation.
     func aspectFill(to fillSize: CGSize) {
         if let textureSize = texture?.size() {

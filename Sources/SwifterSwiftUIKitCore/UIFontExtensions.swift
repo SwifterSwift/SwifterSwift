@@ -20,8 +20,9 @@ public extension UIFont {
 
     /// SwifterSwift: Font as monospaced font.
     ///
-    ///     UIFont.preferredFont(forTextStyle: .body).monospaced
-    ///
+    /// ```swift
+    /// UIFont.preferredFont(forTextStyle: .body).monospaced
+    /// ```
     var monospaced: UIFont {
         let settings = [[
             UIFontDescriptor.FeatureKey.featureIdentifier: kNumberSpacingType,

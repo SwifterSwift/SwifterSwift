@@ -88,10 +88,11 @@ public extension FileManager {
     /// SwifterSwift: Creates a unique directory for saving temporary files. The directory can be used to create
     /// multiple temporary files used for a common purpose.
     ///
-    ///     let tempDirectory = try fileManager.createTemporaryDirectory()
-    ///     let tempFile1URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
-    ///     let tempFile2URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
-    ///
+    /// ```swift
+    /// let tempDirectory = try fileManager.createTemporaryDirectory()
+    /// let tempFile1URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
+    /// let tempFile2URL = tempDirectory.appendingPathComponent(ProcessInfo().globallyUniqueString)
+    /// ```
     /// - Throws: An error if a temporary directory cannot be found or created.
     /// - Returns: A URL to a new directory for saving temporary files.
     func createTemporaryDirectory() throws -> URL {

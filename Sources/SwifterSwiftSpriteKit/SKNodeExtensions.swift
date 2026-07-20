@@ -8,8 +8,9 @@ import SpriteKit
 public extension SKNode {
     /// SwifterSwift: Return an array of all SKNode descendants.
     ///
-    ///         mySKNode.descendants() -> [childNodeOne, childNodeTwo]
-    ///
+    /// ```swift
+    /// mySKNode.descendants() -> [childNodeOne, childNodeTwo]
+    /// ```
     func descendants() -> [SKNode] {
         var children = children
         children.append(contentsOf: children.reduce(into: [SKNode]()) { $0.append(contentsOf: $1.descendants()) })
@@ -18,8 +19,9 @@ public extension SKNode {
 
     /// SwifterSwift: The center anchor of the node in its parent's coordinate system.
     ///
-    ///         mySKNode.center = CGPoint(x: frame.midX, y: frame.midY)
-    ///
+    /// ```swift
+    /// mySKNode.center = CGPoint(x: frame.midX, y: frame.midY)
+    /// ```
     var center: CGPoint {
         get {
             let contents = calculateAccumulatedFrame()
@@ -33,8 +35,9 @@ public extension SKNode {
 
     /// SwifterSwift: The top left anchor of the node in its parent's coordinate system.
     ///
-    ///         mySKNode.topLeft = CGPoint(x: frame.minX, y: frame.maxY)
-    ///
+    /// ```swift
+    /// mySKNode.topLeft = CGPoint(x: frame.minX, y: frame.maxY)
+    /// ```
     var topLeft: CGPoint {
         get {
             let contents = calculateAccumulatedFrame()
@@ -48,8 +51,9 @@ public extension SKNode {
 
     /// SwifterSwift: The top right anchor of the node in its parent's coordinate system.
     ///
-    ///         mySKNode.topRight = CGPoint(x: frame.maxX, y: frame.maxY)
-    ///
+    /// ```swift
+    /// mySKNode.topRight = CGPoint(x: frame.maxX, y: frame.maxY)
+    /// ```
     var topRight: CGPoint {
         get {
             let contents = calculateAccumulatedFrame()
@@ -63,8 +67,9 @@ public extension SKNode {
 
     /// SwifterSwift: The bottom left anchor of the node in its parent's coordinate system.
     ///
-    ///         mySKNode.center = GPoint(x: frame.minX, y: frame.minY)
-    ///
+    /// ```swift
+    /// mySKNode.center = GPoint(x: frame.minX, y: frame.minY)
+    /// ```
     var bottomLeft: CGPoint {
         get {
             let contents = calculateAccumulatedFrame()
@@ -78,8 +83,9 @@ public extension SKNode {
 
     /// SwifterSwift: The bottom right anchor of the node in its parent's coordinate system.
     ///
-    ///         mySKNode.bottomRight = CGPoint(x: frame.maxX, y: frame.minY)
-    ///
+    /// ```swift
+    /// mySKNode.bottomRight = CGPoint(x: frame.maxX, y: frame.minY)
+    /// ```
     var bottomRight: CGPoint {
         get {
             let contents = calculateAccumulatedFrame()
