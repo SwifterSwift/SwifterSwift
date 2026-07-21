@@ -18,10 +18,11 @@ public extension Dictionary {
 
     /// SwifterSwift: Check if key exists in dictionary.
     ///
-    ///        let dict: [String: Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
-    ///        dict.has(key: "testKey") -> true
-    ///        dict.has(key: "anotherKey") -> false
-    ///
+    /// ```swift
+    /// let dict: [String: Any] = ["testKey": "testValue", "testArrayKey": [1, 2, 3, 4, 5]]
+    /// dict.has(key: "testKey") -> true
+    /// dict.has(key: "anotherKey") -> false
+    /// ```
     /// - Parameter key: key to search for.
     /// - Returns: true if key exists in dictionary.
     func has(key: Key) -> Bool {
@@ -30,12 +31,13 @@ public extension Dictionary {
 
     /// SwifterSwift: Remove all keys contained in the keys parameter from the dictionary.
     ///
-    ///        var dict : [String: String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
-    ///        dict.removeAll(keys: ["key1", "key2"])
-    ///        dict.keys.contains("key3") -> true
-    ///        dict.keys.contains("key1") -> false
-    ///        dict.keys.contains("key2") -> false
-    ///
+    /// ```swift
+    /// var dict : [String: String] = ["key1" : "value1", "key2" : "value2", "key3" : "value3"]
+    /// dict.removeAll(keys: ["key1", "key2"])
+    /// dict.keys.contains("key3") -> true
+    /// dict.keys.contains("key1") -> false
+    /// dict.keys.contains("key2") -> false
+    /// ```
     /// - Parameter keys: keys to be removed.
     mutating func removeAll(keys: some Sequence<Key>) {
         keys.forEach { removeValue(forKey: $0) }
@@ -66,25 +68,26 @@ public extension Dictionary {
     #if canImport(Foundation)
     /// SwifterSwift: JSON String from dictionary.
     ///
-    ///        dict.jsonString() -> "{"testKey":"testValue","testArrayKey":[1,2,3,4,5]}"
+    /// ```swift
+    /// dict.jsonString() -> "{"testKey":"testValue","testArrayKey":[1,2,3,4,5]}"
     ///
-    ///        dict.jsonString(prettify: true)
-    ///        /*
-    ///        returns the following string:
+    /// dict.jsonString(prettify: true)
+    /// /*
+    /// returns the following string:
     ///
-    ///        "{
-    ///        "testKey" : "testValue",
-    ///        "testArrayKey" : [
-    ///            1,
-    ///            2,
-    ///            3,
-    ///            4,
-    ///            5
-    ///        ]
-    ///        }"
+    /// "{
+    /// "testKey" : "testValue",
+    /// "testArrayKey" : [
+    ///     1,
+    ///     2,
+    ///     3,
+    ///     4,
+    ///     5
+    /// ]
+    /// }"
     ///
-    ///        */
-    ///
+    /// */
+    /// ```
     /// - Parameter prettify: set true to prettify string (default is false).
     /// - Returns: optional JSON String (if applicable).
     func jsonString(prettify: Bool = false) -> String? {
@@ -117,10 +120,11 @@ public extension Dictionary {
 
     /// SwifterSwift: Creates a new dictionary using specified keys.
     ///
-    ///        var dict =  ["key1": 1, "key2": 2, "key3": 3, "key4": 4]
-    ///        dict.pick(keys: ["key1", "key3", "key4"]) -> ["key1": 1, "key3": 3, "key4": 4]
-    ///        dict.pick(keys: ["key2"]) -> ["key2": 2]
-    ///
+    /// ```swift
+    /// var dict =  ["key1": 1, "key2": 2, "key3": 3, "key4": 4]
+    /// dict.pick(keys: ["key1", "key3", "key4"]) -> ["key1": 1, "key3": 3, "key4": 4]
+    /// dict.pick(keys: ["key2"]) -> ["key2": 2]
+    /// ```
     /// - Complexity: O(K), where _K_ is the length of the keys array.
     ///
     /// - Parameter keys: An array of keys that will be the entries in the resulting dictionary.
@@ -139,11 +143,12 @@ public extension Dictionary {
 public extension Dictionary where Value: Equatable {
     /// SwifterSwift: Returns an array of all keys that have the given value in dictionary.
     ///
-    ///        let dict = ["key1": "value1", "key2": "value1", "key3": "value2"]
-    ///        dict.keys(forValue: "value1") -> ["key1", "key2"]
-    ///        dict.keys(forValue: "value2") -> ["key3"]
-    ///        dict.keys(forValue: "value3") -> []
-    ///
+    /// ```swift
+    /// let dict = ["key1": "value1", "key2": "value1", "key3": "value2"]
+    /// dict.keys(forValue: "value1") -> ["key1", "key2"]
+    /// dict.keys(forValue: "value2") -> ["key3"]
+    /// dict.keys(forValue: "value3") -> []
+    /// ```
     /// - Parameter value: Value for which keys are to be fetched.
     /// - Returns: An array containing keys that have the given value.
     func keys(forValue value: Value) -> [Key] {
@@ -156,10 +161,11 @@ public extension Dictionary where Value: Equatable {
 public extension Dictionary where Key: StringProtocol {
     /// SwifterSwift: Lowercase all keys in dictionary.
     ///
-    ///        var dict = ["tEstKeY": "value"]
-    ///        dict.lowercaseAllKeys()
-    ///        print(dict) // prints "["testkey": "value"]"
-    ///
+    /// ```swift
+    /// var dict = ["tEstKeY": "value"]
+    /// dict.lowercaseAllKeys()
+    /// print(dict) // prints "["testkey": "value"]"
+    /// ```
     mutating func lowercaseAllKeys() {
         // http://stackoverflow.com/questions/33180028/extend-dictionary-where-key-is-of-type-string
         for key in keys {
@@ -175,10 +181,11 @@ public extension Dictionary where Key: StringProtocol {
 public extension Dictionary {
     /// SwifterSwift: Deep fetch or set a value from nested dictionaries.
     ///
-    ///        var dict =  ["key": ["key1": ["key2": "value"]]]
-    ///        dict[path: ["key", "key1", "key2"]] = "newValue"
-    ///        dict[path: ["key", "key1", "key2"]] -> "newValue"
-    ///
+    /// ```swift
+    /// var dict =  ["key": ["key1": ["key2": "value"]]]
+    /// dict[path: ["key", "key1", "key2"]] = "newValue"
+    /// dict[path: ["key", "key1", "key2"]] -> "newValue"
+    /// ```
     /// - Note: Value fetching is iterative, while setting is recursive.
     ///
     /// - Complexity: O(N), _N_ being the length of the path passed in.
@@ -218,12 +225,13 @@ public extension Dictionary {
 public extension Dictionary {
     /// SwifterSwift: Merge the keys/values of two dictionaries.
     ///
-    ///        let dict: [String: String] = ["key1": "value1"]
-    ///        let dict2: [String: String] = ["key2": "value2"]
-    ///        let result = dict + dict2
-    ///        result["key1"] -> "value1"
-    ///        result["key2"] -> "value2"
-    ///
+    /// ```swift
+    /// let dict: [String: String] = ["key1": "value1"]
+    /// let dict2: [String: String] = ["key2": "value2"]
+    /// let result = dict + dict2
+    /// result["key1"] -> "value1"
+    /// result["key2"] -> "value2"
+    /// ```
     /// - Parameters:
     ///   - lhs: dictionary.
     ///   - rhs: dictionary.
@@ -238,12 +246,13 @@ public extension Dictionary {
 
     /// SwifterSwift: Append the keys and values from the second dictionary into the first one.
     ///
-    ///        var dict: [String: String] = ["key1": "value1"]
-    ///        let dict2: [String: String] = ["key2": "value2"]
-    ///        dict += dict2
-    ///        dict["key1"] -> "value1"
-    ///        dict["key2"] -> "value2"
-    ///
+    /// ```swift
+    /// var dict: [String: String] = ["key1": "value1"]
+    /// let dict2: [String: String] = ["key2": "value2"]
+    /// dict += dict2
+    /// dict["key1"] -> "value1"
+    /// dict["key2"] -> "value2"
+    /// ```
     /// - Parameters:
     ///   - lhs: dictionary.
     ///   - rhs: dictionary.
@@ -253,12 +262,13 @@ public extension Dictionary {
 
     /// SwifterSwift: Remove keys contained in the sequence from the dictionary.
     ///
-    ///        let dict: [String: String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
-    ///        let result = dict-["key1", "key2"]
-    ///        result.keys.contains("key3") -> true
-    ///        result.keys.contains("key1") -> false
-    ///        result.keys.contains("key2") -> false
-    ///
+    /// ```swift
+    /// let dict: [String: String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
+    /// let result = dict-["key1", "key2"]
+    /// result.keys.contains("key3") -> true
+    /// result.keys.contains("key1") -> false
+    /// result.keys.contains("key2") -> false
+    /// ```
     /// - Parameters:
     ///   - lhs: dictionary.
     ///   - keys: array with the keys to be removed.
@@ -271,12 +281,13 @@ public extension Dictionary {
 
     /// SwifterSwift: Remove keys contained in the sequence from the dictionary.
     ///
-    ///        var dict: [String: String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
-    ///        dict-=["key1", "key2"]
-    ///        dict.keys.contains("key3") -> true
-    ///        dict.keys.contains("key1") -> false
-    ///        dict.keys.contains("key2") -> false
-    ///
+    /// ```swift
+    /// var dict: [String: String] = ["key1": "value1", "key2": "value2", "key3": "value3"]
+    /// dict-=["key1", "key2"]
+    /// dict.keys.contains("key3") -> true
+    /// dict.keys.contains("key1") -> false
+    /// dict.keys.contains("key2") -> false
+    /// ```
     /// - Parameters:
     ///   - lhs: dictionary.
     ///   - keys: array with the keys to be removed.

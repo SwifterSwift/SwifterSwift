@@ -3,7 +3,7 @@
 @testable import SwifterSwift
 import XCTest
 
-#if !os(Linux) && !os(Android)
+#if !os(Linux) && !os(Android) && !os(WASI)
 
 #if canImport(Foundation)
 import Foundation

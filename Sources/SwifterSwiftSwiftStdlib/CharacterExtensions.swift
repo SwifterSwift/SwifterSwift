@@ -5,8 +5,9 @@
 public extension Character {
     /// SwifterSwift: Check if character is emoji.
     ///
-    ///        Character("😀").isEmoji -> true
-    ///
+    /// ```swift
+    /// Character("😀").isEmoji -> true
+    /// ```
     var isEmoji: Bool {
         // http://stackoverflow.com/questions/30757193/find-out-if-character-in-string-is-emoji
         let scalarValue = String(self).unicodeScalars.first!.value
@@ -32,33 +33,37 @@ public extension Character {
 
     /// SwifterSwift: Integer from character (if applicable).
     ///
-    ///        Character("1").int -> 1
-    ///        Character("A").int -> nil
-    ///
+    /// ```swift
+    /// Character("1").int -> 1
+    /// Character("A").int -> nil
+    /// ```
     var int: Int? {
         return Int(String(self))
     }
 
     /// SwifterSwift: String from character.
     ///
-    ///        Character("a").string -> "a"
-    ///
+    /// ```swift
+    /// Character("a").string -> "a"
+    /// ```
     var string: String {
         return String(self)
     }
 
     /// SwifterSwift: Return the character lowercased.
     ///
-    ///        Character("A").lowercased -> Character("a")
-    ///
+    /// ```swift
+    /// Character("A").lowercased -> Character("a")
+    /// ```
     var lowercased: Character {
         return String(self).lowercased().first!
     }
 
     /// SwifterSwift: Return the character uppercased.
     ///
-    ///        Character("a").uppercased -> Character("A")
-    ///
+    /// ```swift
+    /// Character("a").uppercased -> Character("A")
+    /// ```
     var uppercased: Character {
         return String(self).uppercased().first!
     }
@@ -82,8 +87,9 @@ public extension Character {
 public extension Character {
     /// SwifterSwift: Repeat character multiple times.
     ///
-    ///        Character("-") * 10 -> "----------"
-    ///
+    /// ```swift
+    /// Character("-") * 10 -> "----------"
+    /// ```
     /// - Parameters:
     ///   - lhs: character to repeat.
     ///   - rhs: number of times to repeat character.
@@ -95,8 +101,9 @@ public extension Character {
 
     /// SwifterSwift: Repeat character multiple times.
     ///
-    ///        10 * Character("-") -> "----------"
-    ///
+    /// ```swift
+    /// 10 * Character("-") -> "----------"
+    /// ```
     /// - Parameters:
     ///   - lhs: number of times to repeat character.
     ///   - rhs: character to repeat.

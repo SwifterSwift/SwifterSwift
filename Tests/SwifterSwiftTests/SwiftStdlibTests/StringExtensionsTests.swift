@@ -309,7 +309,7 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testCgFloat() {
-        #if !os(Linux) && !os(Android)
+        #if !os(Linux) && !os(Android) && !os(WASI)
         XCTAssertNotNil("8".cgFloat())
         XCTAssertEqual("8".cgFloat(), 8)
 
@@ -321,7 +321,7 @@ final class StringExtensionsTests: XCTestCase {
     }
 
     func testLines() {
-        #if !os(Linux) && !os(Android)
+        #if !os(Linux) && !os(Android) && !os(WASI)
         XCTAssertEqual("Hello\ntest".lines(), ["Hello", "test"])
         #endif
     }

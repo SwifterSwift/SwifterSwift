@@ -8,6 +8,8 @@ import CoreGraphics
 import Darwin
 #elseif canImport(Android)
 import Android
+#elseif canImport(WASILibc)
+import WASILibc
 #elseif os(Linux)
 import Glibc
 #endif

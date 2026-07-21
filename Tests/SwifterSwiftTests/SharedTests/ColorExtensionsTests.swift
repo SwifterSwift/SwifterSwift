@@ -3,11 +3,7 @@
 @testable import SwifterSwift
 import XCTest
 
-#if canImport(AppKit) || canImport(UIKit)
-
-#if !os(watchOS)
-import CoreImage
-#endif
+#if !os(Linux) && !os(Android) && !os(WASI)
 
 // swiftlint:disable:next type_body_length
 final class ColorExtensionsTests: XCTestCase {
