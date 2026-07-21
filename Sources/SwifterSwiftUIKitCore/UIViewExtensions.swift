@@ -293,7 +293,7 @@ public extension UIView {
     }
 
     /// SwifterSwift: Remove all subviews in view.
-    func removeSubviews() {
+    func removeAllSubviews() {
         subviews.forEach { $0.removeFromSuperview() }
     }
 
