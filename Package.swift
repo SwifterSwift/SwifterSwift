@@ -6,10 +6,12 @@ import PackageDescription
 let package = Package(
     name: "SwifterSwift",
     platforms: [
-        .iOS(.v12),
+        .iOS(.v15),
+        .macOS(.v12),
+        .watchOS(.v9),
+        .visionOS(.v1),
         .tvOS(.v12),
-        .watchOS(.v4),
-        .macOS(.v10_13)
+        .macCatalyst(.v15)
     ],
     products: [
         .library(name: "SwifterSwift", targets: ["SwifterSwift"]),

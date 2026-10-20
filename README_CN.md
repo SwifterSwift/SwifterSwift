@@ -21,8 +21,8 @@ SwifterSwift 是 **500 多个原生 Swift 扩展的集合**，为 iOS、macOS、
 
 ## 要求
 
-- **iOS** 12.0+ / **tvOS** 12.0+ / **watchOS** 4.0+ / **macOS** 10.13+ / **Ubuntu** 14.04+
-- Swift 5.6+
+- **iOS** 15.0+ / **tvOS** 12.0+ / **watchOS** 9.0+ / **macOS** 12.0+ / **visionOS** 1.0+ / **Mac Catalyst** 15.0+ / **Ubuntu** 14.04+
+- Swift 6.0+
 
 ## 希望将 SwifterSwift 用于旧版本的 Swift
 
