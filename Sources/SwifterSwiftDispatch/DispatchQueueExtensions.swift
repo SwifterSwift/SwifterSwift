@@ -52,6 +52,16 @@ public extension DispatchQueue {
     }
 
     #if !os(Linux) && !os(Android)
+    /// SwifterSwift: Returns a debounced version of the passed closure.
+    /// Calling the returned closure schedules `action` to run after `delay`;
+    /// if the returned closure is called again before that time passes, the
+    /// earlier scheduled run is skipped, so `action` only runs once the
+    /// calls have stopped for `delay` seconds.
+    ///
+    /// - Parameters:
+    ///   - delay: The time interval after which the closure will run.
+    ///   - action: The closure to run after the calls have stopped.
+    /// - Returns: A closure that debounces calls to `action`.
     @available(macOS 14.0, iOS 17.0, tvOS 17.0, watchOS 10.0, *)
     func debounce(delay: Double, action: @escaping () -> Void) -> () -> Void {
         // http://stackoverflow.com/questions/27116684/how-can-i-debounce-a-method-call

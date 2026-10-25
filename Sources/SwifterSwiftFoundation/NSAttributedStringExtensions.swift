@@ -202,6 +202,11 @@ public extension Array where Element: NSAttributedString {
         }
     }
 
+    /// SwifterSwift: Returns a new `NSAttributedString` by concatenating the elements of the sequence, adding the given
+    /// separator between each element.
+    ///
+    /// - Parameter separator: A `String` to add between the elements of the sequence.
+    /// - Returns: NSAttributedString with applied attributes.
     func joined(separator: String) -> NSAttributedString {
         guard let firstElement = first else { return NSMutableAttributedString(string: "") }
         let attributedStringSeparator = NSAttributedString(string: separator)

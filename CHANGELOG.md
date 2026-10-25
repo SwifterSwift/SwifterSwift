@@ -5,6 +5,8 @@ The changelog for **SwifterSwift**. Also see the [releases](https://github.com/S
 ## Upcoming Release
 ### Breaking Change
 ### Added
+- **CI**
+  - Added a CI step to ensure 100% documentation coverage for public API, backed by `scripts/check-doc-coverage.py`. [#1279](https://github.com/SwifterSwift/SwifterSwift/pull/1279) by [CloudCorpRecords](https://github.com/CloudCorpRecords)
 - **WASM**
   - Added WASM support. [#1260](https://github.com/SwifterSwift/SwifterSwift/pull/1260) by [guykogus](https://github.com/guykogus)
 - **Calendar**

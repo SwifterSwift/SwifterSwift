@@ -6,7 +6,7 @@ import AppKit
 // MARK: - Properties
 
 public extension NSView {
-    // SwifterSwift: Height of view.
+    /// SwifterSwift: Height of view.
     var height: CGFloat {
         get {
             return frame.size.height

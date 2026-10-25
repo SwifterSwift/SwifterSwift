@@ -40,6 +40,23 @@ public extension NSRegularExpression {
         }
     }
     #else
+    /// SwifterSwift: Enumerates the string allowing the Block to handle each regular expression match.
+    ///
+    /// - Parameters:
+    ///   - string: The string.
+    ///   - options: The matching options to report. See `NSRegularExpression.MatchingOptions` for the supported values.
+    ///   - range: The range of the string to test.
+    ///   - block: The Block enumerates the matches of the regular expression in the string.
+    ///     The block takes three arguments and returns `Void`:
+    ///   - result:
+    ///     An `NSTextCheckingResult` specifying the match. This result gives the overall matched range via its `range`
+    /// property, and the range of each individual capture group via its `range(at:)` method. The range {NSNotFound, 0}
+    /// is returned if one of the capture groups did not participate in this particular match.
+    ///   - flags:
+    ///     The current state of the matching progress. See `NSRegularExpression.MatchingFlags` for the possible values.
+    ///   - stop:
+    ///     A reference to a Boolean value. The Block can set the value to true to stop further processing of the array.
+    /// The stop argument is an out-only argument. You should only ever set this Boolean to true within the Block.
     func enumerateMatches(in string: String,
                           options: MatchingOptions = [],
                           range: Range<String.Index>,

@@ -9,6 +9,16 @@ on:
       - master
 
 jobs:
+  DocCoverage:
+    name: Doc Coverage
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Doc Coverage
+        run: |
+          python3 scripts/check-doc-coverage.py
+          python3 -m unittest discover -s scripts/tests -v
+
   Swiftlint:
     runs-on: macos-15
     name: SwiftLint
