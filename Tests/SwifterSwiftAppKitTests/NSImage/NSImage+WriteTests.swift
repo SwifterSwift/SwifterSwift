@@ -118,6 +118,18 @@ struct NSImageWriteTests {
         }
     }
 
+    @Test
+    func throwsWhenTheFileTypeCannotBeEncoded() throws {
+        try withTemporaryDirectory { directory in
+            let url = directory.appendingPathComponent("image")
+            let image = try makeImage(pixelsWide: 8, pixelsHigh: 4, size: NSSize(width: 8, height: 4))
+            let unknown = try #require(NSBitmapImageRep.FileType(rawValue: 99))
+            let error = #expect(throws: CocoaError.self) { try image.write(to: url, fileType: unknown) }
+            #expect(error?.code == .fileWriteUnknown)
+            #expect(!FileManager.default.fileExists(atPath: url.path))
+        }
+    }
+
     /// Calls `body` with a new, empty temporary directory, and deletes the directory afterwards.
     private func withTemporaryDirectory(_ body: (URL) throws -> Void) throws {
         let directory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)

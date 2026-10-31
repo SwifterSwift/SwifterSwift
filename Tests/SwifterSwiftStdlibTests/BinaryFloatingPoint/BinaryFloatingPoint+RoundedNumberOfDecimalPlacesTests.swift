@@ -59,6 +59,19 @@ struct BinaryFloatingPointRoundedNumberOfDecimalPlacesTests {
         #expect(12.0.rounded(numberOfDecimalPlaces: 3, rule: rule) == 12)
     }
 
+    @Test
+    func roundsValuesJustBelowADecimalStep() {
+        // `0.8999999999999999 * 10` rounds up to exactly 9, but the value is still below 0.9.
+        let value = 0.8999999999999999
+        #expect(value.rounded(numberOfDecimalPlaces: 1, rule: .down) == 0.8)
+        #expect(value.rounded(numberOfDecimalPlaces: 1, rule: .towardZero) == 0.8)
+        #expect(value.rounded(numberOfDecimalPlaces: 1, rule: .up) == 0.9)
+        #expect(value.rounded(numberOfDecimalPlaces: 1) == 0.9)
+        #expect((-value).rounded(numberOfDecimalPlaces: 1, rule: .up) == -0.8)
+        let float: Float = 1.6999999
+        #expect(float.rounded(numberOfDecimalPlaces: 1, rule: .down) == 1.6)
+    }
+
     @Test(arguments: allRules)
     func matchesExactDecimalRoundingForDoubles(rule: FloatingPointRoundingRule) {
         // Every value with three decimals in [-5, 5], rounded to 0, 1 and 2 places, compared with the result of
