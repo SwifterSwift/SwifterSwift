@@ -100,9 +100,12 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
+      - name: Build
+        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "platform=macOS,variant=Mac Catalyst"
       - name: Test
+        timeout-minutes: 15
         run: |
-          xcodebuild test -quiet -scheme SwifterSwift-Package -destination "platform=macOS,variant=Mac Catalyst" \
+          xcodebuild test-without-building -scheme SwifterSwift-Package -destination "platform=macOS,variant=Mac Catalyst" \
             -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
       - name: Show test failures
         if: failure()
@@ -120,10 +123,16 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
-      - name: Test on the iOS simulator
+      - name: Build for the iOS simulator
         run: |
-          xcodebuild test -quiet -scheme SwifterSwift-Package -destination "$(scripts/simulator-destination.sh iOS)" \
-            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
+          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package \
+            -destination "$(scripts/simulator-destination.sh iOS)"
+      - name: Test on the iOS simulator
+        timeout-minutes: 15
+        run: |
+          xcodebuild test-without-building -scheme SwifterSwift-Package \
+            -destination "$(scripts/simulator-destination.sh iOS)" -test-timeouts-enabled YES \
+            -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
       - name: Show test failures
         if: failure()
         run: |
@@ -142,10 +151,16 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
-      - name: Test on the tvOS simulator
+      - name: Build for the tvOS simulator
         run: |
-          xcodebuild test -quiet -scheme SwifterSwift-Package -destination "$(scripts/simulator-destination.sh tvOS)" \
-            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
+          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package \
+            -destination "$(scripts/simulator-destination.sh tvOS)"
+      - name: Test on the tvOS simulator
+        timeout-minutes: 15
+        run: |
+          xcodebuild test-without-building -scheme SwifterSwift-Package \
+            -destination "$(scripts/simulator-destination.sh tvOS)" -test-timeouts-enabled YES \
+            -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
       - name: Show test failures
         if: failure()
         run: |

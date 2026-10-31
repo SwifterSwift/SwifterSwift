@@ -17,16 +17,21 @@ struct DateStringTests {
         #expect(Self.date.string(withFormat: "HH:mm:ss.SSS", timeZone: Self.utc) == "14:25:09.123")
     }
 
+    @Test(arguments: [
+        ("Asia/Tokyo", "2026-10-30 23:25 +09:00"),
+        ("America/New_York", "2026-10-30 10:25 -04:00"),
+        ("Asia/Kolkata", "2026-10-30 19:55 +05:30")
+    ])
+    func usesTheGivenTimeZone(_ identifier: String, _ expected: String) throws {
+        let timeZone = try #require(TimeZone(identifier: identifier))
+        let string = Self.date.string(withFormat: "yyyy-MM-dd HH:mm XXX", timeZone: timeZone)
+        #expect(string == expected)
+    }
+
     @Test
-    func usesTheGivenTimeZone() throws {
-        let tokyo = try #require(TimeZone(identifier: "Asia/Tokyo"))
-        let newYork = try #require(TimeZone(identifier: "America/New_York"))
-        let kolkata = try #require(TimeZone(identifier: "Asia/Kolkata"))
-        let format = "yyyy-MM-dd HH:mm XXX"
-        #expect(Self.date.string(withFormat: format, timeZone: tokyo) == "2026-10-30 23:25 +09:00")
-        #expect(Self.date.string(withFormat: format, timeZone: newYork) == "2026-10-30 10:25 -04:00")
-        #expect(Self.date.string(withFormat: format, timeZone: kolkata) == "2026-10-30 19:55 +05:30")
-        #expect(Self.date.string(withFormat: "yyyy-MM-dd'T'HH:mm:ssXXX", timeZone: Self.utc) == "2026-10-30T14:25:09Z")
+    func writesZForUTCWithTheXXXPattern() {
+        let string = Self.date.string(withFormat: "yyyy-MM-dd'T'HH:mm:ssXXX", timeZone: Self.utc)
+        #expect(string == "2026-10-30T14:25:09Z")
     }
 
     @Test
