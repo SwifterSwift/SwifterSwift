@@ -19,19 +19,12 @@ struct URLRequestSettingHTTPMethodTests {
 
     @Test(arguments: ["PROPFIND", "patch", "Custom", "post"])
     func passesTheMethodToURLRequestWithoutChangingItsCase(method: String) throws {
-        // HTTP methods are case-sensitive, so the extension doesn't uppercase them. (On Apple platforms URLRequest
-        // itself uppercases a few standard methods, such as "post".)
+        // HTTP methods are case-sensitive, so the extension doesn't uppercase them. (Depending on the platform and OS
+        // version, URLRequest itself may uppercase standard methods such as "post", so compare with it directly.)
         let url = try #require(URL(string: "https://api.example.com/items"))
         var expected = URLRequest(url: url)
         expected.httpMethod = method
         #expect(URLRequest(url: url).settingHTTPMethod(method).httpMethod == expected.httpMethod)
-    }
-
-    @Test
-    func doesNotUppercaseTheMethod() throws {
-        let url = try #require(URL(string: "https://api.example.com/items"))
-        #expect(URLRequest(url: url).settingHTTPMethod("patch").httpMethod == "patch")
-        #expect(URLRequest(url: url).settingHTTPMethod("Custom").httpMethod == "Custom")
     }
 
     @Test

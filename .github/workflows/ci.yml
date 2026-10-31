@@ -20,6 +20,7 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     container: swift:6.4
+    timeout-minutes: 10
     outputs:
       code: ${{ steps.changes.outputs.code }}
     steps:
@@ -52,6 +53,7 @@ jobs:
     needs: lint
     if: needs.lint.outputs.code == 'true'
     runs-on: macos-26
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
         with:
@@ -95,12 +97,18 @@ jobs:
     needs: lint
     if: needs.lint.outputs.code == 'true'
     runs-on: macos-26
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - name: Test
         run: |
           xcodebuild test -quiet -scheme SwifterSwift-Package -destination "platform=macOS,variant=Mac Catalyst" \
-            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120
+            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
+      - name: Show test failures
+        if: failure()
+        run: |
+          xcrun xcresulttool get test-results summary --path TestResults.xcresult \
+            | jq -r '.testFailures[] | "\(.testIdentifierString): \(.failureText)"'
       - name: Documentation (iOS, including UIKit)
         run: xcodebuild docbuild -quiet -scheme SwifterSwift-Package -destination generic/platform=iOS OTHER_DOCC_FLAGS=--warnings-as-errors
 
@@ -109,12 +117,18 @@ jobs:
     needs: lint
     if: needs.lint.outputs.code == 'true'
     runs-on: macos-26
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - name: Test on the iOS simulator
         run: |
           xcodebuild test -quiet -scheme SwifterSwift-Package -destination "$(scripts/simulator-destination.sh iOS)" \
-            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120
+            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
+      - name: Show test failures
+        if: failure()
+        run: |
+          xcrun xcresulttool get test-results summary --path TestResults.xcresult \
+            | jq -r '.testFailures[] | "\(.testIdentifierString): \(.failureText)"'
       - name: Build for visionOS
         run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "generic/platform=visionOS Simulator"
       - name: Build for iOS devices
@@ -125,12 +139,18 @@ jobs:
     needs: lint
     if: needs.lint.outputs.code == 'true'
     runs-on: macos-26
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - name: Test on the tvOS simulator
         run: |
           xcodebuild test -quiet -scheme SwifterSwift-Package -destination "$(scripts/simulator-destination.sh tvOS)" \
-            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120
+            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
+      - name: Show test failures
+        if: failure()
+        run: |
+          xcrun xcresulttool get test-results summary --path TestResults.xcresult \
+            | jq -r '.testFailures[] | "\(.testIdentifierString): \(.failureText)"'
       - name: Build for the watchOS simulator
         run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "generic/platform=watchOS Simulator"
       - name: Build for watchOS devices (32-bit)

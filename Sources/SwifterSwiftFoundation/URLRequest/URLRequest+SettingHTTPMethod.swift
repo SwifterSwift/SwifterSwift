@@ -11,8 +11,8 @@ public extension URLRequest {
     ///
     /// It lets you build a request in one expression, without a `var`. The method is passed to `httpMethod` without
     /// changing its case, because HTTP methods are case-sensitive (RFC 9110, section 9.1): pass `"POST"`, not
-    /// `"post"`. (On Apple platforms `URLRequest` itself uppercases a few standard methods, such as `"post"`, but not
-    /// others, such as `"patch"`.)
+    /// `"post"`. (Depending on the platform and OS version, `URLRequest` itself may uppercase standard methods such
+    /// as `"post"`.)
     ///
     /// ```swift
     /// let url = URL(string: "https://api.example.com/items")!

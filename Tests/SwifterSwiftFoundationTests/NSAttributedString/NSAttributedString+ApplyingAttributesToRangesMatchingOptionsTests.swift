@@ -75,7 +75,7 @@ struct NSAttributedStringApplyingAttributesToRangesMatchingOptionsTests {
 
     @Test
     func handlesAnEmptyString() throws {
-        let result = try NSAttributedString().applying(attributes: [Self.mark: true], toRangesMatching: ".*")
+        let result = try NSAttributedString(string: "").applying(attributes: [Self.mark: true], toRangesMatching: ".*")
         #expect(result.length == 0)
     }
 

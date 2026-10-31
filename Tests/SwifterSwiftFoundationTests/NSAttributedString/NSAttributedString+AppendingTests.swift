@@ -64,9 +64,9 @@ struct NSAttributedStringAppendingTests {
     @Test
     func appendsEmptyStrings() {
         let hello = NSAttributedString(string: "Hello", attributes: [Self.weight: 400])
-        #expect(hello.appending(NSAttributedString()).isEqual(to: hello))
-        #expect(NSAttributedString().appending(hello).isEqual(to: hello))
-        #expect(NSAttributedString().appending(NSAttributedString()).length == 0)
+        #expect(hello.appending(NSAttributedString(string: "")).isEqual(to: hello))
+        #expect(NSAttributedString(string: "").appending(hello).isEqual(to: hello))
+        #expect(NSAttributedString(string: "").appending(NSAttributedString(string: "")).length == 0)
     }
 
     @Test
@@ -106,7 +106,7 @@ struct NSAttributedStringAppendingTests {
 
     @Test
     func appendedTextHasNoAttributesWhenTheStringIsEmpty() {
-        let result = NSAttributedString().appending("Hello")
+        let result = NSAttributedString(string: "").appending("Hello")
         #expect(result.string == "Hello")
         #expect(result.attributes(at: 0, effectiveRange: nil).isEmpty)
     }
@@ -126,7 +126,7 @@ struct NSAttributedStringAppendingTests {
         let result = text.appending("")
         #expect(result.isEqual(to: text))
         #expect(result !== text)
-        #expect(NSAttributedString().appending("").length == 0)
+        #expect(NSAttributedString(string: "").appending("").length == 0)
     }
 
     @Test

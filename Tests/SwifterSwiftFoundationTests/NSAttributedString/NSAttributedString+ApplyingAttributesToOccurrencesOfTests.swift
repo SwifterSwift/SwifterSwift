@@ -87,7 +87,8 @@ struct NSAttributedStringApplyingAttributesToOccurrencesOfTests {
         let text = NSAttributedString(string: "Hello", attributes: [Self.mark: false])
         #expect(text.applying(attributes: [Self.mark: true], toOccurrencesOf: "").isEqual(to: text))
         #expect(text.applying(attributes: [Self.mark: true], toOccurrencesOf: "world").isEqual(to: text))
-        #expect(NSAttributedString().applying(attributes: [Self.mark: true], toOccurrencesOf: "a").length == 0)
+        #expect(
+            NSAttributedString(string: "").applying(attributes: [Self.mark: true], toOccurrencesOf: "a").length == 0)
     }
 
     @Test

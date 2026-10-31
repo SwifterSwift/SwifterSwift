@@ -22,7 +22,7 @@ struct SequenceJoinedTests {
         let separator = NSAttributedString(string: " | ", attributes: [Self.color: "gray"])
         let result = Self.words.joined(separator: separator)
 
-        let expected = NSMutableAttributedString()
+        let expected = NSMutableAttributedString(string: "")
         expected.append(NSAttributedString(string: "Hello", attributes: [Self.color: "red"]))
         expected.append(separator)
         expected.append(NSAttributedString(string: " "))
@@ -43,12 +43,12 @@ struct SequenceJoinedTests {
 
     @Test
     func joinsWithEmptySeparators() {
-        let expected = NSMutableAttributedString()
+        let expected = NSMutableAttributedString(string: "")
         for word in Self.words {
             expected.append(word)
         }
         #expect(Self.words.joined(separator: "").isEqual(to: expected))
-        #expect(Self.words.joined(separator: NSAttributedString()).isEqual(to: expected))
+        #expect(Self.words.joined(separator: NSAttributedString(string: "")).isEqual(to: expected))
     }
 
     @Test

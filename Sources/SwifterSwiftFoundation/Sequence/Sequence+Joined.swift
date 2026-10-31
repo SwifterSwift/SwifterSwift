@@ -21,7 +21,7 @@ public extension Sequence where Element: NSAttributedString {
     /// - Returns: The elements of the sequence joined by `separator`.
     /// - Complexity: O(*n*), where *n* is the total length of the elements and separators.
     func joined(separator: NSAttributedString) -> NSAttributedString {
-        let result = NSMutableAttributedString()
+        let result = NSMutableAttributedString(string: "")
         var isFirst = true
         for element in self {
             if !isFirst {
@@ -49,7 +49,7 @@ public extension Sequence where Element: NSAttributedString {
     /// - Complexity: O(*n*), where *n* is the total length of the elements and separators.
     func joined(separator: String) -> NSAttributedString {
         let separator = NSAttributedString(string: separator)
-        let result = NSMutableAttributedString()
+        let result = NSMutableAttributedString(string: "")
         var isFirst = true
         for element in self {
             if !isFirst {

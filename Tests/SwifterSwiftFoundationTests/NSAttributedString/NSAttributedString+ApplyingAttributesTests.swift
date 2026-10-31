@@ -52,7 +52,7 @@ struct NSAttributedStringApplyingAttributesTests {
 
     @Test
     func handlesAnEmptyString() {
-        let result = NSAttributedString().applying(attributes: [Self.color: "red"])
+        let result = NSAttributedString(string: "").applying(attributes: [Self.color: "red"])
         #expect(result.length == 0)
         #expect(result.string.isEmpty)
     }
