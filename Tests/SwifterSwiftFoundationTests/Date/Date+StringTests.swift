@@ -17,11 +17,19 @@ struct DateStringTests {
         #expect(Self.date.string(withFormat: "HH:mm:ss.SSS", timeZone: Self.utc) == "14:25:09.123")
     }
 
-    @Test(arguments: [
-        ("Asia/Tokyo", "2026-10-30 23:25 +09:00"),
-        ("America/New_York", "2026-10-30 10:25 -04:00"),
-        ("Asia/Kolkata", "2026-10-30 19:55 +05:30")
-    ])
+    static let timeZones: [(identifier: String, expected: String)] = {
+        var timeZones = [
+            ("Asia/Tokyo", "2026-10-30 23:25 +09:00"),
+            ("America/New_York", "2026-10-30 10:25 -04:00")
+        ]
+        #if !os(Windows)
+        // DateFormatter crashes on Windows when it formats a date in Asia/Kolkata.
+        timeZones.append(("Asia/Kolkata", "2026-10-30 19:55 +05:30"))
+        #endif
+        return timeZones
+    }()
+
+    @Test(arguments: timeZones)
     func usesTheGivenTimeZone(_ identifier: String, _ expected: String) throws {
         let timeZone = try #require(TimeZone(identifier: identifier))
         let string = Self.date.string(withFormat: "yyyy-MM-dd HH:mm XXX", timeZone: timeZone)

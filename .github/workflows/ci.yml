@@ -123,16 +123,20 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
-      - name: Build for the iOS simulator
+      # Boot the simulator while the tests build. Tests that call system services stall while it's still booting.
+      - name: Boot the iOS simulator
         run: |
-          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package \
-            -destination "$(scripts/simulator-destination.sh iOS)"
+          destination=$(scripts/simulator-destination.sh iOS)
+          echo "SIMULATOR=$destination" >> "$GITHUB_ENV"
+          xcrun simctl boot "${destination#id=}"
+      - name: Build for the iOS simulator
+        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "$SIMULATOR"
       - name: Test on the iOS simulator
         timeout-minutes: 15
         run: |
-          xcodebuild test-without-building -scheme SwifterSwift-Package \
-            -destination "$(scripts/simulator-destination.sh iOS)" -test-timeouts-enabled YES \
-            -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
+          xcrun simctl bootstatus "${SIMULATOR#id=}"
+          xcodebuild test-without-building -scheme SwifterSwift-Package -destination "$SIMULATOR" \
+            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
       - name: Show test failures
         if: failure()
         run: |
@@ -151,16 +155,20 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
-      - name: Build for the tvOS simulator
+      # Boot the simulator while the tests build. Tests that call system services stall while it's still booting.
+      - name: Boot the tvOS simulator
         run: |
-          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package \
-            -destination "$(scripts/simulator-destination.sh tvOS)"
+          destination=$(scripts/simulator-destination.sh tvOS)
+          echo "SIMULATOR=$destination" >> "$GITHUB_ENV"
+          xcrun simctl boot "${destination#id=}"
+      - name: Build for the tvOS simulator
+        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "$SIMULATOR"
       - name: Test on the tvOS simulator
         timeout-minutes: 15
         run: |
-          xcodebuild test-without-building -scheme SwifterSwift-Package \
-            -destination "$(scripts/simulator-destination.sh tvOS)" -test-timeouts-enabled YES \
-            -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
+          xcrun simctl bootstatus "${SIMULATOR#id=}"
+          xcodebuild test-without-building -scheme SwifterSwift-Package -destination "$SIMULATOR" \
+            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120 -resultBundlePath TestResults.xcresult
       - name: Show test failures
         if: failure()
         run: |
