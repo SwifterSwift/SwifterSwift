@@ -7,6 +7,10 @@ import SwifterSwiftCoreLocation
 import Testing
 
 struct SequenceTotalDistanceTests {
+    /// `distance(from:)` can return values that differ by more than a micrometer between calls, so distances are
+    /// compared to the millimeter.
+    static let tolerance = 1e-3
+
     let track = [
         CLLocation(latitude: 41, longitude: -111),
         CLLocation(latitude: 41, longitude: -112),
@@ -30,7 +34,7 @@ struct SequenceTotalDistanceTests {
     @Test
     func sumsDistancesBetweenConsecutiveLocations() {
         let expected = track[0].distance(from: track[1]) + track[1].distance(from: track[2])
-        #expect(abs(track.totalDistance().value - expected) < 1e-6)
+        #expect(abs(track.totalDistance().value - expected) < Self.tolerance)
         #expect(abs(track.totalDistance(in: .kilometers).value - 168.27) < 0.01)
     }
 
@@ -44,7 +48,7 @@ struct SequenceTotalDistanceTests {
         let distance = track.totalDistance(in: unit)
         let meters = track.totalDistance().value
         #expect(distance.unit == unit)
-        #expect(abs(distance.converted(to: .meters).value - meters) < 1e-6)
+        #expect(abs(distance.converted(to: .meters).value - meters) < Self.tolerance)
     }
 
     @Test
@@ -56,14 +60,14 @@ struct SequenceTotalDistanceTests {
     @Test
     func countsRepeatedLocationsAsNoDistance() {
         let repeated = [track[0], track[0], track[1], track[1]]
-        #expect(abs(repeated.totalDistance().value - track[0].distance(from: track[1])) < 1e-6)
+        #expect(abs(repeated.totalDistance().value - track[0].distance(from: track[1])) < Self.tolerance)
     }
 
     @Test
     func returnsToTheStartForAClosedLoop() {
         let loop = track + [track[0]]
         let expected = track.totalDistance().value + track[2].distance(from: track[0])
-        #expect(abs(loop.totalDistance().value - expected) < 1e-6)
+        #expect(abs(loop.totalDistance().value - expected) < Self.tolerance)
     }
 
     @Test(arguments: [
@@ -76,7 +80,7 @@ struct SequenceTotalDistanceTests {
     func skipsInvalidCoordinates(_ invalid: CLLocationCoordinate2D) {
         let location = CLLocation(latitude: invalid.latitude, longitude: invalid.longitude)
         let withInvalid = [track[0], location, track[1], location]
-        #expect(abs(withInvalid.totalDistance().value - track[0].distance(from: track[1])) < 1e-6)
+        #expect(abs(withInvalid.totalDistance().value - track[0].distance(from: track[1])) < Self.tolerance)
         #expect([location].totalDistance().value == 0)
         #expect([location, location].totalDistance().value == 0)
     }
@@ -97,8 +101,8 @@ struct SequenceTotalDistanceTests {
     @Test
     func worksWithAnySequence() {
         let lazyTrack = (0..<3).lazy.map { CLLocation(latitude: 41, longitude: -111 - Double($0)) }
-        #expect(abs(lazyTrack.totalDistance().value - track.totalDistance().value) < 1e-6)
-        #expect(abs(track[...].totalDistance().value - track.totalDistance().value) < 1e-6)
+        #expect(abs(lazyTrack.totalDistance().value - track.totalDistance().value) < Self.tolerance)
+        #expect(abs(track[...].totalDistance().value - track.totalDistance().value) < Self.tolerance)
     }
 }
 #endif

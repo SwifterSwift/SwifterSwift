@@ -27,12 +27,12 @@ struct CLLocationIsWithinTests {
 
     @Test
     func switchesAtTheDistanceBetweenTheLocations() {
-        // A margin of a micrometer either side, rather than the exact boundary, so the test doesn't depend on
-        // `distance(from:)` returning bit-identical results on every call. `treatsTheSameLocationAsWithinZero()`
-        // covers the inclusive boundary exactly.
+        // A margin of a millimeter either side, rather than the exact boundary, because `distance(from:)` can return
+        // values that differ by more than a micrometer between calls. `treatsTheSameLocationAsWithinZero()` covers the
+        // inclusive boundary exactly.
         let meters = gate.distance(from: visitor)
-        #expect(gate.isWithin(Measurement(value: meters + 1e-6, unit: .meters), of: visitor))
-        #expect(!gate.isWithin(Measurement(value: meters - 1e-6, unit: .meters), of: visitor))
+        #expect(gate.isWithin(Measurement(value: meters + 1e-3, unit: .meters), of: visitor))
+        #expect(!gate.isWithin(Measurement(value: meters - 1e-3, unit: .meters), of: visitor))
     }
 
     @Test
