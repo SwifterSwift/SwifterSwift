@@ -73,13 +73,19 @@ struct URLRequestCurlCommandTests {
         request.setValue("Bearer token", forHTTPHeaderField: "Authorization")
         request.setValue("2", forHTTPHeaderField: "x-lower")
         request.setValue("3", forHTTPHeaderField: "Alpha")
+        #if canImport(Darwin)
+        let (lower, zeta) = ("x-lower", "zeta")
+        #else
+        // Foundation outside Apple platforms capitalizes header names.
+        let (lower, zeta) = ("X-Lower", "Zeta")
+        #endif
         let expected = """
             curl 'https://example.com' \\
               -H 'Alpha: 3' \\
               -H 'Authorization: Bearer token' \\
               -H 'Cookie: session=abc' \\
-              -H 'x-lower: 2' \\
-              -H 'zeta: 1'
+              -H '\(lower): 2' \\
+              -H '\(zeta): 1'
             """
         #expect(request.curlCommand == expected)
     }

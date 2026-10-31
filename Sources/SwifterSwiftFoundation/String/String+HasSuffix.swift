@@ -26,7 +26,9 @@ public extension String {
         if caseSensitive || suffix.isEmpty {
             return hasSuffix(suffix)
         }
-        return range(of: suffix, options: [.anchored, .backwards, .caseInsensitive]) != nil
+        guard let range = range(of: suffix, options: [.anchored, .backwards, .caseInsensitive]) else { return false }
+        // Foundation outside Apple platforms can match part of a character, such as an emoji's skin tone modifier.
+        return range.lowerBound.samePosition(in: self) != nil
     }
 }
 #endif

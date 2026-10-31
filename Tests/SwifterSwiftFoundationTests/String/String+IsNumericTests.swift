@@ -34,10 +34,18 @@ struct StringIsNumericTests {
         #expect(string.isNumeric(locale: Self.unitedStates))
     }
 
-    @Test(arguments: ["1,3", "123.456,78", "1,2,3", "1,0000", "12-", "+-1", "1 000"])
+    @Test(arguments: ["1,3", "123.456,78", "1,2,3", "1,0000", "12-", "+-1"])
     func rejectsOtherFormatsInUnitedStates(_ string: String) {
         #expect(!string.isNumeric(locale: Self.unitedStates))
     }
+
+    #if canImport(Darwin)
+    @Test
+    func rejectsSpacesAsGroupingSeparatorsInUnitedStates() {
+        // Foundation outside Apple platforms accepts a space as a grouping separator here.
+        #expect(!"1 000".isNumeric(locale: Self.unitedStates))
+    }
+    #endif
 
     @Test(arguments: ["1,3", "123.456,78", "-0,5", "1.234"])
     func acceptsNumbersInGermanFormat(_ string: String) {

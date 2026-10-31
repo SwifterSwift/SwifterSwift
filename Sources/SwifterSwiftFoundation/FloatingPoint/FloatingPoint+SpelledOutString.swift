@@ -9,7 +9,8 @@ public extension FloatingPoint {
     /// Foundation's format styles have no spell-out style, so this uses a `NumberFormatter` with the `.spellOut`
     /// style, created on each call. The words follow the number as it prints, the shortest decimal that reads back as
     /// the same value, so `Float(2.3)` is "two point three" rather than the digits of its `Double` widening,
-    /// `2.299999952316284`.
+    /// `2.299999952316284`. Outside Apple platforms, the last digit of a value with 17 significant digits, such as
+    /// `0.1 + 0.2`, can be spelled differently.
     ///
     /// ```swift
     /// let english = Locale(identifier: "en_US")

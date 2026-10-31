@@ -91,14 +91,26 @@ struct StringDateTests {
         #expect(Self.components(of: date, in: Self.utc).year == 2026)
     }
 
+    @Test(arguments: ["2026-10-30", "2026-02-30", " 2026-1-5 "])
+    func parsesLikeDateFormatter(_ string: String) {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.timeZone = Self.utc
+        formatter.dateFormat = "yyyy-MM-dd"
+        #expect(string.date(withFormat: "yyyy-MM-dd", timeZone: Self.utc) == formatter.date(from: string))
+    }
+
+    #if canImport(Darwin)
     @Test
-    func followsDateFormatterLeniency() throws {
+    func followsTheLeniencyOfDateFormatterOnApplePlatforms() throws {
         let rolledOver = try #require("2026-02-30".date(withFormat: "yyyy-MM-dd", timeZone: Self.utc))
         let components = Self.components(of: rolledOver, in: Self.utc)
         #expect(components.month == 3)
         #expect(components.day == 2)
         #expect(" 2026-1-5 ".date(withFormat: "yyyy-MM-dd", timeZone: Self.utc) != nil)
     }
+    #endif
 
     @Test(arguments: [
         ("2026-13-45", "yyyy-MM-dd"),

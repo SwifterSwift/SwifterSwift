@@ -34,7 +34,12 @@ struct UIFontBoldTests {
         let body = UIFont.preferredFont(
             forTextStyle: .body, compatibleWith: UITraitCollection(preferredContentSizeCategory: .large))
         #expect(body.bold.pointSize == body.pointSize)
-        #expect(body.bold.fontDescriptor.symbolicTraits.contains(.traitBold))
+        if #available(tvOS 27, *) {
+            #expect(body.bold.fontDescriptor.symbolicTraits.contains(.traitBold))
+        } else {
+            // Text-style fonts on tvOS 26 can't take the trait, so the font is returned unchanged.
+            #expect(body.bold == body)
+        }
     }
     #endif
 

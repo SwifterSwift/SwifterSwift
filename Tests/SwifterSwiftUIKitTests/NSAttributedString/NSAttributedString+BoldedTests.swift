@@ -48,7 +48,6 @@ struct NSAttributedStringBoldedTests {
 
     @Test
     func convertsEachRunSeparately() throws {
-        // The legacy implementation used the size of the first character for every run, in the bold system font.
         let text = NSMutableAttributedString(string: "Big", attributes: [.font: try Self.namedFont("Georgia", 30)])
         text.append(NSAttributedString(string: "small", attributes: [.font: try Self.namedFont("Menlo-Regular", 9)]))
         let result = text.bolded()
@@ -65,7 +64,12 @@ struct NSAttributedStringBoldedTests {
         let result = text.bolded()
         let body = UIFont.preferredFont(forTextStyle: .body)
         let fallback = try Self.font(of: result, at: 6)
-        #expect(fallback.fontDescriptor.symbolicTraits.contains(.traitBold))
+        if #available(tvOS 27, *) {
+            #expect(fallback.fontDescriptor.symbolicTraits.contains(.traitBold))
+        } else {
+            // Text-style fonts on tvOS 26 can't take the trait, so the default font is used unchanged.
+            #expect(fallback == body)
+        }
         #expect(fallback.pointSize == body.pointSize)
         #expect(fallback.familyName == body.familyName)
 

@@ -64,7 +64,12 @@ struct NSAttributedStringItalicizedTests {
         let result = text.italicized()
         let body = UIFont.preferredFont(forTextStyle: .body)
         let fallback = try Self.font(of: result, at: 6)
-        #expect(fallback.fontDescriptor.symbolicTraits.contains(.traitItalic))
+        if #available(tvOS 27, *) {
+            #expect(fallback.fontDescriptor.symbolicTraits.contains(.traitItalic))
+        } else {
+            // Text-style fonts on tvOS 26 can't take the trait, so the default font is used unchanged.
+            #expect(fallback == body)
+        }
         #expect(fallback.pointSize == body.pointSize)
         #expect(fallback.familyName == body.familyName)
 

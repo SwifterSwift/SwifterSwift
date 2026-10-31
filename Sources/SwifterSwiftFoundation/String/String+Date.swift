@@ -16,9 +16,10 @@ public extension String {
     /// `+02:00` matched by an `XXX` pattern, takes precedence. For ISO 8601 text, `Date.ISO8601FormatStyle` is a better
     /// fit.
     ///
-    /// Parsing follows `DateFormatter`, which is more forgiving than the format suggests: surrounding whitespace is
-    /// ignored, numeric fields may have fewer digits, and a day that's too large for its month rolls over into the next
-    /// month (`"2026-02-30"` becomes March 2). Check the result if you need strict validation.
+    /// Parsing follows `DateFormatter`, which on Apple platforms is more forgiving than the format suggests: surrounding
+    /// whitespace is ignored, numeric fields may have fewer digits, and a day that's too large for its month rolls over
+    /// into the next month (`"2026-02-30"` becomes March 2). Foundation on other platforms can be stricter and return
+    /// `nil` for these. Check the result if you need strict validation.
     ///
     /// ```swift
     /// let utc = TimeZone(identifier: "UTC")!

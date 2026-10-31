@@ -167,7 +167,8 @@ jobs:
       linux_swift_versions: '["6.4"]'
       enable_linux_static_sdk_build: true
       linux_static_sdk_versions: '["6.4"]'
-      linux_static_sdk_build_command: swift build --build-tests
+      # The static Linux SDK has no Testing module, so it builds the library only.
+      linux_static_sdk_build_command: swift build
       enable_wasm_sdk_build: true
       wasm_sdk_versions: '["6.4"]'
       wasm_sdk_build_command: swift build --build-tests

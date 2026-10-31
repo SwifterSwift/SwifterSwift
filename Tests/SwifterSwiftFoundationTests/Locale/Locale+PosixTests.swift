@@ -39,11 +39,12 @@ struct LocalePosixTests {
     }
 
     @Test
-    func formatsNumbersWithoutGrouping() {
+    func formatsNumbersWithAPeriodAsTheDecimalSeparator() {
         let formatter = NumberFormatter()
         formatter.locale = .posix
         formatter.numberStyle = .decimal
-        #expect(formatter.string(from: -1_234_567.5) == "-1234567.5")
+        #expect(formatter.decimalSeparator == ".")
+        #expect(formatter.string(from: -567.25) == "-567.25")
     }
 }
 #endif

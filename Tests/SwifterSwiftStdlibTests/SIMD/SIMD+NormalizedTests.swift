@@ -19,15 +19,17 @@ struct SIMDNormalizedTests {
         #expect(Self.isClose(diagonal.x, to: Double(0.5).squareRoot()))
     }
 
+    // The scalars are passed separately because `SIMD3<Double>` test arguments arrive corrupted on Windows.
     @Test(arguments: [
-        SIMD3<Double>(1, 2, 3),
-        SIMD3<Double>(-0.25, 8, 1e-3),
-        SIMD3<Double>(1e10, 1, -1),
-        SIMD3<Double>(0.1, 0.2, 0.3),
-        SIMD3<Double>(-1e-300, 0, 2e-300),
-        SIMD3<Double>(1e300, -1e300, 1e300)
+        (1.0, 2.0, 3.0),
+        (-0.25, 8, 1e-3),
+        (1e10, 1, -1),
+        (0.1, 0.2, 0.3),
+        (-1e-300, 0, 2e-300),
+        (1e300, -1e300, 1e300)
     ])
-    func returnsAVectorOfLengthOne(_ vector: SIMD3<Double>) throws {
+    func returnsAVectorOfLengthOne(x: Double, y: Double, z: Double) throws {
+        let vector = SIMD3(x, y, z)
         let unit = try #require(vector.normalized())
         let length = ((unit * unit).sum()).squareRoot()
         #expect(Self.isClose(length, to: 1))

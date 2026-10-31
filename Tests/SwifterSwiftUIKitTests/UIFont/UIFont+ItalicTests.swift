@@ -34,7 +34,12 @@ struct UIFontItalicTests {
         let body = UIFont.preferredFont(
             forTextStyle: .body, compatibleWith: UITraitCollection(preferredContentSizeCategory: .large))
         #expect(body.italic.pointSize == body.pointSize)
-        #expect(body.italic.fontDescriptor.symbolicTraits.contains(.traitItalic))
+        if #available(tvOS 27, *) {
+            #expect(body.italic.fontDescriptor.symbolicTraits.contains(.traitItalic))
+        } else {
+            // Text-style fonts on tvOS 26 can't take the trait, so the font is returned unchanged.
+            #expect(body.italic == body)
+        }
     }
     #endif
 

@@ -10,7 +10,8 @@ public extension NSAttributedString {
     /// Each run keeps its font family, size and other traits, so italic text becomes bold italic and a custom font
     /// becomes its own bold face. Text that has no font gets `defaultFont`, made bold. Text that is already bold keeps
     /// its font, and text whose font family has no bold face (such as Zapfino or Apple Color Emoji) keeps its font
-    /// unchanged. Other attributes are kept, and the original string isn't modified.
+    /// unchanged, as do text-style fonts on tvOS 26, which can't take the trait. Other attributes are kept, and the
+    /// original string isn't modified.
     ///
     /// ```swift
     /// let text = NSMutableAttributedString(string: "Hello ", attributes: [.font: UIFont(name: "Georgia", size: 20)!])

@@ -8,7 +8,7 @@ public extension UIFont {
     ///
     /// The bold trait is added to the font's existing symbolic traits, so an italic font becomes bold italic. Calling
     /// `withSymbolicTraits(.traitBold)` directly replaces the traits instead and drops italic. If the font's family has
-    /// no bold face, the font is returned unchanged.
+    /// no bold face, the font is returned unchanged. So are text-style fonts on tvOS 26, which can't take the trait.
     ///
     /// ```swift
     /// let body = UIFont.preferredFont(forTextStyle: .body)
@@ -18,7 +18,8 @@ public extension UIFont {
     var bold: UIFont {
         let traits = fontDescriptor.symbolicTraits.union(.traitBold)
         guard let descriptor = fontDescriptor.withSymbolicTraits(traits) else { return self }
-        return UIFont(descriptor: descriptor, size: 0)
+        let font = UIFont(descriptor: descriptor, size: 0)
+        return font.fontDescriptor.symbolicTraits.contains(.traitBold) ? font : self
     }
 }
 #endif
