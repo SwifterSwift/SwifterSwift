@@ -66,9 +66,8 @@ struct UIColorInitARGBHexStringTests {
     }
 
     @Test(arguments: ["#F", "#FF", "F", "12345", "1234567", "#FF0x00", "0x12340x5678", "#12#34", "FF#00"])
-    func rejectsStringsThatSwifterSwift8Misread(_ string: String) {
-        // SwifterSwift 8 deleted every "#" and "0x" in the string and doubled the digits of anything up to 4 digits
-        // long, so "#F" was opaque blue, "#FF0x00" was opaque red and "12345" was #012345.
+    func rejectsOtherLengthsAndMisplacedPrefixes(_ string: String) {
+        // Only 3, 4, 6 and 8 digits are valid, and "#" or "0x" is only allowed once, before the digits.
         #expect(UIColor(argbHexString: string) == nil)
     }
 

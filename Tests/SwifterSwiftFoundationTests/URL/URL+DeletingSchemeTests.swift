@@ -28,7 +28,7 @@ struct URLDeletingSchemeTests {
         ("sms:+15551234567?body=hi", "+15551234567?body=hi")
     ])
     func keepsTheWholeAddressOfURLsWithoutAHost(string: String, expected: String) throws {
-        // The old implementation dropped three characters for "://", turning mailto:someone@… into meone@….
+        // These URLs have no "//" after the scheme, so only the scheme and its colon are removed.
         let url = try #require(URL(string: string))
         #expect(url.deletingScheme()?.absoluteString == expected)
     }

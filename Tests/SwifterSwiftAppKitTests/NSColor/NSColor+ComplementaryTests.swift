@@ -33,7 +33,7 @@ struct NSColorComplementaryTests {
 
     @Test
     func keepsGraysUnchanged() throws {
-        // SwifterSwift 8 returned #DCDCDC for 50% gray and white for black.
+        // Grays have no hue to rotate, so each one is its own complement.
         let gray = try #require(NSColor.gray.complementary?.usingColorSpace(.sRGB))
         #expect(gray.redComponent == 0.5 && gray.greenComponent == 0.5 && gray.blueComponent == 0.5)
         let black = try #require(NSColor.black.complementary?.usingColorSpace(.sRGB))

@@ -36,7 +36,7 @@ struct NSAttributedStringApplyingAttributesToOccurrencesOfTests {
 
     @Test(arguments: [#"\E"#, #"a\Eb"#, ".", "a.b", "(", "[x]", "$1", "*"])
     func treatsTheTargetLiterally(_ target: String) {
-        // The legacy implementation built a `\Q…\E` regular expression, which broke for targets containing `\E`.
+        // The targets include regular expression syntax, such as `\E`, which ends a `\Q…\E` quoted pattern.
         let text = NSAttributedString(string: "axb ab " + target)
         let result = text.applying(attributes: [Self.mark: true], toOccurrencesOf: target)
         let length = (target as NSString).length

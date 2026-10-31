@@ -37,7 +37,7 @@ struct UIColorComplementaryTests {
 
     @Test
     func keepsGraysUnchanged() throws {
-        // SwifterSwift 8 returned #DCDCDC for 50% gray and white for black.
+        // Grays have no hue to rotate, so each one is its own complement.
         var red: CGFloat = -1
         var green: CGFloat = -1
         var blue: CGFloat = -1

@@ -37,7 +37,6 @@ struct UIColorInitHexStringTests {
 
     @Test
     func readsEightDigitsAsRRGGBBAA() throws {
-        // SwifterSwift 8 dropped the first pair and read "#11223344" as #223344.
         let color = try #require(UIColor(hexString: "#11223344"))
         var red: CGFloat = 0
         var alpha: CGFloat = 0

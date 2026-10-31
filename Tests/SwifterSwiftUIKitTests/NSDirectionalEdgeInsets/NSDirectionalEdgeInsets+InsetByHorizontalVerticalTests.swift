@@ -8,7 +8,6 @@ import UIKit
 struct NSDirectionalEdgeInsetsInsetByHorizontalVerticalTests {
     @Test
     func addsTheHorizontalAmountInFullToBothHorizontalEdges() {
-        // SwifterSwift 8 split the amount between the two edges, giving 12.5 here.
         #expect(
             NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10).insetBy(horizontal: 5)
                 == NSDirectionalEdgeInsets(top: 10, leading: 15, bottom: 10, trailing: 15))

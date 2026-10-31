@@ -32,7 +32,7 @@ struct UIColorHexValueTests {
 
     @Test
     func clampsComponentsOutsideTheSRGBRangeWithoutTrapping() {
-        // SwifterSwift 8 trapped converting the negative component to `UInt32`.
+        // Extended-range components are clamped to 0...1 before they're converted to `UInt32`.
         #expect(UIColor(red: -0.5, green: 2, blue: 0.5, alpha: 1).hexValue == 0x00FF80)
         #expect(UIColor(displayP3Red: 0, green: 1, blue: 0, alpha: 1).hexValue == 0x00FF00)
         #expect(UIColor(red: .infinity, green: -.infinity, blue: 0, alpha: 1).hexValue == 0xFF0000)

@@ -42,7 +42,7 @@ struct DateRoundedTests {
 
     @Test
     func countsSecondsTowardTheRounding() throws {
-        // The legacy `nearestFiveMinutes` ignored seconds and rounded 12:02:59 down to 12:00.
+        // 12:02:59 is closer to 12:05 than to 12:00.
         let calendar = try Self.calendar("UTC")
         let date = try Self.date(calendar, 2026, 1, 12, 12, 2, 59)
         let result = try #require(date.rounded(toNearestMinutes: 5, in: calendar.timeZone))

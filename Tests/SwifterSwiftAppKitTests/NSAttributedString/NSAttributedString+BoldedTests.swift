@@ -35,7 +35,6 @@ struct NSAttributedStringBoldedTests {
 
     @Test
     func convertsEachRunSeparately() throws {
-        // The legacy implementation used the size of the first character for every run, in the bold system font.
         let text = NSMutableAttributedString(string: "Big", attributes: [.font: try Self.namedFont("Georgia", 30)])
         text.append(NSAttributedString(string: "small", attributes: [.font: try Self.namedFont("Menlo-Regular", 9)]))
         let result = text.bolded()

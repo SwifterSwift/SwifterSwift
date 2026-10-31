@@ -26,12 +26,6 @@ struct DateInitISO8601StringTests {
     }
 
     @Test
-    func parsesTheFormTheLegacyInitializerRejected() {
-        // The legacy initializer required exactly three fractional digits.
-        #expect(Date(iso8601String: "2017-01-12T16:48:00Z") == Date(timeIntervalSince1970: Self.reference))
-    }
-
-    @Test
     func parsesDatesBeforeTheReferenceDateAndInLeapYears() throws {
         let landing = try #require(Date(iso8601String: "1969-07-20T20:17:40Z"))
         #expect(landing.timeIntervalSince1970 == -14_182_940)

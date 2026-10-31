@@ -42,7 +42,7 @@ struct NSColorLightenedTests {
 
     @Test
     func keepsTheHue() throws {
-        // Adding the same amount to every component, as SwifterSwift 8 did, clips red here and shifts the hue.
+        // Adding the same amount to every component would clip red here and shift the hue.
         let color = NSColor(srgbRed: 0.9, green: 0.5, blue: 0.1, alpha: 1)
         let lighter = try #require(color.lightened(by: 0.5)?.usingColorSpace(.sRGB))
         #expect(abs(lighter.hueComponent - color.hueComponent) < 0.000_001)

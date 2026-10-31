@@ -35,8 +35,8 @@ struct UIColorInitRed255Tests {
 
     @Test
     func keepsTheSDKInitializerForUnitComponents() {
-        // In SwifterSwift 8, `init?(red: Int, green: Int, blue: Int)` caught integer literals, so
-        // `UIColor(red: 1, green: 0, blue: 0)` was #010000. The `red255:` labels can't be picked by accident.
+        // The `red255:` labels keep integer literals such as `UIColor(red: 1, green: 0, blue: 0, alpha: 1)` on the
+        // SDK's initializer, which takes components from 0 to 1.
         #expect(rgba(of: UIColor(red: 1, green: 0, blue: 0, alpha: 1)) == [1, 0, 0, 1])
         #expect(rgba(of: UIColor(red255: 1, green255: 0, blue255: 0)) == [1 / 255, 0, 0, 1])
     }

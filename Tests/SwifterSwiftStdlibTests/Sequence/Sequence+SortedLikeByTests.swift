@@ -34,7 +34,6 @@ struct SequenceSortedLikeByTests {
 
     @Test
     func usesTheFirstPositionOfARepeatedKey() {
-        // A repeated key in the order used to trap; now its first position counts.
         #expect([3, 1, 2].sorted(like: [2, 1, 2, 3, 1], by: { $0 }) == [2, 1, 3])
     }
 

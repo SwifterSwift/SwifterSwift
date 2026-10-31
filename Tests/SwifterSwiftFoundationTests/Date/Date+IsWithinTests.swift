@@ -31,7 +31,7 @@ struct DateIsWithinTests {
 
     @Test
     func doesNotTruncateTheDifference() throws {
-        // The legacy implementation truncated, so these dates, almost 2 days apart, were "within 1 day".
+        // These dates are almost 2 days apart, so they aren't within 1 day.
         let calendar = try Self.calendar(.gregorian, "UTC")
         let start = try Self.date(calendar, DateComponents(year: 2026, month: 1, day: 1, hour: 0))
         let end = try Self.date(calendar, DateComponents(year: 2026, month: 1, day: 2, hour: 23, minute: 59))

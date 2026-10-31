@@ -39,7 +39,7 @@ struct CalendarNumberOfDaysTests {
 
     @Test
     func countsDaysAcrossDaylightSavingTime() throws {
-        // The legacy `daysSince` divided by 86,400 and gave 1.958 days here.
+        // The dates are only 47 hours apart across the switch to daylight saving time, but 2 calendar days apart.
         let calendar = try Self.calendar(.gregorian, "America/New_York")
         let saturday = try Self.date(calendar, DateComponents(year: 2026, month: 3, day: 7, hour: 23))
         let monday = try Self.date(calendar, DateComponents(year: 2026, month: 3, day: 9, hour: 23))
