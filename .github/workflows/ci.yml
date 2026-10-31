@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   # Fast, cheap checks that every pull request runs. The other jobs wait for this one, and skip when a pull request
-  # doesn't touch code (GitHub treats a skipped required check as passing).
+  # doesn't touch code.
   lint:
     name: Lint
     runs-on: ubuntu-latest
@@ -191,3 +191,21 @@ jobs:
       enable_windows_checks: false
       enable_macos_checks: false
       enable_ios_checks: false
+
+  # The only check that branch protection requires, so adding, renaming or skipping a job never needs a settings change.
+  # Skipped jobs count as passing; a failed or cancelled job fails it.
+  passed:
+    name: CI passed
+    needs: [lint, macos, catalyst, ios, tvos, portability]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Check the result of every job
+        env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          echo "$RESULTS"
+          case " $RESULTS " in
+            *" failure "* | *" cancelled "*) exit 1 ;;
+          esac
