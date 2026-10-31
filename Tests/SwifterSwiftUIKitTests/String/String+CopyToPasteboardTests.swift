@@ -1,6 +1,8 @@
 // String+CopyToPasteboardTests.swift - Copyright 2026 SwifterSwift
 
-#if canImport(UIKit) && !os(tvOS) && !os(watchOS)
+// Pasteboard calls can block on a CI simulator, and the blocked tests then hold up every other test, so these tests run
+// on Mac Catalyst and devices only.
+#if canImport(UIKit) && !os(tvOS) && !os(watchOS) && !targetEnvironment(simulator)
 import SwifterSwiftUIKit
 import Testing
 import UIKit
