@@ -1,0 +1,35 @@
+name: Weekly
+
+# Builds against the newest Xcode and Swift nightly toolchains once a week, to catch new Apple APIs that collide with
+# SwifterSwift's names and toolchain changes before users hit them.
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  newest-xcode:
+    name: Newest Xcode
+    # Move this to the next Xcode image (for example `xcode-28`) when its betas become available.
+    runs-on: xcode-27
+    steps:
+      - uses: actions/checkout@v7
+      - name: Test on macOS
+        run: swift test
+      - name: Build for the iOS simulator
+        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "generic/platform=iOS Simulator"
+      - name: Build for watchOS devices (32-bit)
+        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination generic/platform=watchOS
+
+  swift-nightly:
+    name: Swift nightly
+    uses: swiftlang/github-workflows/.github/workflows/swift_package_test.yml@0.0.17
+    with:
+      linux_swift_versions: '["nightly-main"]'
+      enable_windows_checks: false
+      enable_macos_checks: false
+      enable_ios_checks: false

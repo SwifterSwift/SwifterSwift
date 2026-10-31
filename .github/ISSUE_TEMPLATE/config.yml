@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Question
+    url: https://github.com/SwifterSwift/SwifterSwift/discussions
+    about: Ask questions about using SwifterSwift in GitHub Discussions.
+  - name: Security vulnerability
+    url: https://github.com/SwifterSwift/SwifterSwift/security/advisories/new
+    about: Report security vulnerabilities privately, not in a public issue.

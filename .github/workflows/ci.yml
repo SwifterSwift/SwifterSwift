@@ -1,0 +1,161 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  # Fast, cheap checks that every pull request runs. The other jobs wait for this one, and skip when a pull request
+  # doesn't touch code (GitHub treats a skipped required check as passing).
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    container: swift:6.4
+    outputs:
+      code: ${{ steps.changes.outputs.code }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Detect code changes
+        id: changes
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          code=true
+          if [ -n "$BASE" ] && ! git diff --name-only "$BASE" HEAD \
+              | grep -qE '^(Sources/|Tests/|scripts/|Package\.swift$|\.swift-format$|\.github/workflows/)'; then
+            code=false
+          fi
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+      - name: Install Python
+        run: command -v python3 || (apt-get update -qq && apt-get install -y -qq python3)
+      - name: Format
+        run: swift format lint --strict --recursive --parallel Package.swift Sources Tests
+      - name: Structure
+        run: scripts/check-structure.sh
+      - name: Documentation comments
+        run: python3 scripts/check-docs.py
+
+  macos:
+    name: macOS
+    needs: lint
+    if: needs.lint.outputs.code == 'true'
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Check that changed extensions compile on their own
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ -n "$BASE" ]; then
+            files=$(git diff --name-only --diff-filter=AM "$BASE" HEAD -- 'Sources/*.swift')
+            [ -z "$files" ] || JOBS=3 scripts/check-standalone.sh $files
+          else
+            JOBS=3 scripts/check-standalone.sh
+          fi
+      - name: Test
+        run: swift test --enable-code-coverage
+      - name: Export coverage
+        # Depending on the toolchain, SwiftPM builds one test bundle for the package or one per test target, so
+        # include every bundle in the report.
+        shell: bash
+        run: |
+          set -euo pipefail
+          bin=$(swift build --show-bin-path)
+          objects=()
+          for bundle in "$bin"/*.xctest; do
+            objects+=(-object "$bundle/Contents/MacOS/$(basename "$bundle" .xctest)")
+          done
+          xcrun llvm-cov export -format=lcov "${objects[@]}" -instr-profile "$bin/codecov/default.profdata" \
+            -ignore-filename-regex '(\.build|Tests)/' > coverage.lcov
+      - name: Upload coverage
+        uses: codecov/codecov-action@v7
+        with:
+          files: coverage.lcov
+          token: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: false
+      - name: Documentation (macOS, including AppKit)
+        run: xcodebuild docbuild -quiet -scheme SwifterSwift-Package -destination generic/platform=macOS OTHER_DOCC_FLAGS=--warnings-as-errors
+
+  catalyst:
+    name: Mac Catalyst
+    needs: lint
+    if: needs.lint.outputs.code == 'true'
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v7
+      - name: Test
+        run: |
+          xcodebuild test -quiet -scheme SwifterSwift-Package -destination "platform=macOS,variant=Mac Catalyst" \
+            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120
+      - name: Documentation (iOS, including UIKit)
+        run: xcodebuild docbuild -quiet -scheme SwifterSwift-Package -destination generic/platform=iOS OTHER_DOCC_FLAGS=--warnings-as-errors
+
+  ios:
+    name: iOS and visionOS
+    needs: lint
+    if: needs.lint.outputs.code == 'true'
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v7
+      - name: Test on the iOS simulator
+        run: |
+          xcodebuild test -quiet -scheme SwifterSwift-Package -destination "$(scripts/simulator-destination.sh iOS)" \
+            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120
+      - name: Build for visionOS
+        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "generic/platform=visionOS Simulator"
+      - name: Build for iOS devices
+        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination generic/platform=iOS
+
+  tvos:
+    name: tvOS and watchOS
+    needs: lint
+    if: needs.lint.outputs.code == 'true'
+    runs-on: macos-26
+    steps:
+      - uses: actions/checkout@v7
+      - name: Test on the tvOS simulator
+        run: |
+          xcodebuild test -quiet -scheme SwifterSwift-Package -destination "$(scripts/simulator-destination.sh tvOS)" \
+            -test-timeouts-enabled YES -maximum-test-execution-time-allowance 120
+      - name: Build for the watchOS simulator
+        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "generic/platform=watchOS Simulator"
+      - name: Build for watchOS devices (32-bit)
+        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination generic/platform=watchOS
+
+  # Linux (including the static Linux SDK), Android, WebAssembly and Windows, through Swift's own reusable workflow.
+  # One toolchain each keeps the run short; the weekly workflow covers Swift nightly.
+  portability:
+    name: Portability
+    needs: lint
+    if: needs.lint.outputs.code == 'true'
+    uses: swiftlang/github-workflows/.github/workflows/swift_package_test.yml@0.0.17
+    with:
+      linux_swift_versions: '["6.4"]'
+      enable_linux_static_sdk_build: true
+      linux_static_sdk_versions: '["6.4"]'
+      linux_static_sdk_build_command: swift build --build-tests
+      enable_wasm_sdk_build: true
+      wasm_sdk_versions: '["6.4"]'
+      wasm_sdk_build_command: swift build --build-tests
+      enable_android_sdk_build: true
+      enable_android_sdk_checks: true
+      android_sdk_versions: '["6.4"]'
+      android_sdk_triples: '["x86_64-unknown-linux-android28"]'
+      enable_windows_checks: true
+      windows_swift_versions: '["6.4"]'
+      enable_macos_checks: false
+      enable_ios_checks: false

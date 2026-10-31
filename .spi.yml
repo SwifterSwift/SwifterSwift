@@ -1,0 +1,16 @@
+version: 1
+builder:
+  configs:
+    - platform: ios
+      documentation_targets:
+        - SwifterSwift
+        - SwifterSwiftStdlib
+        - SwifterSwiftFoundation
+        - SwifterSwiftCoreGraphics
+        - SwifterSwiftUIKit
+        - SwifterSwiftAppKit
+        - SwifterSwiftCoreLocation
+        - SwifterSwiftMapKit
+        - SwifterSwiftSpriteKit
+        - SwifterSwiftCryptoKit
+        - SwifterSwiftHealthKit

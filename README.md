@@ -1,384 +1,115 @@
-<p align="left">
-  <img src="https://cdn.rawgit.com/SwifterSwift/SwifterSwift/master/Assets/logo.svg" title="swifterSwift">
-</p>
+# SwifterSwift
 
-[![Build Status](https://github.com/SwifterSwift/SwifterSwift/actions/workflows/CI.yml/badge.svg)](https://github.com/SwifterSwift/SwifterSwift/actions/workflows/CI.yml)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSwifterSwift%2FSwifterSwift%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/SwifterSwift/SwifterSwift)
-[![](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSwifterSwift%2FSwifterSwift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/SwifterSwift/SwifterSwift)
-[![Cocoapods](https://img.shields.io/cocoapods/v/SwifterSwift.svg)](https://cocoapods.org/pods/SwifterSwift)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-Compatible-brightgreen.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![SPM compatible](https://img.shields.io/badge/SPM-Compatible-brightgreen.svg?style=flat)](https://swift.org/package-manager/)
-[![Accio supported](https://img.shields.io/badge/Accio-supported-0A7CF5.svg?style=flat)](https://github.com/JamitLabs/Accio)
-[![codecov](https://codecov.io/gh/SwifterSwift/SwifterSwift/branch/master/graph/badge.svg)](https://codecov.io/gh/SwifterSwift/SwifterSwift)
-[![Xcode](https://img.shields.io/badge/Xcode-26.0.1-blue.svg)](https://developer.apple.com/xcode)
-[![MIT](https://img.shields.io/badge/License-MIT-red.svg)](https://opensource.org/licenses/MIT)
-[![Slack Channel](https://img.shields.io/badge/Slack-SwifterSwift-green.svg)](https://join.slack.com/t/swifterswift/shared_invite/zt-s6dl4g2e-R5V5baIawGpdUz2heShjiQ)
+[![CI](https://github.com/SwifterSwift/SwifterSwift/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/SwifterSwift/SwifterSwift/actions/workflows/ci.yml)
+[![Swift versions](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSwifterSwift%2FSwifterSwift%2Fbadge%3Ftype%3Dswift-versions)](https://swiftpackageindex.com/SwifterSwift/SwifterSwift)
+[![Platforms](https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2FSwifterSwift%2FSwifterSwift%2Fbadge%3Ftype%3Dplatforms)](https://swiftpackageindex.com/SwifterSwift/SwifterSwift)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-SwifterSwift is a collection of **over 500 native Swift extensions**, with handy methods, syntactic sugar, and performance improvements for wide range of primitive data types, UIKit and Cocoa classes –over 500 in 1– for iOS, macOS, tvOS, watchOS, Linux, and Android.
+Small, self-contained Swift extensions for the standard library, Foundation, UIKit, AppKit and other Apple frameworks.
 
-[简体中文](README_CN.md)
+Each extension lives in its own file and depends only on the standard library and Apple's frameworks, never on another part of SwifterSwift. Use the whole library, pick the areas you need, or copy a single file into your project.
 
-### [Whats New in v6.0?](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG.md#v600)
+## Highlights
+
+- **Self-contained.** One extension per file, with no shared helpers, so any file can be copied on its own.
+- **Tested.** Every extension has its own [Swift Testing](https://developer.apple.com/documentation/testing) suite, including edge cases such as empty input, Unicode, other locales and time zones.
+- **Documented.** Every extension has a documentation comment with an example, and the full reference is built with DocC.
+- **Modular.** One product per area, plus a `SwifterSwift` product that includes them all.
+- **Cross-platform.** Apple platforms, plus Linux, Android, WebAssembly and Windows for the areas available there.
 
 ## Requirements
 
-- **iOS** 15.0+ / **tvOS** 12.0+ / **watchOS** 9.0+ / **macOS** 12.0+ / **visionOS** 1.0+ / **Mac Catalyst** 15.0+ / **Ubuntu** 14.04+
-- Swift 6.0+
+| | Minimum version |
+|---|---|
+| Swift | 6.2 (Xcode 26) |
+| iOS, iPadOS | 17 |
+| macOS | 14 |
+| Mac Catalyst | 17 |
+| tvOS | 17 |
+| watchOS | 10 |
+| visionOS | 1 |
 
-## Looking to use SwifterSwift for older versions of Swift
-
-SwifterSwift is Swift v5.0+ compatible starting from v5
-
-- To use with **Swift 3 / Xcode 8.x** please ensure you are using [**`v3.1.1`**](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.1.1).
-- To use with **Swift 3.2 / Xcode 9.x** please ensure you are using [**`v3.2.0`**](https://github.com/SwifterSwift/SwifterSwift/releases/tag/3.2.0).
+The standard library and Foundation areas also build on Linux, Android, WebAssembly and Windows.
 
 ## Installation
 
-<details>
-<summary>CocoaPods</summary>
-</br>
-<p>To integrate SwifterSwift into your Xcode project using <a href="http://cocoapods.org">CocoaPods</a>, specify it in your <code>Podfile</code>:</p>
+SwifterSwift is distributed with [Swift Package Manager](https://www.swift.org/documentation/package-manager/).
 
-<h4>- Integrate All extensions (recommended):</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift'</code></pre>
+### Package.swift
 
-<h4>- Integrate SwiftStdlib extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/SwiftStdlib'</code></pre>
+Add the package to your dependencies:
 
-<h4>- Integrate Foundation extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/Foundation'</code></pre>
+```swift
+dependencies: [
+    .package(url: "https://github.com/SwifterSwift/SwifterSwift.git", from: "9.0.0")
+]
+```
 
-<h4>- Integrate UIKit extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/UIKit'</code></pre>
+Then add the products you need to your target:
 
-<h4>- Integrate AppKit extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/AppKit'</code></pre>
-
-<h4>- Integrate MapKit extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/MapKit'</code></pre>
-
-<h4>- Integrate CoreGraphics extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/CoreGraphics'</code></pre>
-
-<h4>- Integrate CoreLocation extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/CoreLocation'</code></pre>
-
-<h4>- Integrate CryptoKit extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/CryptoKit'</code></pre>
-
-<h4>- Integrate SpriteKit extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/SpriteKit'</code></pre>
-
-<h4>- Integrate SceneKit extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/SceneKit'</code></pre>
-
-<h4>- Integrate StoreKit extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/StoreKit'</code></pre>
-
-<h4>- Integrate Dispatch extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/Dispatch'</code></pre>
-
-<h4>- Integrate WebKit extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/WebKit'</code></pre>
-
-<h4>- Integrate HealthKit extensions only:</h4>
-<pre><code class="ruby language-ruby">pod 'SwifterSwift/HealthKit'</code></pre>
-</details>
-
-<details>
-<summary>Carthage</summary>
-</br>
-<p>To integrate SwifterSwift into your Xcode project using <a href="https://github.com/Carthage/Carthage">Carthage</a>, specify it in your <code>Cartfile</code>:</p>
-
-<pre><code class="ogdl language-ogdl">github "SwifterSwift/SwifterSwift" ~&gt; 6.0
-</code></pre>
-</details>
-
-<details>
-<summary>Swift Package Manager</summary>
-</br>
-<p>You can use <a href="https://swift.org/package-manager">The Swift Package Manager</a> to install <code>SwifterSwift</code> by adding the proper description to your <code>Package.swift</code> file:</p>
-
-<pre><code class="swift language-swift">import PackageDescription
-
-let package = Package(
-    name: "YOUR_PROJECT_NAME",
-    targets: [],
+```swift
+.target(
+    name: "MyApp",
     dependencies: [
-        .package(url: "https://github.com/SwifterSwift/SwifterSwift.git", from: "6.0.0")
+        .product(name: "SwifterSwift", package: "SwifterSwift")
     ]
 )
-</code></pre>
+```
 
-<p>Next, add <code>SwifterSwift</code> to your targets dependencies like so:</p>
-<pre><code class="swift language-swift">.target(
-    name: "YOUR_TARGET_NAME",
-    dependencies: [
-        "SwifterSwift",
-    ]
-),</code></pre>
-<p>Then run <code>swift package update</code>.</p>
+### Xcode
 
-<p>Note that the <a href="https://swift.org/package-manager">Swift Package Manager</a> doesn't support building for iOS/tvOS/macOS/watchOS apps – see Accio in the next section for that.
-</details>
+Choose **File › Add Package Dependencies…**, enter `https://github.com/SwifterSwift/SwifterSwift.git`, and select the products to add to your target.
 
+## Quick start
 
-<details>
-<summary>Accio</summary>
-<p><a href="https://github.com/JamitLabs/Accio">Accio</a> is a dependency manager based on SwiftPM which can build frameworks for iOS/macOS/tvOS/watchOS. Therefore the integration steps are exactly the same as described above. Once your <code>Package.swift</code> file is configured, you need to run <code>accio update</code> instead of <code>swift package update</code> though.</p>
-</details>
+```swift
+import SwifterSwift
 
+let numbers = [10, 20, 30]
+numbers[safe: 3]  // nil
 
-<details>
-<summary>Manually</summary>
-</br>
-<p>Add the <a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift">SwifterSwift</a> folder to your Xcode project to use all extensions, or a specific extension.</p>
-<p>For your test targets you can also add the <a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Tests/XCTest">XCTest</a> folder.</p>
-</details>
+let url = URL(string: "https://example.com/search?q=swift")!
+url.queryValue(for: "q")  // "swift"
 
-## List of All Extensions
+let frame = CGRect(x: 0, y: 0, width: 100, height: 50)
+frame.center  // (50.0, 25.0)
+```
 
-<details>
-<summary>SwiftStdlib Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/ArrayExtensions.swift"><code>Array extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/BidirectionalCollectionExtensions.swift"><code>BidirectionalCollection extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/BinaryFloatingPointExtensions.swift"><code>BinaryFloatingPoint extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/BoolExtensions.swift"><code>Bool extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/CharacterExtensions.swift"><code>Character extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/CollectionExtensions.swift"><code>Collection extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/ComparableExtensions.swift"><code>Comparable extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/DecodableExtensions.swift"><code>DecodableExtensions extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/DefaultStringInterpolationExtensions.swift"><code>DefaultStringInterpolationExtensions extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/DictionaryExtensions.swift"><code>Dictionary extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/DoubleExtensions.swift"><code>Double extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/FloatExtensions.swift"><code>Float extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/FloatingPointExtensions.swift"><code>FloatingPoint extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/IntExtensions.swift"><code>Int extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/OptionalExtensions.swift"><code>Optional extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SwiftStdlib/RangeReplaceableCollectionExtensions.swift"><code>RangeReplaceableCollection extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/SequenceExtensions.swift"><code>Sequence extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/SignedIntegerExtensions.swift"><code>SignedInteger extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/SignedNumericExtensions.swift"><code>SignedNumeric extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/SwiftStdlib/StringExtensions.swift"><code>String extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SwiftStdlib/StringProtocolExtensions.swift"><code>StringProtocol extensions</code></a></li>
-</ul>
-</details>
+## Products
 
+| Product | Extends | Platforms |
+|---|---|---|
+| `SwifterSwift` | Everything below | All |
+| `SwifterSwiftStdlib` | The Swift standard library | All |
+| `SwifterSwiftFoundation` | Foundation | All |
+| `SwifterSwiftCoreGraphics` | Core Graphics and Core Animation | Apple platforms |
+| `SwifterSwiftUIKit` | UIKit | iOS, iPadOS, Mac Catalyst, tvOS, visionOS, and watchOS where UIKit types exist |
+| `SwifterSwiftAppKit` | AppKit | macOS |
+| `SwifterSwiftCoreLocation` | Core Location | Apple platforms |
+| `SwifterSwiftMapKit` | MapKit | Apple platforms |
+| `SwifterSwiftSpriteKit` | SpriteKit | Apple platforms |
+| `SwifterSwiftCryptoKit` | CryptoKit | Apple platforms |
+| `SwifterSwiftHealthKit` | HealthKit | iOS, iPadOS, macOS, watchOS, visionOS |
 
-<details>
-<summary>Foundation Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/CalendarExtensions.swift"><code>Calendar extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/DataExtensions.swift"><code>Data extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/DateExtensions.swift"><code>Date extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/Foundation/FileManagerExtensions.swift"><code>FileManager extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/LocaleExtensions.swift"><code>Locale extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/MeasurementExtensions.swift"><code>Measurement extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/NSAttributedStringExtensions.swift"><code>NSAttributedString extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/NSPredicateExtensions.swift"><code>NSPredicate extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/URLExtensions.swift"><code>URL extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/URLRequestExtensions.swift"><code>URLRequest extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Foundation/UserDefaultsExtensions.swift"><code>UserDefaults extensions</code></a></li>
-</ul>
-</details>
+Every product builds on every platform. Where a framework isn't available, its product is empty.
 
+> [!NOTE]
+> The `SwifterSwift` and `SwifterSwiftHealthKit` products link HealthKit. If your app doesn't use HealthKit, add the individual products you need instead, because App Review can flag apps that link HealthKit without using it.
 
-<details>
-<summary>UIKit Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIActivityExtensions.swift"><code>UIActivity extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIAlertControllerExtensions.swift"><code>UIAlertController extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIApplicationExtensions.swift"><code>UIApplication extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIBarButtonItemExtensions.swift"><code>UIBarButtonItem extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIButtonExtensions.swift"><code>UIButton extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UICollectionViewExtensions.swift"><code>UICollectionView extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Shared/ColorExtensions.swift"><code>UIColor extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIDatePickerExtensions.swift"><code>UIDatePicker extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Shared/EdgeInsetsExtensions.swift"><code>UIEdgeInsets extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIFontExtensions.swift"><code>UIFont extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIGestureRecognizer.swift"><code>UIGestureRecognizer extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIImageExtensions.swift"><code>UIImage extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIImageViewExtensions.swift"><code>UIImageView extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UILabelExtensions.swift"><code>UILabel extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UILayoutPriorityExtensions.swift"><code>UILayoutPriority extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UINavigationBarExtensions.swift"><code>UINavigationBar extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UINavigationControllerExtensions.swift"><code>UINavigationController extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UINavigationItemExtensions.swift"><code>UINavigationItem extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIRefreshControlExtensions.swift"><code>UIRefreshControl extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIScrollViewExtensions.swift"><code>UIScrollView extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UISearchBarExtensions.swift"><code>UISearchBar extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UISegmentedControlExtensions.swift"><code>UISegmentedControl extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UISliderExtensions.swift"><code>UISlider extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/UIKit/UIStackViewExtensions.swift"><code>UIStackView extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIStoryboardExtensions.swift"><code>UIStoryboard extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UISwitchExtensions.swift"><code>UISwitch extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UITabBarExtensions.swift"><code>UITabBar extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UITableViewExtensions.swift"><code>UITableView extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UITextFieldExtensions.swift"><code>UITextField extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UITextViewExtensions.swift"><code>UITextView extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIViewControllerExtensions.swift"><code>UIViewController extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIViewExtensions.swift"><code>UIView extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/UIKit/UIWindowExtensions.swift"><code>UIWindow extensions</code></a></li>
-</ul>
-</details>
+`SwifterSwiftFoundation` includes a privacy manifest that declares its use of `UserDefaults`. If you copy a `UserDefaults` extension into your project instead, declare the API in your app's own privacy manifest.
 
+## Copying a single extension
 
-<details>
-<summary>AppKit Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/Shared/NSColorExtensions.swift"><code>NSColor extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/AppKit/NSImageExtensions.swift"><code>NSImage extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/AppKit/NSStackViewExtensions.swift"><code>NSStackView extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/AppKit/NSViewExtensions.swift"><code>NSView extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>CoreGraphics Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGColorExtensions.swift"><code>CGColor extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGFloatExtensions.swift"><code>CGFloat extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGPointExtensions.swift"><code>CGPoint extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGSizeExtensions.swift"><code>CGSize extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGRectExtensions.swift"><code>CGRect extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreGraphics/CGVectorExtensions.swift"><code>CGVector extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>CoreLocation Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreLocation/CLLocationExtensions.swift"><code>CLLocation extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreLocation/CLVisitExtensions.swift"><code>CLVisit extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>CoreAnimation Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CoreAnimation/CAGradientLayerExtensions.swift"><code>CAGradientLayer extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>CryptoKit Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/tree/master/Sources/SwifterSwift/CryptoKit/DigestExtensions.swift"><code>Digest extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>MapKit Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/MapKit/MKMapViewExtensions.swift"><code>MKMapView extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/MapKit/MKPolylineExtensions.swift"><code>MKPolyline extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>SpriteKit Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SpriteKit/SKNodeExtensions.swift"><code>SKNode extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>SceneKit Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNBoxExtensions.swift"><code>SCNBox extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNCone.swift"><code>SCNCone extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNCapsule.swift"><code>SCNCapsule extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNCylinderExtensions.swift"><code>SCNCylinder extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNGeometryExtensions.swift"><code>SCNGeometry extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNMaterialExtensions.swift"><code>SCNMaterial extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNPlaneExtensions.swift"><code>SCNPlane extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNShape.swift"><code>SCNShape extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNSphereExtensions.swift"><code>SCNSphere extensions</code></a></li>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/SceneKit/SCNVector3Extensions.swift"><code>SCNVector3 extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>StoreKit Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/StoreKit/SKProductExtensions.swift"><code>SKProduct extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>Dispatch Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/Dispatch/DispatchQueueExtensions.swift"><code>DispatchQueue extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>WebKit Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/WebKit/WKWebViewExtensions.swift"><code>WKWebView extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>HealthKit Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Sources/SwifterSwift/HealthKit/HKActivitySummaryExtensions.swift"><code>HKActivitySummary extensions</code></a></li>
-</ul>
-</details>
-
-<details>
-<summary>XCTest Extensions</summary>
-</br>
-<ul>
-<li><a href="https://github.com/SwifterSwift/SwifterSwift/blob/master/Tests/XCTest/XCTestExtensions.swift"><code>XCTest extensions</code></a></li>
-</ul>
-</details>
-
-## How cool is this?
-
-SwifterSwift is a library of **over 500 properties and methods**, designed to extend Swift's functionality and productivity, staying faithful to the original Swift API design guidelines.
-
-Check Examples.playground from the project for some cool examples!
+Every extension is in `Sources/<Product>/<Type>/<Type>+<Name>.swift`. For example, `Collection[safe:]` is in [`Sources/SwifterSwiftStdlib/Collection/Collection+SubscriptSafe.swift`](Sources/SwifterSwiftStdlib/Collection/Collection+SubscriptSafe.swift). Copy the file into your project and it compiles as is.
 
 ## Documentation
 
-Documentation for all extensions, with examples, is available at [swifterswift.com/docs](http://swifterswift.com/docs)
+The API reference for every product is on the [Swift Package Index](https://swiftpackageindex.com/SwifterSwift/SwifterSwift/documentation).
 
-## Get involved
+## Contributing
 
-We want your feedback.
-Please refer to [contributing guidelines](https://github.com/SwifterSwift/SwifterSwift/tree/master/CONTRIBUTING.md) before participating.
-
-## Slack Channel: [![Slack](https://img.shields.io/badge/Slack-SwifterSwift-green.svg)](https://swifterswift.slack.com)
-
-It is always nice to talk with other people using SwifterSwift and exchange experiences, so come [join our Slack channel](https://swifterswift.slack.com).
-
-## Thanks
-
-Special thanks to:
-
-- [Steven Deutsch](https://github.com/SD10), [Luciano Almeida](https://github.com/LucianoPAlmeida) and [Guy Kogus](https://github.com/guykogus) for their latest contributions to extensions, docs and tests.
-- [Paweł Urbanek](https://github.com/pawurb) for adding tvOS, watchOS, and macOS initial support and helping with extensions.
-- [Mert Akengin](https://github.com/pvtmert) and [Bashar Ghadanfar](https://www.behance.net/lionbytes) for designing [project website](http://swifterswift.com) and logo.
-- [Abdul Rahman Dabbour](https://github.com/ardabbour) for helping document the project.
-- Many thanks to all other [contributors](https://github.com/SwifterSwift/SwifterSwift/graphs/contributors) of this project.
+Contributions are welcome. Read [CONTRIBUTING.md](CONTRIBUTING.md) for the rules every extension follows and how to test your changes. This project follows the [Contributor Covenant](.github/CODE_OF_CONDUCT.md) code of conduct.
 
 ## License
 
-SwifterSwift is released under the MIT license. See [LICENSE](https://github.com/SwifterSwift/SwifterSwift/blob/master/LICENSE) for more information.
+SwifterSwift is available under the MIT license. See [LICENSE](LICENSE) for details.
