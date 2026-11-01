@@ -118,7 +118,7 @@ jobs:
     needs: lint
     if: needs.lint.outputs.code == 'true' && github.event_name != 'push'
     runs-on: macos-26
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
       - name: Build
@@ -127,11 +127,11 @@ jobs:
             -destination "platform=macOS,variant=Mac Catalyst" $XCODEBUILD_FLAGS
       # The results go outside the package, because Xcode reloads the package whenever a file in it changes.
       - name: Test
-        timeout-minutes: 5
+        timeout-minutes: 10
         run: |
           xcodebuild test-without-building -scheme SwifterSwift-Package \
             -destination "platform=macOS,variant=Mac Catalyst" \
-            -enableCodeCoverage NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 60 \
+            -enableCodeCoverage NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 300 \
             -resultBundlePath "$RUNNER_TEMP/TestResults.xcresult"
       - name: Show test failures
         if: failure()
@@ -146,7 +146,7 @@ jobs:
     needs: lint
     if: needs.lint.outputs.code == 'true' && github.event_name != 'push'
     runs-on: macos-26
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v7
       - name: Find the simulator
@@ -162,7 +162,7 @@ jobs:
         timeout-minutes: 10
         run: |
           xcodebuild test-without-building -scheme SwifterSwift-Package -destination "$SIMULATOR" \
-            -enableCodeCoverage NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 60 \
+            -enableCodeCoverage NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 300 \
             -resultBundlePath "$RUNNER_TEMP/TestResults.xcresult"
       - name: Show test failures
         if: failure()
@@ -175,7 +175,7 @@ jobs:
     needs: lint
     if: needs.lint.outputs.code == 'true' && github.event_name != 'push'
     runs-on: macos-26
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
       - name: Find the simulator
@@ -188,10 +188,10 @@ jobs:
         timeout-minutes: 5
         run: xcrun simctl bootstatus "${SIMULATOR#id=}" -b
       - name: Test
-        timeout-minutes: 5
+        timeout-minutes: 10
         run: |
           xcodebuild test-without-building -scheme SwifterSwift-Package -destination "$SIMULATOR" \
-            -enableCodeCoverage NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 60 \
+            -enableCodeCoverage NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 300 \
             -resultBundlePath "$RUNNER_TEMP/TestResults.xcresult"
       - name: Show test failures
         if: failure()

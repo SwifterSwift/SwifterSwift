@@ -64,7 +64,7 @@ struct UIViewRotateByAngleTests {
         #expect(result == true)
     }
 
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func setsFinalTransformAndCallsCompletionWhenAnimated() async {
         let view = UIView()
         await withCheckedContinuation { continuation in

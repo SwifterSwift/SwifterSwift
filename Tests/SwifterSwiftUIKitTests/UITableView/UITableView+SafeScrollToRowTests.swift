@@ -26,8 +26,8 @@ struct UITableViewSafeScrollToRowTests {
         }
     }
 
-    #if !os(tvOS)
-    // tvOS positions rows differently, so the exact offsets below only hold on the other platforms.
+    #if !os(tvOS) && !os(visionOS)
+    // tvOS and visionOS position rows differently, so the exact offsets below only hold on the other platforms.
     @Test
     func scrollsToTheExpectedOffsets() {
         withTableView(rows: [5, 8]) { tableView in

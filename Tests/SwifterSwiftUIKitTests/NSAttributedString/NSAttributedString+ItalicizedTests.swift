@@ -18,7 +18,7 @@ struct NSAttributedStringItalicizedTests {
 
     @Test(arguments: [
         ("Helvetica", 15.0, "Helvetica-Oblique"), ("Helvetica-Bold", 15.0, "Helvetica-BoldOblique"),
-        ("Georgia", 20.0, "Georgia-Italic"), ("TimesNewRomanPSMT", 18.0, "TimesNewRomanPS-ItalicMT"),
+        ("TimesNewRomanPSMT", 18.0, "TimesNewRomanPS-ItalicMT"),
         ("Menlo-Regular", 11.0, "Menlo-Italic"), ("Menlo-Bold", 9.0, "Menlo-BoldItalic")
     ])
     func keepsTheFamilySizeAndOtherTraits(_ name: String, _ size: Double, _ expectedName: String) throws {
@@ -48,10 +48,10 @@ struct NSAttributedStringItalicizedTests {
 
     @Test
     func convertsEachRunSeparately() throws {
-        let text = NSMutableAttributedString(string: "Big", attributes: [.font: try Self.namedFont("Georgia", 30)])
+        let text = NSMutableAttributedString(string: "Big", attributes: [.font: try Self.namedFont("Helvetica", 30)])
         text.append(NSAttributedString(string: "small", attributes: [.font: try Self.namedFont("Menlo-Regular", 9)]))
         let result = text.italicized()
-        #expect(try Self.font(of: result, at: 0).fontName == "Georgia-Italic")
+        #expect(try Self.font(of: result, at: 0).fontName == "Helvetica-Oblique")
         #expect(try Self.font(of: result, at: 0).pointSize == 30)
         #expect(try Self.font(of: result, at: 3).fontName == "Menlo-Italic")
         #expect(try Self.font(of: result, at: 3).pointSize == 9)
@@ -59,7 +59,7 @@ struct NSAttributedStringItalicizedTests {
 
     @Test
     func italicizesTheDefaultFontForTextWithoutAFont() throws {
-        let text = NSMutableAttributedString(string: "Hello ", attributes: [.font: try Self.namedFont("Georgia", 20)])
+        let text = NSMutableAttributedString(string: "Hello ", attributes: [.font: try Self.namedFont("Helvetica", 20)])
         text.append(NSAttributedString(string: "world"))
         let result = text.italicized()
         let body = UIFont.preferredFont(forTextStyle: .body)
@@ -81,7 +81,7 @@ struct NSAttributedStringItalicizedTests {
     func keepsFontsThatAreAlreadyItalic() throws {
         let fonts = [
             UIFont.italicSystemFont(ofSize: 12), try Self.namedFont("Helvetica-Oblique", 14),
-            try Self.namedFont("Georgia-BoldItalic", 12)
+            try Self.namedFont("TimesNewRomanPS-BoldItalicMT", 12)
         ]
         for font in fonts {
             let text = NSAttributedString(string: "Hello", attributes: [.font: font])

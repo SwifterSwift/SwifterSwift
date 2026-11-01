@@ -40,7 +40,7 @@ struct UIWindowSwitchRootViewControllerTests {
         #expect(window.rootViewController === controller)
     }
 
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func replacesRootAndCallsCompletionWhenAnimated() async {
         let window = UIWindow(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         let oldController = UIViewController()

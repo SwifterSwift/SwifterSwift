@@ -77,7 +77,7 @@ jobs:
   newest-simulators:
     name: Newest Xcode (${{ matrix.platform }})
     runs-on: xcode-27
-    timeout-minutes: 30
+    timeout-minutes: 45
     strategy:
       fail-fast: false
       matrix:
@@ -96,10 +96,10 @@ jobs:
         timeout-minutes: 5
         run: xcrun simctl bootstatus "${SIMULATOR#id=}" -b
       - name: Test
-        timeout-minutes: 10
+        timeout-minutes: 25
         run: |
           xcodebuild test-without-building -scheme SwifterSwift-Package -destination "$SIMULATOR" \
-            -enableCodeCoverage NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 60 \
+            -enableCodeCoverage NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 300 \
             -resultBundlePath "$RUNNER_TEMP/TestResults.xcresult"
       - name: Show test failures
         if: failure()

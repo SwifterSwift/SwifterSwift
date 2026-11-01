@@ -23,7 +23,9 @@ struct UserDefaultsDateTests {
         let (defaults, suiteName) = try makeTemporaryDefaults()
         defer { defaults.removePersistentDomain(forName: suiteName) }
         defaults.set(date, forKey: "date")
-        #expect(defaults.date(forKey: "date") == date)
+        // Compares the seconds rather than the dates, so a failure shows the values even where a date can't be
+        // printed, as on Windows for dates before 1970.
+        #expect(defaults.date(forKey: "date")?.timeIntervalSinceReferenceDate == date.timeIntervalSinceReferenceDate)
     }
 
     @Test

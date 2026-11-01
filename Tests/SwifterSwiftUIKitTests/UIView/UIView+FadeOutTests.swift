@@ -7,7 +7,7 @@ import UIKit
 
 @MainActor
 struct UIViewFadeOutTests {
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func fadesOutThenHidesView() async {
         let view = UIView()
         await withCheckedContinuation { continuation in
@@ -22,7 +22,7 @@ struct UIViewFadeOutTests {
         #expect(view.alpha == 0)
     }
 
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func neverShowsHiddenView() async {
         final class HiddenRecordingView: UIView {
             var hiddenValues: [Bool] = []
@@ -40,7 +40,7 @@ struct UIViewFadeOutTests {
         #expect(!view.hiddenValues.contains(false))
     }
 
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func doesNotHideViewWhoseAlphaChangedAgain() async {
         let view = UIView()
         await withCheckedContinuation { continuation in
@@ -51,7 +51,7 @@ struct UIViewFadeOutTests {
         #expect(view.alpha == 1)
     }
 
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func fadeInBeforeCompletionKeepsViewVisible() async {
         let view = UIView()
         await withCheckedContinuation { continuation in

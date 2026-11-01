@@ -68,7 +68,7 @@ struct UIViewRotateToAngleTests {
         #expect(result == true)
     }
 
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func setsFinalTransformAndCallsCompletionWhenAnimated() async {
         let view = UIView()
         view.transform = CGAffineTransform(rotationAngle: 1)

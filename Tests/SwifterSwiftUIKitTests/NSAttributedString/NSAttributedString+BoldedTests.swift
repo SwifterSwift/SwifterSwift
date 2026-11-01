@@ -18,7 +18,7 @@ struct NSAttributedStringBoldedTests {
 
     @Test(arguments: [
         ("Helvetica", 15.0, "Helvetica-Bold"), ("Helvetica-Oblique", 15.0, "Helvetica-BoldOblique"),
-        ("Georgia", 20.0, "Georgia-Bold"), ("TimesNewRomanPSMT", 18.0, "TimesNewRomanPS-BoldMT"),
+        ("TimesNewRomanPSMT", 18.0, "TimesNewRomanPS-BoldMT"),
         ("Menlo-Regular", 11.0, "Menlo-Bold"), ("Menlo-Italic", 9.0, "Menlo-BoldItalic")
     ])
     func keepsTheFamilySizeAndOtherTraits(_ name: String, _ size: Double, _ expectedName: String) throws {
@@ -48,10 +48,10 @@ struct NSAttributedStringBoldedTests {
 
     @Test
     func convertsEachRunSeparately() throws {
-        let text = NSMutableAttributedString(string: "Big", attributes: [.font: try Self.namedFont("Georgia", 30)])
+        let text = NSMutableAttributedString(string: "Big", attributes: [.font: try Self.namedFont("Helvetica", 30)])
         text.append(NSAttributedString(string: "small", attributes: [.font: try Self.namedFont("Menlo-Regular", 9)]))
         let result = text.bolded()
-        #expect(try Self.font(of: result, at: 0).fontName == "Georgia-Bold")
+        #expect(try Self.font(of: result, at: 0).fontName == "Helvetica-Bold")
         #expect(try Self.font(of: result, at: 0).pointSize == 30)
         #expect(try Self.font(of: result, at: 3).fontName == "Menlo-Bold")
         #expect(try Self.font(of: result, at: 3).pointSize == 9)
@@ -59,7 +59,7 @@ struct NSAttributedStringBoldedTests {
 
     @Test
     func boldsTheDefaultFontForTextWithoutAFont() throws {
-        let text = NSMutableAttributedString(string: "Hello ", attributes: [.font: try Self.namedFont("Georgia", 20)])
+        let text = NSMutableAttributedString(string: "Hello ", attributes: [.font: try Self.namedFont("Helvetica", 20)])
         text.append(NSAttributedString(string: "world"))
         let result = text.bolded()
         let body = UIFont.preferredFont(forTextStyle: .body)

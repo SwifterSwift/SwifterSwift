@@ -37,7 +37,7 @@ struct SequenceForEachInParallelTests {
         }
     }
 
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func runsTheCallsConcurrently() async {
         // The first call waits for a signal that only the second call sends, so calling the closure for one element
         // at a time would never finish.

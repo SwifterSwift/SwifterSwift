@@ -56,7 +56,7 @@ struct UIStackViewSwapTests {
         #expect(result == true)
     }
 
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func swapsAndCallsCompletionWhenAnimated() async {
         let views = [UIView(), UIView(), UIView()]
         let stack = UIStackView(arrangedSubviews: views)

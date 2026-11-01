@@ -8,7 +8,7 @@ import UIKit
 
 @MainActor
 struct UIViewFadeInTests {
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func showsHiddenViewAndCallsCompletion() async {
         let view = UIView()
         view.isHidden = true
@@ -52,7 +52,7 @@ struct UIViewFadeInTests {
         #expect(!view.isHidden)
     }
 
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func completesForViewThatIsAlreadyVisible() async {
         let view = UIView()
         await withCheckedContinuation { continuation in

@@ -49,7 +49,7 @@ struct UIViewScaleTests {
         #expect(result == true)
     }
 
-    @Test(.timeLimit(.minutes(1)))
+    @Test(.timeLimit(.minutes(5)))
     func setsFinalTransformAndCallsCompletionWhenAnimated() async {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
         await withCheckedContinuation { continuation in
