@@ -9,9 +9,6 @@ on:
   schedule:
     - cron: "0 6 * * 1"
   workflow_dispatch:
-  # Temporary: runs this workflow once on the v9 branch, because it can only be started by hand once it's on main.
-  push:
-    branches: [v9]
 
 concurrency:
   group: weekly-${{ github.ref }}
