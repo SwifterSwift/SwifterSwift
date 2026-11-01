@@ -181,7 +181,7 @@ python3 scripts/check-docs.py
 scripts/check-standalone.sh Sources/SwifterSwiftStdlib/Collection/Collection+SubscriptSafe.swift
 ```
 
-The last one type-checks each file you pass on its own for every Apple platform, proving it can be copied into a project as is. Pass the files you added or changed; with no arguments it checks every extension, which takes a few minutes.
+The last one type-checks each file you pass on its own for every Apple platform, proving it can be copied into a project as is. Pass the files you added or changed; with no arguments it checks every extension, which takes a few minutes. CI runs it with Xcode 26.0, the oldest supported Xcode, so code that only newer compilers accept fails there even if it passes on your Mac.
 
 UIKit extensions are tested on an iOS simulator. Open `Package.swift` in Xcode and run the tests for an iOS destination, or use `xcodebuild test -scheme SwifterSwift-Package -destination "platform=iOS Simulator,name=<device>"`.
 

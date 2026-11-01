@@ -4,7 +4,7 @@
 
 ## Checklist
 
-- [ ] I read [CONTRIBUTING.md](https://github.com/SwifterSwift/SwifterSwift/blob/master/CONTRIBUTING.md).
+- [ ] I read [CONTRIBUTING.md](https://github.com/SwifterSwift/SwifterSwift/blob/main/CONTRIBUTING.md).
 - [ ] Each extension is in its own file and uses nothing from the rest of SwifterSwift.
 - [ ] No new types, typealiases, operators, global declarations or private helpers.
 - [ ] No force unwrapping, `try!` or `fatalError`.

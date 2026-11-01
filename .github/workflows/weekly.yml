@@ -1,16 +1,29 @@
 name: Weekly
 
 # The checks that are too slow to run on every pull request: Windows, full builds for every Apple platform, the
-# documentation, and the newest Xcode and Swift nightly toolchains, which catch new Apple APIs that collide with
-# SwifterSwift's names and toolchain changes before users hit them.
+# documentation, the watchOS and visionOS tests, and the newest Xcode, simulators and Swift nightly toolchain, which
+# catch new Apple APIs that collide with SwifterSwift's names, behavior changes in new OS releases and toolchain changes
+# before users hit them.
 
 on:
   schedule:
     - cron: "0 6 * * 1"
   workflow_dispatch:
+  # Temporary: runs this workflow once on the v9 branch, because it can only be started by hand once it's on main.
+  push:
+    branches: [v9]
+
+concurrency:
+  group: weekly-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
+
+env:
+  # For the Xcode builds: coverage and indexing aren't needed, and compiling each module as a whole is faster than file
+  # by file when nothing is cached.
+  XCODEBUILD_FLAGS: -enableCodeCoverage NO COMPILER_INDEX_STORE_ENABLE=NO SWIFT_COMPILATION_MODE=wholemodule
 
 jobs:
   apple-platforms:
@@ -20,32 +33,79 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Build for watchOS devices (32-bit)
-        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination generic/platform=watchOS
+        run: |
+          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination generic/platform=watchOS \
+            $XCODEBUILD_FLAGS
       - name: Build for the watchOS simulator
-        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "generic/platform=watchOS Simulator"
+        run: |
+          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package \
+            -destination "generic/platform=watchOS Simulator" $XCODEBUILD_FLAGS
       - name: Build for visionOS
-        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "generic/platform=visionOS Simulator"
+        run: |
+          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package \
+            -destination "generic/platform=visionOS Simulator" $XCODEBUILD_FLAGS
       - name: Build for iOS devices
-        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination generic/platform=iOS
+        run: |
+          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination generic/platform=iOS \
+            $XCODEBUILD_FLAGS
       - name: Documentation (macOS, including AppKit)
-        run: xcodebuild docbuild -quiet -scheme SwifterSwift-Package -destination generic/platform=macOS OTHER_DOCC_FLAGS=--warnings-as-errors
+        run: |
+          xcodebuild docbuild -quiet -scheme SwifterSwift-Package -destination generic/platform=macOS \
+            OTHER_DOCC_FLAGS=--warnings-as-errors
       - name: Documentation (iOS, including UIKit)
-        run: xcodebuild docbuild -quiet -scheme SwifterSwift-Package -destination generic/platform=iOS OTHER_DOCC_FLAGS=--warnings-as-errors
+        run: |
+          xcodebuild docbuild -quiet -scheme SwifterSwift-Package -destination generic/platform=iOS \
+            OTHER_DOCC_FLAGS=--warnings-as-errors
 
+  # Move this job and the next one to the next Xcode image (for example `xcode-28`) when its betas become available.
   newest-xcode:
     name: Newest Xcode
-    # Move this to the next Xcode image (for example `xcode-28`) when its betas become available.
     runs-on: xcode-27
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - name: Test on macOS
         timeout-minutes: 15
-        run: swift test
-      - name: Build for the iOS simulator
-        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "generic/platform=iOS Simulator"
+        run: swift test --disable-index-store
       - name: Build for watchOS devices (32-bit)
-        run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination generic/platform=watchOS
+        run: |
+          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination generic/platform=watchOS \
+            $XCODEBUILD_FLAGS
+
+  # Tests on the newest simulator of each platform. watchOS and visionOS are only tested here. As on pull requests, the
+  # simulator boots after the build and the tests wait until it has finished booting.
+  newest-simulators:
+    name: Newest Xcode (${{ matrix.platform }})
+    runs-on: xcode-27
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [iOS, tvOS, watchOS, visionOS]
+    env:
+      PLATFORM: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v7
+      - name: Find the simulator
+        run: echo "SIMULATOR=$(scripts/simulator-destination.sh "$PLATFORM")" >> "$GITHUB_ENV"
+      - name: Build
+        run: |
+          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "$SIMULATOR" \
+            $XCODEBUILD_FLAGS
+      - name: Boot the simulator
+        timeout-minutes: 5
+        run: xcrun simctl bootstatus "${SIMULATOR#id=}" -b
+      - name: Test
+        timeout-minutes: 10
+        run: |
+          xcodebuild test-without-building -scheme SwifterSwift-Package -destination "$SIMULATOR" \
+            -enableCodeCoverage NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 60 \
+            -resultBundlePath "$RUNNER_TEMP/TestResults.xcresult"
+      - name: Show test failures
+        if: failure()
+        run: |
+          xcrun xcresulttool get test-results summary --path "$RUNNER_TEMP/TestResults.xcresult" \
+            | jq -r '.testFailures[] | "\(.testIdentifierString): \(.failureText)"'
 
   # Swift's reusable workflow allows each step 60 to 90 minutes unless told otherwise.
   windows:

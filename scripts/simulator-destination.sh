@@ -16,7 +16,9 @@ import json, sys
 
 platform = sys.argv[1]
 runtimes = json.load(sys.stdin)["devices"]
-prefix = f"com.apple.CoreSimulator.SimRuntime.{platform}-"
+# Simulator runtimes still call visionOS by its old name, xrOS.
+runtime_name = "xrOS" if platform == "visionOS" else platform
+prefix = f"com.apple.CoreSimulator.SimRuntime.{runtime_name}-"
 candidates = []
 for runtime, devices in runtimes.items():
     if runtime.startswith(prefix) and devices:
