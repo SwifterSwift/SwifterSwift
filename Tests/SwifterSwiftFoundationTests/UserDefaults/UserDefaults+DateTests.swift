@@ -23,9 +23,16 @@ struct UserDefaultsDateTests {
         let (defaults, suiteName) = try makeTemporaryDefaults()
         defer { defaults.removePersistentDomain(forName: suiteName) }
         defaults.set(date, forKey: "date")
-        // Compares the seconds rather than the dates, so a failure shows the values even where a date can't be
-        // printed, as on Windows for dates before 1970.
-        #expect(defaults.date(forKey: "date")?.timeIntervalSinceReferenceDate == date.timeIntervalSinceReferenceDate)
+        let stored = try #require(defaults.date(forKey: "date"))
+        #if canImport(Darwin)
+        #expect(stored == date)
+        #else
+        // Foundation on Linux, Android and Windows sometimes reads the value back from its XML property list, which
+        // keeps whole seconds only, so the date can come back rounded down to the second. Compares the seconds, which
+        // print even where a date can't, as on Windows for dates before 1970.
+        let seconds = date.timeIntervalSinceReferenceDate.rounded(.down)
+        #expect(stored.timeIntervalSinceReferenceDate.rounded(.down) == seconds)
+        #endif
     }
 
     @Test
