@@ -139,7 +139,7 @@ Every extension has a documentation comment with:
 - Use the same platform guard as the extension, and mark tests that touch UI types `@MainActor`.
 - Tests must not use the network, the file system outside a temporary directory, or the device's locale or time zone.
 - `Int`, `UInt` and `CGFloat` are 32 bits on Apple Watch hardware. In tests, use `Int64` or `UInt64` for values beyond the 32-bit range, and compare against values like `Int.max.magnitude` rather than hard-coded 64-bit numbers.
-- Fonts and some UIKit APIs differ by platform; tvOS, for example, has no Zapfino font and no `systemBackground` color, and watchOS has no Georgia. Compare against UIKit's own behavior, or guard platform-specific tests with `#if` and a comment explaining why.
+- Fonts and some UIKit APIs differ by platform; tvOS, for example, has no Zapfino font and no `systemBackground` color, and watchOS has no Georgia or Menlo. Helvetica and Times New Roman are available everywhere. Compare against UIKit's own behavior, or guard platform-specific tests with `#if` and a comment explaining why.
 - Give a test that waits for a callback a time limit of `.timeLimit(.minutes(5))`. A test's time includes waiting for the main actor, which every `@MainActor` test shares, so shorter limits fail on slow machines.
 
 ## Before opening a pull request

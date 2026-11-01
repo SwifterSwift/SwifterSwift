@@ -19,7 +19,7 @@ struct NSAttributedStringBoldedTests {
     @Test(arguments: [
         ("Helvetica", 15.0, "Helvetica-Bold"), ("Helvetica-Oblique", 15.0, "Helvetica-BoldOblique"),
         ("TimesNewRomanPSMT", 18.0, "TimesNewRomanPS-BoldMT"),
-        ("Menlo-Regular", 11.0, "Menlo-Bold"), ("Menlo-Italic", 9.0, "Menlo-BoldItalic")
+        ("TimesNewRomanPS-ItalicMT", 9.0, "TimesNewRomanPS-BoldItalicMT")
     ])
     func keepsTheFamilySizeAndOtherTraits(_ name: String, _ size: Double, _ expectedName: String) throws {
         let original = try Self.namedFont(name, size)
@@ -49,11 +49,12 @@ struct NSAttributedStringBoldedTests {
     @Test
     func convertsEachRunSeparately() throws {
         let text = NSMutableAttributedString(string: "Big", attributes: [.font: try Self.namedFont("Helvetica", 30)])
-        text.append(NSAttributedString(string: "small", attributes: [.font: try Self.namedFont("Menlo-Regular", 9)]))
+        text.append(
+            NSAttributedString(string: "small", attributes: [.font: try Self.namedFont("TimesNewRomanPSMT", 9)]))
         let result = text.bolded()
         #expect(try Self.font(of: result, at: 0).fontName == "Helvetica-Bold")
         #expect(try Self.font(of: result, at: 0).pointSize == 30)
-        #expect(try Self.font(of: result, at: 3).fontName == "Menlo-Bold")
+        #expect(try Self.font(of: result, at: 3).fontName == "TimesNewRomanPS-BoldMT")
         #expect(try Self.font(of: result, at: 3).pointSize == 9)
     }
 
@@ -73,8 +74,8 @@ struct NSAttributedStringBoldedTests {
         #expect(fallback.pointSize == body.pointSize)
         #expect(fallback.familyName == body.familyName)
 
-        let custom = NSAttributedString(string: "code").bolded(defaultFont: try Self.namedFont("Menlo-Regular", 11))
-        #expect(try Self.font(of: custom, at: 0).fontName == "Menlo-Bold")
+        let custom = NSAttributedString(string: "code").bolded(defaultFont: try Self.namedFont("TimesNewRomanPSMT", 11))
+        #expect(try Self.font(of: custom, at: 0).fontName == "TimesNewRomanPS-BoldMT")
         #expect(try Self.font(of: custom, at: 0).pointSize == 11)
     }
 
