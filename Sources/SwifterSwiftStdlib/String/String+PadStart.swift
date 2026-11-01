@@ -22,6 +22,6 @@ public extension String {
         let padLength = string.count
         guard length > currentLength, padLength > 0 else { return }
         let missing = length - currentLength
-        self = String(repeating: string, count: missing / padLength) + string.prefix(missing % padLength) + self
+        self = String(repeating: string, count: missing / padLength) + String(string.prefix(missing % padLength)) + self
     }
 }
