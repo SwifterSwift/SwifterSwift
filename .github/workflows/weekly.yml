@@ -47,12 +47,14 @@ jobs:
       - name: Build for watchOS devices (32-bit)
         run: xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination generic/platform=watchOS
 
+  # Swift's reusable workflow allows each step 60 to 90 minutes unless told otherwise.
   windows:
     name: Windows
     uses: swiftlang/github-workflows/.github/workflows/swift_package_test.yml@0.0.17
     with:
       enable_linux_checks: false
       windows_swift_versions: '["6.4"]'
+      windows_build_timeout: 20
       enable_macos_checks: false
       enable_ios_checks: false
 
@@ -61,6 +63,7 @@ jobs:
     uses: swiftlang/github-workflows/.github/workflows/swift_package_test.yml@0.0.17
     with:
       linux_swift_versions: '["nightly-main"]'
+      linux_build_timeout: 20
       enable_windows_checks: false
       enable_macos_checks: false
       enable_ios_checks: false
