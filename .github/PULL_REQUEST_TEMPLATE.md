@@ -1,12 +1,14 @@
-<!--- Provide a general summary of your changes in the Title above -->
+## What this adds or changes
+
+<!-- One or two sentences. For a new extension, explain the gap it fills that the SDK doesn't. -->
 
 ## Checklist
-<!--- Please go over all the following points, and put an `x` in all the boxes that apply. -->
-<!--- If you're unsure about any of these, don't hesitate to ask. We're here to help! -->
-- [ ] I checked the [**Contributing Guidelines**](https://github.com/SwifterSwift/SwifterSwift/blob/master/CONTRIBUTING.md) before creating this request.
-- [ ] New extensions are written in Swift 6.0+.
-- [ ] New extensions support iOS 15.0+ / tvOS 12.0+ / macOS 12.0+ / watchOS 9.0+ / visionOS 1.0+ / Mac Catalyst 15.0+, or use `@available` if not.
-- [ ] I have added tests for new extensions, and they passed.
-- [ ] All extensions have a **clear** comments explaining their functionality, all parameters and return type in English.
-- [ ] All extensions are declared as **public**.
-- [ ] I have added a [changelog](https://github.com/SwifterSwift/SwifterSwift/blob/master/CHANGELOG_GUIDELINES.md) entry describing my changes.
+
+- [ ] I read [CONTRIBUTING.md](https://github.com/SwifterSwift/SwifterSwift/blob/main/CONTRIBUTING.md).
+- [ ] Each extension is in its own file and uses nothing from the rest of SwifterSwift.
+- [ ] No new types, typealiases, operators, global declarations or private helpers.
+- [ ] No force unwrapping, `try!` or `fatalError`.
+- [ ] Each extension has a documentation comment with a `SwifterSwift:` summary, an example, its parameters and return value, and its complexity if it isn't O(1).
+- [ ] Each extension has Swift Testing tests that cover its edge cases.
+- [ ] The tests pass on every platform the extension supports.
+- [ ] `swift format lint --strict` passes.

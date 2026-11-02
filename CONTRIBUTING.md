@@ -1,310 +1,191 @@
-# Contributing Guidelines
+# Contributing to SwifterSwift
 
-This document contains information and guidelines about contributing to this project. Please read it before you start participating.
+Thanks for helping. Every extension in SwifterSwift follows the same rules. Together they make sure any single extension can be copied into a project and just work.
 
-**Topics**
+## Ways to contribute
 
-- [Asking Questions](#asking-questions)
-- [Ways to Contribute](#ways-to-contribute)
-- [Adding new Extensions](#adding-new-extensions)
-- [Reporting Issues](#reporting-issues)
+- Improve the documentation.
+- Add an extension.
+- Add missing tests or edge cases.
+- Report or fix a bug.
 
----
+If you're new to open source or to Swift, SwifterSwift is a good place to start. No contribution is too small.
 
-## Asking Questions
+## Asking questions
 
-We don't use GitHub as a support forum.
-For any usage questions that are not specific to the project itself, please ask on [Stack Overflow](https://stackoverflow.com) instead, with the tag SwifterSwift.
-By doing so, you'll be more likely to quickly solve your problem, and you'll allow anyone else with the same question to find the answer.
-This also allows us to focus on improving the project for others.
+GitHub issues are for bugs and extension proposals, not support. For questions about using SwifterSwift, start a thread in [GitHub Discussions](https://github.com/SwifterSwift/SwifterSwift/discussions), where others with the same question can find the answer too.
 
----
+## Reporting issues
 
-## Ways to Contribute
+A detailed bug report is one of the most useful contributions. First, check the [issues](https://github.com/SwifterSwift/SwifterSwift/issues) to see whether someone has already reported it; if so, add your details there.
 
-You can contribute to the project in a variety of ways:
+To report a security vulnerability, don't open an issue; follow the [security policy](.github/SECURITY.md) instead.
 
-- Improve documentation 🙏
-- Add more extensions 👍
-- Add missing unit tests 😅
-- Fix or report bugs 😱
+When you open an issue, include:
 
-If you're new to Open Source or Swift the SwifterSwift community is a great place to get involved.
+- what you did, what you expected, and what happened instead, ideally with a small code sample;
+- the SwifterSwift, Xcode and Swift versions;
+- the platform and OS version the code runs on.
 
-**Your contribution is always welcomed, no contribution is too small.**
+## What makes a good extension
 
----
+An extension belongs in SwifterSwift when it:
 
-## Adding new Extensions
+- **Fills a real gap.** The standard library, Foundation and Apple's frameworks don't already provide it. Check the latest SDKs first; Apple adds APIs every year.
+- **Is more than a rename.** A one-liner is welcome only when the SDK spelling is awkward or easy to get wrong.
+- **Is correct for every input.** It handles empty values, Unicode, locales, time zones and extreme numbers, and it never crashes.
+- **Has a clear name.** It follows the [Swift API Design Guidelines](https://www.swift.org/documentation/api-design-guidelines/), and the name is unlikely to collide with an API Apple might add later.
 
-Please refer to the following rules before submitting a pull request with your new extensions:
+## The rules
 
-- Make sure no similar extension already exists in SwifterSwift.
-- Add your contributions to [**master branch**](https://github.com/SwifterSwift/SwifterSwift/tree/master), by doing so we can merge new pull requests as soon as they are accepted, and add them to the next releases once they are fully tested.
-- A pull request should preferably only add **one extension** at a time.
+1. **One extension per file.** A file contains exactly one public member: a property, method, initializer or subscript. Overloads of the same member, such as the same method for `Int` and `Double`, may share a file.
+2. **Self-contained.** An extension may only use the standard library and Apple's frameworks. It must not call another SwifterSwift extension. Prefer duplicating a few lines over sharing code.
+3. **Nothing but the extension.** A file must not declare types (top-level or nested), typealiases, protocols, global functions or variables, private helpers, or protocol conformances on types you don't own.
+4. **No operators.** Don't declare new operators or overload existing ones. Use a method with a descriptive name instead, for example `point.adding(other)`.
+5. **No crashes.** No force unwrapping, `try!`, implicitly unwrapped optionals or `fatalError`. Return an optional, or throw, when an input is invalid.
+6. **No hidden state.** Don't read global or shared state, such as `Calendar.current`, `Locale.current` or `UIApplication.shared`, behind the caller's back. Take it as a parameter, with the current value as its default.
+7. **Every platform it can run on.** Wrap the file in `#if canImport(…)` for its framework, exclude platforms where the extended type doesn't exist, and add `@available` when an API needs a newer OS than the package minimum.
+8. **Documented and tested.** See below.
 
-For an extension to be suitable for SwifterSwift, it has to fulfill the following conditions:
+## Where files go
 
-### 1. Clarity
-- Extension names should be in English and as clear as possible.
-- Code should be readable and easy to reason about. Refer to [Swift’s API Design Guidelines]([https://www.swift.org/documentation/api-design-guidelines/](https://www.swift.org/documentation/api-design-guidelines/)) for more details.
+| Extends | Module | Guard |
+|---|---|---|
+| Swift standard library | `Sources/SwifterSwiftStdlib` | None |
+| Foundation | `Sources/SwifterSwiftFoundation` | `#if canImport(Foundation)` |
+| Core Graphics, Core Animation | `Sources/SwifterSwiftCoreGraphics` | `#if canImport(CoreGraphics)` or `#if canImport(QuartzCore)` |
+| UIKit | `Sources/SwifterSwiftUIKit` | `#if canImport(UIKit)`, plus `&& !os(watchOS)` or `&& !os(tvOS)` for types or APIs those platforms don't have |
+| AppKit | `Sources/SwifterSwiftAppKit` | `#if canImport(AppKit) && !targetEnvironment(macCatalyst)` |
+| Core Location | `Sources/SwifterSwiftCoreLocation` | `#if canImport(CoreLocation)` |
+| MapKit | `Sources/SwifterSwiftMapKit` | `#if canImport(MapKit)`, plus `&& !os(watchOS)` for `MKMapView` |
+| SpriteKit | `Sources/SwifterSwiftSpriteKit` | `#if canImport(SpriteKit)` |
+| CryptoKit | `Sources/SwifterSwiftCryptoKit` | `#if canImport(CryptoKit)` |
+| HealthKit | `Sources/SwifterSwiftHealthKit` | `#if canImport(HealthKit) && !os(tvOS)` |
 
-### 2. No dependencies
-- We do not allow 3rd party dependencies in SwifterSwift.
-- Extensions can not rely on each other. We prefer code duplication over-abstraction in this project. That makes it easier to reason about a single extension individually.
-- Ideally, copy-pasting any single extension into another codebase should be possible.
+Check the SDK headers rather than guessing which platforms have a type, and run the tests on tvOS too: some APIs that compile there raise an exception at runtime.
 
-Allowed:
+Name files after the extended type and the member, in a folder named after the type:
 
-```swift
-public extension Foo {
-	var bar: Bar { ... }
-}
-```
+| Member | Source file | Test file |
+|---|---|---|
+| `Collection[safe:]` | `Collection/Collection+SubscriptSafe.swift` | `Collection/Collection+SubscriptSafeTests.swift` |
+| `URL.queryValue(for:)` | `URL/URL+QueryValue.swift` | `URL/URL+QueryValueTests.swift` |
+| `CGRect.center` | `CGRect/CGRect+Center.swift` | `CGRect/CGRect+CenterTests.swift` |
+| `CGRect.init(center:size:)` | `CGRect/CGRect+InitCenter.swift` | `CGRect/CGRect+InitCenterTests.swift` |
 
-Not allowed:
+The member part of the name is its base name in UpperCamelCase:
 
-```swift
-public extension Foo {
-	func bar() -> Bar { /* ... */ }
-	func baz() {
-      let bar = bar()
-      // ...
-  }
-}
-```
+- Initializers start with `Init`, and subscripts with `Subscript`, followed by the first argument label.
+- When two members share a base name but differ in argument labels, add the labels that tell them apart, as in `Sequence+SortedBy.swift` and `Sequence+SortedByAnd.swift`.
+- A nested type gets a folder with its full name, as in `Locale.Region/Locale.Region+FlagEmoji.swift`.
 
-### 3. Public extensions
-- Extension should be **public**:
+Test files mirror the source path under `Tests/SwifterSwift<Area>Tests`.
 
-Example:
-```swift
-public extension Foo {
-	var bar: Bar { ... }
-}
-```
-
-- Avoid adding unnecessary `public` keywords for unites in an extension:
+## Anatomy of an extension
 
 ```swift
-public extension Foo {
-	public var bar: Bar { ... }
-}
-```
+// URL+QueryValue.swift - Copyright 2026 SwifterSwift
 
-### 4. Examples of allowed code
-- Basically, anything that can be expressed in a single extension and does not expose a new type is allowed.
+#if canImport(Foundation)
+import Foundation
 
-Examples where `Foo` is the extended type:
-
-Get-only property:
-```swift
-public extension Foo {
-	var bar: Bar {
-        // ...
+public extension URL {
+    /// SwifterSwift: Returns the value of the first query item with the given name.
+    ///
+    /// Names are matched exactly, so the lookup is case-sensitive. Values are percent-decoded, but a `+` is kept as is
+    /// and isn't treated as a space.
+    ///
+    /// ```swift
+    /// let url = URL(string: "https://example.com/search?q=Swifter%20Swift&page=2")!
+    /// url.queryValue(for: "q")  // "Swifter Swift"
+    /// url.queryValue(for: "sort")  // nil
+    /// ```
+    ///
+    /// - Parameter name: The name of the query item to look up.
+    /// - Returns: The decoded value of the first query item named `name`, or `nil` if the URL has no such item.
+    func queryValue(for name: String) -> String? {
+        URLComponents(url: self, resolvingAgainstBaseURL: false)?
+            .queryItems?
+            .first { $0.name == name }?
+            .value
     }
 }
+#endif
 ```
 
-Static get-only property:
+In order, a file has:
 
-```swift
-public extension Foo {
-	static var bar: Bar {
-        // ...
-    }
-}
+1. A header comment with the file name.
+2. The platform guard, and the imports the extension needs. Import every module whose API you use, even one that another import brings in indirectly.
+3. One `public extension`, with `@available` if needed, containing one member. Overloads of that member that need different constraints, such as one for `Equatable` elements and a faster one for `Hashable` elements, may each have their own `public extension` in the same file.
+
+## Documentation
+
+Every extension has a documentation comment with:
+
+- A one-sentence summary that starts with `SwifterSwift:`, ends with a period and fits on one line, followed by a blank `///` line.
+- A discussion of anything surprising: edge cases, what happens with invalid input, how the extension relates to similar APIs in the SDK.
+- At least one example in a fenced `swift` code block, with results shown as `// result` comments.
+- A `- Parameter` / `- Parameters:` entry for every named parameter, `- Returns:` when the member returns a value, and `- Throws:` when it throws.
+- A `- Complexity:` section for anything that isn't O(1).
+
+`scripts/check-docs.py` checks all of these except the discussion and complexity, and CI runs it on every pull request.
+
+## Tests
+
+- Use [Swift Testing](https://developer.apple.com/documentation/testing): `import Testing`, `@Test` and `#expect`. Use `try #require` instead of force unwrapping.
+- Put the tests for each extension in their own file and suite, mirroring the source path.
+- Cover the edge cases, not just a typical value: empty input, the first and last elements, invalid indices, Unicode, negative numbers and `.min` / `.max`, and different locales and time zones. Use parameterized tests (`@Test(arguments:)`) for tables of inputs.
+- Use the same platform guard as the extension, and mark tests that touch UI types `@MainActor`.
+- Tests must not use the network, the file system outside a temporary directory, or the device's locale or time zone.
+- `Int`, `UInt` and `CGFloat` are 32 bits on Apple Watch hardware. In tests, use `Int64` or `UInt64` for values beyond the 32-bit range, and compare against values like `Int.max.magnitude` rather than hard-coded 64-bit numbers.
+- Fonts and some UIKit APIs differ by platform; tvOS, for example, has no Zapfino font and no `systemBackground` color, and watchOS has no Georgia or Menlo. Helvetica and Times New Roman are available everywhere. Compare against UIKit's own behavior, or guard platform-specific tests with `#if` and a comment explaining why.
+- Give a test that waits for a callback a time limit of `.timeLimit(.minutes(5))`. A test's time includes waiting for the main actor, which every `@MainActor` test shares, so shorter limits fail on slow machines.
+
+## Before opening a pull request
+
+To format staged Swift files automatically on every commit, install the pre-commit hook once:
+
+```bash
+ln -sf ../../scripts/pre-commit .git/hooks/pre-commit
 ```
 
-Get/set property:
+Then make sure everything is formatted, lints cleanly, builds and passes:
 
-```swift
-public extension Foo {
-	var bar: Bar {
-        get { /* ... */ }
-        set { /* ... */ }
-
-    }
-}
+```bash
+swift format --in-place --recursive --parallel Package.swift Sources Tests
 ```
 
-Static get/set property:
-
-```swift
-public extension Foo {
-	static var bar: Bar {
-        get { /* ... */ }
-        set { /* ... */ }
-
-    }
-}
+```bash
+swift format lint --strict --recursive --parallel Package.swift Sources Tests
 ```
 
-Method:
-
-```swift
-public extension Foo {
-	func bar() {
-        // ...
-    }
-}
+```bash
+swift build --build-tests
 ```
 
-Static method:
-
-```swift
-public extension Foo {
-	static func bar() {
-        // ...
-    }
-}
+```bash
+swift test
 ```
 
-Initializer:
+Then run the same checks CI runs on every pull request:
 
-```swift
-public extension Foo {
-    init(bar: Bar) {
-        // ...
-    }
-}
+```bash
+scripts/check-structure.sh
 ```
 
-Failable initializer:
-
-```swift
-public extension Foo {
-    init?(bar: Bar) {
-        // ...
-    }
-}
+```bash
+python3 scripts/check-docs.py
 ```
 
-Operators and precedence groups:
-
-```swift
-precedencegroup PowerPrecedence { higherThan: MultiplicationPrecedence }
-infix operator **: PowerPrecedence
-public func ** (x: Decimal, y: Int) -> Decimal {
-    return pow(x, y)
-}
+```bash
+scripts/check-standalone.sh Sources/SwifterSwiftStdlib/Collection/Collection+SubscriptSafe.swift
 ```
 
-### 5. Examples of disallowed code
-- Introducing new types, including protocols, classes, actors, structs, or enums.
-- Protocol conformance. Example:
+The last one type-checks each file you pass on its own for every Apple platform, proving it can be copied into a project as is. Pass the files you added or changed; with no arguments it checks every extension, which takes a few minutes. CI runs it with Xcode 26.0, the oldest supported Xcode, so code that only newer compilers accept fails there even if it passes on your Mac.
 
-```swift
-extension Foo: Codable {
-    // ...
-}
-```
+UIKit extensions are tested on an iOS simulator. Open `Package.swift` in Xcode and run the tests for an iOS destination, or use `xcodebuild test -scheme SwifterSwift-Package -destination "platform=iOS Simulator,name=<device>"`.
 
-- Global functions (except operators):
+## Code of conduct
 
-```swift
-public func bar() {
-    // ...
-}
-```
-
-- Introducing new types in an extension:
-
-```swift
-public extension Foo {
-  struct Bar {
-    // ...
-  }
-}
-```
-
-### 6. Documentation
-- Extensions should be well documented with an example —if possible—.
-- Documentation should always start with the prefix **SwifterSwift:**
-- Extensions should be fully documented in English and as clear as possible.
-- In Xcode select the extension and use the shortcut `command` + `alt` + `/` to create a documentation template. or use the following template:
-
-```swift
-/// SwifterSwift: <Description>.
-///
-///    <Example Code>
-///
-/// - Parameter <Parameter>: <Description>.
-/// - Throws: <Error>
-/// - Returns: <Description>
-```
-
-- Mention the source —if possible— as a comment inside the extension:
-
-```swift
-public extension Foo {
-	var bar: Bar {
-		// https://stackoverflow.com/...
-		// ...
-	}
-}
-```
-
-### 7. Tested
-- Every extended type should have a matching test case. Example:
-
-For the following extension of type `Bar` defined in framework `Foo`:
-
-> Sources/Foo/BarExtensions.swift
-
-```swift
-import Foo
-
-public extension Bar {
-    var baz: Baz { /* ... */ }
-}
-```
-
-The matching test case is:
-
-> Tests/Foo/BarExtensionsTests.swift
-
-```swift
-import Foo
-
-final class BarExtensionsTests: XCTestCase {
-    func testBaz() {
-        // ...
-    }
-}
-```
-
-- There should be a one to one relationship between methods/properties and their backing tests.
-- Tests should be named using the same API of the extension it backs, example: `DateExtensions`'s method `isBetween` is named `testIsBetween`.
-- Test case classes should be marked as final.
-- SwifterSwift source files should not be added to the test target directly, but you should rather import SwifterSwift into the test target by using: `@testable import SwifterSwift`
-
----
-
-## Reporting Issues
-
-A great way to contribute to the project is to send a detailed issue when you encounter a problem.
-We always appreciate a well-written, thorough bug report.
-
-Check that the project [issues page](https://github.com/SwifterSwift/SwifterSwift/issues) doesn't already include that problem or suggestion before submitting an issue.
-If you find a match, add a quick "**+1**" or "**I have this problem too**". Doing this helps prioritize the most common problems and requests.
-
-**When reporting issues, please include the following:**
-
-- What did you do?
-- What did you expect to happen?
-- What happened instead?
-- SwifterSwift version
-- Xcode version
-- macOS version running Xcode
-- Swift version
-- Platform(s) running SwifterSwift
-- Demo Project (if available)
-
-This information will help us review and fix your issue faster.
-
----
-
-## [No Brown M&M's](http://en.wikipedia.org/wiki/Van_Halen#Contract_riders)
-
-If you made it all the way to the end, bravo dear user, we love you. You can include the 🚀 emoji in the top of your ticket to signal to us that you did in fact read this file and are trying to conform to it as best as possible: `:rocket:`.
+This project follows the [Contributor Covenant](.github/CODE_OF_CONDUCT.md). By participating, you agree to uphold it.
