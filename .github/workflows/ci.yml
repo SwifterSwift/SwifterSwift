@@ -1,8 +1,6 @@
 name: CI
 
-# Runs on every pull request and every merge to main. Every job and every test step has a time limit. Anything slower or
-# less predictable, such as Windows, full builds for watchOS and visionOS, the documentation and the newest Xcode, runs
-# weekly instead (see weekly.yml).
+# Runs on every pull request and every merge to main. Every job and every test step has a time limit.
 #
 # Main only runs the lint, the format check and the macOS tests, which upload the coverage that Codecov compares pull
 # requests against. Branch protection requires each pull request to be up to date and pass this workflow first, so the
@@ -111,6 +109,17 @@ jobs:
           files: coverage.lcov
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: false
+      # AppKit only builds for macOS and UIKit only for the other platforms, so the documentation needs both.
+      - name: Documentation (macOS, including AppKit)
+        if: github.event_name != 'push'
+        run: |
+          xcodebuild docbuild -quiet -scheme SwifterSwift-Package -destination generic/platform=macOS \
+            OTHER_DOCC_FLAGS=--warnings-as-errors
+      - name: Documentation (iOS, including UIKit)
+        if: github.event_name != 'push'
+        run: |
+          xcodebuild docbuild -quiet -scheme SwifterSwift-Package -destination generic/platform=iOS \
+            OTHER_DOCC_FLAGS=--warnings-as-errors
 
   # UIKit runs natively on the Mac through Mac Catalyst, so this tests every UIKit extension without a simulator.
   catalyst:
@@ -141,25 +150,37 @@ jobs:
 
   # The simulator jobs build first, then boot the simulator and wait until it has finished booting: tests stall while
   # its system services are still starting, and booting during the build more than doubles the build time.
-  ios:
-    name: iOS
+  simulators:
+    name: ${{ matrix.platform }}
     needs: lint
     if: needs.lint.outputs.code == 'true' && github.event_name != 'push'
     runs-on: macos-26
-    timeout-minutes: 25
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        platform: [iOS, tvOS, watchOS, visionOS]
+    env:
+      PLATFORM: ${{ matrix.platform }}
     steps:
       - uses: actions/checkout@v7
       - name: Find the simulator
-        run: echo "SIMULATOR=$(scripts/simulator-destination.sh iOS)" >> "$GITHUB_ENV"
+        run: echo "SIMULATOR=$(scripts/simulator-destination.sh "$PLATFORM")" >> "$GITHUB_ENV"
       - name: Build
         run: |
           xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "$SIMULATOR" \
+            $XCODEBUILD_FLAGS
+      # Int and UInt are 32 bits on Apple Watch hardware, so numbers too big for them only fail to compile here.
+      - name: Build for watchOS devices (32-bit)
+        if: matrix.platform == 'watchOS'
+        run: |
+          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination generic/platform=watchOS \
             $XCODEBUILD_FLAGS
       - name: Boot the simulator
         timeout-minutes: 5
         run: xcrun simctl bootstatus "${SIMULATOR#id=}" -b
       - name: Test
-        timeout-minutes: 10
+        timeout-minutes: 15
         run: |
           xcodebuild test-without-building -scheme SwifterSwift-Package -destination "$SIMULATOR" \
             -enableCodeCoverage NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 300 \
@@ -170,37 +191,9 @@ jobs:
           xcrun xcresulttool get test-results summary --path "$RUNNER_TEMP/TestResults.xcresult" \
             | jq -r '.testFailures[] | "\(.testIdentifierString): \(.failureText)"'
 
-  tvos:
-    name: tvOS
-    needs: lint
-    if: needs.lint.outputs.code == 'true' && github.event_name != 'push'
-    runs-on: macos-26
-    timeout-minutes: 20
-    steps:
-      - uses: actions/checkout@v7
-      - name: Find the simulator
-        run: echo "SIMULATOR=$(scripts/simulator-destination.sh tvOS)" >> "$GITHUB_ENV"
-      - name: Build
-        run: |
-          xcodebuild build-for-testing -quiet -scheme SwifterSwift-Package -destination "$SIMULATOR" \
-            $XCODEBUILD_FLAGS
-      - name: Boot the simulator
-        timeout-minutes: 5
-        run: xcrun simctl bootstatus "${SIMULATOR#id=}" -b
-      - name: Test
-        timeout-minutes: 10
-        run: |
-          xcodebuild test-without-building -scheme SwifterSwift-Package -destination "$SIMULATOR" \
-            -enableCodeCoverage NO -test-timeouts-enabled YES -maximum-test-execution-time-allowance 300 \
-            -resultBundlePath "$RUNNER_TEMP/TestResults.xcresult"
-      - name: Show test failures
-        if: failure()
-        run: |
-          xcrun xcresulttool get test-results summary --path "$RUNNER_TEMP/TestResults.xcresult" \
-            | jq -r '.testFailures[] | "\(.testIdentifierString): \(.failureText)"'
-
-  # Linux tests, plus Android (built, then tested in an emulator) and WebAssembly (built), through Swift's own
-  # reusable workflow. Windows runs weekly. The time limits replace the workflow's defaults of 60 to 90 minutes a step.
+  # Linux and Windows tests, plus Android (built, then tested in an emulator) and WebAssembly (built), through Swift's
+  # own reusable workflow. The time limits replace the workflow's defaults of 60 to 90 minutes a step. Windows has the
+  # longest because it spends about 8 minutes pulling its Docker image.
   portability:
     name: Portability
     needs: lint
@@ -209,6 +202,8 @@ jobs:
     with:
       linux_swift_versions: '["6.4"]'
       linux_build_timeout: 10
+      windows_swift_versions: '["6.4"]'
+      windows_build_timeout: 20
       enable_wasm_sdk_build: true
       wasm_sdk_versions: '["6.4"]'
       wasm_sdk_build_command: swift build --build-tests
@@ -218,7 +213,6 @@ jobs:
       android_sdk_versions: '["6.4"]'
       android_sdk_triples: '["x86_64-unknown-linux-android28"]'
       android_sdk_build_timeout: 10
-      enable_windows_checks: false
       enable_macos_checks: false
       enable_ios_checks: false
 
@@ -226,7 +220,7 @@ jobs:
   # Skipped jobs count as passing; a failed or cancelled job fails it.
   passed:
     name: CI passed
-    needs: [lint, format, macos, catalyst, ios, tvos, portability]
+    needs: [lint, format, macos, catalyst, simulators, portability]
     if: always()
     runs-on: ubuntu-latest
     timeout-minutes: 2
