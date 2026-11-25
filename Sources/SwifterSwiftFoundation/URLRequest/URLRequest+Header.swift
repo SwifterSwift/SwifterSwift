@@ -23,11 +23,18 @@ public extension URLRequest {
     ///
     /// - Parameters:
     ///   - name: The name of the header field.
-    ///   - value: The new value of the header field.
+    ///   - value: The new value of the header field. Any carriage return (`\r`) or newline (`\n`) characters are
+    ///     stripped from `value` before being set, as HTTP header values must be single-line to prevent request
+    ///     smuggling and CRLF injection attacks.
     /// - Returns: A copy of the request with the header field `name` set to `value`.
     func header(name: String, value: String) -> URLRequest {
+        // Guard against CRLF injection attacks: HTTP header values must not contain
+        // carriage return or newline characters.
+        sanitizedValue = value
+            .replacingOccurrences(of: "\r", with: "")
+            .replacingOccurrences(of: "\n", with: "")
         var request = self
-        request.setValue(value, forHTTPHeaderField: name)
+        request.setValue(sanitizedValue, forHTTPHeaderField: name)
         return request
     }
 }
